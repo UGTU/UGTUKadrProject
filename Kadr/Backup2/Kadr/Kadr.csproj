@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{474F0D94-C66E-4FE3-9BFE-0B0C587A5015}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kadr</RootNamespace>
+    <AssemblyName>Kadr</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ApplicationIcon>CONSTRUC.ICO</ApplicationIcon>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>true</GenerateManifests>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\CreatePlanStaffCommand.cs" />
+    <Compile Include="Controllers\KadrController.cs" />
+    <Compile Include="Controllers\LinqActionsController.cs" />
+    <Compile Include="Data\Common\INull.cs" />
+    <Compile Include="Data\Common\IObjectState.cs" />
+    <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
+    <Compile Include="Data\dckadr.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dckadr.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\dckadr.Decorated.cs" />
+    <Compile Include="Data\Entities\Bonus.cs" />
+    <Compile Include="Data\Entities\BonusSuperType.cs" />
+    <Compile Include="Data\Entities\BonusType.cs" />
+    <Compile Include="Data\Entities\Category.cs" />
+    <Compile Include="Data\Entities\Department.cs" />
+    <Compile Include="Data\Entities\Employee.cs" />
+    <Compile Include="Data\Entities\FactStaff.cs" />
+    <Compile Include="Data\Entities\FinancingSource.cs" />
+    <Compile Include="Data\Entities\GlobalPrikaz.cs" />
+    <Compile Include="Data\Entities\Grazd.cs" />
+    <Compile Include="Data\Entities\PKCategory.cs" />
+    <Compile Include="Data\Entities\PKCategorySalary.cs" />
+    <Compile Include="Data\Entities\PKGroup.cs" />
+    <Compile Include="Data\Entities\PlanStaff.cs" />
+    <Compile Include="Data\Entities\PlanStaffSalary.cs" />
+    <Compile Include="Data\Entities\Post.cs" />
+    <Compile Include="Data\Entities\Prikaz.cs" />
+    <Compile Include="Data\Entities\PrikazType.cs" />
+    <Compile Include="Data\Entities\SemPol.cs" />
+    <Compile Include="Data\Entities\WorkType.cs" />
+    <Compile Include="KadrTreeView\KadrTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="KadrTreeView\KadrTreeView.Designer.cs">
+      <DependentUpon>KadrTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KadrTreeView\NodeAction\EmployeeTreeNodeActions.cs" />
+    <Compile Include="KadrTreeView\NodeAction\PostTreeNodeActions.cs" />
+    <Compile Include="KadrTreeView\NodeAction\PrikazTreeNodeActions.cs" />
+    <Compile Include="KadrTreeView\NodeAction\RootTreeNodeActions.cs" />
+    <Compile Include="KadrTreeView\NodeObject\KadrEmployeeObject.cs" />
+    <Compile Include="KadrTreeView\NodeObject\KadrNodeObject.cs" />
+    <Compile Include="KadrTreeView\NodeObject\KadrPostObject.cs" />
+    <Compile Include="KadrTreeView\NodeObject\KadrPrikazObject.cs" />
+    <Compile Include="KadrTreeView\NodeObject\RootNodeObject.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Common\CustomBaseDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\CustomBaseDialog.designer.cs">
+      <DependentUpon>CustomBaseDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Common\CustomBooleanConverter.cs" />
+    <Compile Include="UI\Common\CustomPropertiesTypeConverter.cs" />
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Common\DateChooserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\DateChooserDialog.Designer.cs">
+      <DependentUpon>DateChooserDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Common\DataGridViewDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\DataGridViewDialog.Designer.cs">
+      <DependentUpon>DataGridViewDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Common\LinqDataGridViewDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\LinqDataGridViewDialog.Designer.cs">
+      <DependentUpon>LinqDataGridViewDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Common\ListSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\ListSelectDialog.Designer.cs">
+      <DependentUpon>ListSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Common\PropertyGridDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\PropertyGridDialog.Designer.cs">
+      <DependentUpon>PropertyGridDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Common\LinqPropertyGridDialogAdding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\LinqPropertyGridDialogAdding.Designer.cs">
+      <DependentUpon>LinqPropertyGridDialogAdding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Common\LinqPropertyGridDialogEditing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\LinqPropertyGridDialogEditing.Designer.cs">
+      <DependentUpon>LinqPropertyGridDialogEditing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\BonusSuperTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\BonusSuperTypeDialog.Designer.cs">
+      <DependentUpon>BonusSuperTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\BonusTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\BonusTypeDialog.Designer.cs">
+      <DependentUpon>BonusTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\CategoryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CategoryDialog.Designer.cs">
+      <DependentUpon>CategoryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\FactStaffTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\FactStaffTransfer.Designer.cs">
+      <DependentUpon>FactStaffTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\FinancingSourceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\FinancingSourceDialog.Designer.cs">
+      <DependentUpon>FinancingSourceDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\GlobalPrikazDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\GlobalPrikazDialog.Designer.cs">
+      <DependentUpon>GlobalPrikazDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\GrazdDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\GrazdDialog.Designer.cs">
+      <DependentUpon>GrazdDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\PKCategoryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\PKCategoryDialog.Designer.cs">
+      <DependentUpon>PKCategoryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\PKGroupDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\PKGroupDialog.Designer.cs">
+      <DependentUpon>PKGroupDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\PrikazDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\PrikazDialog.Designer.cs">
+      <DependentUpon>PrikazDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\PrikazSuperTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\PrikazSuperTypeDialog.Designer.cs">
+      <DependentUpon>PrikazSuperTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\PrikazTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\PrikazTypeDialog.Designer.cs">
+      <DependentUpon>PrikazTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\SalaryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\SalaryDialog.Designer.cs">
+      <DependentUpon>SalaryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\SemPolDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\SemPolDialog.Designer.cs">
+      <DependentUpon>SemPolDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\WorkTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\WorkTypeDialog.Designer.cs">
+      <DependentUpon>WorkTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Editors\BonusTypeEditor.cs" />
+    <Compile Include="UI\Editors\CategoryEditor.cs" />
+    <Compile Include="UI\Editors\DepartmentEditor.cs" />
+    <Compile Include="UI\Editors\EmployeeEditor.cs" />
+    <Compile Include="UI\Editors\FinancingSourceEditor.cs" />
+    <Compile Include="UI\Editors\GlobalPrikazEditor.cs" />
+    <Compile Include="UI\Editors\GrazdEditor.cs" />
+    <Compile Include="UI\Editors\PKCategoryEditor.cs" />
+    <Compile Include="UI\Editors\PKGroupEditor.cs" />
+    <Compile Include="UI\Editors\PlanStaffEditor.cs" />
+    <Compile Include="UI\Editors\PostEditor.cs" />
+    <Compile Include="UI\Editors\PrikazEditor.cs" />
+    <Compile Include="UI\Editors\PrikazTypeEditor.cs" />
+    <Compile Include="UI\Editors\SemPolEditor.cs" />
+    <Compile Include="UI\Editors\WorkTypeEditor.cs" />
+    <Compile Include="UI\Forms\KadrBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\KadrBaseForm.Designer.cs">
+      <DependentUpon>KadrBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Frames\KadrBaseFrame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Frames\KadrBaseFrame.Designer.cs">
+      <DependentUpon>KadrBaseFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="app.config" />
+    <None Include="Data\dckadr.dbml.layout">
+      <DependentUpon>dckadr.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="UI\Common\CustomBaseDialog.resx">
+      <DependentUpon>CustomBaseDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Common\DateChooserDialog.resx">
+      <DependentUpon>DateChooserDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Common\DataGridViewDialog.resx">
+      <DependentUpon>DataGridViewDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Common\LinqDataGridViewDialog.resx">
+      <DependentUpon>LinqDataGridViewDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Common\LinqPropertyGridDialogEditing.resx">
+      <DependentUpon>LinqPropertyGridDialogEditing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Common\ListSelectDialog.resx">
+      <DependentUpon>ListSelectDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Common\PropertyGridDialog.resx">
+      <DependentUpon>PropertyGridDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Common\LinqPropertyGridDialogAdding.resx">
+      <DependentUpon>LinqPropertyGridDialogAdding.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\BonusSuperTypeDialog.resx">
+      <DependentUpon>BonusSuperTypeDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\BonusTypeDialog.resx">
+      <DependentUpon>BonusTypeDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\CategoryDialog.resx">
+      <DependentUpon>CategoryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\FactStaffTransfer.resx">
+      <DependentUpon>FactStaffTransfer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\FinancingSourceDialog.resx">
+      <DependentUpon>FinancingSourceDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\GlobalPrikazDialog.resx">
+      <DependentUpon>GlobalPrikazDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\GrazdDialog.resx">
+      <DependentUpon>GrazdDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\PKCategoryDialog.resx">
+      <DependentUpon>PKCategoryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\PKGroupDialog.resx">
+      <DependentUpon>PKGroupDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\PrikazDialog.resx">
+      <DependentUpon>PrikazDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\PrikazSuperTypeDialog.resx">
+      <DependentUpon>PrikazSuperTypeDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\PrikazTypeDialog.resx">
+      <DependentUpon>PrikazTypeDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\SalaryDialog.resx">
+      <DependentUpon>SalaryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\SemPolDialog.resx">
+      <DependentUpon>SemPolDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\WorkTypeDialog.resx">
+      <DependentUpon>WorkTypeDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\KadrBaseForm.resx">
+      <DependentUpon>KadrBaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frames\KadrBaseFrame.resx">
+      <DependentUpon>KadrBaseFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frames\KadrEmployeeFrame.resx">
+      <DependentUpon>KadrEmployeeFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frames\KadrRootFrame.resx">
+      <DependentUpon>KadrRootFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frames\KadrPrikazFrame.resx">
+      <DependentUpon>KadrPrikazFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frames\KadrPostFrame.resx">
+      <DependentUpon>KadrPostFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Data\dckadr.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dckadr.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Kadr.Data.Bonus.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.BonusSuperType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.BonusType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Category1.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Department.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.DepartmentDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Employee1.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.EmployeeView.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.FactStaff.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.FactStaffDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.PlanStaff.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Post.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Prikaz.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.PrikazView.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.WorkType.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UI\Frames\KadrEmployeeFrame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Frames\KadrEmployeeFrame.Designer.cs">
+      <DependentUpon>KadrEmployeeFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Frames\KadrRootFrame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Frames\KadrRootFrame.Designer.cs">
+      <DependentUpon>KadrRootFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Frames\KadrPrikazFrame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Frames\KadrPrikazFrame.Designer.cs">
+      <DependentUpon>KadrPrikazFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Frames\KadrPostFrame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Frames\KadrPostFrame.Designer.cs">
+      <DependentUpon>KadrPostFrame.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeHelper\CodeHelper.csproj">
+      <Project>{EC01AD24-E555-43E5-93BD-B99F082725D1}</Project>
+      <Name>CodeHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UIX\UIX\UIX.csproj">
+      <Project>{0FCF0F0D-5FBA-4386-B645-5E7D2682D3BA}</Project>
+      <Name>UIX</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewCard.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\Kadr.Data.FinancingSource.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.GlobalPrikaz.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Grazd.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.PKCategory.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.PKCategoryDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.PKGroup.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.PKGroupDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.PostDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.PrikazDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.PrikazSuperType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.PrikazType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Salary.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.SemPol.datasource" />
+    <None Include="Resources\Open.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CONSTRUC.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

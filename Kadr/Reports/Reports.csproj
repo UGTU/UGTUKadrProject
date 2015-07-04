@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BCEA87EE-2EB7-47D0-A4AC-93AAF3ED6C71}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Reports</RootNamespace>
+    <AssemblyName>Reports</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Entities\BonusType.cs" />
+    <Compile Include="Data\Entities\FinancingSource.cs" />
+    <Compile Include="Data\Entities\Prikaz.cs" />
+    <Compile Include="Data\Entities\WorkType.cs" />
+    <Compile Include="Dialogs\DepartmentSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DepartmentSelectDialog.designer.cs">
+      <DependentUpon>DepartmentSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseReportForm.Designer.cs">
+      <DependentUpon>BaseReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseReportFormWithYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseReportFormWithYear.Designer.cs">
+      <DependentUpon>BaseReportFormWithYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\DepEmplCountReportFrame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frames\DepEmplCountReportFrame.Designer.cs">
+      <DependentUpon>DepEmplCountReportFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\ReportBaseFrame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frames\ReportBaseFrame.Designer.cs">
+      <DependentUpon>ReportBaseFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\ReportBaseFrameForPeriod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frames\ReportBaseFrameForPeriod.Designer.cs">
+      <DependentUpon>ReportBaseFrameForPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\ReportBaseFrameForQuarter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frames\ReportBaseFrameForQuarter.Designer.cs">
+      <DependentUpon>ReportBaseFrameForQuarter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\ReportBaseFrameForYear.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frames\ReportBaseFrameForYear.Designer.cs">
+      <DependentUpon>ReportBaseFrameForYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KadrData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KadrData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="KadrData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>KadrData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Department.datasource" />
+    <None Include="Properties\DataSources\DepEmplCount.datasource" />
+    <None Include="Properties\DataSources\GetAllPostsResult.datasource" />
+    <None Include="Properties\DataSources\GetAverageNumEmplByCatResult.datasource" />
+    <None Include="Properties\DataSources\GetAverageNumEmplResult.datasource" />
+    <None Include="Properties\DataSources\GetBonusByBonusTypeResult.datasource" />
+    <None Include="Properties\DataSources\GetDepartmentBonusForT3.datasource" />
+    <None Include="Properties\DataSources\GetDepartmentBonusResult.datasource" />
+    <None Include="Properties\DataSources\GetDepartmentBonusWithSettings.datasource" />
+    <None Include="Properties\DataSources\GetDepartmentStaffCountsResult.datasource" />
+    <None Include="Properties\DataSources\GetDepartmentStaffResult.datasource" />
+    <None Include="Properties\DataSources\GetEmployeesSumResult.datasource" />
+    <None Include="Properties\DataSources\GetFactStaffChangesByPeriodResult.datasource" />
+    <None Include="Properties\DataSources\GetFundingDepAverageNumEmplResult.datasource">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\GetPostStaffChangesByPeriodResult.datasource" />
+    <None Include="Properties\DataSources\GetPPSDepartmentBonusForT3Result.datasource" />
+    <None Include="Properties\DataSources\GetPPSDepartmentBonusResult.datasource" />
+    <None Include="Properties\DataSources\GetSubDepartmentStaffCountsResult.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.GetStaffErrorsByPeriodResult.datasource" />
+    <None Include="Properties\DataSources\KadrDataDataContext.datasource" />
+    <None Include="Properties\DataSources\TimeSheet.datasource" />
+    <None Include="Properties\DataSources\UIViewPost.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="KadrData.dbml.layout">
+      <DependentUpon>KadrData.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\AllBonusReport.rdlc" />
+    <EmbeddedResource Include="Reports\AllPostsReport.rdlc" />
+    <EmbeddedResource Include="Reports\AverageDepByOKVEDReport.rdlc" />
+    <EmbeddedResource Include="Reports\AverageStaff.rdlc" />
+    <EmbeddedResource Include="Reports\BaseBonusReport.rdlc" />
+    <EmbeddedResource Include="Reports\BonusByBonusTypeReport.rdlc" />
+    <EmbeddedResource Include="Reports\BonusByCategoryReport.rdlc" />
+    <EmbeddedResource Include="Reports\BonusByPrikazReport.rdlc" />
+    <EmbeddedResource Include="Reports\BonusByWorkTypeReport.rdlc" />
+    <EmbeddedResource Include="Reports\DepartmentBonusReport.rdlc" />
+    <EmbeddedResource Include="Reports\DepartmentBonusSmallReport.rdlc" />
+    <EmbeddedResource Include="Reports\DepByCategoryBonusT3Report.rdlc" />
+    <EmbeddedResource Include="Reports\DepByPostBonusT3Report.rdlc" />
+    <EmbeddedResource Include="Reports\DepByPostBonusReport.rdlc" />
+    <EmbeddedResource Include="Reports\DepByPostТ3BonusReport.rdlc" />
+    <EmbeddedResource Include="Reports\DepCategoryAverageStaff.rdlc" />
+    <EmbeddedResource Include="Reports\DepCatVPOAverageReport.rdlc" />
+    <EmbeddedResource Include="Reports\DepCatZPAverageReport.rdlc" />
+    <EmbeddedResource Include="Reports\DepPostAverageStaff.rdlc" />
+    <EmbeddedResource Include="Reports\DepStaffCountReport.rdlc" />
+    <EmbeddedResource Include="Reports\DepStaffReport.rdlc" />
+    <EmbeddedResource Include="Reports\DepStaffWithoutFinSourceReport.rdlc" />
+    <EmbeddedResource Include="Dialogs\DepartmentSelectDialog.resx">
+      <DependentUpon>DepartmentSelectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EmployeeBonusReport.rdlc" />
+    <EmbeddedResource Include="Reports\FactStaffChangesReport.rdlc" />
+    <EmbeddedResource Include="Forms\BaseReportForm.resx">
+      <DependentUpon>BaseReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseReportFormWithYear.resx">
+      <DependentUpon>BaseReportFormWithYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\DepEmplCountReportFrame.resx">
+      <DependentUpon>DepEmplCountReportFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\ReportBaseFrame.resx">
+      <DependentUpon>ReportBaseFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\ReportBaseFrameForPeriod.resx">
+      <DependentUpon>ReportBaseFrameForPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\ReportBaseFrameForQuarter.resx">
+      <DependentUpon>ReportBaseFrameForQuarter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\ReportBaseFrameForYear.resx">
+      <DependentUpon>ReportBaseFrameForYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FundingDepAverageNumEmpl.rdlc" />
+    <EmbeddedResource Include="Reports\MinForm3PPSReport.rdlc" />
+    <EmbeddedResource Include="Reports\MinFormMainReport.rdlc" />
+    <EmbeddedResource Include="Reports\MinFormsReport.rdlc" />
+    <EmbeddedResource Include="Reports\PostStChangesReport.rdlc" />
+    <EmbeddedResource Include="Reports\PPSBonusForT3.rdlc" />
+    <EmbeddedResource Include="Reports\PPSBonusForT3Report.rdlc" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

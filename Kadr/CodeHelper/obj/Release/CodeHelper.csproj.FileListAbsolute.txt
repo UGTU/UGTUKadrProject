@@ -1,0 +1,87 @@
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\bin\Release\CodeHelper.dll.config
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\bin\Release\CodeHelper.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\bin\Release\ru-RU\CodeHelper.resources.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\ResolveAssemblyReference.cache
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\MultiSelectTreeView.MiltiSelectTreeView.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\APG.ExceptionHandler.Res.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\APG.Properties.Resources.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\APG.UI.CrystalReportVeiwerRus.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.MessageForm.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.ru-RU.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\ru-RU\CodeHelper.resources.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\Release\CodeHelper.dll
+D:\main Projects\kadr\Kadr\CodeHelper\bin\Release\CodeHelper.dll.config
+D:\main Projects\kadr\Kadr\CodeHelper\bin\Release\CodeHelper.dll
+D:\main Projects\kadr\Kadr\CodeHelper\bin\Release\ru-RU\CodeHelper.resources.dll
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\ResolveAssemblyReference.cache
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\MultiSelectTreeView.MiltiSelectTreeView.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.ExceptionHandler.Res.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.Properties.Resources.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.UI.CrystalReportVeiwerRus.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.MessageForm.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.ru-RU.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\GenerateResource-ResGen.read.1.tlog
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\GenerateResource-ResGen.write.1.tlog
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\ru-RU\CodeHelper.resources.dll
+D:\main Projects\kadr\Kadr\CodeHelper\obj\Release\CodeHelper.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\bin\Release\CodeHelper.dll.config
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\bin\Release\CodeHelper.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\bin\Release\ru-RU\CodeHelper.resources.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\ResolveAssemblyReference.cache
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\MultiSelectTreeView.MiltiSelectTreeView.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.ExceptionHandler.Res.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.Properties.Resources.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.UI.CrystalReportVeiwerRus.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.MessageForm.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.ru-RU.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\GenerateResource-ResGen.read.1.tlog
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\GenerateResource-ResGen.write.1.tlog
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\ru-RU\CodeHelper.resources.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\CodeHelper.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\Release\CodeHelper.dll.config
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\Release\CodeHelper.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\Release\ru-RU\CodeHelper.resources.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\MultiSelectTreeView.MiltiSelectTreeView.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.ExceptionHandler.Res.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.Properties.Resources.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.UI.CrystalReportVeiwerRus.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.MessageForm.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.ru-RU.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\CodeHelper.csproj.GenerateResource.Cache
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\ru-RU\CodeHelper.resources.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\Release\CodeHelper.dll
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\bin\Release\CodeHelper.dll.config
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\bin\Release\CodeHelper.dll
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\bin\Release\ru-RU\CodeHelper.resources.dll
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\CodeHelper.csprojResolveAssemblyReference.cache
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\MultiSelectTreeView.MiltiSelectTreeView.resources
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\APG.ExceptionHandler.Res.resources
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\APG.Properties.Resources.resources
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\APG.UI.CrystalReportVeiwerRus.resources
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.MessageForm.resources
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.resources
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.ru-RU.resources
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\CodeHelper.csproj.GenerateResource.Cache
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\ru-RU\CodeHelper.resources.dll
+G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\CodeHelper.dll

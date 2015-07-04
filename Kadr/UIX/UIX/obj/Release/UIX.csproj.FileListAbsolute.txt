@@ -1,0 +1,12 @@
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\UIX\UIX\bin\Release\UIX.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\UIX\UIX\obj\Release\ResolveAssemblyReference.cache
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\UIX\UIX\obj\Release\UIX.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\UIX\UIX\bin\Release\UIX.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Release\ResolveAssemblyReference.cache
+D:\tanyav\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Release\UIX.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\bin\Release\UIX.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Release\UIX.csprojResolveAssemblyReference.cache
+D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Release\UIX.dll
+G:\tanvok\Основные проекты\kadr\Kadr\UIX\UIX\bin\Release\UIX.dll
+G:\tanvok\Основные проекты\kadr\Kadr\UIX\UIX\obj\Release\UIX.csprojResolveAssemblyReference.cache
+G:\tanvok\Основные проекты\kadr\Kadr\UIX\UIX\obj\Release\UIX.dll

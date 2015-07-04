@@ -1,0 +1,19 @@
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\UIX\UIX\bin\Debug\UIX.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\UIX\UIX\bin\Debug\UIX.pdb
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\UIX\UIX\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\UIX\UIX\obj\Debug\UIX.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\UIX\UIX\obj\Debug\UIX.pdb
+D:\tanyav\работа\main Projects\kadr\Kadr\UIX\UIX\bin\Debug\UIX.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\UIX\UIX\bin\Debug\UIX.pdb
+D:\tanyav\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Debug\ResolveAssemblyReference.cache
+D:\tanyav\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Debug\UIX.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Debug\UIX.pdb
+E:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\bin\Debug\UIX.dll
+E:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\bin\Debug\UIX.pdb
+E:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Debug\UIX.dll
+E:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Debug\UIX.pdb
+D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\bin\Debug\UIX.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\bin\Debug\UIX.pdb
+D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
+D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Debug\UIX.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Debug\UIX.pdb

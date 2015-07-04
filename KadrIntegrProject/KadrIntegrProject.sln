@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{D183A3D8-5FD8-494B-B014-37F57B35E655}") = "KadrIntegrProject", "KadrIntegrProject\KadrIntegrProject.dtproj", "{D6005FF0-1025-4792-B689-08A86EAA7643}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = KadrIntegrProject\\KadrIntegrProject.dtproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = KadrIntegrProject\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6005FF0-1025-4792-B689-08A86EAA7643}.Development|Default.ActiveCfg = Development
+		{D6005FF0-1025-4792-B689-08A86EAA7643}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

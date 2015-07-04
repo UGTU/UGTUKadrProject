@@ -1,0 +1,101 @@
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ResolveAssemblyReference.cache
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\GenerateResource-ResGen.read.1.tlog
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\GenerateResource-ResGen.write.1.tlog
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\MultiSelectTreeView.MiltiSelectTreeView.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.ExceptionHandler.Res.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.Properties.Resources.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.MessageForm.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.ru-RU.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.CrystalReportVeiwerRus.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll.config
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+D:\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll.config
+D:\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+D:\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+D:\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ResolveAssemblyReference.cache
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\MultiSelectTreeView.MiltiSelectTreeView.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.ExceptionHandler.Res.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.Properties.Resources.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.CrystalReportVeiwerRus.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.MessageForm.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.ru-RU.resources
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\GenerateResource-ResGen.read.1.tlog
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\GenerateResource.read.1.tlog
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\GenerateResource-ResGen.write.1.tlog
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\GenerateResource.write.1.tlog
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+D:\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll.config
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ResolveAssemblyReference.cache
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\MultiSelectTreeView.MiltiSelectTreeView.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.ExceptionHandler.Res.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.Properties.Resources.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.CrystalReportVeiwerRus.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.MessageForm.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.ru-RU.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\GenerateResource-ResGen.read.1.tlog
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\GenerateResource.read.1.tlog
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\GenerateResource-ResGen.write.1.tlog
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\GenerateResource.write.1.tlog
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll.config
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\MultiSelectTreeView.MiltiSelectTreeView.resources
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.ExceptionHandler.Res.resources
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.Properties.Resources.resources
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.CrystalReportVeiwerRus.resources
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.MessageForm.resources
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.resources
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.ru-RU.resources
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csproj.GenerateResource.Cache
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+E:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll.config
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\MultiSelectTreeView.MiltiSelectTreeView.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.ExceptionHandler.Res.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.Properties.Resources.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.CrystalReportVeiwerRus.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.MessageForm.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.ru-RU.resources
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csproj.GenerateResource.Cache
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+D:\tanvok\работа\main Projects\kadr\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csprojResolveAssemblyReference.cache

@@ -1,0 +1,176 @@
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\bin\Release\Kadr.exe.config
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\bin\Release\Kadr.exe.manifest
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\bin\Release\Kadr.application
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\bin\Release\Kadr.exe
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\bin\Release\Kadr.pdb
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\bin\Release\CodeHelper.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\bin\Release\UIX.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\bin\Release\ru-RU\CodeHelper.resources.dll
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\ResolveAssemblyReference.cache
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.CustomBaseDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.DateChooserDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.DataGridViewDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.LinqDataGridViewDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.LinqPropertyGridDialogEditing.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.ListSelectDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.PropertyGridDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.PropertyGridDialogAdding.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusSuperTypeDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusTypeDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.CategoryDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.FactStaffTransfer.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.FinancingSourceDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.GlobalPrikazDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.GrazdDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PKCategoryDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PKGroupDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PrikazDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PrikazSuperTypeDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PrikazTypeDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.SalaryDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.SemPolDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.WorkTypeDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.KadrBaseForm.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrBaseFrame.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.Properties.Resources.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrEmployeeFrame.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrRootFrame.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrPrikazFrame.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrPostFrame.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.TrustInfo.xml
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.exe.manifest
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.application
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.exe
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.pdb
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Decl\Kadr.exe
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Decl\Kadr.pdb
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\CodeContractAnalysisRun.log
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusMeasureDialog.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.KadrBonusForm.resources
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\GenerateResource.read.1.tlog
+C:\Users\tanyav.IST\Desktop\kadr\Kadr\Kadr\obj\Release\GenerateResource.write.1.tlog
+D:\main Projects\kadr\Kadr\Kadr\bin\Release\Kadr.exe.config
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.exe
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.pdb
+D:\main Projects\kadr\Kadr\Kadr\bin\Release\Kadr.exe.manifest
+D:\main Projects\kadr\Kadr\Kadr\bin\Release\Kadr.application
+D:\main Projects\kadr\Kadr\Kadr\bin\Release\Kadr.exe
+D:\main Projects\kadr\Kadr\Kadr\bin\Release\Kadr.pdb
+D:\main Projects\kadr\Kadr\Kadr\bin\Release\CodeHelper.dll
+D:\main Projects\kadr\Kadr\Kadr\bin\Release\UIX.dll
+D:\main Projects\kadr\Kadr\Kadr\bin\Release\ru-RU\CodeHelper.resources.dll
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\ResolveAssemblyReference.cache
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.CustomBaseDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.DateChooserDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.DataGridViewDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.LinqDataGridViewDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.LinqPropertyGridDialogEditing.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.ListSelectDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.PropertyGridDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.PropertyGridDialogAdding.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusMeasureDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusSuperTypeDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusTypeDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.CategoryDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.FactStaffTransfer.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.FinancingSourceDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.GlobalPrikazDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.GrazdDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PKCategoryDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PKGroupDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PrikazDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PrikazSuperTypeDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PrikazTypeDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.SalaryDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.SemPolDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.WorkTypeDialog.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.KadrBaseForm.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.KadrBonusForm.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrBaseFrame.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.Properties.Resources.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrEmployeeFrame.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrRootFrame.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrPrikazFrame.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrPostFrame.resources
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\GenerateResource-ResGen.read.1.tlog
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\GenerateResource.read.1.tlog
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\GenerateResource-ResGen.write.1.tlog
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\GenerateResource.write.1.tlog
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.TrustInfo.xml
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.exe.manifest
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.application
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Decl\Kadr.exe
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\Decl\Kadr.pdb
+D:\main Projects\kadr\Kadr\Kadr\obj\Release\CodeContractAnalysisRun.log
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\Kadr.exe.config
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.exe
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.pdb
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\Kadr.exe.manifest
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\Kadr.application
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\Kadr.exe
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\Kadr.pdb
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\CodeHelper.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\Reports.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\UIX.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\Reports.pdb
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\ru-RU\CodeHelper.resources.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\ResolveAssemblyReference.cache
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.CustomBaseDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.DateChooserDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.DataGridViewDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.LinqDataGridViewDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.LinqPropertyGridDialogEditing.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.ListSelectDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.PropertyGridDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Common.PropertyGridDialogAdding.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusMeasureDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusSuperTypeDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusTypeDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.CategoryDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.FactStaffReplacementReasonDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.FactStaffTransfer.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.FinancingSourceDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.GlobalPrikazDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.GrazdDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PKCategoryDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PKGroupDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PrikazDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PrikazSuperTypeDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.PrikazTypeDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.SalaryDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.SemPolDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.WorkTypeDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.KadrBaseForm.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.KadrBonusForm.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrBaseFrame.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.Properties.Resources.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrEmployeeFrame.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrRootFrame.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrPrikazFrame.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Frames.KadrPostFrame.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\GenerateResource-ResGen.read.1.tlog
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\GenerateResource.read.1.tlog
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\GenerateResource-ResGen.write.1.tlog
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\GenerateResource.write.1.tlog
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.TrustInfo.xml
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.exe.manifest
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.application
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Decl\Kadr.exe
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Decl\Kadr.pdb
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\CodeContractAnalysisRun.log
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.TimeSheetDayStateDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.TimeSheetSheduleTypeDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.TimeSheetsForm.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.TimeSheetReport.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.PlanStaffHistoryForm.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.FactStaffHistoryForm.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.PlanStaffSalaryHistoryForm.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusReportColumnsDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Dialogs.BonusReportDialog.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.BonusHistoryForm.resources
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Interop.ExcelClientPkgLib.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.csproj.ResolveComReference.cache
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\bin\Release\Interop.ExcelClientPkgLib.dll
+D:\tanyav\работа\main Projects\kadr\Kadr\Kadr\obj\Release\Kadr.UI.Forms.DepartmentHistoryForm.resources

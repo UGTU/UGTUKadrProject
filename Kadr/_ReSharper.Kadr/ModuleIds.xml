@@ -1,0 +1,6 @@
+<Modules>
+  <Module PersistentId="474F0D94-C66E-4FE3-9BFE-0B0C587A5015" ModuleId="Kadr" />
+  <Module PersistentId="EC01AD24-E555-43E5-93BD-B99F082725D1" ModuleId="CodeHelper" />
+  <Module PersistentId="0FCF0F0D-5FBA-4386-B645-5E7D2682D3BA" ModuleId="UIX" />
+  <Module PersistentId="BCEA87EE-2EB7-47D0-A4AC-93AAF3ED6C71" ModuleId="Reports" />
+</Modules>

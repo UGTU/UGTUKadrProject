@@ -1,0 +1,66 @@
+﻿<RecentFiles>
+  <RecentFiles>
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Frames/f:KadrRootFrame.Designer.cs" caret="139847" fromTop="9" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:DepartmentTimeNorm.cs" caret="1190" fromTop="28" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Dialogs/f:PKCategoryDialog.cs" caret="1541" fromTop="48" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:PKGroup.cs" caret="552" fromTop="22" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Forms/f:KadrBaseForm.cs" caret="459" fromTop="20" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:PKCategory.cs" caret="852" fromTop="25" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Common/f:LinqPropertyGridDialogAdding.cs" caret="2756" fromTop="30" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Forms/f:PlanStaffSalaryHistoryForm.cs" caret="1389" fromTop="18" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Frames/f:KadrBaseFrame.cs" caret="9031" fromTop="13" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Common/f:IObjectState.cs" caret="1326" fromTop="8" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Frames/f:KadrPostFrame.cs" caret="12595" fromTop="134" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Editors/f:PostEditor.cs" caret="1316" fromTop="7" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:Post.cs" caret="2288" fromTop="27" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:Department.cs" caret="0" fromTop="0" />
+    <File id="0FCF0F0D-5FBA-4386-B645-5E7D2682D3BA/d:Commands/f:GenericPropertyCommand.cs" caret="2065" fromTop="17" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Editors/f:CategoryEditor.cs" caret="378" fromTop="0" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Editors/f:FundingCenterEditor.cs" caret="666" fromTop="14" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Common/f:CustomBaseDialog.cs" caret="2211" fromTop="21" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Common/f:LinqPropertyGridDialogEditing.cs" caret="936" fromTop="23" />
+    <File id="BCEA87EE-2EB7-47D0-A4AC-93AAF3ED6C71/d:Frames/f:DepEmplReportFrame.cs" caret="278" fromTop="0" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:Dep.cs" caret="3575" fromTop="26" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:PlanStaff.cs" caret="5553" fromTop="17" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:KadrTreeView/d:NodeAction/f:RootTreeNodeActions.cs" caret="4260" fromTop="17" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:FundingCenter.cs" caret="901" fromTop="46" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/f:dckadr.Decorated.cs" caret="20091" fromTop="27" />
+    <File id="BCEA87EE-2EB7-47D0-A4AC-93AAF3ED6C71/f:DepByPostBonusReport.rdlc" caret="104234" fromTop="2246" />
+    <File id="BCEA87EE-2EB7-47D0-A4AC-93AAF3ED6C71/d:Frames/f:DepByPostBonusReportFrame.cs" caret="625" fromTop="20" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:FactStaffHistory.cs" caret="1173" fromTop="13" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:FactStaff.cs" caret="1785" fromTop="24" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Frames/f:KadrRootFrame.cs" caret="16722" fromTop="27" />
+  </RecentFiles>
+  <RecentEdits>
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Editors/f:FinancingSourceEditor.cs" caret="954" fromTop="11" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Dialogs/f:SemPolDialog.cs" caret="865" fromTop="20" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Dialogs/f:FundingCenterDialog.cs" caret="77907" fromTop="18" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Editors/f:PrikazEditor.cs" caret="6019" fromTop="19" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Common/f:ListSelectDialog.cs" caret="746" fromTop="17" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Dialogs/f:FactStaffTransfer.cs" caret="4608" fromTop="30" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Forms/f:TimeSheetReport.cs" caret="7845" fromTop="22" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:KadrTreeView/d:NodeObject/f:RootNodeObject.cs" caret="1987" fromTop="22" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:PlanStaff.cs" caret="4544" fromTop="15" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:DepartmentTimeNorm.cs" caret="1190" fromTop="25" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Frames/f:KadrRootFrame.Designer.cs" caret="139847" fromTop="22" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:PKGroup.cs" caret="552" fromTop="22" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Dialogs/f:PKCategoryDialog.cs" caret="1541" fromTop="48" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Forms/f:KadrBaseForm.cs" caret="41211" fromTop="11" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:PKCategory.cs" caret="3320" fromTop="25" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:FactStaffHistory.cs" caret="1753" fromTop="20" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Editors/f:PostEditor.cs" caret="1539" fromTop="8" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Frames/f:KadrPostFrame.cs" caret="13218" fromTop="11" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:Post.cs" caret="2615" fromTop="15" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Editors/f:FundingCenterEditor.cs" caret="971" fromTop="18" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:Dep.cs" caret="8064" fromTop="121" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Common/f:LinqPropertyGridDialogEditing.cs" caret="2574" fromTop="23" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/f:dckadr.Decorated.cs" caret="20084" fromTop="27" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:FundingCenter.cs" caret="887" fromTop="12" />
+    <File id="BCEA87EE-2EB7-47D0-A4AC-93AAF3ED6C71/d:Frames/f:DepEmplReportFrame.cs" caret="939" fromTop="0" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:KadrTreeView/d:NodeAction/f:RootTreeNodeActions.cs" caret="4260" fromTop="17" />
+    <File id="BCEA87EE-2EB7-47D0-A4AC-93AAF3ED6C71/f:DepByPostBonusReport.rdlc" caret="104234" fromTop="2246" />
+    <File id="BCEA87EE-2EB7-47D0-A4AC-93AAF3ED6C71/d:Frames/f:DepByPostBonusReportFrame.cs" caret="625" fromTop="20" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:Data/d:Entities/f:FactStaff.cs" caret="1410" fromTop="8" />
+    <File id="474F0D94-C66E-4FE3-9BFE-0B0C587A5015/d:UI/d:Frames/f:KadrRootFrame.cs" caret="50608" fromTop="27" />
+  </RecentEdits>
+</RecentFiles>
