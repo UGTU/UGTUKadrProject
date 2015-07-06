@@ -52,6 +52,26 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.tpDepBonusReport = new System.Windows.Forms.TabPage();
+            this.cbBonRepWithSubDeps = new System.Windows.Forms.CheckBox();
+            this.btnBonusRepLoad = new System.Windows.Forms.Button();
+            this.dtpBonRepPeriodEnd = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtpBonRepPeriodBegin = new System.Windows.Forms.DateTimePicker();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.tcBonusReports = new System.Windows.Forms.TabControl();
+            this.tpSmallDelBonusReport = new System.Windows.Forms.TabPage();
+            this.reportBaseFrameForPeriod1 = new Reports.Frames.ReportBaseFrameForPeriod();
+            this.tpEmplBonusReport = new System.Windows.Forms.TabPage();
+            this.departmentBonusReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
+            this.tpT3ByPostReport = new System.Windows.Forms.TabPage();
+            this.depByPostBonusТ3ReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
+            this.tpT3ByCategoryReport = new System.Windows.Forms.TabPage();
+            this.depByCategoryBonusТ3ReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
+            this.tpBonusByFundSources = new System.Windows.Forms.TabPage();
+            this.reportBaseFrameForPeriod2 = new Reports.Frames.ReportBaseFrameForPeriod();
             this.tpStaff = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -201,26 +221,6 @@
             this.depEmplReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
             this.tpDepStaffReport = new System.Windows.Forms.TabPage();
             this.depStaffReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
-            this.tpDepBonusReport = new System.Windows.Forms.TabPage();
-            this.cbBonRepWithSubDeps = new System.Windows.Forms.CheckBox();
-            this.btnBonusRepLoad = new System.Windows.Forms.Button();
-            this.dtpBonRepPeriodEnd = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtpBonRepPeriodBegin = new System.Windows.Forms.DateTimePicker();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.tcBonusReports = new System.Windows.Forms.TabControl();
-            this.tpSmallDelBonusReport = new System.Windows.Forms.TabPage();
-            this.reportBaseFrameForPeriod1 = new Reports.Frames.ReportBaseFrameForPeriod();
-            this.tpEmplBonusReport = new System.Windows.Forms.TabPage();
-            this.departmentBonusReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
-            this.tpT3ByPostReport = new System.Windows.Forms.TabPage();
-            this.depByPostBonusТ3ReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
-            this.tpT3ByCategoryReport = new System.Windows.Forms.TabPage();
-            this.depByCategoryBonusТ3ReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
-            this.tpBonusByFundSources = new System.Windows.Forms.TabPage();
-            this.reportBaseFrameForPeriod2 = new Reports.Frames.ReportBaseFrameForPeriod();
             this.tpTimeSheet = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvTimeSheetFS = new System.Windows.Forms.DataGridView();
@@ -354,6 +354,15 @@
             this.ContractStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.timeSheetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
+            this.tpDepBonusReport.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.toolStrip6.SuspendLayout();
+            this.tcBonusReports.SuspendLayout();
+            this.tpSmallDelBonusReport.SuspendLayout();
+            this.tpEmplBonusReport.SuspendLayout();
+            this.tpT3ByPostReport.SuspendLayout();
+            this.tpT3ByCategoryReport.SuspendLayout();
+            this.tpBonusByFundSources.SuspendLayout();
             this.tpStaff.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -384,15 +393,6 @@
             this.tcDepStaffReport.SuspendLayout();
             this.tpDepStaffReportWithFinSource.SuspendLayout();
             this.tpDepStaffReport.SuspendLayout();
-            this.tpDepBonusReport.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.toolStrip6.SuspendLayout();
-            this.tcBonusReports.SuspendLayout();
-            this.tpSmallDelBonusReport.SuspendLayout();
-            this.tpEmplBonusReport.SuspendLayout();
-            this.tpT3ByPostReport.SuspendLayout();
-            this.tpT3ByCategoryReport.SuspendLayout();
-            this.tpBonusByFundSources.SuspendLayout();
             this.tpTimeSheet.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimeSheetFS)).BeginInit();
@@ -444,13 +444,247 @@
             this.groupBox1.Controls.Add(this.tcDepartment);
             this.groupBox1.Size = new System.Drawing.Size(941, 450);
             // 
+            // tpDepBonusReport
+            // 
+            this.tpDepBonusReport.Controls.Add(this.cbBonRepWithSubDeps);
+            this.tpDepBonusReport.Controls.Add(this.btnBonusRepLoad);
+            this.tpDepBonusReport.Controls.Add(this.dtpBonRepPeriodEnd);
+            this.tpDepBonusReport.Controls.Add(this.label1);
+            this.tpDepBonusReport.Controls.Add(this.dtpBonRepPeriodBegin);
+            this.tpDepBonusReport.Controls.Add(this.tableLayoutPanel6);
+            this.tpDepBonusReport.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tpDepBonusReport.Location = new System.Drawing.Point(4, 22);
+            this.tpDepBonusReport.Name = "tpDepBonusReport";
+            this.tpDepBonusReport.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDepBonusReport.Size = new System.Drawing.Size(802, 533);
+            this.tpDepBonusReport.TabIndex = 4;
+            this.tpDepBonusReport.Text = "Отчеты по надбавкам";
+            this.tpDepBonusReport.UseVisualStyleBackColor = true;
+            // 
+            // cbBonRepWithSubDeps
+            // 
+            this.cbBonRepWithSubDeps.AutoSize = true;
+            this.cbBonRepWithSubDeps.BackColor = System.Drawing.SystemColors.Control;
+            this.cbBonRepWithSubDeps.Checked = true;
+            this.cbBonRepWithSubDeps.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbBonRepWithSubDeps.Location = new System.Drawing.Point(608, 3);
+            this.cbBonRepWithSubDeps.Name = "cbBonRepWithSubDeps";
+            this.cbBonRepWithSubDeps.Size = new System.Drawing.Size(198, 17);
+            this.cbBonRepWithSubDeps.TabIndex = 16;
+            this.cbBonRepWithSubDeps.Text = "Отображать подчиненные отделы";
+            this.cbBonRepWithSubDeps.UseVisualStyleBackColor = false;
+            // 
+            // btnBonusRepLoad
+            // 
+            this.btnBonusRepLoad.Enabled = false;
+            this.btnBonusRepLoad.Location = new System.Drawing.Point(460, 0);
+            this.btnBonusRepLoad.Name = "btnBonusRepLoad";
+            this.btnBonusRepLoad.Size = new System.Drawing.Size(132, 23);
+            this.btnBonusRepLoad.TabIndex = 15;
+            this.btnBonusRepLoad.Text = "Загрузить отчет";
+            this.btnBonusRepLoad.UseVisualStyleBackColor = true;
+            this.btnBonusRepLoad.Click += new System.EventHandler(this.btnBonusRepLoad_Click);
+            // 
+            // dtpBonRepPeriodEnd
+            // 
+            this.dtpBonRepPeriodEnd.Location = new System.Drawing.Point(317, 4);
+            this.dtpBonRepPeriodEnd.Name = "dtpBonRepPeriodEnd";
+            this.dtpBonRepPeriodEnd.Size = new System.Drawing.Size(137, 20);
+            this.dtpBonRepPeriodEnd.TabIndex = 14;
+            this.dtpBonRepPeriodEnd.Tag = "Конец периода";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(292, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "до";
+            // 
+            // dtpBonRepPeriodBegin
+            // 
+            this.dtpBonRepPeriodBegin.Location = new System.Drawing.Point(150, 3);
+            this.dtpBonRepPeriodBegin.Name = "dtpBonRepPeriodBegin";
+            this.dtpBonRepPeriodBegin.Size = new System.Drawing.Size(137, 20);
+            this.dtpBonRepPeriodBegin.TabIndex = 12;
+            this.dtpBonRepPeriodBegin.Tag = "Начало периода";
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.toolStrip6, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.tcBonusReports, 0, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(796, 527);
+            this.tableLayoutPanel6.TabIndex = 1;
+            // 
+            // toolStrip6
+            // 
+            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel2});
+            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip6.Name = "toolStrip6";
+            this.toolStrip6.Size = new System.Drawing.Size(796, 24);
+            this.toolStrip6.TabIndex = 11;
+            this.toolStrip6.Text = "toolStrip6";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(133, 21);
+            this.toolStripLabel2.Text = "Период начисления от";
+            // 
+            // tcBonusReports
+            // 
+            this.tcBonusReports.Controls.Add(this.tpSmallDelBonusReport);
+            this.tcBonusReports.Controls.Add(this.tpEmplBonusReport);
+            this.tcBonusReports.Controls.Add(this.tpT3ByPostReport);
+            this.tcBonusReports.Controls.Add(this.tpT3ByCategoryReport);
+            this.tcBonusReports.Controls.Add(this.tpBonusByFundSources);
+            this.tcBonusReports.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcBonusReports.Location = new System.Drawing.Point(3, 27);
+            this.tcBonusReports.Name = "tcBonusReports";
+            this.tcBonusReports.SelectedIndex = 0;
+            this.tcBonusReports.Size = new System.Drawing.Size(790, 497);
+            this.tcBonusReports.TabIndex = 1;
+            // 
+            // tpSmallDelBonusReport
+            // 
+            this.tpSmallDelBonusReport.Controls.Add(this.reportBaseFrameForPeriod1);
+            this.tpSmallDelBonusReport.Location = new System.Drawing.Point(4, 22);
+            this.tpSmallDelBonusReport.Name = "tpSmallDelBonusReport";
+            this.tpSmallDelBonusReport.Size = new System.Drawing.Size(782, 471);
+            this.tpSmallDelBonusReport.TabIndex = 5;
+            this.tpSmallDelBonusReport.Text = "Для раскладов";
+            this.tpSmallDelBonusReport.UseVisualStyleBackColor = true;
+            // 
+            // reportBaseFrameForPeriod1
+            // 
+            this.reportBaseFrameForPeriod1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportBaseFrameForPeriod1.Location = new System.Drawing.Point(0, 0);
+            this.reportBaseFrameForPeriod1.Name = "reportBaseFrameForPeriod1";
+            this.reportBaseFrameForPeriod1.PeriodBegin = new System.DateTime(((long)(0)));
+            this.reportBaseFrameForPeriod1.PeriodEnd = new System.DateTime(((long)(0)));
+            this.reportBaseFrameForPeriod1.ReportNumber = 0;
+            this.reportBaseFrameForPeriod1.ReportParam = -1;
+            this.reportBaseFrameForPeriod1.ReportType = null;
+            this.reportBaseFrameForPeriod1.Size = new System.Drawing.Size(782, 471);
+            this.reportBaseFrameForPeriod1.TabIndex = 0;
+            this.reportBaseFrameForPeriod1.WithSubReports = true;
+            // 
+            // tpEmplBonusReport
+            // 
+            this.tpEmplBonusReport.Controls.Add(this.departmentBonusReportFrame1);
+            this.tpEmplBonusReport.Location = new System.Drawing.Point(4, 22);
+            this.tpEmplBonusReport.Name = "tpEmplBonusReport";
+            this.tpEmplBonusReport.Padding = new System.Windows.Forms.Padding(3);
+            this.tpEmplBonusReport.Size = new System.Drawing.Size(907, 471);
+            this.tpEmplBonusReport.TabIndex = 0;
+            this.tpEmplBonusReport.Text = "По сотрудникам";
+            this.tpEmplBonusReport.UseVisualStyleBackColor = true;
+            // 
+            // departmentBonusReportFrame1
+            // 
+            this.departmentBonusReportFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.departmentBonusReportFrame1.Location = new System.Drawing.Point(3, 3);
+            this.departmentBonusReportFrame1.Name = "departmentBonusReportFrame1";
+            this.departmentBonusReportFrame1.PeriodBegin = new System.DateTime(((long)(0)));
+            this.departmentBonusReportFrame1.PeriodEnd = new System.DateTime(((long)(0)));
+            this.departmentBonusReportFrame1.ReportNumber = 0;
+            this.departmentBonusReportFrame1.ReportParam = -1;
+            this.departmentBonusReportFrame1.ReportType = null;
+            this.departmentBonusReportFrame1.Size = new System.Drawing.Size(901, 465);
+            this.departmentBonusReportFrame1.TabIndex = 0;
+            this.departmentBonusReportFrame1.WithSubReports = true;
+            // 
+            // tpT3ByPostReport
+            // 
+            this.tpT3ByPostReport.Controls.Add(this.depByPostBonusТ3ReportFrame1);
+            this.tpT3ByPostReport.Location = new System.Drawing.Point(4, 22);
+            this.tpT3ByPostReport.Name = "tpT3ByPostReport";
+            this.tpT3ByPostReport.Padding = new System.Windows.Forms.Padding(3);
+            this.tpT3ByPostReport.Size = new System.Drawing.Size(907, 471);
+            this.tpT3ByPostReport.TabIndex = 3;
+            this.tpT3ByPostReport.Text = "Т3 по должностям";
+            this.tpT3ByPostReport.UseVisualStyleBackColor = true;
+            // 
+            // depByPostBonusТ3ReportFrame1
+            // 
+            this.depByPostBonusТ3ReportFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.depByPostBonusТ3ReportFrame1.Location = new System.Drawing.Point(3, 3);
+            this.depByPostBonusТ3ReportFrame1.Name = "depByPostBonusТ3ReportFrame1";
+            this.depByPostBonusТ3ReportFrame1.PeriodBegin = new System.DateTime(((long)(0)));
+            this.depByPostBonusТ3ReportFrame1.PeriodEnd = new System.DateTime(((long)(0)));
+            this.depByPostBonusТ3ReportFrame1.ReportNumber = 0;
+            this.depByPostBonusТ3ReportFrame1.ReportParam = -1;
+            this.depByPostBonusТ3ReportFrame1.ReportType = null;
+            this.depByPostBonusТ3ReportFrame1.Size = new System.Drawing.Size(901, 465);
+            this.depByPostBonusТ3ReportFrame1.TabIndex = 0;
+            this.depByPostBonusТ3ReportFrame1.WithSubReports = true;
+            // 
+            // tpT3ByCategoryReport
+            // 
+            this.tpT3ByCategoryReport.Controls.Add(this.depByCategoryBonusТ3ReportFrame1);
+            this.tpT3ByCategoryReport.Location = new System.Drawing.Point(4, 22);
+            this.tpT3ByCategoryReport.Name = "tpT3ByCategoryReport";
+            this.tpT3ByCategoryReport.Padding = new System.Windows.Forms.Padding(3);
+            this.tpT3ByCategoryReport.Size = new System.Drawing.Size(907, 471);
+            this.tpT3ByCategoryReport.TabIndex = 4;
+            this.tpT3ByCategoryReport.Text = "Т3 по категориям";
+            this.tpT3ByCategoryReport.UseVisualStyleBackColor = true;
+            // 
+            // depByCategoryBonusТ3ReportFrame1
+            // 
+            this.depByCategoryBonusТ3ReportFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.depByCategoryBonusТ3ReportFrame1.Location = new System.Drawing.Point(3, 3);
+            this.depByCategoryBonusТ3ReportFrame1.Name = "depByCategoryBonusТ3ReportFrame1";
+            this.depByCategoryBonusТ3ReportFrame1.PeriodBegin = new System.DateTime(((long)(0)));
+            this.depByCategoryBonusТ3ReportFrame1.PeriodEnd = new System.DateTime(((long)(0)));
+            this.depByCategoryBonusТ3ReportFrame1.ReportNumber = 0;
+            this.depByCategoryBonusТ3ReportFrame1.ReportParam = -1;
+            this.depByCategoryBonusТ3ReportFrame1.ReportType = null;
+            this.depByCategoryBonusТ3ReportFrame1.Size = new System.Drawing.Size(901, 465);
+            this.depByCategoryBonusТ3ReportFrame1.TabIndex = 0;
+            this.depByCategoryBonusТ3ReportFrame1.WithSubReports = true;
+            // 
+            // tpBonusByFundSources
+            // 
+            this.tpBonusByFundSources.Controls.Add(this.reportBaseFrameForPeriod2);
+            this.tpBonusByFundSources.Location = new System.Drawing.Point(4, 22);
+            this.tpBonusByFundSources.Name = "tpBonusByFundSources";
+            this.tpBonusByFundSources.Size = new System.Drawing.Size(907, 471);
+            this.tpBonusByFundSources.TabIndex = 6;
+            this.tpBonusByFundSources.Text = "Фонд по источникам";
+            this.tpBonusByFundSources.UseVisualStyleBackColor = true;
+            // 
+            // reportBaseFrameForPeriod2
+            // 
+            this.reportBaseFrameForPeriod2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportBaseFrameForPeriod2.Location = new System.Drawing.Point(0, 0);
+            this.reportBaseFrameForPeriod2.Name = "reportBaseFrameForPeriod2";
+            this.reportBaseFrameForPeriod2.PeriodBegin = new System.DateTime(((long)(0)));
+            this.reportBaseFrameForPeriod2.PeriodEnd = new System.DateTime(((long)(0)));
+            this.reportBaseFrameForPeriod2.ReportNumber = 0;
+            this.reportBaseFrameForPeriod2.ReportParam = -1;
+            this.reportBaseFrameForPeriod2.ReportType = null;
+            this.reportBaseFrameForPeriod2.Size = new System.Drawing.Size(907, 471);
+            this.reportBaseFrameForPeriod2.TabIndex = 0;
+            this.reportBaseFrameForPeriod2.WithSubReports = true;
+            // 
             // tpStaff
             // 
             this.tpStaff.Controls.Add(this.splitContainer1);
             this.tpStaff.Location = new System.Drawing.Point(4, 22);
             this.tpStaff.Name = "tpStaff";
             this.tpStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpStaff.Size = new System.Drawing.Size(927, 405);
+            this.tpStaff.Size = new System.Drawing.Size(802, 533);
             this.tpStaff.TabIndex = 1;
             this.tpStaff.Text = "Штаты";
             this.tpStaff.UseVisualStyleBackColor = true;
@@ -469,8 +703,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(921, 399);
-            this.splitContainer1.SplitterDistance = 160;
+            this.splitContainer1.Size = new System.Drawing.Size(796, 527);
+            this.splitContainer1.SplitterDistance = 207;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -486,7 +720,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(921, 160);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 207);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -665,6 +899,7 @@
             this.AddPlanStaffBtn.Size = new System.Drawing.Size(79, 19);
             this.AddPlanStaffBtn.Text = "Добавить";
             this.AddPlanStaffBtn.ToolTipText = "Добавить запись штатного расписания";
+            this.AddPlanStaffBtn.Visible = false;
             this.AddPlanStaffBtn.Click += new System.EventHandler(this.btnAddPlanStaff_Click);
             // 
             // DelPlanStaffBtn
@@ -675,12 +910,14 @@
             this.DelPlanStaffBtn.Size = new System.Drawing.Size(71, 19);
             this.DelPlanStaffBtn.Text = "Удалить";
             this.DelPlanStaffBtn.ToolTipText = "Удалить запись штатного расписания";
+            this.DelPlanStaffBtn.Visible = false;
             this.DelPlanStaffBtn.Click += new System.EventHandler(this.DelPlanStaffBtn_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 22);
+            this.toolStripSeparator1.Visible = false;
             // 
             // btnChangePlanStaff
             // 
@@ -690,6 +927,7 @@
             this.btnChangePlanStaff.Size = new System.Drawing.Size(81, 19);
             this.btnChangePlanStaff.Text = "Изменить";
             this.btnChangePlanStaff.ToolTipText = "Добавить изменение записи по приказу";
+            this.btnChangePlanStaff.Visible = false;
             this.btnChangePlanStaff.Click += new System.EventHandler(this.btnChangePlanStaff_Click);
             // 
             // btnPlanStaffHistory
@@ -700,12 +938,14 @@
             this.btnPlanStaffHistory.Size = new System.Drawing.Size(74, 19);
             this.btnPlanStaffHistory.Text = "История";
             this.btnPlanStaffHistory.ToolTipText = "Открыть историю изменений записи";
+            this.btnPlanStaffHistory.Visible = false;
             this.btnPlanStaffHistory.Click += new System.EventHandler(this.btnPlanStaffHistory_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 22);
+            this.toolStripSeparator7.Visible = false;
             // 
             // btnEditSalary
             // 
@@ -715,12 +955,14 @@
             this.btnEditSalary.Size = new System.Drawing.Size(93, 19);
             this.btnEditSalary.Text = "Инд оклады";
             this.btnEditSalary.ToolTipText = "Открыть индивидуальные оклады";
+            this.btnEditSalary.Visible = false;
             this.btnEditSalary.Click += new System.EventHandler(this.btnEditSalary_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 22);
+            this.toolStripSeparator2.Visible = false;
             // 
             // btnPlanStaffBonus
             // 
@@ -730,12 +972,14 @@
             this.btnPlanStaffBonus.Size = new System.Drawing.Size(80, 19);
             this.btnPlanStaffBonus.Text = "Надбавки";
             this.btnPlanStaffBonus.ToolTipText = "Открыть надбавки";
+            this.btnPlanStaffBonus.Visible = false;
             this.btnPlanStaffBonus.Click += new System.EventHandler(this.btnBonus_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 22);
+            this.toolStripSeparator3.Visible = false;
             // 
             // tspPlanStaffFilter
             // 
@@ -779,7 +1023,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(921, 235);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 316);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff
@@ -826,7 +1070,7 @@
             this.dgvFactStaff.RowHeadersVisible = false;
             this.dgvFactStaff.RowHeadersWidth = 4;
             this.dgvFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFactStaff.Size = new System.Drawing.Size(915, 283);
+            this.dgvFactStaff.Size = new System.Drawing.Size(915, 287);
             this.dgvFactStaff.TabIndex = 6;
             this.dgvFactStaff.DoubleClick += new System.EventHandler(this.dgvFactStaff_DoubleClick);
             // 
@@ -1016,6 +1260,7 @@
             this.btnFactStaffBonus.Size = new System.Drawing.Size(80, 19);
             this.btnFactStaffBonus.Text = "Надбавки";
             this.btnFactStaffBonus.ToolTipText = "Открыть надбавки";
+            this.btnFactStaffBonus.Visible = false;
             this.btnFactStaffBonus.Click += new System.EventHandler(this.btnFactStaffBonus_Click);
             // 
             // AddReplacementBtn
@@ -1192,6 +1437,7 @@
             this.btnAddDep.Size = new System.Drawing.Size(82, 21);
             this.btnAddDep.Text = "Добавить ";
             this.btnAddDep.ToolTipText = "Добавить отдел";
+            this.btnAddDep.Visible = false;
             this.btnAddDep.Click += new System.EventHandler(this.btnAddDep_Click);
             // 
             // btnEditDep
@@ -1202,6 +1448,7 @@
             this.btnEditDep.Size = new System.Drawing.Size(107, 21);
             this.btnEditDep.Text = "Редактировать";
             this.btnEditDep.ToolTipText = "Редактировать отдел";
+            this.btnEditDep.Visible = false;
             this.btnEditDep.Click += new System.EventHandler(this.EditPostBtn_Click);
             // 
             // btnDelDep
@@ -1212,12 +1459,14 @@
             this.btnDelDep.Size = new System.Drawing.Size(71, 21);
             this.btnDelDep.Text = "Удалить";
             this.btnDelDep.ToolTipText = "Удалить отдел";
+            this.btnDelDep.Visible = false;
             this.btnDelDep.Click += new System.EventHandler(this.btnDelDep_Click);
             // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
             this.toolStripSeparator14.Size = new System.Drawing.Size(6, 24);
+            this.toolStripSeparator14.Visible = false;
             // 
             // tsbAddDepFund
             // 
@@ -1227,6 +1476,7 @@
             this.tsbAddDepFund.Size = new System.Drawing.Size(125, 21);
             this.tsbAddDepFund.Text = "Добавить бюджет";
             this.tsbAddDepFund.ToolTipText = "Добавить новую запись бюджета";
+            this.tsbAddDepFund.Visible = false;
             this.tsbAddDepFund.Click += new System.EventHandler(this.tsbAddDepFund_Click);
             // 
             // tsbDepFundHistory
@@ -1237,12 +1487,14 @@
             this.tsbDepFundHistory.Size = new System.Drawing.Size(126, 21);
             this.tsbDepFundHistory.Text = "История бюджета";
             this.tsbDepFundHistory.ToolTipText = "Открыть историю изменений бюджета";
+            this.tsbDepFundHistory.Visible = false;
             this.tsbDepFundHistory.Click += new System.EventHandler(this.tsbDepFundHistory_Click);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
             this.toolStripSeparator13.Size = new System.Drawing.Size(6, 24);
+            this.toolStripSeparator13.Visible = false;
             // 
             // tsbDepFilter
             // 
@@ -2002,238 +2254,6 @@
             this.depStaffReportFrame1.TabIndex = 0;
             this.depStaffReportFrame1.WithSubReports = true;
             // 
-            // tpDepBonusReport
-            // 
-            this.tpDepBonusReport.Controls.Add(this.cbBonRepWithSubDeps);
-            this.tpDepBonusReport.Controls.Add(this.btnBonusRepLoad);
-            this.tpDepBonusReport.Controls.Add(this.dtpBonRepPeriodEnd);
-            this.tpDepBonusReport.Controls.Add(this.label1);
-            this.tpDepBonusReport.Controls.Add(this.dtpBonRepPeriodBegin);
-            this.tpDepBonusReport.Controls.Add(this.tableLayoutPanel6);
-            this.tpDepBonusReport.Location = new System.Drawing.Point(4, 22);
-            this.tpDepBonusReport.Name = "tpDepBonusReport";
-            this.tpDepBonusReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDepBonusReport.Size = new System.Drawing.Size(802, 533);
-            this.tpDepBonusReport.TabIndex = 4;
-            this.tpDepBonusReport.Text = "Отчеты по надбавкам";
-            this.tpDepBonusReport.UseVisualStyleBackColor = true;
-            // 
-            // cbBonRepWithSubDeps
-            // 
-            this.cbBonRepWithSubDeps.AutoSize = true;
-            this.cbBonRepWithSubDeps.BackColor = System.Drawing.SystemColors.Control;
-            this.cbBonRepWithSubDeps.Checked = true;
-            this.cbBonRepWithSubDeps.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbBonRepWithSubDeps.Location = new System.Drawing.Point(608, 3);
-            this.cbBonRepWithSubDeps.Name = "cbBonRepWithSubDeps";
-            this.cbBonRepWithSubDeps.Size = new System.Drawing.Size(198, 17);
-            this.cbBonRepWithSubDeps.TabIndex = 16;
-            this.cbBonRepWithSubDeps.Text = "Отображать подчиненные отделы";
-            this.cbBonRepWithSubDeps.UseVisualStyleBackColor = false;
-            // 
-            // btnBonusRepLoad
-            // 
-            this.btnBonusRepLoad.Location = new System.Drawing.Point(460, 0);
-            this.btnBonusRepLoad.Name = "btnBonusRepLoad";
-            this.btnBonusRepLoad.Size = new System.Drawing.Size(132, 23);
-            this.btnBonusRepLoad.TabIndex = 15;
-            this.btnBonusRepLoad.Text = "Загрузить отчет";
-            this.btnBonusRepLoad.UseVisualStyleBackColor = true;
-            this.btnBonusRepLoad.Click += new System.EventHandler(this.btnBonusRepLoad_Click);
-            // 
-            // dtpBonRepPeriodEnd
-            // 
-            this.dtpBonRepPeriodEnd.Location = new System.Drawing.Point(317, 4);
-            this.dtpBonRepPeriodEnd.Name = "dtpBonRepPeriodEnd";
-            this.dtpBonRepPeriodEnd.Size = new System.Drawing.Size(137, 20);
-            this.dtpBonRepPeriodEnd.TabIndex = 14;
-            this.dtpBonRepPeriodEnd.Tag = "Конец периода";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(292, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "до";
-            // 
-            // dtpBonRepPeriodBegin
-            // 
-            this.dtpBonRepPeriodBegin.Location = new System.Drawing.Point(150, 3);
-            this.dtpBonRepPeriodBegin.Name = "dtpBonRepPeriodBegin";
-            this.dtpBonRepPeriodBegin.Size = new System.Drawing.Size(137, 20);
-            this.dtpBonRepPeriodBegin.TabIndex = 12;
-            this.dtpBonRepPeriodBegin.Tag = "Начало периода";
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.toolStrip6, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.tcBonusReports, 0, 1);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(796, 527);
-            this.tableLayoutPanel6.TabIndex = 1;
-            // 
-            // toolStrip6
-            // 
-            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel2});
-            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip6.Name = "toolStrip6";
-            this.toolStrip6.Size = new System.Drawing.Size(796, 24);
-            this.toolStrip6.TabIndex = 11;
-            this.toolStrip6.Text = "toolStrip6";
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(133, 21);
-            this.toolStripLabel2.Text = "Период начисления от";
-            // 
-            // tcBonusReports
-            // 
-            this.tcBonusReports.Controls.Add(this.tpSmallDelBonusReport);
-            this.tcBonusReports.Controls.Add(this.tpEmplBonusReport);
-            this.tcBonusReports.Controls.Add(this.tpT3ByPostReport);
-            this.tcBonusReports.Controls.Add(this.tpT3ByCategoryReport);
-            this.tcBonusReports.Controls.Add(this.tpBonusByFundSources);
-            this.tcBonusReports.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcBonusReports.Location = new System.Drawing.Point(3, 27);
-            this.tcBonusReports.Name = "tcBonusReports";
-            this.tcBonusReports.SelectedIndex = 0;
-            this.tcBonusReports.Size = new System.Drawing.Size(790, 497);
-            this.tcBonusReports.TabIndex = 1;
-            // 
-            // tpSmallDelBonusReport
-            // 
-            this.tpSmallDelBonusReport.Controls.Add(this.reportBaseFrameForPeriod1);
-            this.tpSmallDelBonusReport.Location = new System.Drawing.Point(4, 22);
-            this.tpSmallDelBonusReport.Name = "tpSmallDelBonusReport";
-            this.tpSmallDelBonusReport.Size = new System.Drawing.Size(782, 471);
-            this.tpSmallDelBonusReport.TabIndex = 5;
-            this.tpSmallDelBonusReport.Text = "Для раскладов";
-            this.tpSmallDelBonusReport.UseVisualStyleBackColor = true;
-            // 
-            // reportBaseFrameForPeriod1
-            // 
-            this.reportBaseFrameForPeriod1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportBaseFrameForPeriod1.Location = new System.Drawing.Point(0, 0);
-            this.reportBaseFrameForPeriod1.Name = "reportBaseFrameForPeriod1";
-            this.reportBaseFrameForPeriod1.PeriodBegin = new System.DateTime(((long)(0)));
-            this.reportBaseFrameForPeriod1.PeriodEnd = new System.DateTime(((long)(0)));
-            this.reportBaseFrameForPeriod1.ReportNumber = 0;
-            this.reportBaseFrameForPeriod1.ReportParam = -1;
-            this.reportBaseFrameForPeriod1.ReportType = null;
-            this.reportBaseFrameForPeriod1.Size = new System.Drawing.Size(782, 471);
-            this.reportBaseFrameForPeriod1.TabIndex = 0;
-            this.reportBaseFrameForPeriod1.WithSubReports = true;
-            // 
-            // tpEmplBonusReport
-            // 
-            this.tpEmplBonusReport.Controls.Add(this.departmentBonusReportFrame1);
-            this.tpEmplBonusReport.Location = new System.Drawing.Point(4, 22);
-            this.tpEmplBonusReport.Name = "tpEmplBonusReport";
-            this.tpEmplBonusReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmplBonusReport.Size = new System.Drawing.Size(907, 471);
-            this.tpEmplBonusReport.TabIndex = 0;
-            this.tpEmplBonusReport.Text = "По сотрудникам";
-            this.tpEmplBonusReport.UseVisualStyleBackColor = true;
-            // 
-            // departmentBonusReportFrame1
-            // 
-            this.departmentBonusReportFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.departmentBonusReportFrame1.Location = new System.Drawing.Point(3, 3);
-            this.departmentBonusReportFrame1.Name = "departmentBonusReportFrame1";
-            this.departmentBonusReportFrame1.PeriodBegin = new System.DateTime(((long)(0)));
-            this.departmentBonusReportFrame1.PeriodEnd = new System.DateTime(((long)(0)));
-            this.departmentBonusReportFrame1.ReportNumber = 0;
-            this.departmentBonusReportFrame1.ReportParam = -1;
-            this.departmentBonusReportFrame1.ReportType = null;
-            this.departmentBonusReportFrame1.Size = new System.Drawing.Size(901, 465);
-            this.departmentBonusReportFrame1.TabIndex = 0;
-            this.departmentBonusReportFrame1.WithSubReports = true;
-            // 
-            // tpT3ByPostReport
-            // 
-            this.tpT3ByPostReport.Controls.Add(this.depByPostBonusТ3ReportFrame1);
-            this.tpT3ByPostReport.Location = new System.Drawing.Point(4, 22);
-            this.tpT3ByPostReport.Name = "tpT3ByPostReport";
-            this.tpT3ByPostReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpT3ByPostReport.Size = new System.Drawing.Size(907, 471);
-            this.tpT3ByPostReport.TabIndex = 3;
-            this.tpT3ByPostReport.Text = "Т3 по должностям";
-            this.tpT3ByPostReport.UseVisualStyleBackColor = true;
-            // 
-            // depByPostBonusТ3ReportFrame1
-            // 
-            this.depByPostBonusТ3ReportFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.depByPostBonusТ3ReportFrame1.Location = new System.Drawing.Point(3, 3);
-            this.depByPostBonusТ3ReportFrame1.Name = "depByPostBonusТ3ReportFrame1";
-            this.depByPostBonusТ3ReportFrame1.PeriodBegin = new System.DateTime(((long)(0)));
-            this.depByPostBonusТ3ReportFrame1.PeriodEnd = new System.DateTime(((long)(0)));
-            this.depByPostBonusТ3ReportFrame1.ReportNumber = 0;
-            this.depByPostBonusТ3ReportFrame1.ReportParam = -1;
-            this.depByPostBonusТ3ReportFrame1.ReportType = null;
-            this.depByPostBonusТ3ReportFrame1.Size = new System.Drawing.Size(901, 465);
-            this.depByPostBonusТ3ReportFrame1.TabIndex = 0;
-            this.depByPostBonusТ3ReportFrame1.WithSubReports = true;
-            // 
-            // tpT3ByCategoryReport
-            // 
-            this.tpT3ByCategoryReport.Controls.Add(this.depByCategoryBonusТ3ReportFrame1);
-            this.tpT3ByCategoryReport.Location = new System.Drawing.Point(4, 22);
-            this.tpT3ByCategoryReport.Name = "tpT3ByCategoryReport";
-            this.tpT3ByCategoryReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpT3ByCategoryReport.Size = new System.Drawing.Size(907, 471);
-            this.tpT3ByCategoryReport.TabIndex = 4;
-            this.tpT3ByCategoryReport.Text = "Т3 по категориям";
-            this.tpT3ByCategoryReport.UseVisualStyleBackColor = true;
-            // 
-            // depByCategoryBonusТ3ReportFrame1
-            // 
-            this.depByCategoryBonusТ3ReportFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.depByCategoryBonusТ3ReportFrame1.Location = new System.Drawing.Point(3, 3);
-            this.depByCategoryBonusТ3ReportFrame1.Name = "depByCategoryBonusТ3ReportFrame1";
-            this.depByCategoryBonusТ3ReportFrame1.PeriodBegin = new System.DateTime(((long)(0)));
-            this.depByCategoryBonusТ3ReportFrame1.PeriodEnd = new System.DateTime(((long)(0)));
-            this.depByCategoryBonusТ3ReportFrame1.ReportNumber = 0;
-            this.depByCategoryBonusТ3ReportFrame1.ReportParam = -1;
-            this.depByCategoryBonusТ3ReportFrame1.ReportType = null;
-            this.depByCategoryBonusТ3ReportFrame1.Size = new System.Drawing.Size(901, 465);
-            this.depByCategoryBonusТ3ReportFrame1.TabIndex = 0;
-            this.depByCategoryBonusТ3ReportFrame1.WithSubReports = true;
-            // 
-            // tpBonusByFundSources
-            // 
-            this.tpBonusByFundSources.Controls.Add(this.reportBaseFrameForPeriod2);
-            this.tpBonusByFundSources.Location = new System.Drawing.Point(4, 22);
-            this.tpBonusByFundSources.Name = "tpBonusByFundSources";
-            this.tpBonusByFundSources.Size = new System.Drawing.Size(907, 471);
-            this.tpBonusByFundSources.TabIndex = 6;
-            this.tpBonusByFundSources.Text = "Фонд по источникам";
-            this.tpBonusByFundSources.UseVisualStyleBackColor = true;
-            // 
-            // reportBaseFrameForPeriod2
-            // 
-            this.reportBaseFrameForPeriod2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportBaseFrameForPeriod2.Location = new System.Drawing.Point(0, 0);
-            this.reportBaseFrameForPeriod2.Name = "reportBaseFrameForPeriod2";
-            this.reportBaseFrameForPeriod2.PeriodBegin = new System.DateTime(((long)(0)));
-            this.reportBaseFrameForPeriod2.PeriodEnd = new System.DateTime(((long)(0)));
-            this.reportBaseFrameForPeriod2.ReportNumber = 0;
-            this.reportBaseFrameForPeriod2.ReportParam = -1;
-            this.reportBaseFrameForPeriod2.ReportType = null;
-            this.reportBaseFrameForPeriod2.Size = new System.Drawing.Size(907, 471);
-            this.reportBaseFrameForPeriod2.TabIndex = 0;
-            this.reportBaseFrameForPeriod2.WithSubReports = true;
-            // 
             // tpTimeSheet
             // 
             this.tpTimeSheet.AutoScroll = true;
@@ -2241,7 +2261,7 @@
             this.tpTimeSheet.Location = new System.Drawing.Point(4, 22);
             this.tpTimeSheet.Name = "tpTimeSheet";
             this.tpTimeSheet.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTimeSheet.Size = new System.Drawing.Size(802, 533);
+            this.tpTimeSheet.Size = new System.Drawing.Size(927, 405);
             this.tpTimeSheet.TabIndex = 5;
             this.tpTimeSheet.Text = "Табель";
             this.tpTimeSheet.UseVisualStyleBackColor = true;
@@ -2258,7 +2278,7 @@
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(796, 527);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(921, 399);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
             // dgvTimeSheetFS
@@ -2296,7 +2316,7 @@
             this.dgvTimeSheetFS.ReadOnly = true;
             this.dgvTimeSheetFS.RowHeadersVisible = false;
             this.dgvTimeSheetFS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTimeSheetFS.Size = new System.Drawing.Size(790, 497);
+            this.dgvTimeSheetFS.Size = new System.Drawing.Size(915, 497);
             this.dgvTimeSheetFS.TabIndex = 1;
             this.dgvTimeSheetFS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTimeSheetFS_CellClick);
             this.dgvTimeSheetFS.DoubleClick += new System.EventHandler(this.dgvTimeSheetFS_DoubleClick);
@@ -2356,13 +2376,15 @@
             this.btnTimeSheetToExcel});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(796, 24);
+            this.toolStrip3.Size = new System.Drawing.Size(921, 24);
             this.toolStrip3.TabIndex = 0;
             this.toolStrip3.Text = "toolStrip3";
+            this.toolStrip3.Visible = false;
             // 
             // cbTimeSheet
             // 
             this.cbTimeSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeSheet.Enabled = false;
             this.cbTimeSheet.Name = "cbTimeSheet";
             this.cbTimeSheet.Size = new System.Drawing.Size(221, 24);
             this.cbTimeSheet.ToolTipText = "Месяц табеля";
@@ -3681,6 +3703,18 @@
             this.Size = new System.Drawing.Size(941, 450);
             this.Load += new System.EventHandler(this.KadrRootFrame_Load);
             this.groupBox1.ResumeLayout(false);
+            this.tpDepBonusReport.ResumeLayout(false);
+            this.tpDepBonusReport.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            this.toolStrip6.ResumeLayout(false);
+            this.toolStrip6.PerformLayout();
+            this.tcBonusReports.ResumeLayout(false);
+            this.tpSmallDelBonusReport.ResumeLayout(false);
+            this.tpEmplBonusReport.ResumeLayout(false);
+            this.tpT3ByPostReport.ResumeLayout(false);
+            this.tpT3ByCategoryReport.ResumeLayout(false);
+            this.tpBonusByFundSources.ResumeLayout(false);
             this.tpStaff.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -3723,18 +3757,6 @@
             this.tcDepStaffReport.ResumeLayout(false);
             this.tpDepStaffReportWithFinSource.ResumeLayout(false);
             this.tpDepStaffReport.ResumeLayout(false);
-            this.tpDepBonusReport.ResumeLayout(false);
-            this.tpDepBonusReport.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            this.toolStrip6.ResumeLayout(false);
-            this.toolStrip6.PerformLayout();
-            this.tcBonusReports.ResumeLayout(false);
-            this.tpSmallDelBonusReport.ResumeLayout(false);
-            this.tpEmplBonusReport.ResumeLayout(false);
-            this.tpT3ByPostReport.ResumeLayout(false);
-            this.tpT3ByCategoryReport.ResumeLayout(false);
-            this.tpBonusByFundSources.ResumeLayout(false);
             this.tpTimeSheet.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
@@ -3838,7 +3860,6 @@
         private System.Windows.Forms.ToolStripMenuItem уволенныеToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TabPage tpDepBonusReport;
         private System.Windows.Forms.TabPage tpTimeSheet;
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.DataGridView dgvTimeSheetFS;
@@ -4112,6 +4133,7 @@
         private Reports.Frames.ReportBaseFrameForQuarter reportBaseFrameForQuarter1;
         private System.Windows.Forms.TabPage tpZZFAverage;
         private Reports.Frames.ReportBaseFrameForQuarter reportBaseFrameForQuarter2;
+        private System.Windows.Forms.TabPage tpDepBonusReport;
         
     }
 }

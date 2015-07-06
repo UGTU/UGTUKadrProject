@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Kadr.Controllers;
 using Kadr.Data;
 using Kadr.KadrTreeView;
 using Kadr.UI.Dialogs;
 using Kadr.Data.Common;
-using Reports.Frames;
+
 
 
 namespace Kadr.UI.Frames
@@ -23,7 +19,7 @@ namespace Kadr.UI.Frames
         /// <summary>
         /// Отображаемый отдел
         /// </summary>
-        public Kadr.Data.Dep Department                    
+        public Dep Department                    
         {
             get 
             {
@@ -304,8 +300,8 @@ namespace Kadr.UI.Frames
 
        private void btnAddPlanStaff_Click(object sender, EventArgs e)
         {           
-           using (Kadr.UI.Common.PropertyGridDialogAdding<PlanStaff>dlg = 
-                new Kadr.UI.Common.PropertyGridDialogAdding<PlanStaff>())
+           using (Common.PropertyGridDialogAdding<PlanStaff>dlg = 
+                new Common.PropertyGridDialogAdding<PlanStaff>())
             {
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.PlanStaffs;
@@ -406,7 +402,7 @@ namespace Kadr.UI.Frames
 
        private void DelFactStaffBtn_Click(object sender, EventArgs e)
        {
-           FactStaff CurrentFactStaff = factStaffBindingSource.Current as Kadr.Data.FactStaff;
+           FactStaff CurrentFactStaff = factStaffBindingSource.Current as FactStaff;
 
            if (CurrentFactStaff == null)
            {
@@ -464,7 +460,7 @@ namespace Kadr.UI.Frames
 
            using (FactStaffTransfer dlg = new FactStaffTransfer())
            {
-               dlg.CurentPlanStaff = planStaffBindingSource.Current as Kadr.Data.PlanStaff;
+               dlg.CurentPlanStaff = planStaffBindingSource.Current as PlanStaff;
                //dlg.Department = Department;
                dlg.LoadDepartments();
                dlg.Department = Department.FullDepartment;
@@ -512,7 +508,7 @@ namespace Kadr.UI.Frames
  
        private void btnEditSalary_Click(object sender, EventArgs e)
        {
-           PlanStaff CurrentPlanStaff = planStaffBindingSource.Current as Kadr.Data.PlanStaff;
+           PlanStaff CurrentPlanStaff = planStaffBindingSource.Current as PlanStaff;
            if (CurrentPlanStaff != null)
            {
                using (Kadr.UI.Forms.PlanStaffSalaryHistoryForm dlg =
@@ -527,10 +523,10 @@ namespace Kadr.UI.Frames
 
        private void btnBonus_Click(object sender, EventArgs e)
        {
-           using (Kadr.UI.Forms.KadrBonusForm bonFrm =
-               new Kadr.UI.Forms.KadrBonusForm())
+           using (Forms.KadrBonusForm bonFrm =
+               new Forms.KadrBonusForm())
            {
-               bonFrm.BonusObject = planStaffBindingSource.Current as Kadr.Data.PlanStaff;
+               bonFrm.BonusObject = planStaffBindingSource.Current as PlanStaff;
                ObjectStateController.Instance.GetFilterForObjectState(bonFrm.tsbBonusFilter, BonusFilterSetting);
                bonFrm.ShowDialog();
            }
@@ -539,10 +535,10 @@ namespace Kadr.UI.Frames
 
        private void btnFactStaffBonus_Click(object sender, EventArgs e)
        {
-           using (Kadr.UI.Forms.KadrBonusForm bonFrm =
-                new Kadr.UI.Forms.KadrBonusForm())
+           using (Forms.KadrBonusForm bonFrm =
+                new Forms.KadrBonusForm())
            {
-               bonFrm.BonusObject = factStaffBindingSource.Current as Kadr.Data.FactStaff;
+               bonFrm.BonusObject = factStaffBindingSource.Current as FactStaff;
                ObjectStateController.Instance.GetFilterForObjectState(bonFrm.tsbBonusFilter, BonusFilterSetting);
                bonFrm.ShowDialog();
            }
@@ -565,8 +561,8 @@ namespace Kadr.UI.Frames
 
            FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
 
-            using (Kadr.UI.Common.PropertyGridDialogAdding<FactStaffReplacement> dlg =
-                new Kadr.UI.Common.PropertyGridDialogAdding<FactStaffReplacement>())
+            using (Common.PropertyGridDialogAdding<FactStaffReplacement> dlg =
+                new Common.PropertyGridDialogAdding<FactStaffReplacement>())
             {
                 dlg.ObjectList = KadrController.Instance.Model.FactStaffReplacements;
                 dlg.BindingSource = null;
@@ -662,7 +658,7 @@ namespace Kadr.UI.Frames
 
        private void tsbTimeSheets_Click(object sender, EventArgs e)
        {
-           using (Kadr.UI.Forms.TimeSheetsForm timeSheets = new Forms.TimeSheetsForm())
+           using (Forms.TimeSheetsForm timeSheets = new Forms.TimeSheetsForm())
            {
                if (cbTimeSheet.SelectedItem == null)
                    timeSheets.CurrentYear = DateTime.Today.Year;
@@ -698,7 +694,7 @@ namespace Kadr.UI.Frames
                return;
            }
 
-           LinqActionsController<TimeSheetFSWorkingDay>.Instance.EditObject(timeSheetFSWorkingDaysBindingSource.Current as Kadr.Data.TimeSheetFSWorkingDay, true);
+           LinqActionsController<TimeSheetFSWorkingDay>.Instance.EditObject(timeSheetFSWorkingDaysBindingSource.Current as TimeSheetFSWorkingDay, true);
        }
 
        private void tsbRefreshTimeSheet_Click(object sender, EventArgs e)
@@ -833,6 +829,9 @@ namespace Kadr.UI.Frames
 
        private void KadrRootFrame_Load(object sender, EventArgs e)
        {
+           tcDepartment.TabPages.Remove(tpDepBonusReport);
+           tcDepartment.TabPages.Remove(tpTimeSheet);
+           
            cbYear.Items.Clear();
            cbYear.Items.AddRange(KadrController.Instance.Model.TimeSheets.Select(ts => ts.TimeSheetYear as Object).Distinct().OrderByDescending(ts => ts as int?).ToArray());
            cbYear.SelectedItem = DateTime.Today.Year;
@@ -885,6 +884,8 @@ namespace Kadr.UI.Frames
            if (DateTime.Today.Month % 3 > 1)
                MonthMod3 = 1;
            cbQuarter.SelectedItem = cbQuarter.Items[DateTime.Today.Month / 3 + MonthMod3 - 1];
+
+           
        }
 
        private void btnReportLoad_Click(object sender, EventArgs e)
@@ -896,7 +897,7 @@ namespace Kadr.UI.Frames
        private void btnChangePlanStaff_Click(object sender, EventArgs e)
        {
            
-           PlanStaff currentPlanStaff = planStaffBindingSource.Current as Kadr.Data.PlanStaff;
+           PlanStaff currentPlanStaff = planStaffBindingSource.Current as PlanStaff;
            if (currentPlanStaff == null)
            {
                MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
@@ -933,10 +934,10 @@ namespace Kadr.UI.Frames
 
        private void btnPlanStaffHistory_Click(object sender, EventArgs e)
        {
-           using (Kadr.UI.Forms.PlanStaffHistoryForm HistForm =
-               new Kadr.UI.Forms.PlanStaffHistoryForm())
+           using (Forms.PlanStaffHistoryForm HistForm =
+               new Forms.PlanStaffHistoryForm())
            {
-               HistForm.PlanStaff = planStaffBindingSource.Current as Kadr.Data.PlanStaff;
+               HistForm.PlanStaff = planStaffBindingSource.Current as PlanStaff;
                HistForm.ShowDialog();
            }
        }
@@ -963,8 +964,8 @@ namespace Kadr.UI.Frames
                return;
            }
 
-           using (Kadr.UI.Forms.FactStaffHistoryForm HistForm =
-                          new Kadr.UI.Forms.FactStaffHistoryForm())
+           using (Forms.FactStaffHistoryForm HistForm =
+                          new Forms.FactStaffHistoryForm())
            {
                HistForm.FactStaff = currentFactStaff;
                HistForm.ShowDialog();
@@ -1002,10 +1003,7 @@ namespace Kadr.UI.Frames
            tcForms_SelectedIndexChanged(null, null);
        }
 
-       private void tcBonusReports_SelectedIndexChanged(object sender, EventArgs e)
-       {
-           
-       }
+       
 
        private void btnBonusRepLoad_Click(object sender, EventArgs e)
        {
@@ -1044,7 +1042,7 @@ namespace Kadr.UI.Frames
 
        private void btnTimeSheetToExcel_Click(object sender, EventArgs e)
        {
-           Kadr.Controllers.ExcelExportController.Instance.ExportToExcel(dgvTimeSheetFS);
+           ExcelExportController.Instance.ExportToExcel(dgvTimeSheetFS);
        }
 
        private void tcStaffChangesReport_SelectedIndexChanged(object sender, EventArgs e)
@@ -1075,8 +1073,8 @@ namespace Kadr.UI.Frames
 
        private void btnAddTimeNorm_Click(object sender, EventArgs e)
        {
-           using (Kadr.UI.Common.PropertyGridDialogAdding<DepartmentTimeNorm> dlg =
-                new Kadr.UI.Common.PropertyGridDialogAdding<DepartmentTimeNorm>())
+           using (Common.PropertyGridDialogAdding<DepartmentTimeNorm> dlg =
+                new Common.PropertyGridDialogAdding<DepartmentTimeNorm>())
            {
                dlg.UseInternalCommandManager = true;
                dlg.ObjectList = KadrController.Instance.Model.DepartmentTimeNorms;
@@ -1103,12 +1101,12 @@ namespace Kadr.UI.Frames
 
        private void btnEditTimeNorm_Click(object sender, EventArgs e)
        {
-           LinqActionsController<DepartmentTimeNorm>.Instance.EditObject(departmentTimeNormBindingSource.Current as Kadr.Data.DepartmentTimeNorm, true);
+           LinqActionsController<DepartmentTimeNorm>.Instance.EditObject(departmentTimeNormBindingSource.Current as DepartmentTimeNorm, true);
        }
 
        private void btnDelTimeNorm_Click(object sender, EventArgs e)
        {
-           DepartmentTimeNorm CurrentTimeNorm = departmentTimeNormBindingSource.Current as Kadr.Data.DepartmentTimeNorm;
+           DepartmentTimeNorm CurrentTimeNorm = departmentTimeNormBindingSource.Current as DepartmentTimeNorm;
 
            if (CurrentTimeNorm == null)
            {
@@ -1143,7 +1141,7 @@ namespace Kadr.UI.Frames
        {
            if ((departmentBindingSource.Current as Dep) != null)
            {
-               ((this.FrameNodeObject as RootNodeObject).treeView as KadrTreeView.KadrTreeView).FindAndSelectDepartment(
+               ((FrameNodeObject as RootNodeObject).treeView as KadrTreeView.KadrTreeView).FindAndSelectDepartment(
                    (departmentBindingSource.Current as Dep).Department);
            }
        }
@@ -1171,8 +1169,8 @@ namespace Kadr.UI.Frames
                return;
            }
            Dep CurrentDep = (departmentBindingSource.Current as Dep);
-           using (Kadr.UI.Common.PropertyGridDialogAdding<DepartmentFund> dlg =
-                new Kadr.UI.Common.PropertyGridDialogAdding<DepartmentFund>())
+           using (Common.PropertyGridDialogAdding<DepartmentFund> dlg =
+                new Common.PropertyGridDialogAdding<DepartmentFund>())
            {
                dlg.ObjectList = KadrController.Instance.Model.DepartmentFunds;
                //dlg.BindingSource = departmentFundBindingSource;
@@ -1208,8 +1206,8 @@ namespace Kadr.UI.Frames
 
        private void btnAddDep_Click(object sender, EventArgs e)
        {
-           using (Kadr.UI.Common.PropertyGridDialogAdding<Dep> dlg =
-                new Kadr.UI.Common.PropertyGridDialogAdding<Dep>())
+           using (Common.PropertyGridDialogAdding<Dep> dlg =
+                new Common.PropertyGridDialogAdding<Dep>())
            {
                dlg.UseInternalCommandManager = true;
                dlg.ObjectList = KadrController.Instance.Model.Deps;
@@ -1315,8 +1313,8 @@ namespace Kadr.UI.Frames
             /*KadrController.Instance.AddFactStaff(hourFactStaffBindingSource, null, Department,
                            Kadr.Data.WorkType.hourWorkType);*/
 
-           using (Kadr.UI.Common.PropertyGridDialogAdding<FactStaffHour> dlg =
-                new Kadr.UI.Common.PropertyGridDialogAdding<FactStaffHour>())
+           using (Common.PropertyGridDialogAdding<FactStaffHour> dlg =
+                new Common.PropertyGridDialogAdding<FactStaffHour>())
            {
                dlg.ObjectList = null;
                dlg.BindingSource = hourFactStaffBindingSource;
@@ -1408,8 +1406,8 @@ namespace Kadr.UI.Frames
 
        private void HistiryHourFactStaffBtn_Click(object sender, EventArgs e)
        {
-           using (Kadr.UI.Forms.FactStaffHistoryForm HistForm =
-                          new Kadr.UI.Forms.FactStaffHistoryForm())
+           using (Forms.FactStaffHistoryForm HistForm =
+                          new Forms.FactStaffHistoryForm())
            {
                HistForm.FactStaff = hourFactStaffBindingSource.Current as Kadr.Data.FactStaff;
                HistForm.ShowDialog();
@@ -1437,7 +1435,7 @@ namespace Kadr.UI.Frames
        
        private void btnHourStaffToExcel_Click(object sender, EventArgs e)
        {
-           Kadr.Controllers.ExcelExportController.Instance.ExportToExcel(dgvHourFactStaff);
+           ExcelExportController.Instance.ExportToExcel(dgvHourFactStaff);
        }
 
        private void DelContractStaffBtn_Click(object sender, EventArgs e)
@@ -1482,8 +1480,8 @@ namespace Kadr.UI.Frames
 
        private void tsbAddFacrStaffContractHour_Click(object sender, EventArgs e)
        {
-           using (Kadr.UI.Common.PropertyGridDialogAdding<FactStaffHourContract> dlg =
-                new Kadr.UI.Common.PropertyGridDialogAdding<FactStaffHourContract>())
+           using (Common.PropertyGridDialogAdding<FactStaffHourContract> dlg =
+                new Common.PropertyGridDialogAdding<FactStaffHourContract>())
            {
                dlg.ObjectList = null;
                dlg.BindingSource = hourFactStaffBindingSource;
@@ -1515,10 +1513,10 @@ namespace Kadr.UI.Frames
                    }
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x.FactStaff, "IsReplacement", false, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FactStaff>(x.FactStaff, "FactStaff1", NullFactStaff.Instance, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", Kadr.Data.WorkType.hourWorkType, null), this);
+                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", Data.WorkType.hourWorkType, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x.FactStaff, "Dep", Department, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x.FactStaff, "FundingCenter", NullFundingCenter.Instance, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x.FactStaff, "FinancingSource", Kadr.Data.FinancingSource.extrabudgetFinancingSource, null), this);
+                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x.FactStaff, "FinancingSource", Data.FinancingSource.extrabudgetFinancingSource, null), this);
                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "SalaryKoeff", 1, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", x.FactStaff, null), this);
 
@@ -1537,7 +1535,7 @@ namespace Kadr.UI.Frames
        private void tsbFactStaffHours_Click(object sender, EventArgs e)
        {
            FactStaff currentFactStaff = hourFactStaffBindingSource.Current as FactStaff;
-           using (Kadr.UI.Forms.FactStaffHoursForm dlg = new Forms.FactStaffHoursForm(currentFactStaff))
+           using (Forms.FactStaffHoursForm dlg = new Forms.FactStaffHoursForm(currentFactStaff))
            {
                dlg.ShowDialog();
            }

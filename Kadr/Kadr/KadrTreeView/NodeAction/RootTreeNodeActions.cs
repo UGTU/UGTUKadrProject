@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using Kadr.Data;
-using Kadr.Controllers;
+﻿using Kadr.Controllers;
 
 
 namespace Kadr.KadrTreeView.NodeAction
@@ -19,7 +12,7 @@ namespace Kadr.KadrTreeView.NodeAction
         [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Добавить отдел...", true)]
         protected override void AddExecute(object sender)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<Dep> dlg =
+            /*using (Kadr.UI.Common.PropertyGridDialogAdding<Dep> dlg =
                 new Kadr.UI.Common.PropertyGridDialogAdding<Dep>())
             {
                 dlg.UseInternalCommandManager = true;
@@ -27,10 +20,6 @@ namespace Kadr.KadrTreeView.NodeAction
                 dlg.BindingSource = null; ;
                 dlg.InitializeNewObject = (x) =>
                 {
-                    /*dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Dep, Dep>(x, "Department1", (NodeObject as RootNodeObject).Department, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Department, int>(x, "SeverKoeff", (int)((NodeObject as RootNodeObject).Department.SeverKoeff), null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Department, Int32>(x, "RayonKoeff", (int)((NodeObject as RootNodeObject).Department.RayonKoeff), null), this);
-                    */
                     DepartmentHistory depHistory = new DepartmentHistory();
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<DepartmentHistory, Prikaz>(depHistory, "Prikaz", NullPrikaz.Instance, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<DepartmentHistory, Dep>(depHistory, "Dep", x, null), this);
@@ -49,7 +38,7 @@ namespace Kadr.KadrTreeView.NodeAction
 
                 dlg.ShowDialog();
                 (NodeObject as RootNodeObject).Refresh();
-            }
+            }*/
 
 
         }
@@ -57,7 +46,7 @@ namespace Kadr.KadrTreeView.NodeAction
         protected override void DeleteExecute(object sender)
         {
             //MessageBox.Show("DeleteExecute");
-            KadrController.Instance.Model.DepartmentHistories.DeleteAllOnSubmit(KadrController.Instance.Model.DepartmentHistories.Where(depHist => depHist.Dep == (NodeObject as RootNodeObject).Department));
+            /*KadrController.Instance.Model.DepartmentHistories.DeleteAllOnSubmit(KadrController.Instance.Model.DepartmentHistories.Where(depHist => depHist.Dep == (NodeObject as RootNodeObject).Department));
 
             LinqActionsController<Dep>.Instance.DeleteObject((NodeObject as RootNodeObject).Department ,
                  KadrController.Instance.Model.Deps, null);
@@ -66,7 +55,7 @@ namespace Kadr.KadrTreeView.NodeAction
             if ((KadrController.Instance.Model.Deps.Where(dep => dep == (NodeObject as RootNodeObject).Department).Count() == 0)
                 && (NodeObject.Parent != null))
                 NodeObject.Parent.Refresh();
-                //treeView.Refresh();
+                //treeView.Refresh();*/
 
         }
 
@@ -89,10 +78,10 @@ namespace Kadr.KadrTreeView.NodeAction
         [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Свойства...", true)]
         protected override void UpdateExecute(object sender)
         {
-            if ((NodeObject as RootNodeObject).Department.FundingCenter == null)
+            /*if ((NodeObject as RootNodeObject).Department.FundingCenter == null)
                 (NodeObject as RootNodeObject).Department.FundingCenter = NullFundingCenter.Instance;
             LinqActionsController<Dep>.Instance.EditObject((NodeObject as RootNodeObject).Department, false);
-            NodeObject.Refresh();
+            NodeObject.Refresh();*/
         }
 
         [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Экспортировать в Excel", true)]
@@ -105,7 +94,7 @@ namespace Kadr.KadrTreeView.NodeAction
 
         protected override void AddHistoryExecute(object sender)
         {
-            Dep currentDepartment = (NodeObject as RootNodeObject).Department;
+            /*Dep currentDepartment = (NodeObject as RootNodeObject).Department;
             using (Kadr.UI.Common.PropertyGridDialogAdding<DepartmentHistory> dlg =
                  new Kadr.UI.Common.PropertyGridDialogAdding<DepartmentHistory>())
             {
@@ -131,30 +120,30 @@ namespace Kadr.KadrTreeView.NodeAction
 
                 dlg.ShowDialog();
                 NodeObject.Refresh();
-            }
+            }*/
         }
 
         protected override void HistoryExecute(object sender)
         {
-            using (Kadr.UI.Forms.DepartmentHistoryForm HistForm =
+            /*using (Kadr.UI.Forms.DepartmentHistoryForm HistForm =
                            new Kadr.UI.Forms.DepartmentHistoryForm())
             {
                 HistForm.Department = (NodeObject as RootNodeObject).Department;
                 HistForm.ShowDialog();
             }
-            NodeObject.Refresh();
+            NodeObject.Refresh();*/
         }
 
 
         protected override bool CanAdd(object sender)
         {
 
-            return true;
+            return false;
         }
 
         protected override bool CanDelete(object sender)
         {
-            return true;
+            return false;
         }
 
         protected override bool CanCopy(object sender)
@@ -174,7 +163,7 @@ namespace Kadr.KadrTreeView.NodeAction
 
         protected override bool CanUpdate(object sender)
         {
-            return true;
+            return false;
         }
 
         protected override bool CanExport(object sender)
@@ -184,12 +173,12 @@ namespace Kadr.KadrTreeView.NodeAction
 
         protected override bool CanAddHistory(object sender)
         {
-            return true;
+            return false;
         }
 
         protected override bool CanHistory(object sender)
         {
-            return true;
+            return false;
         }
 
 

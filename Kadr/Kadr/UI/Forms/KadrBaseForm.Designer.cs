@@ -446,6 +446,7 @@ namespace Kadr.UI.Forms
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
             this.toolStripSeparator13.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator13.Visible = false;
             // 
             // tsbBonusFilter
             // 
@@ -458,6 +459,7 @@ namespace Kadr.UI.Forms
             this.tsbBonusFilter.Size = new System.Drawing.Size(92, 20);
             this.tsbBonusFilter.Text = "Надбавки";
             this.tsbBonusFilter.ToolTipText = "Настройки фильтра надбавок";
+            this.tsbBonusFilter.Visible = false;
             this.tsbBonusFilter.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripSplitButton2_DropDownItemClicked);
             // 
             // текущиеНадбавкиToolStripMenuItem
@@ -480,6 +482,7 @@ namespace Kadr.UI.Forms
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
             this.toolStripSeparator14.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator14.Visible = false;
             // 
             // toolStripContainer1
             // 
@@ -734,6 +737,7 @@ namespace Kadr.UI.Forms
             this.ВидНадбавкиToolStripMenuItem.Name = "ВидНадбавкиToolStripMenuItem";
             this.ВидНадбавкиToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.ВидНадбавкиToolStripMenuItem.Text = "Надбавки";
+            this.ВидНадбавкиToolStripMenuItem.Visible = false;
             // 
             // единицыИзмеренияToolStripMenuItem
             // 
@@ -776,6 +780,7 @@ namespace Kadr.UI.Forms
             this.gRToolStripMenuItem.Name = "gRToolStripMenuItem";
             this.gRToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.gRToolStripMenuItem.Text = "Должности";
+            this.gRToolStripMenuItem.Visible = false;
             // 
             // пКГToolStripMenuItem
             // 
@@ -904,6 +909,7 @@ namespace Kadr.UI.Forms
             this.окладToolStripMenuItem.Name = "окладToolStripMenuItem";
             this.окладToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.окладToolStripMenuItem.Text = "Финансирование";
+            this.окладToolStripMenuItem.Visible = false;
             // 
             // источникФинансированияToolStripMenuItem
             // 
@@ -980,6 +986,7 @@ namespace Kadr.UI.Forms
             this.отделыToolStripMenuItem.Name = "отделыToolStripMenuItem";
             this.отделыToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.отделыToolStripMenuItem.Text = "Остальное";
+            this.отделыToolStripMenuItem.Visible = false;
             // 
             // типыОтделовToolStripMenuItem
             // 
@@ -1004,6 +1011,7 @@ namespace Kadr.UI.Forms
             this.параметрыToolStripMenuItem.Name = "параметрыToolStripMenuItem";
             this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
             this.параметрыToolStripMenuItem.Text = "Назначить надбавки";
+            this.параметрыToolStripMenuItem.Visible = false;
             this.параметрыToolStripMenuItem.Click += new System.EventHandler(this.назначитьНадбавкиToolStripMenuItem_Click);
             // 
             // продлитьНадбавкуToolStripMenuItem
@@ -1011,6 +1019,7 @@ namespace Kadr.UI.Forms
             this.продлитьНадбавкуToolStripMenuItem.Name = "продлитьНадбавкуToolStripMenuItem";
             this.продлитьНадбавкуToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
             this.продлитьНадбавкуToolStripMenuItem.Text = "Продлить надбавку";
+            this.продлитьНадбавкуToolStripMenuItem.Visible = false;
             this.продлитьНадбавкуToolStripMenuItem.Click += new System.EventHandler(this.продлитьНадбавкуToolStripMenuItem_Click);
             // 
             // продлитьНадбавкурасширеннаяФормаToolStripMenuItem
@@ -1018,6 +1027,7 @@ namespace Kadr.UI.Forms
             this.продлитьНадбавкурасширеннаяФормаToolStripMenuItem.Name = "продлитьНадбавкурасширеннаяФормаToolStripMenuItem";
             this.продлитьНадбавкурасширеннаяФормаToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
             this.продлитьНадбавкурасширеннаяФормаToolStripMenuItem.Text = "Продлить надбавку (расширенная форма)";
+            this.продлитьНадбавкурасширеннаяФормаToolStripMenuItem.Visible = false;
             this.продлитьНадбавкурасширеннаяФормаToolStripMenuItem.Click += new System.EventHandler(this.продлитьНадбавкурасширеннаяФормаToolStripMenuItem_Click);
             // 
             // назначитьЧасыToolStripMenuItem
@@ -1046,6 +1056,7 @@ namespace Kadr.UI.Forms
             this.отчётыToolStripMenuItem.Name = "отчётыToolStripMenuItem";
             this.отчётыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.отчётыToolStripMenuItem.Text = "&Отчёты";
+            this.отчётыToolStripMenuItem.Visible = false;
             // 
             // toolStripMenuItem2
             // 
@@ -1057,6 +1068,7 @@ namespace Kadr.UI.Forms
             this.графикБуренияToolStripMenuItem.Name = "графикБуренияToolStripMenuItem";
             this.графикБуренияToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.графикБуренияToolStripMenuItem.Text = "Отчет по виду надбавки";
+            this.графикБуренияToolStripMenuItem.Visible = false;
             this.графикБуренияToolStripMenuItem.Click += new System.EventHandler(this.графикБуренияToolStripMenuItem_Click);
             // 
             // надбавкиПоВидуРаботыToolStripMenuItem1
@@ -1064,6 +1076,7 @@ namespace Kadr.UI.Forms
             this.надбавкиПоВидуРаботыToolStripMenuItem1.Name = "надбавкиПоВидуРаботыToolStripMenuItem1";
             this.надбавкиПоВидуРаботыToolStripMenuItem1.Size = new System.Drawing.Size(278, 22);
             this.надбавкиПоВидуРаботыToolStripMenuItem1.Text = "Фонд по виду работы";
+            this.надбавкиПоВидуРаботыToolStripMenuItem1.Visible = false;
             this.надбавкиПоВидуРаботыToolStripMenuItem1.Click += new System.EventHandler(this.надбавкиПоВидуРаботыToolStripMenuItem_Click);
             // 
             // надбавкиПоОтделамToolStripMenuItem
@@ -1103,6 +1116,7 @@ namespace Kadr.UI.Forms
             this.комплексныйОтчетПоНадбавкамToolStripMenuItem.Name = "комплексныйОтчетПоНадбавкамToolStripMenuItem";
             this.комплексныйОтчетПоНадбавкамToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.комплексныйОтчетПоНадбавкамToolStripMenuItem.Text = "ФОТ по категориям c источниками";
+            this.комплексныйОтчетПоНадбавкамToolStripMenuItem.Visible = false;
             this.комплексныйОтчетПоНадбавкамToolStripMenuItem.Click += new System.EventHandler(this.комплексныйОтчетПоНадбавкамToolStripMenuItem_Click);
             // 
             // фОТПоКатегориямБезИсточниковToolStripMenuItem
@@ -1110,6 +1124,7 @@ namespace Kadr.UI.Forms
             this.фОТПоКатегориямБезИсточниковToolStripMenuItem.Name = "фОТПоКатегориямБезИсточниковToolStripMenuItem";
             this.фОТПоКатегориямБезИсточниковToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.фОТПоКатегориямБезИсточниковToolStripMenuItem.Text = "ФОТ по категориям без источников";
+            this.фОТПоКатегориямБезИсточниковToolStripMenuItem.Visible = false;
             this.фОТПоКатегориямБезИсточниковToolStripMenuItem.Click += new System.EventHandler(this.фОТПоКатегориямБезИсточниковToolStripMenuItem_Click);
             // 
             // поискНадбавокПоПриказуToolStripMenuItem
@@ -1117,6 +1132,7 @@ namespace Kadr.UI.Forms
             this.поискНадбавокПоПриказуToolStripMenuItem.Name = "поискНадбавокПоПриказуToolStripMenuItem";
             this.поискНадбавокПоПриказуToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.поискНадбавокПоПриказуToolStripMenuItem.Text = "Поиск надбавок по приказу";
+            this.поискНадбавокПоПриказуToolStripMenuItem.Visible = false;
             this.поискНадбавокПоПриказуToolStripMenuItem.Click += new System.EventHandler(this.поискНадбавокПоПриказуToolStripMenuItem_Click);
             // 
             // сеткаПоДолжностямИОкладамToolStripMenuItem
@@ -1124,6 +1140,7 @@ namespace Kadr.UI.Forms
             this.сеткаПоДолжностямИОкладамToolStripMenuItem.Name = "сеткаПоДолжностямИОкладамToolStripMenuItem";
             this.сеткаПоДолжностямИОкладамToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.сеткаПоДолжностямИОкладамToolStripMenuItem.Text = "Сетка окладов";
+            this.сеткаПоДолжностямИОкладамToolStripMenuItem.Visible = false;
             this.сеткаПоДолжностямИОкладамToolStripMenuItem.Click += new System.EventHandler(this.сеткаПоДолжностямИОкладамToolStripMenuItem_Click);
             // 
             // надбавкиToolStripMenuItem

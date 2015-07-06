@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Kadr.Controllers;
 using Kadr.Data;
@@ -30,10 +26,10 @@ namespace Kadr.UI.Frames
         }
 
 
-        public KadrPostFrame(object AObject)
+        public KadrPostFrame(object aObject)
         {
             InitializeComponent();
-            FrameObject = AObject;
+            FrameObject = aObject;
         }
 
         private void LoadPosts(ArrayList postFilters)
@@ -66,8 +62,8 @@ namespace Kadr.UI.Frames
 
         private void AddPKCatBtn_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<PKCategory> dlg =
-            new Kadr.UI.Common.PropertyGridDialogAdding<PKCategory>())
+            using (var dlg =
+            new Common.PropertyGridDialogAdding<PKCategory>())
             {
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.PKCategories;
@@ -116,8 +112,8 @@ namespace Kadr.UI.Frames
 
         private void AddSalaryBtn_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<PKCategorySalary> dlg =
-                new Kadr.UI.Common.PropertyGridDialogAdding<PKCategorySalary>())
+            using (Common.PropertyGridDialogAdding<PKCategorySalary> dlg =
+                new Common.PropertyGridDialogAdding<PKCategorySalary>())
             {
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.PKCategorySalaries;
@@ -137,13 +133,13 @@ namespace Kadr.UI.Frames
 
         private void EditSalaryBtn_Click(object sender, EventArgs e)
         {
-            PKCategory CurrentPKCategory = pKCategoryBindingSource.Current as Kadr.Data.PKCategory;
-            if (CurrentPKCategory != null)
+            PKCategory currentPKCategory = pKCategoryBindingSource.Current as Kadr.Data.PKCategory;
+            if (currentPKCategory != null)
             {
-                using (Kadr.UI.Forms.PlanStaffSalaryHistoryForm dlg =
-                    new Kadr.UI.Forms.PlanStaffSalaryHistoryForm())
+                using (Forms.PlanStaffSalaryHistoryForm dlg =
+                    new Forms.PlanStaffSalaryHistoryForm())
                 {
-                    dlg.SalaryObject = CurrentPKCategory;
+                    dlg.SalaryObject = currentPKCategory;
                     dlg.ShowDialog();
                     RefreshFrame();
                 }
@@ -167,8 +163,8 @@ namespace Kadr.UI.Frames
 
         private void AddPostBtn_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<Post> dlg =
-            new Kadr.UI.Common.PropertyGridDialogAdding<Post>())
+            using (Common.PropertyGridDialogAdding<Post> dlg =
+            new Common.PropertyGridDialogAdding<Post>())
             {
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.Posts;
@@ -226,8 +222,8 @@ namespace Kadr.UI.Frames
 
         private void AddEmployeeBtn_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<Employee> dlg =
-                new Kadr.UI.Common.PropertyGridDialogAdding<Employee>())
+            using (Common.PropertyGridDialogAdding<Employee> dlg =
+                new Common.PropertyGridDialogAdding<Employee>())
             {
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.Employees;
@@ -276,10 +272,10 @@ namespace Kadr.UI.Frames
 
         private void btnBonus_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Forms.KadrBonusForm bonFrm =
-                new Kadr.UI.Forms.KadrBonusForm())
+            using (Forms.KadrBonusForm bonFrm =
+                new Forms.KadrBonusForm())
             {
-                bonFrm.BonusObject = postBindingSource.Current as Kadr.Data.Post;
+                bonFrm.BonusObject = postBindingSource.Current as Post;
                 bonFrm.ShowDialog();
             }
 
@@ -298,10 +294,10 @@ namespace Kadr.UI.Frames
                 employeeBindingSource.DataSource = KadrController.Instance.Model.Employees.OrderBy(empl => empl.LastName).ThenBy(empl => empl.FirstName).ThenBy(empl => empl.Otch);
             }
 
-            if (tcDepartment.SelectedTab == tpBonusType)
+            /*if (tcDepartment.SelectedTab == tpBonusType)
             {
                 LoadBonusTypes(ObjectStateController.Instance.GetObjectStatesForFilter(tsbBonusTypeFilter, null));
-            }
+            }*/
         }
 
         private void LoadBonusTypes(ArrayList bntFilters)
@@ -320,17 +316,17 @@ namespace Kadr.UI.Frames
 
         private void btnPostToExcel_Click(object sender, EventArgs e)
         {
-            Kadr.Controllers.ExcelExportController.Instance.ExportToExcel(dgvPost);
+            ExcelExportController.Instance.ExportToExcel(dgvPost);
         }
 
         private void btnCategoriesToExcel_Click(object sender, EventArgs e)
         {
-            Kadr.Controllers.ExcelExportController.Instance.ExportToExcel(dgvPKCategory);
+            ExcelExportController.Instance.ExportToExcel(dgvPKCategory);
         }
 
         private void btnEmployeeToExcel_Click(object sender, EventArgs e)
         {
-            Kadr.Controllers.ExcelExportController.Instance.ExportToExcel(dgvEmployee);
+            ExcelExportController.Instance.ExportToExcel(dgvEmployee);
         }
 
         private void tsbPostFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -340,8 +336,8 @@ namespace Kadr.UI.Frames
 
         private void btnAddBonusType_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<BonusType> dlg =
-                new Kadr.UI.Common.PropertyGridDialogAdding<BonusType>())
+            using (Common.PropertyGridDialogAdding<BonusType> dlg =
+                new Common.PropertyGridDialogAdding<BonusType>())
             {
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.BonusTypes;
@@ -391,7 +387,7 @@ namespace Kadr.UI.Frames
 
         private void btnExportToExcelBonusType_Click(object sender, EventArgs e)
         {
-            Kadr.Controllers.ExcelExportController.Instance.ExportToExcel(dgvBonusTypes);
+            ExcelExportController.Instance.ExportToExcel(dgvBonusTypes);
         }
 
         private void tsbBonusTypeFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)

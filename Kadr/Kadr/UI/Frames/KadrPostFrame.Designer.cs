@@ -34,6 +34,20 @@
             this.tpPost = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPost = new System.Windows.Forms.DataGridView();
+            this.PostType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryZP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GlobalPrikaz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PKCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalarySize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerBit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryVPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.AddPostBtn = new System.Windows.Forms.ToolStripButton();
@@ -107,20 +121,6 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryZP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GlobalPrikaz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PKCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalarySize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerBit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryVPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcDepartment.SuspendLayout();
             this.tpPost.SuspendLayout();
@@ -224,6 +224,120 @@
             this.dgvPost.TabIndex = 1;
             this.dgvPost.DoubleClick += new System.EventHandler(this.dgvPost_DoubleClick);
             // 
+            // PostType
+            // 
+            this.PostType.DataPropertyName = "PostType";
+            this.PostType.HeaderText = "Вид должности";
+            this.PostType.Name = "PostType";
+            this.PostType.ReadOnly = true;
+            this.PostType.Visible = false;
+            // 
+            // postNameDataGridViewTextBoxColumn
+            // 
+            this.postNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.postNameDataGridViewTextBoxColumn.DataPropertyName = "PostName";
+            this.postNameDataGridViewTextBoxColumn.HeaderText = "Должность";
+            this.postNameDataGridViewTextBoxColumn.MinimumWidth = 100;
+            this.postNameDataGridViewTextBoxColumn.Name = "postNameDataGridViewTextBoxColumn";
+            this.postNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Катег- ория";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            this.Category.Width = 45;
+            // 
+            // Category1
+            // 
+            this.Category1.DataPropertyName = "Category1";
+            this.Category1.HeaderText = "Новая катег";
+            this.Category1.Name = "Category1";
+            this.Category1.ReadOnly = true;
+            this.Category1.Width = 45;
+            // 
+            // CategoryZP
+            // 
+            this.CategoryZP.DataPropertyName = "CategoryZP";
+            this.CategoryZP.HeaderText = "Катег по ЗП";
+            this.CategoryZP.Name = "CategoryZP";
+            this.CategoryZP.ReadOnly = true;
+            this.CategoryZP.Width = 50;
+            // 
+            // PostGroup
+            // 
+            this.PostGroup.DataPropertyName = "PostGroup";
+            this.PostGroup.HeaderText = "Группа ";
+            this.PostGroup.Name = "PostGroup";
+            this.PostGroup.ReadOnly = true;
+            // 
+            // GlobalPrikaz
+            // 
+            this.GlobalPrikaz.DataPropertyName = "GlobalPrikaz";
+            this.GlobalPrikaz.HeaderText = "Приказ мин-ва";
+            this.GlobalPrikaz.Name = "GlobalPrikaz";
+            this.GlobalPrikaz.ReadOnly = true;
+            this.GlobalPrikaz.Width = 70;
+            // 
+            // PKCategory
+            // 
+            this.PKCategory.DataPropertyName = "PKCategory";
+            this.PKCategory.HeaderText = "Проф. уровень";
+            this.PKCategory.Name = "PKCategory";
+            this.PKCategory.ReadOnly = true;
+            this.PKCategory.Width = 63;
+            // 
+            // SalarySize
+            // 
+            this.SalarySize.DataPropertyName = "SalarySize";
+            this.SalarySize.HeaderText = "Оклад";
+            this.SalarySize.Name = "SalarySize";
+            this.SalarySize.ReadOnly = true;
+            this.SalarySize.Width = 70;
+            // 
+            // ManagerBit
+            // 
+            this.ManagerBit.DataPropertyName = "ManagerBit";
+            this.ManagerBit.HeaderText = "Руководитель";
+            this.ManagerBit.Name = "ManagerBit";
+            this.ManagerBit.ReadOnly = true;
+            this.ManagerBit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ManagerBit.Visible = false;
+            this.ManagerBit.Width = 85;
+            // 
+            // DateEnd
+            // 
+            this.DateEnd.DataPropertyName = "DateEnd";
+            this.DateEnd.HeaderText = "Дата отмены";
+            this.DateEnd.Name = "DateEnd";
+            this.DateEnd.ReadOnly = true;
+            this.DateEnd.Width = 75;
+            // 
+            // PostCode
+            // 
+            this.PostCode.DataPropertyName = "PostCode";
+            this.PostCode.HeaderText = "Код";
+            this.PostCode.Name = "PostCode";
+            this.PostCode.ReadOnly = true;
+            this.PostCode.Width = 70;
+            // 
+            // Comment
+            // 
+            this.Comment.DataPropertyName = "Comment";
+            this.Comment.HeaderText = "Комментарий";
+            this.Comment.Name = "Comment";
+            this.Comment.ReadOnly = true;
+            this.Comment.Width = 120;
+            // 
+            // CategoryVPO
+            // 
+            this.CategoryVPO.DataPropertyName = "CategoryVPO";
+            this.CategoryVPO.HeaderText = "Категория ВПО";
+            this.CategoryVPO.Name = "CategoryVPO";
+            this.CategoryVPO.ReadOnly = true;
+            this.CategoryVPO.Visible = false;
+            // 
             // postBindingSource
             // 
             this.postBindingSource.DataSource = typeof(Kadr.Data.Post);
@@ -253,6 +367,7 @@
             this.AddPostBtn.Name = "AddPostBtn";
             this.AddPostBtn.Size = new System.Drawing.Size(142, 22);
             this.AddPostBtn.Text = "Добавить должность";
+            this.AddPostBtn.Visible = false;
             this.AddPostBtn.Click += new System.EventHandler(this.AddPostBtn_Click);
             // 
             // EditPostBtn
@@ -263,6 +378,7 @@
             this.EditPostBtn.Size = new System.Drawing.Size(107, 22);
             this.EditPostBtn.Text = "Редактировать";
             this.EditPostBtn.ToolTipText = "Редактировать должность";
+            this.EditPostBtn.Visible = false;
             this.EditPostBtn.Click += new System.EventHandler(this.EditPostBtn_Click);
             // 
             // DelPostBtn
@@ -273,12 +389,14 @@
             this.DelPostBtn.Size = new System.Drawing.Size(71, 22);
             this.DelPostBtn.Text = "Удалить";
             this.DelPostBtn.ToolTipText = "Удалить должность";
+            this.DelPostBtn.Visible = false;
             this.DelPostBtn.Click += new System.EventHandler(this.DelPostBtn_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Visible = false;
             // 
             // btnBonus
             // 
@@ -289,12 +407,14 @@
             this.btnBonus.Text = "Надбавки";
             this.btnBonus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBonus.ToolTipText = "Открыть надбавки";
+            this.btnBonus.Visible = false;
             this.btnBonus.Click += new System.EventHandler(this.btnBonus_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Visible = false;
             // 
             // btnPostToExcel
             // 
@@ -347,7 +467,7 @@
             this.tpPKCategory.Location = new System.Drawing.Point(4, 22);
             this.tpPKCategory.Name = "tpPKCategory";
             this.tpPKCategory.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPKCategory.Size = new System.Drawing.Size(802, 533);
+            this.tpPKCategory.Size = new System.Drawing.Size(863, 375);
             this.tpPKCategory.TabIndex = 2;
             this.tpPKCategory.Text = "Профессиональные уровни";
             this.tpPKCategory.UseVisualStyleBackColor = true;
@@ -366,7 +486,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 527);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(857, 369);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // dgvPKCategory
@@ -480,6 +600,7 @@
             this.AddPKCatBtn.Name = "AddPKCatBtn";
             this.AddPKCatBtn.Size = new System.Drawing.Size(127, 22);
             this.AddPKCatBtn.Text = "Добавить уровень";
+            this.AddPKCatBtn.Visible = false;
             this.AddPKCatBtn.Click += new System.EventHandler(this.AddPKCatBtn_Click);
             // 
             // EditPKCatBtn
@@ -489,6 +610,7 @@
             this.EditPKCatBtn.Name = "EditPKCatBtn";
             this.EditPKCatBtn.Size = new System.Drawing.Size(155, 22);
             this.EditPKCatBtn.Text = "Редактировать уровень";
+            this.EditPKCatBtn.Visible = false;
             this.EditPKCatBtn.Click += new System.EventHandler(this.EditPKCatBtn_Click);
             // 
             // DelPKCatBtn
@@ -498,12 +620,14 @@
             this.DelPKCatBtn.Name = "DelPKCatBtn";
             this.DelPKCatBtn.Size = new System.Drawing.Size(119, 22);
             this.DelPKCatBtn.Text = "Удалить уровень";
+            this.DelPKCatBtn.Visible = false;
             this.DelPKCatBtn.Click += new System.EventHandler(this.DelPKCatBtn_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Visible = false;
             // 
             // EditSalaryBtn
             // 
@@ -513,12 +637,14 @@
             this.EditSalaryBtn.Size = new System.Drawing.Size(61, 22);
             this.EditSalaryBtn.Text = "Оклад";
             this.EditSalaryBtn.ToolTipText = "Открыть оклады";
+            this.EditSalaryBtn.Visible = false;
             this.EditSalaryBtn.Click += new System.EventHandler(this.EditSalaryBtn_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Visible = false;
             // 
             // btnCategoriesToExcel
             // 
@@ -740,12 +866,12 @@
             this.dataGridViewTextBoxColumn4});
             this.dgvBonusTypes.DataSource = this.bonusTypeBindingSource;
             this.dgvBonusTypes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBonusTypes.Location = new System.Drawing.Point(3, 28);
+            this.dgvBonusTypes.Location = new System.Drawing.Point(3, 3);
             this.dgvBonusTypes.Name = "dgvBonusTypes";
             this.dgvBonusTypes.ReadOnly = true;
             this.dgvBonusTypes.RowHeadersVisible = false;
             this.dgvBonusTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBonusTypes.Size = new System.Drawing.Size(796, 502);
+            this.dgvBonusTypes.Size = new System.Drawing.Size(796, 527);
             this.dgvBonusTypes.TabIndex = 6;
             this.dgvBonusTypes.DoubleClick += new System.EventHandler(this.btnEditBonusType_Click);
             // 
@@ -830,9 +956,10 @@
             this.tsbBonusTypeFilter});
             this.toolStrip2.Location = new System.Drawing.Point(3, 3);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(796, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(857, 25);
             this.toolStrip2.TabIndex = 5;
             this.toolStrip2.Text = "toolStrip2";
+            this.toolStrip2.Visible = false;
             // 
             // btnAddBonusType
             // 
@@ -924,120 +1051,6 @@
             this.dataGridViewTextBoxColumn2.DataPropertyName = "SemPol";
             this.dataGridViewTextBoxColumn2.HeaderText = "Сем. положение";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // PostType
-            // 
-            this.PostType.DataPropertyName = "PostType";
-            this.PostType.HeaderText = "Вид должности";
-            this.PostType.Name = "PostType";
-            this.PostType.ReadOnly = true;
-            this.PostType.Visible = false;
-            // 
-            // postNameDataGridViewTextBoxColumn
-            // 
-            this.postNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.postNameDataGridViewTextBoxColumn.DataPropertyName = "PostName";
-            this.postNameDataGridViewTextBoxColumn.HeaderText = "Должность";
-            this.postNameDataGridViewTextBoxColumn.MinimumWidth = 100;
-            this.postNameDataGridViewTextBoxColumn.Name = "postNameDataGridViewTextBoxColumn";
-            this.postNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Катег- ория";
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            this.Category.Width = 45;
-            // 
-            // Category1
-            // 
-            this.Category1.DataPropertyName = "Category1";
-            this.Category1.HeaderText = "Новая катег";
-            this.Category1.Name = "Category1";
-            this.Category1.ReadOnly = true;
-            this.Category1.Width = 45;
-            // 
-            // CategoryZP
-            // 
-            this.CategoryZP.DataPropertyName = "CategoryZP";
-            this.CategoryZP.HeaderText = "Катег по ЗП";
-            this.CategoryZP.Name = "CategoryZP";
-            this.CategoryZP.ReadOnly = true;
-            this.CategoryZP.Width = 50;
-            // 
-            // PostGroup
-            // 
-            this.PostGroup.DataPropertyName = "PostGroup";
-            this.PostGroup.HeaderText = "Группа ";
-            this.PostGroup.Name = "PostGroup";
-            this.PostGroup.ReadOnly = true;
-            // 
-            // GlobalPrikaz
-            // 
-            this.GlobalPrikaz.DataPropertyName = "GlobalPrikaz";
-            this.GlobalPrikaz.HeaderText = "Приказ мин-ва";
-            this.GlobalPrikaz.Name = "GlobalPrikaz";
-            this.GlobalPrikaz.ReadOnly = true;
-            this.GlobalPrikaz.Width = 70;
-            // 
-            // PKCategory
-            // 
-            this.PKCategory.DataPropertyName = "PKCategory";
-            this.PKCategory.HeaderText = "Проф. уровень";
-            this.PKCategory.Name = "PKCategory";
-            this.PKCategory.ReadOnly = true;
-            this.PKCategory.Width = 63;
-            // 
-            // SalarySize
-            // 
-            this.SalarySize.DataPropertyName = "SalarySize";
-            this.SalarySize.HeaderText = "Оклад";
-            this.SalarySize.Name = "SalarySize";
-            this.SalarySize.ReadOnly = true;
-            this.SalarySize.Width = 70;
-            // 
-            // ManagerBit
-            // 
-            this.ManagerBit.DataPropertyName = "ManagerBit";
-            this.ManagerBit.HeaderText = "Руководитель";
-            this.ManagerBit.Name = "ManagerBit";
-            this.ManagerBit.ReadOnly = true;
-            this.ManagerBit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ManagerBit.Visible = false;
-            this.ManagerBit.Width = 85;
-            // 
-            // DateEnd
-            // 
-            this.DateEnd.DataPropertyName = "DateEnd";
-            this.DateEnd.HeaderText = "Дата отмены";
-            this.DateEnd.Name = "DateEnd";
-            this.DateEnd.ReadOnly = true;
-            this.DateEnd.Width = 75;
-            // 
-            // PostCode
-            // 
-            this.PostCode.DataPropertyName = "PostCode";
-            this.PostCode.HeaderText = "Код";
-            this.PostCode.Name = "PostCode";
-            this.PostCode.ReadOnly = true;
-            this.PostCode.Width = 70;
-            // 
-            // Comment
-            // 
-            this.Comment.DataPropertyName = "Comment";
-            this.Comment.HeaderText = "Комментарий";
-            this.Comment.Name = "Comment";
-            this.Comment.ReadOnly = true;
-            this.Comment.Width = 120;
-            // 
-            // CategoryVPO
-            // 
-            this.CategoryVPO.DataPropertyName = "CategoryVPO";
-            this.CategoryVPO.HeaderText = "Категория ВПО";
-            this.CategoryVPO.Name = "CategoryVPO";
-            this.CategoryVPO.ReadOnly = true;
-            this.CategoryVPO.Visible = false;
             // 
             // KadrPostFrame
             // 
