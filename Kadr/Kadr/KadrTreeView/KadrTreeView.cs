@@ -48,13 +48,13 @@ namespace Kadr.KadrTreeView
 
             //узел Приказы
             System.Windows.Forms.TreeNode prikNode =
-                                    CreateTreeNode(null, "Приказ", typeof(KadrPrikazObject));
+                                    CreateTreeNode(null, "Приказы", typeof(KadrPrikazObject));
             KadrPrikazObject prikObj =
                     APG.CodeHelper.DBTreeView.DBTreeNodeObject.GetNodeObjectOfNode<KadrPrikazObject>(prikNode);
 
             //узел Должность
             System.Windows.Forms.TreeNode postNode =
-                                    CreateTreeNode(null, "Должность", typeof(KadrPostObject));
+                                    CreateTreeNode(null, "Сотрудники", typeof(KadrPostObject));
             KadrPostObject postObj =
                     APG.CodeHelper.DBTreeView.DBTreeNodeObject.GetNodeObjectOfNode<KadrPostObject>(postNode);
 

@@ -48,7 +48,8 @@ namespace Kadr.UI.Frames
 
         protected override void DoRefreshFrame()
         {
-            LoadPosts(ObjectStateController.Instance.GetObjectStatesForFilter(tsbPostFilter, null));
+            tcDepartment_SelectedIndexChanged(null, null);
+
 
 
             //ReportClass report = new ReportClass();
@@ -286,15 +287,26 @@ namespace Kadr.UI.Frames
         {
             if (tcDepartment.SelectedTab == tpPKCategory)
             {
-                pKCategoryBindingSource.DataSource = KadrController.Instance.Model.PKCategories.OrderBy(pkc => pkc.PKGroup.GroupNumber).ThenBy(pkc => pkc.PKCategoryNumber).ThenBy(pkc => pkc.PKSubCategoryNumber);
+                pKCategoryBindingSource.DataSource =
+                    KadrController.Instance.Model.PKCategories.OrderBy(pkc => pkc.PKGroup.GroupNumber)
+                        .ThenBy(pkc => pkc.PKCategoryNumber)
+                        .ThenBy(pkc => pkc.PKSubCategoryNumber);
             }
 
             if (tcDepartment.SelectedTab == tpEmployee)
             {
-                employeeBindingSource.DataSource = KadrController.Instance.Model.Employees.OrderBy(empl => empl.LastName).ThenBy(empl => empl.FirstName).ThenBy(empl => empl.Otch);
+                employeeBindingSource.DataSource =
+                    KadrController.Instance.Model.Employees.OrderBy(empl => empl.LastName)
+                        .ThenBy(empl => empl.FirstName)
+                        .ThenBy(empl => empl.Otch);
             }
 
-            /*if (tcDepartment.SelectedTab == tpBonusType)
+            if (tcDepartment.SelectedTab == tpPost)
+            {
+                LoadPosts(ObjectStateController.Instance.GetObjectStatesForFilter(tsbPostFilter, null));
+            }
+
+        /*if (tcDepartment.SelectedTab == tpBonusType)
             {
                 LoadBonusTypes(ObjectStateController.Instance.GetObjectStatesForFilter(tsbBonusTypeFilter, null));
             }*/
@@ -393,6 +405,11 @@ namespace Kadr.UI.Frames
         private void tsbBonusTypeFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             LoadBonusTypes(ObjectStateController.Instance.GetObjectStatesForFilter(tsbBonusTypeFilter, e));
+        }
+
+        private void KadrPostFrame_Load(object sender, EventArgs e)
+        {
+            tcDepartment.TabPages.Remove(tpBonusType);
         }
 
         

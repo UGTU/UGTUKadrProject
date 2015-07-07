@@ -31,6 +31,24 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KadrPostFrame));
             this.tcDepartment = new System.Windows.Forms.TabControl();
+            this.tpEmployee = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvEmployee = new System.Windows.Forms.DataGridView();
+            this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grazdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.semPolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.severKoeffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rayonKoeffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
+            this.AddEmployeeBtn = new System.Windows.Forms.ToolStripButton();
+            this.EditEmployeeBtn = new System.Windows.Forms.ToolStripButton();
+            this.DelEmployeeBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnEmployeeToExcel = new System.Windows.Forms.ToolStripButton();
             this.tpPost = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPost = new System.Windows.Forms.DataGridView();
@@ -80,24 +98,6 @@
             this.EditSalaryBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCategoriesToExcel = new System.Windows.Forms.ToolStripButton();
-            this.tpEmployee = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvEmployee = new System.Windows.Forms.DataGridView();
-            this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grazdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.semPolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.severKoeffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rayonKoeffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
-            this.AddEmployeeBtn = new System.Windows.Forms.ToolStripButton();
-            this.EditEmployeeBtn = new System.Windows.Forms.ToolStripButton();
-            this.DelEmployeeBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnEmployeeToExcel = new System.Windows.Forms.ToolStripButton();
             this.tpBonusType = new System.Windows.Forms.TabPage();
             this.dgvBonusTypes = new System.Windows.Forms.DataGridView();
             this.bonusSuperTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,6 +123,11 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcDepartment.SuspendLayout();
+            this.tpEmployee.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            this.toolStrip5.SuspendLayout();
             this.tpPost.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPost)).BeginInit();
@@ -133,11 +138,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPKCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pKCategoryBindingSource)).BeginInit();
             this.btnPKGToExcel.SuspendLayout();
-            this.tpEmployee.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
-            this.toolStrip5.SuspendLayout();
             this.tpBonusType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBonusTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusTypeBindingSource)).BeginInit();
@@ -151,9 +151,9 @@
             // 
             // tcDepartment
             // 
+            this.tcDepartment.Controls.Add(this.tpEmployee);
             this.tcDepartment.Controls.Add(this.tpPost);
             this.tcDepartment.Controls.Add(this.tpPKCategory);
-            this.tcDepartment.Controls.Add(this.tpEmployee);
             this.tcDepartment.Controls.Add(this.tpBonusType);
             this.tcDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcDepartment.Location = new System.Drawing.Point(3, 16);
@@ -163,6 +163,188 @@
             this.tcDepartment.TabIndex = 3;
             this.tcDepartment.SelectedIndexChanged += new System.EventHandler(this.tcDepartment_SelectedIndexChanged);
             // 
+            // tpEmployee
+            // 
+            this.tpEmployee.AutoScroll = true;
+            this.tpEmployee.Controls.Add(this.tableLayoutPanel3);
+            this.tpEmployee.Location = new System.Drawing.Point(4, 22);
+            this.tpEmployee.Name = "tpEmployee";
+            this.tpEmployee.Padding = new System.Windows.Forms.Padding(3);
+            this.tpEmployee.Size = new System.Drawing.Size(863, 375);
+            this.tpEmployee.TabIndex = 3;
+            this.tpEmployee.Text = "Сотрудники";
+            this.tpEmployee.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.AutoScroll = true;
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Controls.Add(this.dgvEmployee, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.toolStrip5, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(857, 369);
+            this.tableLayoutPanel3.TabIndex = 6;
+            // 
+            // dgvEmployee
+            // 
+            this.dgvEmployee.AllowUserToAddRows = false;
+            this.dgvEmployee.AllowUserToDeleteRows = false;
+            this.dgvEmployee.AutoGenerateColumns = false;
+            this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EmployeeName,
+            this.birthDateDataGridViewTextBoxColumn,
+            this.birthPlaceDataGridViewTextBoxColumn,
+            this.EmployeeGender,
+            this.grazdDataGridViewTextBoxColumn,
+            this.semPolDataGridViewTextBoxColumn,
+            this.severKoeffDataGridViewTextBoxColumn,
+            this.rayonKoeffDataGridViewTextBoxColumn});
+            this.dgvEmployee.DataSource = this.employeeBindingSource;
+            this.dgvEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEmployee.Location = new System.Drawing.Point(3, 29);
+            this.dgvEmployee.Name = "dgvEmployee";
+            this.dgvEmployee.ReadOnly = true;
+            this.dgvEmployee.RowHeadersVisible = false;
+            this.dgvEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmployee.Size = new System.Drawing.Size(851, 495);
+            this.dgvEmployee.TabIndex = 4;
+            this.dgvEmployee.DoubleClick += new System.EventHandler(this.EditEmployeeBtn_Click);
+            // 
+            // EmployeeName
+            // 
+            this.EmployeeName.DataPropertyName = "EmployeeName";
+            this.EmployeeName.FillWeight = 200F;
+            this.EmployeeName.HeaderText = "ФИО";
+            this.EmployeeName.Name = "EmployeeName";
+            this.EmployeeName.ReadOnly = true;
+            this.EmployeeName.Width = 200;
+            // 
+            // birthDateDataGridViewTextBoxColumn
+            // 
+            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
+            this.birthDateDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
+            this.birthDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.birthDateDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // birthPlaceDataGridViewTextBoxColumn
+            // 
+            this.birthPlaceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.birthPlaceDataGridViewTextBoxColumn.DataPropertyName = "BirthPlace";
+            this.birthPlaceDataGridViewTextBoxColumn.HeaderText = "Место рождения";
+            this.birthPlaceDataGridViewTextBoxColumn.Name = "birthPlaceDataGridViewTextBoxColumn";
+            this.birthPlaceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // EmployeeGender
+            // 
+            this.EmployeeGender.DataPropertyName = "EmployeeGender";
+            this.EmployeeGender.HeaderText = "Пол";
+            this.EmployeeGender.Name = "EmployeeGender";
+            this.EmployeeGender.ReadOnly = true;
+            this.EmployeeGender.Width = 70;
+            // 
+            // grazdDataGridViewTextBoxColumn
+            // 
+            this.grazdDataGridViewTextBoxColumn.DataPropertyName = "Grazd";
+            this.grazdDataGridViewTextBoxColumn.HeaderText = "Гражданство";
+            this.grazdDataGridViewTextBoxColumn.Name = "grazdDataGridViewTextBoxColumn";
+            this.grazdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.grazdDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // semPolDataGridViewTextBoxColumn
+            // 
+            this.semPolDataGridViewTextBoxColumn.DataPropertyName = "SemPol";
+            this.semPolDataGridViewTextBoxColumn.HeaderText = "Сем. положение";
+            this.semPolDataGridViewTextBoxColumn.Name = "semPolDataGridViewTextBoxColumn";
+            this.semPolDataGridViewTextBoxColumn.ReadOnly = true;
+            this.semPolDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // severKoeffDataGridViewTextBoxColumn
+            // 
+            this.severKoeffDataGridViewTextBoxColumn.DataPropertyName = "SeverKoeff";
+            this.severKoeffDataGridViewTextBoxColumn.HeaderText = "Сев. коэф.";
+            this.severKoeffDataGridViewTextBoxColumn.Name = "severKoeffDataGridViewTextBoxColumn";
+            this.severKoeffDataGridViewTextBoxColumn.ReadOnly = true;
+            this.severKoeffDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // rayonKoeffDataGridViewTextBoxColumn
+            // 
+            this.rayonKoeffDataGridViewTextBoxColumn.DataPropertyName = "RayonKoeff";
+            this.rayonKoeffDataGridViewTextBoxColumn.HeaderText = "Район. коэф.";
+            this.rayonKoeffDataGridViewTextBoxColumn.Name = "rayonKoeffDataGridViewTextBoxColumn";
+            this.rayonKoeffDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rayonKoeffDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataSource = typeof(Kadr.Data.Employee);
+            // 
+            // toolStrip5
+            // 
+            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddEmployeeBtn,
+            this.EditEmployeeBtn,
+            this.DelEmployeeBtn,
+            this.toolStripSeparator5,
+            this.btnEmployeeToExcel});
+            this.toolStrip5.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip5.Name = "toolStrip5";
+            this.toolStrip5.Size = new System.Drawing.Size(857, 25);
+            this.toolStrip5.TabIndex = 2;
+            this.toolStrip5.Text = "toolStrip5";
+            // 
+            // AddEmployeeBtn
+            // 
+            this.AddEmployeeBtn.Image = global::Kadr.Properties.Resources.NewDocumentHS;
+            this.AddEmployeeBtn.ImageTransparentColor = System.Drawing.Color.Black;
+            this.AddEmployeeBtn.Name = "AddEmployeeBtn";
+            this.AddEmployeeBtn.Size = new System.Drawing.Size(145, 22);
+            this.AddEmployeeBtn.Text = "Добавить сотрудника";
+            this.AddEmployeeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddEmployeeBtn.Click += new System.EventHandler(this.AddEmployeeBtn_Click);
+            // 
+            // EditEmployeeBtn
+            // 
+            this.EditEmployeeBtn.Image = global::Kadr.Properties.Resources.Open;
+            this.EditEmployeeBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.EditEmployeeBtn.Name = "EditEmployeeBtn";
+            this.EditEmployeeBtn.Size = new System.Drawing.Size(107, 22);
+            this.EditEmployeeBtn.Text = "Редактировать";
+            this.EditEmployeeBtn.ToolTipText = "Редактировать сотрудника";
+            this.EditEmployeeBtn.Click += new System.EventHandler(this.EditEmployeeBtn_Click);
+            // 
+            // DelEmployeeBtn
+            // 
+            this.DelEmployeeBtn.Image = global::Kadr.Properties.Resources.DeleteHS;
+            this.DelEmployeeBtn.ImageTransparentColor = System.Drawing.Color.Black;
+            this.DelEmployeeBtn.Name = "DelEmployeeBtn";
+            this.DelEmployeeBtn.Size = new System.Drawing.Size(71, 22);
+            this.DelEmployeeBtn.Text = "Удалить";
+            this.DelEmployeeBtn.ToolTipText = "Удалить сотрудника";
+            this.DelEmployeeBtn.Click += new System.EventHandler(this.DelEmployeeBtn_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnEmployeeToExcel
+            // 
+            this.btnEmployeeToExcel.Image = global::Kadr.Properties.Resources.Excel;
+            this.btnEmployeeToExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEmployeeToExcel.Name = "btnEmployeeToExcel";
+            this.btnEmployeeToExcel.Size = new System.Drawing.Size(142, 22);
+            this.btnEmployeeToExcel.Text = "Выгрузить в MS Excel";
+            this.btnEmployeeToExcel.Click += new System.EventHandler(this.btnEmployeeToExcel_Click);
+            // 
             // tpPost
             // 
             this.tpPost.AutoScroll = true;
@@ -170,7 +352,7 @@
             this.tpPost.Location = new System.Drawing.Point(4, 22);
             this.tpPost.Name = "tpPost";
             this.tpPost.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPost.Size = new System.Drawing.Size(863, 375);
+            this.tpPost.Size = new System.Drawing.Size(802, 533);
             this.tpPost.TabIndex = 1;
             this.tpPost.Text = "Должности";
             this.tpPost.UseVisualStyleBackColor = true;
@@ -189,7 +371,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(857, 369);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 527);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPost
@@ -467,7 +649,7 @@
             this.tpPKCategory.Location = new System.Drawing.Point(4, 22);
             this.tpPKCategory.Name = "tpPKCategory";
             this.tpPKCategory.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPKCategory.Size = new System.Drawing.Size(863, 375);
+            this.tpPKCategory.Size = new System.Drawing.Size(802, 533);
             this.tpPKCategory.TabIndex = 2;
             this.tpPKCategory.Text = "Профессиональные уровни";
             this.tpPKCategory.UseVisualStyleBackColor = true;
@@ -486,7 +668,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(857, 369);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 527);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // dgvPKCategory
@@ -655,188 +837,6 @@
             this.btnCategoriesToExcel.Text = "Выгрузить в MS Excel";
             this.btnCategoriesToExcel.Click += new System.EventHandler(this.btnCategoriesToExcel_Click);
             // 
-            // tpEmployee
-            // 
-            this.tpEmployee.AutoScroll = true;
-            this.tpEmployee.Controls.Add(this.tableLayoutPanel3);
-            this.tpEmployee.Location = new System.Drawing.Point(4, 22);
-            this.tpEmployee.Name = "tpEmployee";
-            this.tpEmployee.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmployee.Size = new System.Drawing.Size(802, 533);
-            this.tpEmployee.TabIndex = 3;
-            this.tpEmployee.Text = "Сотрудники";
-            this.tpEmployee.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.AutoScroll = true;
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.dgvEmployee, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.toolStrip5, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(796, 527);
-            this.tableLayoutPanel3.TabIndex = 6;
-            // 
-            // dgvEmployee
-            // 
-            this.dgvEmployee.AllowUserToAddRows = false;
-            this.dgvEmployee.AllowUserToDeleteRows = false;
-            this.dgvEmployee.AutoGenerateColumns = false;
-            this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EmployeeName,
-            this.birthDateDataGridViewTextBoxColumn,
-            this.birthPlaceDataGridViewTextBoxColumn,
-            this.EmployeeGender,
-            this.grazdDataGridViewTextBoxColumn,
-            this.semPolDataGridViewTextBoxColumn,
-            this.severKoeffDataGridViewTextBoxColumn,
-            this.rayonKoeffDataGridViewTextBoxColumn});
-            this.dgvEmployee.DataSource = this.employeeBindingSource;
-            this.dgvEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEmployee.Location = new System.Drawing.Point(3, 29);
-            this.dgvEmployee.Name = "dgvEmployee";
-            this.dgvEmployee.ReadOnly = true;
-            this.dgvEmployee.RowHeadersVisible = false;
-            this.dgvEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmployee.Size = new System.Drawing.Size(851, 495);
-            this.dgvEmployee.TabIndex = 4;
-            this.dgvEmployee.DoubleClick += new System.EventHandler(this.EditEmployeeBtn_Click);
-            // 
-            // EmployeeName
-            // 
-            this.EmployeeName.DataPropertyName = "EmployeeName";
-            this.EmployeeName.FillWeight = 200F;
-            this.EmployeeName.HeaderText = "ФИО";
-            this.EmployeeName.Name = "EmployeeName";
-            this.EmployeeName.ReadOnly = true;
-            this.EmployeeName.Width = 200;
-            // 
-            // birthDateDataGridViewTextBoxColumn
-            // 
-            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
-            this.birthDateDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
-            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
-            this.birthDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.birthDateDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // birthPlaceDataGridViewTextBoxColumn
-            // 
-            this.birthPlaceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.birthPlaceDataGridViewTextBoxColumn.DataPropertyName = "BirthPlace";
-            this.birthPlaceDataGridViewTextBoxColumn.HeaderText = "Место рождения";
-            this.birthPlaceDataGridViewTextBoxColumn.Name = "birthPlaceDataGridViewTextBoxColumn";
-            this.birthPlaceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // EmployeeGender
-            // 
-            this.EmployeeGender.DataPropertyName = "EmployeeGender";
-            this.EmployeeGender.HeaderText = "Пол";
-            this.EmployeeGender.Name = "EmployeeGender";
-            this.EmployeeGender.ReadOnly = true;
-            this.EmployeeGender.Width = 70;
-            // 
-            // grazdDataGridViewTextBoxColumn
-            // 
-            this.grazdDataGridViewTextBoxColumn.DataPropertyName = "Grazd";
-            this.grazdDataGridViewTextBoxColumn.HeaderText = "Гражданство";
-            this.grazdDataGridViewTextBoxColumn.Name = "grazdDataGridViewTextBoxColumn";
-            this.grazdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.grazdDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // semPolDataGridViewTextBoxColumn
-            // 
-            this.semPolDataGridViewTextBoxColumn.DataPropertyName = "SemPol";
-            this.semPolDataGridViewTextBoxColumn.HeaderText = "Сем. положение";
-            this.semPolDataGridViewTextBoxColumn.Name = "semPolDataGridViewTextBoxColumn";
-            this.semPolDataGridViewTextBoxColumn.ReadOnly = true;
-            this.semPolDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // severKoeffDataGridViewTextBoxColumn
-            // 
-            this.severKoeffDataGridViewTextBoxColumn.DataPropertyName = "SeverKoeff";
-            this.severKoeffDataGridViewTextBoxColumn.HeaderText = "Сев. коэф.";
-            this.severKoeffDataGridViewTextBoxColumn.Name = "severKoeffDataGridViewTextBoxColumn";
-            this.severKoeffDataGridViewTextBoxColumn.ReadOnly = true;
-            this.severKoeffDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // rayonKoeffDataGridViewTextBoxColumn
-            // 
-            this.rayonKoeffDataGridViewTextBoxColumn.DataPropertyName = "RayonKoeff";
-            this.rayonKoeffDataGridViewTextBoxColumn.HeaderText = "Район. коэф.";
-            this.rayonKoeffDataGridViewTextBoxColumn.Name = "rayonKoeffDataGridViewTextBoxColumn";
-            this.rayonKoeffDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rayonKoeffDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataSource = typeof(Kadr.Data.Employee);
-            // 
-            // toolStrip5
-            // 
-            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddEmployeeBtn,
-            this.EditEmployeeBtn,
-            this.DelEmployeeBtn,
-            this.toolStripSeparator5,
-            this.btnEmployeeToExcel});
-            this.toolStrip5.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(857, 25);
-            this.toolStrip5.TabIndex = 2;
-            this.toolStrip5.Text = "toolStrip5";
-            // 
-            // AddEmployeeBtn
-            // 
-            this.AddEmployeeBtn.Image = global::Kadr.Properties.Resources.NewDocumentHS;
-            this.AddEmployeeBtn.ImageTransparentColor = System.Drawing.Color.Black;
-            this.AddEmployeeBtn.Name = "AddEmployeeBtn";
-            this.AddEmployeeBtn.Size = new System.Drawing.Size(145, 22);
-            this.AddEmployeeBtn.Text = "Добавить сотрудника";
-            this.AddEmployeeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddEmployeeBtn.Click += new System.EventHandler(this.AddEmployeeBtn_Click);
-            // 
-            // EditEmployeeBtn
-            // 
-            this.EditEmployeeBtn.Image = global::Kadr.Properties.Resources.Open;
-            this.EditEmployeeBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.EditEmployeeBtn.Name = "EditEmployeeBtn";
-            this.EditEmployeeBtn.Size = new System.Drawing.Size(107, 22);
-            this.EditEmployeeBtn.Text = "Редактировать";
-            this.EditEmployeeBtn.ToolTipText = "Редактировать сотрудника";
-            this.EditEmployeeBtn.Click += new System.EventHandler(this.EditEmployeeBtn_Click);
-            // 
-            // DelEmployeeBtn
-            // 
-            this.DelEmployeeBtn.Image = global::Kadr.Properties.Resources.DeleteHS;
-            this.DelEmployeeBtn.ImageTransparentColor = System.Drawing.Color.Black;
-            this.DelEmployeeBtn.Name = "DelEmployeeBtn";
-            this.DelEmployeeBtn.Size = new System.Drawing.Size(71, 22);
-            this.DelEmployeeBtn.Text = "Удалить";
-            this.DelEmployeeBtn.ToolTipText = "Удалить сотрудника";
-            this.DelEmployeeBtn.Click += new System.EventHandler(this.DelEmployeeBtn_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnEmployeeToExcel
-            // 
-            this.btnEmployeeToExcel.Image = global::Kadr.Properties.Resources.Excel;
-            this.btnEmployeeToExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEmployeeToExcel.Name = "btnEmployeeToExcel";
-            this.btnEmployeeToExcel.Size = new System.Drawing.Size(142, 22);
-            this.btnEmployeeToExcel.Text = "Выгрузить в MS Excel";
-            this.btnEmployeeToExcel.Click += new System.EventHandler(this.btnEmployeeToExcel_Click);
-            // 
             // tpBonusType
             // 
             this.tpBonusType.Controls.Add(this.dgvBonusTypes);
@@ -844,7 +844,7 @@
             this.tpBonusType.Location = new System.Drawing.Point(4, 22);
             this.tpBonusType.Name = "tpBonusType";
             this.tpBonusType.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBonusType.Size = new System.Drawing.Size(802, 533);
+            this.tpBonusType.Size = new System.Drawing.Size(863, 375);
             this.tpBonusType.TabIndex = 4;
             this.tpBonusType.Text = "Виды надбавок";
             this.tpBonusType.UseVisualStyleBackColor = true;
@@ -871,7 +871,7 @@
             this.dgvBonusTypes.ReadOnly = true;
             this.dgvBonusTypes.RowHeadersVisible = false;
             this.dgvBonusTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBonusTypes.Size = new System.Drawing.Size(796, 527);
+            this.dgvBonusTypes.Size = new System.Drawing.Size(857, 369);
             this.dgvBonusTypes.TabIndex = 6;
             this.dgvBonusTypes.DoubleClick += new System.EventHandler(this.btnEditBonusType_Click);
             // 
@@ -1058,8 +1058,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "KadrPostFrame";
             this.Size = new System.Drawing.Size(877, 420);
+            this.Load += new System.EventHandler(this.KadrPostFrame_Load);
             this.groupBox1.ResumeLayout(false);
             this.tcDepartment.ResumeLayout(false);
+            this.tpEmployee.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            this.toolStrip5.ResumeLayout(false);
+            this.toolStrip5.PerformLayout();
             this.tpPost.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -1074,13 +1082,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pKCategoryBindingSource)).EndInit();
             this.btnPKGToExcel.ResumeLayout(false);
             this.btnPKGToExcel.PerformLayout();
-            this.tpEmployee.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
-            this.toolStrip5.ResumeLayout(false);
-            this.toolStrip5.PerformLayout();
             this.tpBonusType.ResumeLayout(false);
             this.tpBonusType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBonusTypes)).EndInit();

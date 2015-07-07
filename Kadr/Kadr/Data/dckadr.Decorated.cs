@@ -1687,6 +1687,125 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.DisplayName("Серия")]
+        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Description("Серия паспорта сотрудника")]
+        public string Paspser
+        {
+            get
+            {
+                return employee.paspser;
+            }
+            set
+            {
+                employee.paspser = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер")]
+        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Description("Номер паспорта сотрудника")]
+        public string Paspnomer
+        {
+            get
+            {
+                return employee.paspnomer;
+            }
+            set
+            {
+                employee.paspnomer = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Кем выдан")]
+        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Description("Кем выдан паспорт сотрудника")]
+        public string Paspkem
+        {
+            get
+            {
+                return employee.paspkem;
+            }
+            set
+            {
+                employee.paspkem = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата выдачи")]
+        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Description("Дата выдачи паспорта сотрудника")]
+        public DateTime Paspdate
+        {
+            get
+            {
+                return Convert.ToDateTime(employee.paspdate);
+            }
+            set
+            {
+                employee.paspdate = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("ИНН")]
+        [System.ComponentModel.Category("Документы")]
+        [System.ComponentModel.Description("ИНН сотрудника")]
+        public string INN
+        {
+            get
+            {
+                return employee.inn;
+            }
+            set
+            {
+                employee.inn = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер мед полиса")]
+        [System.ComponentModel.Category("Документы")]
+        [System.ComponentModel.Description("Номер медицинского полиса сотрудника")]
+        public string Medpolis
+        {
+            get
+            {
+                return employee.medpolis;
+            }
+            set
+            {
+                employee.medpolis = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("СНИЛС")]
+        [System.ComponentModel.Category("Документы")]
+        [System.ComponentModel.Description("СНИЛС сотрудника")]
+        public string Ssgps
+        {
+            get
+            {
+                return employee.ssgps;
+            }
+            set
+            {
+                employee.ssgps = value;
+            }
+        }
+
+        /*[System.ComponentModel.DisplayName("ИНН")]
+        [System.ComponentModel.Category("Документы")]
+        [System.ComponentModel.Description("ИНН сотрудника")]
+        public string 
+        {
+            get
+            {
+                return employee;
+            }
+            set
+            {
+                employee = value;
+            }
+        }*/
         [System.ComponentModel.DisplayName("Дата рождения")]
         [System.ComponentModel.Category("Личные данные")]
         [System.ComponentModel.Description("Дата рождения сотрудника")]

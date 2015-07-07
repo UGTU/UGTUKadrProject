@@ -526,7 +526,7 @@ namespace Kadr.UI.Frames
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tcEmployee);
-            this.groupBox1.Size = new System.Drawing.Size(909, 387);
+            this.groupBox1.Size = new System.Drawing.Size(897, 416);
             // 
             // tcEmployee
             // 
@@ -540,7 +540,7 @@ namespace Kadr.UI.Frames
             this.tcEmployee.Location = new System.Drawing.Point(3, 16);
             this.tcEmployee.Name = "tcEmployee";
             this.tcEmployee.SelectedIndex = 0;
-            this.tcEmployee.Size = new System.Drawing.Size(903, 368);
+            this.tcEmployee.Size = new System.Drawing.Size(891, 397);
             this.tcEmployee.TabIndex = 0;
             this.tcEmployee.SelectedIndexChanged += new System.EventHandler(this.tcEmployee_SelectedIndexChanged);
             // 
@@ -551,7 +551,7 @@ namespace Kadr.UI.Frames
             this.tpEmployee.Location = new System.Drawing.Point(4, 22);
             this.tpEmployee.Name = "tpEmployee";
             this.tpEmployee.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmployee.Size = new System.Drawing.Size(895, 342);
+            this.tpEmployee.Size = new System.Drawing.Size(883, 371);
             this.tpEmployee.TabIndex = 0;
             this.tpEmployee.Text = "Личные данные";
             this.tpEmployee.UseVisualStyleBackColor = true;
@@ -568,7 +568,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(889, 336);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(877, 365);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // cpgEmployee
@@ -579,7 +579,7 @@ namespace Kadr.UI.Frames
             this.cpgEmployee.CommandRegister = null;
             this.cpgEmployee.Location = new System.Drawing.Point(3, 3);
             this.cpgEmployee.Name = "cpgEmployee";
-            this.cpgEmployee.Size = new System.Drawing.Size(883, 290);
+            this.cpgEmployee.Size = new System.Drawing.Size(871, 319);
             this.cpgEmployee.TabIndex = 0;
             // 
             // panel1
@@ -587,15 +587,15 @@ namespace Kadr.UI.Frames
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 299);
+            this.panel1.Location = new System.Drawing.Point(3, 328);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(883, 34);
+            this.panel1.Size = new System.Drawing.Size(871, 34);
             this.panel1.TabIndex = 1;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(571, 0);
+            this.btnCancel.Location = new System.Drawing.Point(559, 0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(138, 32);
             this.btnCancel.TabIndex = 2;
@@ -606,7 +606,7 @@ namespace Kadr.UI.Frames
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(715, 0);
+            this.btnOk.Location = new System.Drawing.Point(703, 0);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(165, 32);
             this.btnOk.TabIndex = 1;
@@ -1339,7 +1339,7 @@ namespace Kadr.UI.Frames
             this.tpEmplBonusReport.Location = new System.Drawing.Point(4, 22);
             this.tpEmplBonusReport.Name = "tpEmplBonusReport";
             this.tpEmplBonusReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmplBonusReport.Size = new System.Drawing.Size(895, 342);
+            this.tpEmplBonusReport.Size = new System.Drawing.Size(883, 371);
             this.tpEmplBonusReport.TabIndex = 4;
             this.tpEmplBonusReport.Text = "Отчет по надбавкам";
             this.tpEmplBonusReport.UseVisualStyleBackColor = true;
@@ -1391,7 +1391,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(889, 336);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(877, 365);
             this.tableLayoutPanel6.TabIndex = 22;
             // 
             // toolStrip6
@@ -1428,7 +1428,7 @@ namespace Kadr.UI.Frames
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Name = "KadrEmployeeFrame";
-            this.Size = new System.Drawing.Size(909, 387);
+            this.Size = new System.Drawing.Size(897, 416);
             this.Load += new System.EventHandler(this.KadrEmployeeFrame_Load);
             this.groupBox1.ResumeLayout(false);
             this.tcEmployee.ResumeLayout(false);

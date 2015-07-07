@@ -130,36 +130,6 @@
       <Column Name="SalarySize" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GetPPSDepartmentBonus" Method="GetPPSDepartmentBonus" IsComposable="true">
-    <Parameter Name="idDepartment" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PeriodBegin" Parameter="periodBegin" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="PeriodEnd" Parameter="periodEnd" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="WithSubDeps" Parameter="withSubDeps" Type="System.Boolean" DbType="Bit" />
-    <ElementType Name="GetPPSDepartmentBonusResult">
-      <Column Name="ReportMainObjectName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="PKCategoryName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FinancingSourceName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="BonusTypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="PostName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="EmployeeName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="BonusLevel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="BonusSum" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(10,4)" CanBeNull="true" />
-      <Column Name="SeverKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RayonKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NDFLKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="idBonusType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PeriodBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="PeriodEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="StaffCountWithoutReplacement" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-      <Column Name="idReplacementReason" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BonusSuperTypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="DegreeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="DegreeOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Salary" Type="System.Decimal" DbType="Decimal(14,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.GetPPSDepartmentBonusForT3" Method="GetPPSDepartmentBonusForT3" IsComposable="true">
     <Parameter Name="idDepartment" Type="System.Int32" DbType="Int" />
     <Parameter Name="PeriodBegin" Parameter="periodBegin" Type="System.DateTime" DbType="Date" />
@@ -622,6 +592,35 @@
       <Column Name="idDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="itab_n" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="DepTreeIndex" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetPPSDepartmentBonus" Method="GetPPSDepartmentBonus" IsComposable="true">
+    <Parameter Name="idDepartment" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PeriodBegin" Parameter="periodBegin" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="PeriodEnd" Parameter="periodEnd" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="WithSubDeps" Parameter="withSubDeps" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="GetPPSDepartmentBonusResult">
+      <Column Name="ReportMainObjectName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PKCategoryName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="EmployeeName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BonusSum" Type="System.Decimal" DbType="Decimal(14,2)" CanBeNull="true" />
+      <Column Name="SeverKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RayonKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(14,4)" CanBeNull="true" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PostName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="NDFLKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BonusTypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idBonusType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FinancingSourceName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idReplacementReason" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PeriodBegin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PeriodEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="StaffCountWithoutReplacement" Type="System.Decimal" DbType="Decimal(14,4)" CanBeNull="true" />
+      <Column Name="BonusSuperTypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DegreeName" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DegreeOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Salary" Type="System.Decimal" DbType="Decimal(14,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
