@@ -949,9 +949,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("% совмещения")]
-        [System.ComponentModel.Category("Параметры совмещения")]
-        [System.ComponentModel.Description("% совмещения сотрудника")]
+        [System.ComponentModel.DisplayName("% замещения")]
+        [System.ComponentModel.Category("Параметры замещения")]
+        [System.ComponentModel.Description("% замещения сотрудника")]
         public decimal StaffCount
         {
             get
@@ -964,8 +964,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Причина совмещения")]
-        [System.ComponentModel.Category("Параметры совмещения")]
+        [System.ComponentModel.DisplayName("Причина замещения")]
+        [System.ComponentModel.Category("Параметры замещения")]
         [System.ComponentModel.Description("Причина замещения сотрудника")]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FactStaffReplacementReasonEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.FactStaffReplacementReason FactStaffReplacementReason
@@ -980,9 +980,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата окончания совмещения")]
-        [System.ComponentModel.Category("Параметры совмещения")]
-        [System.ComponentModel.Description("Дата окончания совмещения")]
+        [System.ComponentModel.DisplayName("Дата окончания замещения")]
+        [System.ComponentModel.Category("Параметры замещения")]
+        [System.ComponentModel.Description("Дата окончания замещения")]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime ReplacementDataEnd
         {
@@ -1083,36 +1083,6 @@ namespace Kadr.Data
             set
             {
                 factStaffReplacement.MainFactStaff.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Количество часов")]
-        [System.ComponentModel.Category("Почасовики")]
-        [System.ComponentModel.Description("Количество часов для почасовиков")]
-        public decimal? HourCount
-        {
-            get
-            {
-                return factStaffReplacement.MainFactStaff.HourCount;
-            }
-            set
-            {
-                factStaffReplacement.MainFactStaff.HourCount = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Оплата за час (без 1,8)")]
-        [System.ComponentModel.Category("Почасовики")]
-        [System.ComponentModel.Description("Оплата за час (без 1,8) для почасовиков")]
-        public decimal? HourSalary
-        {
-            get
-            {
-                return factStaffReplacement.MainFactStaff.HourSalary;
-            }
-            set
-            {
-                factStaffReplacement.MainFactStaff.HourSalary = value;
             }
         }
     }
