@@ -621,9 +621,9 @@ namespace Kadr.UI.Frames
             this.tpEmpPost.Location = new System.Drawing.Point(4, 22);
             this.tpEmpPost.Name = "tpEmpPost";
             this.tpEmpPost.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmpPost.Size = new System.Drawing.Size(802, 533);
+            this.tpEmpPost.Size = new System.Drawing.Size(883, 371);
             this.tpEmpPost.TabIndex = 1;
-            this.tpEmpPost.Text = "Занимаемые должности";
+            this.tpEmpPost.Text = "Трудовая деятельность";
             this.tpEmpPost.UseVisualStyleBackColor = true;
             // 
             // dgvEmplPosts
@@ -653,7 +653,7 @@ namespace Kadr.UI.Frames
             this.dgvEmplPosts.ReadOnly = true;
             this.dgvEmplPosts.RowHeadersVisible = false;
             this.dgvEmplPosts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmplPosts.Size = new System.Drawing.Size(796, 527);
+            this.dgvEmplPosts.Size = new System.Drawing.Size(877, 365);
             this.dgvEmplPosts.TabIndex = 0;
             // 
             // Department
@@ -1339,7 +1339,7 @@ namespace Kadr.UI.Frames
             this.tpEmplBonusReport.Location = new System.Drawing.Point(4, 22);
             this.tpEmplBonusReport.Name = "tpEmplBonusReport";
             this.tpEmplBonusReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmplBonusReport.Size = new System.Drawing.Size(883, 371);
+            this.tpEmplBonusReport.Size = new System.Drawing.Size(802, 533);
             this.tpEmplBonusReport.TabIndex = 4;
             this.tpEmplBonusReport.Text = "Отчет по надбавкам";
             this.tpEmplBonusReport.UseVisualStyleBackColor = true;
@@ -1391,7 +1391,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(877, 365);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(796, 527);
             this.tableLayoutPanel6.TabIndex = 22;
             // 
             // toolStrip6
@@ -1400,7 +1400,7 @@ namespace Kadr.UI.Frames
             this.toolStripLabel2});
             this.toolStrip6.Location = new System.Drawing.Point(0, 0);
             this.toolStrip6.Name = "toolStrip6";
-            this.toolStrip6.Size = new System.Drawing.Size(889, 24);
+            this.toolStrip6.Size = new System.Drawing.Size(877, 24);
             this.toolStrip6.TabIndex = 17;
             this.toolStrip6.Text = "toolStrip6";
             // 
@@ -1420,7 +1420,7 @@ namespace Kadr.UI.Frames
             this.employeeBonusReportFrame1.ReportNumber = 0;
             this.employeeBonusReportFrame1.ReportParam = -1;
             this.employeeBonusReportFrame1.ReportType = null;
-            this.employeeBonusReportFrame1.Size = new System.Drawing.Size(883, 497);
+            this.employeeBonusReportFrame1.Size = new System.Drawing.Size(871, 497);
             this.employeeBonusReportFrame1.TabIndex = 18;
             this.employeeBonusReportFrame1.WithSubReports = true;
             // 

@@ -831,6 +831,10 @@ namespace Kadr.UI.Frames
        {
            tcDepartment.TabPages.Remove(tpDepBonusReport);
            tcDepartment.TabPages.Remove(tpTimeSheet);
+           tcDepartment.TabPages.Remove(tpStaffAverage);
+           tcDepartment.TabPages.Remove(tpQrStaffAverage);
+           tcDepartment.TabPages.Remove(tpMinFormReport);
+           tcDepartment.TabPages.Remove(tpTimeNorm);
            
            cbYear.Items.Clear();
            cbYear.Items.AddRange(KadrController.Instance.Model.TimeSheets.Select(ts => ts.TimeSheetYear as Object).Distinct().OrderByDescending(ts => ts as int?).ToArray());

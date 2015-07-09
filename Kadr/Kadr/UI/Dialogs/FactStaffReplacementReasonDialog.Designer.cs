@@ -90,7 +90,7 @@
             // 
             this.replacementReasonNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.replacementReasonNameDataGridViewTextBoxColumn.DataPropertyName = "ReplacementReasonName";
-            this.replacementReasonNameDataGridViewTextBoxColumn.HeaderText = "Причина совмещения";
+            this.replacementReasonNameDataGridViewTextBoxColumn.HeaderText = "Причина замещения";
             this.replacementReasonNameDataGridViewTextBoxColumn.Name = "replacementReasonNameDataGridViewTextBoxColumn";
             // 
             // ReplacementReasonShortName
@@ -99,7 +99,7 @@
             this.ReplacementReasonShortName.DataPropertyName = "ReplacementReasonShortName";
             this.ReplacementReasonShortName.HeaderText = "Краткое название";
             this.ReplacementReasonShortName.Name = "ReplacementReasonShortName";
-            this.ReplacementReasonShortName.Width = 115;
+            this.ReplacementReasonShortName.Width = 114;
             // 
             // FactStaffReplacementReasonDialog
             // 
@@ -109,7 +109,7 @@
             this.ClientSize = new System.Drawing.Size(575, 263);
             this.Name = "FactStaffReplacementReasonDialog";
             this.helpProvider1.SetShowHelp(this, true);
-            this.Text = "Причины совмещения";
+            this.Text = "Причины замещений";
             this.Load += new System.EventHandler(this.FactStaffReplacementReasonDialog_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -498,7 +498,7 @@ namespace Kadr.UI.Forms
 
                 if (frame is KadrEmployeeFrame)
                 {
-                    tsbBonusFilter.Visible = true;
+                    //tsbBonusFilter.Visible = true;
                     //устанавливаем фильтр на фрейме
                     CopyFilter(tsbBonusFilter, (frame as KadrEmployeeFrame).tsbBonusFilter);
                 }
