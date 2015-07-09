@@ -633,12 +633,6 @@
     <Compile Include="UI\Forms\TimeSheetsForm.Designer.cs">
       <DependentUpon>TimeSheetsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Frames\BonusFrame.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Frames\BonusFrame.Designer.cs">
-      <DependentUpon>BonusFrame.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Frames\KadrBaseFrame.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -834,9 +828,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\TimeSheetsForm.resx">
       <DependentUpon>TimeSheetsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Frames\BonusFrame.resx">
-      <DependentUpon>BonusFrame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frames\KadrBaseFrame.resx">
       <DependentUpon>KadrBaseFrame.cs</DependentUpon>
