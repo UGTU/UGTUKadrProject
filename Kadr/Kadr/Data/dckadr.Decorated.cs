@@ -1717,6 +1717,50 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.DisplayName("Серия ТК")]
+        [System.ComponentModel.Category("Данные трудовой книжки")]
+        [System.ComponentModel.Description("Серия трудовой книжки сотрудника")]
+        public string EmplHistSer
+        {
+            get
+            {
+                return employee.EmplHistSer;
+            }
+            set
+            {
+                employee.EmplHistSer = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер ТК")]
+        [System.ComponentModel.Category("Данные трудовой книжки")]
+        [System.ComponentModel.Description("Номер трудовой книжки сотрудника")]
+        public string EmplHistNumber
+        {
+            get
+            {
+                return employee.EmplHistNumber;
+            }
+            set
+            {
+                employee.EmplHistNumber = value;
+            }
+        }
+        
+        [System.ComponentModel.DisplayName("Дата выдачи ТК")]
+        [System.ComponentModel.Category("Данные трудовой книжки")]
+        [System.ComponentModel.Description("Дата выдачи трудовой книжки сотрудника")]
+        public DateTime EmplHistDate
+        {
+            get
+            {
+                return Convert.ToDateTime(employee.EmplHistDate);
+            }
+            set
+            {
+                employee.EmplHistDate = value;
+            }
+        }
         [System.ComponentModel.DisplayName("ИНН")]
         [System.ComponentModel.Category("Документы")]
         [System.ComponentModel.Description("ИНН сотрудника")]

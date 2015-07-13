@@ -499,6 +499,12 @@
     <Compile Include="UI\Dialogs\PrikazTypeDialog.Designer.cs">
       <DependentUpon>PrikazTypeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dialogs\RegionTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\RegionTypeDialog.Designer.cs">
+      <DependentUpon>RegionTypeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\SalaryDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -516,6 +522,12 @@
     </Compile>
     <Compile Include="UI\Dialogs\SemPolDialog.Designer.cs">
       <DependentUpon>SemPolDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\StandingTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\StandingTypeDialog.Designer.cs">
+      <DependentUpon>StandingTypeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\TimeSheetDayStateDialog.cs">
       <SubType>Form</SubType>
@@ -774,6 +786,9 @@
       <DependentUpon>PrikazTypeDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\RegionTypeDialog.resx">
+      <DependentUpon>RegionTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\SalaryDialog.resx">
       <DependentUpon>SalaryDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -883,6 +898,7 @@
     <None Include="Properties\DataSources\Kadr.Data.Employee1.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EmployeeDegree.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EmployeeRank.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.EmployeeStanding.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EmployeeView.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.FactStaff.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.FactStaffBonusProject.datasource" />
@@ -905,7 +921,9 @@
     <None Include="Properties\DataSources\Kadr.Data.PostType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.Prikaz.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.PrikazView.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.RegionType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.SalaryKoeff.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.StandingType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.TimeSheet.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.TimeSheetDayState.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.TimeSheetFSWorkingDays.datasource" />

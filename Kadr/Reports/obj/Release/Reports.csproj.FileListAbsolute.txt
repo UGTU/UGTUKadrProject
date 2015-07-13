@@ -80,3 +80,15 @@ G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\obj\Release\RdlCompile.cache
 G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\obj\Release\RdlCompile.compiled
 G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.dll
 G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.pdb
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\Microsoft.ReportViewer.Common.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\Microsoft.ReportViewer.WinForms.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Data.DataSetExtensions.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Data.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Data.Linq.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Drawing.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Web.Services.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Windows.Forms.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Xml.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Xml.Linq.dll
+G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\Microsoft.ReportViewer.WinForms.xml

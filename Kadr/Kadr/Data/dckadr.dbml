@@ -740,8 +740,11 @@
       <Column Name="ssgps" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="medpolis" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="EmployeeName" Type="System.String" DbType="VarChar(152)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EmployeeSmallName" Type="System.String" DbType="VarChar(55)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="OtpReducedFareDateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EmployeeSmallName" Type="System.String" DbType="VarChar(56)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EmplHistSer" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EmplHistNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="EmplHistDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="Employee_EmployeeRank" Member="EmployeeRanks" ThisKey="id" OtherKey="idEmployee" Type="EmployeeRank" />
       <Association Name="Employee_EmployeeDegree" Member="EmployeeDegrees" ThisKey="id" OtherKey="idEmployee" Type="EmployeeDegree" />
       <Association Name="Employee_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idEmployee" Type="FactStaff" />

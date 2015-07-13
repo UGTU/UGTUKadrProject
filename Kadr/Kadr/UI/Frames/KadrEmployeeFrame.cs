@@ -114,6 +114,12 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn FStPrikazBegin;
         private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Prikaz;
+        private TabControl tcEmplData;
+        private TabPage tpPersonData;
+        private TabPage tpFamily;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
         #region Properties
 
         /// <summary>
@@ -404,11 +410,16 @@ namespace Kadr.UI.Frames
             this.tcEmployee = new System.Windows.Forms.TabControl();
             this.tpEmployee = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.cpgEmployee = new UIX.UI.CommandPropertyGrid();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.tcEmplData = new System.Windows.Forms.TabControl();
+            this.tpPersonData = new System.Windows.Forms.TabPage();
+            this.cpgEmployee = new UIX.UI.CommandPropertyGrid();
+            this.tpFamily = new System.Windows.Forms.TabPage();
             this.tpEmpPost = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvEmplPosts = new System.Windows.Forms.DataGridView();
             this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -424,6 +435,7 @@ namespace Kadr.UI.Frames
             this.dateEndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prikaz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tpBonus = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvAllBonus = new System.Windows.Forms.DataGridView();
@@ -493,7 +505,11 @@ namespace Kadr.UI.Frames
             this.tpEmployee.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tcEmplData.SuspendLayout();
+            this.tpPersonData.SuspendLayout();
             this.tpEmpPost.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmplPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStaffBindingSource)).BeginInit();
             this.tpBonus.SuspendLayout();
@@ -560,8 +576,8 @@ namespace Kadr.UI.Frames
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.cpgEmployee, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.panel1, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.tcEmplData, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -570,17 +586,6 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(877, 365);
             this.tableLayoutPanel5.TabIndex = 3;
-            // 
-            // cpgEmployee
-            // 
-            this.cpgEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cpgEmployee.CommandRegister = null;
-            this.cpgEmployee.Location = new System.Drawing.Point(3, 3);
-            this.cpgEmployee.Name = "cpgEmployee";
-            this.cpgEmployee.Size = new System.Drawing.Size(871, 319);
-            this.cpgEmployee.TabIndex = 0;
             // 
             // panel1
             // 
@@ -614,10 +619,53 @@ namespace Kadr.UI.Frames
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // tcEmplData
+            // 
+            this.tcEmplData.Controls.Add(this.tpPersonData);
+            this.tcEmplData.Controls.Add(this.tpFamily);
+            this.tcEmplData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcEmplData.Location = new System.Drawing.Point(3, 3);
+            this.tcEmplData.Name = "tcEmplData";
+            this.tcEmplData.SelectedIndex = 0;
+            this.tcEmplData.Size = new System.Drawing.Size(871, 319);
+            this.tcEmplData.TabIndex = 4;
+            // 
+            // tpPersonData
+            // 
+            this.tpPersonData.Controls.Add(this.cpgEmployee);
+            this.tpPersonData.Location = new System.Drawing.Point(4, 22);
+            this.tpPersonData.Name = "tpPersonData";
+            this.tpPersonData.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPersonData.Size = new System.Drawing.Size(863, 293);
+            this.tpPersonData.TabIndex = 0;
+            this.tpPersonData.Text = "Персональные данные";
+            this.tpPersonData.UseVisualStyleBackColor = true;
+            // 
+            // cpgEmployee
+            // 
+            this.cpgEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cpgEmployee.CommandRegister = null;
+            this.cpgEmployee.Location = new System.Drawing.Point(0, 0);
+            this.cpgEmployee.Name = "cpgEmployee";
+            this.cpgEmployee.Size = new System.Drawing.Size(1542, 538);
+            this.cpgEmployee.TabIndex = 0;
+            // 
+            // tpFamily
+            // 
+            this.tpFamily.Location = new System.Drawing.Point(4, 22);
+            this.tpFamily.Name = "tpFamily";
+            this.tpFamily.Padding = new System.Windows.Forms.Padding(3);
+            this.tpFamily.Size = new System.Drawing.Size(863, 293);
+            this.tpFamily.TabIndex = 1;
+            this.tpFamily.Text = "Состав семьи";
+            this.tpFamily.UseVisualStyleBackColor = true;
+            // 
             // tpEmpPost
             // 
             this.tpEmpPost.AutoScroll = true;
-            this.tpEmpPost.Controls.Add(this.dgvEmplPosts);
+            this.tpEmpPost.Controls.Add(this.tabControl1);
             this.tpEmpPost.Location = new System.Drawing.Point(4, 22);
             this.tpEmpPost.Name = "tpEmpPost";
             this.tpEmpPost.Padding = new System.Windows.Forms.Padding(3);
@@ -625,6 +673,28 @@ namespace Kadr.UI.Frames
             this.tpEmpPost.TabIndex = 1;
             this.tpEmpPost.Text = "Трудовая деятельность";
             this.tpEmpPost.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(877, 365);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dgvEmplPosts);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(869, 339);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dgvEmplPosts
             // 
@@ -653,7 +723,7 @@ namespace Kadr.UI.Frames
             this.dgvEmplPosts.ReadOnly = true;
             this.dgvEmplPosts.RowHeadersVisible = false;
             this.dgvEmplPosts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmplPosts.Size = new System.Drawing.Size(877, 365);
+            this.dgvEmplPosts.Size = new System.Drawing.Size(863, 333);
             this.dgvEmplPosts.TabIndex = 0;
             // 
             // Department
@@ -764,6 +834,16 @@ namespace Kadr.UI.Frames
             // 
             this.factStaffBindingSource.DataSource = typeof(Kadr.Data.FactStaff);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(869, 339);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // tpBonus
             // 
             this.tpBonus.AutoScroll = true;
@@ -818,7 +898,7 @@ namespace Kadr.UI.Frames
             this.dgvAllBonus.ReadOnly = true;
             this.dgvAllBonus.RowHeadersVisible = false;
             this.dgvAllBonus.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllBonus.Size = new System.Drawing.Size(883, 496);
+            this.dgvAllBonus.Size = new System.Drawing.Size(883, 479);
             this.dgvAllBonus.TabIndex = 9;
             this.dgvAllBonus.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvAllBonus_RowPrePaint);
             this.dgvAllBonus.DoubleClick += new System.EventHandler(this.dgvAllBonus_DoubleClick);
@@ -1435,7 +1515,11 @@ namespace Kadr.UI.Frames
             this.tpEmployee.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.tcEmplData.ResumeLayout(false);
+            this.tpPersonData.ResumeLayout(false);
             this.tpEmpPost.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmplPosts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStaffBindingSource)).EndInit();
             this.tpBonus.ResumeLayout(false);

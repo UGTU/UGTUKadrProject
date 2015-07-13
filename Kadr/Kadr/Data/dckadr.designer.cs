@@ -16053,9 +16053,15 @@ namespace Kadr.Data
 		
 		private string _EmployeeName;
 		
+		private System.Nullable<System.DateTime> _OtpReducedFareDateBegin;
+		
 		private string _EmployeeSmallName;
 		
-		private System.Nullable<System.DateTime> _OtpReducedFareDateBegin;
+		private string _EmplHistSer;
+		
+		private string _EmplHistNumber;
+		
+		private System.Nullable<System.DateTime> _EmplHistDate;
 		
 		private EntitySet<EmployeeRank> _EmployeeRanks;
 		
@@ -16119,10 +16125,16 @@ namespace Kadr.Data
     partial void OnmedpolisChanged();
     partial void OnEmployeeNameChanging(string value);
     partial void OnEmployeeNameChanged();
-    partial void OnEmployeeSmallNameChanging(string value);
-    partial void OnEmployeeSmallNameChanged();
     partial void OnOtpReducedFareDateBeginChanging(System.Nullable<System.DateTime> value);
     partial void OnOtpReducedFareDateBeginChanged();
+    partial void OnEmployeeSmallNameChanging(string value);
+    partial void OnEmployeeSmallNameChanged();
+    partial void OnEmplHistSerChanging(string value);
+    partial void OnEmplHistSerChanged();
+    partial void OnEmplHistNumberChanging(string value);
+    partial void OnEmplHistNumberChanged();
+    partial void OnEmplHistDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEmplHistDateChanged();
     #endregion
 		
 		public Employee()
@@ -16623,7 +16635,27 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeSmallName", AutoSync=AutoSync.Always, DbType="VarChar(55)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtpReducedFareDateBegin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> OtpReducedFareDateBegin
+		{
+			get
+			{
+				return this._OtpReducedFareDateBegin;
+			}
+			set
+			{
+				if ((this._OtpReducedFareDateBegin != value))
+				{
+					this.OnOtpReducedFareDateBeginChanging(value);
+					this.SendPropertyChanging();
+					this._OtpReducedFareDateBegin = value;
+					this.SendPropertyChanged("OtpReducedFareDateBegin");
+					this.OnOtpReducedFareDateBeginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeSmallName", AutoSync=AutoSync.Always, DbType="VarChar(56)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
 		public string EmployeeSmallName
 		{
 			get
@@ -16643,22 +16675,62 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtpReducedFareDateBegin", DbType="DateTime")]
-		public System.Nullable<System.DateTime> OtpReducedFareDateBegin
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmplHistSer", DbType="VarChar(10)")]
+		public string EmplHistSer
 		{
 			get
 			{
-				return this._OtpReducedFareDateBegin;
+				return this._EmplHistSer;
 			}
 			set
 			{
-				if ((this._OtpReducedFareDateBegin != value))
+				if ((this._EmplHistSer != value))
 				{
-					this.OnOtpReducedFareDateBeginChanging(value);
+					this.OnEmplHistSerChanging(value);
 					this.SendPropertyChanging();
-					this._OtpReducedFareDateBegin = value;
-					this.SendPropertyChanged("OtpReducedFareDateBegin");
-					this.OnOtpReducedFareDateBeginChanged();
+					this._EmplHistSer = value;
+					this.SendPropertyChanged("EmplHistSer");
+					this.OnEmplHistSerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmplHistNumber", DbType="VarChar(20)")]
+		public string EmplHistNumber
+		{
+			get
+			{
+				return this._EmplHistNumber;
+			}
+			set
+			{
+				if ((this._EmplHistNumber != value))
+				{
+					this.OnEmplHistNumberChanging(value);
+					this.SendPropertyChanging();
+					this._EmplHistNumber = value;
+					this.SendPropertyChanged("EmplHistNumber");
+					this.OnEmplHistNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmplHistDate", DbType="Date")]
+		public System.Nullable<System.DateTime> EmplHistDate
+		{
+			get
+			{
+				return this._EmplHistDate;
+			}
+			set
+			{
+				if ((this._EmplHistDate != value))
+				{
+					this.OnEmplHistDateChanging(value);
+					this.SendPropertyChanging();
+					this._EmplHistDate = value;
+					this.SendPropertyChanged("EmplHistDate");
+					this.OnEmplHistDateChanged();
 				}
 			}
 		}

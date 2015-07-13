@@ -1333,6 +1333,22 @@ namespace Kadr.UI.Forms
             }
         }
 
+        private void ÚËÔ˚–Â„ËÓÌÓ‚ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (RegionTypeDialog dlg = new RegionTypeDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void ‚Ë‰˚—Ú‡Ê‡ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (StandingTypeDialog dlg = new StandingTypeDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
         
 
        

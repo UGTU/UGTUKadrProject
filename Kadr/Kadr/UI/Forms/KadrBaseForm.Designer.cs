@@ -109,6 +109,8 @@ namespace Kadr.UI.Forms
             this.базовыеОкладыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.совмещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.причинаСовмещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типыРегионовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.видыСтажаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.табельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.статусДняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.графикиРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -735,7 +737,7 @@ namespace Kadr.UI.Forms
             this.типНадбавкиToolStripMenuItem,
             this.видToolStripMenuItem1});
             this.ВидНадбавкиToolStripMenuItem.Name = "ВидНадбавкиToolStripMenuItem";
-            this.ВидНадбавкиToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.ВидНадбавкиToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.ВидНадбавкиToolStripMenuItem.Text = "Надбавки";
             this.ВидНадбавкиToolStripMenuItem.Visible = false;
             // 
@@ -763,7 +765,7 @@ namespace Kadr.UI.Forms
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(198, 6);
             // 
             // gRToolStripMenuItem
             // 
@@ -778,7 +780,7 @@ namespace Kadr.UI.Forms
             this.категорииToolStripMenuItem1,
             this.группыДолжностейToolStripMenuItem});
             this.gRToolStripMenuItem.Name = "gRToolStripMenuItem";
-            this.gRToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.gRToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.gRToolStripMenuItem.Text = "Должности";
             this.gRToolStripMenuItem.Visible = false;
             // 
@@ -851,7 +853,7 @@ namespace Kadr.UI.Forms
             this.гражданствоToolStripMenuItem,
             this.семейноеПоложениеToolStripMenuItem});
             this.персоналToolStripMenuItem.Name = "персоналToolStripMenuItem";
-            this.персоналToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.персоналToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.персоналToolStripMenuItem.Text = "Личные данные";
             // 
             // гражданствоToolStripMenuItem
@@ -875,7 +877,7 @@ namespace Kadr.UI.Forms
             this.видыПриказовToolStripMenuItem,
             this.приказыМинистерстваToolStripMenuItem});
             this.приказыToolStripMenuItem.Name = "приказыToolStripMenuItem";
-            this.приказыToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.приказыToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.приказыToolStripMenuItem.Text = "Приказы";
             // 
             // типыПриказовToolStripMenuItem
@@ -908,7 +910,7 @@ namespace Kadr.UI.Forms
             this.оКВЭДToolStripMenuItem,
             this.базовыеОкладыToolStripMenuItem});
             this.окладToolStripMenuItem.Name = "окладToolStripMenuItem";
-            this.окладToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.окладToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.окладToolStripMenuItem.Text = "Финансирование";
             this.окладToolStripMenuItem.Visible = false;
             // 
@@ -944,10 +946,12 @@ namespace Kadr.UI.Forms
             // совмещенияToolStripMenuItem
             // 
             this.совмещенияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.причинаСовмещенияToolStripMenuItem});
+            this.причинаСовмещенияToolStripMenuItem,
+            this.типыРегионовToolStripMenuItem,
+            this.видыСтажаToolStripMenuItem});
             this.совмещенияToolStripMenuItem.Name = "совмещенияToolStripMenuItem";
-            this.совмещенияToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.совмещенияToolStripMenuItem.Text = "Замещения";
+            this.совмещенияToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.совмещенияToolStripMenuItem.Text = "Трудовая деятельность";
             // 
             // причинаСовмещенияToolStripMenuItem
             // 
@@ -956,13 +960,27 @@ namespace Kadr.UI.Forms
             this.причинаСовмещенияToolStripMenuItem.Text = "Причины замещений";
             this.причинаСовмещенияToolStripMenuItem.Click += new System.EventHandler(this.причинаСовмещенияToolStripMenuItem_Click);
             // 
+            // типыРегионовToolStripMenuItem
+            // 
+            this.типыРегионовToolStripMenuItem.Name = "типыРегионовToolStripMenuItem";
+            this.типыРегионовToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.типыРегионовToolStripMenuItem.Text = "Типы регионов";
+            this.типыРегионовToolStripMenuItem.Click += new System.EventHandler(this.типыРегионовToolStripMenuItem_Click);
+            // 
+            // видыСтажаToolStripMenuItem
+            // 
+            this.видыСтажаToolStripMenuItem.Name = "видыСтажаToolStripMenuItem";
+            this.видыСтажаToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.видыСтажаToolStripMenuItem.Text = "Виды стажа";
+            this.видыСтажаToolStripMenuItem.Click += new System.EventHandler(this.видыСтажаToolStripMenuItem_Click);
+            // 
             // табельToolStripMenuItem
             // 
             this.табельToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.статусДняToolStripMenuItem,
             this.графикиРаботыToolStripMenuItem});
             this.табельToolStripMenuItem.Name = "табельToolStripMenuItem";
-            this.табельToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.табельToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.табельToolStripMenuItem.Text = "Табель";
             this.табельToolStripMenuItem.Visible = false;
             // 
@@ -985,7 +1003,7 @@ namespace Kadr.UI.Forms
             this.отделыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.типыОтделовToolStripMenuItem});
             this.отделыToolStripMenuItem.Name = "отделыToolStripMenuItem";
-            this.отделыToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.отделыToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.отделыToolStripMenuItem.Text = "Остальное";
             this.отделыToolStripMenuItem.Visible = false;
             // 
@@ -1415,7 +1433,7 @@ namespace Kadr.UI.Forms
             this.Name = "KadrBaseForm";
             this.helpProvider1.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "АИС \"Штатное расписание\"";
+            this.Text = "ИС \"Управление кадрами\"";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KadrBaseForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KadrBaseForm_FormClosed);
@@ -1584,6 +1602,8 @@ namespace Kadr.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem типыОтделовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem группыДолжностейToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem продлитьНадбавкурасширеннаяФормаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типыРегионовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem видыСтажаToolStripMenuItem;
 
     }
 }
