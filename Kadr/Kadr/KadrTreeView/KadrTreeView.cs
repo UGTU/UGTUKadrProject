@@ -29,7 +29,16 @@ namespace Kadr.KadrTreeView
         /// <summary>
         /// Создание корневых узлов дерева                                                                        
         /// </summary>
-        protected void CreateRootNodes()
+        public void CreateRootNodes()
+        {
+            DoCreateRootNodes();
+        }
+
+
+        /// <summary>
+        /// Создание корневых узлов дерева                                                                        
+        /// </summary>
+        protected void DoCreateRootNodes()
         {
 
             //создаем узлы-отделы
@@ -200,7 +209,7 @@ namespace Kadr.KadrTreeView
         {
             InitializeComponent();
             //CreateSearchNodes();
-            CreateRootNodes();
+            //CreateRootNodes();
 
         }
 
@@ -211,8 +220,11 @@ namespace Kadr.KadrTreeView
             InitializeComponent();
           //  CreateSearchNodes();
             
-            CreateRootNodes();
+            //CreateRootNodes();
         }
+
+
+
 
 
 

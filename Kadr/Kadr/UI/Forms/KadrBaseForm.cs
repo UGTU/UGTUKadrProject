@@ -412,6 +412,7 @@ namespace Kadr.UI.Forms
         {
 
             //ImportDailyReportFiles();
+            kadrTreeView1.CreateRootNodes();
             CreateNodeContextItems();
            
         }
