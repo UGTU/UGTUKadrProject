@@ -7,22 +7,22 @@ using System.ComponentModel;
 namespace Kadr.UI.Editors
 {
     [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
-    public class CategryEditor : System.Drawing.Design.UITypeEditor
+    public class StandingTypeEditor : System.Drawing.Design.UITypeEditor
     {
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
-            using (Common.ListSelectDialog<Kadr.Data.Category> dlg = new Kadr.UI.Common.ListSelectDialog<Kadr.Data.Category>())
+            using (Common.ListSelectDialog<Kadr.Data.StandingType> dlg = new Kadr.UI.Common.ListSelectDialog<Kadr.Data.StandingType>())
             {
 
-                dlg.Text = "Категория персонала";
-                dlg.QueryText = "Выберите категорию";
+                dlg.Text = "Тип стажа";
+                dlg.QueryText = "Выберите тип стажа";
                 dlg.DataSource =
-                    Kadr.Controllers.KadrController.Instance.Model.Categories.OrderBy(cat => cat.CategorySmallName);
-                dlg.SelectedValue = (Kadr.Data.Category)value;
+                    Kadr.Controllers.KadrController.Instance.Model.StandingTypes.OrderBy(stT => stT.StandingTypeName);
+                dlg.SelectedValue = (Kadr.Data.StandingType)value;
 
                 if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     if (dlg.SelectedValue == null)
-                        return Kadr.Data.NullCategory.Instance;
+                        return Data.NullStandingType.Instance;
                     else
                         return dlg.SelectedValue;
                 else
@@ -38,6 +38,4 @@ namespace Kadr.UI.Editors
     }
 
 }
-
-
-
+  

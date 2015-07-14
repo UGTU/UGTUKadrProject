@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 21.5, 22.25" name="dckadr">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 21.5, 25" name="dckadr">
   <DataContextMoniker Name="/dckadrDataContext" />
   <nestedChildShapes>
     <classShape Id="87ef4083-ee58-451c-a55d-25b2c1ef652d" absoluteBounds="0.625, 6.125, 2, 1.1939925130208335">
@@ -39,7 +39,7 @@
         <elementListCompartment Id="1269a972-1c2f-4777-92fe-fa501a80e895" absoluteBounds="6.14, 6.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 6.48159912109375); (5.79166666666667 : 6.48159912109375 : JumpStart); (6.02083333333333 : 6.48159912109375 : JumpEnd); (6.125 : 6.48159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 6.48159912109375); (6.125 : 6.48159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/PlanStaff/PlanStaff_PlanStaffSalary" />
       <nodes>
         <classShapeMoniker Id="c2e1419d-e301-44d9-9632-ffc3f5636c68" />
@@ -64,7 +64,7 @@
         <elementListCompartment Id="cb65ed7f-3f0c-4deb-9366-ff3a1c1d0e12" absoluteBounds="0.51500000000000012, 11.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.625 : 7.37653746153846); (3 : 7.00153746153846); (3 : 7.4631982421875); (3.125 : 7.4631982421875); (3.12857443490112 : 7.45962380728638 : JumpStart); (3.24642556509888 : 7.34177267708862 : JumpEnd); (3.5 : 7.0881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.625 : 7.37653746153846); (3 : 7.00153746153846); (3 : 7.4631982421875); (3.125 : 7.4631982421875); (3.5 : 7.0881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Prikaz/Prikaz_PlanStaff" />
       <nodes>
         <classShapeMoniker Id="47407422-4b7e-4a09-b727-9af8103df2d6" />
@@ -141,7 +141,7 @@
         <elementListCompartment Id="556ac874-5c59-4453-ac23-0c2c3a34dcdd" absoluteBounds="11.64, 4.4600000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(12.2500005 : 7.375); (12.2500005 : 6.6819482421875); (11.6458333333333 : 6.6819482421875 : JumpStart); (11.2916666666667 : 6.6819482421875 : JumpEnd); (11.25 : 6.6819482421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(12.2500005 : 7.375); (12.2500005 : 6.6819482421875); (11.4583333333333 : 6.6819482421875 : JumpStart); (11.2916666666667 : 6.6819482421875 : JumpEnd); (11.25 : 6.6819482421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/EducDocument/EducDocument_EmployeeRank" />
       <nodes>
         <classShapeMoniker Id="cc6faa26-20c5-4204-bc17-9a7201ea35bf" />
@@ -262,14 +262,14 @@
         <elementListCompartment Id="3f682706-922a-4119-900e-2b0c9f670fd4" absoluteBounds="19.265, 6.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(20.656252 : 11.5881982421875); (20.656252 : 17.15625); (19.6770813333333 : 17.15625 : JumpStart); (19.5104146666667 : 17.15625 : JumpEnd); (16.2083333333333 : 17.15625 : JumpStart); (16.0416666666667 : 17.15625 : JumpEnd); (11.7708333333333 : 17.15625 : JumpStart); (11.6041666666667 : 17.15625 : JumpEnd); (11.4583333333333 : 17.15625 : JumpStart); (11.2916666666667 : 17.15625 : JumpEnd); (10.3958333333333 : 17.15625 : JumpStart); (10.2291666666667 : 17.15625 : JumpEnd); (8.625 : 17.15625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(20.656252 : 11.5881982421875); (20.656252 : 17.15625); (19.6770813333333 : 17.15625 : JumpStart); (19.5104146666667 : 17.15625 : JumpEnd); (17.6458333333333 : 17.15625 : JumpStart); (17.4791666666667 : 17.15625 : JumpEnd); (16.2083333333333 : 17.15625 : JumpStart); (16.0416666666667 : 17.15625 : JumpEnd); (11.7708333333333 : 17.15625 : JumpStart); (11.6041666666667 : 17.15625 : JumpEnd); (11.4583333333333 : 17.15625 : JumpStart); (11.2916666666667 : 17.15625 : JumpEnd); (10.3958333333333 : 17.15625 : JumpStart); (10.2291666666667 : 17.15625 : JumpEnd); (8.625 : 17.15625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Bonus/Bonus_BonusPlanStaff" />
       <nodes>
         <classShapeMoniker Id="05adf260-28ab-444f-b854-49ceb76920f2" />
         <classShapeMoniker Id="1377257c-55f0-4a71-8e78-26e57f2b9507" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(19.593748 : 11.5881982421875); (19.593748 : 17.2660953776042); (16.2083333333333 : 17.2660953776042 : JumpStart); (16.0416666666667 : 17.2660953776042 : JumpEnd); (11.7708333333333 : 17.2660953776042 : JumpStart); (11.6041666666667 : 17.2660953776042 : JumpEnd); (11.375 : 17.2660953776042); (11.375 : 17); (9.25 : 17); (9.25 : 16.2219962565104); (8.625 : 16.2219962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.593748 : 11.5881982421875); (19.593748 : 17.2660953776042); (17.6458333333333 : 17.2660953776042 : JumpStart); (17.4791666666667 : 17.2660953776042 : JumpEnd); (16.2083333333333 : 17.2660953776042 : JumpStart); (16.0416666666667 : 17.2660953776042 : JumpEnd); (11.7708333333333 : 17.2660953776042 : JumpStart); (11.6041666666667 : 17.2660953776042 : JumpEnd); (11.375 : 17.2660953776042); (11.375 : 17); (9.25 : 17); (9.25 : 16.2219962565104); (8.625 : 16.2219962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Bonus/Bonus_BonusPost" />
       <nodes>
         <classShapeMoniker Id="05adf260-28ab-444f-b854-49ceb76920f2" />
@@ -315,7 +315,7 @@
         <elementListCompartment Id="63e85b17-0272-4ce7-a965-0371970e5738" absoluteBounds="3.64, 15.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 16.2604484049479); (3.04166666666667 : 16.2604484049479 : JumpStart); (3.42708333333333 : 16.2604484049479 : JumpEnd); (3.625 : 16.2604484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 16.2604484049479); (3.04166666666667 : 16.2604484049479 : JumpStart); (3.20833333333333 : 16.2604484049479 : JumpEnd); (3.625 : 16.2604484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/TimeSheet/TimeSheet_TimeSheetFSWorkingDay" />
       <nodes>
         <classShapeMoniker Id="fe6eacc2-ed50-4154-9a8a-7c2e4009c9a5" />
@@ -334,7 +334,7 @@
         <elementListCompartment Id="f50bfe7b-3266-4c15-9225-232aa3f8e33f" absoluteBounds="1.2650000000000001, 18.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.75 : 18.8854484049479); (3.64583333333333 : 18.8854484049479 : JumpStart); (3.41666666666667 : 18.8854484049479 : JumpEnd); (3.25 : 18.8854484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3.75 : 18.8854484049479); (3.64583333333333 : 18.8854484049479 : JumpStart); (3.47916666666667 : 18.8854484049479 : JumpEnd); (3.25 : 18.8854484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/OK_Otpuskvid/OK_Otpuskvid_OK_Otpusk" />
       <nodes>
         <classShapeMoniker Id="39d738f6-706f-4073-8802-210e1c37e89b" />
@@ -373,7 +373,7 @@
         <elementListCompartment Id="b27f2cad-794c-48d8-bc29-f2716dac37b8" absoluteBounds="4.515, 20.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 20.25); (5.5 : 20.0208968098958); (3.5 : 20.0208968098958); (3.5 : 17.3958968098958); (3.42708333333333 : 17.3958968098958 : JumpStart); (3.26041666666667 : 17.3958968098958 : JumpEnd); (3.1875 : 17.3958968098958); (3.1875 : 6.07534712109375); (3.5 : 6.07534712109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 20.25); (5.5 : 20.0208968098958); (3.5 : 20.0208968098958); (3.5 : 17.3958968098958); (3.42708333333333 : 17.3958968098958 : JumpStart); (3.26041666666667 : 17.3958968098958 : JumpEnd); (3.1875 : 17.3958968098958); (3.1875 : 6.07534712109375); (3.5 : 6.07534712109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/WorkShedule/WorkShedule_PlanStaff" />
       <nodes>
         <classShapeMoniker Id="67ede767-2912-4a00-aa6a-2b9b605d7392" />
@@ -411,7 +411,7 @@
         <elementListCompartment Id="4f3110c9-3c0a-45f7-ad05-9673bea02275" absoluteBounds="8.515, 14.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.375 : 14.7300439453125); (5.60416666666667 : 14.7300439453125 : JumpStart); (5.81770833333333 : 14.7300439453125 : JumpEnd); (8.29166666666667 : 14.7300439453125 : JumpStart); (8.45833333333333 : 14.7300439453125 : JumpEnd); (8.5 : 14.7300439453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.375 : 14.7300439453125); (8.5 : 14.7300439453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/FactStaffReplacementReason/FactStaffReplacementReason_FactStaffReplacement" />
       <nodes>
         <classShapeMoniker Id="2cf9c4b6-4c70-406d-88ac-1216b635f28f" />
@@ -437,14 +437,14 @@
         <classShapeMoniker Id="00abe327-8284-45b9-a9fe-bc249978a083" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.75 : 1.19314697265625); (7.0625 : 1.19314697265625); (7.0625 : 2.3237939453125); (9.3125 : 2.3237939453125); (9.3125 : 4.9583154296875); (11.5625 : 4.9583154296875); (11.5625 : 7.0625); (12.1666671666667 : 7.0625 : JumpStart); (12.3333338333333 : 7.0625 : JumpEnd); (12.7291669166667 : 7.0625 : JumpStart); (12.8958335833333 : 7.0625 : JumpEnd); (13.2604166666667 : 7.0625 : JumpStart); (13.5989608333333 : 7.0625 : JumpEnd); (13.9166666666667 : 7.0625 : JumpStart); (14.0833333333333 : 7.0625 : JumpEnd); (16.6875 : 7.0625); (16.6875 : 11.90625); (17.218748 : 11.90625); (17.218748 : 12)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.75 : 1.19314697265625); (7.0625 : 1.19314697265625); (7.0625 : 2.3237939453125); (9.3125 : 2.3237939453125); (9.3125 : 4.9583154296875); (11.5625 : 4.9583154296875); (11.5625 : 7.0625); (12.1666671666667 : 7.0625 : JumpStart); (12.3333338333333 : 7.0625 : JumpEnd); (12.7291669166667 : 7.0625 : JumpStart); (12.8958335833333 : 7.0625 : JumpEnd); (13.2604166666667 : 7.0625 : JumpStart); (13.5989608333333 : 7.0625 : JumpEnd); (13.9166666666667 : 7.0625 : JumpStart); (14.0833333333333 : 7.0625 : JumpEnd); (16.6875 : 7.0625); (16.6875 : 11.90625); (17.218748 : 11.90625); (17.218748 : 12)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/FinancingSource/FinancingSource_BonusHistory" />
       <nodes>
         <classShapeMoniker Id="71e5e831-66b2-470d-829f-30cbc32157ea" />
         <classShapeMoniker Id="00abe327-8284-45b9-a9fe-bc249978a083" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.625 : 9.41091207145182); (3.04166666666667 : 9.41091207145182 : JumpStart); (3.27083333333333 : 9.41091207145182 : JumpEnd); (3.5625 : 9.41091207145182); (3.5625 : 11.1987125651042); (5.703125 : 11.1987125651042); (5.703125 : 12.5737939453125); (8.3125 : 12.5737939453125); (8.3125 : 11.6875); (8.59166666666667 : 11.6875 : JumpStart); (9.02083333333333 : 11.6875 : JumpEnd); (11.0916666666667 : 11.6875 : JumpStart); (11.2583333333333 : 11.6875 : JumpEnd); (11.3125 : 11.6875); (11.3125 : 12.5160953776042); (13.5625 : 12.5160953776042); (13.5625 : 11.8125); (16.4791666666667 : 11.8125 : JumpStart); (16.7708333333333 : 11.8125 : JumpEnd); (17.75 : 11.8125); (17.75 : 12)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.625 : 9.41091207145182); (3.04166666666667 : 9.41091207145182 : JumpStart); (3.27083333333333 : 9.41091207145182 : JumpEnd); (3.5625 : 9.41091207145182); (3.5625 : 11.1987125651042); (5.703125 : 11.1987125651042); (5.703125 : 12.5737939453125); (8.3125 : 12.5737939453125); (8.3125 : 11.6875); (8.59166666666667 : 11.6875 : JumpStart); (9.02083333333333 : 11.6875 : JumpEnd); (11.0916666666667 : 11.6875 : JumpStart); (11.2583333333333 : 11.6875 : JumpEnd); (11.3125 : 11.6875); (11.3125 : 12.5160953776042); (13.5625 : 12.5160953776042); (13.5625 : 11.8125); (16.4791666666667 : 11.8125 : JumpStart); (16.7708333333333 : 11.8125 : JumpEnd); (17.75 : 11.8125); (17.75 : 12)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Prikaz/Prikaz_BonusHistory" />
       <nodes>
         <classShapeMoniker Id="47407422-4b7e-4a09-b727-9af8103df2d6" />
@@ -470,7 +470,7 @@
         <classShapeMoniker Id="e4cef970-8ade-4d79-b630-4f797974d627" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 11.9431469726562); (5.5 : 11.9431469726562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.75 : 11.9431469726562); (5.69270833333333 : 11.9431469726562 : JumpStart); (5.52604166666667 : 11.9431469726562 : JumpEnd); (5.5 : 11.9431469726562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/PKGroup/PKGroup_PKCategory" />
       <nodes>
         <classShapeMoniker Id="e3ff6463-4751-4a5b-9a40-dff1fd6ce014" />
@@ -490,14 +490,14 @@
         <elementListCompartment Id="3d98d4c7-8cfe-4c29-85b2-38b78083d620" absoluteBounds="11.64, 0.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.625 : 9.41091207145182); (3.04166666666667 : 9.41091207145182 : JumpStart); (3.27083333333333 : 9.41091207145182 : JumpEnd); (3.5625 : 9.41091207145182); (3.5625 : 7.1875); (6.0625 : 7.1875); (6.0625 : 5.4375); (7.82291866666667 : 5.4375 : JumpStart); (7.98958533333333 : 5.4375 : JumpEnd); (8.66041666666667 : 5.4375 : JumpStart); (9.02083333333333 : 5.4375 : JumpEnd); (11.2604166666667 : 5.4375 : JumpStart); (11.5833333333333 : 5.4375 : JumpEnd); (11.59375 : 5.4375); (11.59375 : 3.9375); (12.625 : 3.9375); (12.625 : 3.80930826822917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.625 : 9.41091207145182); (3.04166666666667 : 9.41091207145182 : JumpStart); (3.27083333333333 : 9.41091207145182 : JumpEnd); (3.5625 : 9.41091207145182); (3.5625 : 7.1875); (6.0625 : 7.1875); (6.0625 : 5.4375); (7.82291866666667 : 5.4375 : JumpStart); (7.98958533333333 : 5.4375 : JumpEnd); (8.66041666666667 : 5.4375 : JumpStart); (9.02083333333333 : 5.4375 : JumpEnd); (11.2604166666667 : 5.4375 : JumpStart); (11.5833333333333 : 5.4375 : JumpEnd); (11.59375 : 5.4375); (11.59375 : 3.9375); (12.625 : 3.9375); (12.625 : 3.80930826822917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Prikaz/Prikaz_FactStaffHistory" />
       <nodes>
         <classShapeMoniker Id="47407422-4b7e-4a09-b727-9af8103df2d6" />
         <classShapeMoniker Id="ca399bd3-1897-4c1b-9c9a-93d44ce53a64" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.625 : 20.4431469726563); (11.6875 : 20.4431469726563); (11.6875 : 12.5160953776042); (13.4375 : 12.5160953776042); (13.4375 : 6.40549967447917); (13.4270833333333 : 6.40549967447917 : JumpStart); (13.2604166666667 : 6.40549967447917 : JumpEnd); (12.8958335833333 : 6.40549967447917 : JumpStart); (12.7291669166667 : 6.40549967447917 : JumpEnd); (11.5 : 6.40549967447917); (11.5 : 3.90305826822917); (12.625 : 3.90305826822917); (12.625 : 3.80930826822917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(11.625 : 20.4431469726563); (11.6875 : 20.4431469726563); (11.6875 : 12.5160953776042); (13.4375 : 12.5160953776042); (13.4375 : 6.40549967447917); (11.5 : 6.40549967447917); (11.5 : 3.90305826822917); (12.625 : 3.90305826822917); (12.625 : 3.80930826822917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/SalaryKoeff/SalaryKoeff_FactStaffHistory" />
       <nodes>
         <classShapeMoniker Id="12b6793f-fcfe-456d-b314-13a93237fc64" />
@@ -555,7 +555,7 @@
         <classShapeMoniker Id="72355b1b-da81-498c-a3be-34d545233d9f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.625 : 8.77178866186524); (3.04166666666667 : 8.77178866186523 : JumpStart); (3.39583333333333 : 8.77178866186524 : JumpEnd); (3.5625 : 8.77178866186524); (3.5625 : 7.1875); (5.9375 : 7.1875); (5.9375 : 5.8125); (5.97916666666667 : 5.8125 : JumpStart); (6.14583333333333 : 5.8125 : JumpEnd); (7.906252 : 5.8125); (7.906252 : 4.5881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.625 : 8.77178866186524); (3.04166666666667 : 8.77178866186524 : JumpStart); (3.39583333333333 : 8.77178866186524 : JumpEnd); (3.5625 : 8.77178866186524); (3.5625 : 7.1875); (5.9375 : 7.1875); (5.9375 : 5.8125); (5.97916666666667 : 5.8125 : JumpStart); (6.14583333333333 : 5.8125 : JumpEnd); (7.906252 : 5.8125); (7.906252 : 4.5881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Prikaz/Prikaz_PlanStaffHistory" />
       <nodes>
         <classShapeMoniker Id="47407422-4b7e-4a09-b727-9af8103df2d6" />
@@ -568,7 +568,7 @@
         <elementListCompartment Id="25724c09-47a6-4d77-94c4-1ba6af5636c4" absoluteBounds="4.1400000000000006, 3.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.625 : 7.969875927653); (3.10416666666667 : 7.96987592765299 : JumpStart); (3.39583333333333 : 7.969875927653 : JumpEnd); (3.5625 : 7.969875927653); (3.5625 : 7.1506982421875); (5.5625 : 7.1506982421875); (5.5625 : 5.12424967447917); (5.125 : 5.12424967447917); (5.125 : 5.03049967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.625 : 7.969875927653); (3.10416666666667 : 7.969875927653 : JumpStart); (3.39583333333333 : 7.969875927653 : JumpEnd); (3.5625 : 7.969875927653); (3.5625 : 7.1506982421875); (5.5625 : 7.1506982421875); (5.5625 : 5.12424967447917); (5.125 : 5.12424967447917); (5.125 : 5.03049967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Prikaz/Prikaz_DepartmentHistory" />
       <nodes>
         <classShapeMoniker Id="47407422-4b7e-4a09-b727-9af8103df2d6" />
@@ -593,35 +593,35 @@
         <elementListCompartment Id="6b33e3e5-e2db-460b-a298-d383c1adcb3c" absoluteBounds="9.39, 1.085, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(10.640626 : 4.8958154296875); (10.640626 : 5.375); (11.375 : 5.375); (11.375 : 6.95839680989583); (11.4479166666667 : 6.95839680989583 : JumpStart); (11.6458333333333 : 6.95839680989583 : JumpEnd); (12.1666671666667 : 6.95839680989583 : JumpStart); (12.3333338333333 : 6.95839680989583 : JumpEnd); (12.7291669166667 : 6.95839680989583 : JumpStart); (12.8958335833333 : 6.95839680989583 : JumpEnd); (13.2604166666667 : 6.95839680989583 : JumpStart); (13.5989608333333 : 6.95839680989583 : JumpEnd); (13.9166666666667 : 6.95839680989583 : JumpStart); (14.0833333333333 : 6.95839680989583 : JumpEnd); (16.7291666666667 : 6.95839680989583 : JumpStart); (16.8958333333333 : 6.95839680989583 : JumpEnd); (19.15625 : 6.95839680989583); (19.15625 : 6.72199625651042); (19.25 : 6.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.640626 : 4.8958154296875); (10.640626 : 5.375); (11.375 : 5.375); (11.375 : 6.95839680989583); (19.15625 : 6.95839680989583); (19.15625 : 6.72199625651042); (19.25 : 6.72199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/FactStaff/FactStaff_BonusFactStaff" />
       <nodes>
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
         <classShapeMoniker Id="0c1d1efe-0eb8-49ff-9603-b1c0fbd292eb" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(9.578122 : 4.8958154296875); (9.578122 : 5.375); (8.9375 : 5.375); (8.9375 : 13.5625); (8.4375 : 13.5625); (8.4375 : 15.4375); (6.21875 : 15.4375); (6.21875 : 16.2604484049479); (5.625 : 16.2604484049479)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(9.578122 : 4.8958154296875); (9.578122 : 5.375); (8.9375 : 5.375); (8.9375 : 13.5625); (8.4375 : 13.5625); (8.4375 : 15.4375); (6.21875 : 15.4375); (6.21875 : 16.2604484049479); (5.625 : 16.2604484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/FactStaff/FactStaff_TimeSheetFSWorkingDay" />
       <nodes>
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
         <classShapeMoniker Id="4c6ac482-c995-4619-936e-3e83e8be9759" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(10.906252 : 4.8958154296875); (10.906252 : 5.3125); (9.92708133333333 : 5.3125 : JumpStart); (9.76041466666667 : 5.3125 : JumpEnd); (8.9375 : 5.3125); (8.9375 : 13.5625); (8.375 : 13.5625); (8.375 : 15.34375); (5.81770833333333 : 15.34375 : JumpStart); (5.60416666666667 : 15.34375 : JumpEnd); (3.64583333333333 : 15.34375 : JumpStart); (3.47916666666667 : 15.34375 : JumpEnd); (3.34375 : 15.34375); (3.34375 : 18.9527498372396); (3.25 : 18.9527498372396)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(10.906252 : 4.8958154296875); (10.906252 : 5.3125); (8.9375 : 5.3125); (8.9375 : 13.5625); (8.375 : 13.5625); (8.375 : 15.34375); (5.81770833333333 : 15.34375 : JumpStart); (5.65104166666667 : 15.34375 : JumpEnd); (3.64583333333333 : 15.34375 : JumpStart); (3.47916666666667 : 15.34375 : JumpEnd); (3.34375 : 15.34375); (3.34375 : 18.9527498372396); (3.25 : 18.9527498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/FactStaff/FactStaff_OK_Otpusk" />
       <nodes>
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
         <classShapeMoniker Id="2ed03808-065d-4b92-b857-e9714e6e3059" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(9.375 : 3.69931945800781); (9.33333333333333 : 3.69931945800781 : JumpStart); (9.16666666666667 : 3.69931945800781 : JumpEnd); (8.74375 : 3.69931945800781); (8.74375 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(9.375 : 3.69931945800781); (8.74375 : 3.69931945800781); (8.74375 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/FactStaff/FactStaff_FactStaffReplacement" />
       <nodes>
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
         <classShapeMoniker Id="2d3596a3-5e8f-42fc-98cf-0d6d194b675a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(9.375 : 4.32881994384766); (9.33333333333333 : 4.32881994384766 : JumpStart); (9.16666666666667 : 4.32881994384766 : JumpEnd); (8.8375 : 4.32881994384766); (8.8375 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(9.375 : 4.32881994384766); (8.8375 : 4.32881994384766); (8.8375 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/FactStaff/FactStaff_FactStaffReplacement1" />
       <nodes>
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
@@ -635,7 +635,7 @@
         <classShapeMoniker Id="ca399bd3-1897-4c1b-9c9a-93d44ce53a64" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.171878 : 4.8958154296875); (11.171878 : 5.4375); (11.2604166666667 : 5.4375 : JumpStart); (11.4270833333333 : 5.4375 : JumpEnd); (11.4375 : 5.4375); (11.4375 : 6.21799967447917); (11.4479166666667 : 6.21799967447917 : JumpStart); (11.6458333333333 : 6.21799967447917 : JumpEnd); (13.7916666666667 : 6.21799967447917 : JumpStart); (14.0833333333333 : 6.21799967447917 : JumpEnd); (14.15625 : 6.21799967447917); (14.15625 : 6.01044840494792); (14.25 : 6.01044840494792)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(11.171878 : 4.8958154296875); (11.171878 : 5.4375); (11.2604166666667 : 5.4375 : JumpStart); (11.4270833333333 : 5.4375 : JumpEnd); (11.4375 : 5.4375); (11.4375 : 6.21799967447917); (13.7916666666667 : 6.21799967447917 : JumpStart); (14.0833333333333 : 6.21799967447917 : JumpEnd); (14.15625 : 6.21799967447917); (14.15625 : 6.01044840494792); (14.25 : 6.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/FactStaff/FactStaff_FactStaffMonthHour" />
       <nodes>
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
@@ -663,21 +663,21 @@
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.125 : 2.50564697265625); (6.47916666666667 : 2.50564697265625 : JumpStart); (6.64583333333333 : 2.50564697265625 : JumpEnd); (9.16666666666667 : 2.50564697265625 : JumpStart); (9.33333333333333 : 2.50564697265625 : JumpEnd); (9.375 : 2.50564697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(6.125 : 2.50564697265625); (9.375 : 2.50564697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/OKVED/OKVED_FactStaff" />
       <nodes>
         <classShapeMoniker Id="4a85343b-450b-44f0-91a2-5d77ce745913" />
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 5.1875); (7.29166666666667 : 5.1875 : JumpStart); (7.45833333333333 : 5.1875 : JumpEnd); (7.82291866666667 : 5.1875 : JumpStart); (7.98958533333333 : 5.1875 : JumpEnd); (8.66041666666667 : 5.1875 : JumpStart); (8.92083333333333 : 5.1875 : JumpEnd); (9.49478866666667 : 5.1875 : JumpStart); (9.66145533333333 : 5.1875 : JumpEnd); (9.76041466666667 : 5.1875 : JumpStart); (9.92708133333333 : 5.1875 : JumpEnd); (10.375 : 5.1875); (10.375 : 4.8958154296875)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 5.1875); (10.375 : 5.1875); (10.375 : 4.8958154296875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/PlanStaff/PlanStaff_FactStaff" />
       <nodes>
         <classShapeMoniker Id="c2e1419d-e301-44d9-9632-ffc3f5636c68" />
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.625 : 9.00030456514486); (3.04166666666667 : 9.00030456514486 : JumpStart); (3.39583333333333 : 9.00030456514486 : JumpEnd); (3.5625 : 9.00030456514486); (3.5625 : 7.203125); (5.875 : 7.203125); (5.875 : 5.46875); (7.82291866666667 : 5.46875 : JumpStart); (7.98958533333333 : 5.46875 : JumpEnd); (8.66041666666667 : 5.46875 : JumpStart); (9.02083333333333 : 5.46875 : JumpEnd); (9.843748 : 5.46875); (9.843748 : 4.8958154296875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.625 : 9.00030456514486); (3.04166666666667 : 9.00030456514486 : JumpStart); (3.39583333333333 : 9.00030456514486 : JumpEnd); (3.5625 : 9.00030456514486); (3.5625 : 7.203125); (5.875 : 7.203125); (5.875 : 5.46875); (7.82291866666667 : 5.46875 : JumpStart); (7.98958533333333 : 5.46875 : JumpEnd); (8.66041666666667 : 5.46875 : JumpStart); (9.02083333333333 : 5.46875 : JumpEnd); (9.843748 : 5.46875); (9.843748 : 4.8958154296875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Prikaz/Prikaz_FactStaff" />
       <nodes>
         <classShapeMoniker Id="47407422-4b7e-4a09-b727-9af8103df2d6" />
@@ -697,7 +697,7 @@
         <classShapeMoniker Id="90e6accc-20b5-49a4-9397-df5ada2d0b3e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.875 : 5.56330485026042); (3.5 : 5.56330485026042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.875 : 5.56330485026042); (3.5 : 5.56330485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Dep/Dep_PlanStaff" />
       <nodes>
         <classShapeMoniker Id="5c552b9f-430f-4940-8557-dc5cfbbe8b4c" />
@@ -711,7 +711,7 @@
         <classShapeMoniker Id="28130859-c30f-4b68-9642-79ad80ba95fb" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.875 : 3.95274983723958); (4.125 : 3.95274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.875 : 3.95274983723958); (4.125 : 3.95274983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Dep/Dep_DepartmentHistory" />
       <nodes>
         <classShapeMoniker Id="5c552b9f-430f-4940-8557-dc5cfbbe8b4c" />
@@ -725,21 +725,21 @@
         <classShapeMoniker Id="e025f117-e36a-4db4-89ed-8304c60b9e86" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.875 : 4.57012641861979); (4.0625 : 4.57012641861979); (4.0625 : 5.09299967447917); (7.29166666666667 : 5.09299967447917 : JumpStart); (7.45833333333333 : 5.09299967447917 : JumpEnd); (7.82291866666667 : 5.09299967447917 : JumpStart); (7.98958533333333 : 5.09299967447917 : JumpEnd); (8.66041666666667 : 5.09299967447917 : JumpStart); (8.92083333333333 : 5.09299967447917 : JumpEnd); (9.49478866666667 : 5.09299967447917 : JumpStart); (9.66145533333333 : 5.09299967447917 : JumpEnd); (9.76041466666667 : 5.09299967447917 : JumpStart); (9.92708133333333 : 5.09299967447917 : JumpEnd); (10.109374 : 5.09299967447917); (10.109374 : 4.8958154296875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.875 : 4.57012641861979); (4.0625 : 4.57012641861979); (4.0625 : 5.09299967447917); (8.66041666666667 : 5.09299967447917 : JumpStart); (8.92083333333333 : 5.09299967447917 : JumpEnd); (9.49478866666667 : 5.09299967447917 : JumpStart); (9.66145533333333 : 5.09299967447917 : JumpEnd); (10.109374 : 5.09299967447917); (10.109374 : 4.8958154296875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Dep/Dep_FactStaff" />
       <nodes>
         <classShapeMoniker Id="5c552b9f-430f-4940-8557-dc5cfbbe8b4c" />
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 6.125); (1.75 : 6.00160970052083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 6.125); (1.75 : 6.00160970052083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/DepartmentType/DepartmentType_Dep" />
       <nodes>
         <classShapeMoniker Id="87ef4083-ee58-451c-a55d-25b2c1ef652d" />
         <classShapeMoniker Id="5c552b9f-430f-4940-8557-dc5cfbbe8b4c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.125 : 2.2612939453125); (8.125 : 2.5625); (6.1875 : 2.5625); (6.1875 : 5.0625); (2.96875 : 5.0625); (2.96875 : 5.0667156344401); (2.875 : 5.0667156344401)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.125 : 2.2612939453125); (8.125 : 2.5625); (6.1875 : 2.5625); (6.1875 : 5.0625); (2.96875 : 5.0625); (2.96875 : 5.0667156344401); (2.875 : 5.0667156344401)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/FundingCenter/FundingCenter_Dep" />
       <nodes>
         <classShapeMoniker Id="9984cf8a-ae3e-4929-a37e-5e96d606c35d" />
@@ -753,14 +753,14 @@
         <classShapeMoniker Id="5c552b9f-430f-4940-8557-dc5cfbbe8b4c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.5 : 5.28165242513021); (2.875 : 5.28165242513021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.5 : 5.28165242513021); (2.875 : 5.28165242513021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/PlanStaff/PlanStaff_Dep" />
       <nodes>
         <classShapeMoniker Id="c2e1419d-e301-44d9-9632-ffc3f5636c68" />
         <classShapeMoniker Id="5c552b9f-430f-4940-8557-dc5cfbbe8b4c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.625 : 7.375); (1.625 : 7.33461751302083); (0.609375 : 7.33461751302083); (0.609375 : 4.25080485026042); (0.875 : 4.25080485026042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.625 : 7.375); (1.625 : 7.33461751302083); (0.609375 : 7.33461751302083); (0.609375 : 4.25080485026042); (0.875 : 4.25080485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Prikaz/Prikaz_Dep" />
       <nodes>
         <classShapeMoniker Id="47407422-4b7e-4a09-b727-9af8103df2d6" />
@@ -773,7 +773,7 @@
         <elementListCompartment Id="e48052a7-27ad-4f66-b271-1ed8995d7943" absoluteBounds="15.14, 14.71, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(16.593751 : 14.25); (16.593751 : 10.951973749349); (16.6041666666667 : 10.951973749349 : JumpStart); (16.7708333333333 : 10.951973749349 : JumpEnd); (19.125 : 10.951973749349)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(16.593751 : 14.25); (16.593751 : 10.951973749349); (16.6041666666667 : 10.951973749349 : JumpStart); (16.7708333333333 : 10.951973749349 : JumpEnd); (19.125 : 10.951973749349)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/BonusType/BonusType_Bonus" />
       <nodes>
         <classShapeMoniker Id="0550bd53-7741-4f03-adcf-86a31ddf4cb0" />
@@ -794,7 +794,7 @@
         <classShapeMoniker Id="0550bd53-7741-4f03-adcf-86a31ddf4cb0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.75 : 1.57097245898438); (7 : 1.57097245898438); (7 : 2.3237939453125); (9.25 : 2.3237939453125); (9.25 : 4.9583154296875); (11.53125 : 4.9583154296875); (11.53125 : 7.27089680989583); (12.1666671666667 : 7.27089680989583 : JumpStart); (12.3333338333333 : 7.27089680989583 : JumpEnd); (12.7291669166667 : 7.27089680989583 : JumpStart); (12.8958335833333 : 7.27089680989583 : JumpEnd); (13.2604166666667 : 7.27089680989583 : JumpStart); (13.5989608333333 : 7.27089680989583 : JumpEnd); (16.5625 : 7.27089680989583); (16.5625 : 14.15625); (15.8281235 : 14.15625); (15.8281235 : 14.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.75 : 1.57097245898438); (7 : 1.57097245898438); (7 : 2.3237939453125); (9.25 : 2.3237939453125); (9.25 : 4.9583154296875); (11.53125 : 4.9583154296875); (11.53125 : 7.27089680989583); (12.1666671666667 : 7.27089680989583 : JumpStart); (12.3333338333333 : 7.27089680989583 : JumpEnd); (12.7291669166667 : 7.27089680989583 : JumpStart); (12.8958335833333 : 7.27089680989583 : JumpEnd); (13.2604166666667 : 7.27089680989583 : JumpStart); (13.5989608333333 : 7.27089680989583 : JumpEnd); (16.5625 : 7.27089680989583); (16.5625 : 14.15625); (15.8281235 : 14.15625); (15.8281235 : 14.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/FinancingSource/FinancingSource_BonusType" />
       <nodes>
         <classShapeMoniker Id="71e5e831-66b2-470d-829f-30cbc32157ea" />
@@ -835,14 +835,14 @@
         <classShapeMoniker Id="ec61f68f-2066-4520-ab28-f44176464c0d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(15.5 : 9.625); (15.5 : 9.33339680989583); (14.1458333333333 : 9.33339680989583 : JumpStart); (13.9791666666667 : 9.33339680989583 : JumpEnd); (13.5208333333333 : 9.33339680989583 : JumpStart); (13.2604166666667 : 9.33339680989583 : JumpEnd); (9.20833333333333 : 9.33339680989583 : JumpStart); (9.04166666666667 : 9.33339680989583 : JumpEnd); (9 : 9.33339680989583); (9 : 10.1506982421875); (8.95833333333333 : 10.1506982421875 : JumpStart); (8.66041666666666 : 10.1506982421875 : JumpEnd); (5.78125 : 10.1506982421875); (5.78125 : 10.121405343099); (5.625 : 10.121405343099)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(15.5 : 9.625); (15.5 : 9.33339680989583); (13.5208333333333 : 9.33339680989583 : JumpStart); (13.2604166666667 : 9.33339680989583 : JumpEnd); (9.20833333333333 : 9.33339680989583 : JumpStart); (9.04166666666667 : 9.33339680989583 : JumpEnd); (9 : 9.33339680989583); (9 : 10.1506982421875); (8.95833333333333 : 10.1506982421875 : JumpStart); (8.75416666666666 : 10.1506982421875 : JumpEnd); (5.78125 : 10.1506982421875); (5.78125 : 10.121405343099); (5.625 : 10.121405343099)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/CategoryVPO/CategoryVPO_Post" />
       <nodes>
         <classShapeMoniker Id="7ae2fb65-be24-41da-b311-d0109ceb1986" />
         <classShapeMoniker Id="ec61f68f-2066-4520-ab28-f44176464c0d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(14.625 : 11.875); (14.625 : 11.2660953776042); (14.0625 : 11.2660953776042); (14.0625 : 9.20839680989583); (13.5208333333333 : 9.20839680989583 : JumpStart); (13.2604166666667 : 9.20839680989583 : JumpEnd); (9.0625 : 9.20839680989583); (9.0625 : 10.1506982421875); (9.02083333333333 : 10.1506982421875 : JumpStart); (8.66041666666666 : 10.1506982421875 : JumpEnd); (5.84375 : 10.1506982421875); (5.84375 : 8.39704956054688); (5.625 : 8.39704956054688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(14.625 : 11.875); (14.625 : 11.2660953776042); (14.0625 : 11.2660953776042); (14.0625 : 9.20839680989583); (13.5208333333333 : 9.20839680989583 : JumpStart); (13.2604166666667 : 9.20839680989583 : JumpEnd); (9.0625 : 9.20839680989583); (9.0625 : 10.1506982421875); (9.02083333333333 : 10.1506982421875 : JumpStart); (8.75416666666666 : 10.1506982421875 : JumpEnd); (5.84375 : 10.1506982421875); (5.84375 : 8.39704956054688); (5.625 : 8.39704956054688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/CategoryZP/CategoryZP_Post" />
       <nodes>
         <classShapeMoniker Id="d106cbf5-c8fe-4b13-bc7d-c58866e1b734" />
@@ -895,7 +895,7 @@
         <elementListCompartment Id="d7fb09af-a95c-42f6-a454-3dce78bea897" absoluteBounds="9.39, 9.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(10.375 : 9.375); (10.375 : 9.19310628255208); (9.125 : 9.19310628255208); (9.125 : 10.1506982421875); (9.02083333333333 : 10.1506982421875 : JumpStart); (8.66041666666666 : 10.1506982421875 : JumpEnd); (5.90625 : 10.1506982421875); (5.90625 : 10.6600609541016); (5.625 : 10.6600609541016)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(10.375 : 9.375); (10.375 : 9.19310628255208); (9.125 : 9.19310628255208); (9.125 : 10.1506982421875); (8.95833333333333 : 10.1506982421875 : JumpStart); (8.79166666666667 : 10.1506982421875 : JumpEnd); (5.90625 : 10.1506982421875); (5.90625 : 10.6600609541016); (5.625 : 10.6600609541016)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/GlobalPrikaz/GlobalPrikaz_Post" />
       <nodes>
         <classShapeMoniker Id="ac84d67a-7e42-4934-8d96-f9012cab6b7b" />
@@ -908,39 +908,78 @@
         <elementListCompartment Id="cb25ac15-ee74-4369-b8db-bb9af88a5235" absoluteBounds="16.89, 0.96, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(16.875 : 5.21580557642228); (16.25 : 5.21580557642228); (16.25 : 4.9487939453125); (14 : 4.9487939453125); (14 : 7.15625); (13.5989608333333 : 7.15625 : JumpStart); (13.2604166666667 : 7.15625 : JumpEnd); (12.8958335833333 : 7.15625 : JumpStart); (12.7291669166667 : 7.15625 : JumpEnd); (12.3333338333333 : 7.15625 : JumpStart); (12.1666671666667 : 7.15625 : JumpEnd); (11.6145833333333 : 7.15625 : JumpStart); (11.4479166666667 : 7.15625 : JumpEnd); (11 : 7.15625); (11 : 7.32859537760417); (10.25 : 7.32859537760417); (10.25 : 7.07859537760417)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(16.875 : 5.21580557642228); (16.25 : 5.21580557642228); (16.25 : 4.9487939453125); (14 : 4.9487939453125); (14 : 7.15625); (13.5989608333333 : 7.15625 : JumpStart); (13.2604166666667 : 7.15625 : JumpEnd); (12.8958335833333 : 7.15625 : JumpStart); (12.7291669166667 : 7.15625 : JumpEnd); (11 : 7.15625); (11 : 7.32859537760417); (10.25 : 7.32859537760417); (10.25 : 7.07859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Employee/Employee_EmployeeRank" />
       <nodes>
         <classShapeMoniker Id="03e2bb84-0714-40b2-a0e0-e08e6f39a705" />
         <classShapeMoniker Id="d6160e7e-ac98-48d2-be47-bca0340501a1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(16.875 : 4.7300439453125); (16.3333333333333 : 4.7300439453125 : JumpStart); (16.1666666666667 : 4.7300439453125 : JumpEnd); (13.625 : 4.7300439453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(16.875 : 4.7300439453125); (13.625 : 4.7300439453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Employee/Employee_EmployeeDegree" />
       <nodes>
         <classShapeMoniker Id="03e2bb84-0714-40b2-a0e0-e08e6f39a705" />
         <classShapeMoniker Id="3ec2c0bc-86a3-4cb5-93d3-9b2ef7969434" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(16.875 : 3.69306559244792); (16.25 : 3.69306559244792); (16.25 : 4.8862939453125); (13.875 : 4.8862939453125); (13.875 : 6.53049967447917); (13.5989608333333 : 6.53049967447917 : JumpStart); (13.2604166666667 : 6.53049967447917 : JumpEnd); (12.8958335833333 : 6.53049967447917 : JumpStart); (12.7291669166667 : 6.53049967447917 : JumpEnd); (11.6458333333333 : 6.53049967447917 : JumpStart); (11.4479166666667 : 6.53049967447917 : JumpEnd); (11.34375 : 6.53049967447917); (11.34375 : 5.25); (11.304691 : 5.25); (11.304691 : 4.8958154296875)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(16.875 : 3.69306559244792); (16.25 : 3.69306559244792); (16.25 : 4.8862939453125); (13.875 : 4.8862939453125); (13.875 : 6.53049967447917); (13.5208333333333 : 6.53049967447917 : JumpStart); (13.2604166666667 : 6.53049967447917 : JumpEnd); (12.8958335833333 : 6.53049967447917 : JumpStart); (12.7291669166667 : 6.53049967447917 : JumpEnd); (11.34375 : 6.53049967447917); (11.34375 : 5.25); (11.304691 : 5.25); (11.304691 : 4.8958154296875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Employee/Employee_FactStaff" />
       <nodes>
         <classShapeMoniker Id="03e2bb84-0714-40b2-a0e0-e08e6f39a705" />
         <classShapeMoniker Id="bece79e6-9eb2-4d2b-9481-d8edf1c852b2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(17.75 : 8.75); (17.75 : 8.5737939453125); (16.8125 : 8.5737939453125); (16.8125 : 2.58376997265625); (16.875 : 2.58376997265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(17.75 : 8.75); (17.75 : 8.5737939453125); (16.8125 : 8.5737939453125); (16.8125 : 2.58376997265625); (16.875 : 2.58376997265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/Grazd/Grazd_Employee" />
       <nodes>
         <classShapeMoniker Id="58c075c9-bb67-45e6-b2b8-8e66453af6df" />
         <classShapeMoniker Id="03e2bb84-0714-40b2-a0e0-e08e6f39a705" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(17.875 : 7.125); (17.875 : 6.88613118489583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(17.875 : 7.125); (17.875 : 6.88613118489583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dckadrDataContext/SemPol/SemPol_Employee" />
       <nodes>
         <classShapeMoniker Id="0fc9e7f8-ea06-405a-9611-71a8683b33ca" />
         <classShapeMoniker Id="03e2bb84-0714-40b2-a0e0-e08e6f39a705" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="26c54dd0-25f3-40f2-aab8-39097464e306" absoluteBounds="4.5, 22.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/dckadrDataContext/EmployeeStanding" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c1bef90e-c289-4fe8-85e6-1c6bddb9a223" absoluteBounds="4.515, 22.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(17.875 : 6.88613118489583); (17.875 : 7.09375); (16.8958333333333 : 7.09375 : JumpStart); (16.7291666666667 : 7.09375 : JumpEnd); (16.6875 : 7.09375); (16.6875 : 14.0625); (17.5625 : 14.0625); (17.5625 : 23.2989005533854); (6.5 : 23.2989005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dckadrDataContext/Employee/Employee_EmployeeStanding" />
+      <nodes>
+        <classShapeMoniker Id="03e2bb84-0714-40b2-a0e0-e08e6f39a705" />
+        <classShapeMoniker Id="26c54dd0-25f3-40f2-aab8-39097464e306" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ab8362cc-5a4e-4ac7-bd6d-78a000d04eeb" absoluteBounds="1.375, 20.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/dckadrDataContext/StandingType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f340cfc4-5353-4609-90ca-3f063132b54b" absoluteBounds="1.3900000000000001, 21.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 22.0680730572416); (3.75 : 22.4430730572416); (3.75 : 21.75); (4.125 : 21.75); (4.5 : 22.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dckadrDataContext/StandingType/StandingType_EmployeeStanding" />
+      <nodes>
+        <classShapeMoniker Id="ab8362cc-5a4e-4ac7-bd6d-78a000d04eeb" />
+        <classShapeMoniker Id="26c54dd0-25f3-40f2-aab8-39097464e306" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b30af718-f6ad-4cec-accd-8b3e3bb76f3a" absoluteBounds="1.375, 23.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/dckadrDataContext/RegionType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a7285f98-7d72-41de-9c2f-7297e957561c" absoluteBounds="1.3900000000000001, 23.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 23.9864005533854); (4.5 : 23.9864005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dckadrDataContext/RegionType/RegionType_EmployeeStanding" />
+      <nodes>
+        <classShapeMoniker Id="b30af718-f6ad-4cec-accd-8b3e3bb76f3a" />
+        <classShapeMoniker Id="26c54dd0-25f3-40f2-aab8-39097464e306" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

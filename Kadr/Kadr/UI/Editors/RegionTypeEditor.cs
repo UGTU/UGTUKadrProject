@@ -7,22 +7,22 @@ using System.ComponentModel;
 namespace Kadr.UI.Editors
 {
     [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
-    public class CategryEditor : System.Drawing.Design.UITypeEditor
+    public class RegionTypeEditor : UITypeEditor
     {
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
-            using (Common.ListSelectDialog<Kadr.Data.Category> dlg = new Kadr.UI.Common.ListSelectDialog<Kadr.Data.Category>())
+            using (Common.ListSelectDialog<Data.RegionType> dlg = new Common.ListSelectDialog<Data.RegionType>())
             {
 
-                dlg.Text = "Категория персонала";
-                dlg.QueryText = "Выберите категорию";
+                dlg.Text = "Тип региона";
+                dlg.QueryText = "Выберите тип региона";
                 dlg.DataSource =
-                    Kadr.Controllers.KadrController.Instance.Model.Categories.OrderBy(cat => cat.CategorySmallName);
-                dlg.SelectedValue = (Kadr.Data.Category)value;
+                    Controllers.KadrController.Instance.Model.RegionTypes.OrderBy(rT => rT.RegionTypeName);
+                dlg.SelectedValue = (Data.RegionType)value;
 
                 if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     if (dlg.SelectedValue == null)
-                        return Kadr.Data.NullCategory.Instance;
+                        return Data.NullRegionType.Instance;
                     else
                         return dlg.SelectedValue;
                 else
@@ -38,6 +38,4 @@ namespace Kadr.UI.Editors
     }
 
 }
-
-
-
+    
