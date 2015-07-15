@@ -157,7 +157,7 @@ namespace Kadr.UI.Forms
 
             if ((cbTimeSheet.SelectedItem as TimeSheet).TimeSheetFSWorkingDays.Count() > 0)
             {
-                if (MessageBox.Show("При пересоздании табеля все ваши изменения будут потеряны. Вы хотите продолжить?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+                if (MessageBox.Show("При пересоздании табеля все ваши изменения будут потеряны. Вы хотите продолжить?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                     == DialogResult.Cancel)
                 {
                     return;

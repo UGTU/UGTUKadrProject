@@ -753,21 +753,6 @@
       <Association Name="SemPol_Employee" Member="SemPol" ThisKey="idSemPol" OtherKey="id" Type="SemPol" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.EmployeeStanding" Member="EmployeeStandings">
-    <Type Name="EmployeeStanding">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="WorkPlace" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Post" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="idRegionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idStandingType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Employee_EmployeeStanding" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
-      <Association Name="StandingType_EmployeeStanding" Member="StandingType" ThisKey="idStandingType" OtherKey="id" Type="StandingType" IsForeignKey="true" />
-      <Association Name="RegionType_EmployeeStanding" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.StandingType" Member="StandingTypes">
     <Type Name="StandingType">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -780,6 +765,21 @@
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="RegionTypeName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
       <Association Name="RegionType_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idRegionType" Type="EmployeeStanding" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmployeeStanding" Member="EmployeeStandings">
+    <Type Name="EmployeeStanding">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="WorkPlace" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Post" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="idRegionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idStandingType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_EmployeeStanding" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="RegionType_EmployeeStanding" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
+      <Association Name="StandingType_EmployeeStanding" Member="StandingType" ThisKey="idStandingType" OtherKey="id" Type="StandingType" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

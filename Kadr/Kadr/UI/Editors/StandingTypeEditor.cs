@@ -16,19 +16,17 @@ namespace Kadr.UI.Editors
 
                 dlg.Text = "Тип стажа";
                 dlg.QueryText = "Выберите тип стажа";
-                dlg.DataSource =
-                    Kadr.Controllers.KadrController.Instance.Model.StandingTypes.OrderBy(stT => stT.StandingTypeName);
+                dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.StandingTypes.OrderBy(st => st.StandingTypeName);
                 dlg.SelectedValue = (Kadr.Data.StandingType)value;
 
                 if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     if (dlg.SelectedValue == null)
-                        return Data.NullStandingType.Instance;
+                        return Kadr.Data.NullStandingType.Instance;
                     else
                         return dlg.SelectedValue;
                 else
                     return value;
             }
-
         }
 
         public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
@@ -38,4 +36,7 @@ namespace Kadr.UI.Editors
     }
 
 }
-  
+
+
+
+

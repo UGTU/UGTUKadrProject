@@ -204,15 +204,15 @@ namespace Kadr.Data
     partial void InsertEmployee(Employee instance);
     partial void UpdateEmployee(Employee instance);
     partial void DeleteEmployee(Employee instance);
-    partial void InsertEmployeeStanding(EmployeeStanding instance);
-    partial void UpdateEmployeeStanding(EmployeeStanding instance);
-    partial void DeleteEmployeeStanding(EmployeeStanding instance);
     partial void InsertStandingType(StandingType instance);
     partial void UpdateStandingType(StandingType instance);
     partial void DeleteStandingType(StandingType instance);
     partial void InsertRegionType(RegionType instance);
     partial void UpdateRegionType(RegionType instance);
     partial void DeleteRegionType(RegionType instance);
+    partial void InsertEmployeeStanding(EmployeeStanding instance);
+    partial void UpdateEmployeeStanding(EmployeeStanding instance);
+    partial void DeleteEmployeeStanding(EmployeeStanding instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -725,14 +725,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<EmployeeStanding> EmployeeStandings
-		{
-			get
-			{
-				return this.GetTable<EmployeeStanding>();
-			}
-		}
-		
 		public System.Data.Linq.Table<StandingType> StandingTypes
 		{
 			get
@@ -746,6 +738,14 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<RegionType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EmployeeStanding> EmployeeStandings
+		{
+			get
+			{
+				return this.GetTable<EmployeeStanding>();
 			}
 		}
 		
@@ -16960,359 +16960,6 @@ namespace Kadr.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EmployeeStanding")]
-	public partial class EmployeeStanding : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private System.DateTime _DateBegin;
-		
-		private System.DateTime _DateEnd;
-		
-		private string _WorkPlace;
-		
-		private string _Post;
-		
-		private int _idRegionType;
-		
-		private int _idStandingType;
-		
-		private int _idEmployee;
-		
-		private EntityRef<Employee> _Employee;
-		
-		private EntityRef<StandingType> _StandingType;
-		
-		private EntityRef<RegionType> _RegionType;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnDateBeginChanging(System.DateTime value);
-    partial void OnDateBeginChanged();
-    partial void OnDateEndChanging(System.DateTime value);
-    partial void OnDateEndChanged();
-    partial void OnWorkPlaceChanging(string value);
-    partial void OnWorkPlaceChanged();
-    partial void OnPostChanging(string value);
-    partial void OnPostChanged();
-    partial void OnidRegionTypeChanging(int value);
-    partial void OnidRegionTypeChanged();
-    partial void OnidStandingTypeChanging(int value);
-    partial void OnidStandingTypeChanged();
-    partial void OnidEmployeeChanging(int value);
-    partial void OnidEmployeeChanged();
-    #endregion
-		
-		public EmployeeStanding()
-		{
-			this._Employee = default(EntityRef<Employee>);
-			this._StandingType = default(EntityRef<StandingType>);
-			this._RegionType = default(EntityRef<RegionType>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="Date NOT NULL")]
-		public System.DateTime DateBegin
-		{
-			get
-			{
-				return this._DateBegin;
-			}
-			set
-			{
-				if ((this._DateBegin != value))
-				{
-					this.OnDateBeginChanging(value);
-					this.SendPropertyChanging();
-					this._DateBegin = value;
-					this.SendPropertyChanged("DateBegin");
-					this.OnDateBeginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="Date NOT NULL")]
-		public System.DateTime DateEnd
-		{
-			get
-			{
-				return this._DateEnd;
-			}
-			set
-			{
-				if ((this._DateEnd != value))
-				{
-					this.OnDateEndChanging(value);
-					this.SendPropertyChanging();
-					this._DateEnd = value;
-					this.SendPropertyChanged("DateEnd");
-					this.OnDateEndChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkPlace", DbType="VarChar(MAX)")]
-		public string WorkPlace
-		{
-			get
-			{
-				return this._WorkPlace;
-			}
-			set
-			{
-				if ((this._WorkPlace != value))
-				{
-					this.OnWorkPlaceChanging(value);
-					this.SendPropertyChanging();
-					this._WorkPlace = value;
-					this.SendPropertyChanged("WorkPlace");
-					this.OnWorkPlaceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Post", DbType="VarChar(250)")]
-		public string Post
-		{
-			get
-			{
-				return this._Post;
-			}
-			set
-			{
-				if ((this._Post != value))
-				{
-					this.OnPostChanging(value);
-					this.SendPropertyChanging();
-					this._Post = value;
-					this.SendPropertyChanged("Post");
-					this.OnPostChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRegionType", DbType="Int NOT NULL")]
-		public int idRegionType
-		{
-			get
-			{
-				return this._idRegionType;
-			}
-			set
-			{
-				if ((this._idRegionType != value))
-				{
-					if (this._RegionType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidRegionTypeChanging(value);
-					this.SendPropertyChanging();
-					this._idRegionType = value;
-					this.SendPropertyChanged("idRegionType");
-					this.OnidRegionTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idStandingType", DbType="Int NOT NULL")]
-		public int idStandingType
-		{
-			get
-			{
-				return this._idStandingType;
-			}
-			set
-			{
-				if ((this._idStandingType != value))
-				{
-					if (this._StandingType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidStandingTypeChanging(value);
-					this.SendPropertyChanging();
-					this._idStandingType = value;
-					this.SendPropertyChanged("idStandingType");
-					this.OnidStandingTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
-		public int idEmployee
-		{
-			get
-			{
-				return this._idEmployee;
-			}
-			set
-			{
-				if ((this._idEmployee != value))
-				{
-					if (this._Employee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidEmployeeChanging(value);
-					this.SendPropertyChanging();
-					this._idEmployee = value;
-					this.SendPropertyChanged("idEmployee");
-					this.OnidEmployeeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeStanding", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.EmployeeStandings.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.EmployeeStandings.Add(this);
-						this._idEmployee = value.id;
-					}
-					else
-					{
-						this._idEmployee = default(int);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StandingType_EmployeeStanding", Storage="_StandingType", ThisKey="idStandingType", OtherKey="id", IsForeignKey=true)]
-		public StandingType StandingType
-		{
-			get
-			{
-				return this._StandingType.Entity;
-			}
-			set
-			{
-				StandingType previousValue = this._StandingType.Entity;
-				if (((previousValue != value) 
-							|| (this._StandingType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._StandingType.Entity = null;
-						previousValue.EmployeeStandings.Remove(this);
-					}
-					this._StandingType.Entity = value;
-					if ((value != null))
-					{
-						value.EmployeeStandings.Add(this);
-						this._idStandingType = value.id;
-					}
-					else
-					{
-						this._idStandingType = default(int);
-					}
-					this.SendPropertyChanged("StandingType");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegionType_EmployeeStanding", Storage="_RegionType", ThisKey="idRegionType", OtherKey="id", IsForeignKey=true)]
-		public RegionType RegionType
-		{
-			get
-			{
-				return this._RegionType.Entity;
-			}
-			set
-			{
-				RegionType previousValue = this._RegionType.Entity;
-				if (((previousValue != value) 
-							|| (this._RegionType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._RegionType.Entity = null;
-						previousValue.EmployeeStandings.Remove(this);
-					}
-					this._RegionType.Entity = value;
-					if ((value != null))
-					{
-						value.EmployeeStandings.Add(this);
-						this._idRegionType = value.id;
-					}
-					else
-					{
-						this._idRegionType = default(int);
-					}
-					this.SendPropertyChanged("RegionType");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.StandingType")]
 	public partial class StandingType : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -17538,6 +17185,359 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.RegionType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EmployeeStanding")]
+	public partial class EmployeeStanding : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.DateTime _DateBegin;
+		
+		private System.DateTime _DateEnd;
+		
+		private string _WorkPlace;
+		
+		private string _Post;
+		
+		private int _idRegionType;
+		
+		private int _idStandingType;
+		
+		private int _idEmployee;
+		
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<RegionType> _RegionType;
+		
+		private EntityRef<StandingType> _StandingType;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnDateBeginChanging(System.DateTime value);
+    partial void OnDateBeginChanged();
+    partial void OnDateEndChanging(System.DateTime value);
+    partial void OnDateEndChanged();
+    partial void OnWorkPlaceChanging(string value);
+    partial void OnWorkPlaceChanged();
+    partial void OnPostChanging(string value);
+    partial void OnPostChanged();
+    partial void OnidRegionTypeChanging(int value);
+    partial void OnidRegionTypeChanged();
+    partial void OnidStandingTypeChanging(int value);
+    partial void OnidStandingTypeChanged();
+    partial void OnidEmployeeChanging(int value);
+    partial void OnidEmployeeChanged();
+    #endregion
+		
+		public EmployeeStanding()
+		{
+			this._Employee = default(EntityRef<Employee>);
+			this._RegionType = default(EntityRef<RegionType>);
+			this._StandingType = default(EntityRef<StandingType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="Date NOT NULL")]
+		public System.DateTime DateBegin
+		{
+			get
+			{
+				return this._DateBegin;
+			}
+			set
+			{
+				if ((this._DateBegin != value))
+				{
+					this.OnDateBeginChanging(value);
+					this.SendPropertyChanging();
+					this._DateBegin = value;
+					this.SendPropertyChanged("DateBegin");
+					this.OnDateBeginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="Date NOT NULL")]
+		public System.DateTime DateEnd
+		{
+			get
+			{
+				return this._DateEnd;
+			}
+			set
+			{
+				if ((this._DateEnd != value))
+				{
+					this.OnDateEndChanging(value);
+					this.SendPropertyChanging();
+					this._DateEnd = value;
+					this.SendPropertyChanged("DateEnd");
+					this.OnDateEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkPlace", DbType="VarChar(MAX)")]
+		public string WorkPlace
+		{
+			get
+			{
+				return this._WorkPlace;
+			}
+			set
+			{
+				if ((this._WorkPlace != value))
+				{
+					this.OnWorkPlaceChanging(value);
+					this.SendPropertyChanging();
+					this._WorkPlace = value;
+					this.SendPropertyChanged("WorkPlace");
+					this.OnWorkPlaceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Post", DbType="VarChar(250)")]
+		public string Post
+		{
+			get
+			{
+				return this._Post;
+			}
+			set
+			{
+				if ((this._Post != value))
+				{
+					this.OnPostChanging(value);
+					this.SendPropertyChanging();
+					this._Post = value;
+					this.SendPropertyChanged("Post");
+					this.OnPostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRegionType", DbType="Int NOT NULL")]
+		public int idRegionType
+		{
+			get
+			{
+				return this._idRegionType;
+			}
+			set
+			{
+				if ((this._idRegionType != value))
+				{
+					if (this._RegionType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidRegionTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idRegionType = value;
+					this.SendPropertyChanged("idRegionType");
+					this.OnidRegionTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idStandingType", DbType="Int NOT NULL")]
+		public int idStandingType
+		{
+			get
+			{
+				return this._idStandingType;
+			}
+			set
+			{
+				if ((this._idStandingType != value))
+				{
+					if (this._StandingType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidStandingTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idStandingType = value;
+					this.SendPropertyChanged("idStandingType");
+					this.OnidStandingTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
+		public int idEmployee
+		{
+			get
+			{
+				return this._idEmployee;
+			}
+			set
+			{
+				if ((this._idEmployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idEmployee = value;
+					this.SendPropertyChanged("idEmployee");
+					this.OnidEmployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeStanding", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.EmployeeStandings.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.EmployeeStandings.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegionType_EmployeeStanding", Storage="_RegionType", ThisKey="idRegionType", OtherKey="id", IsForeignKey=true)]
+		public RegionType RegionType
+		{
+			get
+			{
+				return this._RegionType.Entity;
+			}
+			set
+			{
+				RegionType previousValue = this._RegionType.Entity;
+				if (((previousValue != value) 
+							|| (this._RegionType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._RegionType.Entity = null;
+						previousValue.EmployeeStandings.Remove(this);
+					}
+					this._RegionType.Entity = value;
+					if ((value != null))
+					{
+						value.EmployeeStandings.Add(this);
+						this._idRegionType = value.id;
+					}
+					else
+					{
+						this._idRegionType = default(int);
+					}
+					this.SendPropertyChanged("RegionType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StandingType_EmployeeStanding", Storage="_StandingType", ThisKey="idStandingType", OtherKey="id", IsForeignKey=true)]
+		public StandingType StandingType
+		{
+			get
+			{
+				return this._StandingType.Entity;
+			}
+			set
+			{
+				StandingType previousValue = this._StandingType.Entity;
+				if (((previousValue != value) 
+							|| (this._StandingType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._StandingType.Entity = null;
+						previousValue.EmployeeStandings.Remove(this);
+					}
+					this._StandingType.Entity = value;
+					if ((value != null))
+					{
+						value.EmployeeStandings.Add(this);
+						this._idStandingType = value.id;
+					}
+					else
+					{
+						this._idStandingType = default(int);
+					}
+					this.SendPropertyChanged("StandingType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

@@ -69,7 +69,7 @@ namespace Kadr.UI.Forms
                 MessageBox.Show("Не выбрано удаляемое изменение.", "АИС \"Штатное расписание\"");
                 return;
             }
-            if (MessageBox.Show("Удалить изменение?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить изменение?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                == DialogResult.OK)
             {
                 LinqActionsController<PlanStaffHistory>.Instance.DeleteObject(planStaffHistoryBindingSource.Current as PlanStaffHistory,
