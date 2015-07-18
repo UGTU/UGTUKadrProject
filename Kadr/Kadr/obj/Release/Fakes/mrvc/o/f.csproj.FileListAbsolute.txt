@@ -1,0 +1,7 @@
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Fakes\mrvc\b\Microsoft.ReportViewer.Common.Fakes.xml
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Fakes\mrvc\b\Microsoft.ReportViewer.Common.Fakes.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Fakes\mrvc\b\Microsoft.ReportViewer.Common.Fakes.pdb
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Fakes\mrvc\b\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Fakes\mrvc\o\ResolveAssemblyReference.cache
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Fakes\mrvc\o\Microsoft.ReportViewer.Common.Fakes.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Fakes\mrvc\o\Microsoft.ReportViewer.Common.Fakes.pdb

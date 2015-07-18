@@ -92,3 +92,30 @@ G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Windows.Forms
 G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Xml.dll
 G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\System.Xml.Linq.dll
 G:\tanvok\Kadr all\UGTUKadrProject\Kadr\Reports\bin\Release\Microsoft.ReportViewer.WinForms.xml
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.csprojResolveAssemblyReference.cache
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.Dialogs.DepartmentSelectDialog.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.Forms.BaseReportForm.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.Forms.BaseReportFormWithYear.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.Frames.DepEmplCountReportFrame.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.Frames.ReportBaseFrame.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.Frames.ReportBaseFrameForPeriod.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.Frames.ReportBaseFrameForQuarter.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.Frames.ReportBaseFrameForYear.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.Properties.Resources.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.csproj.GenerateResource.Cache
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\RdlCompile.cache
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\RdlCompile.compiled
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\obj\Release\Reports.pdb
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\Reports.dll.config
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\Reports.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\Reports.pdb
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\System.Data.DataSetExtensions.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\System.Data.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\System.Data.Linq.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\System.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\System.Drawing.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\System.Web.Services.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\System.Windows.Forms.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\System.Xml.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Reports\bin\Release\System.Xml.Linq.dll

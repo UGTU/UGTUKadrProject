@@ -137,12 +137,11 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common.Fakes">
+      <HintPath>FakesAssemblies\Microsoft.ReportViewer.Common.Fakes.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
@@ -206,6 +205,8 @@
     <Compile Include="Data\Entities\BonusReport.cs" />
     <Compile Include="Data\Entities\BonusSuperType.cs" />
     <Compile Include="Data\Entities\BonusType.cs" />
+    <Compile Include="Data\Entities\BusinessTrip.cs" />
+    <Compile Include="Data\Entities\BusinessTripRegionType.cs" />
     <Compile Include="Data\Entities\Category.cs" />
     <Compile Include="Data\Entities\CategoryVPO.cs" />
     <Compile Include="Data\Entities\CategoryZP.cs" />
@@ -228,6 +229,7 @@
     <Compile Include="Data\Entities\FactStaffHour.cs" />
     <Compile Include="Data\Entities\FactStaffHourContract.cs" />
     <Compile Include="Data\Entities\FactStaffMonthHour.cs" />
+    <Compile Include="Data\Entities\FactStaffPrikaz.cs" />
     <Compile Include="Data\Entities\FactStaffReplacement.cs" />
     <Compile Include="Data\Entities\FactStaffReplacementReason.cs" />
     <Compile Include="Data\Entities\FinancingSource.cs" />
@@ -887,6 +889,8 @@
       <LastGenOutput>dckadr.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <Fakes Include="Fakes\Microsoft.ReportViewer.Common.fakes" />
+    <Fakes Include="Fakes\Microsoft.ReportViewer.WinForms.fakes" />
     <None Include="Properties\DataSources\Kadr.Data.Bonus.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.BonusHistory.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.BonusMeasure.datasource" />

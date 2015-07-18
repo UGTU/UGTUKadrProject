@@ -4523,4 +4523,62 @@ namespace Kadr.Data
 
 
     #endregion
+
+    #region BusinessTrip Decorator
+    
+    class BusinessTripDecorator
+    {
+        private BusinessTrip Trip;
+
+        public BusinessTripDecorator(BusinessTrip Trip)
+        {
+            this.Trip = Trip;
+        }
+
+        public override string ToString()
+        {
+            return Trip.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код командировки")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int ID
+        {
+            get
+            {
+                return Trip.id;
+            }
+            /*set
+            {
+                Trip.id = value;
+            }*/
+        }
+
+
+
+        [System.ComponentModel.DisplayName("Приказ на командировку")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Приказ по персоналу, назначающий командировку")]
+        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FactStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Kadr.Data.FactStaffPrikaz FactStaffPrikaz
+        {
+            get
+            {
+                return Trip.FactStaffPrikaz;
+            }
+            set
+            {
+                if (value != null) Trip.FactStaffPrikaz = value;
+                // спросить про это:
+                    // factStaff.MainFactStaff = KadrController.Instance.Model.FactStaffs.Where(fcSt => fcSt.id == value.id).SingleOrDefault();
+            }
+        }
+
+
+
+    }
+
+    #endregion
 }
