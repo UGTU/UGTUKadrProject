@@ -52,7 +52,7 @@ namespace Reports.Frames
         {
             if (periodEnd < periodBegin)
             {
-                MessageBox.Show("Установлена дата начала периода позже, чем дата окончания!", "АИС Штатное расписание", MessageBoxButtons.OK);
+                MessageBox.Show("Установлена дата начала периода позже, чем дата окончания!", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
                 return;
             }
 

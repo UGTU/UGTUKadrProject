@@ -96,7 +96,7 @@ namespace Kadr.UI.Forms
                 MessageBox.Show("Не выбрана удаляемая запись бюджета.", "АИС \"Штатное расписание\"");
                 return;
             }
-            if (MessageBox.Show("Удалить запись бюджета?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить запись бюджета?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                == DialogResult.OK)
             {
 

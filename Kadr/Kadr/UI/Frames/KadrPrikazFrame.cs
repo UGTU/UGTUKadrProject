@@ -80,7 +80,7 @@ namespace Kadr.UI.Frames
 
         private void DeletePrikazBtn_Click(object sender, EventArgs e)
         {
-           if (MessageBox.Show("Удалить приказ?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+           if (MessageBox.Show("Удалить приказ?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                == DialogResult.OK)
            {
                LinqActionsController<Prikaz>.Instance.DeleteObject(prikazDecoratorBindingSource.Current as Prikaz,

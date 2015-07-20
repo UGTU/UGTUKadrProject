@@ -68,7 +68,7 @@ namespace Kadr.UI.Forms
                 return;
             }
 
-            if (MessageBox.Show("Удалить строку?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить строку?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                == DialogResult.OK)
             {
 

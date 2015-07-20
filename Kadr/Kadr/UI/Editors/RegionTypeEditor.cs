@@ -7,29 +7,27 @@ using System.ComponentModel;
 namespace Kadr.UI.Editors
 {
     [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
-    public class RegionTypeEditor : UITypeEditor
+    public class RegionTypeEditor : System.Drawing.Design.UITypeEditor
     {
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
-            using (Common.ListSelectDialog<Data.RegionType> dlg = new Common.ListSelectDialog<Data.RegionType>())
+            using (Common.ListSelectDialog<Kadr.Data.RegionType> dlg = new Kadr.UI.Common.ListSelectDialog<Kadr.Data.RegionType>())
             {
-
                 dlg.Text = "Тип региона";
                 dlg.QueryText = "Выберите тип региона";
-                dlg.DataSource =
-                    Controllers.KadrController.Instance.Model.RegionTypes.OrderBy(rT => rT.RegionTypeName);
-                dlg.SelectedValue = (Data.RegionType)value;
+                dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.RegionTypes.OrderBy(rt => rt.RegionTypeName);
+                dlg.SelectedValue = (Kadr.Data.RegionType)value;
 
                 if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     if (dlg.SelectedValue == null)
-                        return Data.NullRegionType.Instance;
+                        return Kadr.Data.NullRegionType.Instance;
                     else
                         return dlg.SelectedValue;
                 else
                     return value;
             }
-
         }
+
 
         public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
         {
@@ -38,4 +36,7 @@ namespace Kadr.UI.Editors
     }
 
 }
-    
+
+
+
+

@@ -25,6 +25,7 @@ namespace Kadr.Data
         private NullRegionType()
         {
             this.id = 0;
+            RegionTypeName = "(Не задан)";
         }
 
         public static readonly NullRegionType Instance = new NullRegionType();

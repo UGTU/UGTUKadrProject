@@ -388,7 +388,7 @@ namespace Kadr.UI.Frames
                return;
            }
            */
-           if (MessageBox.Show("Удалить запись штатного расписания?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+           if (MessageBox.Show("Удалить запись штатного расписания?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                != DialogResult.OK)
            {
                return;
@@ -419,7 +419,7 @@ namespace Kadr.UI.Frames
 
          
            
-           if (MessageBox.Show("Удалить сотрудника?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+           if (MessageBox.Show("Удалить сотрудника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                == DialogResult.OK)
            {
 
@@ -549,13 +549,13 @@ namespace Kadr.UI.Frames
        {
            if (factStaffBindingSource.Current == null)
            {
-               MessageBox.Show("Выберите сотрудника, которого нужно заместить.", "АИС Штатное расписание", MessageBoxButtons.OK);
+               MessageBox.Show("Выберите сотрудника, которого нужно заместить.", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
                return;
            }
 
            if ((factStaffBindingSource.Current as FactStaff).Prikaz!=null)
            {
-               MessageBox.Show("Совмещаемый сотрудник уже уволен!", "АИС Штатное расписание", MessageBoxButtons.OK);
+               MessageBox.Show("Совмещаемый сотрудник уже уволен!", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
                return;
            }
 
@@ -753,7 +753,7 @@ namespace Kadr.UI.Frames
 
             if ((cbTimeSheet.SelectedItem as TimeSheet).TimeSheetFSWorkingDays.Where(tsRecord => tsRecord.FactStaff.PlanStaff.Department == Department).Count() > 0)
             {
-                if (MessageBox.Show("При пересоздании табеля все ваши изменения будут потеряны. Вы хотите продолжить?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+                if (MessageBox.Show("При пересоздании табеля все ваши изменения будут потеряны. Вы хотите продолжить?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                     == DialogResult.Cancel)
                 {
                     return; 
@@ -778,7 +778,7 @@ namespace Kadr.UI.Frames
                return;
            }
 
-            if (MessageBox.Show("Удалить все записи табеля?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить все записи табеля?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                 == DialogResult.Cancel)
             {
                 return;
@@ -1118,7 +1118,7 @@ namespace Kadr.UI.Frames
                return;
            }
 
-           if (MessageBox.Show("Удалить норму времени?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+           if (MessageBox.Show("Удалить норму времени?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                == DialogResult.OK)
            {
                LinqActionsController<DepartmentTimeNorm>.Instance.DeleteObject(CurrentTimeNorm,
@@ -1388,7 +1388,7 @@ namespace Kadr.UI.Frames
 
 
 
-           if (MessageBox.Show("Удалить сотрудника?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+           if (MessageBox.Show("Удалить сотрудника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                == DialogResult.OK)
            {
 
@@ -1461,7 +1461,7 @@ namespace Kadr.UI.Frames
 
 
 
-           if (MessageBox.Show("Удалить сотрудника?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+           if (MessageBox.Show("Удалить сотрудника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                == DialogResult.OK)
            {
 

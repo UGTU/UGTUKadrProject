@@ -25,6 +25,7 @@ namespace Kadr.Data
         private NullStandingType()
         {
             this.id = 0;
+            StandingTypeName = "(Не задан)";
         }
 
         public static readonly NullStandingType Instance = new NullStandingType();

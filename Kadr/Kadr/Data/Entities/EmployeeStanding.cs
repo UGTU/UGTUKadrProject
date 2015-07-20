@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
 
 namespace Kadr.Data
 {
@@ -9,7 +6,7 @@ namespace Kadr.Data
     {
         public override string ToString()
         {
-            return this.Post +" ("+ this.WorkPlace+") ";
+            return "Запись трудовой книжки сотрудника " +Employee.EmployeeSmallName;
         }
 
         #region IDecorable Members

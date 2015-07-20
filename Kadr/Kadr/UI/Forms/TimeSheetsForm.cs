@@ -111,7 +111,7 @@ namespace Kadr.UI.Forms
         private void DelTimeSheetBtn_Click(object sender, EventArgs e)
         {
             
-            if (MessageBox.Show("Удалить табель?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить табель?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                == DialogResult.OK)
             {
                 LinqActionsController<TimeSheet>.Instance.DeleteObject(timeSheetBindingSource.Current as TimeSheet,
