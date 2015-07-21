@@ -124,3 +124,7 @@ C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Kadr.ex
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Kadr.application
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Kadr.exe
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Kadr.pdb
+C:\Users\Serg\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\bin\Release\Kadr.exe.config
+C:\Users\Serg\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Kadr.csproj.ResolveComReference.cache
+C:\Users\Serg\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Kadr.exe
+C:\Users\Serg\Documents\GitHub\UGTUKadrProject\Kadr\Kadr\obj\Release\Kadr.pdb
