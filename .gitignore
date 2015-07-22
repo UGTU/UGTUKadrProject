@@ -1,3 +1,7 @@
 *.layout
 Kadr/_UpgradeReport_Files/UpgradeReport.xslt
 Kadr/_UpgradeReport_Files/UpgradeReport.xslt
+*.exe
+*.manifest
+*.pdb
+*.application
