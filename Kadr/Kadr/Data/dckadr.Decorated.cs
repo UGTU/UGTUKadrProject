@@ -4677,4 +4677,107 @@ namespace Kadr.Data
 
     #endregion
 
+
+    #region BusinessTrip Decorator
+    
+    class BusinessTripDecorator
+    {
+        private BusinessTrip Trip;
+
+        public BusinessTripDecorator(BusinessTrip Trip)
+        {
+            this.Trip = Trip;
+        }
+
+        public override string ToString()
+        {
+            return Trip.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код командировки")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int ID
+        {
+            get
+            {
+                return Trip.id;
+            }
+            /*set
+            {
+                Trip.id = value;
+            }*/
+        }
+
+        [System.ComponentModel.DisplayName("Приказ на командировку")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Приказ, назначающий командировку")]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Kadr.Data.Prikaz Prikaz
+        {
+            get
+            {
+                return Trip.FactStaffPrikaz.Prikaz;
+            }
+            set
+            {
+                if (value != null) Trip.FactStaffPrikaz.Prikaz = value;
+                // спросить про это:
+                    // factStaff.MainFactStaff = KadrController.Instance.Model.FactStaffs.Where(fcSt => fcSt.id == value.id).SingleOrDefault();
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата начала командировки")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата начала командировки, значащаяся в приказе")]
+        public DateTime? DateBegin
+        {
+            get
+            {
+                return Trip.FactStaffPrikaz.DateBegin;
+            }
+            set
+            {
+                if (value != null) Trip.FactStaffPrikaz.DateBegin = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата окончания командировки")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата окончания командировки, значащаяся в приказе")]
+
+        public DateTime? DateEnd
+        {
+            get
+            {
+                return Trip.FactStaffPrikaz.DateEnd;
+            }
+            set
+            {
+                if (value != null) Trip.FactStaffPrikaz.DateEnd = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Место назначения командировки")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Основное место назначения командировки")]
+
+        public string TargetPlace
+        {
+            get
+            {
+                return Trip.TripTargetPlace;
+            }
+            set
+            {
+                if (value != null) Trip.TripTargetPlace = value;
+            }
+        }
+
+        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FactStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
+
+    }
+
+    #endregion
 }

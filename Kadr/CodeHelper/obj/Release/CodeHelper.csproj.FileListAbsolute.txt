@@ -85,3 +85,20 @@ G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\APG.U
 G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\CodeHelper.csproj.GenerateResource.Cache
 G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\ru-RU\CodeHelper.resources.dll
 G:\tanvok\Основные проекты\kadr\Kadr\CodeHelper\obj\Release\CodeHelper.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\bin\Release\CodeHelper.dll.config
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\bin\Release\CodeHelper.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\bin\Release\ru-RU\CodeHelper.resources.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\CodeHelper.csprojResolveAssemblyReference.cache
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\MultiSelectTreeView.MiltiSelectTreeView.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\APG.ExceptionHandler.Res.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\APG.Properties.Resources.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\APG.UI.CrystalReportVeiwerRus.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.ApplicationAboutDialog.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\APG.CodeHelper.UI.MessageForm.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\APG.UI.UserLoginDialog.ru-RU.resources
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\CodeHelper.csproj.GenerateResource.Cache
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\ru-RU\CodeHelper.resources.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Release\CodeHelper.dll
