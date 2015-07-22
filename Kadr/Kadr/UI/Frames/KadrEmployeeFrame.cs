@@ -149,6 +149,15 @@ namespace Kadr.UI.Frames
         private ToolStripButton tsbAddOtp;
         private ToolStripButton tsbEditOtp;
         private ToolStripButton tsbDelOtp;
+        private TabPage tpEmplTrips;
+        private DataGridView dataGridView6;
+        private ToolStrip tsBusinessTrips;
+        private ToolStripButton tsbAddEmplTrip;
+        private ToolStripButton tsbEditEmplTrip;
+        private ToolStripButton tsbDelEmplTrip;
+        private BindingSource bonusReportColumnBindingSource;
+        private BindingSource bonusTypeBindingSource;
+        private BindingSource BusinessTripsBindingSource;
         #region Properties
 
         /// <summary>
@@ -291,6 +300,12 @@ namespace Kadr.UI.Frames
             //foreach ()
             /* KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.FactStaff.Employee == Employee).Where(
                     otp => otp.DateBegin >= DateTime.Today.AddYears(-2)).OrderByDescending(otp => otp.DateBegin);*/
+        }
+
+        private void LoadTrips()
+        {
+            BusinessTripsBindingSource.DataSource = KadrController.Instance.Model.BusinessTrips.Where(t => t.FactStaffPrikaz.FactStaff.Employee == Employee);
+
         }
 
         #endregion
@@ -502,6 +517,12 @@ namespace Kadr.UI.Frames
             this.tsbAddEmplStanding = new System.Windows.Forms.ToolStripButton();
             this.tsbEditEmplStanding = new System.Windows.Forms.ToolStripButton();
             this.tsbDelEmplStanding = new System.Windows.Forms.ToolStripButton();
+            this.tpEmplTrips = new System.Windows.Forms.TabPage();
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.tsBusinessTrips = new System.Windows.Forms.ToolStrip();
+            this.tsbAddEmplTrip = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditEmplTrip = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelEmplTrip = new System.Windows.Forms.ToolStripButton();
             this.tpBonus = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvAllBonus = new System.Windows.Forms.DataGridView();
@@ -565,6 +586,9 @@ namespace Kadr.UI.Frames
             this.toolStrip6 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.employeeBonusReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
+            this.bonusReportColumnBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bonusTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -589,6 +613,9 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeStandingBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
+            this.tpEmplTrips.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            this.tsBusinessTrips.SuspendLayout();
             this.tpBonus.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllBonus)).BeginInit();
@@ -613,6 +640,9 @@ namespace Kadr.UI.Frames
             this.tpEmplBonusReport.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.toolStrip6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bonusReportColumnBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bonusTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -764,6 +794,7 @@ namespace Kadr.UI.Frames
             // 
             this.tcEmplWorkData.Controls.Add(this.tpUGTUPosts);
             this.tcEmplWorkData.Controls.Add(this.tpEmplStading);
+            this.tcEmplWorkData.Controls.Add(this.tpEmplTrips);
             this.tcEmplWorkData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcEmplWorkData.Location = new System.Drawing.Point(3, 3);
             this.tcEmplWorkData.Name = "tcEmplWorkData";
@@ -1239,6 +1270,67 @@ namespace Kadr.UI.Frames
             this.tsbDelEmplStanding.Text = "Удалить";
             this.tsbDelEmplStanding.ToolTipText = "Удалить запись";
             this.tsbDelEmplStanding.Click += new System.EventHandler(this.tsbDelEmplStanding_Click);
+            // 
+            // tpEmplTrips
+            // 
+            this.tpEmplTrips.Controls.Add(this.dataGridView6);
+            this.tpEmplTrips.Controls.Add(this.tsBusinessTrips);
+            this.tpEmplTrips.Location = new System.Drawing.Point(4, 22);
+            this.tpEmplTrips.Name = "tpEmplTrips";
+            this.tpEmplTrips.Padding = new System.Windows.Forms.Padding(3);
+            this.tpEmplTrips.Size = new System.Drawing.Size(869, 339);
+            this.tpEmplTrips.TabIndex = 2;
+            this.tpEmplTrips.Text = "Командировки";
+            this.tpEmplTrips.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView6
+            // 
+            this.dataGridView6.AutoGenerateColumns = false;
+            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView6.DataSource = this.BusinessTripsBindingSource;
+            this.dataGridView6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView6.Location = new System.Drawing.Point(3, 28);
+            this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.Size = new System.Drawing.Size(863, 308);
+            this.dataGridView6.TabIndex = 11;
+            // 
+            // tsBusinessTrips
+            // 
+            this.tsBusinessTrips.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAddEmplTrip,
+            this.tsbEditEmplTrip,
+            this.tsbDelEmplTrip});
+            this.tsBusinessTrips.Location = new System.Drawing.Point(3, 3);
+            this.tsBusinessTrips.Name = "tsBusinessTrips";
+            this.tsBusinessTrips.Size = new System.Drawing.Size(863, 25);
+            this.tsBusinessTrips.TabIndex = 10;
+            this.tsBusinessTrips.Text = "toolStrip7";
+            // 
+            // tsbAddEmplTrip
+            // 
+            this.tsbAddEmplTrip.Image = global::Kadr.Properties.Resources.AddTableHS;
+            this.tsbAddEmplTrip.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbAddEmplTrip.Name = "tsbAddEmplTrip";
+            this.tsbAddEmplTrip.Size = new System.Drawing.Size(119, 22);
+            this.tsbAddEmplTrip.Text = "Добавить запись";
+            // 
+            // tsbEditEmplTrip
+            // 
+            this.tsbEditEmplTrip.Image = global::Kadr.Properties.Resources.EditTableHS;
+            this.tsbEditEmplTrip.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbEditEmplTrip.Name = "tsbEditEmplTrip";
+            this.tsbEditEmplTrip.Size = new System.Drawing.Size(107, 22);
+            this.tsbEditEmplTrip.Text = "Редактировать";
+            this.tsbEditEmplTrip.ToolTipText = "Редактировать запись";
+            // 
+            // tsbDelEmplTrip
+            // 
+            this.tsbDelEmplTrip.Image = global::Kadr.Properties.Resources.DelTableHS;
+            this.tsbDelEmplTrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelEmplTrip.Name = "tsbDelEmplTrip";
+            this.tsbDelEmplTrip.Size = new System.Drawing.Size(71, 22);
+            this.tsbDelEmplTrip.Text = "Удалить";
+            this.tsbDelEmplTrip.ToolTipText = "Удалить запись";
             // 
             // tpBonus
             // 
@@ -1896,6 +1988,14 @@ namespace Kadr.UI.Frames
             this.employeeBonusReportFrame1.TabIndex = 18;
             this.employeeBonusReportFrame1.WithSubReports = true;
             // 
+            // bonusReportColumnBindingSource
+            // 
+            this.bonusReportColumnBindingSource.DataSource = typeof(Kadr.Data.BonusReportColumn);
+            // 
+            // bonusTypeBindingSource
+            // 
+            this.bonusTypeBindingSource.DataSource = typeof(Kadr.Data.BonusType);
+            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1930,6 +2030,11 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.employeeStandingBindingSource)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.tpEmplTrips.ResumeLayout(false);
+            this.tpEmplTrips.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            this.tsBusinessTrips.ResumeLayout(false);
+            this.tsBusinessTrips.PerformLayout();
             this.tpBonus.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -1963,6 +2068,9 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel6.PerformLayout();
             this.toolStrip6.ResumeLayout(false);
             this.toolStrip6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bonusReportColumnBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bonusTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
