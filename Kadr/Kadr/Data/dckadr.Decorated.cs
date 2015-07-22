@@ -1596,8 +1596,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Фамилия")]
-        [System.ComponentModel.Category("Фамилия, имя, отчество")]
+        [System.ComponentModel.DisplayName(" Фамилия")]
+        [System.ComponentModel.Category(" Фамилия, имя, отчество")]
         [System.ComponentModel.Description("Фамилия сотрудника")]
         public string LastName
         {
@@ -1628,7 +1628,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Имя")]
-        [System.ComponentModel.Category("Фамилия, имя, отчество")]
+        [System.ComponentModel.Category(" Фамилия, имя, отчество")]
         [System.ComponentModel.Description("Имя сотрудника")]
         public string FirstName
         {
@@ -1643,7 +1643,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Отчество")]
-        [System.ComponentModel.Category("Фамилия, имя, отчество")]
+        [System.ComponentModel.Category(" Фамилия, имя, отчество")]
         [System.ComponentModel.Description("Отчество сотрудника")]
         public string Otch
         {
@@ -1658,7 +1658,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Серия")]
-        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Category("Паспорт")]
         [System.ComponentModel.Description("Серия паспорта сотрудника")]
         public string Paspser
         {
@@ -1673,7 +1673,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Номер")]
-        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Category("Паспорт")]
         [System.ComponentModel.Description("Номер паспорта сотрудника")]
         public string Paspnomer
         {
@@ -1688,7 +1688,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Кем выдан")]
-        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Category("Паспорт")]
         [System.ComponentModel.Description("Кем выдан паспорт сотрудника")]
         public string Paspkem
         {
@@ -1703,7 +1703,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата выдачи")]
-        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Category("Паспорт")]
         [System.ComponentModel.Description("Дата выдачи паспорта сотрудника")]
         public DateTime Paspdate
         {
@@ -1718,7 +1718,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Серия ТК")]
-        [System.ComponentModel.Category("Данные трудовой книжки")]
+        [System.ComponentModel.Category("Трудовая книжка")]
         [System.ComponentModel.Description("Серия трудовой книжки сотрудника")]
         public string EmplHistSer
         {
@@ -1733,7 +1733,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Номер ТК")]
-        [System.ComponentModel.Category("Данные трудовой книжки")]
+        [System.ComponentModel.Category("Трудовая книжка")]
         [System.ComponentModel.Description("Номер трудовой книжки сотрудника")]
         public string EmplHistNumber
         {
@@ -1748,7 +1748,7 @@ namespace Kadr.Data
         }
         
         [System.ComponentModel.DisplayName("Дата выдачи ТК")]
-        [System.ComponentModel.Category("Данные трудовой книжки")]
+        [System.ComponentModel.Category("Трудовая книжка")]
         [System.ComponentModel.Description("Дата выдачи трудовой книжки сотрудника")]
         public DateTime EmplHistDate
         {

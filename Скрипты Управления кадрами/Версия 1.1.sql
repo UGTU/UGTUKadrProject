@@ -90,3 +90,40 @@ REFERENCES [dbo].[StandingType] ([id])
 GO
 
 ALTER TABLE [dbo].[EmployeeStanding] CHECK CONSTRAINT [FK_EmployeeStanding_StandingType]
+
+
+GO
+
+/****** Object:  Index [IX_EmployeeStanding_DateBegin]    Script Date: 16.07.2015 16:33:55 ******/
+CREATE NONCLUSTERED INDEX [IX_EmployeeStanding_DateBegin] ON [dbo].[EmployeeStanding]
+(
+	[DateBegin] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+
+GO
+
+/****** Object:  Index [IX_EmployeeStanding_idEmployee]    Script Date: 16.07.2015 16:34:12 ******/
+CREATE NONCLUSTERED INDEX [IX_EmployeeStanding_idEmployee] ON [dbo].[EmployeeStanding]
+(
+	[idEmployee] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+GO
+
+/****** Object:  Index [IX_EmployeeStanding_idRegionType]    Script Date: 16.07.2015 16:34:25 ******/
+CREATE NONCLUSTERED INDEX [IX_EmployeeStanding_idRegionType] ON [dbo].[EmployeeStanding]
+(
+	[idRegionType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+GO
+
+/****** Object:  Index [IX_EmployeeStanding_idStandingType]    Script Date: 16.07.2015 16:34:38 ******/
+CREATE NONCLUSTERED INDEX [IX_EmployeeStanding_idStandingType] ON [dbo].[EmployeeStanding]
+(
+	[idStandingType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO

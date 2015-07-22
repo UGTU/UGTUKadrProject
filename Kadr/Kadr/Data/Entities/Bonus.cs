@@ -290,9 +290,7 @@ namespace Kadr.Data
             return new BonusDecorator(this);
         }
 
-
         #endregion
-
 
         #region partial Methods
 
