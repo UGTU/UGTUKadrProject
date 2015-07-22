@@ -206,7 +206,7 @@ namespace Kadr.UI.Frames
         private void LoadPostList()
         {
  
-            factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).OrderBy(factSt => factSt.Prikaz.DatePrikaz);//.OfType<UIX.Views.IDecorable>().ToArray();
+            factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).OrderByDescending(factSt => factSt.Prikaz.DatePrikaz).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
         }
 
         private void LoadBonus()
