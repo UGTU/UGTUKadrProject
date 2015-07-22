@@ -81,7 +81,6 @@
       <Association Name="Prikaz_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="DepartmentHistory" />
       <Association Name="Prikaz_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idEndPrikaz" Type="FactStaff" />
       <Association Name="Prikaz_Dep" Member="Deps" ThisKey="id" OtherKey="idEndPrikaz" Type="Dep" />
-      <Association Name="Prikaz_FactStaffPrikaz" Member="FactStaffPrikazs" ThisKey="id" OtherKey="idPrikaz" Type="FactStaffPrikaz" />
       <Association Name="Prikaz_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idOtpuskPrikaz" Type="OK_Otpusk" />
       <Association Name="Prikaz_FactStaffPrikaz" Member="FactStaffPrikazs" ThisKey="id" OtherKey="idPrikaz" Type="FactStaffPrikaz" />
       <Association Name="PrikazType_Prikaz" Member="PrikazType" ThisKey="idPrikazType" OtherKey="id" Type="PrikazType" IsForeignKey="true" />
@@ -588,13 +587,12 @@
       <Association Name="FactStaff_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffHistory" />
       <Association Name="FactStaff_FactStaffMonthHour" Member="FactStaffMonthHours" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffMonthHour" />
       <Association Name="FactStaff_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idMainFactStaff" Type="FactStaff" />
-<<<<<<< .mine
+
       <Association Name="FactStaff_FactStaffPrikaz" Member="FactStaffPrikazs" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffPrikaz" />
       <Association Name="FactStaff_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaff" Type="OK_Otpusk" />
-=======
-      <Association Name="FactStaff_FactStaffPrikaz" Member="FactStaffPrikazs" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffPrikaz" />
 
->>>>>>> .theirs
+
+
       <Association Name="FactStaff_FactStaff" Member="FactStaff1" ThisKey="idMainFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
       <Association Name="FinancingSource_FactStaff" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
       <Association Name="FundingCenter_FactStaff" Member="FundingCenter" ThisKey="idFundingCenter" OtherKey="id" Type="FundingCenter" IsForeignKey="true" />
@@ -775,21 +773,6 @@
       <Column Name="RegionTypeName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
       <Association Name="RegionType_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idRegionType" Type="EmployeeStanding" />
       <Association Name="RegionType_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idRegionType" Type="BusinessTripRegionType" />
-    </Type>
-  </Table>
-  <Table Name="dbo.FactStaffPrikaz" Member="FactStaffPrikazs">
-    <Type Name="FactStaffPrikaz">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="idMainFactStaffPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="FactStaffPrikaz_FactStaffPrikaz" Member="FactStaffPrikazs" ThisKey="id" OtherKey="idMainFactStaffPrikaz" Type="FactStaffPrikaz" />
-      <Association Name="FactStaffPrikaz_BusinessTrip" Member="BusinessTrips" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="BusinessTrip" />
-      <Association Name="FactStaff_FactStaffPrikaz" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
-      <Association Name="FactStaffPrikaz_FactStaffPrikaz" Member="FactStaffPrikaz1" ThisKey="idMainFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
-      <Association Name="Prikaz_FactStaffPrikaz" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.BusinessTrip" Member="BusinessTrips">
