@@ -222,6 +222,9 @@ namespace Kadr.Data
     partial void InsertBusinessTripRegionType(BusinessTripRegionType instance);
     partial void UpdateBusinessTripRegionType(BusinessTripRegionType instance);
     partial void DeleteBusinessTripRegionType(BusinessTripRegionType instance);
+    partial void InsertAuditKadrVersion(AuditKadrVersion instance);
+    partial void UpdateAuditKadrVersion(AuditKadrVersion instance);
+    partial void DeleteAuditKadrVersion(AuditKadrVersion instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -779,6 +782,14 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<BusinessTripRegionType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<AuditKadrVersion> AuditKadrVersions
+		{
+			get
+			{
+				return this.GetTable<AuditKadrVersion>();
 			}
 		}
 		
@@ -18389,6 +18400,116 @@ namespace Kadr.Data
 						this._idRegionType = default(int);
 					}
 					this.SendPropertyChanged("RegionType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AuditKadrVersion")]
+	public partial class AuditKadrVersion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _idVersion;
+		
+		private System.DateTime _VersionDate;
+		
+		private string _Comment;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidVersionChanging(string value);
+    partial void OnidVersionChanged();
+    partial void OnVersionDateChanging(System.DateTime value);
+    partial void OnVersionDateChanged();
+    partial void OnCommentChanging(string value);
+    partial void OnCommentChanged();
+    #endregion
+		
+		public AuditKadrVersion()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idVersion", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string idVersion
+		{
+			get
+			{
+				return this._idVersion;
+			}
+			set
+			{
+				if ((this._idVersion != value))
+				{
+					this.OnidVersionChanging(value);
+					this.SendPropertyChanging();
+					this._idVersion = value;
+					this.SendPropertyChanged("idVersion");
+					this.OnidVersionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionDate", DbType="Date NOT NULL")]
+		public System.DateTime VersionDate
+		{
+			get
+			{
+				return this._VersionDate;
+			}
+			set
+			{
+				if ((this._VersionDate != value))
+				{
+					this.OnVersionDateChanging(value);
+					this.SendPropertyChanging();
+					this._VersionDate = value;
+					this.SendPropertyChanged("VersionDate");
+					this.OnVersionDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="VarChar(MAX)")]
+		public string Comment
+		{
+			get
+			{
+				return this._Comment;
+			}
+			set
+			{
+				if ((this._Comment != value))
+				{
+					this.OnCommentChanging(value);
+					this.SendPropertyChanging();
+					this._Comment = value;
+					this.SendPropertyChanged("Comment");
+					this.OnCommentChanged();
 				}
 			}
 		}
