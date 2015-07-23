@@ -1,0 +1,8 @@
+*.cache
+/Kadr/Reports/bin
+/Kadr/Reports/obj/Debug/*.Cache
+/Kadr/Reports/obj/Debug/*.cache
+bin
+*.Cache
+Release
+/Kadr/UIX/UIX/obj/Release
