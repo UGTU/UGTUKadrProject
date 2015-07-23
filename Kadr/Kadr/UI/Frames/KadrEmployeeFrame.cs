@@ -1040,6 +1040,7 @@ namespace Kadr.UI.Frames
             this.tsbEditOtp.Size = new System.Drawing.Size(107, 21);
             this.tsbEditOtp.Text = "Редактировать";
             this.tsbEditOtp.ToolTipText = "Редактировать запись";
+            this.tsbEditOtp.Click += new System.EventHandler(this.tsbEditOtp_Click);
             // 
             // tsbDelOtp
             // 
@@ -2149,6 +2150,14 @@ namespace Kadr.UI.Frames
                 dlg.ShowDialog();
             }
             LoadOtpusk();*/
+        }
+
+        private void tsbEditOtp_Click(object sender, EventArgs e)
+        {
+            if (oKOtpuskBindingSource.Current != null)
+                LinqActionsController<OK_Otpusk>.Instance.EditObject(
+                        oKOtpuskBindingSource.Current as OK_Otpusk, true);
+            LoadStandings();
         }
 
     }

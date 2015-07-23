@@ -824,6 +824,13 @@
       <Association Name="SemPol_Employee" Member="SemPol" ThisKey="idSemPol" OtherKey="id" Type="SemPol" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.AuditKadrVersion" Member="AuditKadrVersions">
+    <Type Name="AuditKadrVersion">
+      <Column Name="idVersion" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VersionDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">
     <Parameter Name="idOldFactStaff" Type="System.Int32" DbType="Int" />
     <Parameter Name="idNewPlanStaff" Type="System.Int32" DbType="Int" />
