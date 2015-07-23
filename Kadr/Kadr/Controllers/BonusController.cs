@@ -227,7 +227,7 @@ namespace Kadr.Controllers
                 return;
             }
 
-            if (MessageBox.Show("Удалить надбавку?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить надбавку?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                 != DialogResult.OK)
             {
                 return;

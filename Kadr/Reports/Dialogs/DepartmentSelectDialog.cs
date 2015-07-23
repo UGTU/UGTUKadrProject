@@ -59,7 +59,7 @@ namespace Reports.Dialogs
             }
             if (depList.Count == 0)
             {
-                MessageBox.Show("Не выбран ни один отдел!", "АИС Штатное расписание", MessageBoxButtons.OK);
+                MessageBox.Show("Не выбран ни один отдел!", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
                 return;
             }
 

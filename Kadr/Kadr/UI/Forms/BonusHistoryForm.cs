@@ -74,7 +74,7 @@ namespace Kadr.UI.Forms
             //Если это последнее изменение истории, то спрашиваем удалить ли надбавку полностью. Иначе откат
             if (Bonus.BonusHistories.Count == 1)
             {
-                if (MessageBox.Show("Вы пытаетесь удалить последнее изменение надбавки. Его можно удалить только вместе с надбавкой. Удалить надбавку полностью?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+                if (MessageBox.Show("Вы пытаетесь удалить последнее изменение надбавки. Его можно удалить только вместе с надбавкой. Удалить надбавку полностью?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                     == DialogResult.OK)
                 {
                     BonusController.Instance.DeleteBonus(null, Bonus);
@@ -83,7 +83,7 @@ namespace Kadr.UI.Forms
                 }
             }
 
-            if (MessageBox.Show("Удалить изменение?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить изменение?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                == DialogResult.OK)
             {
                 LinqActionsController<BonusHistory>.Instance.DeleteObject(CurrentChange,

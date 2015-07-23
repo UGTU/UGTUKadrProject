@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Linq;
+using System.Windows.Forms;
 using UIX;
 using Kadr.Data;
 using Kadr.Data.Common;
@@ -16,7 +17,10 @@ namespace Kadr.Controllers
     class KadrController: UIX.Controllers.GenericController<Kadr.Data.dckadrDataContext>
     {
 
-        
+        /// <summary>
+        /// Текущая версия БД (для проверки соотвествия)
+        /// </summary>
+        private const string CurrentDBVersion = "1.1";
         
         public event EventHandler<SubmitModelChangesArgs> SubmitingModelChanges;
         public event EventHandler<SubmitModelChangesArgs> SubmitModelChanges;
@@ -29,6 +33,20 @@ namespace Kadr.Controllers
 
         private KadrController() 
         {
+        }
+
+        /// <summary>
+        /// Проверка соответсвия версии БД
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckDataBaseVersion()
+        {
+            if (Model.AuditKadrVersions.Max(KV => KV.idVersion) != CurrentDBVersion)
+            {
+                MessageBox.Show("Текущая версия базы данных не соответсвует приложению.", "ИС \"Учет кадров\"");
+                return false;
+            }
+            return true;
         }
 
         protected override void OnModelCreated()

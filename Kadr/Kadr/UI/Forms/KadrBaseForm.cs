@@ -410,7 +410,7 @@ namespace Kadr.UI.Forms
 
         private void KadrBaseForm_Load(object sender, EventArgs e)
         {
-
+            KadrController.Instance.CheckDataBaseVersion();
             //ImportDailyReportFiles();
             kadrTreeView1.CreateRootNodes();
             CreateNodeContextItems();
@@ -1328,6 +1328,22 @@ namespace Kadr.UI.Forms
         private void продлитьНадбавкурасширеннаяФормаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BonusProlongFullDialog dlg = new BonusProlongFullDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void типыРегионовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (RegionTypeDialog dlg = new RegionTypeDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void видыСтажаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (StandingTypeDialog dlg = new StandingTypeDialog())
             {
                 dlg.ShowDialog();
             }

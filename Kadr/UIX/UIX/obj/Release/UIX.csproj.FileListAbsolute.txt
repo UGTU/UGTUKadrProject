@@ -10,3 +10,6 @@ D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Release\UIX.dll
 G:\tanvok\Основные проекты\kadr\Kadr\UIX\UIX\bin\Release\UIX.dll
 G:\tanvok\Основные проекты\kadr\Kadr\UIX\UIX\obj\Release\UIX.csprojResolveAssemblyReference.cache
 G:\tanvok\Основные проекты\kadr\Kadr\UIX\UIX\obj\Release\UIX.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\bin\Release\UIX.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Release\UIX.csprojResolveAssemblyReference.cache
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Release\UIX.dll

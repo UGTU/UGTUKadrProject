@@ -100,7 +100,7 @@ namespace Kadr.UI.Frames
 
         private void DelPKCatBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Удалить профессиональную категорию?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить профессиональную категорию?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                 == DialogResult.OK)
             {
                // PKCategory delpkCat = CurrentCategory;
@@ -152,7 +152,7 @@ namespace Kadr.UI.Frames
             }
             else
             {
-                MessageBox.Show("Выбранной вами категории еще не назначен оклад.", "АИС Штатное расписание", MessageBoxButtons.OK);
+                MessageBox.Show("Выбранной вами категории еще не назначен оклад.", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
 
             }*/
         }
@@ -209,7 +209,7 @@ namespace Kadr.UI.Frames
 
         private void DelPostBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Удалить должность?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить должность?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                 == DialogResult.OK)
             {
                 LinqActionsController<Post>.Instance.DeleteObject(postBindingSource.Current as Post,
@@ -261,7 +261,7 @@ namespace Kadr.UI.Frames
 
         private void DelEmployeeBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Удалить сотрудника?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить сотрудника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                  == DialogResult.OK)
             {
                 LinqActionsController<Employee>.Instance.DeleteObject(employeeBindingSource.Current as Employee,
@@ -389,7 +389,7 @@ namespace Kadr.UI.Frames
 
         private void btnDelBonusType_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Удалить вид надбавки?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить вид надбавки?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                  == DialogResult.OK)
             {
                 LinqActionsController<BonusType>.Instance.DeleteObject(bonusTypeBindingSource.Current as BonusType,

@@ -137,12 +137,11 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common.Fakes">
+      <HintPath>FakesAssemblies\Microsoft.ReportViewer.Common.Fakes.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
@@ -206,6 +205,8 @@
     <Compile Include="Data\Entities\BonusReport.cs" />
     <Compile Include="Data\Entities\BonusSuperType.cs" />
     <Compile Include="Data\Entities\BonusType.cs" />
+    <Compile Include="Data\Entities\BusinessTrip.cs" />
+    <Compile Include="Data\Entities\BusinessTripRegionType.cs" />
     <Compile Include="Data\Entities\Category.cs" />
     <Compile Include="Data\Entities\CategoryVPO.cs" />
     <Compile Include="Data\Entities\CategoryZP.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="Data\Entities\Employee.cs" />
     <Compile Include="Data\Entities\EmployeeDegree.cs" />
     <Compile Include="Data\Entities\EmployeeRank.cs" />
+    <Compile Include="Data\Entities\EmployeeStanding.cs" />
     <Compile Include="Data\Entities\FactStaff.cs" />
     <Compile Include="Data\Entities\FactStaffBonusProject.cs" />
     <Compile Include="Data\Entities\FactStaffCurrentMainData.cs" />
@@ -227,6 +229,7 @@
     <Compile Include="Data\Entities\FactStaffHour.cs" />
     <Compile Include="Data\Entities\FactStaffHourContract.cs" />
     <Compile Include="Data\Entities\FactStaffMonthHour.cs" />
+    <Compile Include="Data\Entities\FactStaffPrikaz.cs" />
     <Compile Include="Data\Entities\FactStaffReplacement.cs" />
     <Compile Include="Data\Entities\FactStaffReplacementReason.cs" />
     <Compile Include="Data\Entities\FinancingSource.cs" />
@@ -248,9 +251,11 @@
     <Compile Include="Data\Entities\Prikaz.cs" />
     <Compile Include="Data\Entities\PrikazType.cs" />
     <Compile Include="Data\Entities\Rank.cs" />
+    <Compile Include="Data\Entities\RegionType.cs" />
     <Compile Include="Data\Entities\SalaryKoeff.cs" />
     <Compile Include="Data\Entities\ScienceType.cs" />
     <Compile Include="Data\Entities\SemPol.cs" />
+    <Compile Include="Data\Entities\StandingType.cs" />
     <Compile Include="Data\Entities\TimeSheet.cs" />
     <Compile Include="Data\Entities\TimeSheetFSWorkingDay.cs" />
     <Compile Include="Data\Entities\TimeSheetRecord.cs" />
@@ -499,6 +504,12 @@
     <Compile Include="UI\Dialogs\PrikazTypeDialog.Designer.cs">
       <DependentUpon>PrikazTypeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dialogs\RegionTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\RegionTypeDialog.Designer.cs">
+      <DependentUpon>RegionTypeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\SalaryDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -516,6 +527,12 @@
     </Compile>
     <Compile Include="UI\Dialogs\SemPolDialog.Designer.cs">
       <DependentUpon>SemPolDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\StandingTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\StandingTypeDialog.Designer.cs">
+      <DependentUpon>StandingTypeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\TimeSheetDayStateDialog.cs">
       <SubType>Form</SubType>
@@ -562,9 +579,11 @@
     <Compile Include="UI\Editors\PrikazEditor.cs" />
     <Compile Include="UI\Editors\PrikazTypeEditor.cs" />
     <Compile Include="UI\Editors\RankEditor.cs" />
+    <Compile Include="UI\Editors\RegionTypeEditor.cs" />
     <Compile Include="UI\Editors\ScienceTypeEditor.cs" />
     <Compile Include="UI\Editors\SemPolEditor.cs" />
     <Compile Include="UI\Editors\MonthEditor.cs" />
+    <Compile Include="UI\Editors\StandingTypeEditor.cs" />
     <Compile Include="UI\Editors\WorkSheduleEditor.cs" />
     <Compile Include="UI\Editors\WorkTypeEditor.cs" />
     <Compile Include="UI\Forms\BonusHistoryForm.cs">
@@ -774,6 +793,9 @@
       <DependentUpon>PrikazTypeDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\RegionTypeDialog.resx">
+      <DependentUpon>RegionTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\SalaryDialog.resx">
       <DependentUpon>SalaryDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -784,6 +806,9 @@
     <EmbeddedResource Include="UI\Dialogs\SemPolDialog.resx">
       <DependentUpon>SemPolDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\StandingTypeDialog.resx">
+      <DependentUpon>StandingTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\TimeSheetDayStateDialog.resx">
       <DependentUpon>TimeSheetDayStateDialog.cs</DependentUpon>
@@ -864,6 +889,8 @@
       <LastGenOutput>dckadr.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <Fakes Include="Fakes\Microsoft.ReportViewer.Common.fakes" />
+    <Fakes Include="Fakes\Microsoft.ReportViewer.WinForms.fakes" />
     <None Include="Properties\DataSources\Kadr.Data.Bonus.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.BonusHistory.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.BonusMeasure.datasource" />
@@ -883,6 +910,7 @@
     <None Include="Properties\DataSources\Kadr.Data.Employee1.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EmployeeDegree.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EmployeeRank.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.EmployeeStanding.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EmployeeView.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.FactStaff.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.FactStaffBonusProject.datasource" />
@@ -905,7 +933,9 @@
     <None Include="Properties\DataSources\Kadr.Data.PostType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.Prikaz.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.PrikazView.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.RegionType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.SalaryKoeff.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.StandingType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.TimeSheet.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.TimeSheetDayState.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.TimeSheetFSWorkingDays.datasource" />

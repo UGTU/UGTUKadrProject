@@ -54,7 +54,7 @@ namespace Kadr.UI.Forms
 
         private void DelSalaryBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Удалить оклад?", "АИС Штатное расписание", MessageBoxButtons.OKCancel)
+            if (MessageBox.Show("Удалить оклад?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
               == DialogResult.OK)
             {
                 if (SalaryObject is PlanStaff)
