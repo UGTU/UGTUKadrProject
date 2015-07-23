@@ -684,7 +684,7 @@
             this.tpStaff.Location = new System.Drawing.Point(4, 22);
             this.tpStaff.Name = "tpStaff";
             this.tpStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpStaff.Size = new System.Drawing.Size(802, 533);
+            this.tpStaff.Size = new System.Drawing.Size(927, 405);
             this.tpStaff.TabIndex = 1;
             this.tpStaff.Text = "Штаты";
             this.tpStaff.UseVisualStyleBackColor = true;
@@ -703,8 +703,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(796, 527);
-            this.splitContainer1.SplitterDistance = 200;
+            this.splitContainer1.Size = new System.Drawing.Size(921, 399);
+            this.splitContainer1.SplitterDistance = 150;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -720,7 +720,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 200);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(921, 150);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -1023,7 +1023,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 323);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(921, 245);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff
@@ -1070,7 +1070,7 @@
             this.dgvFactStaff.RowHeadersVisible = false;
             this.dgvFactStaff.RowHeadersWidth = 4;
             this.dgvFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFactStaff.Size = new System.Drawing.Size(915, 295);
+            this.dgvFactStaff.Size = new System.Drawing.Size(915, 296);
             this.dgvFactStaff.TabIndex = 6;
             this.dgvFactStaff.DoubleClick += new System.EventHandler(this.dgvFactStaff_DoubleClick);
             // 
@@ -1197,9 +1197,9 @@
             this.AddFactStaffBtn.Image = global::Kadr.Properties.Resources.AddTableHS;
             this.AddFactStaffBtn.ImageTransparentColor = System.Drawing.Color.Black;
             this.AddFactStaffBtn.Name = "AddFactStaffBtn";
-            this.AddFactStaffBtn.Size = new System.Drawing.Size(79, 19);
-            this.AddFactStaffBtn.Text = "Добавить";
-            this.AddFactStaffBtn.ToolTipText = "Добавить сотрудника";
+            this.AddFactStaffBtn.Size = new System.Drawing.Size(140, 19);
+            this.AddFactStaffBtn.Text = "Принять сотрудника";
+            this.AddFactStaffBtn.ToolTipText = "Принять существующего сотрудника на должность";
             this.AddFactStaffBtn.Click += new System.EventHandler(this.AddFactStaffBtn_Click);
             // 
             // DelFactStaffBtn
@@ -2128,7 +2128,7 @@
             this.tpDepEmplReport.Padding = new System.Windows.Forms.Padding(3);
             this.tpDepEmplReport.Size = new System.Drawing.Size(802, 533);
             this.tpDepEmplReport.TabIndex = 3;
-            this.tpDepEmplReport.Text = "Штат сотрудников";
+            this.tpDepEmplReport.Text = "Отчет \"Штат сотрудников\"";
             this.tpDepEmplReport.UseVisualStyleBackColor = true;
             // 
             // cbDepStaffReportWithSubDeps
@@ -3035,7 +3035,7 @@
             this.tpFactStaffChanges.Padding = new System.Windows.Forms.Padding(3);
             this.tpFactStaffChanges.Size = new System.Drawing.Size(802, 533);
             this.tpFactStaffChanges.TabIndex = 8;
-            this.tpFactStaffChanges.Text = "Изменения в штатах";
+            this.tpFactStaffChanges.Text = "Отчет \"Изменения в штатах\"";
             this.tpFactStaffChanges.UseVisualStyleBackColor = true;
             // 
             // chbStChWithSubDeps
@@ -3340,7 +3340,7 @@
             this.tpFactStaffErrors.Padding = new System.Windows.Forms.Padding(3);
             this.tpFactStaffErrors.Size = new System.Drawing.Size(802, 533);
             this.tpFactStaffErrors.TabIndex = 10;
-            this.tpFactStaffErrors.Text = "\"Переполнения\" ставок";
+            this.tpFactStaffErrors.Text = "Отчет \"Переполнения ставок\"";
             this.tpFactStaffErrors.UseVisualStyleBackColor = true;
             // 
             // button1
