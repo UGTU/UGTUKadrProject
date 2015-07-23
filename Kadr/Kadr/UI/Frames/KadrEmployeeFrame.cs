@@ -798,7 +798,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel7);
             this.splitContainer1.Size = new System.Drawing.Size(863, 333);
-            this.splitContainer1.SplitterDistance = 206;
+            this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.TabIndex = 2;
             // 
             // dgvEmplPosts
@@ -828,7 +828,7 @@ namespace Kadr.UI.Frames
             this.dgvEmplPosts.ReadOnly = true;
             this.dgvEmplPosts.RowHeadersVisible = false;
             this.dgvEmplPosts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmplPosts.Size = new System.Drawing.Size(863, 206);
+            this.dgvEmplPosts.Size = new System.Drawing.Size(863, 205);
             this.dgvEmplPosts.TabIndex = 0;
             // 
             // Department
@@ -953,7 +953,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(863, 123);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(863, 124);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // dataGridView5
@@ -974,7 +974,7 @@ namespace Kadr.UI.Frames
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(857, 93);
+            this.dataGridView5.Size = new System.Drawing.Size(857, 155);
             this.dataGridView5.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn9
@@ -1029,7 +1029,7 @@ namespace Kadr.UI.Frames
             this.tsbAddOtp.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbAddOtp.Name = "tsbAddOtp";
             this.tsbAddOtp.Size = new System.Drawing.Size(119, 21);
-            this.tsbAddOtp.Text = "Добавить запись";
+            this.tsbAddOtp.Text = "Добавить отпуск";
             this.tsbAddOtp.Click += new System.EventHandler(this.tsbAddOtp_Click);
             // 
             // tsbEditOtp
@@ -1039,7 +1039,8 @@ namespace Kadr.UI.Frames
             this.tsbEditOtp.Name = "tsbEditOtp";
             this.tsbEditOtp.Size = new System.Drawing.Size(107, 21);
             this.tsbEditOtp.Text = "Редактировать";
-            this.tsbEditOtp.ToolTipText = "Редактировать запись";
+            this.tsbEditOtp.ToolTipText = "Редактировать отпуск";
+            this.tsbEditOtp.Click += new System.EventHandler(this.tsbEditOtp_Click);
             // 
             // tsbDelOtp
             // 
@@ -1048,7 +1049,7 @@ namespace Kadr.UI.Frames
             this.tsbDelOtp.Name = "tsbDelOtp";
             this.tsbDelOtp.Size = new System.Drawing.Size(71, 21);
             this.tsbDelOtp.Text = "Удалить";
-            this.tsbDelOtp.ToolTipText = "Удалить запись";
+            this.tsbDelOtp.ToolTipText = "Удалить отпуск";
             // 
             // tpEmplStading
             // 
@@ -1476,7 +1477,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox5);
             this.splitContainer2.Size = new System.Drawing.Size(796, 527);
-            this.splitContainer2.SplitterDistance = 258;
+            this.splitContainer2.SplitterDistance = 257;
             this.splitContainer2.TabIndex = 2;
             // 
             // groupBox4
@@ -1485,7 +1486,7 @@ namespace Kadr.UI.Frames
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(796, 258);
+            this.groupBox4.Size = new System.Drawing.Size(796, 257);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ученые степени";
@@ -1503,7 +1504,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(790, 239);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(790, 238);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // dataGridView2
@@ -1624,7 +1625,7 @@ namespace Kadr.UI.Frames
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(796, 265);
+            this.groupBox5.Size = new System.Drawing.Size(796, 266);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Научные звания";
@@ -1642,7 +1643,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(790, 246);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(790, 247);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // dataGridView3
@@ -1983,6 +1984,7 @@ namespace Kadr.UI.Frames
         {
             tcEmployee.TabPages.Remove(tpBonus);
             tcEmployee.TabPages.Remove(tpEmplBonusReport);
+            tcEmployee.TabPages.Remove(tpOtpusk);
             
             dtpBonRepPeriodBegin.Value = DateTime.Today.AddDays(-DateTime.Today.Day + 1);
             dtpBonRepPeriodEnd.Value = DateTime.Today;
@@ -2149,6 +2151,14 @@ namespace Kadr.UI.Frames
                 dlg.ShowDialog();
             }
             LoadOtpusk();*/
+        }
+
+        private void tsbEditOtp_Click(object sender, EventArgs e)
+        {
+            if (oKOtpuskBindingSource.Current != null)
+                LinqActionsController<OK_Otpusk>.Instance.EditObject(
+                        oKOtpuskBindingSource.Current as OK_Otpusk, true);
+            LoadStandings();
         }
 
     }

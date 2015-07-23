@@ -4539,7 +4539,7 @@ namespace Kadr.Data
             return "Профессионально-квалификационный подуровень ";
         }
 
-       /* [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.DisplayName("ID")]
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код отпуска")]
         [System.ComponentModel.ReadOnly(true)]
@@ -4547,15 +4547,15 @@ namespace Kadr.Data
         {
             get
             {
-                return ok_Otpusk.id;
+                return ok_Otpusk.idOtpusk;
             }
             set
             {
-                ok_Otpusk.id = value;
+                ok_Otpusk.idOtpusk = value;
             }
         }
 
-        [System.ComponentModel.DisplayName("Номер уровня")]
+        /*[System.ComponentModel.DisplayName("Номер уровня")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
         public int PKCategoryNumber
