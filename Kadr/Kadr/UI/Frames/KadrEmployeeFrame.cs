@@ -150,7 +150,7 @@ namespace Kadr.UI.Frames
         private ToolStripButton tsbEditOtp;
         private ToolStripButton tsbDelOtp;
         private TabPage tpEmplTrips;
-        private DataGridView dataGridView6;
+        private DataGridView dgvTrips;
         private ToolStrip tsBusinessTrips;
         private ToolStripButton tsbAddEmplTrip;
         private ToolStripButton tsbEditEmplTrip;
@@ -158,6 +158,11 @@ namespace Kadr.UI.Frames
         private BindingSource bonusReportColumnBindingSource;
         private BindingSource bonusTypeBindingSource;
         private BindingSource BusinessTripsBindingSource;
+        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn targetPlaceDataGridViewTextBoxColumn;
         #region Properties
 
         /// <summary>
@@ -304,7 +309,12 @@ namespace Kadr.UI.Frames
 
         private void LoadTrips()
         {
-            BusinessTripsBindingSource.DataSource = KadrController.Instance.Model.BusinessTrips.Where(t => t.FactStaffPrikaz.FactStaff.Employee == Employee);
+            //FactStaffPrikaz p = KadrController.Instance.Model.FactStaffPrikazs.FirstOrDefault(x => x.FactStaff.Employee == Employee);
+            //MessageBox.Show(p.ToString());
+            BusinessTripsBindingSource.DataSource = null;
+            var l = KadrController.Instance.Model.BusinessTrips.Where(t => t.FactStaffPrikaz.FactStaff.Employee == Employee).Select(x=>new BusinessTripDecorator(x)).ToList();
+            BusinessTripsBindingSource.DataSource = l;
+            dgvTrips.Refresh();
 
         }
 
@@ -518,7 +528,12 @@ namespace Kadr.UI.Frames
             this.tsbEditEmplStanding = new System.Windows.Forms.ToolStripButton();
             this.tsbDelEmplStanding = new System.Windows.Forms.ToolStripButton();
             this.tpEmplTrips = new System.Windows.Forms.TabPage();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.dgvTrips = new System.Windows.Forms.DataGridView();
+            this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateBeginDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateEndDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.targetPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsBusinessTrips = new System.Windows.Forms.ToolStrip();
             this.tsbAddEmplTrip = new System.Windows.Forms.ToolStripButton();
             this.tsbEditEmplTrip = new System.Windows.Forms.ToolStripButton();
@@ -588,7 +603,6 @@ namespace Kadr.UI.Frames
             this.employeeBonusReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
             this.bonusReportColumnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bonusTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -614,7 +628,8 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.employeeStandingBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.tpEmplTrips.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTrips)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).BeginInit();
             this.tsBusinessTrips.SuspendLayout();
             this.tpBonus.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -642,7 +657,6 @@ namespace Kadr.UI.Frames
             this.toolStrip6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bonusReportColumnBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusTypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -1273,7 +1287,7 @@ namespace Kadr.UI.Frames
             // 
             // tpEmplTrips
             // 
-            this.tpEmplTrips.Controls.Add(this.dataGridView6);
+            this.tpEmplTrips.Controls.Add(this.dgvTrips);
             this.tpEmplTrips.Controls.Add(this.tsBusinessTrips);
             this.tpEmplTrips.Location = new System.Drawing.Point(4, 22);
             this.tpEmplTrips.Name = "tpEmplTrips";
@@ -1283,16 +1297,49 @@ namespace Kadr.UI.Frames
             this.tpEmplTrips.Text = "Командировки";
             this.tpEmplTrips.UseVisualStyleBackColor = true;
             // 
-            // dataGridView6
+            // dgvTrips
             // 
-            this.dataGridView6.AutoGenerateColumns = false;
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.DataSource = this.BusinessTripsBindingSource;
-            this.dataGridView6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView6.Location = new System.Drawing.Point(3, 28);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(863, 308);
-            this.dataGridView6.TabIndex = 11;
+            this.dgvTrips.AutoGenerateColumns = false;
+            this.dgvTrips.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTrips.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.prikazDataGridViewTextBoxColumn,
+            this.dateBeginDataGridViewTextBoxColumn1,
+            this.dateEndDataGridViewTextBoxColumn2,
+            this.targetPlaceDataGridViewTextBoxColumn});
+            this.dgvTrips.DataSource = this.BusinessTripsBindingSource;
+            this.dgvTrips.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTrips.Location = new System.Drawing.Point(3, 28);
+            this.dgvTrips.Name = "dgvTrips";
+            this.dgvTrips.Size = new System.Drawing.Size(863, 308);
+            this.dgvTrips.TabIndex = 11;
+            // 
+            // prikazDataGridViewTextBoxColumn
+            // 
+            this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
+            this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
+            this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
+            // 
+            // dateBeginDataGridViewTextBoxColumn1
+            // 
+            this.dateBeginDataGridViewTextBoxColumn1.DataPropertyName = "DateBegin";
+            this.dateBeginDataGridViewTextBoxColumn1.HeaderText = "Дата начала";
+            this.dateBeginDataGridViewTextBoxColumn1.Name = "dateBeginDataGridViewTextBoxColumn1";
+            // 
+            // dateEndDataGridViewTextBoxColumn2
+            // 
+            this.dateEndDataGridViewTextBoxColumn2.DataPropertyName = "DateEnd";
+            this.dateEndDataGridViewTextBoxColumn2.HeaderText = "Дата окончания";
+            this.dateEndDataGridViewTextBoxColumn2.Name = "dateEndDataGridViewTextBoxColumn2";
+            // 
+            // targetPlaceDataGridViewTextBoxColumn
+            // 
+            this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
+            this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
+            this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
+            // 
+            // BusinessTripsBindingSource
+            // 
+            this.BusinessTripsBindingSource.DataSource = typeof(Kadr.Data.BusinessTripDecorator);
             // 
             // tsBusinessTrips
             // 
@@ -1313,6 +1360,7 @@ namespace Kadr.UI.Frames
             this.tsbAddEmplTrip.Name = "tsbAddEmplTrip";
             this.tsbAddEmplTrip.Size = new System.Drawing.Size(119, 22);
             this.tsbAddEmplTrip.Text = "Добавить запись";
+            this.tsbAddEmplTrip.Click += new System.EventHandler(this.tsbAddEmplTrip_Click);
             // 
             // tsbEditEmplTrip
             // 
@@ -2032,7 +2080,8 @@ namespace Kadr.UI.Frames
             this.toolStrip2.PerformLayout();
             this.tpEmplTrips.ResumeLayout(false);
             this.tpEmplTrips.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTrips)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).EndInit();
             this.tsBusinessTrips.ResumeLayout(false);
             this.tsBusinessTrips.PerformLayout();
             this.tpBonus.ResumeLayout(false);
@@ -2070,7 +2119,6 @@ namespace Kadr.UI.Frames
             this.toolStrip6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bonusReportColumnBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusTypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2139,6 +2187,7 @@ namespace Kadr.UI.Frames
                 bonusFrame1.BonusObject = Employee;
                 bonusFrame1.LoadBonus();
             }*/
+
         }
 
         private void tsbBonusHistory_Click(object sender, EventArgs e)
@@ -2169,6 +2218,8 @@ namespace Kadr.UI.Frames
                 LoadStandings();
             if (tcEmplWorkData.SelectedTab == tpUGTUPosts)
                 LoadPostList();
+            if (tcEmplWorkData.SelectedTab == tpEmplTrips)
+                LoadTrips();
         }
 
         private void LoadStandings()
@@ -2236,6 +2287,31 @@ namespace Kadr.UI.Frames
         {
 
         }
+
+        private void tsbAddEmplTrip_Click(object sender, EventArgs e)
+        {
+            using (Kadr.UI.Common.PropertyGridDialogAdding<BusinessTrip> dlg =
+               new Kadr.UI.Common.PropertyGridDialogAdding<BusinessTrip>())
+            {
+                dlg.ObjectList = KadrController.Instance.Model.BusinessTrips;
+                //dlg.BindingSource = employeeStandingBindingSource;
+                dlg.UseInternalCommandManager = true;
+                dlg.InitializeNewObject = (x) =>
+                {
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(), null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), this);
+                };
+
+                dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.BusinessTrips;
+                };
+
+                dlg.ShowDialog();
+            }
+            LoadStandings();
+        }
+
 
     }
 

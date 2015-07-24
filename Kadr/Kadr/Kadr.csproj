@@ -891,14 +891,18 @@
     </None>
     <Fakes Include="Fakes\Microsoft.ReportViewer.Common.fakes" />
     <Fakes Include="Fakes\Microsoft.ReportViewer.WinForms.fakes" />
-    <None Include="Properties\DataSources\Kadr.Data.BusinessTrip.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.BusinessTripDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.Bonus.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.BonusHistory.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.BonusMeasure.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.BonusReport.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.BonusReportColumn.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.BonusSuperType.datasource" />
-    <None Include="Properties\DataSources\Kadr.Data.BonusType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.BonusType.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.Category1.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.CategoryVPO.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.CategoryZP.datasource" />
