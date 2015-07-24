@@ -1,4 +1,4 @@
-USE [Kadr]
+
 GO
 
 /****** Object:  Table [dbo].[AuditKadrVersion]    Script Date: 16.07.2015 14:02:20 ******/

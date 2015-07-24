@@ -9,7 +9,7 @@ namespace Kadr.Data
     {
         public override string ToString()
         {
-            return base.ToString();
+            return "Отпуск " + FactStaff;
         }
 
         #region IDecorable Members

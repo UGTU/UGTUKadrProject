@@ -4536,7 +4536,7 @@ namespace Kadr.Data
         override public string ToString()
         {
             //return pkCategory.ToString();
-            return "Профессионально-квалификационный подуровень ";
+            return ok_Otpusk.ToString();
         }
 
         [System.ComponentModel.DisplayName("ID")]
@@ -4555,18 +4555,78 @@ namespace Kadr.Data
             }
         }
 
-        /*[System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.DisplayName("Количество дней")]
         [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
-        public int PKCategoryNumber
+        [System.ComponentModel.Description("Количество дней отпуска")]
+        public int? CountDay
         {
             get
             {
-                return pkCategory.PKCategoryNumber;
+                return ok_Otpusk.CountDay;
             }
             set
             {
-                pkCategory.PKCategoryNumber = value;
+                ok_Otpusk.CountDay = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата начала")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата начала отпуска")]
+        public DateTime DateBegin
+        {
+            get
+            {
+                return ok_Otpusk.DateBegin;
+            }
+            set
+            {
+                ok_Otpusk.DateBegin = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата завершения")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата завершения отпуска")]
+        public DateTime DateEnd
+        {
+            get
+            {
+                return ok_Otpusk.DateEnd.Value;
+            }
+            set
+            {
+                ok_Otpusk.DateEnd = value;
+            }
+        }
+        
+        /*[System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
+        public int? df
+        {
+            get
+            {
+                return ok_Otpusk.;
+            }
+            set
+            {
+                ok_Otpusk. = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
+        public int? CountDay
+        {
+            get
+            {
+                return ok_Otpusk;
+            }
+            set
+            {
+                ok_Otpusk. = value;
             }
         }
 
