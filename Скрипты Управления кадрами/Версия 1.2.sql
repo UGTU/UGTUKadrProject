@@ -157,6 +157,55 @@ GO
 
 ALTER TABLE [dbo].[OK_Otpusk] CHECK CONSTRAINT [FK_OK_Otpusk_FactStaffPrikaz]
 
+GO
+
+
+ALTER TABLE [dbo].[OK_Otpusk]
+ADD [idSocialFareTransit] INT NULL
+
+GO
+
+ALTER TABLE [dbo].[OK_Otpusk]  WITH CHECK ADD  CONSTRAINT [FK_OK_Otpusk_SocialFareTransit] FOREIGN KEY([idSocialFareTransit])
+REFERENCES [dbo].[SocialFareTransit] ([id])
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_OK_Otpusk_SocialFareTransit]
 
 
 
+
+GO
+
+CREATE TABLE [dbo].[SocialFareTransit](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[DateBegin] [date] NOT NULL,
+	[DateEnd] [date] NOT NULL,
+	[idEmployee] [int] NOT NULL,
+	[idFactStaffPrikaz] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [IX_SocialFareTransit_idEmployee] UNIQUE NONCLUSTERED 
+(
+	[idEmployee] ASC,
+	[DateBegin] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit]  WITH CHECK ADD  CONSTRAINT [FK_SocialFareTransit_Employee] FOREIGN KEY([idEmployee])
+REFERENCES [dbo].[Employee] ([id])
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_SocialFareTransit_Employee]
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit]  WITH CHECK ADD  CONSTRAINT [FK_SocialFareTransit_FactStaff] FOREIGN KEY([idFactStaffPrikaz])
+REFERENCES [dbo].[FactStaff] ([id])
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_SocialFareTransit_FactStaff]
