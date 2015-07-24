@@ -15,7 +15,11 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            return string.Format("Командировка в {0} — сотрудник: {1}", TripTargetPlace, FactStaffPrikaz.FactStaff.Employee.ToString()); ;
+            if (FactStaffPrikaz.FactStaff!=null)
+            if (FactStaffPrikaz.FactStaff.Employee!=null)
+            return string.Format("Командировка в {0} — сотрудник: {1}", TripTargetPlace, FactStaffPrikaz.FactStaff.Employee.ToString()); 
+            return string.Format("Командировка в {0}", TripTargetPlace);
+
         }
 
         #region partial Methods
@@ -56,8 +60,8 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
-            return null;
-            //return new BusinessTripDecorator(this);
+            //return null;
+            return new BusinessTripDecorator(this);
         }
 
         #endregion
