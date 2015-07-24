@@ -1596,8 +1596,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Фамилия")]
-        [System.ComponentModel.Category("Фамилия, имя, отчество")]
+        [System.ComponentModel.DisplayName(" Фамилия")]
+        [System.ComponentModel.Category(" Фамилия, имя, отчество")]
         [System.ComponentModel.Description("Фамилия сотрудника")]
         public string LastName
         {
@@ -1628,7 +1628,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Имя")]
-        [System.ComponentModel.Category("Фамилия, имя, отчество")]
+        [System.ComponentModel.Category(" Фамилия, имя, отчество")]
         [System.ComponentModel.Description("Имя сотрудника")]
         public string FirstName
         {
@@ -1643,7 +1643,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Отчество")]
-        [System.ComponentModel.Category("Фамилия, имя, отчество")]
+        [System.ComponentModel.Category(" Фамилия, имя, отчество")]
         [System.ComponentModel.Description("Отчество сотрудника")]
         public string Otch
         {
@@ -1658,7 +1658,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Серия")]
-        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Category("Паспорт")]
         [System.ComponentModel.Description("Серия паспорта сотрудника")]
         public string Paspser
         {
@@ -1673,7 +1673,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Номер")]
-        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Category("Паспорт")]
         [System.ComponentModel.Description("Номер паспорта сотрудника")]
         public string Paspnomer
         {
@@ -1688,7 +1688,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Кем выдан")]
-        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Category("Паспорт")]
         [System.ComponentModel.Description("Кем выдан паспорт сотрудника")]
         public string Paspkem
         {
@@ -1703,7 +1703,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата выдачи")]
-        [System.ComponentModel.Category("Паспортные данные")]
+        [System.ComponentModel.Category("Паспорт")]
         [System.ComponentModel.Description("Дата выдачи паспорта сотрудника")]
         public DateTime Paspdate
         {
@@ -1718,7 +1718,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Серия ТК")]
-        [System.ComponentModel.Category("Данные трудовой книжки")]
+        [System.ComponentModel.Category("Трудовая книжка")]
         [System.ComponentModel.Description("Серия трудовой книжки сотрудника")]
         public string EmplHistSer
         {
@@ -1733,7 +1733,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Номер ТК")]
-        [System.ComponentModel.Category("Данные трудовой книжки")]
+        [System.ComponentModel.Category("Трудовая книжка")]
         [System.ComponentModel.Description("Номер трудовой книжки сотрудника")]
         public string EmplHistNumber
         {
@@ -1748,7 +1748,7 @@ namespace Kadr.Data
         }
         
         [System.ComponentModel.DisplayName("Дата выдачи ТК")]
-        [System.ComponentModel.Category("Данные трудовой книжки")]
+        [System.ComponentModel.Category("Трудовая книжка")]
         [System.ComponentModel.Description("Дата выдачи трудовой книжки сотрудника")]
         public DateTime EmplHistDate
         {
@@ -4523,6 +4523,220 @@ namespace Kadr.Data
 
 
     #endregion
+    
+    #region OK_OtpuskDecorator Decorator
+    class OK_OtpuskDecorator
+    {
+        private OK_Otpusk ok_Otpusk;
+        public OK_OtpuskDecorator(OK_Otpusk ok_Otpusk)
+        {
+            this.ok_Otpusk = ok_Otpusk;
+        }
+
+        override public string ToString()
+        {
+            //return pkCategory.ToString();
+            return ok_Otpusk.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код отпуска")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int ID
+        {
+            get
+            {
+                return ok_Otpusk.idOtpusk;
+            }
+            set
+            {
+                ok_Otpusk.idOtpusk = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Количество дней")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Количество дней отпуска")]
+        public int? CountDay
+        {
+            get
+            {
+                return ok_Otpusk.CountDay;
+            }
+            set
+            {
+                ok_Otpusk.CountDay = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата начала")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата начала отпуска")]
+        public DateTime DateBegin
+        {
+            get
+            {
+                return ok_Otpusk.DateBegin;
+            }
+            set
+            {
+                ok_Otpusk.DateBegin = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата завершения")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата завершения отпуска")]
+        public DateTime DateEnd
+        {
+            get
+            {
+                return ok_Otpusk.DateEnd.Value;
+            }
+            set
+            {
+                ok_Otpusk.DateEnd = value;
+            }
+        }
+        
+        /*[System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
+        public int? df
+        {
+            get
+            {
+                return ok_Otpusk.;
+            }
+            set
+            {
+                ok_Otpusk. = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
+        public int? CountDay
+        {
+            get
+            {
+                return ok_Otpusk;
+            }
+            set
+            {
+                ok_Otpusk. = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер подуровня 1")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Номер профессионально-квалификационного подуровня 1")]
+        public int PKSubCategoryNumber
+        {
+            get
+            {
+                return pkCategory.PKSubCategoryNumber;
+            }
+            set
+            {
+                pkCategory.PKSubCategoryNumber = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер подуровня 2")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Номер профессионально-квалификационного подуровня 2")]
+        public int? PKSubSubCategoryNumber
+        {
+            get
+            {
+                return pkCategory.PKSubSubCategoryNumber;
+            }
+            set
+            {
+                pkCategory.PKSubSubCategoryNumber = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Подподкатегория")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
+        public int? SalaryKoeff
+        {
+            get
+            {
+                if (pkCategory.SalaryKoeff != null)
+                    return pkCategory.SalaryKoeff.PKSubSubCategoryNumber;
+                return null;
+            }
+            set
+            {
+                pkCategory.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Профессиональная группа")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Профессионально-квалификационная группа")]
+        [System.ComponentModel.Editor(typeof(PKGroupEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public PKGroup PKGroup
+        {
+            get
+            {
+                return pkCategory.PKGroup;
+            }
+            set
+            {
+                pkCategory.PKGroup = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Полное имя профессионально-квалификационного подуровня")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Полное имя профессионально-квалификационного подуровня")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string CategoryFullName
+        {
+            get
+            {
+                return pkCategory.CategoryFullName;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Комментарий")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Комментарий к профессионально-квалификационному подуровню")]
+        public string PKComment
+        {
+            get
+            {
+                return pkCategory.PKComment;
+            }
+            set
+            {
+                pkCategory.PKComment = value;
+            }
+        }
+
+        //[System.ComponentModel.DisplayName("PKCategorySalary")]
+        //[System.ComponentModel.Category("Атрибуты")]
+        //[System.ComponentModel.Description("Оклад профессионально-квалификационной категории")]
+        //[System.ComponentModel.ReadOnly(true)]
+        //public PKCategorySalary PKCategorySalary
+        //{
+        //    get
+        //    {
+        //        return pkCategory.PKCategorySalaries.Where(pkCatSal => pkCatSal.DateEnd == null).First() as PKCategorySalary;
+        //    }
+        //}
+*/
+    }
+
+
+    #endregion
+
 
     #region BusinessTrip Decorator
     

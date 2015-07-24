@@ -5,18 +5,21 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    public partial class OK_Otpusk
+    public partial class OK_Otpusk : UIX.Views.IDecorable
     {
         public override string ToString()
         {
-            return base.ToString();
+            return "Отпуск " + FactStaff;
         }
 
-        /*private bool isThisFactStaff;
-        public bool IsThisFactStaff
+        #region IDecorable Members
+
+        public object GetDecorator()
         {
-            get;
-            set;
-        }*/
+            return new OK_OtpuskDecorator(this);
+        }
+
+
+        #endregion
     }
 }

@@ -25,3 +25,11 @@ Kadr/_UpgradeReport_Files/UpgradeReport.xslt
 /Kadr/CodeHelper/obj/Release/TempPE/ExceptionHandler.Res.Designer.cs.dll
 /Kadr/CodeHelper/obj/Release/TempPE/Properties.Resources.Designer.cs.dll
 /Kadr/CodeHelper/obj/Release/ru-RU/CodeHelper.resources.dll
+*.cache
+/Kadr/Reports/bin
+/Kadr/Reports/obj/Debug/*.Cache
+/Kadr/Reports/obj/Debug/*.cache
+bin
+*.Cache
+Release
+/Kadr/UIX/UIX/obj/Release
