@@ -194,6 +194,38 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 
+--Источник финансирования для командировок--
+/*
+   24 июля 2015 г.15:04:07
+   Пользователь: 
+   Сервер: ugtudb
+   База данных: KadrRealTest
+   Приложение: 
+*/
+
+/* Чтобы предотвратить возможность потери данных, необходимо внимательно просмотреть этот скрипт, прежде чем запускать его вне контекста конструктора баз данных.*/
+ALTER TABLE dbo.FinancingSource SET (LOCK_ESCALATION = TABLE)
+GO
+
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.BusinessTrip ADD
+	idFinanceSource int NULL
+GO
+ALTER TABLE dbo.BusinessTrip ADD CONSTRAINT
+	FK_BusinessTrip_FinancingSource FOREIGN KEY
+	(
+	idFinanceSource
+	) REFERENCES dbo.FinancingSource
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.BusinessTrip SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
 
 GO
 
