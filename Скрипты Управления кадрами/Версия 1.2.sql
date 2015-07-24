@@ -156,3 +156,16 @@ REFERENCES [dbo].[FactStaffPrikaz] ([id])
 GO
 
 ALTER TABLE [dbo].[OK_Otpusk] CHECK CONSTRAINT [FK_OK_Otpusk_FactStaffPrikaz]
+
+--ƒŒ√Œ¬Œ–¿------------------
+CREATE TABLE [dbo].[Contract](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[ContractName] [varchar](50) NOT NULL,
+	[DateContract] [date] NULL,
+ CONSTRAINT [PK_Contract] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
