@@ -4838,7 +4838,23 @@ namespace Kadr.Data
             }
         }
 
-        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FactStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.DisplayName("Источник финансирования")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("За счет каких средств осуществляется командировка")]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public FinancingSource FinSource
+        {
+            get
+            {
+                return Trip.FinancingSource;
+            }
+            set
+            {
+                if (value != null) Trip.FinancingSource = value;
+            }
+        }
+
+        
 
     }
 
