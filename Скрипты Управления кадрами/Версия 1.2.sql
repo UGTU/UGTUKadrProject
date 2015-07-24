@@ -156,3 +156,7 @@ REFERENCES [dbo].[FactStaffPrikaz] ([id])
 GO
 
 ALTER TABLE [dbo].[OK_Otpusk] CHECK CONSTRAINT [FK_OK_Otpusk_FactStaffPrikaz]
+
+
+
+
