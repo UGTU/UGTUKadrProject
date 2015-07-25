@@ -4600,10 +4600,10 @@ namespace Kadr.Data
             }
         }
         
-        /*[System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.DisplayName("Номер уровня")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
-        public int? df
+        public int? 
         {
             get
             {
@@ -4615,7 +4615,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Номер уровня")]
+        /*[System.ComponentModel.DisplayName("Номер уровня")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
         public int? CountDay

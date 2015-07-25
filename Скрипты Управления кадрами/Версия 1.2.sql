@@ -176,6 +176,18 @@ ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_OK_Otpusk_SocialFareT
 
 GO
 
+ALTER TABLE [dbo].[OK_Otpusk]
+ALTER COLUMN [idFactStaff] INT NULL
+
+
+GO
+
+ALTER TABLE [dbo].[OK_Otpusk]
+ALTER COLUMN [idOtpuskPrikaz] INT NULL
+
+
+GO
+
 CREATE TABLE [dbo].[SocialFareTransit](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[DateBegin] [date] NOT NULL,

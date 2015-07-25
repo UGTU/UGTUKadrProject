@@ -18670,11 +18670,11 @@ namespace Kadr.Data
 		
 		private int _idOtpusk;
 		
-		private int _idFactStaff;
+		private System.Nullable<int> _idFactStaff;
 		
 		private int _idOtpuskVid;
 		
-		private int _idOtpuskPrikaz;
+		private System.Nullable<int> _idOtpuskPrikaz;
 		
 		private System.DateTime _DateBegin;
 		
@@ -18706,11 +18706,11 @@ namespace Kadr.Data
     partial void OnCreated();
     partial void OnidOtpuskChanging(int value);
     partial void OnidOtpuskChanged();
-    partial void OnidFactStaffChanging(int value);
+    partial void OnidFactStaffChanging(System.Nullable<int> value);
     partial void OnidFactStaffChanged();
     partial void OnidOtpuskVidChanging(int value);
     partial void OnidOtpuskVidChanged();
-    partial void OnidOtpuskPrikazChanging(int value);
+    partial void OnidOtpuskPrikazChanging(System.Nullable<int> value);
     partial void OnidOtpuskPrikazChanged();
     partial void OnDateBeginChanging(System.DateTime value);
     partial void OnDateBeginChanged();
@@ -18758,8 +18758,8 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaff", DbType="Int NOT NULL")]
-		public int idFactStaff
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaff", DbType="Int")]
+		public System.Nullable<int> idFactStaff
 		{
 			get
 			{
@@ -18806,8 +18806,8 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idOtpuskPrikaz", DbType="Int NOT NULL")]
-		public int idOtpuskPrikaz
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idOtpuskPrikaz", DbType="Int")]
+		public System.Nullable<int> idOtpuskPrikaz
 		{
 			get
 			{
@@ -18978,7 +18978,7 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_OK_Otpusk", Storage="_FactStaff", ThisKey="idFactStaff", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_OK_Otpusk", Storage="_FactStaff", ThisKey="idFactStaff", OtherKey="id", IsForeignKey=true, DeleteRule="CASCADE")]
 		public FactStaff FactStaff
 		{
 			get
@@ -19005,7 +19005,7 @@ namespace Kadr.Data
 					}
 					else
 					{
-						this._idFactStaff = default(int);
+						this._idFactStaff = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("FactStaff");
 				}
@@ -19107,7 +19107,7 @@ namespace Kadr.Data
 					}
 					else
 					{
-						this._idOtpuskPrikaz = default(int);
+						this._idOtpuskPrikaz = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Prikaz");
 				}
