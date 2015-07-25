@@ -253,3 +253,73 @@ REFERENCES [dbo].[FactStaff] ([id])
 GO
 
 ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_SocialFareTransit_FactStaff]
+
+----ƒоговора и материальна€ ответственность--------------------------------------------------------------------------------------------
+CREATE TABLE [dbo].[Contract](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[ContractName] [varchar](50) NOT NULL,
+	[DateContract] [date] NULL,
+ CONSTRAINT [PK_Contract] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[MaterialResponsibility]    Script Date: 25.07.2015 13:18:33 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MaterialResponsibility](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idFactStaffPrikaz] [int] NOT NULL,
+	[idContract] [int] NOT NULL,
+	[Sum] [numeric](8, 2) NOT NULL,
+ CONSTRAINT [PK_MaterialResponsibility] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Index [IX_Contract]    Script Date: 25.07.2015 13:18:33 ******/
+CREATE NONCLUSTERED INDEX [IX_Contract] ON [dbo].[Contract]
+(
+	[DateContract] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+/****** Object:  Index [IX_Contract_1]    Script Date: 25.07.2015 13:18:33 ******/
+CREATE NONCLUSTERED INDEX [IX_Contract_1] ON [dbo].[Contract]
+(
+	[ContractName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_MaterialResponsibility]    Script Date: 25.07.2015 13:18:33 ******/
+CREATE NONCLUSTERED INDEX [IX_MaterialResponsibility] ON [dbo].[MaterialResponsibility]
+(
+	[idContract] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_MaterialResponsibility_1]    Script Date: 25.07.2015 13:18:33 ******/
+CREATE NONCLUSTERED INDEX [IX_MaterialResponsibility_1] ON [dbo].[MaterialResponsibility]
+(
+	[idFactStaffPrikaz] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[MaterialResponsibility]  WITH CHECK ADD  CONSTRAINT [FK_MaterialResponsibility_Contract] FOREIGN KEY([idContract])
+REFERENCES [dbo].[Contract] ([id])
+GO
+ALTER TABLE [dbo].[MaterialResponsibility] CHECK CONSTRAINT [FK_MaterialResponsibility_Contract]
+GO
+ALTER TABLE [dbo].[MaterialResponsibility]  WITH CHECK ADD  CONSTRAINT [FK_MaterialResponsibility_FactStaffPrikaz] FOREIGN KEY([idFactStaffPrikaz])
+REFERENCES [dbo].[FactStaffPrikaz] ([id])
+GO
+ALTER TABLE [dbo].[MaterialResponsibility] CHECK CONSTRAINT [FK_MaterialResponsibility_FactStaffPrikaz]
+GO
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
