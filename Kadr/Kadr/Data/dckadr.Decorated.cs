@@ -4536,7 +4536,7 @@ namespace Kadr.Data
         override public string ToString()
         {
             //return pkCategory.ToString();
-            return "Профессионально-квалификационный подуровень ";
+            return ok_Otpusk.ToString();
         }
 
         [System.ComponentModel.DisplayName("ID")]
@@ -4555,18 +4555,78 @@ namespace Kadr.Data
             }
         }
 
-        /*[System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.DisplayName("Количество дней")]
         [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
-        public int PKCategoryNumber
+        [System.ComponentModel.Description("Количество дней отпуска")]
+        public int? CountDay
         {
             get
             {
-                return pkCategory.PKCategoryNumber;
+                return ok_Otpusk.CountDay;
             }
             set
             {
-                pkCategory.PKCategoryNumber = value;
+                ok_Otpusk.CountDay = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата начала")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата начала отпуска")]
+        public DateTime DateBegin
+        {
+            get
+            {
+                return ok_Otpusk.DateBegin;
+            }
+            set
+            {
+                ok_Otpusk.DateBegin = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата завершения")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата завершения отпуска")]
+        public DateTime DateEnd
+        {
+            get
+            {
+                return ok_Otpusk.DateEnd.Value;
+            }
+            set
+            {
+                ok_Otpusk.DateEnd = value;
+            }
+        }
+        
+        [System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
+        public int? 
+        {
+            get
+            {
+                return ok_Otpusk.;
+            }
+            set
+            {
+                ok_Otpusk. = value;
+            }
+        }
+
+        /*[System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
+        public int? CountDay
+        {
+            get
+            {
+                return ok_Otpusk;
+            }
+            set
+            {
+                ok_Otpusk. = value;
             }
         }
 
@@ -4698,6 +4758,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код командировки")]
         [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
         public int ID
         {
             get
@@ -4710,7 +4771,7 @@ namespace Kadr.Data
             }*/
         }
 
-        [System.ComponentModel.DisplayName("Приказ на командировку")]
+        [System.ComponentModel.DisplayName("Приказ")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ, назначающий командировку")]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -4728,7 +4789,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата начала командировки")]
+        [System.ComponentModel.DisplayName("Дата начала")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата начала командировки, значащаяся в приказе")]
         public DateTime? DateBegin
@@ -4743,7 +4804,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата окончания командировки")]
+      
+
+        [System.ComponentModel.DisplayName("Дата окончания")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата окончания командировки, значащаяся в приказе")]
 
@@ -4759,7 +4822,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Место назначения командировки")]
+        [System.ComponentModel.DisplayName("Место назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Основное место назначения командировки")]
 
@@ -4775,7 +4838,23 @@ namespace Kadr.Data
             }
         }
 
-        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FactStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.DisplayName("Источник финансирования")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("За счет каких средств осуществляется командировка")]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public FinancingSource FinSource
+        {
+            get
+            {
+                return Trip.FinancingSource;
+            }
+            set
+            {
+                if (value != null) Trip.FinancingSource = value;
+            }
+        }
+
+        
 
     }
 

@@ -1,4 +1,4 @@
-USE kadr
+
 
 GO
 
@@ -157,15 +157,99 @@ GO
 
 ALTER TABLE [dbo].[OK_Otpusk] CHECK CONSTRAINT [FK_OK_Otpusk_FactStaffPrikaz]
 
---ДОГОВОРА------------------
-CREATE TABLE [dbo].[Contract](
+GO
+
+
+ALTER TABLE [dbo].[OK_Otpusk]
+ADD [idSocialFareTransit] INT NULL
+
+GO
+
+ALTER TABLE [dbo].[OK_Otpusk]  WITH CHECK ADD  CONSTRAINT [FK_OK_Otpusk_SocialFareTransit] FOREIGN KEY([idSocialFareTransit])
+REFERENCES [dbo].[SocialFareTransit] ([id])
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_OK_Otpusk_SocialFareTransit]
+
+
+
+
+GO
+
+ALTER TABLE [dbo].[OK_Otpusk]
+ALTER COLUMN [idFactStaff] INT NULL
+
+
+GO
+
+ALTER TABLE [dbo].[OK_Otpusk]
+ALTER COLUMN [idOtpuskPrikaz] INT NULL
+
+
+GO
+
+CREATE TABLE [dbo].[SocialFareTransit](
 	[id] [int] IDENTITY(1,1) NOT NULL,
-	[ContractName] [varchar](50) NOT NULL,
-	[DateContract] [date] NULL,
- CONSTRAINT [PK_Contract] PRIMARY KEY CLUSTERED 
+	[DateBegin] [date] NOT NULL,
+	[DateEnd] [date] NOT NULL,
+	[idEmployee] [int] NOT NULL,
+	[idFactStaffPrikaz] [int] NULL,
+PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [IX_SocialFareTransit_idEmployee] UNIQUE NONCLUSTERED 
+(
+	[idEmployee] ASC,
+	[DateBegin] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+
+--Источник финансирования для командировок--
+/*
+   24 июля 2015 г.15:04:07
+   Пользователь: 
+   Сервер: ugtudb
+   База данных: KadrRealTest
+   Приложение: 
+*/
+
+/* Чтобы предотвратить возможность потери данных, необходимо внимательно просмотреть этот скрипт, прежде чем запускать его вне контекста конструктора баз данных.*/
+ALTER TABLE dbo.FinancingSource SET (LOCK_ESCALATION = TABLE)
 GO
+
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.BusinessTrip ADD
+	idFinanceSource int NULL
+GO
+ALTER TABLE dbo.BusinessTrip ADD CONSTRAINT
+	FK_BusinessTrip_FinancingSource FOREIGN KEY
+	(
+	idFinanceSource
+	) REFERENCES dbo.FinancingSource
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.BusinessTrip SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit]  WITH CHECK ADD  CONSTRAINT [FK_SocialFareTransit_Employee] FOREIGN KEY([idEmployee])
+REFERENCES [dbo].[Employee] ([id])
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_SocialFareTransit_Employee]
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit]  WITH CHECK ADD  CONSTRAINT [FK_SocialFareTransit_FactStaff] FOREIGN KEY([idFactStaffPrikaz])
+REFERENCES [dbo].[FactStaff] ([id])
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_SocialFareTransit_FactStaff]
