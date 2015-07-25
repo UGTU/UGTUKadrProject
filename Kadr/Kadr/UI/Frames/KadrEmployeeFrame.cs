@@ -123,10 +123,6 @@ namespace Kadr.UI.Frames
         private TabPage tpEmpOtpusk;
         private TableLayoutPanel tableLayoutPanel7;
         private DataGridView dataGridView5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private ToolStrip toolStrip5;
         private ToolStripButton tsbAddOtp;
         private ToolStripButton tsbEditOtp;
@@ -160,6 +156,10 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn targetPlaceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn finSourceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         #region Properties
 
         /// <summary>
@@ -292,12 +292,12 @@ namespace Kadr.UI.Frames
             //IEnumerable<OK_Otpusk>
             if (factStaffBindingSource.Current != null )
                 oKOtpuskBindingSource.DataSource =
-               KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.FactStaff == (factStaffBindingSource.Current as FactStaff)).Where(
-                    otp => otp.DateBegin >= DateTime.Today.AddYears(-2)).OrderByDescending(otp => otp.DateBegin);
+               KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.FactStaffPrikaz.FactStaff == (factStaffBindingSource.Current as FactStaff)).Where(
+                    otp => otp.FactStaffPrikaz.DateBegin >= DateTime.Today.AddYears(-2)).OrderByDescending(otp => otp.FactStaffPrikaz.DateBegin);
             else
-                oKOtpuskBindingSource.DataSource =                
-                    KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.FactStaff.Employee == Employee).Where(
-                    otp => otp.DateBegin >= DateTime.Today.AddYears(-2)).OrderByDescending(otp => otp.DateBegin);
+                oKOtpuskBindingSource.DataSource =
+                    KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.FactStaffPrikaz.FactStaff.Employee == Employee).Where(
+                    otp => otp.FactStaffPrikaz.DateBegin >= DateTime.Today.AddYears(-2)).OrderByDescending(otp => otp.FactStaffPrikaz.DateBegin);
 
             //foreach ()
             /* KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.FactStaff.Employee == Employee).Where(
@@ -506,6 +506,11 @@ namespace Kadr.UI.Frames
             this.tsbDelOtp = new System.Windows.Forms.ToolStripButton();
             this.tpBusTrip = new System.Windows.Forms.TabPage();
             this.dgvTrips = new System.Windows.Forms.DataGridView();
+            this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateBeginDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateEndDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.targetPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsBusinessTrips = new System.Windows.Forms.ToolStrip();
             this.tsbAddEmplTrip = new System.Windows.Forms.ToolStripButton();
@@ -589,11 +594,6 @@ namespace Kadr.UI.Frames
             this.employeeBonusReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
             this.bonusReportColumnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bonusTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateBeginDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateEndDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.targetPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -1033,6 +1033,7 @@ namespace Kadr.UI.Frames
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView5.Size = new System.Drawing.Size(843, 155);
             this.dataGridView5.TabIndex = 2;
+            this.dataGridView5.DoubleClick += new System.EventHandler(this.tsbEditOtp_Click);
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -1044,7 +1045,7 @@ namespace Kadr.UI.Frames
             // 
             // dataGridViewTextBoxColumn10
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "idOtpuskPrikaz";
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Prikaz";
             this.dataGridViewTextBoxColumn10.HeaderText = "Приказ";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
@@ -1107,6 +1108,7 @@ namespace Kadr.UI.Frames
             this.tsbDelOtp.Size = new System.Drawing.Size(71, 21);
             this.tsbDelOtp.Text = "Удалить";
             this.tsbDelOtp.ToolTipText = "Удалить отпуск";
+            this.tsbDelOtp.Click += new System.EventHandler(this.tsbDelOtp_Click);
             // 
             // tpBusTrip
             // 
@@ -1137,6 +1139,36 @@ namespace Kadr.UI.Frames
             this.dgvTrips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrips.Size = new System.Drawing.Size(849, 67);
             this.dgvTrips.TabIndex = 13;
+            // 
+            // prikazDataGridViewTextBoxColumn
+            // 
+            this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
+            this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
+            this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
+            // 
+            // dateBeginDataGridViewTextBoxColumn1
+            // 
+            this.dateBeginDataGridViewTextBoxColumn1.DataPropertyName = "DateBegin";
+            this.dateBeginDataGridViewTextBoxColumn1.HeaderText = "Дата начала";
+            this.dateBeginDataGridViewTextBoxColumn1.Name = "dateBeginDataGridViewTextBoxColumn1";
+            // 
+            // dateEndDataGridViewTextBoxColumn2
+            // 
+            this.dateEndDataGridViewTextBoxColumn2.DataPropertyName = "DateEnd";
+            this.dateEndDataGridViewTextBoxColumn2.HeaderText = "Дата окончания";
+            this.dateEndDataGridViewTextBoxColumn2.Name = "dateEndDataGridViewTextBoxColumn2";
+            // 
+            // targetPlaceDataGridViewTextBoxColumn
+            // 
+            this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
+            this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
+            this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
+            // 
+            // finSourceDataGridViewTextBoxColumn
+            // 
+            this.finSourceDataGridViewTextBoxColumn.DataPropertyName = "FinSource";
+            this.finSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
+            this.finSourceDataGridViewTextBoxColumn.Name = "finSourceDataGridViewTextBoxColumn";
             // 
             // BusinessTripsBindingSource
             // 
@@ -1972,36 +2004,6 @@ namespace Kadr.UI.Frames
             // 
             this.bonusTypeBindingSource.DataSource = typeof(Kadr.Data.BonusType);
             // 
-            // prikazDataGridViewTextBoxColumn
-            // 
-            this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
-            this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
-            this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
-            // 
-            // dateBeginDataGridViewTextBoxColumn1
-            // 
-            this.dateBeginDataGridViewTextBoxColumn1.DataPropertyName = "DateBegin";
-            this.dateBeginDataGridViewTextBoxColumn1.HeaderText = "Дата начала";
-            this.dateBeginDataGridViewTextBoxColumn1.Name = "dateBeginDataGridViewTextBoxColumn1";
-            // 
-            // dateEndDataGridViewTextBoxColumn2
-            // 
-            this.dateEndDataGridViewTextBoxColumn2.DataPropertyName = "DateEnd";
-            this.dateEndDataGridViewTextBoxColumn2.HeaderText = "Дата окончания";
-            this.dateEndDataGridViewTextBoxColumn2.Name = "dateEndDataGridViewTextBoxColumn2";
-            // 
-            // targetPlaceDataGridViewTextBoxColumn
-            // 
-            this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
-            this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
-            this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
-            // 
-            // finSourceDataGridViewTextBoxColumn
-            // 
-            this.finSourceDataGridViewTextBoxColumn.DataPropertyName = "FinSource";
-            this.finSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
-            this.finSourceDataGridViewTextBoxColumn.Name = "finSourceDataGridViewTextBoxColumn";
-            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2239,7 +2241,7 @@ namespace Kadr.UI.Frames
 
         private void tsbAddOtp_Click(object sender, EventArgs e)
         {
-           /* using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Otpusk> dlg =
+            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Otpusk> dlg =
                new Kadr.UI.Common.PropertyGridDialogAdding<OK_Otpusk>())
             {
                 dlg.ObjectList = KadrController.Instance.Model.OK_Otpusks;
@@ -2247,21 +2249,26 @@ namespace Kadr.UI.Frames
                 dlg.UseInternalCommandManager = true;
                 dlg.InitializeNewObject = (x) =>
                 {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, FactStaff>(x, "FactStaff", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, RegionType>(x, "RegionType", NullRegionType.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, StandingType>(x, "StandingType", NullStandingType.Instance, null), this);
+                    FactStaffPrikaz factStaffPrikaz = new Data.FactStaffPrikaz();
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikaz, "FactStaff", factStaffBindingSource.Current as FactStaff, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikaz, "Prikaz", NullPrikaz.Instance, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateBegin", DateTime.Today, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateEnd", DateTime.Today, null), this);
+
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, FactStaffPrikaz>(x, "FactStaffPrikaz", factStaffPrikaz, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, OK_Otpuskvid>(x, "OK_Otpuskvid", NullOK_Otpuskvid.Instance, null), this);
                 };
 
 
 
                 dlg.UpdateObjectList = () =>
                 {
-                    dlg.ObjectList = KadrController.Instance.Model.EmployeeStandings;
+                    dlg.ObjectList = KadrController.Instance.Model.OK_Otpusks;
                 };
 
                 dlg.ShowDialog();
             }
-            LoadOtpusk();*/
+            LoadOtpusk();
         }
 
 
@@ -2303,6 +2310,30 @@ namespace Kadr.UI.Frames
                 dlg.ShowDialog();
             }
             LoadTrips();
+        }
+
+        private void tsbDelOtp_Click(object sender, EventArgs e)
+        {
+            OK_Otpusk CurrentOtp = oKOtpuskBindingSource.Current as OK_Otpusk;
+            FactStaffPrikaz CurrentPrikaz = CurrentOtp.FactStaffPrikaz;
+
+            if (CurrentOtp == null)
+            {
+                MessageBox.Show("Не выбран удаляемый отпуск.", "ИС \"Управление кадрами\"");
+                return;
+            }
+
+            if (MessageBox.Show("Удалить отпуск?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
+                != DialogResult.OK)
+            {
+                return;
+            }
+
+            KadrController.Instance.Model.OK_Otpusks.DeleteOnSubmit(CurrentOtp);
+
+            LinqActionsController<FactStaffPrikaz>.Instance.DeleteObject(CurrentPrikaz, KadrController.Instance.Model.FactStaffPrikazs, null);
+
+            LoadOtpusk();
         }
 
     }
