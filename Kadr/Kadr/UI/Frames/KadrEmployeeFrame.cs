@@ -506,6 +506,11 @@ namespace Kadr.UI.Frames
             this.tsbDelOtp = new System.Windows.Forms.ToolStripButton();
             this.tpBusTrip = new System.Windows.Forms.TabPage();
             this.dgvTrips = new System.Windows.Forms.DataGridView();
+            this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateBeginDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateEndDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.targetPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsBusinessTrips = new System.Windows.Forms.ToolStrip();
             this.tsbAddEmplTrip = new System.Windows.Forms.ToolStripButton();
@@ -589,11 +594,6 @@ namespace Kadr.UI.Frames
             this.employeeBonusReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
             this.bonusReportColumnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bonusTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateBeginDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateEndDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.targetPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -1137,6 +1137,39 @@ namespace Kadr.UI.Frames
             this.dgvTrips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrips.Size = new System.Drawing.Size(849, 67);
             this.dgvTrips.TabIndex = 13;
+            this.dgvTrips.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrips_CellDoubleClick);
+            // 
+            // prikazDataGridViewTextBoxColumn
+            // 
+            this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
+            this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
+            this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
+            this.prikazDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // dateBeginDataGridViewTextBoxColumn1
+            // 
+            this.dateBeginDataGridViewTextBoxColumn1.DataPropertyName = "DateBegin";
+            this.dateBeginDataGridViewTextBoxColumn1.HeaderText = "Дата начала";
+            this.dateBeginDataGridViewTextBoxColumn1.Name = "dateBeginDataGridViewTextBoxColumn1";
+            // 
+            // dateEndDataGridViewTextBoxColumn2
+            // 
+            this.dateEndDataGridViewTextBoxColumn2.DataPropertyName = "DateEnd";
+            this.dateEndDataGridViewTextBoxColumn2.HeaderText = "Дата окончания";
+            this.dateEndDataGridViewTextBoxColumn2.Name = "dateEndDataGridViewTextBoxColumn2";
+            // 
+            // targetPlaceDataGridViewTextBoxColumn
+            // 
+            this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
+            this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
+            this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
+            this.targetPlaceDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // finSourceDataGridViewTextBoxColumn
+            // 
+            this.finSourceDataGridViewTextBoxColumn.DataPropertyName = "FinSource";
+            this.finSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
+            this.finSourceDataGridViewTextBoxColumn.Name = "finSourceDataGridViewTextBoxColumn";
             // 
             // BusinessTripsBindingSource
             // 
@@ -1171,6 +1204,7 @@ namespace Kadr.UI.Frames
             this.tsbEditEmplTrip.Size = new System.Drawing.Size(107, 22);
             this.tsbEditEmplTrip.Text = "Редактировать";
             this.tsbEditEmplTrip.ToolTipText = "Редактировать запись";
+            this.tsbEditEmplTrip.Click += new System.EventHandler(this.tsbEditEmplTrip_Click);
             // 
             // tsbDelEmplTrip
             // 
@@ -1180,6 +1214,7 @@ namespace Kadr.UI.Frames
             this.tsbDelEmplTrip.Size = new System.Drawing.Size(71, 22);
             this.tsbDelEmplTrip.Text = "Удалить";
             this.tsbDelEmplTrip.ToolTipText = "Удалить запись";
+            this.tsbDelEmplTrip.Click += new System.EventHandler(this.tsbDelEmplTrip_Click);
             // 
             // tpEmplStading
             // 
@@ -1972,36 +2007,6 @@ namespace Kadr.UI.Frames
             // 
             this.bonusTypeBindingSource.DataSource = typeof(Kadr.Data.BonusType);
             // 
-            // prikazDataGridViewTextBoxColumn
-            // 
-            this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
-            this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
-            this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
-            // 
-            // dateBeginDataGridViewTextBoxColumn1
-            // 
-            this.dateBeginDataGridViewTextBoxColumn1.DataPropertyName = "DateBegin";
-            this.dateBeginDataGridViewTextBoxColumn1.HeaderText = "Дата начала";
-            this.dateBeginDataGridViewTextBoxColumn1.Name = "dateBeginDataGridViewTextBoxColumn1";
-            // 
-            // dateEndDataGridViewTextBoxColumn2
-            // 
-            this.dateEndDataGridViewTextBoxColumn2.DataPropertyName = "DateEnd";
-            this.dateEndDataGridViewTextBoxColumn2.HeaderText = "Дата окончания";
-            this.dateEndDataGridViewTextBoxColumn2.Name = "dateEndDataGridViewTextBoxColumn2";
-            // 
-            // targetPlaceDataGridViewTextBoxColumn
-            // 
-            this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
-            this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
-            this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
-            // 
-            // finSourceDataGridViewTextBoxColumn
-            // 
-            this.finSourceDataGridViewTextBoxColumn.DataPropertyName = "FinSource";
-            this.finSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
-            this.finSourceDataGridViewTextBoxColumn.Name = "finSourceDataGridViewTextBoxColumn";
-            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2289,10 +2294,14 @@ namespace Kadr.UI.Frames
                 dlg.ObjectList = KadrController.Instance.Model.BusinessTrips;
                 //dlg.BindingSource = employeeStandingBindingSo;
                 dlg.UseInternalCommandManager = true;
+
+                FactStaff fs = (FactStaff)factStaffBindingSource.Current;
+
                 dlg.InitializeNewObject = (x) =>
                 {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(), null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(DateTime.Now, DateTime.Now.AddDays(7), fs), null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", " ", null), this);
+                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.First(), null), this);
                 };
 
                 dlg.UpdateObjectList = () =>
@@ -2303,6 +2312,32 @@ namespace Kadr.UI.Frames
                 dlg.ShowDialog();
             }
             LoadTrips();
+        }
+
+        private void tsbDelEmplTrip_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (BusinessTripsBindingSource.Current as BusinessTripDecorator).ToString()),"Подтверждение", MessageBoxButtons.OKCancel)==DialogResult.OK)
+            {
+              BusinessTrip bt = (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip();
+              KadrController.Instance.Model.BusinessTrips.DeleteOnSubmit(bt);
+              KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(bt.FactStaffPrikaz);
+              KadrController.Instance.Model.SubmitChanges();
+            }
+            LoadTrips();
+
+        }
+
+        private void tsbEditEmplTrip_Click(object sender, EventArgs e)
+        {
+            if (BusinessTripsBindingSource.Current != null)
+                LinqActionsController<BusinessTrip>.Instance.EditObject(
+                        (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip(), true);
+            LoadTrips();
+        }
+
+        private void dgvTrips_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tsbEditEmplTrip_Click(sender, null);
         }
 
     }
