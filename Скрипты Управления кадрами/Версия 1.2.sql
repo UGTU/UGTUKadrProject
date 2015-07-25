@@ -185,8 +185,46 @@ GO
 ALTER TABLE [dbo].[OK_Otpusk]
 ALTER COLUMN [idOtpuskPrikaz] INT NULL
 
+GO
+
+ALTER TABLE [dbo].[OK_Otpusk]
+ALTER COLUMN [DateBegin] DATETIME NULL
 
 GO
+
+
+INSERT INTO [dbo].[FactStaffPrikaz](idPrikaz,[idFactStaff],[DateBegin],[DateEnd])
+SELECT DISTINCT idOtpuskPrikaz,[OK_Otpusk].[idFactStaff],[OK_Otpusk].[DateBegin],[OK_Otpusk].[DateEnd] 
+FROM [dbo].[OK_Otpusk] 
+LEFT JOIN [dbo].[FactStaffPrikaz] 
+	ON [OK_Otpusk].[idFactStaff]=[FactStaffPrikaz].idFactStaff
+		AND [OK_Otpusk].idOtpuskPrikaz=[FactStaffPrikaz].idPrikaz
+		AND [OK_Otpusk].DateBegin=[FactStaffPrikaz].DateBegin
+WHERE [FactStaffPrikaz].id IS nULL
+
+UPDATE [dbo].[OK_Otpusk]
+SET [idFactStaffPrikaz]=
+[FactStaffPrikaz].id
+FROM  
+[dbo].[OK_Otpusk]
+INNER JOIN [dbo].[FactStaffPrikaz]
+ON [OK_Otpusk].[idFactStaff]=[FactStaffPrikaz].idFactStaff
+		AND [OK_Otpusk].idOtpuskPrikaz=[FactStaffPrikaz].idPrikaz
+		AND [OK_Otpusk].DateBegin=[FactStaffPrikaz].DateBegin
+		AND [OK_Otpusk].DateEnd=[FactStaffPrikaz].DateEnd
+
+
+
+--SELECT idFactStaff,idOtpuskPrikaz, DateBegin, DateEnd, [idOtpuskVid],[CountDay], COUNT(*) col
+--FROM [dbo].[OK_Otpusk] 
+--GROUP BY idFactStaff,idOtpuskPrikaz, DateBegin, DateEnd, [idOtpuskVid],[CountDay]
+--HAVING COUNT(*)>1
+
+
+
+
+
+go
 
 CREATE TABLE [dbo].[SocialFareTransit](
 	[id] [int] IDENTITY(1,1) NOT NULL,
@@ -253,3 +291,10 @@ REFERENCES [dbo].[FactStaff] ([id])
 GO
 
 ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_SocialFareTransit_FactStaff]
+
+
+
+
+
+
+

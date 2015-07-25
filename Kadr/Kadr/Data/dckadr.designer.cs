@@ -18676,7 +18676,7 @@ namespace Kadr.Data
 		
 		private System.Nullable<int> _idOtpuskPrikaz;
 		
-		private System.DateTime _DateBegin;
+		private System.Nullable<System.DateTime> _DateBegin;
 		
 		private System.Nullable<System.DateTime> _DateEnd;
 		
@@ -18712,7 +18712,7 @@ namespace Kadr.Data
     partial void OnidOtpuskVidChanged();
     partial void OnidOtpuskPrikazChanging(System.Nullable<int> value);
     partial void OnidOtpuskPrikazChanged();
-    partial void OnDateBeginChanging(System.DateTime value);
+    partial void OnDateBeginChanging(System.Nullable<System.DateTime> value);
     partial void OnDateBeginChanged();
     partial void OnDateEndChanging(System.Nullable<System.DateTime> value);
     partial void OnDateEndChanged();
@@ -18830,8 +18830,8 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="DateTime NOT NULL")]
-		public System.DateTime DateBegin
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateBegin
 		{
 			get
 			{

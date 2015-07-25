@@ -836,7 +836,7 @@
       <Column Name="idFactStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idOtpuskVid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idOtpuskPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="CountDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CountDayFND" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
