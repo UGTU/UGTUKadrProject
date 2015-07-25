@@ -704,7 +704,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer1.Size = new System.Drawing.Size(796, 527);
-            this.splitContainer1.SplitterDistance = 196;
+            this.splitContainer1.SplitterDistance = 195;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -720,7 +720,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 196);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 195);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -776,7 +776,6 @@
             this.dgvPlanStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPlanStaff.Size = new System.Drawing.Size(915, 242);
             this.dgvPlanStaff.TabIndex = 1;
-            this.dgvPlanStaff.DoubleClick += new System.EventHandler(this.dgvPlanStaff_DoubleClick);
             // 
             // FinancingSource
             // 
@@ -1023,7 +1022,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 327);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 328);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff

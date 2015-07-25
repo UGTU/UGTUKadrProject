@@ -4577,11 +4577,11 @@ namespace Kadr.Data
         {
             get
             {
-                return ok_Otpusk.DateBegin;
+                return ok_Otpusk.FactStaffPrikaz.DateBegin.Value;
             }
             set
             {
-                ok_Otpusk.DateBegin = value;
+                ok_Otpusk.FactStaffPrikaz.DateBegin = value;
             }
         }
 
@@ -4592,30 +4592,63 @@ namespace Kadr.Data
         {
             get
             {
-                return ok_Otpusk.DateEnd.Value;
+                return ok_Otpusk.FactStaffPrikaz.DateEnd.Value;
             }
             set
             {
-                ok_Otpusk.DateEnd = value;
+                ok_Otpusk.FactStaffPrikaz.DateEnd = value;
             }
         }
         
-        /*[System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.DisplayName("Вид отпуска")]
         [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
-        public int? df
+        [System.ComponentModel.Description("Вид отпуска")]
+        [System.ComponentModel.Editor(typeof(OK_OtpuskvidEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public OK_Otpuskvid OK_Otpuskvid
         {
             get
             {
-                return ok_Otpusk.;
+                return ok_Otpusk.OK_Otpuskvid;
             }
             set
             {
-                ok_Otpusk. = value;
+                ok_Otpusk.OK_Otpuskvid = value;
             }
         }
 
-        [System.ComponentModel.DisplayName("Номер уровня")]
+        [System.ComponentModel.DisplayName("Приказ")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Приказ")]
+        [System.ComponentModel.Editor(typeof(PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Prikaz Prikaz
+        {
+            get
+            {
+                return ok_Otpusk.FactStaffPrikaz.Prikaz;
+            }
+            set
+            {
+                ok_Otpusk.FactStaffPrikaz.Prikaz = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Сотрудник")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Сотрудник")]
+        [System.ComponentModel.Editor(typeof(FactStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public FactStaff FactStaff
+        {
+            get
+            {
+                return ok_Otpusk.FactStaffPrikaz.FactStaff;
+            }
+            set
+            {
+                ok_Otpusk.FactStaffPrikaz.FactStaff = value;
+            }
+        }
+
+        /*[System.ComponentModel.DisplayName("Номер уровня")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
         public int? CountDay
