@@ -192,6 +192,9 @@
     <Compile Include="Controllers\MonthController.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
+    <Compile Include="Data\dckadr.cs">
+      <DependentUpon>dckadr.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
     <Compile Include="Data\dckadr.designer.cs">
       <AutoGen>True</AutoGen>
@@ -947,6 +950,7 @@
     <None Include="Properties\DataSources\Kadr.Data.TimeSheetFSWorkingDays.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.TimeSheetScheduleType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.WorkType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Contract.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
