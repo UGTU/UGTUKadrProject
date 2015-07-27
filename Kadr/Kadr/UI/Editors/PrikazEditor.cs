@@ -18,7 +18,7 @@ namespace Kadr.UI.Editors
 
                 dlg.Text = "Приказ";
                 dlg.QueryText = "Выберите приказ";
-                dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.Prikazs.Where(pr => (pr.idPrikazType <26) || (pr.idPrikazType > 28)).OrderByDescending(prik => prik.DatePrikaz).ThenBy(prik => prik.PrikazName);
+                dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.Prikazs.Where(pr => (pr.idPrikazType <26) || (pr.idPrikazType > 28)).OrderByDescending(prik => prik.DatePrikaz).ThenByDescending(prik => prik.PrikazName);
                 dlg.SelectedValue = (Kadr.Data.Prikaz)value;
                 
 
