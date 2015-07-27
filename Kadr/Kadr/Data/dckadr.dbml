@@ -527,7 +527,6 @@
       <Association Name="FactStaff_FactStaffMonthHour" Member="FactStaffMonthHours" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffMonthHour" />
       <Association Name="FactStaff_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idMainFactStaff" Type="FactStaff" />
       <Association Name="FactStaff_FactStaffPrikaz" Member="FactStaffPrikazs" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffPrikaz" />
-      <Association Name="FactStaff_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="SocialFareTransit" />
       <Association Name="FactStaff_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaff" Type="OK_Otpusk" />
       <Association Name="FactStaff_FactStaff" Member="FactStaff1" ThisKey="idMainFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
       <Association Name="FinancingSource_FactStaff" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
@@ -716,6 +715,7 @@
       <Association Name="FactStaffPrikaz_BusinessTrip" Member="BusinessTrips" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="BusinessTrip" />
       <Association Name="FactStaffPrikaz_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="OK_Otpusk" />
       <Association Name="FactStaffPrikaz_MaterialResponsibility" Member="MaterialResponsibilities" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="MaterialResponsibility" />
+      <Association Name="FactStaffPrikaz_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="SocialFareTransit" />
       <Association Name="FactStaff_FactStaffPrikaz" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
       <Association Name="FactStaffPrikaz_FactStaffPrikaz" Member="FactStaffPrikaz1" ThisKey="idMainFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
       <Association Name="Prikaz_FactStaffPrikaz" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
@@ -819,18 +819,6 @@
       <Association Name="FinancingSource_BusinessTrip" Member="FinancingSource" ThisKey="idFinanceSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SocialFareTransit" Member="SocialFareTransits">
-    <Type Name="SocialFareTransit">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idFactStaffPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="SocialFareTransit_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idSocialFareTransit" Type="OK_Otpusk" />
-      <Association Name="Employee_SocialFareTransit" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
-      <Association Name="FactStaff_SocialFareTransit" Member="FactStaff" ThisKey="idFactStaffPrikaz" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.OK_Otpusk" Member="OK_Otpusks">
     <Type Name="OK_Otpusk">
       <Column Name="idOtpusk" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -867,6 +855,18 @@
       <Column Name="Sum" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
       <Association Name="Contract_MaterialResponsibility" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
       <Association Name="FactStaffPrikaz_MaterialResponsibility" Member="FactStaffPrikaz" ThisKey="idFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SocialFareTransit" Member="SocialFareTransits">
+    <Type Name="SocialFareTransit">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idFactStaffPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SocialFareTransit_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idSocialFareTransit" Type="OK_Otpusk" />
+      <Association Name="Employee_SocialFareTransit" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="FactStaffPrikaz_SocialFareTransit" Member="FactStaffPrikaz" ThisKey="idFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

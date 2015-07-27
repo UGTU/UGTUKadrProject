@@ -642,6 +642,12 @@
     <Compile Include="UI\Forms\PlanStaffSalaryHistoryForm.Designer.cs">
       <DependentUpon>PlanStaffSalaryHistoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\SocialFareTransitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\SocialFareTransitForm.Designer.cs">
+      <DependentUpon>SocialFareTransitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\TimeSheetReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -849,6 +855,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\PlanStaffSalaryHistoryForm.resx">
       <DependentUpon>PlanStaffSalaryHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\SocialFareTransitForm.resx">
+      <DependentUpon>SocialFareTransitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\TimeSheetReport.resx">
       <DependentUpon>TimeSheetReport.cs</DependentUpon>
