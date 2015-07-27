@@ -4887,6 +4887,7 @@ namespace Kadr.Data
             }
         }
 
+
         internal BusinessTrip GetTrip()
         {
             return Trip;
