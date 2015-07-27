@@ -17,8 +17,6 @@ namespace Kadr.UI.Common
             InitializeComponent();
         }
 
-
-
         
         protected override void DoApply()
         {

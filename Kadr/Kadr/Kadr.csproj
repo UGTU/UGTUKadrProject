@@ -547,6 +547,12 @@
     <Compile Include="UI\Dialogs\TimeSheetSheduleTypeDialog.Designer.cs">
       <DependentUpon>TimeSheetSheduleTypeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dialogs\TripRegionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\TripRegionsDialog.Designer.cs">
+      <DependentUpon>TripRegionsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\WorkTypeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -586,6 +592,7 @@
     <Compile Include="UI\Editors\SemPolEditor.cs" />
     <Compile Include="UI\Editors\MonthEditor.cs" />
     <Compile Include="UI\Editors\StandingTypeEditor.cs" />
+    <Compile Include="UI\Editors\TripRegionsEditor.cs" />
     <Compile Include="UI\Editors\WorkSheduleEditor.cs" />
     <Compile Include="UI\Editors\WorkTypeEditor.cs" />
     <Compile Include="UI\Forms\BonusHistoryForm.cs">
@@ -818,6 +825,9 @@
     <EmbeddedResource Include="UI\Dialogs\TimeSheetSheduleTypeDialog.resx">
       <DependentUpon>TimeSheetSheduleTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\TripRegionsDialog.resx">
+      <DependentUpon>TripRegionsDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\WorkTypeDialog.resx">
       <DependentUpon>WorkTypeDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -893,6 +903,9 @@
     </None>
     <Fakes Include="Fakes\Microsoft.ReportViewer.Common.fakes" />
     <Fakes Include="Fakes\Microsoft.ReportViewer.WinForms.fakes" />
+    <None Include="Properties\DataSources\Kadr.Data.BusinessTripRegionType.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.BusinessTripDecorator.datasource">
       <SubType>Designer</SubType>
     </None>

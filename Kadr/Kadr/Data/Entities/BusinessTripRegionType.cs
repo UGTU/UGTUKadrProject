@@ -15,7 +15,9 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            return string.Format("С {0} по {1} в {2}", DateBegin.ToShortDateString(), DateEnd.ToShortDateString(),RegionType.RegionTypeName); 
+            if (DateBegin != null)
+                return string.Format("С {0} по {1} в {2}", DateBegin.ToShortDateString(), DateEnd.ToShortDateString(), RegionType.RegionTypeName);
+            else return "Не задано";
         }
 
         #region partial Methods

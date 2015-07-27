@@ -4887,6 +4887,19 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.DisplayName("Места пребывания")]
+        [System.ComponentModel.Category("Места пребывания")]
+        [System.ComponentModel.Description("В каких регионах сотрудников проводит определенные периоды командировки")]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.TripRegionsEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public System.Data.Linq.EntitySet<BusinessTripRegionType> TripRegions
+        {
+            get
+            {
+                return Trip.BusinessTripRegionTypes;
+            }
+            
+        }
+
 
         internal BusinessTrip GetTrip()
         {
