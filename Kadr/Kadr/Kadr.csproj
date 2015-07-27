@@ -213,6 +213,7 @@
     <Compile Include="Data\Entities\Category.cs" />
     <Compile Include="Data\Entities\CategoryVPO.cs" />
     <Compile Include="Data\Entities\CategoryZP.cs" />
+    <Compile Include="Data\Entities\Contract.cs" />
     <Compile Include="Data\Entities\Degree.cs" />
     <Compile Include="Data\Entities\Dep.cs" />
     <Compile Include="Data\Entities\Department.cs" />
@@ -239,6 +240,7 @@
     <Compile Include="Data\Entities\FundingCenter.cs" />
     <Compile Include="Data\Entities\GlobalPrikaz.cs" />
     <Compile Include="Data\Entities\Grazd.cs" />
+    <Compile Include="Data\Entities\MaterialResponsibility.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
@@ -951,6 +953,8 @@
     <None Include="Properties\DataSources\Kadr.Data.TimeSheetScheduleType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.WorkType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.Contract.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibility.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibilityDecorator.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

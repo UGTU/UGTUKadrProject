@@ -4892,4 +4892,87 @@ namespace Kadr.Data
     }
 
     #endregion
+
+   #region MaterialResponsibility Decorator
+
+    internal class MaterialResponsibilityDecorator
+    {
+        private MaterialResponsibility materialResponsibility;
+
+        public MaterialResponsibilityDecorator(MaterialResponsibility materialResponsibility)
+        {
+            this.materialResponsibility = materialResponsibility;
+        }
+
+        public override string ToString()
+        {
+            return materialResponsibility.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код материальной ответственности")]
+        [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
+        
+        public int Id
+        {
+            get
+            {
+                return materialResponsibility.id;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Приказ")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Приказ, назначающий мат. ответственность")]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Kadr.Data.Prikaz Prikaz
+        {
+            get
+            {
+                return materialResponsibility.FactStaffPrikaz.Prikaz;
+            }
+            set
+            {
+                if (value != null) materialResponsibility.FactStaffPrikaz.Prikaz = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата начала")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата начала мат. ответственности, значащаяся в приказе")]
+        public DateTime? DateBegin
+        {
+            get
+            {
+                return materialResponsibility.FactStaffPrikaz.DateBegin;
+            }
+            set
+            {
+                if (value != null) materialResponsibility.FactStaffPrikaz.DateBegin = value;
+            }
+        }
+
+
+
+        [System.ComponentModel.DisplayName("Дата окончания")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата окончания мат. ответственности, значащаяся в приказе")]
+
+        public DateTime? DateEnd
+        {
+            get
+            {
+                return materialResponsibility.FactStaffPrikaz.DateEnd;
+            }
+            set
+            {
+                if (value != null) materialResponsibility.FactStaffPrikaz.DateEnd = value;
+            }
+        }
+
+
+    }
+    #endregion
 }

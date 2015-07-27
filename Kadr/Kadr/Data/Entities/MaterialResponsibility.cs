@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Kadr.Data.Common;
-using Kadr.Controllers;
-using System.Data.Linq;
+
 
 namespace Kadr.Data
 {
-    public partial class Contract : UIX.Views.IDecorable
+    public partial class MaterialResponsibility : UIX.Views.IDecorable
     {
         public override string ToString()
         {
-            return "Договор " +  ContractName;
+            return "Запись по материальной ответственности " + FactStaffPrikaz.FactStaff;
         }
 
         public object GetDecorator()
         {
-            throw new NotImplementedException();
+            return new MaterialResponsibilityDecorator(this);
         }
     }
 }
