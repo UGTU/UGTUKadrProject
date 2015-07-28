@@ -5,11 +5,21 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    partial class SocialFareTransit
+    partial class SocialFareTransit : UIX.Views.IDecorable
     {
         public override string ToString()
         {
-            return "Льготный проезд "+Employee+" c "+DateBegin.ToString()+" по "+DateEnd.ToString();
+            return "Льготный проезд " + Employee.EmployeeSmallName + " c " + DateBegin.ToShortDateString() + " по " + DateEnd.ToShortDateString();
         }
+
+
+        #region Члены IDecorable
+
+        public object GetDecorator()
+        {
+            return new SocialFareTransitDecorator(this);
+        }
+
+        #endregion
     }
 }

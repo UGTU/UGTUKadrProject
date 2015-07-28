@@ -585,6 +585,7 @@
     <Compile Include="UI\Editors\ScienceTypeEditor.cs" />
     <Compile Include="UI\Editors\SemPolEditor.cs" />
     <Compile Include="UI\Editors\MonthEditor.cs" />
+    <Compile Include="UI\Editors\SocialFareTransitEditor.cs" />
     <Compile Include="UI\Editors\StandingTypeEditor.cs" />
     <Compile Include="UI\Editors\WorkSheduleEditor.cs" />
     <Compile Include="UI\Editors\WorkTypeEditor.cs" />

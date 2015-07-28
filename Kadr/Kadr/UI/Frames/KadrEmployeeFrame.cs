@@ -157,9 +157,12 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn targetPlaceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn finSourceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn DateEnd;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripButton tsbSocialFareTransit;
         #region Properties
 
         /// <summary>
@@ -495,11 +498,16 @@ namespace Kadr.UI.Frames
             this.tpEmpOtpusk = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oKOtpuskBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.tsbAddOtp = new System.Windows.Forms.ToolStripButton();
             this.tsbEditOtp = new System.Windows.Forms.ToolStripButton();
             this.tsbDelOtp = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbSocialFareTransit = new System.Windows.Forms.ToolStripButton();
             this.tpBusTrip = new System.Windows.Forms.TabPage();
             this.dgvTrips = new System.Windows.Forms.DataGridView();
             this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -590,9 +598,6 @@ namespace Kadr.UI.Frames
             this.employeeBonusReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
             this.bonusReportColumnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bonusTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -1021,7 +1026,7 @@ namespace Kadr.UI.Frames
             this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12});
+            this.DateEnd});
             this.dataGridView5.DataSource = this.oKOtpuskBindingSource;
             this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView5.Location = new System.Drawing.Point(3, 27);
@@ -1033,6 +1038,28 @@ namespace Kadr.UI.Frames
             this.dataGridView5.TabIndex = 2;
             this.dataGridView5.DoubleClick += new System.EventHandler(this.tsbEditOtp_Click);
             // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "OK_Otpuskvid";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Вид отпуска";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "RealDateBegin";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Дата начала";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // DateEnd
+            // 
+            this.DateEnd.DataPropertyName = "RealDateEnd";
+            this.DateEnd.HeaderText = "Дата окончания";
+            this.DateEnd.Name = "DateEnd";
+            this.DateEnd.ReadOnly = true;
+            // 
             // oKOtpuskBindingSource
             // 
             this.oKOtpuskBindingSource.DataSource = typeof(Kadr.Data.OK_Otpusk);
@@ -1042,7 +1069,9 @@ namespace Kadr.UI.Frames
             this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAddOtp,
             this.tsbEditOtp,
-            this.tsbDelOtp});
+            this.tsbDelOtp,
+            this.toolStripSeparator1,
+            this.tsbSocialFareTransit});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
             this.toolStrip5.Size = new System.Drawing.Size(849, 24);
@@ -1077,6 +1106,21 @@ namespace Kadr.UI.Frames
             this.tsbDelOtp.Text = "Удалить";
             this.tsbDelOtp.ToolTipText = "Удалить отпуск";
             this.tsbDelOtp.Click += new System.EventHandler(this.tsbDelOtp_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 24);
+            // 
+            // tsbSocialFareTransit
+            // 
+            this.tsbSocialFareTransit.Image = global::Kadr.Properties.Resources.Calendar_scheduleHS;
+            this.tsbSocialFareTransit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSocialFareTransit.Name = "tsbSocialFareTransit";
+            this.tsbSocialFareTransit.Size = new System.Drawing.Size(122, 21);
+            this.tsbSocialFareTransit.Text = "Льготный проезд";
+            this.tsbSocialFareTransit.ToolTipText = "Льготный проезд";
+            this.tsbSocialFareTransit.Click += new System.EventHandler(this.tsbSocialFareTransit_Click);
             // 
             // tpBusTrip
             // 
@@ -1972,28 +2016,6 @@ namespace Kadr.UI.Frames
             // 
             this.bonusTypeBindingSource.DataSource = typeof(Kadr.Data.BonusType);
             // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "OK_Otpuskvid";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Вид отпуска";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "RealDateBegin";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Дата начала";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "RealDateEnd";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Дата окончания";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2239,13 +2261,10 @@ namespace Kadr.UI.Frames
                 dlg.UseInternalCommandManager = true;
                 dlg.InitializeNewObject = (x) =>
                 {
-                    FactStaffPrikaz factStaffPrikaz = new Data.FactStaffPrikaz();
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikaz, "FactStaff", factStaffBindingSource.Current as FactStaff, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikaz, "Prikaz", NullPrikaz.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateBegin", DateTime.Today, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateEnd", DateTime.Today, null), this);
+                    //FactStaffPrikaz factStaffPrikaz = FactStaffPrikaz.CreateFactStaffPrikaz(dlg.CommandManager,factStaffBindingSource.Current as FactStaff);
 
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, FactStaffPrikaz>(x, "FactStaffPrikaz", factStaffPrikaz, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, FactStaffPrikaz>(x, "FactStaffPrikaz", 
+                        FactStaffPrikaz.CreateFactStaffPrikaz(dlg.CommandManager, factStaffBindingSource.Current as FactStaff), null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, OK_Otpuskvid>(x, "OK_Otpuskvid", NullOK_Otpuskvid.Instance, null), this);
                 };
 
@@ -2260,6 +2279,8 @@ namespace Kadr.UI.Frames
             }
             LoadOtpusk();
         }
+
+        
 
 
         private void tsbEditOtp_Click(object sender, EventArgs e)
@@ -2324,6 +2345,15 @@ namespace Kadr.UI.Frames
             LinqActionsController<FactStaffPrikaz>.Instance.DeleteObject(CurrentPrikaz, KadrController.Instance.Model.FactStaffPrikazs, null);
 
             LoadOtpusk();
+        }
+
+        private void tsbSocialFareTransit_Click(object sender, EventArgs e)
+        {
+            using (Forms.SocialFareTransitForm dlg = new Forms.SocialFareTransitForm())
+            {
+                dlg.Employee = Employee;
+                dlg.ShowDialog();
+            }
         }
 
     }
