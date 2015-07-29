@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Linq;
+using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class OK_Otpusk : UIX.Views.IDecorable
+    public partial class OK_Otpusk : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
         public override string ToString()
         {
@@ -67,6 +69,36 @@ namespace Kadr.Data
             return new OK_OtpuskDecorator(this);
         }
 
+
+        #endregion
+
+
+        #region partial Methods
+
+
+        partial void OnValidate(System.Data.Linq.ChangeAction action)
+        {
+            if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
+            {
+
+                if (FactStaffPrikaz.IsNull() || FactStaffPrikaz == null) throw new ArgumentNullException("Приказ.");
+                if ((OK_Otpuskvid == null) || (OK_Otpuskvid.IsNull())) throw new ArgumentNullException("Вид отпуска.");
+                if (DateEnd != null)
+                    if (DateEnd <= DateBegin)
+                        throw new ArgumentOutOfRangeException("Дата увольнения должна быть позже даты приема на работу.");
+            }
+        }
+
+
+        #endregion
+
+
+        #region IValidatable Members
+
+        void UIX.Views.IValidatable.Validate()
+        {
+            OnValidate(ChangeAction.Insert);
+        }
 
         #endregion
     }

@@ -2858,7 +2858,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("ФИО сотрдника")]
+        [System.ComponentModel.DisplayName("ФИО сотрудника")]
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("ФИО сотрудника")]
         [System.ComponentModel.ReadOnly(true)]
@@ -2889,9 +2889,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата приема на работу")]
+        [System.ComponentModel.DisplayName("Дата увольнения")]
         [System.ComponentModel.Category("Данные трудовой книжки")]
-        [System.ComponentModel.Description("Дата приема на работу")]
+        [System.ComponentModel.Description("Дата увольнения")]
         public DateTime DateEnd
         {
             get

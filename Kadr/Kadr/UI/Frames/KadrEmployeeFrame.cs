@@ -2195,7 +2195,7 @@ namespace Kadr.UI.Frames
             employeeStandingBindingSource.DataSource =
                 KadrController.Instance.Model.EmployeeStandings.Where(empSt => empSt.Employee == Employee)
                     .OrderBy(empSt => empSt.DateBegin)
-                    .ToArray();
+                    .ToArray(); 
         }
 
         private void tsbAddEmplStanding_Click(object sender, EventArgs e)
@@ -2208,6 +2208,8 @@ namespace Kadr.UI.Frames
                 dlg.UseInternalCommandManager = true;
                 dlg.InitializeNewObject = (x) =>
                 {
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, DateTime>(x, "DateBegin", DateTime.Today, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, DateTime>(x, "DateEnd", DateTime.Today, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, Employee>(x, "Employee", Employee, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, RegionType>(x, "RegionType", NullRegionType.Instance, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, StandingType>(x, "StandingType", NullStandingType.Instance, null), this);
