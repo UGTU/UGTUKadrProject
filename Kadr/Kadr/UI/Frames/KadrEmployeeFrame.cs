@@ -160,6 +160,7 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private ToolStripButton tsbChangeRegionDates;
         #region Properties
 
         /// <summary>
@@ -516,6 +517,7 @@ namespace Kadr.UI.Frames
             this.tsbAddEmplTrip = new System.Windows.Forms.ToolStripButton();
             this.tsbEditEmplTrip = new System.Windows.Forms.ToolStripButton();
             this.tsbDelEmplTrip = new System.Windows.Forms.ToolStripButton();
+            this.tsbChangeRegionDates = new System.Windows.Forms.ToolStripButton();
             this.tpEmplStading = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
@@ -768,7 +770,7 @@ namespace Kadr.UI.Frames
             this.tpFamily.Location = new System.Drawing.Point(4, 22);
             this.tpFamily.Name = "tpFamily";
             this.tpFamily.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFamily.Size = new System.Drawing.Size(863, 293);
+            this.tpFamily.Size = new System.Drawing.Size(782, 455);
             this.tpFamily.TabIndex = 1;
             this.tpFamily.Text = "Состав семьи";
             this.tpFamily.UseVisualStyleBackColor = true;
@@ -777,7 +779,7 @@ namespace Kadr.UI.Frames
             // 
             this.tpContData.Location = new System.Drawing.Point(4, 22);
             this.tpContData.Name = "tpContData";
-            this.tpContData.Size = new System.Drawing.Size(863, 293);
+            this.tpContData.Size = new System.Drawing.Size(782, 455);
             this.tpContData.TabIndex = 2;
             this.tpContData.Text = "Контактные данные";
             this.tpContData.UseVisualStyleBackColor = true;
@@ -1139,12 +1141,14 @@ namespace Kadr.UI.Frames
             this.dgvTrips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrips.Size = new System.Drawing.Size(849, 67);
             this.dgvTrips.TabIndex = 13;
+            this.dgvTrips.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrips_CellDoubleClick);
             // 
             // prikazDataGridViewTextBoxColumn
             // 
             this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
             this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
             this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
+            this.prikazDataGridViewTextBoxColumn.Width = 200;
             // 
             // dateBeginDataGridViewTextBoxColumn1
             // 
@@ -1163,6 +1167,7 @@ namespace Kadr.UI.Frames
             this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
             this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
             this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
+            this.targetPlaceDataGridViewTextBoxColumn.Width = 200;
             // 
             // finSourceDataGridViewTextBoxColumn
             // 
@@ -1179,7 +1184,8 @@ namespace Kadr.UI.Frames
             this.tsBusinessTrips.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAddEmplTrip,
             this.tsbEditEmplTrip,
-            this.tsbDelEmplTrip});
+            this.tsbDelEmplTrip,
+            this.tsbChangeRegionDates});
             this.tsBusinessTrips.Location = new System.Drawing.Point(3, 3);
             this.tsBusinessTrips.Name = "tsBusinessTrips";
             this.tsBusinessTrips.Size = new System.Drawing.Size(849, 25);
@@ -1203,6 +1209,7 @@ namespace Kadr.UI.Frames
             this.tsbEditEmplTrip.Size = new System.Drawing.Size(107, 22);
             this.tsbEditEmplTrip.Text = "Редактировать";
             this.tsbEditEmplTrip.ToolTipText = "Редактировать запись";
+            this.tsbEditEmplTrip.Click += new System.EventHandler(this.tsbEditEmplTrip_Click);
             // 
             // tsbDelEmplTrip
             // 
@@ -1212,6 +1219,16 @@ namespace Kadr.UI.Frames
             this.tsbDelEmplTrip.Size = new System.Drawing.Size(71, 22);
             this.tsbDelEmplTrip.Text = "Удалить";
             this.tsbDelEmplTrip.ToolTipText = "Удалить запись";
+            this.tsbDelEmplTrip.Click += new System.EventHandler(this.tsbDelEmplTrip_Click);
+            // 
+            // tsbChangeRegionDates
+            // 
+            this.tsbChangeRegionDates.Image = global::Kadr.Properties.Resources.TableHS;
+            this.tsbChangeRegionDates.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbChangeRegionDates.Name = "tsbChangeRegionDates";
+            this.tsbChangeRegionDates.Size = new System.Drawing.Size(245, 22);
+            this.tsbChangeRegionDates.Text = "Изменить сроки пребывания в регионе";
+            this.tsbChangeRegionDates.Click += new System.EventHandler(this.tsbChangeRegionDates_Click);
             // 
             // tpEmplStading
             // 
@@ -1410,7 +1427,7 @@ namespace Kadr.UI.Frames
             this.tpBonus.Location = new System.Drawing.Point(4, 22);
             this.tpBonus.Name = "tpBonus";
             this.tpBonus.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBonus.Size = new System.Drawing.Size(802, 533);
+            this.tpBonus.Size = new System.Drawing.Size(883, 371);
             this.tpBonus.TabIndex = 2;
             this.tpBonus.Text = "Надбавки";
             this.tpBonus.UseVisualStyleBackColor = true;
@@ -1428,7 +1445,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 527);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(877, 365);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // dgvAllBonus
@@ -2296,10 +2313,17 @@ namespace Kadr.UI.Frames
                 dlg.ObjectList = KadrController.Instance.Model.BusinessTrips;
                 //dlg.BindingSource = employeeStandingBindingSo;
                 dlg.UseInternalCommandManager = true;
+
+                FactStaff fs = (FactStaff)factStaffBindingSource.Current;
+                BusinessTripRegionType btrt = new BusinessTripRegionType(DateTime.Now.Date, DateTime.Now.AddDays(7).Date, KadrController.Instance.Model.RegionTypes.First());
+                    
                 dlg.InitializeNewObject = (x) =>
                 {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(), null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, BusinessTrip>(btrt, "BusinessTrip", x, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(DateTime.Now.Date, DateTime.Now.AddDays(7).Date, fs), null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FinancingSource>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.FirstOrDefault(), null), this);
+                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.First(), null), this);
                 };
 
                 dlg.UpdateObjectList = () =>
@@ -2310,6 +2334,36 @@ namespace Kadr.UI.Frames
                 dlg.ShowDialog();
             }
             LoadTrips();
+        }
+
+        private void tsbDelEmplTrip_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (BusinessTripsBindingSource.Current as BusinessTripDecorator).ToString()),"Подтверждение", MessageBoxButtons.OKCancel)==DialogResult.OK)
+            {
+              BusinessTrip bt = (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip();
+
+              foreach (BusinessTripRegionType rt in bt.BusinessTripRegionTypes)
+              KadrController.Instance.Model.BusinessTripRegionTypes.DeleteOnSubmit(rt);
+
+              KadrController.Instance.Model.BusinessTrips.DeleteOnSubmit(bt);
+              KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(bt.FactStaffPrikaz);
+              KadrController.Instance.Model.SubmitChanges();
+            }
+            LoadTrips();
+
+        }
+
+        private void tsbEditEmplTrip_Click(object sender, EventArgs e)
+        {
+            if (BusinessTripsBindingSource.Current != null)
+                LinqActionsController<BusinessTrip>.Instance.EditObject(
+                        (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip(), true);
+            LoadTrips();
+        }
+
+        private void dgvTrips_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tsbEditEmplTrip_Click(sender, null);
         }
 
         private void tsbDelOtp_Click(object sender, EventArgs e)
@@ -2335,6 +2389,15 @@ namespace Kadr.UI.Frames
 
             LoadOtpusk();
         }
+
+        private void tsbChangeRegionDates_Click(object sender, EventArgs e)
+        {
+            if (BusinessTripsBindingSource.Current != null)
+                LinqActionsController<BusinessTripRegionType>.Instance.EditObject(
+                        (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetRegionType(), true);
+            //LoadTrips();
+        }
+
 
     }
 

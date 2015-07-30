@@ -33,4 +33,5 @@ bin
 *.Cache
 Release
 /Kadr/UIX/UIX/obj/Release
-/Kadr/*.suo
+/Kadr/Kadr.suo
+/Kadr/CodeHelper/bin/Release
