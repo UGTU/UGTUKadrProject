@@ -32,5 +32,7 @@ namespace Kadr.UI.Dialogs
             businessTripRegionTypeBindingSource.DataSource = DataSource;
             bindingNavigator1.BindingSource = businessTripRegionTypeBindingSource;
         }
+
+
     }
 }

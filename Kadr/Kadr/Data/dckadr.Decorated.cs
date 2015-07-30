@@ -7,6 +7,8 @@ using Kadr.UI.Editors;
 using Kadr.Controllers;
 using Kadr.Data;
 using Kadr.Data.Common;
+using Kadr.UI.Common;
+using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
@@ -4776,10 +4778,14 @@ namespace Kadr.Data
     class BusinessTripDecorator
     {
         private BusinessTrip Trip;
+        private DateTime PDate = DateTime.Now.Date;
 
         public BusinessTripDecorator(BusinessTrip Trip)
         {
             this.Trip = Trip;
+            if (Trip.FactStaffPrikaz.Prikaz != null)
+                if (Trip.FactStaffPrikaz.Prikaz.DatePrikaz != null)
+                PDate = (DateTime)Trip.FactStaffPrikaz.Prikaz.DatePrikaz;
         }
 
         public override string ToString()
@@ -4804,10 +4810,26 @@ namespace Kadr.Data
             }*/
         }
 
+        [System.ComponentModel.DisplayName("Дата приказа")]
+        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Description("Дата, по которой будет отфильтровано поле 'Приказ'")]
+        public DateTime PrikazDate
+        {
+            get
+            {
+                return PDate;
+            }
+            set
+            {
+                if (value != null) PDate = value;
+               }
+        }
+
         [System.ComponentModel.DisplayName("Приказ")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Приказ, назначающий командировку")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(PrikazConverter))]
+        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz Prikaz
         {
             get
@@ -4833,7 +4855,12 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null) Trip.FactStaffPrikaz.DateBegin = value;
+                if (value != null)
+                {
+                    if (Trip.BusinessTripRegionTypes.First().DateBegin == DateBegin) Trip.BusinessTripRegionTypes.First().DateBegin = value;
+                    Trip.FactStaffPrikaz.DateBegin = value;
+                }
+                
             }
         }
 
@@ -4851,12 +4878,18 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null) Trip.FactStaffPrikaz.DateEnd = value;
+
+                if (value != null)
+                {
+                    if (Trip.BusinessTripRegionTypes.First().DateEnd == DateEnd) Trip.BusinessTripRegionTypes.First().DateEnd = value;
+                    Trip.FactStaffPrikaz.DateEnd = value;
+                }
+                
             }
         }
 
         [System.ComponentModel.DisplayName("Основное место назначения")]
-        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Category("Места пребывания")]
         [System.ComponentModel.Description("Основное место назначения командировки")]
 
         public string TargetPlace
@@ -4874,7 +4907,8 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Финансирование")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("За счет каких средств осуществляется командировка")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(FinSourceConverter))]
+        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public FinancingSource FinSource
         {
             get
@@ -4887,15 +4921,22 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Места пребывания")]
+        [System.ComponentModel.DisplayName("Регион пребывания")]
         [System.ComponentModel.Category("Места пребывания")]
-        [System.ComponentModel.Description("В каких регионах сотрудников проводит определенные периоды командировки")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.TripRegionsEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public System.Data.Linq.EntitySet<BusinessTripRegionType> TripRegions
+        [System.ComponentModel.Description("В какой регион командируется сотрудник")]
+        [System.ComponentModel.TypeConverter(typeof(RegionConverter))]
+        //В случае, если регион не требует дополнительного указания сроков пребывания, для создания записи BusinessTripRegionType будут использованы сроки командировки из приказа
+        //В ином случае предполагается, что пользователь отредактирует запись места пребывания при помощи пункта меню "Изменить сроки пребывания в регионе"
+        public RegionType TripMainRegion 
         {
             get
             {
-                return Trip.BusinessTripRegionTypes;
+                return Trip.BusinessTripRegionTypes.First().RegionType;
+            }
+
+            set
+            {
+                Trip.BusinessTripRegionTypes.First().RegionType = value;
             }
             
         }
@@ -4905,7 +4946,90 @@ namespace Kadr.Data
         {
             return Trip;
         }
+
+        internal BusinessTripRegionType GetRegionType()
+        {
+            return Trip.BusinessTripRegionTypes.FirstOrDefault(); 
+        }
     }
 
+    #endregion
+
+    #region BusinessTripRegionType Decorator
+
+    class BusinessTripRegionTypeDecorator
+    {
+        private BusinessTripRegionType Type;
+
+        public BusinessTripRegionTypeDecorator(BusinessTripRegionType Type)
+        {
+            this.Type = Type;
+        }
+
+        public override string ToString()
+        {
+            return Type.ToString();
+        }
+        [System.ComponentModel.Category("Регион")]
+        [System.ComponentModel.DisplayName("Регион пребывания")]
+        [System.ComponentModel.Description("В какой регион командируется сотрудник")]
+        [System.ComponentModel.TypeConverter(typeof(RegionConverter))]
+
+        public RegionType TripMainRegion
+        {
+            get
+            {
+                return Type.RegionType;
+            }
+
+            set
+            {
+                Type.RegionType = value;
+            }
+
+        }
+
+
+        [System.ComponentModel.DisplayName("Дата начала")]
+        [System.ComponentModel.Category("Сроки")]
+        [System.ComponentModel.Description("Дата начала пребывания в регионе")]
+        public DateTime DateBegin
+        {
+            get
+            {
+                return Type.DateBegin;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    Type.DateBegin = value;
+                }
+
+            }
+        }
+        
+        [System.ComponentModel.DisplayName("Дата окончания")]
+        [System.ComponentModel.Category("Сроки")]
+        [System.ComponentModel.Description("Дата окончания пребывания в регионе")]
+
+        public DateTime DateEnd
+        {
+            get
+            {
+                return Type.DateEnd;
+            }
+            set
+            {
+
+                if (value != null)
+                {
+                    Type.DateEnd = value;
+                }
+
+            }
+        }
+
+    }
     #endregion
 }

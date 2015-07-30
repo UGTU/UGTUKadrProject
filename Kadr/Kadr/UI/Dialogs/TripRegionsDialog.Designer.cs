@@ -29,29 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.regionTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.businessTripRegionTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idRegionTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvRegionType = new System.Windows.Forms.DataGridView();
             this.idBusinessTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idRegionType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.regionTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateBeginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateEndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regionTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.businessTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegionCB = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.businessTripRegionTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegionType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regionTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.businessTripRegionTypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvRegionType);
             this.helpProvider1.SetShowHelp(this.panel1, true);
             this.panel1.Size = new System.Drawing.Size(550, 240);
-            this.panel1.Controls.SetChildIndex(this.dataGridView1, 0);
+            this.panel1.Controls.SetChildIndex(this.dgvRegionType, 0);
             // 
             // panel2
             // 
@@ -79,46 +78,44 @@
             this.helpProvider1.SetHelpString(this.HelpBtn, "Вызов справки по диалоговому окну");
             this.helpProvider1.SetShowHelp(this.HelpBtn, true);
             // 
-            // dataGridView1
+            // dgvRegionType
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idRegionTypeDataGridViewTextBoxColumn,
+            this.dgvRegionType.AutoGenerateColumns = false;
+            this.dgvRegionType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegionType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idBusinessTripDataGridViewTextBoxColumn,
+            this.idRegionType,
             this.dateBeginDataGridViewTextBoxColumn,
             this.dateEndDataGridViewTextBoxColumn,
             this.regionTypeDataGridViewTextBoxColumn,
-            this.businessTripDataGridViewTextBoxColumn,
-            this.RegionCB});
-            this.dataGridView1.DataSource = this.businessTripRegionTypeBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(550, 215);
-            this.dataGridView1.TabIndex = 5;
-            // 
-            // regionTypeBindingSource
-            // 
-            this.regionTypeBindingSource.DataSource = typeof(Kadr.Data.RegionType);
-            // 
-            // businessTripRegionTypeBindingSource
-            // 
-            this.businessTripRegionTypeBindingSource.DataSource = typeof(Kadr.Data.BusinessTripRegionType);
-            // 
-            // idRegionTypeDataGridViewTextBoxColumn
-            // 
-            this.idRegionTypeDataGridViewTextBoxColumn.DataPropertyName = "idRegionType";
-            this.idRegionTypeDataGridViewTextBoxColumn.HeaderText = "idRegionType";
-            this.idRegionTypeDataGridViewTextBoxColumn.Name = "idRegionTypeDataGridViewTextBoxColumn";
-            this.idRegionTypeDataGridViewTextBoxColumn.Visible = false;
+            this.businessTripDataGridViewTextBoxColumn});
+            this.dgvRegionType.DataSource = this.businessTripRegionTypeBindingSource;
+            this.dgvRegionType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRegionType.Location = new System.Drawing.Point(0, 0);
+            this.dgvRegionType.Name = "dgvRegionType";
+            this.dgvRegionType.Size = new System.Drawing.Size(550, 215);
+            this.dgvRegionType.TabIndex = 5;
             // 
             // idBusinessTripDataGridViewTextBoxColumn
             // 
             this.idBusinessTripDataGridViewTextBoxColumn.DataPropertyName = "idBusinessTrip";
             this.idBusinessTripDataGridViewTextBoxColumn.HeaderText = "idBusinessTrip";
             this.idBusinessTripDataGridViewTextBoxColumn.Name = "idBusinessTripDataGridViewTextBoxColumn";
+            this.idBusinessTripDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.idBusinessTripDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idRegionType
+            // 
+            this.idRegionType.DataPropertyName = "idRegionType";
+            this.idRegionType.DataSource = this.regionTypeBindingSource;
+            this.idRegionType.DisplayMember = "RegionTypeName";
+            this.idRegionType.HeaderText = "idRegionType";
+            this.idRegionType.Name = "idRegionType";
+            this.idRegionType.ValueMember = "id";
+            // 
+            // regionTypeBindingSource
+            // 
+            this.regionTypeBindingSource.DataSource = typeof(Kadr.Data.RegionType);
             // 
             // dateBeginDataGridViewTextBoxColumn
             // 
@@ -128,6 +125,7 @@
             // 
             // dateEndDataGridViewTextBoxColumn
             // 
+            this.dateEndDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dateEndDataGridViewTextBoxColumn.DataPropertyName = "DateEnd";
             this.dateEndDataGridViewTextBoxColumn.HeaderText = "DateEnd";
             this.dateEndDataGridViewTextBoxColumn.Name = "dateEndDataGridViewTextBoxColumn";
@@ -141,19 +139,15 @@
             // 
             // businessTripDataGridViewTextBoxColumn
             // 
+            this.businessTripDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.businessTripDataGridViewTextBoxColumn.DataPropertyName = "BusinessTrip";
             this.businessTripDataGridViewTextBoxColumn.HeaderText = "BusinessTrip";
             this.businessTripDataGridViewTextBoxColumn.Name = "businessTripDataGridViewTextBoxColumn";
             this.businessTripDataGridViewTextBoxColumn.Visible = false;
             // 
-            // RegionCB
+            // businessTripRegionTypeBindingSource
             // 
-            this.RegionCB.DataPropertyName = "idRegionType";
-            this.RegionCB.DataSource = this.regionTypeBindingSource;
-            this.RegionCB.DisplayMember = "RegionTypeName";
-            this.RegionCB.HeaderText = "Регион";
-            this.RegionCB.Name = "RegionCB";
-            this.RegionCB.ValueMember = "id";
+            this.businessTripRegionTypeBindingSource.DataSource = typeof(Kadr.Data.BusinessTripRegionType);
             // 
             // TripRegionsDialog
             // 
@@ -167,7 +161,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegionType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regionTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.businessTripRegionTypeBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -176,15 +170,15 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvRegionType;
         private System.Windows.Forms.BindingSource regionTypeBindingSource;
         private System.Windows.Forms.BindingSource businessTripRegionTypeBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idRegionTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn idRegionTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idBusinessTripDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn idRegionType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn regionTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn businessTripDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn RegionCB;
     }
 }

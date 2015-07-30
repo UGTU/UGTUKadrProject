@@ -192,6 +192,8 @@
     <Compile Include="Controllers\MonthController.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
+    <Compile Include="Data\Converters\FinSourceConverter.cs" />
+    <Compile Include="Data\Converters\PrikazConverter.cs" />
     <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
     <Compile Include="Data\dckadr.designer.cs">
       <AutoGen>True</AutoGen>
@@ -337,6 +339,7 @@
     <Compile Include="UI\Common\LinqPropertyGridDialogEditing.Designer.cs">
       <DependentUpon>LinqPropertyGridDialogEditing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\Converters\RegionConverter.cs" />
     <Compile Include="UI\Dialogs\BonusMeasureDialog.cs">
       <SubType>Form</SubType>
     </Compile>
