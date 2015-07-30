@@ -5014,9 +5014,11 @@ namespace Kadr.Data
             }
         }
 
+
         [System.ComponentModel.DisplayName("Показатель регистрации")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Показатель регистрации")]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool RegBit
         {
             get

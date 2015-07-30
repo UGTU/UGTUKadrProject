@@ -22,7 +22,6 @@ namespace Kadr.UI.Frames
         private TabPage tpEmployee;
         private TabPage tpEmpPost;
         private TabPage tpBonus;
-        private UIX.UI.CommandPropertyGrid cpgEmployee;
         private BindingSource factStaffBindingSource;
         private IContainer components;
         private BindingSource AllbonusBindingSource;
@@ -188,6 +187,7 @@ namespace Kadr.UI.Frames
         private DataGridViewCheckBoxColumn regBitDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn2;
         private BindingSource oKAdressBindingSource;
+        private UIX.UI.CommandPropertyGrid cpgEmployee;
         #region Properties
 
         /// <summary>
@@ -498,7 +498,6 @@ namespace Kadr.UI.Frames
             this.tcEmplData = new System.Windows.Forms.TabControl();
             this.tpPersonData = new System.Windows.Forms.TabPage();
             this.cpgEmployee = new UIX.UI.CommandPropertyGrid();
-            this.tpFamily = new System.Windows.Forms.TabPage();
             this.tpContData = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -525,6 +524,7 @@ namespace Kadr.UI.Frames
             this.tsbAddAddress = new System.Windows.Forms.ToolStripButton();
             this.tsbUpdAddress = new System.Windows.Forms.ToolStripButton();
             this.tsbDelAddress = new System.Windows.Forms.ToolStripButton();
+            this.tpFamily = new System.Windows.Forms.TabPage();
             this.tpEmpPost = new System.Windows.Forms.TabPage();
             this.tcEmplWorkData = new System.Windows.Forms.TabControl();
             this.tpUGTUPosts = new System.Windows.Forms.TabPage();
@@ -767,7 +767,7 @@ namespace Kadr.UI.Frames
             // 
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOk);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(3, 328);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(871, 34);
@@ -806,6 +806,7 @@ namespace Kadr.UI.Frames
             this.tcEmplData.SelectedIndex = 0;
             this.tcEmplData.Size = new System.Drawing.Size(871, 319);
             this.tcEmplData.TabIndex = 4;
+            this.tcEmplData.SelectedIndexChanged += new System.EventHandler(this.tcEmplData_SelectedIndexChanged);
             // 
             // tpPersonData
             // 
@@ -820,24 +821,12 @@ namespace Kadr.UI.Frames
             // 
             // cpgEmployee
             // 
-            this.cpgEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cpgEmployee.CommandRegister = null;
-            this.cpgEmployee.Location = new System.Drawing.Point(0, 0);
+            this.cpgEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cpgEmployee.Location = new System.Drawing.Point(3, 3);
             this.cpgEmployee.Name = "cpgEmployee";
-            this.cpgEmployee.Size = new System.Drawing.Size(1542, 538);
+            this.cpgEmployee.Size = new System.Drawing.Size(857, 287);
             this.cpgEmployee.TabIndex = 0;
-            // 
-            // tpFamily
-            // 
-            this.tpFamily.Location = new System.Drawing.Point(4, 22);
-            this.tpFamily.Name = "tpFamily";
-            this.tpFamily.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFamily.Size = new System.Drawing.Size(863, 293);
-            this.tpFamily.TabIndex = 1;
-            this.tpFamily.Text = "Состав семьи";
-            this.tpFamily.UseVisualStyleBackColor = true;
             // 
             // tpContData
             // 
@@ -864,7 +853,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
             this.splitContainer3.Size = new System.Drawing.Size(863, 293);
-            this.splitContainer3.SplitterDistance = 155;
+            this.splitContainer3.SplitterDistance = 154;
             this.splitContainer3.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -880,7 +869,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(863, 155);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(863, 154);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // dataGridView1
@@ -903,6 +892,7 @@ namespace Kadr.UI.Frames
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(857, 212);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.tsbEditPhone_Click);
             // 
             // idphoneDataGridViewTextBoxColumn
             // 
@@ -959,6 +949,7 @@ namespace Kadr.UI.Frames
             this.tsbAddPhone.Name = "tsbAddPhone";
             this.tsbAddPhone.Size = new System.Drawing.Size(174, 21);
             this.tsbAddPhone.Text = "Добавить номер телефона";
+            this.tsbAddPhone.Click += new System.EventHandler(this.tsbAddPhone_Click);
             // 
             // tsbEditPhone
             // 
@@ -968,6 +959,7 @@ namespace Kadr.UI.Frames
             this.tsbEditPhone.Size = new System.Drawing.Size(107, 21);
             this.tsbEditPhone.Text = "Редактировать";
             this.tsbEditPhone.ToolTipText = "Редактировать номер телефона";
+            this.tsbEditPhone.Click += new System.EventHandler(this.tsbEditPhone_Click);
             // 
             // tsbDelPhone
             // 
@@ -977,6 +969,7 @@ namespace Kadr.UI.Frames
             this.tsbDelPhone.Size = new System.Drawing.Size(71, 21);
             this.tsbDelPhone.Text = "Удалить";
             this.tsbDelPhone.ToolTipText = "Удалить номер телефона";
+            this.tsbDelPhone.Click += new System.EventHandler(this.tsbDelPhone_Click);
             // 
             // tableLayoutPanel9
             // 
@@ -991,7 +984,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(863, 134);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(863, 135);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // dataGridView6
@@ -1016,6 +1009,7 @@ namespace Kadr.UI.Frames
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView6.Size = new System.Drawing.Size(857, 228);
             this.dataGridView6.TabIndex = 3;
+            this.dataGridView6.DoubleClick += new System.EventHandler(this.tsbUpdAddress_Click);
             // 
             // idAdressDataGridViewTextBoxColumn
             // 
@@ -1086,6 +1080,7 @@ namespace Kadr.UI.Frames
             this.tsbAddAddress.Name = "tsbAddAddress";
             this.tsbAddAddress.Size = new System.Drawing.Size(113, 21);
             this.tsbAddAddress.Text = "Добавить адрес";
+            this.tsbAddAddress.Click += new System.EventHandler(this.tsbAddAddress_Click);
             // 
             // tsbUpdAddress
             // 
@@ -1095,6 +1090,7 @@ namespace Kadr.UI.Frames
             this.tsbUpdAddress.Size = new System.Drawing.Size(107, 21);
             this.tsbUpdAddress.Text = "Редактировать";
             this.tsbUpdAddress.ToolTipText = "Редактировать  адрес";
+            this.tsbUpdAddress.Click += new System.EventHandler(this.tsbUpdAddress_Click);
             // 
             // tsbDelAddress
             // 
@@ -1104,6 +1100,17 @@ namespace Kadr.UI.Frames
             this.tsbDelAddress.Size = new System.Drawing.Size(71, 21);
             this.tsbDelAddress.Text = "Удалить";
             this.tsbDelAddress.ToolTipText = "Удалить  адрес";
+            this.tsbDelAddress.Click += new System.EventHandler(this.tsbDelAddress_Click);
+            // 
+            // tpFamily
+            // 
+            this.tpFamily.Location = new System.Drawing.Point(4, 22);
+            this.tpFamily.Name = "tpFamily";
+            this.tpFamily.Padding = new System.Windows.Forms.Padding(3);
+            this.tpFamily.Size = new System.Drawing.Size(782, 455);
+            this.tpFamily.TabIndex = 1;
+            this.tpFamily.Text = "Состав семьи";
+            this.tpFamily.UseVisualStyleBackColor = true;
             // 
             // tpEmpPost
             // 
@@ -1155,7 +1162,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tcEmplPostInf);
             this.splitContainer1.Size = new System.Drawing.Size(782, 495);
-            this.splitContainer1.SplitterDistance = 301;
+            this.splitContainer1.SplitterDistance = 298;
             this.splitContainer1.TabIndex = 2;
             // 
             // dgvEmplPosts
@@ -1185,7 +1192,7 @@ namespace Kadr.UI.Frames
             this.dgvEmplPosts.ReadOnly = true;
             this.dgvEmplPosts.RowHeadersVisible = false;
             this.dgvEmplPosts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmplPosts.Size = new System.Drawing.Size(782, 301);
+            this.dgvEmplPosts.Size = new System.Drawing.Size(782, 298);
             this.dgvEmplPosts.TabIndex = 0;
             // 
             // Department
@@ -1305,7 +1312,7 @@ namespace Kadr.UI.Frames
             this.tcEmplPostInf.Location = new System.Drawing.Point(0, 0);
             this.tcEmplPostInf.Name = "tcEmplPostInf";
             this.tcEmplPostInf.SelectedIndex = 0;
-            this.tcEmplPostInf.Size = new System.Drawing.Size(782, 190);
+            this.tcEmplPostInf.Size = new System.Drawing.Size(782, 193);
             this.tcEmplPostInf.TabIndex = 1;
             this.tcEmplPostInf.SelectedIndexChanged += new System.EventHandler(this.tcEmplPostInf_SelectedIndexChanged);
             // 
@@ -1315,7 +1322,7 @@ namespace Kadr.UI.Frames
             this.tpEmpOtpusk.Location = new System.Drawing.Point(4, 22);
             this.tpEmpOtpusk.Name = "tpEmpOtpusk";
             this.tpEmpOtpusk.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmpOtpusk.Size = new System.Drawing.Size(774, 164);
+            this.tpEmpOtpusk.Size = new System.Drawing.Size(774, 167);
             this.tpEmpOtpusk.TabIndex = 0;
             this.tpEmpOtpusk.Text = "Отпуска";
             this.tpEmpOtpusk.UseVisualStyleBackColor = true;
@@ -1333,7 +1340,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(768, 158);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(768, 161);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // dataGridView5
@@ -1448,7 +1455,7 @@ namespace Kadr.UI.Frames
             this.tpBusTrip.Location = new System.Drawing.Point(4, 22);
             this.tpBusTrip.Name = "tpBusTrip";
             this.tpBusTrip.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBusTrip.Size = new System.Drawing.Size(855, 100);
+            this.tpBusTrip.Size = new System.Drawing.Size(855, 103);
             this.tpBusTrip.TabIndex = 1;
             this.tpBusTrip.Text = "Командировки";
             this.tpBusTrip.UseVisualStyleBackColor = true;
@@ -1468,7 +1475,7 @@ namespace Kadr.UI.Frames
             this.dgvTrips.Location = new System.Drawing.Point(3, 28);
             this.dgvTrips.Name = "dgvTrips";
             this.dgvTrips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTrips.Size = new System.Drawing.Size(849, 69);
+            this.dgvTrips.Size = new System.Drawing.Size(849, 72);
             this.dgvTrips.TabIndex = 13;
             // 
             // prikazDataGridViewTextBoxColumn
@@ -2598,7 +2605,6 @@ namespace Kadr.UI.Frames
                 dlg.UseInternalCommandManager = true;
                 dlg.InitializeNewObject = (x) =>
                 {
-                    //FactStaffPrikaz factStaffPrikaz = FactStaffPrikaz.CreateFactStaffPrikaz(dlg.CommandManager,factStaffBindingSource.Current as FactStaff);
 
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, FactStaffPrikaz>(x, "FactStaffPrikaz", 
                         FactStaffPrikaz.CreateFactStaffPrikaz(dlg.CommandManager, factStaffBindingSource.Current as FactStaff), null), this);
@@ -2692,6 +2698,138 @@ namespace Kadr.UI.Frames
                 dlg.ShowDialog();
             }
         }
+
+        private void LoadContactData()
+        {
+            LoadPhones();
+            LoadAddress();
+        }
+
+        private void LoadPhones()
+        {
+            oKphoneBindingSource.DataSource = KadrController.Instance.Model.OK_phones.Where(pH => pH.Employee == Employee).ToArray();
+        }
+
+        private void LoadAddress()
+        {
+            oKAdressBindingSource.DataSource = KadrController.Instance.Model.OK_Adresses.Where(Addr => Addr.Employee == Employee).ToArray();
+        }
+
+        private void tcEmplData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*if (tcEmplData.SelectedTab == tpPersonData)
+                LoadStandings();*/
+            if (tcEmplData.SelectedTab == tpContData)
+                LoadContactData();
+        }
+
+        private void tsbAddPhone_Click(object sender, EventArgs e)
+        {
+            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_phone> dlg =
+               new Kadr.UI.Common.PropertyGridDialogAdding<OK_phone>())
+            {
+                dlg.ObjectList = KadrController.Instance.Model.OK_phones;
+                //dlg.BindingSource = employeeStandingBindingSource;
+                dlg.UseInternalCommandManager = true;
+
+                dlg.InitializeNewObject = (x) =>
+                {
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_phone, Employee>(x, "Employee", Employee, null), this);
+                };
+
+                dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.OK_phones;
+                };
+
+                dlg.ShowDialog();
+            }
+            LoadPhones();
+        }
+
+        private void tsbEditPhone_Click(object sender, EventArgs e)
+        {
+            if (oKphoneBindingSource.Current != null)
+                LinqActionsController<OK_phone>.Instance.EditObject(
+                        oKphoneBindingSource.Current as OK_phone, true);
+            LoadPhones();
+        }
+
+        private void tsbDelPhone_Click(object sender, EventArgs e)
+        {
+            OK_phone CurrentPhone = oKphoneBindingSource.Current as OK_phone;
+
+            if (CurrentPhone == null)
+            {
+                MessageBox.Show("Не выбран удаляемый номер.", "ИС \"Управление кадрами\"");
+                return;
+            }
+
+            if (MessageBox.Show("Удалить номер?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
+                != DialogResult.OK)
+            {
+                return;
+            }
+
+            LinqActionsController<OK_phone>.Instance.DeleteObject(CurrentPhone, KadrController.Instance.Model.OK_phones, null);
+
+            LoadPhones();
+        }
+
+        private void tsbAddAddress_Click(object sender, EventArgs e)
+        {
+            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Adress> dlg =
+               new Kadr.UI.Common.PropertyGridDialogAdding<OK_Adress>())
+            {
+                dlg.ObjectList = KadrController.Instance.Model.OK_Adresses;
+                //dlg.BindingSource = employeeStandingBindingSource;
+                dlg.UseInternalCommandManager = true;
+
+                dlg.InitializeNewObject = (x) =>
+                {
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Adress, Employee>(x, "Employee", Employee, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Adress, DateTime?>(x, "DateReg", DateTime.Today, null), this);
+                };
+
+                dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.OK_Adresses;
+                };
+
+                dlg.ShowDialog();
+            }
+            LoadAddress();
+        }
+
+        private void tsbUpdAddress_Click(object sender, EventArgs e)
+        {
+            if (oKAdressBindingSource.Current != null)
+                LinqActionsController<OK_Adress>.Instance.EditObject(
+                        oKAdressBindingSource.Current as OK_Adress, true);
+            LoadAddress();
+        }
+
+        private void tsbDelAddress_Click(object sender, EventArgs e)
+        {
+            OK_Adress CurrentAddress = oKAdressBindingSource.Current as OK_Adress;
+
+            if (CurrentAddress == null)
+            {
+                MessageBox.Show("Не выбран удаляемый адрес.", "ИС \"Управление кадрами\"");
+                return;
+            }
+
+            if (MessageBox.Show("Удалить адрес?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
+                != DialogResult.OK)
+            {
+                return;
+            }
+
+            LinqActionsController<OK_Adress>.Instance.DeleteObject(CurrentAddress, KadrController.Instance.Model.OK_Adresses, null);
+
+            LoadAddress();
+        }
+
 
     }
 
