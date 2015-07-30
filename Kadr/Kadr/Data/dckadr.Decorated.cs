@@ -4972,6 +4972,52 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.DisplayName("Сумма выплаты")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Сумма выплаты за мат. ответственность по приказу")]
+        public decimal Sum
+        {
+            get
+            {
+                return materialResponsibility.Sum;
+            }
+            set
+            {
+                materialResponsibility.Sum = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер договора")]
+        [System.ComponentModel.Category("Договор")]
+        [System.ComponentModel.Description("Номер договора о мат. ответственности")]
+        public string ContractName
+        {
+            get
+            {
+                return materialResponsibility.Contract.ContractName;
+            }
+            set
+            {
+                if (value != null) materialResponsibility.Contract.ContractName = value;
+            }
+        }
+        [System.ComponentModel.DisplayName("Дата договора")]
+        [System.ComponentModel.Category("Договор")]
+        [System.ComponentModel.Description("Дата договора о мат. ответственности")]
+        public DateTime? DateContract
+        {
+            get
+            {
+                return materialResponsibility.Contract.DateContract;
+            }
+            set
+            {
+                if (value != null) materialResponsibility.Contract.DateContract = value;
+            }
+        }
+
+
+
 
     }
     #endregion
