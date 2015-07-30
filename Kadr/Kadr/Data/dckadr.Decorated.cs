@@ -4945,15 +4945,15 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата начала")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата начала мат. ответственности, значащаяся в приказе")]
-        public DateTime? DateBegin
+        public DateTime DateBegin
         {
             get
             {
-                return materialResponsibility.FactStaffPrikaz.DateBegin;
+                return materialResponsibility.FactStaffPrikaz.DateBegin.Value;
             }
             set
             {
-                if (value != null) materialResponsibility.FactStaffPrikaz.DateBegin = value;
+                materialResponsibility.FactStaffPrikaz.DateBegin = value;
             }
         }
 
@@ -4963,15 +4963,17 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата окончания мат. ответственности, значащаяся в приказе")]
 
-        public DateTime? DateEnd
+        public DateTime DateEnd
         {
             get
             {
-                return materialResponsibility.FactStaffPrikaz.DateEnd;
+                return materialResponsibility.FactStaffPrikaz.DateEnd != null ? materialResponsibility.FactStaffPrikaz.DateEnd.Value : new DateTime();
             }
             set
             {
-                if (value != null) materialResponsibility.FactStaffPrikaz.DateEnd = value;
+                materialResponsibility.FactStaffPrikaz.DateEnd = value;
+                if (value == DateTime.MinValue)
+                    materialResponsibility.FactStaffPrikaz.DateEnd = null;
             }
         }
 
@@ -5001,27 +5003,28 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null) materialResponsibility.Contract.ContractName = value;
+                materialResponsibility.Contract.ContractName = value;
             }
         }
         [System.ComponentModel.DisplayName("Дата договора")]
         [System.ComponentModel.Category("Договор")]
         [System.ComponentModel.Description("Дата договора о мат. ответственности")]
-        public DateTime? DateContract
+        public DateTime DateContract
         {
             get
             {
-                return materialResponsibility.Contract.DateContract;
+                return materialResponsibility.Contract.DateContract != null ? materialResponsibility.Contract.DateContract.Value : DateTime.MinValue;
             }
             set
             {
-                if (value != null) materialResponsibility.Contract.DateContract = value;
+                materialResponsibility.Contract.DateContract = value;
             }
         }
 
-
-
-
+        internal MaterialResponsibility GetMaterial()
+        {
+            return materialResponsibility;
+        }
     }
     #endregion
 }

@@ -8,16 +8,11 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Contract : UIX.Views.IDecorable
+    public partial class Contract
     {
         public override string ToString()
         {
             return "Договор " +  ContractName;
-        }
-
-        public object GetDecorator()
-        {
-            throw new NotImplementedException();
         }
     }
 }
