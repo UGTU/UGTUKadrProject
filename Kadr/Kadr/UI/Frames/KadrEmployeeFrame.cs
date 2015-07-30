@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
 using Kadr.KadrTreeView;
@@ -150,15 +151,79 @@ namespace Kadr.UI.Frames
         private ToolStripButton tsbAddEmplStanding;
         private ToolStripButton tsbEditEmplStanding;
         private ToolStripButton tsbDelEmplStanding;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private TabPage tpMaterial;
+        private ToolStrip tsMaterialResp;
+        private ToolStripButton tsbAddMaterial;
+        private ToolStripButton tsbEditMaterial;
+        private ToolStripButton tsbDelMaterial;
+        private DataGridView dgvMaterial;
+        private BindingSource MaterialResponsibilitybindingSource;
         private DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn targetPlaceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn finSourceDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private BindingSource businessTripDecoratorBindingSource;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn47;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn48;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn50;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn53;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn56;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn59;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn62;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn63;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn64;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn65;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn66;
+        private DataGridViewTextBoxColumn ContractName;
+        private DataGridViewTextBoxColumn DateContract;
+        private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn DateBegin;
         private DataGridViewTextBoxColumn DateEnd;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton tsbSocialFareTransit;
@@ -188,6 +253,13 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn2;
         private BindingSource oKAdressBindingSource;
         private UIX.UI.CommandPropertyGrid cpgEmployee;
+        private BindingSource materialResponsibilityDecoratorBindingSource;
+        private DataGridViewTextBoxColumn colPrikazMaterial;
+        private DataGridViewTextBoxColumn colNumContractMaterial;
+        private DataGridViewTextBoxColumn colDateContractMaterial;
+        private DataGridViewTextBoxColumn colSumMaterial;
+        private DataGridViewTextBoxColumn colDataBeginMaterial;
+        private DataGridViewTextBoxColumn colDateEndMaterial;
         #region Properties
 
         /// <summary>
@@ -337,6 +409,14 @@ namespace Kadr.UI.Frames
             FactStaff f = (FactStaff)factStaffBindingSource.Current;
             BusinessTripsBindingSource.DataSource = KadrController.Instance.Model.BusinessTrips.Where(t => t.FactStaffPrikaz.FactStaff == f).Select(x=>new BusinessTripDecorator(x)).ToList();
             dgvTrips.Refresh();
+
+        }
+
+        private void LoadMaterials()
+        {
+            var f = (FactStaff)factStaffBindingSource.Current;
+            MaterialResponsibilitybindingSource.DataSource = KadrController.Instance.Model.MaterialResponsibilities.Where(t => t.FactStaffPrikaz.FactStaff == f);
+            dgvMaterial.Refresh();
 
         }
 
@@ -565,11 +645,24 @@ namespace Kadr.UI.Frames
             this.dateEndDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.targetPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.businessTripDecoratorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsBusinessTrips = new System.Windows.Forms.ToolStrip();
             this.tsbAddEmplTrip = new System.Windows.Forms.ToolStripButton();
             this.tsbEditEmplTrip = new System.Windows.Forms.ToolStripButton();
             this.tsbDelEmplTrip = new System.Windows.Forms.ToolStripButton();
+            this.tpMaterial = new System.Windows.Forms.TabPage();
+            this.dgvMaterial = new System.Windows.Forms.DataGridView();
+            this.colPrikazMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumContractMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateContractMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSumMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDataBeginMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateEndMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialResponsibilitybindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tsMaterialResp = new System.Windows.Forms.ToolStrip();
+            this.tsbAddMaterial = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditMaterial = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelMaterial = new System.Windows.Forms.ToolStripButton();
             this.tpEmplStading = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
@@ -646,8 +739,68 @@ namespace Kadr.UI.Frames
             this.toolStrip6 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.employeeBonusReportFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
+            this.materialResponsibilityDecoratorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bonusReportColumnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bonusTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContractName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateBegin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -683,8 +836,12 @@ namespace Kadr.UI.Frames
             this.toolStrip5.SuspendLayout();
             this.tpBusTrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrips)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.businessTripDecoratorBindingSource)).BeginInit();
             this.tsBusinessTrips.SuspendLayout();
+            this.tpMaterial.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaterialResponsibilitybindingSource)).BeginInit();
+            this.tsMaterialResp.SuspendLayout();
             this.tpEmplStading.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -712,8 +869,10 @@ namespace Kadr.UI.Frames
             this.tpEmplBonusReport.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.toolStrip6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.materialResponsibilityDecoratorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusReportColumnBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -767,7 +926,7 @@ namespace Kadr.UI.Frames
             // 
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOk);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+
             this.panel1.Location = new System.Drawing.Point(3, 328);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(871, 34);
@@ -822,10 +981,9 @@ namespace Kadr.UI.Frames
             // cpgEmployee
             // 
             this.cpgEmployee.CommandRegister = null;
-            this.cpgEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cpgEmployee.Location = new System.Drawing.Point(3, 3);
+
             this.cpgEmployee.Name = "cpgEmployee";
-            this.cpgEmployee.Size = new System.Drawing.Size(857, 287);
+
             this.cpgEmployee.TabIndex = 0;
             // 
             // tpContData
@@ -833,7 +991,7 @@ namespace Kadr.UI.Frames
             this.tpContData.Controls.Add(this.splitContainer3);
             this.tpContData.Location = new System.Drawing.Point(4, 22);
             this.tpContData.Name = "tpContData";
-            this.tpContData.Size = new System.Drawing.Size(863, 293);
+
             this.tpContData.TabIndex = 2;
             this.tpContData.Text = "Контактные данные";
             this.tpContData.UseVisualStyleBackColor = true;
@@ -852,6 +1010,7 @@ namespace Kadr.UI.Frames
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
+
             this.splitContainer3.Size = new System.Drawing.Size(863, 293);
             this.splitContainer3.SplitterDistance = 154;
             this.splitContainer3.TabIndex = 0;
@@ -869,6 +1028,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
             this.tableLayoutPanel8.Size = new System.Drawing.Size(863, 154);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
@@ -890,7 +1050,8 @@ namespace Kadr.UI.Frames
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(857, 212);
+
+            this.dataGridView1.Size = new System.Drawing.Size(776, 212);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.tsbEditPhone_Click);
             // 
@@ -938,7 +1099,8 @@ namespace Kadr.UI.Frames
             this.tsbDelPhone});
             this.toolStrip7.Location = new System.Drawing.Point(0, 0);
             this.toolStrip7.Name = "toolStrip7";
-            this.toolStrip7.Size = new System.Drawing.Size(863, 24);
+
+            this.toolStrip7.Size = new System.Drawing.Size(782, 24);
             this.toolStrip7.TabIndex = 2;
             this.toolStrip7.Text = "toolStrip7";
             // 
@@ -984,6 +1146,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
             this.tableLayoutPanel9.Size = new System.Drawing.Size(863, 135);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
@@ -1007,7 +1170,8 @@ namespace Kadr.UI.Frames
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView6.Size = new System.Drawing.Size(857, 228);
+
+            this.dataGridView6.Size = new System.Drawing.Size(776, 228);
             this.dataGridView6.TabIndex = 3;
             this.dataGridView6.DoubleClick += new System.EventHandler(this.tsbUpdAddress_Click);
             // 
@@ -1069,7 +1233,8 @@ namespace Kadr.UI.Frames
             this.tsbDelAddress});
             this.toolStrip8.Location = new System.Drawing.Point(0, 0);
             this.toolStrip8.Name = "toolStrip8";
-            this.toolStrip8.Size = new System.Drawing.Size(863, 24);
+
+            this.toolStrip8.Size = new System.Drawing.Size(782, 24);
             this.toolStrip8.TabIndex = 2;
             this.toolStrip8.Text = "toolStrip8";
             // 
@@ -1119,7 +1284,8 @@ namespace Kadr.UI.Frames
             this.tpEmpPost.Location = new System.Drawing.Point(4, 22);
             this.tpEmpPost.Name = "tpEmpPost";
             this.tpEmpPost.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmpPost.Size = new System.Drawing.Size(802, 533);
+
+            this.tpEmpPost.Size = new System.Drawing.Size(883, 371);
             this.tpEmpPost.TabIndex = 1;
             this.tpEmpPost.Text = "Трудовая деятельность";
             this.tpEmpPost.UseVisualStyleBackColor = true;
@@ -1132,7 +1298,8 @@ namespace Kadr.UI.Frames
             this.tcEmplWorkData.Location = new System.Drawing.Point(3, 3);
             this.tcEmplWorkData.Name = "tcEmplWorkData";
             this.tcEmplWorkData.SelectedIndex = 0;
-            this.tcEmplWorkData.Size = new System.Drawing.Size(796, 527);
+
+            this.tcEmplWorkData.Size = new System.Drawing.Size(877, 365);
             this.tcEmplWorkData.TabIndex = 1;
             this.tcEmplWorkData.SelectedIndexChanged += new System.EventHandler(this.tcEmplWorkData_SelectedIndexChanged);
             // 
@@ -1142,7 +1309,8 @@ namespace Kadr.UI.Frames
             this.tpUGTUPosts.Location = new System.Drawing.Point(4, 22);
             this.tpUGTUPosts.Name = "tpUGTUPosts";
             this.tpUGTUPosts.Padding = new System.Windows.Forms.Padding(3);
-            this.tpUGTUPosts.Size = new System.Drawing.Size(788, 501);
+
+            this.tpUGTUPosts.Size = new System.Drawing.Size(869, 339);
             this.tpUGTUPosts.TabIndex = 0;
             this.tpUGTUPosts.Text = "Должности";
             this.tpUGTUPosts.UseVisualStyleBackColor = true;
@@ -1161,6 +1329,7 @@ namespace Kadr.UI.Frames
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tcEmplPostInf);
+
             this.splitContainer1.Size = new System.Drawing.Size(782, 495);
             this.splitContainer1.SplitterDistance = 298;
             this.splitContainer1.TabIndex = 2;
@@ -1192,6 +1361,7 @@ namespace Kadr.UI.Frames
             this.dgvEmplPosts.ReadOnly = true;
             this.dgvEmplPosts.RowHeadersVisible = false;
             this.dgvEmplPosts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dgvEmplPosts.Size = new System.Drawing.Size(782, 298);
             this.dgvEmplPosts.TabIndex = 0;
             // 
@@ -1308,10 +1478,12 @@ namespace Kadr.UI.Frames
             // 
             this.tcEmplPostInf.Controls.Add(this.tpEmpOtpusk);
             this.tcEmplPostInf.Controls.Add(this.tpBusTrip);
+            this.tcEmplPostInf.Controls.Add(this.tpMaterial);
             this.tcEmplPostInf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcEmplPostInf.Location = new System.Drawing.Point(0, 0);
             this.tcEmplPostInf.Name = "tcEmplPostInf";
             this.tcEmplPostInf.SelectedIndex = 0;
+
             this.tcEmplPostInf.Size = new System.Drawing.Size(782, 193);
             this.tcEmplPostInf.TabIndex = 1;
             this.tcEmplPostInf.SelectedIndexChanged += new System.EventHandler(this.tcEmplPostInf_SelectedIndexChanged);
@@ -1322,6 +1494,7 @@ namespace Kadr.UI.Frames
             this.tpEmpOtpusk.Location = new System.Drawing.Point(4, 22);
             this.tpEmpOtpusk.Name = "tpEmpOtpusk";
             this.tpEmpOtpusk.Padding = new System.Windows.Forms.Padding(3);
+
             this.tpEmpOtpusk.Size = new System.Drawing.Size(774, 167);
             this.tpEmpOtpusk.TabIndex = 0;
             this.tpEmpOtpusk.Text = "Отпуска";
@@ -1340,6 +1513,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
             this.tableLayoutPanel7.Size = new System.Drawing.Size(768, 161);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
@@ -1360,7 +1534,8 @@ namespace Kadr.UI.Frames
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(762, 155);
+
+            this.dataGridView5.Size = new System.Drawing.Size(843, 155);
             this.dataGridView5.TabIndex = 2;
             this.dataGridView5.DoubleClick += new System.EventHandler(this.tsbEditOtp_Click);
             // 
@@ -1374,14 +1549,15 @@ namespace Kadr.UI.Frames
             // 
             // dataGridViewTextBoxColumn11
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "RealDateBegin";
+
             this.dataGridViewTextBoxColumn11.HeaderText = "Дата начала";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 70;
             // 
             // DateEnd
             // 
-            this.DateEnd.DataPropertyName = "RealDateEnd";
+
             this.DateEnd.HeaderText = "Дата окончания";
             this.DateEnd.Name = "DateEnd";
             this.DateEnd.ReadOnly = true;
@@ -1400,7 +1576,7 @@ namespace Kadr.UI.Frames
             this.tsbSocialFareTransit});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(768, 24);
+
             this.toolStrip5.TabIndex = 1;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -1455,6 +1631,7 @@ namespace Kadr.UI.Frames
             this.tpBusTrip.Location = new System.Drawing.Point(4, 22);
             this.tpBusTrip.Name = "tpBusTrip";
             this.tpBusTrip.Padding = new System.Windows.Forms.Padding(3);
+
             this.tpBusTrip.Size = new System.Drawing.Size(855, 103);
             this.tpBusTrip.TabIndex = 1;
             this.tpBusTrip.Text = "Командировки";
@@ -1470,19 +1647,22 @@ namespace Kadr.UI.Frames
             this.dateEndDataGridViewTextBoxColumn2,
             this.targetPlaceDataGridViewTextBoxColumn,
             this.finSourceDataGridViewTextBoxColumn});
-            this.dgvTrips.DataSource = this.BusinessTripsBindingSource;
+            this.dgvTrips.DataSource = this.businessTripDecoratorBindingSource;
             this.dgvTrips.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTrips.Location = new System.Drawing.Point(3, 28);
             this.dgvTrips.Name = "dgvTrips";
             this.dgvTrips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dgvTrips.Size = new System.Drawing.Size(849, 72);
             this.dgvTrips.TabIndex = 13;
+            this.dgvTrips.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrips_CellDoubleClick);
             // 
             // prikazDataGridViewTextBoxColumn
             // 
             this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
             this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
             this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
+            this.prikazDataGridViewTextBoxColumn.Width = 200;
             // 
             // dateBeginDataGridViewTextBoxColumn1
             // 
@@ -1501,6 +1681,7 @@ namespace Kadr.UI.Frames
             this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
             this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
             this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
+            this.targetPlaceDataGridViewTextBoxColumn.Width = 200;
             // 
             // finSourceDataGridViewTextBoxColumn
             // 
@@ -1508,9 +1689,11 @@ namespace Kadr.UI.Frames
             this.finSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
             this.finSourceDataGridViewTextBoxColumn.Name = "finSourceDataGridViewTextBoxColumn";
             // 
-            // BusinessTripsBindingSource
+
+            // businessTripDecoratorBindingSource
             // 
-            this.BusinessTripsBindingSource.DataSource = typeof(Kadr.Data.BusinessTripDecorator);
+
+            this.businessTripDecoratorBindingSource.DataSource = typeof(Kadr.Data.BusinessTripDecorator);
             // 
             // tsBusinessTrips
             // 
@@ -1541,6 +1724,7 @@ namespace Kadr.UI.Frames
             this.tsbEditEmplTrip.Size = new System.Drawing.Size(107, 22);
             this.tsbEditEmplTrip.Text = "Редактировать";
             this.tsbEditEmplTrip.ToolTipText = "Редактировать запись";
+            this.tsbEditEmplTrip.Click += new System.EventHandler(this.tsbEditEmplTrip_Click);
             // 
             // tsbDelEmplTrip
             // 
@@ -1550,6 +1734,133 @@ namespace Kadr.UI.Frames
             this.tsbDelEmplTrip.Size = new System.Drawing.Size(71, 22);
             this.tsbDelEmplTrip.Text = "Удалить";
             this.tsbDelEmplTrip.ToolTipText = "Удалить запись";
+            this.tsbDelEmplTrip.Click += new System.EventHandler(this.tsbDelEmplTrip_Click);
+            // 
+            // tpMaterial
+            // 
+            this.tpMaterial.Controls.Add(this.dgvMaterial);
+            this.tpMaterial.Controls.Add(this.tsMaterialResp);
+            this.tpMaterial.Location = new System.Drawing.Point(4, 22);
+            this.tpMaterial.Name = "tpMaterial";
+            this.tpMaterial.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMaterial.Size = new System.Drawing.Size(855, 101);
+            this.tpMaterial.TabIndex = 2;
+            this.tpMaterial.Text = "Материальная ответственность";
+            this.tpMaterial.UseVisualStyleBackColor = true;
+            // 
+            // dgvMaterial
+            // 
+            this.dgvMaterial.AllowUserToAddRows = false;
+            this.dgvMaterial.AllowUserToDeleteRows = false;
+            this.dgvMaterial.AutoGenerateColumns = false;
+            this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaterial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colPrikazMaterial,
+            this.colNumContractMaterial,
+            this.colDateContractMaterial,
+            this.colSumMaterial,
+            this.colDataBeginMaterial,
+            this.colDateEndMaterial});
+            this.dgvMaterial.DataSource = this.MaterialResponsibilitybindingSource;
+            this.dgvMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMaterial.Location = new System.Drawing.Point(3, 28);
+            this.dgvMaterial.MultiSelect = false;
+            this.dgvMaterial.Name = "dgvMaterial";
+            this.dgvMaterial.ReadOnly = true;
+            this.dgvMaterial.RowHeadersWidth = 4;
+            this.dgvMaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMaterial.Size = new System.Drawing.Size(849, 70);
+            this.dgvMaterial.TabIndex = 14;
+            this.dgvMaterial.DoubleClick += new System.EventHandler(this.tsbEditMaterial_Click);
+            // 
+            // colPrikazMaterial
+            // 
+            this.colPrikazMaterial.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPrikazMaterial.DataPropertyName = "Prikaz";
+            this.colPrikazMaterial.HeaderText = "Приказ";
+            this.colPrikazMaterial.Name = "colPrikazMaterial";
+            this.colPrikazMaterial.ReadOnly = true;
+            // 
+            // colNumContractMaterial
+            // 
+            this.colNumContractMaterial.DataPropertyName = "ContractName";
+            this.colNumContractMaterial.HeaderText = "Номер договора";
+            this.colNumContractMaterial.Name = "colNumContractMaterial";
+            this.colNumContractMaterial.ReadOnly = true;
+            // 
+            // colDateContractMaterial
+            // 
+            this.colDateContractMaterial.DataPropertyName = "DateContract";
+            this.colDateContractMaterial.HeaderText = "Дата договора";
+            this.colDateContractMaterial.Name = "colDateContractMaterial";
+            this.colDateContractMaterial.ReadOnly = true;
+            // 
+            // colSumMaterial
+            // 
+            this.colSumMaterial.DataPropertyName = "Sum";
+            this.colSumMaterial.HeaderText = "Сумма выплаты";
+            this.colSumMaterial.Name = "colSumMaterial";
+            this.colSumMaterial.ReadOnly = true;
+            // 
+            // colDataBeginMaterial
+            // 
+            this.colDataBeginMaterial.DataPropertyName = "DateBegin";
+            this.colDataBeginMaterial.HeaderText = "Дата начала";
+            this.colDataBeginMaterial.Name = "colDataBeginMaterial";
+            this.colDataBeginMaterial.ReadOnly = true;
+            // 
+            // colDateEndMaterial
+            // 
+            this.colDateEndMaterial.DataPropertyName = "DateEnd";
+            this.colDateEndMaterial.HeaderText = "Дата окончания";
+            this.colDateEndMaterial.Name = "colDateEndMaterial";
+            this.colDateEndMaterial.ReadOnly = true;
+            // 
+            // MaterialResponsibilitybindingSource
+            // 
+            this.MaterialResponsibilitybindingSource.AllowNew = false;
+            this.MaterialResponsibilitybindingSource.DataSource = typeof(Kadr.Data.MaterialResponsibility);
+            // 
+            // tsMaterialResp
+            // 
+            this.tsMaterialResp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAddMaterial,
+            this.tsbEditMaterial,
+            this.tsbDelMaterial});
+            this.tsMaterialResp.Location = new System.Drawing.Point(3, 3);
+            this.tsMaterialResp.Name = "tsMaterialResp";
+            this.tsMaterialResp.Size = new System.Drawing.Size(849, 25);
+            this.tsMaterialResp.TabIndex = 13;
+            this.tsMaterialResp.Text = "toolStrip7";
+            // 
+            // tsbAddMaterial
+            // 
+            this.tsbAddMaterial.Image = global::Kadr.Properties.Resources.AddTableHS;
+            this.tsbAddMaterial.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbAddMaterial.Name = "tsbAddMaterial";
+            this.tsbAddMaterial.Size = new System.Drawing.Size(119, 22);
+            this.tsbAddMaterial.Text = "Добавить запись";
+            this.tsbAddMaterial.Click += new System.EventHandler(this.tsbAddMaterial_Click);
+            // 
+            // tsbEditMaterial
+            // 
+            this.tsbEditMaterial.Image = global::Kadr.Properties.Resources.EditTableHS;
+            this.tsbEditMaterial.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbEditMaterial.Name = "tsbEditMaterial";
+            this.tsbEditMaterial.Size = new System.Drawing.Size(107, 22);
+            this.tsbEditMaterial.Text = "Редактировать";
+            this.tsbEditMaterial.ToolTipText = "Редактировать запись";
+            this.tsbEditMaterial.Click += new System.EventHandler(this.tsbEditMaterial_Click);
+            // 
+            // tsbDelMaterial
+            // 
+            this.tsbDelMaterial.Image = global::Kadr.Properties.Resources.DelTableHS;
+            this.tsbDelMaterial.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelMaterial.Name = "tsbDelMaterial";
+            this.tsbDelMaterial.Size = new System.Drawing.Size(71, 22);
+            this.tsbDelMaterial.Text = "Удалить";
+            this.tsbDelMaterial.ToolTipText = "Удалить запись";
+            this.tsbDelMaterial.Click += new System.EventHandler(this.tsbDelMaterial_Click);
             // 
             // tpEmplStading
             // 
@@ -1868,11 +2179,11 @@ namespace Kadr.UI.Frames
             // 
             // dataGridViewTextBoxColumn5
             // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn5.DataPropertyName = "DateEnd";
             this.dataGridViewTextBoxColumn5.HeaderText = "Дата отмены";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 70;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1977,7 +2288,8 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox5);
             this.splitContainer2.Size = new System.Drawing.Size(796, 527);
-            this.splitContainer2.SplitterDistance = 257;
+
+            this.splitContainer2.SplitterDistance = 251;
             this.splitContainer2.TabIndex = 2;
             // 
             // groupBox4
@@ -1986,7 +2298,8 @@ namespace Kadr.UI.Frames
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(796, 257);
+
+            this.groupBox4.Size = new System.Drawing.Size(796, 251);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ученые степени";
@@ -2004,7 +2317,8 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(790, 238);
+
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(790, 232);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // dataGridView2
@@ -2125,7 +2439,8 @@ namespace Kadr.UI.Frames
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(796, 266);
+
+            this.groupBox5.Size = new System.Drawing.Size(796, 272);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Научные звания";
@@ -2143,7 +2458,8 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(790, 247);
+
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(790, 253);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // dataGridView3
@@ -2164,7 +2480,8 @@ namespace Kadr.UI.Frames
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(877, 216);
+
+            this.dataGridView3.Size = new System.Drawing.Size(877, 222);
             this.dataGridView3.TabIndex = 8;
             this.dataGridView3.DoubleClick += new System.EventHandler(this.EditRankBtn_Click);
             // 
@@ -2334,6 +2651,10 @@ namespace Kadr.UI.Frames
             this.employeeBonusReportFrame1.TabIndex = 18;
             this.employeeBonusReportFrame1.WithSubReports = true;
             // 
+            // materialResponsibilityDecoratorBindingSource
+            // 
+            this.materialResponsibilityDecoratorBindingSource.DataSource = typeof(Kadr.Data.MaterialResponsibilityDecorator);
+            // 
             // bonusReportColumnBindingSource
             // 
             this.bonusReportColumnBindingSource.DataSource = typeof(Kadr.Data.BonusReportColumn);
@@ -2341,6 +2662,487 @@ namespace Kadr.UI.Frames
             // bonusTypeBindingSource
             // 
             this.bonusTypeBindingSource.DataSource = typeof(Kadr.Data.BonusType);
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "FinSource";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Ист фин";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 45;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Prikaz";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Приказ";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 140;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "DateEnd";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Дата окончания";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "DateBegin";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Дата назн.";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "PrikazBegin";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Приказ назн.";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 55;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "DateEnd";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Дата увольн";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Prikaz";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Приказ увольн";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 55;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "OK_Otpuskvid";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Вид отпуска";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "Prikaz";
+            this.dataGridViewTextBoxColumn21.HeaderText = "Приказ";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            this.dataGridViewTextBoxColumn21.Width = 140;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "DateBegin";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Дата начала";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            this.dataGridViewTextBoxColumn22.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "DateEnd";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Дата окончания";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            this.dataGridViewTextBoxColumn23.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "Prikaz";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Приказ";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            this.dataGridViewTextBoxColumn24.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "DateBegin";
+            this.dataGridViewTextBoxColumn25.HeaderText = "Дата начала";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            this.dataGridViewTextBoxColumn25.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "DateEnd";
+            this.dataGridViewTextBoxColumn26.HeaderText = "Дата окончания";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            this.dataGridViewTextBoxColumn26.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "TargetPlace";
+            this.dataGridViewTextBoxColumn27.HeaderText = "Место назначения";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "FinSource";
+            this.dataGridViewTextBoxColumn28.HeaderText = "Источник финансирования";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn28.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn29.HeaderText = "id";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
+            this.dataGridViewTextBoxColumn29.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "idFactStaffPrikaz";
+            this.dataGridViewTextBoxColumn30.HeaderText = "idFactStaffPrikaz";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            this.dataGridViewTextBoxColumn30.Visible = false;
+            this.dataGridViewTextBoxColumn30.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.DataPropertyName = "idContract";
+            this.dataGridViewTextBoxColumn31.HeaderText = "idContract";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.ReadOnly = true;
+            this.dataGridViewTextBoxColumn31.Visible = false;
+            this.dataGridViewTextBoxColumn31.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn32.DataPropertyName = "Sum";
+            this.dataGridViewTextBoxColumn32.HeaderText = "Sum";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.ReadOnly = true;
+            this.dataGridViewTextBoxColumn32.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn33.DataPropertyName = "Contract";
+            this.dataGridViewTextBoxColumn33.HeaderText = "Contract";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.ReadOnly = true;
+            this.dataGridViewTextBoxColumn33.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "FactStaffPrikaz";
+            this.dataGridViewTextBoxColumn34.HeaderText = "FactStaffPrikaz";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
+            this.dataGridViewTextBoxColumn34.Visible = false;
+            this.dataGridViewTextBoxColumn34.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn35.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn35.HeaderText = "id";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.ReadOnly = true;
+            this.dataGridViewTextBoxColumn35.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.DataPropertyName = "RegionType";
+            this.dataGridViewTextBoxColumn36.HeaderText = "Тип региона";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.ReadOnly = true;
+            this.dataGridViewTextBoxColumn36.Visible = false;
+            this.dataGridViewTextBoxColumn36.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn37
+            // 
+            this.dataGridViewTextBoxColumn37.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn37.DataPropertyName = "StandingType";
+            this.dataGridViewTextBoxColumn37.HeaderText = "Тип стажа";
+            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            this.dataGridViewTextBoxColumn37.ReadOnly = true;
+            this.dataGridViewTextBoxColumn37.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            this.dataGridViewTextBoxColumn38.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn38.DataPropertyName = "WorkPlace";
+            this.dataGridViewTextBoxColumn38.HeaderText = "Место работы";
+            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            this.dataGridViewTextBoxColumn38.ReadOnly = true;
+            this.dataGridViewTextBoxColumn38.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.DataPropertyName = "Post";
+            this.dataGridViewTextBoxColumn39.HeaderText = "Должность";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.ReadOnly = true;
+            this.dataGridViewTextBoxColumn39.Visible = false;
+            this.dataGridViewTextBoxColumn39.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn40.DataPropertyName = "DateBegin";
+            this.dataGridViewTextBoxColumn40.HeaderText = "Дата приема";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.ReadOnly = true;
+            this.dataGridViewTextBoxColumn40.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            this.dataGridViewTextBoxColumn41.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn41.DataPropertyName = "DateEnd";
+            this.dataGridViewTextBoxColumn41.HeaderText = "Дата увольнения";
+            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            this.dataGridViewTextBoxColumn41.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn42
+            // 
+            this.dataGridViewTextBoxColumn42.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn42.DataPropertyName = "idRegionType";
+            this.dataGridViewTextBoxColumn42.HeaderText = "idRegionType";
+            this.dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
+            this.dataGridViewTextBoxColumn42.ReadOnly = true;
+            this.dataGridViewTextBoxColumn42.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn43
+            // 
+            this.dataGridViewTextBoxColumn43.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn43.DataPropertyName = "idStandingType";
+            this.dataGridViewTextBoxColumn43.HeaderText = "idStandingType";
+            this.dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
+            this.dataGridViewTextBoxColumn43.ReadOnly = true;
+            this.dataGridViewTextBoxColumn43.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn44
+            // 
+            this.dataGridViewTextBoxColumn44.DataPropertyName = "idEmployee";
+            this.dataGridViewTextBoxColumn44.HeaderText = "idEmployee";
+            this.dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
+            this.dataGridViewTextBoxColumn44.ReadOnly = true;
+            this.dataGridViewTextBoxColumn44.Visible = false;
+            this.dataGridViewTextBoxColumn44.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn45
+            // 
+            this.dataGridViewTextBoxColumn45.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn45.DataPropertyName = "Employee";
+            this.dataGridViewTextBoxColumn45.HeaderText = "Employee";
+            this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
+            this.dataGridViewTextBoxColumn45.ReadOnly = true;
+            this.dataGridViewTextBoxColumn45.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn46
+            // 
+            this.dataGridViewTextBoxColumn46.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn46.DataPropertyName = "BonusLevel";
+            this.dataGridViewTextBoxColumn46.HeaderText = "Уровень надбавки";
+            this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
+            this.dataGridViewTextBoxColumn46.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn47
+            // 
+            this.dataGridViewTextBoxColumn47.DataPropertyName = "Post";
+            this.dataGridViewTextBoxColumn47.HeaderText = "Должность";
+            this.dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
+            this.dataGridViewTextBoxColumn47.ReadOnly = true;
+            this.dataGridViewTextBoxColumn47.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn48
+            // 
+            this.dataGridViewTextBoxColumn48.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn48.DataPropertyName = "BonusType";
+            this.dataGridViewTextBoxColumn48.HeaderText = "Вид надбавки";
+            this.dataGridViewTextBoxColumn48.Name = "dataGridViewTextBoxColumn48";
+            this.dataGridViewTextBoxColumn48.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn49
+            // 
+            this.dataGridViewTextBoxColumn49.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn49.DataPropertyName = "LastFinancingSource";
+            this.dataGridViewTextBoxColumn49.HeaderText = "Ист фин-я";
+            this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
+            this.dataGridViewTextBoxColumn49.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn50
+            // 
+            this.dataGridViewTextBoxColumn50.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn50.DataPropertyName = "BonusCount";
+            this.dataGridViewTextBoxColumn50.HeaderText = "Размер надбавки";
+            this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
+            this.dataGridViewTextBoxColumn50.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn51
+            // 
+            this.dataGridViewTextBoxColumn51.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn51.DataPropertyName = "DateBegin";
+            this.dataGridViewTextBoxColumn51.HeaderText = "Дата назначения";
+            this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
+            this.dataGridViewTextBoxColumn51.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn52
+            // 
+            this.dataGridViewTextBoxColumn52.DataPropertyName = "PrikazBegin";
+            this.dataGridViewTextBoxColumn52.HeaderText = "Приказ назначения";
+            this.dataGridViewTextBoxColumn52.MinimumWidth = 200;
+            this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
+            this.dataGridViewTextBoxColumn52.ReadOnly = true;
+            this.dataGridViewTextBoxColumn52.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn53
+            // 
+            this.dataGridViewTextBoxColumn53.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn53.DataPropertyName = "IntermediateDateEnd";
+            this.dataGridViewTextBoxColumn53.HeaderText = "Пром. дата отмены";
+            this.dataGridViewTextBoxColumn53.MinimumWidth = 200;
+            this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
+            this.dataGridViewTextBoxColumn53.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn54
+            // 
+            this.dataGridViewTextBoxColumn54.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn54.DataPropertyName = "DateEnd";
+            this.dataGridViewTextBoxColumn54.HeaderText = "Дата отмены";
+            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            this.dataGridViewTextBoxColumn54.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn55
+            // 
+            this.dataGridViewTextBoxColumn55.DataPropertyName = "Prikaz";
+            this.dataGridViewTextBoxColumn55.HeaderText = "Приказ отмены";
+            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
+            this.dataGridViewTextBoxColumn55.ReadOnly = true;
+            this.dataGridViewTextBoxColumn55.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn56
+            // 
+            this.dataGridViewTextBoxColumn56.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn56.DataPropertyName = "Comment";
+            this.dataGridViewTextBoxColumn56.HeaderText = "Примечание";
+            this.dataGridViewTextBoxColumn56.Name = "dataGridViewTextBoxColumn56";
+            this.dataGridViewTextBoxColumn56.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn57
+            // 
+            this.dataGridViewTextBoxColumn57.DataPropertyName = "Degree";
+            this.dataGridViewTextBoxColumn57.HeaderText = "Ученая степень";
+            this.dataGridViewTextBoxColumn57.MinimumWidth = 200;
+            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
+            this.dataGridViewTextBoxColumn57.ReadOnly = true;
+            this.dataGridViewTextBoxColumn57.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn58
+            // 
+            this.dataGridViewTextBoxColumn58.DataPropertyName = "ScienceType";
+            this.dataGridViewTextBoxColumn58.HeaderText = "Науч. напр.";
+            this.dataGridViewTextBoxColumn58.MinimumWidth = 200;
+            this.dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
+            this.dataGridViewTextBoxColumn58.ReadOnly = true;
+            this.dataGridViewTextBoxColumn58.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn59
+            // 
+            this.dataGridViewTextBoxColumn59.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn59.DataPropertyName = "EducDocument";
+            this.dataGridViewTextBoxColumn59.HeaderText = "Данные диплома";
+            this.dataGridViewTextBoxColumn59.MinimumWidth = 200;
+            this.dataGridViewTextBoxColumn59.Name = "dataGridViewTextBoxColumn59";
+            this.dataGridViewTextBoxColumn59.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn60
+            // 
+            this.dataGridViewTextBoxColumn60.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn60.DataPropertyName = "DissertCouncil";
+            this.dataGridViewTextBoxColumn60.HeaderText = "Диссерт совет";
+            this.dataGridViewTextBoxColumn60.Name = "dataGridViewTextBoxColumn60";
+            this.dataGridViewTextBoxColumn60.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn66
+            // 
+            this.dataGridViewTextBoxColumn66.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn66.DataPropertyName = "Prikaz";
+            this.dataGridViewTextBoxColumn66.HeaderText = "Приказ";
+            this.dataGridViewTextBoxColumn66.Name = "dataGridViewTextBoxColumn66";
+            this.dataGridViewTextBoxColumn66.ReadOnly = true;
+            // 
+            // ContractName
+            // 
+            this.ContractName.DataPropertyName = "ContractName";
+            this.ContractName.HeaderText = "Номер договора";
+            this.ContractName.Name = "ContractName";
+            this.ContractName.ReadOnly = true;
+            // 
+            // DateContract
+            // 
+            this.DateContract.DataPropertyName = "DateContract";
+            this.DateContract.HeaderText = "Дата договора";
+            this.DateContract.Name = "DateContract";
+            this.DateContract.ReadOnly = true;
+            // 
+            // sumDataGridViewTextBoxColumn
+            // 
+            this.sumDataGridViewTextBoxColumn.DataPropertyName = "Sum";
+            this.sumDataGridViewTextBoxColumn.HeaderText = "Сумма выплаты";
+            this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
+            this.sumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DateBegin
+            // 
+            this.DateBegin.DataPropertyName = "DateBegin";
+            this.DateBegin.HeaderText = "Дата начала";
+            this.DateBegin.Name = "DateBegin";
+            this.DateBegin.ReadOnly = true;
+            // 
+            // BusinessTripsBindingSource
+            // 
+            this.BusinessTripsBindingSource.DataSource = typeof(Kadr.Data.BusinessTripDecorator);
+            // 
+            // dataGridViewTextBoxColumn61
+            // 
+            this.dataGridViewTextBoxColumn61.DataPropertyName = "degreeDate";
+            this.dataGridViewTextBoxColumn61.HeaderText = "Дата присвоения степени";
+            this.dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
+            // 
+            // dataGridViewTextBoxColumn62
+            // 
+            this.dataGridViewTextBoxColumn62.DataPropertyName = "diplWhere";
+            this.dataGridViewTextBoxColumn62.HeaderText = "Диплом выдан";
+            this.dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
+            // 
+            // dataGridViewTextBoxColumn63
+            // 
+            this.dataGridViewTextBoxColumn63.DataPropertyName = "Rank";
+            this.dataGridViewTextBoxColumn63.HeaderText = "Ученое звание";
+            this.dataGridViewTextBoxColumn63.MinimumWidth = 200;
+            this.dataGridViewTextBoxColumn63.Name = "dataGridViewTextBoxColumn63";
+            this.dataGridViewTextBoxColumn63.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn64
+            // 
+            this.dataGridViewTextBoxColumn64.DataPropertyName = "EducDocument";
+            this.dataGridViewTextBoxColumn64.HeaderText = "Данные диплома";
+            this.dataGridViewTextBoxColumn64.MinimumWidth = 200;
+            this.dataGridViewTextBoxColumn64.Name = "dataGridViewTextBoxColumn64";
+            this.dataGridViewTextBoxColumn64.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn65
+            // 
+            this.dataGridViewTextBoxColumn65.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn65.DataPropertyName = "rankWhere";
+            this.dataGridViewTextBoxColumn65.HeaderText = "Звание утверждено";
+            this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
             // 
             // KadrEmployeeFrame
             // 
@@ -2390,9 +3192,16 @@ namespace Kadr.UI.Frames
             this.tpBusTrip.ResumeLayout(false);
             this.tpBusTrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrips)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).EndInit();
+
+            ((System.ComponentModel.ISupportInitialize)(this.businessTripDecoratorBindingSource)).EndInit();
             this.tsBusinessTrips.ResumeLayout(false);
             this.tsBusinessTrips.PerformLayout();
+            this.tpMaterial.ResumeLayout(false);
+            this.tpMaterial.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaterialResponsibilitybindingSource)).EndInit();
+            this.tsMaterialResp.ResumeLayout(false);
+            this.tsMaterialResp.PerformLayout();
             this.tpEmplStading.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -2431,8 +3240,10 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel6.PerformLayout();
             this.toolStrip6.ResumeLayout(false);
             this.toolStrip6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.materialResponsibilityDecoratorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusReportColumnBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2640,6 +3451,8 @@ namespace Kadr.UI.Frames
                 LoadOtpusk();
             if (tcEmplPostInf.SelectedTab == tpBusTrip)
                 LoadTrips();
+            if (tcEmplPostInf.SelectedTab == tpMaterial)
+                LoadMaterials();
         }
 
         private void tsbAddEmplTrip_Click(object sender, EventArgs e)
@@ -2650,10 +3463,15 @@ namespace Kadr.UI.Frames
                 dlg.ObjectList = KadrController.Instance.Model.BusinessTrips;
                 //dlg.BindingSource = employeeStandingBindingSo;
                 dlg.UseInternalCommandManager = true;
+
+                FactStaff fs = (FactStaff)factStaffBindingSource.Current;
+
                 dlg.InitializeNewObject = (x) =>
                 {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(), null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), this);
+
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(DateTime.Now, DateTime.Now.AddDays(7), fs), null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", " ", null), this);
+                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.First(), null), this);
                 };
 
                 dlg.UpdateObjectList = () =>
@@ -2664,6 +3482,32 @@ namespace Kadr.UI.Frames
                 dlg.ShowDialog();
             }
             LoadTrips();
+        }
+
+        private void tsbDelEmplTrip_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (BusinessTripsBindingSource.Current as BusinessTripDecorator).ToString()),"Подтверждение", MessageBoxButtons.OKCancel)==DialogResult.OK)
+            {
+              BusinessTrip bt = (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip();
+              KadrController.Instance.Model.BusinessTrips.DeleteOnSubmit(bt);
+              KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(bt.FactStaffPrikaz);
+              KadrController.Instance.Model.SubmitChanges();
+            }
+            LoadTrips();
+
+        }
+
+        private void tsbEditEmplTrip_Click(object sender, EventArgs e)
+        {
+            if (BusinessTripsBindingSource.Current != null)
+                LinqActionsController<BusinessTrip>.Instance.EditObject(
+                        (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip(), true);
+            LoadTrips();
+        }
+
+        private void dgvTrips_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tsbEditEmplTrip_Click(sender, null);
         }
 
         private void tsbDelOtp_Click(object sender, EventArgs e)
@@ -2688,6 +3532,86 @@ namespace Kadr.UI.Frames
             LinqActionsController<FactStaffPrikaz>.Instance.DeleteObject(CurrentPrikaz, KadrController.Instance.Model.FactStaffPrikazs, null);
 
             LoadOtpusk();
+        }
+
+        private void tsbAddMaterial_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new Common.PropertyGridDialogAdding<MaterialResponsibility>())
+            {
+                dlg.ObjectList = KadrController.Instance.Model.MaterialResponsibilities;
+                dlg.UseInternalCommandManager = true;
+                dlg.InitializeNewObject = (x) =>
+                {
+                    var factStaffPrikaz = new FactStaffPrikaz();
+                    dlg.CommandManager.Execute(
+                        new GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikaz, "FactStaff",
+                            factStaffBindingSource.Current as FactStaff, null), this);
+                    dlg.CommandManager.Execute(
+                        new GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikaz, "Prikaz",
+                            NullPrikaz.Instance, null), this);
+                    dlg.CommandManager.Execute(
+                        new GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateBegin",
+                            DateTime.Today, null), this);
+                    dlg.CommandManager.Execute(
+                        new GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateEnd",
+                            null, null), this);
+
+                    dlg.CommandManager.Execute(
+                        new GenericPropertyCommand<MaterialResponsibility, FactStaffPrikaz>(x,
+                            "FactStaffPrikaz", factStaffPrikaz, null), this);
+                   // var contract = new Data.Contract();
+                    dlg.CommandManager.Execute(new GenericPropertyCommand<MaterialResponsibility, Contract>(x, "Contract", new Contract(), null), this);
+                    dlg.CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(x.Contract, "DateContract", DateTime.Today, null), this);
+                    dlg.CommandManager.Execute(
+                        new GenericPropertyCommand<Contract, string>(x.Contract, "ContractName", "", null),
+                        this);
+
+                };
+
+                dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.MaterialResponsibilities;
+                };
+
+                dlg.ShowDialog();
+            }
+            LoadMaterials();
+        }
+
+        private void tsbDelMaterial_Click(object sender, EventArgs e)
+        {
+            if (MaterialResponsibilitybindingSource.Current == null)
+            {
+                MessageBox.Show(@"Не выбрана удаляемая материальная ответственность.", @"ИС ""Управление кадрами""");
+                return;
+            }
+
+            var currMaterial = MaterialResponsibilitybindingSource.Current as MaterialResponsibility;
+
+            if (MessageBox.Show("Удалить материальную ответственность?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
+                != DialogResult.OK)
+            {
+                return;
+            }
+            var currentPrikaz = currMaterial.FactStaffPrikaz;
+            var currContract = currMaterial.Contract;
+
+            KadrController.Instance.Model.MaterialResponsibilities.DeleteOnSubmit(currMaterial);
+            LinqActionsController<FactStaffPrikaz>.Instance.DeleteObject(currentPrikaz, KadrController.Instance.Model.FactStaffPrikazs, null);
+            LinqActionsController<Contract>.Instance.DeleteObject(currContract, KadrController.Instance.Model.Contracts, null);
+
+            LoadMaterials();
+        }
+
+        private void tsbEditMaterial_Click(object sender, EventArgs e)
+        {
+            if (MaterialResponsibilitybindingSource.Current != null)
+            {
+                var currMaterial = MaterialResponsibilitybindingSource.Current as MaterialResponsibility;
+                LinqActionsController<MaterialResponsibility>.Instance.EditObject(
+                    currMaterial, true);
+            }
+            LoadMaterials();
         }
 
         private void tsbSocialFareTransit_Click(object sender, EventArgs e)
