@@ -212,6 +212,7 @@
     <Compile Include="Data\Entities\Category.cs" />
     <Compile Include="Data\Entities\CategoryVPO.cs" />
     <Compile Include="Data\Entities\CategoryZP.cs" />
+    <Compile Include="Data\Entities\Contract.cs" />
     <Compile Include="Data\Entities\Degree.cs" />
     <Compile Include="Data\Entities\Dep.cs" />
     <Compile Include="Data\Entities\Department.cs" />
@@ -238,9 +239,12 @@
     <Compile Include="Data\Entities\FundingCenter.cs" />
     <Compile Include="Data\Entities\GlobalPrikaz.cs" />
     <Compile Include="Data\Entities\Grazd.cs" />
+    <Compile Include="Data\Entities\MaterialResponsibility.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
+    <Compile Include="Data\Entities\OK_Adress.cs" />
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
+    <Compile Include="Data\Entities\OK_phone.cs" />
     <Compile Include="Data\Entities\PKCategory.cs" />
     <Compile Include="Data\Entities\PKCategorySalary.cs" />
     <Compile Include="Data\Entities\PKGroup.cs" />
@@ -594,6 +598,7 @@
     <Compile Include="UI\Editors\ScienceTypeEditor.cs" />
     <Compile Include="UI\Editors\SemPolEditor.cs" />
     <Compile Include="UI\Editors\MonthEditor.cs" />
+    <Compile Include="UI\Editors\SocialFareTransitEditor.cs" />
     <Compile Include="UI\Editors\StandingTypeEditor.cs" />
     <Compile Include="UI\Editors\TripRegionsEditor.cs" />
     <Compile Include="UI\Editors\WorkSheduleEditor.cs" />
@@ -651,6 +656,12 @@
     </Compile>
     <Compile Include="UI\Forms\PlanStaffSalaryHistoryForm.Designer.cs">
       <DependentUpon>PlanStaffSalaryHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\SocialFareTransitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\SocialFareTransitForm.Designer.cs">
+      <DependentUpon>SocialFareTransitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\TimeSheetReport.cs">
       <SubType>Form</SubType>
@@ -863,6 +874,9 @@
     <EmbeddedResource Include="UI\Forms\PlanStaffSalaryHistoryForm.resx">
       <DependentUpon>PlanStaffSalaryHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\SocialFareTransitForm.resx">
+      <DependentUpon>SocialFareTransitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\TimeSheetReport.resx">
       <DependentUpon>TimeSheetReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -947,7 +961,9 @@
     <None Include="Properties\DataSources\Kadr.Data.GetBonusByBonusTypeForProlong.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.GetStaffErrorsByPeriod.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OKVED.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_Adress.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_Otpusk.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_phone.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.PlanStaff.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.PlanStaffHistory.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.PlanStaffSalary.datasource" />
@@ -965,6 +981,9 @@
     <None Include="Properties\DataSources\Kadr.Data.TimeSheetFSWorkingDays.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.TimeSheetScheduleType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.WorkType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Contract.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibility.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibilityDecorator.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
