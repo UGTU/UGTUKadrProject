@@ -4,18 +4,30 @@ using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
 using System.Text;
+using UIX.Views;
 
 namespace Kadr.Data
 {
-    public partial class BusinessTripRegionType : UIX.Views.IValidatable, INull, IComparable
+    public partial class BusinessTripRegionType : UIX.Views.IValidatable, INull, IComparable, IDecorable
     {
         #region Properties
 
+        public int ID { get { return idRegionType; } set { idRegionType = value; } }
+
         #endregion
+
+        public BusinessTripRegionType(DateTime beg, DateTime end, RegionType regiontype)
+        {
+            DateBegin = beg;
+            DateEnd = end;
+            RegionType = regiontype;
+        }
 
         public override string ToString()
         {
-            return string.Format("С {0} по {1} в {2}", DateBegin.ToShortDateString(), DateEnd.ToShortDateString(),RegionType.RegionTypeName); 
+            if (DateBegin != null)
+                return string.Format("С {0} по {1} в {2}", DateBegin.ToShortDateString(), DateEnd.ToShortDateString(), RegionType.RegionTypeName);
+            else return "Не задано";
         }
 
         #region partial Methods
@@ -56,8 +68,7 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
-            return null;
-            //return new BusinessTripDecorator(this);
+            return new BusinessTripRegionTypeDecorator(this);
         }
 
         #endregion
