@@ -260,6 +260,7 @@
     <Compile Include="Data\Entities\SalaryKoeff.cs" />
     <Compile Include="Data\Entities\ScienceType.cs" />
     <Compile Include="Data\Entities\SemPol.cs" />
+    <Compile Include="Data\Entities\SocialFareTransit.cs" />
     <Compile Include="Data\Entities\StandingType.cs" />
     <Compile Include="Data\Entities\TimeSheet.cs" />
     <Compile Include="Data\Entities\TimeSheetFSWorkingDay.cs" />
@@ -946,6 +947,7 @@
     <None Include="Properties\DataSources\Kadr.Data.PrikazView.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.RegionType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.SalaryKoeff.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.SocialFareTransit.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.StandingType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.TimeSheet.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.TimeSheetDayState.datasource" />

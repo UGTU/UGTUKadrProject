@@ -912,7 +912,7 @@ namespace Kadr.UI.Frames
             this.tpFamily.Location = new System.Drawing.Point(4, 22);
             this.tpFamily.Name = "tpFamily";
             this.tpFamily.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFamily.Size = new System.Drawing.Size(782, 455);
+            this.tpFamily.Size = new System.Drawing.Size(863, 293);
             this.tpFamily.TabIndex = 1;
             this.tpFamily.Text = "Состав семьи";
             this.tpFamily.UseVisualStyleBackColor = true;
@@ -921,7 +921,7 @@ namespace Kadr.UI.Frames
             // 
             this.tpContData.Location = new System.Drawing.Point(4, 22);
             this.tpContData.Name = "tpContData";
-            this.tpContData.Size = new System.Drawing.Size(782, 455);
+            this.tpContData.Size = new System.Drawing.Size(863, 293);
             this.tpContData.TabIndex = 2;
             this.tpContData.Text = "Контактные данные";
             this.tpContData.UseVisualStyleBackColor = true;
@@ -1286,12 +1286,14 @@ namespace Kadr.UI.Frames
             this.dgvTrips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrips.Size = new System.Drawing.Size(849, 67);
             this.dgvTrips.TabIndex = 13;
+            this.dgvTrips.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrips_CellDoubleClick);
             // 
             // prikazDataGridViewTextBoxColumn
             // 
             this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
             this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
             this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
+            this.prikazDataGridViewTextBoxColumn.Width = 200;
             // 
             // dateBeginDataGridViewTextBoxColumn1
             // 
@@ -1310,6 +1312,7 @@ namespace Kadr.UI.Frames
             this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
             this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
             this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
+            this.targetPlaceDataGridViewTextBoxColumn.Width = 200;
             // 
             // finSourceDataGridViewTextBoxColumn
             // 
@@ -1350,6 +1353,7 @@ namespace Kadr.UI.Frames
             this.tsbEditEmplTrip.Size = new System.Drawing.Size(107, 22);
             this.tsbEditEmplTrip.Text = "Редактировать";
             this.tsbEditEmplTrip.ToolTipText = "Редактировать запись";
+            this.tsbEditEmplTrip.Click += new System.EventHandler(this.tsbEditEmplTrip_Click);
             // 
             // tsbDelEmplTrip
             // 
@@ -1359,6 +1363,7 @@ namespace Kadr.UI.Frames
             this.tsbDelEmplTrip.Size = new System.Drawing.Size(71, 22);
             this.tsbDelEmplTrip.Text = "Удалить";
             this.tsbDelEmplTrip.ToolTipText = "Удалить запись";
+            this.tsbDelEmplTrip.Click += new System.EventHandler(this.tsbDelEmplTrip_Click);
             // 
             // tpMaterial
             // 
@@ -2966,10 +2971,14 @@ namespace Kadr.UI.Frames
                 dlg.ObjectList = KadrController.Instance.Model.BusinessTrips;
                 //dlg.BindingSource = employeeStandingBindingSo;
                 dlg.UseInternalCommandManager = true;
+
+                FactStaff fs = (FactStaff)factStaffBindingSource.Current;
+
                 dlg.InitializeNewObject = (x) =>
                 {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(), null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(DateTime.Now, DateTime.Now.AddDays(7), fs), null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", " ", null), this);
+                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.First(), null), this);
                 };
 
                 dlg.UpdateObjectList = () =>
@@ -2980,6 +2989,32 @@ namespace Kadr.UI.Frames
                 dlg.ShowDialog();
             }
             LoadTrips();
+        }
+
+        private void tsbDelEmplTrip_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (BusinessTripsBindingSource.Current as BusinessTripDecorator).ToString()),"Подтверждение", MessageBoxButtons.OKCancel)==DialogResult.OK)
+            {
+              BusinessTrip bt = (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip();
+              KadrController.Instance.Model.BusinessTrips.DeleteOnSubmit(bt);
+              KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(bt.FactStaffPrikaz);
+              KadrController.Instance.Model.SubmitChanges();
+            }
+            LoadTrips();
+
+        }
+
+        private void tsbEditEmplTrip_Click(object sender, EventArgs e)
+        {
+            if (BusinessTripsBindingSource.Current != null)
+                LinqActionsController<BusinessTrip>.Instance.EditObject(
+                        (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip(), true);
+            LoadTrips();
+        }
+
+        private void dgvTrips_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tsbEditEmplTrip_Click(sender, null);
         }
 
         private void tsbDelOtp_Click(object sender, EventArgs e)

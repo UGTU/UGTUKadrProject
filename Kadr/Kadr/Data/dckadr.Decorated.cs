@@ -4805,7 +4805,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Приказ")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Приказ, назначающий командировку")]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz Prikaz
@@ -4823,13 +4823,13 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата начала")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("Сроки")]
         [System.ComponentModel.Description("Дата начала командировки, значащаяся в приказе")]
-        public DateTime? DateBegin
+        public DateTime DateBegin
         {
             get
             {
-                return Trip.FactStaffPrikaz.DateBegin;
+                return (DateTime)Trip.FactStaffPrikaz.DateBegin;
             }
             set
             {
@@ -4840,14 +4840,14 @@ namespace Kadr.Data
       
 
         [System.ComponentModel.DisplayName("Дата окончания")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("Сроки")]
         [System.ComponentModel.Description("Дата окончания командировки, значащаяся в приказе")]
 
-        public DateTime? DateEnd
+        public DateTime DateEnd
         {
             get
             {
-                return Trip.FactStaffPrikaz.DateEnd;
+                return (DateTime)Trip.FactStaffPrikaz.DateEnd;
             }
             set
             {
@@ -4855,8 +4855,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Место назначения")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.DisplayName("Основное место назначения")]
+        [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Основное место назначения командировки")]
 
         public string TargetPlace
@@ -4871,8 +4871,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Источник финансирования")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.DisplayName("Финансирование")]
+        [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("За счет каких средств осуществляется командировка")]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public FinancingSource FinSource
@@ -4887,8 +4887,11 @@ namespace Kadr.Data
             }
         }
 
-        
 
+        internal BusinessTrip GetTrip()
+        {
+            return Trip;
+        }
     }
 
     #endregion
