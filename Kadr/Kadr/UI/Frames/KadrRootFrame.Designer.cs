@@ -703,8 +703,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(921, 399);
-            this.splitContainer1.SplitterDistance = 147;
+            this.splitContainer1.Size = new System.Drawing.Size(796, 527);
+            this.splitContainer1.SplitterDistance = 194;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -1703,7 +1703,7 @@
             this.btnHourStaffToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnHourStaffToExcel.Image")));
             this.btnHourStaffToExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnHourStaffToExcel.Name = "btnHourStaffToExcel";
-            this.btnHourStaffToExcel.Size = new System.Drawing.Size(142, 21);
+            this.btnHourStaffToExcel.Size = new System.Drawing.Size(142, 20);
             this.btnHourStaffToExcel.Text = "Выгрузить в MS Excel";
             this.btnHourStaffToExcel.Click += new System.EventHandler(this.btnHourStaffToExcel_Click);
             // 

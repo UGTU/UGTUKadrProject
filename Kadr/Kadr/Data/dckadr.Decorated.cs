@@ -2858,7 +2858,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("ФИО сотрдника")]
+        [System.ComponentModel.DisplayName("ФИО сотрудника")]
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("ФИО сотрудника")]
         [System.ComponentModel.ReadOnly(true)]
@@ -2889,9 +2889,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата приема на работу")]
+        [System.ComponentModel.DisplayName("Дата увольнения")]
         [System.ComponentModel.Category("Данные трудовой книжки")]
-        [System.ComponentModel.Description("Дата приема на работу")]
+        [System.ComponentModel.Description("Дата увольнения")]
         public DateTime DateEnd
         {
             get
@@ -4577,11 +4577,11 @@ namespace Kadr.Data
         {
             get
             {
-                return ok_Otpusk.FactStaffPrikaz.DateBegin.Value;
+                return ok_Otpusk.RealDateBegin.Value;
             }
             set
             {
-                ok_Otpusk.FactStaffPrikaz.DateBegin = value;
+                ok_Otpusk.RealDateBegin = value;
             }
         }
 
@@ -4592,11 +4592,11 @@ namespace Kadr.Data
         {
             get
             {
-                return ok_Otpusk.FactStaffPrikaz.DateEnd.Value;
+                return ok_Otpusk.RealDateEnd.Value;
             }
             set
             {
-                ok_Otpusk.FactStaffPrikaz.DateEnd = value;
+                ok_Otpusk.RealDateEnd = value;
             }
         }
         
@@ -4624,15 +4624,15 @@ namespace Kadr.Data
         {
             get
             {
-                return ok_Otpusk.FactStaffPrikaz.Prikaz;
+                return ok_Otpusk.RealPrikaz;
             }
             set
             {
-                ok_Otpusk.FactStaffPrikaz.Prikaz = value;
+                ok_Otpusk.RealPrikaz = value;
             }
         }
 
-        [System.ComponentModel.DisplayName("Сотрудник")]
+        /*[System.ComponentModel.DisplayName("Сотрудник")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Сотрудник")]
         [System.ComponentModel.Editor(typeof(FactStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -4646,129 +4646,140 @@ namespace Kadr.Data
             {
                 ok_Otpusk.FactStaffPrikaz.FactStaff = value;
             }
-        }
+        }*/
 
-        /*[System.ComponentModel.DisplayName("Номер уровня")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
-        public int? CountDay
-        {
-            get
-            {
-                return ok_Otpusk;
-            }
-            set
-            {
-                ok_Otpusk. = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Номер подуровня 1")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Номер профессионально-квалификационного подуровня 1")]
-        public int PKSubCategoryNumber
-        {
-            get
-            {
-                return pkCategory.PKSubCategoryNumber;
-            }
-            set
-            {
-                pkCategory.PKSubCategoryNumber = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Номер подуровня 2")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Номер профессионально-квалификационного подуровня 2")]
-        public int? PKSubSubCategoryNumber
-        {
-            get
-            {
-                return pkCategory.PKSubSubCategoryNumber;
-            }
-            set
-            {
-                pkCategory.PKSubSubCategoryNumber = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Подподкатегория")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
-        public int? SalaryKoeff
-        {
-            get
-            {
-                if (pkCategory.SalaryKoeff != null)
-                    return pkCategory.SalaryKoeff.PKSubSubCategoryNumber;
-                return null;
-            }
-            set
-            {
-                pkCategory.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Профессиональная группа")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Профессионально-квалификационная группа")]
-        [System.ComponentModel.Editor(typeof(PKGroupEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public PKGroup PKGroup
-        {
-            get
-            {
-                return pkCategory.PKGroup;
-            }
-            set
-            {
-                pkCategory.PKGroup = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Полное имя профессионально-квалификационного подуровня")]
-        [System.ComponentModel.Category("Атрибуты")]
-        [System.ComponentModel.Description("Полное имя профессионально-квалификационного подуровня")]
-        [System.ComponentModel.ReadOnly(true)]
-        public string CategoryFullName
-        {
-            get
-            {
-                return pkCategory.CategoryFullName;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Комментарий")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Комментарий к профессионально-квалификационному подуровню")]
-        public string PKComment
-        {
-            get
-            {
-                return pkCategory.PKComment;
-            }
-            set
-            {
-                pkCategory.PKComment = value;
-            }
-        }
-
-        //[System.ComponentModel.DisplayName("PKCategorySalary")]
-        //[System.ComponentModel.Category("Атрибуты")]
-        //[System.ComponentModel.Description("Оклад профессионально-квалификационной категории")]
-        //[System.ComponentModel.ReadOnly(true)]
-        //public PKCategorySalary PKCategorySalary
-        //{
-        //    get
-        //    {
-        //        return pkCategory.PKCategorySalaries.Where(pkCatSal => pkCatSal.DateEnd == null).First() as PKCategorySalary;
-        //    }
-        //}
-*/
+ 
     }
 
 
     #endregion
+
+    #region Prikaz Decorator
+    class SocialFareTransitDecorator
+    {
+
+        private SocialFareTransit socialFareTransit;
+        public SocialFareTransitDecorator(SocialFareTransit socialFareTransit)
+        {
+            this.socialFareTransit = socialFareTransit;
+        }
+
+        override public string ToString()
+        {
+            return socialFareTransit.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код приказа в системе")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int ID
+        {
+            get
+            {
+                return socialFareTransit.id;
+            }
+            set
+            {
+                socialFareTransit.id = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата вступления в силу")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата вступления приказа в силу")]
+        public DateTime DateBegin
+        {
+            get
+            {
+                return socialFareTransit.DateBegin;
+            }
+            set
+            {
+                socialFareTransit.DateBegin = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата вступления в силу")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата вступления приказа в силу")]
+        public DateTime DateEnd
+        {
+            get
+            {
+                return socialFareTransit.DateEnd;
+            }
+            set
+            {
+                socialFareTransit.DateEnd = value;
+            }
+        }
+
+
+       /* [System.ComponentModel.DisplayName("Дата вступления в силу")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата вступления приказа в силу")]
+        public DateTime dfg
+        {
+            get
+            {
+                return socialFareTransit;
+            }
+            set
+            {
+                socialFareTransit. = value;
+            }
+        }
+        [System.ComponentModel.DisplayName("Название приказа")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Название приказа")]
+        public string PrikazName
+        {
+            get
+            {
+                return prikaz.PrikazName;
+            }
+            set
+            {
+                prikaz.PrikazName = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата вступления в силу")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата вступления приказа в силу")]
+        public DateTime DatePrikaz
+        {
+            get
+            {
+                return Convert.ToDateTime(prikaz.DatePrikaz);
+            }
+            set
+            {
+                prikaz.DatePrikaz = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Вид приказа")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Вид приказа")]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Kadr.Data.PrikazType PrikazType
+        {
+            get
+            {
+                return prikaz.PrikazType;
+            }
+            set
+            {
+                prikaz.PrikazType = value;
+            }
+        }*/
+
+
+    }
+    #endregion
+
 
 
     #region BusinessTrip Decorator
@@ -4893,6 +4904,135 @@ namespace Kadr.Data
             return Trip;
         }
     }
+
+    #endregion
+
+
+    #region OK_phone Decorator
+    class OK_phoneDecorator
+    {
+        private OK_phone phone;
+        public OK_phoneDecorator(OK_phone phone)
+        {
+            this.phone = phone;
+        }
+
+        override public string ToString()
+        {
+            return phone.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код телефона")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int idphone
+        {
+            get
+            {
+                return phone.idphone;
+            }
+            set
+            {
+                phone.idphone = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер телефона")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Номер телефона")]
+        public string phoneNumber
+        {
+            get
+            {
+                return phone.phone;
+            }
+            set
+            {
+                phone.phone = value;
+            }
+        }
+    }
+        
+
+    #endregion
+
+    #region OK_Adress Decorator
+    class OK_AdressDecorator
+    {
+        private OK_Adress address;
+        public OK_AdressDecorator(OK_Adress address)
+        {
+            this.address = address;
+        }
+
+        override public string ToString()
+        {
+            return address.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код адреса")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int idAdress
+        {
+            get
+            {
+                return address.idAdress;
+            }
+            set
+            {
+                address.idAdress = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Адрес")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Адрес")]
+        public string Adress
+        {
+            get
+            {
+                return address.Adress;
+            }
+            set
+            {
+                address.Adress = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата регистрации")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата регистрации")]
+        public DateTime DateReg
+        {
+            get
+            {
+                return address.DateReg.Value;
+            }
+            set
+            {
+                address.DateReg = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Показатель регистрации")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Показатель регистрации")]
+        public bool RegBit
+        {
+            get
+            {
+                return address.RegBit;
+            }
+            set
+            {
+                address.RegBit = value;
+            }
+        }
+    }
+
 
     #endregion
 

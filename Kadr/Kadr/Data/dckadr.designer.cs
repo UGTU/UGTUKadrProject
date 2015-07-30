@@ -222,9 +222,6 @@ namespace Kadr.Data
     partial void InsertBusinessTrip(BusinessTrip instance);
     partial void UpdateBusinessTrip(BusinessTrip instance);
     partial void DeleteBusinessTrip(BusinessTrip instance);
-    partial void InsertSocialFareTransit(SocialFareTransit instance);
-    partial void UpdateSocialFareTransit(SocialFareTransit instance);
-    partial void DeleteSocialFareTransit(SocialFareTransit instance);
     partial void InsertOK_Otpusk(OK_Otpusk instance);
     partial void UpdateOK_Otpusk(OK_Otpusk instance);
     partial void DeleteOK_Otpusk(OK_Otpusk instance);
@@ -234,6 +231,15 @@ namespace Kadr.Data
     partial void InsertMaterialResponsibility(MaterialResponsibility instance);
     partial void UpdateMaterialResponsibility(MaterialResponsibility instance);
     partial void DeleteMaterialResponsibility(MaterialResponsibility instance);
+    partial void InsertSocialFareTransit(SocialFareTransit instance);
+    partial void UpdateSocialFareTransit(SocialFareTransit instance);
+    partial void DeleteSocialFareTransit(SocialFareTransit instance);
+    partial void InsertOK_Adress(OK_Adress instance);
+    partial void UpdateOK_Adress(OK_Adress instance);
+    partial void DeleteOK_Adress(OK_Adress instance);
+    partial void InsertOK_phone(OK_phone instance);
+    partial void UpdateOK_phone(OK_phone instance);
+    partial void DeleteOK_phone(OK_phone instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -794,14 +800,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<SocialFareTransit> SocialFareTransits
-		{
-			get
-			{
-				return this.GetTable<SocialFareTransit>();
-			}
-		}
-		
 		public System.Data.Linq.Table<OK_Otpusk> OK_Otpusks
 		{
 			get
@@ -823,6 +821,30 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<MaterialResponsibility>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SocialFareTransit> SocialFareTransits
+		{
+			get
+			{
+				return this.GetTable<SocialFareTransit>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_Adress> OK_Adresses
+		{
+			get
+			{
+				return this.GetTable<OK_Adress>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_phone> OK_phones
+		{
+			get
+			{
+				return this.GetTable<OK_phone>();
 			}
 		}
 		
@@ -10895,8 +10917,6 @@ namespace Kadr.Data
 		
 		private EntitySet<FactStaffPrikaz> _FactStaffPrikazs;
 		
-		private EntitySet<SocialFareTransit> _SocialFareTransits;
-		
 		private EntitySet<OK_Otpusk> _OK_Otpusks;
 		
 		private EntityRef<FactStaff> _FactStaff1;
@@ -10967,7 +10987,6 @@ namespace Kadr.Data
 			this._FactStaffMonthHours = new EntitySet<FactStaffMonthHour>(new Action<FactStaffMonthHour>(this.attach_FactStaffMonthHours), new Action<FactStaffMonthHour>(this.detach_FactStaffMonthHours));
 			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
 			this._FactStaffPrikazs = new EntitySet<FactStaffPrikaz>(new Action<FactStaffPrikaz>(this.attach_FactStaffPrikazs), new Action<FactStaffPrikaz>(this.detach_FactStaffPrikazs));
-			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
 			this._OK_Otpusks = new EntitySet<OK_Otpusk>(new Action<OK_Otpusk>(this.attach_OK_Otpusks), new Action<OK_Otpusk>(this.detach_OK_Otpusks));
 			this._FactStaff1 = default(EntityRef<FactStaff>);
 			this._FinancingSource = default(EntityRef<FinancingSource>);
@@ -11492,19 +11511,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_SocialFareTransit", Storage="_SocialFareTransits", ThisKey="id", OtherKey="idFactStaffPrikaz")]
-		public EntitySet<SocialFareTransit> SocialFareTransits
-		{
-			get
-			{
-				return this._SocialFareTransits;
-			}
-			set
-			{
-				this._SocialFareTransits.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_OK_Otpusk", Storage="_OK_Otpusks", ThisKey="id", OtherKey="idFactStaff")]
 		public EntitySet<OK_Otpusk> OK_Otpusks
 		{
@@ -11889,18 +11895,6 @@ namespace Kadr.Data
 		}
 		
 		private void detach_FactStaffPrikazs(FactStaffPrikaz entity)
-		{
-			this.SendPropertyChanging();
-			entity.FactStaff = null;
-		}
-		
-		private void attach_SocialFareTransits(SocialFareTransit entity)
-		{
-			this.SendPropertyChanging();
-			entity.FactStaff = this;
-		}
-		
-		private void detach_SocialFareTransits(SocialFareTransit entity)
 		{
 			this.SendPropertyChanging();
 			entity.FactStaff = null;
@@ -15918,6 +15912,8 @@ namespace Kadr.Data
 		
 		private EntitySet<MaterialResponsibility> _MaterialResponsibilities;
 		
+		private EntitySet<SocialFareTransit> _SocialFareTransits;
+		
 		private EntityRef<FactStaff> _FactStaff;
 		
 		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz1;
@@ -15948,6 +15944,7 @@ namespace Kadr.Data
 			this._BusinessTrips = new EntitySet<BusinessTrip>(new Action<BusinessTrip>(this.attach_BusinessTrips), new Action<BusinessTrip>(this.detach_BusinessTrips));
 			this._OK_Otpusks = new EntitySet<OK_Otpusk>(new Action<OK_Otpusk>(this.attach_OK_Otpusks), new Action<OK_Otpusk>(this.detach_OK_Otpusks));
 			this._MaterialResponsibilities = new EntitySet<MaterialResponsibility>(new Action<MaterialResponsibility>(this.attach_MaterialResponsibilities), new Action<MaterialResponsibility>(this.detach_MaterialResponsibilities));
+			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
 			this._FactStaff = default(EntityRef<FactStaff>);
 			this._FactStaffPrikaz1 = default(EntityRef<FactStaffPrikaz>);
 			this._Prikaz = default(EntityRef<Prikaz>);
@@ -16138,6 +16135,19 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaffPrikaz_SocialFareTransit", Storage="_SocialFareTransits", ThisKey="id", OtherKey="idFactStaffPrikaz")]
+		public EntitySet<SocialFareTransit> SocialFareTransits
+		{
+			get
+			{
+				return this._SocialFareTransits;
+			}
+			set
+			{
+				this._SocialFareTransits.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_FactStaffPrikaz", Storage="_FactStaff", ThisKey="idFactStaff", OtherKey="id", IsForeignKey=true)]
 		public FactStaff FactStaff
 		{
@@ -16303,6 +16313,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_MaterialResponsibilities(MaterialResponsibility entity)
+		{
+			this.SendPropertyChanging();
+			entity.FactStaffPrikaz = null;
+		}
+		
+		private void attach_SocialFareTransits(SocialFareTransit entity)
+		{
+			this.SendPropertyChanging();
+			entity.FactStaffPrikaz = this;
+		}
+		
+		private void detach_SocialFareTransits(SocialFareTransit entity)
 		{
 			this.SendPropertyChanging();
 			entity.FactStaffPrikaz = null;
@@ -17208,6 +17230,10 @@ namespace Kadr.Data
 		
 		private EntitySet<SocialFareTransit> _SocialFareTransits;
 		
+		private EntitySet<OK_Adress> _OK_Adresses;
+		
+		private EntitySet<OK_phone> _OK_phones;
+		
 		private EntityRef<Grazd> _Grazd;
 		
 		private EntityRef<SemPol> _SemPol;
@@ -17283,6 +17309,8 @@ namespace Kadr.Data
 			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
 			this._EmployeeStandings = new EntitySet<EmployeeStanding>(new Action<EmployeeStanding>(this.attach_EmployeeStandings), new Action<EmployeeStanding>(this.detach_EmployeeStandings));
 			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
+			this._OK_Adresses = new EntitySet<OK_Adress>(new Action<OK_Adress>(this.attach_OK_Adresses), new Action<OK_Adress>(this.detach_OK_Adresses));
+			this._OK_phones = new EntitySet<OK_phone>(new Action<OK_phone>(this.attach_OK_phones), new Action<OK_phone>(this.detach_OK_phones));
 			this._Grazd = default(EntityRef<Grazd>);
 			this._SemPol = default(EntityRef<SemPol>);
 			OnCreated();
@@ -17941,6 +17969,32 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Adress", Storage="_OK_Adresses", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_Adress> OK_Adresses
+		{
+			get
+			{
+				return this._OK_Adresses;
+			}
+			set
+			{
+				this._OK_Adresses.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_phone", Storage="_OK_phones", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_phone> OK_phones
+		{
+			get
+			{
+				return this._OK_phones;
+			}
+			set
+			{
+				this._OK_phones.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grazd_Employee", Storage="_Grazd", ThisKey="idGrazd", OtherKey="id", IsForeignKey=true)]
 		public Grazd Grazd
 		{
@@ -18084,6 +18138,30 @@ namespace Kadr.Data
 		}
 		
 		private void detach_SocialFareTransits(SocialFareTransit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_Adresses(OK_Adress entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_Adresses(OK_Adress entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_phones(OK_phone entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_phones(OK_phone entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
@@ -18441,274 +18519,6 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.BusinessTrip = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SocialFareTransit")]
-	public partial class SocialFareTransit : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private System.DateTime _DateBegin;
-		
-		private System.DateTime _DateEnd;
-		
-		private int _idEmployee;
-		
-		private System.Nullable<int> _idFactStaffPrikaz;
-		
-		private EntitySet<OK_Otpusk> _OK_Otpusks;
-		
-		private EntityRef<Employee> _Employee;
-		
-		private EntityRef<FactStaff> _FactStaff;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnDateBeginChanging(System.DateTime value);
-    partial void OnDateBeginChanged();
-    partial void OnDateEndChanging(System.DateTime value);
-    partial void OnDateEndChanged();
-    partial void OnidEmployeeChanging(int value);
-    partial void OnidEmployeeChanged();
-    partial void OnidFactStaffPrikazChanging(System.Nullable<int> value);
-    partial void OnidFactStaffPrikazChanged();
-    #endregion
-		
-		public SocialFareTransit()
-		{
-			this._OK_Otpusks = new EntitySet<OK_Otpusk>(new Action<OK_Otpusk>(this.attach_OK_Otpusks), new Action<OK_Otpusk>(this.detach_OK_Otpusks));
-			this._Employee = default(EntityRef<Employee>);
-			this._FactStaff = default(EntityRef<FactStaff>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="Date NOT NULL")]
-		public System.DateTime DateBegin
-		{
-			get
-			{
-				return this._DateBegin;
-			}
-			set
-			{
-				if ((this._DateBegin != value))
-				{
-					this.OnDateBeginChanging(value);
-					this.SendPropertyChanging();
-					this._DateBegin = value;
-					this.SendPropertyChanged("DateBegin");
-					this.OnDateBeginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="Date NOT NULL")]
-		public System.DateTime DateEnd
-		{
-			get
-			{
-				return this._DateEnd;
-			}
-			set
-			{
-				if ((this._DateEnd != value))
-				{
-					this.OnDateEndChanging(value);
-					this.SendPropertyChanging();
-					this._DateEnd = value;
-					this.SendPropertyChanged("DateEnd");
-					this.OnDateEndChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
-		public int idEmployee
-		{
-			get
-			{
-				return this._idEmployee;
-			}
-			set
-			{
-				if ((this._idEmployee != value))
-				{
-					if (this._Employee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidEmployeeChanging(value);
-					this.SendPropertyChanging();
-					this._idEmployee = value;
-					this.SendPropertyChanged("idEmployee");
-					this.OnidEmployeeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaffPrikaz", DbType="Int")]
-		public System.Nullable<int> idFactStaffPrikaz
-		{
-			get
-			{
-				return this._idFactStaffPrikaz;
-			}
-			set
-			{
-				if ((this._idFactStaffPrikaz != value))
-				{
-					if (this._FactStaff.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidFactStaffPrikazChanging(value);
-					this.SendPropertyChanging();
-					this._idFactStaffPrikaz = value;
-					this.SendPropertyChanged("idFactStaffPrikaz");
-					this.OnidFactStaffPrikazChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocialFareTransit_OK_Otpusk", Storage="_OK_Otpusks", ThisKey="id", OtherKey="idSocialFareTransit")]
-		public EntitySet<OK_Otpusk> OK_Otpusks
-		{
-			get
-			{
-				return this._OK_Otpusks;
-			}
-			set
-			{
-				this._OK_Otpusks.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SocialFareTransit", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.SocialFareTransits.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.SocialFareTransits.Add(this);
-						this._idEmployee = value.id;
-					}
-					else
-					{
-						this._idEmployee = default(int);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_SocialFareTransit", Storage="_FactStaff", ThisKey="idFactStaffPrikaz", OtherKey="id", IsForeignKey=true)]
-		public FactStaff FactStaff
-		{
-			get
-			{
-				return this._FactStaff.Entity;
-			}
-			set
-			{
-				FactStaff previousValue = this._FactStaff.Entity;
-				if (((previousValue != value) 
-							|| (this._FactStaff.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._FactStaff.Entity = null;
-						previousValue.SocialFareTransits.Remove(this);
-					}
-					this._FactStaff.Entity = value;
-					if ((value != null))
-					{
-						value.SocialFareTransits.Add(this);
-						this._idFactStaffPrikaz = value.id;
-					}
-					else
-					{
-						this._idFactStaffPrikaz = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("FactStaff");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_OK_Otpusks(OK_Otpusk entity)
-		{
-			this.SendPropertyChanging();
-			entity.SocialFareTransit = this;
-		}
-		
-		private void detach_OK_Otpusks(OK_Otpusk entity)
-		{
-			this.SendPropertyChanging();
-			entity.SocialFareTransit = null;
 		}
 	}
 	
@@ -19548,6 +19358,624 @@ namespace Kadr.Data
 						this._idFactStaffPrikaz = default(int);
 					}
 					this.SendPropertyChanged("FactStaffPrikaz");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SocialFareTransit")]
+	public partial class SocialFareTransit : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.DateTime _DateBegin;
+		
+		private System.DateTime _DateEnd;
+		
+		private int _idEmployee;
+		
+		private System.Nullable<int> _idFactStaffPrikaz;
+		
+		private EntitySet<OK_Otpusk> _OK_Otpusks;
+		
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnDateBeginChanging(System.DateTime value);
+    partial void OnDateBeginChanged();
+    partial void OnDateEndChanging(System.DateTime value);
+    partial void OnDateEndChanged();
+    partial void OnidEmployeeChanging(int value);
+    partial void OnidEmployeeChanged();
+    partial void OnidFactStaffPrikazChanging(System.Nullable<int> value);
+    partial void OnidFactStaffPrikazChanged();
+    #endregion
+		
+		public SocialFareTransit()
+		{
+			this._OK_Otpusks = new EntitySet<OK_Otpusk>(new Action<OK_Otpusk>(this.attach_OK_Otpusks), new Action<OK_Otpusk>(this.detach_OK_Otpusks));
+			this._Employee = default(EntityRef<Employee>);
+			this._FactStaffPrikaz = default(EntityRef<FactStaffPrikaz>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="Date NOT NULL")]
+		public System.DateTime DateBegin
+		{
+			get
+			{
+				return this._DateBegin;
+			}
+			set
+			{
+				if ((this._DateBegin != value))
+				{
+					this.OnDateBeginChanging(value);
+					this.SendPropertyChanging();
+					this._DateBegin = value;
+					this.SendPropertyChanged("DateBegin");
+					this.OnDateBeginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="Date NOT NULL")]
+		public System.DateTime DateEnd
+		{
+			get
+			{
+				return this._DateEnd;
+			}
+			set
+			{
+				if ((this._DateEnd != value))
+				{
+					this.OnDateEndChanging(value);
+					this.SendPropertyChanging();
+					this._DateEnd = value;
+					this.SendPropertyChanged("DateEnd");
+					this.OnDateEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
+		public int idEmployee
+		{
+			get
+			{
+				return this._idEmployee;
+			}
+			set
+			{
+				if ((this._idEmployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idEmployee = value;
+					this.SendPropertyChanged("idEmployee");
+					this.OnidEmployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaffPrikaz", DbType="Int")]
+		public System.Nullable<int> idFactStaffPrikaz
+		{
+			get
+			{
+				return this._idFactStaffPrikaz;
+			}
+			set
+			{
+				if ((this._idFactStaffPrikaz != value))
+				{
+					if (this._FactStaffPrikaz.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidFactStaffPrikazChanging(value);
+					this.SendPropertyChanging();
+					this._idFactStaffPrikaz = value;
+					this.SendPropertyChanged("idFactStaffPrikaz");
+					this.OnidFactStaffPrikazChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocialFareTransit_OK_Otpusk", Storage="_OK_Otpusks", ThisKey="id", OtherKey="idSocialFareTransit")]
+		public EntitySet<OK_Otpusk> OK_Otpusks
+		{
+			get
+			{
+				return this._OK_Otpusks;
+			}
+			set
+			{
+				this._OK_Otpusks.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SocialFareTransit", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.SocialFareTransits.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.SocialFareTransits.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaffPrikaz_SocialFareTransit", Storage="_FactStaffPrikaz", ThisKey="idFactStaffPrikaz", OtherKey="id", IsForeignKey=true)]
+		public FactStaffPrikaz FactStaffPrikaz
+		{
+			get
+			{
+				return this._FactStaffPrikaz.Entity;
+			}
+			set
+			{
+				FactStaffPrikaz previousValue = this._FactStaffPrikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._FactStaffPrikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FactStaffPrikaz.Entity = null;
+						previousValue.SocialFareTransits.Remove(this);
+					}
+					this._FactStaffPrikaz.Entity = value;
+					if ((value != null))
+					{
+						value.SocialFareTransits.Add(this);
+						this._idFactStaffPrikaz = value.id;
+					}
+					else
+					{
+						this._idFactStaffPrikaz = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("FactStaffPrikaz");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OK_Otpusks(OK_Otpusk entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocialFareTransit = this;
+		}
+		
+		private void detach_OK_Otpusks(OK_Otpusk entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocialFareTransit = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Adress")]
+	public partial class OK_Adress : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idAdress;
+		
+		private int _idEmployee;
+		
+		private string _Adress;
+		
+		private System.Nullable<System.DateTime> _DateReg;
+		
+		private bool _RegBit;
+		
+		private EntityRef<Employee> _Employee;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidAdressChanging(int value);
+    partial void OnidAdressChanged();
+    partial void OnidEmployeeChanging(int value);
+    partial void OnidEmployeeChanged();
+    partial void OnAdressChanging(string value);
+    partial void OnAdressChanged();
+    partial void OnDateRegChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateRegChanged();
+    partial void OnRegBitChanging(bool value);
+    partial void OnRegBitChanged();
+    #endregion
+		
+		public OK_Adress()
+		{
+			this._Employee = default(EntityRef<Employee>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idAdress", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idAdress
+		{
+			get
+			{
+				return this._idAdress;
+			}
+			set
+			{
+				if ((this._idAdress != value))
+				{
+					this.OnidAdressChanging(value);
+					this.SendPropertyChanging();
+					this._idAdress = value;
+					this.SendPropertyChanged("idAdress");
+					this.OnidAdressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
+		public int idEmployee
+		{
+			get
+			{
+				return this._idEmployee;
+			}
+			set
+			{
+				if ((this._idEmployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idEmployee = value;
+					this.SendPropertyChanged("idEmployee");
+					this.OnidEmployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adress", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Adress
+		{
+			get
+			{
+				return this._Adress;
+			}
+			set
+			{
+				if ((this._Adress != value))
+				{
+					this.OnAdressChanging(value);
+					this.SendPropertyChanging();
+					this._Adress = value;
+					this.SendPropertyChanged("Adress");
+					this.OnAdressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateReg", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateReg
+		{
+			get
+			{
+				return this._DateReg;
+			}
+			set
+			{
+				if ((this._DateReg != value))
+				{
+					this.OnDateRegChanging(value);
+					this.SendPropertyChanging();
+					this._DateReg = value;
+					this.SendPropertyChanged("DateReg");
+					this.OnDateRegChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegBit", DbType="Bit NOT NULL")]
+		public bool RegBit
+		{
+			get
+			{
+				return this._RegBit;
+			}
+			set
+			{
+				if ((this._RegBit != value))
+				{
+					this.OnRegBitChanging(value);
+					this.SendPropertyChanging();
+					this._RegBit = value;
+					this.SendPropertyChanged("RegBit");
+					this.OnRegBitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Adress", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.OK_Adresses.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Adresses.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_phone")]
+	public partial class OK_phone : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idphone;
+		
+		private int _idEmployee;
+		
+		private string _phone;
+		
+		private EntityRef<Employee> _Employee;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidphoneChanging(int value);
+    partial void OnidphoneChanged();
+    partial void OnidEmployeeChanging(int value);
+    partial void OnidEmployeeChanged();
+    partial void OnphoneChanging(string value);
+    partial void OnphoneChanged();
+    #endregion
+		
+		public OK_phone()
+		{
+			this._Employee = default(EntityRef<Employee>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idphone", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idphone
+		{
+			get
+			{
+				return this._idphone;
+			}
+			set
+			{
+				if ((this._idphone != value))
+				{
+					this.OnidphoneChanging(value);
+					this.SendPropertyChanging();
+					this._idphone = value;
+					this.SendPropertyChanged("idphone");
+					this.OnidphoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
+		public int idEmployee
+		{
+			get
+			{
+				return this._idEmployee;
+			}
+			set
+			{
+				if ((this._idEmployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idEmployee = value;
+					this.SendPropertyChanged("idEmployee");
+					this.OnidEmployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string phone
+		{
+			get
+			{
+				return this._phone;
+			}
+			set
+			{
+				if ((this._phone != value))
+				{
+					this.OnphoneChanging(value);
+					this.SendPropertyChanging();
+					this._phone = value;
+					this.SendPropertyChanged("phone");
+					this.OnphoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_phone", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.OK_phones.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.OK_phones.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
 				}
 			}
 		}
