@@ -13,6 +13,14 @@ namespace Kadr.Data
         }
 
 
+        public bool IsUsed
+        {
+            get
+            {
+                return (Kadr.Controllers.KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.SocialFareTransit == this).Count()==1);
+            }
+        }
+
         #region Члены IDecorable
 
         public object GetDecorator()

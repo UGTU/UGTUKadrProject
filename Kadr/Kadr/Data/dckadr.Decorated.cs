@@ -4903,4 +4903,133 @@ namespace Kadr.Data
     }
 
     #endregion
+
+
+    #region OK_phone Decorator
+    class OK_phoneDecorator
+    {
+        private OK_phone phone;
+        public OK_phoneDecorator(OK_phone phone)
+        {
+            this.phone = phone;
+        }
+
+        override public string ToString()
+        {
+            return phone.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код телефона")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int idphone
+        {
+            get
+            {
+                return phone.idphone;
+            }
+            set
+            {
+                phone.idphone = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер телефона")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Номер телефона")]
+        public string phoneNumber
+        {
+            get
+            {
+                return phone.phone;
+            }
+            set
+            {
+                phone.phone = value;
+            }
+        }
+    }
+        
+
+    #endregion
+
+    #region OK_Adress Decorator
+    class OK_AdressDecorator
+    {
+        private OK_Adress address;
+        public OK_AdressDecorator(OK_Adress address)
+        {
+            this.address = address;
+        }
+
+        override public string ToString()
+        {
+            return address.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код адреса")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int idAdress
+        {
+            get
+            {
+                return address.idAdress;
+            }
+            set
+            {
+                address.idAdress = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Адрес")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Адрес")]
+        public string Adress
+        {
+            get
+            {
+                return address.Adress;
+            }
+            set
+            {
+                address.Adress = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата регистрации")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата регистрации")]
+        public DateTime DateReg
+        {
+            get
+            {
+                return address.DateReg.Value;
+            }
+            set
+            {
+                address.DateReg = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Показатель регистрации")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Показатель регистрации")]
+        public bool RegBit
+        {
+            get
+            {
+                return address.RegBit;
+            }
+            set
+            {
+                address.RegBit = value;
+            }
+        }
+    }
+
+
+    #endregion
 }

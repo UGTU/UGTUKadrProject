@@ -40,6 +40,7 @@
             this.DelPStChangeBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnClose = new System.Windows.Forms.ToolStripButton();
+            this.IsUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +55,7 @@
             this.idEmployeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idFactStaffPrikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlanStaffHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.socialFareTransitBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -78,6 +80,7 @@
             this.dateBeginDataGridViewTextBoxColumn,
             this.dateEndDataGridViewTextBoxColumn,
             this.FactStaffPrikaz,
+            this.IsUsed,
             this.idEmployeeDataGridViewTextBoxColumn,
             this.idFactStaffPrikazDataGridViewTextBoxColumn,
             this.employeeDataGridViewTextBoxColumn});
@@ -170,6 +173,15 @@
             this.btnClose.ToolTipText = "Закрыть окно";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // IsUsed
+            // 
+            this.IsUsed.DataPropertyName = "IsUsed";
+            this.IsUsed.HeaderText = "Был использован";
+            this.IsUsed.Name = "IsUsed";
+            this.IsUsed.ReadOnly = true;
+            this.IsUsed.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsUsed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
@@ -202,6 +214,7 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn5.DataPropertyName = "idEmployee";
             this.dataGridViewTextBoxColumn5.HeaderText = "idEmployee";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -278,6 +291,14 @@
             this.employeeDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeDataGridViewTextBoxColumn.Visible = false;
             // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Employee";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Employee";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
             // SocialFareTransitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,13 +328,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnClose;
         private System.Windows.Forms.BindingSource socialFareTransitBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FactStaffPrikaz;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEmployeeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFactStaffPrikazDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton tsbAddSocFare;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -322,5 +336,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FactStaffPrikaz;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsUsed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEmployeeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFactStaffPrikazDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn;
     }
 }

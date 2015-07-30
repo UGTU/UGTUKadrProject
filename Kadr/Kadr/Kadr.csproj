@@ -237,8 +237,10 @@
     <Compile Include="Data\Entities\GlobalPrikaz.cs" />
     <Compile Include="Data\Entities\Grazd.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
+    <Compile Include="Data\Entities\OK_Adress.cs" />
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
+    <Compile Include="Data\Entities\OK_phone.cs" />
     <Compile Include="Data\Entities\PKCategory.cs" />
     <Compile Include="Data\Entities\PKCategorySalary.cs" />
     <Compile Include="Data\Entities\PKGroup.cs" />
@@ -941,7 +943,9 @@
     <None Include="Properties\DataSources\Kadr.Data.GetBonusByBonusTypeForProlong.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.GetStaffErrorsByPeriod.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OKVED.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_Adress.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_Otpusk.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_phone.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.PlanStaff.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.PlanStaffHistory.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.PlanStaffSalary.datasource" />
