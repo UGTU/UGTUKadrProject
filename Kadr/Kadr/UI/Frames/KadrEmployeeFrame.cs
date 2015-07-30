@@ -926,6 +926,7 @@ namespace Kadr.UI.Frames
             // 
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOk);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(3, 328);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(871, 34);
