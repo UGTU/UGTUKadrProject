@@ -145,6 +145,7 @@
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
       <Private>True</Private>
@@ -153,6 +154,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Web">
       <Private>True</Private>
     </Reference>
@@ -242,6 +244,7 @@
     <Compile Include="Data\Entities\MaterialResponsibility.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Adress.cs" />
+    <Compile Include="Data\Entities\OK_Inkapacity.cs" />
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
     <Compile Include="Data\Entities\OK_phone.cs" />
@@ -920,6 +923,9 @@
     </None>
     <Fakes Include="Fakes\Microsoft.ReportViewer.Common.fakes" />
     <Fakes Include="Fakes\Microsoft.ReportViewer.WinForms.fakes" />
+    <None Include="Properties\DataSources\Kadr.Data.InkapacityDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.BusinessTripRegionType.datasource">
       <SubType>Designer</SubType>
     </None>

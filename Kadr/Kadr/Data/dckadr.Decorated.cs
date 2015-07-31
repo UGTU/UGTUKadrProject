@@ -9,6 +9,10 @@ using Kadr.Data;
 using Kadr.Data.Common;
 using Kadr.UI.Common;
 using Kadr.Data.Converters;
+using System.Drawing.Design;
+using System.ComponentModel.Design;
+
+
 
 namespace Kadr.Data
 {
@@ -2971,7 +2975,6 @@ namespace Kadr.Data
 
     #endregion
 
-
     #region TimeSheet Decorator
     class TimeSheetDecorator
     {
@@ -4782,8 +4785,6 @@ namespace Kadr.Data
     }
     #endregion
 
-
-
     #region BusinessTrip Decorator
 
     class BusinessTripDecorator
@@ -4976,7 +4977,6 @@ namespace Kadr.Data
 
     #endregion
 
-
     #region OK_phone Decorator
     class OK_phoneDecorator
     {
@@ -5106,7 +5106,7 @@ namespace Kadr.Data
 
     #endregion
 
-   #region MaterialResponsibility Decorator
+    #region MaterialResponsibility Decorator
 
     internal class MaterialResponsibilityDecorator
     {
@@ -5313,6 +5313,156 @@ namespace Kadr.Data
             }
         }
 
+       
     }
     #endregion
+
+    #region Inkapacity Decorator
+
+    class InkapacityDecorator
+    {
+        private OK_Inkapacity Inkapacity;
+
+        public InkapacityDecorator(OK_Inkapacity Inkapacity)
+        {
+            this.Inkapacity = Inkapacity;
+        }
+
+        public override string ToString()
+        {
+            return Inkapacity.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код больничного")]
+        [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
+
+        public int Id
+        {
+            get
+            {
+                return Inkapacity.idInkapacity;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата начала")]
+        [System.ComponentModel.Category("Сроки")]
+        [System.ComponentModel.Description("Дата начала больничного")]
+        public DateTime DateBegin
+        {
+            get
+            {
+                return Inkapacity.DateBegin;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    Inkapacity.DateBegin = value;
+                }
+
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата окончания")]
+        [System.ComponentModel.Category("Сроки")]
+        [System.ComponentModel.Description("Дата окончания больничного")]
+
+        public DateTime DateEnd
+        {
+            get
+            {
+                return (DateTime)Inkapacity.DateEnd;
+            }
+            set
+            {
+
+                if (value != null)
+                {
+                    Inkapacity.DateEnd = value;
+                }
+
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Серия")]
+        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Description("Серия документа, подтверждающего период нетрудоспособности")]
+
+        public string Serie
+        {
+            get
+            {
+                if (Inkapacity.EducDocument != null)
+                    return Inkapacity.EducDocument.DocSeries;
+                else
+                    return "";
+            }
+            set
+            {
+                if (Inkapacity.EducDocument != null)
+                    Inkapacity.EducDocument.DocSeries = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Номер")]
+        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Description("Номер документа, подтверждающего период нетрудоспособности")]
+
+        public string Number
+        {
+            get
+            {
+                if (Inkapacity.EducDocument != null)
+                    return Inkapacity.EducDocument.DocNumber;
+                else
+                    return Inkapacity.NInkapacity;
+            }
+            set
+            {
+                if (Inkapacity.EducDocument != null)
+                    Inkapacity.EducDocument.DocNumber = value;
+                else
+                    Inkapacity.NInkapacity = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата выдачи документа")]
+        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Description("Дата выдачи документа, подтверждающего период нетрудоспособности")]
+        [System.ComponentModel.Description("Дата выдачи документа, подтверждающего период нетрудоспособности")]
+        [System.ComponentModel.TypeConverter(typeof(System.ComponentModel.DateTimeConverter))]
+
+            //        The PropertyGrid was not displaying the editor, bit of a bummer! Although not a massive deal, I thought I was going to need to create a UITypeEditor that would cope with Nullable dates.  Fortunately if you are explicit, the built in editor supports a Nullable DateTime. 
+
+            //[EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
+            //public virtual DateTime? EndDate
+            //{
+            //    get { return m_endDate; }
+            //    set { m_endDate = value; }
+            //}
+
+        public DateTime? DocDate
+        {
+            get
+            {
+                if (Inkapacity.EducDocument != null)
+                    return (DateTime)Inkapacity.EducDocument.DocDate;
+                else
+                    return null;
+            }
+            set
+            {
+                if (Inkapacity.EducDocument != null)
+                Inkapacity.EducDocument.DocDate = value;
+            }
+        }
+    }
+
+
+
+    #endregion 
+
 }

@@ -396,4 +396,71 @@ GO
 ALTER TABLE [dbo].[BusinessTripRegionType] CHECK CONSTRAINT [FK_BusinessTripRegionType_RegionType]
 GO
 
+---------------------------------------------
+---Добавление даты выдачи документа в "Больничный"
+---------------------------------------------
+/*
+   31 июля 2015 г.14:06:58
+   Пользователь: 
+   Сервер: ugtudb
+   База данных: KadrRealTest
+   Приложение: 
+*/
+
+/* Чтобы предотвратить возможность потери данных, необходимо внимательно просмотреть этот скрипт, прежде чем запускать его вне контекста конструктора баз данных.*/
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.OK_Inkapacity
+	DROP CONSTRAINT FK_OK_Inkapacity_Employee
+GO
+ALTER TABLE dbo.Employee SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.Tmp_OK_Inkapacity
+	(
+	idInkapacity int NOT NULL IDENTITY (1, 1),
+	idEmployee int NOT NULL,
+	NInkapacity varchar(50) NOT NULL,
+	DateBegin datetime NOT NULL,
+	DateEnd datetime NULL,
+	DateDocument datetime NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Tmp_OK_Inkapacity SET (LOCK_ESCALATION = TABLE)
+GO
+SET IDENTITY_INSERT dbo.Tmp_OK_Inkapacity ON
+GO
+IF EXISTS(SELECT * FROM dbo.OK_Inkapacity)
+	 EXEC('INSERT INTO dbo.Tmp_OK_Inkapacity (idInkapacity, idEmployee, NInkapacity, DateBegin, DateEnd)
+		SELECT idInkapacity, idEmployee, NInkapacity, DateBegin, DateEnd FROM dbo.OK_Inkapacity WITH (HOLDLOCK TABLOCKX)')
+GO
+SET IDENTITY_INSERT dbo.Tmp_OK_Inkapacity OFF
+GO
+DROP TABLE dbo.OK_Inkapacity
+GO
+EXECUTE sp_rename N'dbo.Tmp_OK_Inkapacity', N'OK_Inkapacity', 'OBJECT' 
+GO
+ALTER TABLE dbo.OK_Inkapacity ADD CONSTRAINT
+	PK_OK_Inkapacity PRIMARY KEY CLUSTERED 
+	(
+	idInkapacity
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.OK_Inkapacity ADD CONSTRAINT
+	FK_OK_Inkapacity_Employee FOREIGN KEY
+	(
+	idEmployee
+	) REFERENCES dbo.Employee
+	(
+	id
+	) ON UPDATE  CASCADE 
+	 ON DELETE  CASCADE 
+	
+GO
+COMMIT
+
+
 

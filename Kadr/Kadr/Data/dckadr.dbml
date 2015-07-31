@@ -121,6 +121,7 @@
       <Column Name="DocDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="EducDocument_EmployeeRank" Member="EmployeeRank" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeRank" Cardinality="One" />
       <Association Name="EducDocument_EmployeeDegree" Member="EmployeeDegree" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeDegree" Cardinality="One" />
+      <Association Name="EducDocument_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEducDocument" Type="OK_Inkapacity" />
       <Association Name="EducDocumentType_EducDocument" Member="EducDocumentType" ThisKey="idEducDocType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
     </Type>
   </Table>
@@ -789,6 +790,7 @@
       <Association Name="Employee_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idEmployee" Type="SocialFareTransit" />
       <Association Name="Employee_OK_Adress" Member="OK_Adresses" ThisKey="id" OtherKey="idEmployee" Type="OK_Adress" />
       <Association Name="Employee_OK_phone" Member="OK_phones" ThisKey="id" OtherKey="idEmployee" Type="OK_phone" />
+      <Association Name="Employee_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEmployee" Type="OK_Inkapacity" />
       <Association Name="Grazd_Employee" Member="Grazd" ThisKey="idGrazd" OtherKey="id" Type="Grazd" IsForeignKey="true" />
       <Association Name="SemPol_Employee" Member="SemPol" ThisKey="idSemPol" OtherKey="id" Type="SemPol" IsForeignKey="true" />
     </Type>
@@ -888,6 +890,18 @@
       <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTrip" ThisKey="idBusinessTrip" OtherKey="id" Type="BusinessTrip" IsForeignKey="true" />
       <Association Name="RegionType_BusinessTripRegionType" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Inkapacity" Member="OK_Inkapacities">
+    <Type Name="OK_Inkapacity">
+      <Column Name="idInkapacity" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NInkapacity" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EducDocument_OK_Inkapacity" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Employee_OK_Inkapacity" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">
