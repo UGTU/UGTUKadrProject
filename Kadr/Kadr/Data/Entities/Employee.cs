@@ -79,9 +79,6 @@ namespace Kadr.Data
                 if (SemPol.IsNull()) throw new ArgumentNullException("Семейное положение сотрудника.");
                 if ((LastName == null) || (LastName == "")) throw new ArgumentNullException("Фамилия сотрудника.");
                 if ((FirstName == null) || (FirstName == "")) throw new ArgumentNullException("Имя сотрудника.");
-                //if ((SexBit == null) ) throw new ArgumentNullException("Пол сотрудника.");
-                //if (Prikaz.IsNull()) throw new ArgumentNullException("Приказ в записи штатного расписания.");
-                //if (StaffCount <= 0) throw new ArgumentOutOfRangeException("Количество ставок в записи штатного расписания.");
             }
         }
 

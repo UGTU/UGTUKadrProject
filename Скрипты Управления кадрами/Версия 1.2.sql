@@ -361,3 +361,39 @@ GO
 ALTER TABLE [dbo].[MaterialResponsibility] CHECK CONSTRAINT [FK_MaterialResponsibility_FactStaffPrikaz]
 GO
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------
+-----Добавление суррогатного ключа в таблицу BusinessTripRegionType
+-----------------------------------------
+DROP TABLE [dbo].[BusinessTripRegionType]
+GO
+
+CREATE TABLE [dbo].[BusinessTripRegionType](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[idRegionType] [int] NOT NULL,
+	[idBusinessTrip] [int] NOT NULL,
+	[DateBegin] [datetime] NOT NULL,
+	[DateEnd] [datetime] NOT NULL,
+ CONSTRAINT [PK_BusinessTripRegionType] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[BusinessTripRegionType]  WITH CHECK ADD  CONSTRAINT [FK_BusinessTripRegionType_BusinessTrip] FOREIGN KEY([idBusinessTrip])
+REFERENCES [dbo].[BusinessTrip] ([id])
+GO
+
+ALTER TABLE [dbo].[BusinessTripRegionType] CHECK CONSTRAINT [FK_BusinessTripRegionType_BusinessTrip]
+GO
+
+ALTER TABLE [dbo].[BusinessTripRegionType]  WITH CHECK ADD  CONSTRAINT [FK_BusinessTripRegionType_RegionType] FOREIGN KEY([idRegionType])
+REFERENCES [dbo].[RegionType] ([id])
+GO
+
+ALTER TABLE [dbo].[BusinessTripRegionType] CHECK CONSTRAINT [FK_BusinessTripRegionType_RegionType]
+GO
+
+
