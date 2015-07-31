@@ -5433,7 +5433,8 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Дата выдачи документа, подтверждающего период нетрудоспособности")]
         [System.ComponentModel.Description("Дата выдачи документа, подтверждающего период нетрудоспособности")]
-        [System.ComponentModel.TypeConverter(typeof(System.ComponentModel.DateTimeConverter))]
+        [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
+       // [System.ComponentModel.TypeConverter(typeof(System.ComponentModel.DateTimeConverter))]
 
             //        The PropertyGrid was not displaying the editor, bit of a bummer! Although not a massive deal, I thought I was going to need to create a UITypeEditor that would cope with Nullable dates.  Fortunately if you are explicit, the built in editor supports a Nullable DateTime. 
 
@@ -5449,7 +5450,7 @@ namespace Kadr.Data
             get
             {
                 if (Inkapacity.EducDocument != null)
-                    return (DateTime)Inkapacity.EducDocument.DocDate;
+                    return Inkapacity.EducDocument.DocDate;
                 else
                     return null;
             }
