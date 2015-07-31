@@ -12,7 +12,7 @@ namespace Kadr.Data
     {
         #region Properties
 
-        public int ID { get { return idRegionType; } set { idRegionType = value; } }
+        //public int ID { get { return idRegionType; } set { idRegionType = value; } }
 
         #endregion
 
