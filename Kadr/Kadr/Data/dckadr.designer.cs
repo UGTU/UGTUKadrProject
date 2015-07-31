@@ -240,10 +240,16 @@ namespace Kadr.Data
     partial void InsertOK_phone(OK_phone instance);
     partial void UpdateOK_phone(OK_phone instance);
     partial void DeleteOK_phone(OK_phone instance);
+    partial void InsertOK_MembFam(OK_MembFam instance);
+    partial void UpdateOK_MembFam(OK_MembFam instance);
+    partial void DeleteOK_MembFam(OK_MembFam instance);
+    partial void InsertOK_Fam(OK_Fam instance);
+    partial void UpdateOK_Fam(OK_Fam instance);
+    partial void DeleteOK_Fam(OK_Fam instance);
     #endregion
 		
 		public dckadrDataContext() : 
-				base(global::Kadr.Properties.Settings.Default.KadrConnectionString4, mappingSource)
+				base(global::Kadr.Properties.Settings.Default.KadrConnectionString5, mappingSource)
 		{
 			OnCreated();
 		}
@@ -845,6 +851,22 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<OK_phone>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_MembFam> OK_MembFams
+		{
+			get
+			{
+				return this.GetTable<OK_MembFam>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_Fam> OK_Fams
+		{
+			get
+			{
+				return this.GetTable<OK_Fam>();
 			}
 		}
 		
@@ -17234,6 +17256,8 @@ namespace Kadr.Data
 		
 		private EntitySet<OK_phone> _OK_phones;
 		
+		private EntitySet<OK_Fam> _OK_Fams;
+		
 		private EntityRef<Grazd> _Grazd;
 		
 		private EntityRef<SemPol> _SemPol;
@@ -17311,6 +17335,7 @@ namespace Kadr.Data
 			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
 			this._OK_Adresses = new EntitySet<OK_Adress>(new Action<OK_Adress>(this.attach_OK_Adresses), new Action<OK_Adress>(this.detach_OK_Adresses));
 			this._OK_phones = new EntitySet<OK_phone>(new Action<OK_phone>(this.attach_OK_phones), new Action<OK_phone>(this.detach_OK_phones));
+			this._OK_Fams = new EntitySet<OK_Fam>(new Action<OK_Fam>(this.attach_OK_Fams), new Action<OK_Fam>(this.detach_OK_Fams));
 			this._Grazd = default(EntityRef<Grazd>);
 			this._SemPol = default(EntityRef<SemPol>);
 			OnCreated();
@@ -17995,6 +18020,19 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Fam", Storage="_OK_Fams", ThisKey="id", OtherKey="idemployee")]
+		public EntitySet<OK_Fam> OK_Fams
+		{
+			get
+			{
+				return this._OK_Fams;
+			}
+			set
+			{
+				this._OK_Fams.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grazd_Employee", Storage="_Grazd", ThisKey="idGrazd", OtherKey="id", IsForeignKey=true)]
 		public Grazd Grazd
 		{
@@ -18162,6 +18200,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_OK_phones(OK_phone entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_Fams(OK_Fam entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_Fams(OK_Fam entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
@@ -19976,6 +20026,360 @@ namespace Kadr.Data
 						this._idEmployee = default(int);
 					}
 					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_MembFam")]
+	public partial class OK_MembFam : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idmembfam;
+		
+		private string _membfamname;
+		
+		private EntitySet<OK_Fam> _OK_Fams;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidmembfamChanging(int value);
+    partial void OnidmembfamChanged();
+    partial void OnmembfamnameChanging(string value);
+    partial void OnmembfamnameChanged();
+    #endregion
+		
+		public OK_MembFam()
+		{
+			this._OK_Fams = new EntitySet<OK_Fam>(new Action<OK_Fam>(this.attach_OK_Fams), new Action<OK_Fam>(this.detach_OK_Fams));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idmembfam", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idmembfam
+		{
+			get
+			{
+				return this._idmembfam;
+			}
+			set
+			{
+				if ((this._idmembfam != value))
+				{
+					this.OnidmembfamChanging(value);
+					this.SendPropertyChanging();
+					this._idmembfam = value;
+					this.SendPropertyChanged("idmembfam");
+					this.OnidmembfamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_membfamname", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string membfamname
+		{
+			get
+			{
+				return this._membfamname;
+			}
+			set
+			{
+				if ((this._membfamname != value))
+				{
+					this.OnmembfamnameChanging(value);
+					this.SendPropertyChanging();
+					this._membfamname = value;
+					this.SendPropertyChanged("membfamname");
+					this.OnmembfamnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_MembFam_OK_Fam", Storage="_OK_Fams", ThisKey="idmembfam", OtherKey="idmembfam")]
+		public EntitySet<OK_Fam> OK_Fams
+		{
+			get
+			{
+				return this._OK_Fams;
+			}
+			set
+			{
+				this._OK_Fams.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OK_Fams(OK_Fam entity)
+		{
+			this.SendPropertyChanging();
+			entity.OK_MembFam = this;
+		}
+		
+		private void detach_OK_Fams(OK_Fam entity)
+		{
+			this.SendPropertyChanging();
+			entity.OK_MembFam = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Fam")]
+	public partial class OK_Fam : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idfam;
+		
+		private int _idmembfam;
+		
+		private int _idemployee;
+		
+		private string _fiomembfam;
+		
+		private string _godbirth;
+		
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<OK_MembFam> _OK_MembFam;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidfamChanging(int value);
+    partial void OnidfamChanged();
+    partial void OnidmembfamChanging(int value);
+    partial void OnidmembfamChanged();
+    partial void OnidemployeeChanging(int value);
+    partial void OnidemployeeChanged();
+    partial void OnfiomembfamChanging(string value);
+    partial void OnfiomembfamChanged();
+    partial void OngodbirthChanging(string value);
+    partial void OngodbirthChanged();
+    #endregion
+		
+		public OK_Fam()
+		{
+			this._Employee = default(EntityRef<Employee>);
+			this._OK_MembFam = default(EntityRef<OK_MembFam>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idfam", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idfam
+		{
+			get
+			{
+				return this._idfam;
+			}
+			set
+			{
+				if ((this._idfam != value))
+				{
+					this.OnidfamChanging(value);
+					this.SendPropertyChanging();
+					this._idfam = value;
+					this.SendPropertyChanged("idfam");
+					this.OnidfamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idmembfam", DbType="Int NOT NULL")]
+		public int idmembfam
+		{
+			get
+			{
+				return this._idmembfam;
+			}
+			set
+			{
+				if ((this._idmembfam != value))
+				{
+					if (this._OK_MembFam.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidmembfamChanging(value);
+					this.SendPropertyChanging();
+					this._idmembfam = value;
+					this.SendPropertyChanged("idmembfam");
+					this.OnidmembfamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idemployee", DbType="Int NOT NULL")]
+		public int idemployee
+		{
+			get
+			{
+				return this._idemployee;
+			}
+			set
+			{
+				if ((this._idemployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidemployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idemployee = value;
+					this.SendPropertyChanged("idemployee");
+					this.OnidemployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fiomembfam", DbType="VarChar(255)")]
+		public string fiomembfam
+		{
+			get
+			{
+				return this._fiomembfam;
+			}
+			set
+			{
+				if ((this._fiomembfam != value))
+				{
+					this.OnfiomembfamChanging(value);
+					this.SendPropertyChanging();
+					this._fiomembfam = value;
+					this.SendPropertyChanged("fiomembfam");
+					this.OnfiomembfamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_godbirth", DbType="VarChar(10)")]
+		public string godbirth
+		{
+			get
+			{
+				return this._godbirth;
+			}
+			set
+			{
+				if ((this._godbirth != value))
+				{
+					this.OngodbirthChanging(value);
+					this.SendPropertyChanging();
+					this._godbirth = value;
+					this.SendPropertyChanged("godbirth");
+					this.OngodbirthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Fam", Storage="_Employee", ThisKey="idemployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.OK_Fams.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Fams.Add(this);
+						this._idemployee = value.id;
+					}
+					else
+					{
+						this._idemployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_MembFam_OK_Fam", Storage="_OK_MembFam", ThisKey="idmembfam", OtherKey="idmembfam", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public OK_MembFam OK_MembFam
+		{
+			get
+			{
+				return this._OK_MembFam.Entity;
+			}
+			set
+			{
+				OK_MembFam previousValue = this._OK_MembFam.Entity;
+				if (((previousValue != value) 
+							|| (this._OK_MembFam.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OK_MembFam.Entity = null;
+						previousValue.OK_Fams.Remove(this);
+					}
+					this._OK_MembFam.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Fams.Add(this);
+						this._idmembfam = value.idmembfam;
+					}
+					else
+					{
+						this._idmembfam = default(int);
+					}
+					this.SendPropertyChanged("OK_MembFam");
 				}
 			}
 		}

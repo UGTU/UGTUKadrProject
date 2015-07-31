@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Kadr" Class="dckadrDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=Kadr;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="KadrConnectionString4" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=Kadr;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="KadrConnectionString5" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DepartmentType" Member="DepartmentTypes">
     <Type Name="DepartmentType">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -799,6 +799,7 @@
       <Association Name="Employee_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idEmployee" Type="SocialFareTransit" />
       <Association Name="Employee_OK_Adress" Member="OK_Adresses" ThisKey="id" OtherKey="idEmployee" Type="OK_Adress" />
       <Association Name="Employee_OK_phone" Member="OK_phones" ThisKey="id" OtherKey="idEmployee" Type="OK_phone" />
+      <Association Name="Employee_OK_Fam" Member="OK_Fams" ThisKey="id" OtherKey="idemployee" Type="OK_Fam" />
       <Association Name="Grazd_Employee" Member="Grazd" ThisKey="idGrazd" OtherKey="id" Type="Grazd" IsForeignKey="true" />
       <Association Name="SemPol_Employee" Member="SemPol" ThisKey="idSemPol" OtherKey="id" Type="SemPol" IsForeignKey="true" />
     </Type>
@@ -887,6 +888,24 @@
       <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="phone" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="Employee_OK_phone" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_MembFam" Member="OK_MembFams">
+    <Type Name="OK_MembFam">
+      <Column Name="idmembfam" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="membfamname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="OK_MembFam_OK_Fam" Member="OK_Fams" ThisKey="idmembfam" OtherKey="idmembfam" Type="OK_Fam" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Fam" Member="OK_Fams">
+    <Type Name="OK_Fam">
+      <Column Name="idfam" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idmembfam" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idemployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fiomembfam" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="godbirth" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Employee_OK_Fam" Member="Employee" ThisKey="idemployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="OK_MembFam_OK_Fam" Member="OK_MembFam" ThisKey="idmembfam" OtherKey="idmembfam" Type="OK_MembFam" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

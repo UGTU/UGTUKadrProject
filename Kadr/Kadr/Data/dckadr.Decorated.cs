@@ -5086,9 +5086,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Показатель регистрации")]
+        [System.ComponentModel.DisplayName("Зарегистрирован")]
         [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Показатель регистрации")]
+        [System.ComponentModel.Description("Зарегистрирован ли по адресу")]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool RegBit
         {
@@ -5314,5 +5314,86 @@ namespace Kadr.Data
         }
 
     }
+    #endregion
+
+    #region OK_Fam Decorator
+    class OK_FamDecorator
+    {
+        private OK_Fam famMember;
+        public OK_FamDecorator(OK_Fam famMember)
+        {
+            this.famMember = famMember;
+        }
+
+        override public string ToString()
+        {
+            return famMember.ToString();
+        }
+
+        [System.ComponentModel.DisplayName("ID")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Уникальный код родственника")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int idfam
+        {
+            get
+            {
+                return famMember.idfam;
+            }
+            set
+            {
+                famMember.idfam = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Степень родства")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Ступень родства")]
+        public OK_MembFam OK_MembFam
+        {
+            get
+            {
+                return famMember.OK_MembFam;
+            }
+            set
+            {
+                famMember.OK_MembFam = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("ФИО родственника")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("ФИО родственника")]
+        public string fiomembfam
+        {
+            get
+            {
+                return famMember.fiomembfam;
+            }
+            set
+            {
+                fiomembfam = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата/год рождения")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Дата/год рождения")]
+        public string godbirth
+        {
+            get
+            {
+                return famMember.godbirth;
+            }
+            set
+            {
+                famMember.godbirth = value;
+            }
+        }
+        
+        
+    }
+
+
     #endregion
 }
