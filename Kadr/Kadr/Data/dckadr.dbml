@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Kadr" Class="dckadrDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=Kadr;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="KadrConnectionString5" Provider="System.Data.SqlClient" />
-<?xml version="1.0" encoding="utf-8"?><Database Name="KadrRealTest" Class="dckadrDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="KadrConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DepartmentType" Member="DepartmentTypes">
     <Type Name="DepartmentType">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -907,6 +905,17 @@
       <Column Name="godbirth" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="Employee_OK_Fam" Member="Employee" ThisKey="idemployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="OK_MembFam_OK_Fam" Member="OK_MembFam" ThisKey="idmembfam" OtherKey="idmembfam" Type="OK_MembFam" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BusinessTripRegionType" Member="BusinessTripRegionTypes">
+    <Type Name="BusinessTripRegionType">
+      <Column Name="idRegionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idBusinessTrip" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTrip" ThisKey="idBusinessTrip" OtherKey="id" Type="BusinessTrip" IsForeignKey="true" />
+      <Association Name="RegionType_BusinessTripRegionType" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

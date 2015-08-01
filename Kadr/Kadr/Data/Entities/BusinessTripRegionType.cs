@@ -8,7 +8,7 @@ using UIX.Views;
 
 namespace Kadr.Data
 {
-    public partial class BusinessTripRegionType : UIX.Views.IValidatable, INull, IComparable, IDecorable
+    public partial class BusinessTripRegionType : INull, IComparable, IDecorable
     {
         #region Properties
 
@@ -30,7 +30,7 @@ namespace Kadr.Data
             else return "Не задано";
         }
 
-        #region partial Methods
+        /*#region partial Methods
 
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Kadr.Data
             OnValidate(ChangeAction.Insert);
         }
 
-        #endregion
+        #endregion*/
 
 
         #region INull Members

@@ -5086,9 +5086,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Зарегистрирован")]
+        [System.ComponentModel.DisplayName("Это адрес прописки")]
         [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Зарегистрирован ли по адресу")]
+        [System.ComponentModel.Description("Сотрудник прописан по данному адресу")]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool RegBit
         {
@@ -5106,7 +5106,7 @@ namespace Kadr.Data
 
     #endregion
 
-   #region MaterialResponsibility Decorator
+    #region MaterialResponsibility Decorator
 
     internal class MaterialResponsibilityDecorator
     {
