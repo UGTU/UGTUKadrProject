@@ -243,6 +243,9 @@ namespace Kadr.Data
     partial void InsertOK_MembFam(OK_MembFam instance);
     partial void UpdateOK_MembFam(OK_MembFam instance);
     partial void DeleteOK_MembFam(OK_MembFam instance);
+    partial void InsertOK_DopInf(OK_DopInf instance);
+    partial void UpdateOK_DopInf(OK_DopInf instance);
+    partial void DeleteOK_DopInf(OK_DopInf instance);
     partial void InsertOK_Fam(OK_Fam instance);
     partial void UpdateOK_Fam(OK_Fam instance);
     partial void DeleteOK_Fam(OK_Fam instance);
@@ -859,6 +862,14 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<OK_MembFam>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_DopInf> OK_DopInfs
+		{
+			get
+			{
+				return this.GetTable<OK_DopInf>();
 			}
 		}
 		
@@ -17256,6 +17267,8 @@ namespace Kadr.Data
 		
 		private EntitySet<OK_phone> _OK_phones;
 		
+		private EntitySet<OK_DopInf> _OK_DopInfs;
+		
 		private EntitySet<OK_Fam> _OK_Fams;
 		
 		private EntityRef<Grazd> _Grazd;
@@ -17335,6 +17348,7 @@ namespace Kadr.Data
 			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
 			this._OK_Adresses = new EntitySet<OK_Adress>(new Action<OK_Adress>(this.attach_OK_Adresses), new Action<OK_Adress>(this.detach_OK_Adresses));
 			this._OK_phones = new EntitySet<OK_phone>(new Action<OK_phone>(this.attach_OK_phones), new Action<OK_phone>(this.detach_OK_phones));
+			this._OK_DopInfs = new EntitySet<OK_DopInf>(new Action<OK_DopInf>(this.attach_OK_DopInfs), new Action<OK_DopInf>(this.detach_OK_DopInfs));
 			this._OK_Fams = new EntitySet<OK_Fam>(new Action<OK_Fam>(this.attach_OK_Fams), new Action<OK_Fam>(this.detach_OK_Fams));
 			this._Grazd = default(EntityRef<Grazd>);
 			this._SemPol = default(EntityRef<SemPol>);
@@ -18020,6 +18034,19 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopInf", Storage="_OK_DopInfs", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_DopInf> OK_DopInfs
+		{
+			get
+			{
+				return this._OK_DopInfs;
+			}
+			set
+			{
+				this._OK_DopInfs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Fam", Storage="_OK_Fams", ThisKey="id", OtherKey="idemployee")]
 		public EntitySet<OK_Fam> OK_Fams
 		{
@@ -18200,6 +18227,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_OK_phones(OK_phone entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_DopInfs(OK_DopInf entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_DopInfs(OK_DopInf entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
@@ -20162,6 +20201,157 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.OK_MembFam = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_DopInf")]
+	public partial class OK_DopInf : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idDopInf;
+		
+		private int _idEmployee;
+		
+		private string _DopInf;
+		
+		private EntityRef<Employee> _Employee;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidDopInfChanging(int value);
+    partial void OnidDopInfChanged();
+    partial void OnidEmployeeChanging(int value);
+    partial void OnidEmployeeChanged();
+    partial void OnDopInfChanging(string value);
+    partial void OnDopInfChanged();
+    #endregion
+		
+		public OK_DopInf()
+		{
+			this._Employee = default(EntityRef<Employee>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idDopInf", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idDopInf
+		{
+			get
+			{
+				return this._idDopInf;
+			}
+			set
+			{
+				if ((this._idDopInf != value))
+				{
+					this.OnidDopInfChanging(value);
+					this.SendPropertyChanging();
+					this._idDopInf = value;
+					this.SendPropertyChanged("idDopInf");
+					this.OnidDopInfChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
+		public int idEmployee
+		{
+			get
+			{
+				return this._idEmployee;
+			}
+			set
+			{
+				if ((this._idEmployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idEmployee = value;
+					this.SendPropertyChanged("idEmployee");
+					this.OnidEmployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DopInf", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string DopInf
+		{
+			get
+			{
+				return this._DopInf;
+			}
+			set
+			{
+				if ((this._DopInf != value))
+				{
+					this.OnDopInfChanging(value);
+					this.SendPropertyChanging();
+					this._DopInf = value;
+					this.SendPropertyChanged("DopInf");
+					this.OnDopInfChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopInf", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.OK_DopInfs.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.OK_DopInfs.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

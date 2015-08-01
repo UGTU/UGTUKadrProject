@@ -799,6 +799,7 @@
       <Association Name="Employee_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idEmployee" Type="SocialFareTransit" />
       <Association Name="Employee_OK_Adress" Member="OK_Adresses" ThisKey="id" OtherKey="idEmployee" Type="OK_Adress" />
       <Association Name="Employee_OK_phone" Member="OK_phones" ThisKey="id" OtherKey="idEmployee" Type="OK_phone" />
+      <Association Name="Employee_OK_DopInf" Member="OK_DopInfs" ThisKey="id" OtherKey="idEmployee" Type="OK_DopInf" />
       <Association Name="Employee_OK_Fam" Member="OK_Fams" ThisKey="id" OtherKey="idemployee" Type="OK_Fam" />
       <Association Name="Grazd_Employee" Member="Grazd" ThisKey="idGrazd" OtherKey="id" Type="Grazd" IsForeignKey="true" />
       <Association Name="SemPol_Employee" Member="SemPol" ThisKey="idSemPol" OtherKey="id" Type="SemPol" IsForeignKey="true" />
@@ -895,6 +896,14 @@
       <Column Name="idmembfam" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="membfamname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="OK_MembFam_OK_Fam" Member="OK_Fams" ThisKey="idmembfam" OtherKey="idmembfam" Type="OK_Fam" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_DopInf" Member="OK_DopInfs">
+    <Type Name="OK_DopInf">
+      <Column Name="idDopInf" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DopInf" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_OK_DopInf" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.OK_Fam" Member="OK_Fams">

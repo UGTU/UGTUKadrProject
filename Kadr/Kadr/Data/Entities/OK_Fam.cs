@@ -23,7 +23,7 @@ namespace Kadr.Data
             {
 
                 if (Employee.IsNull() || Employee == null) throw new ArgumentNullException("Сотрудник.");
-                if (OK_MembFam.IsNull() || OK_MembFam == null) throw new ArgumentNullException("Номер телефона.");
+                if (OK_MembFam.IsNull() || OK_MembFam == null) throw new ArgumentNullException("Степень родства.");
             }
         }
 
