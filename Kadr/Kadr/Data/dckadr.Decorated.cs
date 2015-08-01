@@ -5348,8 +5348,9 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата начала")]
-        [System.ComponentModel.Category("Сроки")]
+        [System.ComponentModel.Category("Даты")]
         [System.ComponentModel.Description("Дата начала больничного")]
+
         public DateTime DateBegin
         {
             get
@@ -5367,14 +5368,15 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата окончания")]
-        [System.ComponentModel.Category("Сроки")]
+        [System.ComponentModel.Category("Даты")]
         [System.ComponentModel.Description("Дата окончания больничного")]
+        [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
 
-        public DateTime DateEnd
+        public DateTime? DateEnd
         {
             get
             {
-                return (DateTime)Inkapacity.DateEnd;
+                return Inkapacity.DateEnd;
             }
             set
             {
@@ -5432,19 +5434,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата выдачи документа")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Дата выдачи документа, подтверждающего период нетрудоспособности")]
-        [System.ComponentModel.Description("Дата выдачи документа, подтверждающего период нетрудоспособности")]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
-       // [System.ComponentModel.TypeConverter(typeof(System.ComponentModel.DateTimeConverter))]
-
-            //        The PropertyGrid was not displaying the editor, bit of a bummer! Although not a massive deal, I thought I was going to need to create a UITypeEditor that would cope with Nullable dates.  Fortunately if you are explicit, the built in editor supports a Nullable DateTime. 
-
-            //[EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
-            //public virtual DateTime? EndDate
-            //{
-            //    get { return m_endDate; }
-            //    set { m_endDate = value; }
-            //}
-
         public DateTime? DocDate
         {
             get
@@ -5460,10 +5450,16 @@ namespace Kadr.Data
                 Inkapacity.EducDocument.DocDate = value;
             }
         }
+
+        internal OK_Inkapacity GetInkapacity()
+        {
+            return Inkapacity;
+        }
     }
 
 
 
     #endregion 
+
 
 }

@@ -9,9 +9,19 @@ namespace Kadr.Data
 {
     public partial class OK_Inkapacity : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
+
+        public void Init(UIX.Commands.ICommandManager commandManager, Employee Employee1)
+        {
+            // TODO: Complete member initialization
+
+        }
+
         public override string ToString()
         {
-            return string.Format("Больничный с {1} по {2}, сотрудник: {0}", Employee.EmployeeSmallName, DateBegin, DateEnd);
+            if (DateEnd != null)
+                return string.Format("Больничный с {1} по {2}, сотрудник: {0}", Employee.EmployeeSmallName, DateBegin, DateEnd);
+            else
+                return string.Format("Больничный с {1}, сотрудник: {0}", Employee.EmployeeSmallName, DateBegin);
         }
 
         #region partial Methods
@@ -23,7 +33,13 @@ namespace Kadr.Data
         /// <param name="action"></param>
         partial void OnValidate(System.Data.Linq.ChangeAction action)
         {
+            if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
+            {
+                if (EducDocument == null) throw new ArgumentNullException("Подтверждающий документ"); else
 
+                if (DateBegin == null) throw new ArgumentNullException("Дата начала периода");
+                if (DateEnd == null) throw new ArgumentNullException("Дата окончания периода");
+            }
         }
 
         #endregion
@@ -41,8 +57,8 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
-            return null;
-            //return new BusinessTripDecorator(this);
+            //return null;
+            return new InkapacityDecorator(this);
         }
 
         #endregion

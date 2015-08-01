@@ -42,5 +42,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=ugtudb.ugtu.net;Initial Catalog=Kadr;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="InkapacityDocTypeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Больничный</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

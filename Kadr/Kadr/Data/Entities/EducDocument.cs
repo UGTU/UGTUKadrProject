@@ -10,6 +10,11 @@ namespace Kadr.Data
 {
     public partial class EducDocument : INull, IComparable
     {
+
+        public EducDocument(UIX.Commands.ICommandManager commandManager, EducDocumentType type):this()
+        {
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<EducDocument, EducDocumentType>(this, "EducDocumentType", type, null), this);
+        }
         public override string ToString()
         {
             if (DocDate != null)
@@ -29,7 +34,7 @@ namespace Kadr.Data
 
         partial void OnCreated()
         {
-            this.DocDate = DateTime.Today;
+            //this.DocDate = DateTime.Today;
         }
         #endregion
 
