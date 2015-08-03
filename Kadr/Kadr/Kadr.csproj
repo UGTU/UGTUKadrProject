@@ -251,6 +251,7 @@
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
     <Compile Include="Data\Entities\OK_phone.cs" />
+    <Compile Include="Data\Entities\Organisation.cs" />
     <Compile Include="Data\Entities\PKCategory.cs" />
     <Compile Include="Data\Entities\PKCategorySalary.cs" />
     <Compile Include="Data\Entities\PKGroup.cs" />
@@ -469,6 +470,12 @@
     </Compile>
     <Compile Include="UI\Dialogs\OKVEDDialog.Designer.cs">
       <DependentUpon>OKVEDDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\OrganisationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\OrganisationDialog.Designer.cs">
+      <DependentUpon>OrganisationDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\PKCategoryDialog.cs">
       <SubType>Form</SubType>
@@ -792,6 +799,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\OKVEDDialog.resx">
       <DependentUpon>OKVEDDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\OrganisationDialog.resx">
+      <DependentUpon>OrganisationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\PKCategoryDialog.resx">
       <DependentUpon>PKCategoryDialog.cs</DependentUpon>
