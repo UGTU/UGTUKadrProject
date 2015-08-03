@@ -53,7 +53,7 @@ namespace Kadr.Data
                 if (FactStaff == null || (FactStaff.IsNull())) throw new ArgumentNullException("Сотрудник.");
                 if (Prikaz == null || (Prikaz.IsNull())) throw new ArgumentNullException("Приказ.");
                 if ((DateEnd != null) && (DateBegin != null))
-                    if (DateEnd <= DateBegin)
+                    if (DateEnd < DateBegin)
                         throw new ArgumentOutOfRangeException("Дата окончания действия должна быть позже даты начала.");
                     else
                         DateEnd = DateEnd.Value.Date;

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    partial class SocialFareTransit : UIX.Views.IDecorable
+    partial class SocialFareTransit : UIX.Views.IDecorable, INull
     {
         public override string ToString()
         {
@@ -26,6 +27,40 @@ namespace Kadr.Data
         public object GetDecorator()
         {
             return new SocialFareTransitDecorator(this);
+        }
+
+        #endregion
+
+         #region Члены INull
+
+        bool INull.IsNull()
+        {
+            return false;
+        }
+
+        #endregion
+    }
+
+    public class NullSocialFareTransit : SocialFareTransit, INull
+    {
+
+        private NullSocialFareTransit()
+        {
+            this.id = 0;
+        }
+
+        public static readonly NullSocialFareTransit Instance = new NullSocialFareTransit();
+
+        #region INull Members
+
+        bool INull.IsNull()
+        {
+            return true;
+        }
+
+        public override string ToString()
+        {
+            return "(Не задан)";
         }
 
         #endregion

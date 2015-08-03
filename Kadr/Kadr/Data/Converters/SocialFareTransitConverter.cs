@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Kadr.Data.Converters
 {
-    class OK_MembFamConverter : TypeConverter
+    class SocialFareTransitConverter : TypeConverter
     {
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
@@ -16,8 +16,16 @@ namespace Kadr.Data.Converters
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            ICollection collection = Kadr.Controllers.KadrController.Instance.Model.OK_MembFams.OrderBy(MF => MF.membfamname).ToList();
-            return collection;
+            if (context.Instance is OK_OtpuskDecorator)
+            {
+                var res = Kadr.Controllers.KadrController.Instance.Model.SocialFareTransits.Where(x => x.Employee == (context.Instance as OK_OtpuskDecorator).Employee);
+                if (res.Count()>0) return res.ToList();
+                else return null;
+            }
+            else
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.SocialFareTransits.ToArray();
+            }
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
@@ -42,10 +50,9 @@ namespace Kadr.Data.Converters
         public override object ConvertTo(ITypeDescriptorContext context,
        System.Globalization.CultureInfo culture, object value, Type destinationType)
         {
-            if (destinationType == typeof(string) && value is OK_MembFam)
+            if (destinationType == typeof(string) && value is SocialFareTransit)
             {
-                OK_MembFam item = (OK_MembFam)value;
-                return item.ToString();
+                return (value as SocialFareTransit).ToString();
             }
             return base.ConvertTo(context, culture, value, destinationType);
         }
@@ -65,13 +72,16 @@ namespace Kadr.Data.Converters
         public override object ConvertFrom(ITypeDescriptorContext context,
         System.Globalization.CultureInfo culture, object value)
         {
+            if (value == null)
+                return NullSocialFareTransit.Instance;
             if (value.GetType() == typeof(string))
             {
-                OK_MembFam itemSelected = null;
 
-                foreach (OK_MembFam Item in GetCollection(context))
+                SocialFareTransit itemSelected = null;
+                var c = GetCollection(context);
+                foreach (SocialFareTransit Item in c)
                 {
-                    string ItemName = Item.membfamname;
+                    string ItemName = Item.ToString();
 
                     if (ItemName.Equals((string)value))
                     {

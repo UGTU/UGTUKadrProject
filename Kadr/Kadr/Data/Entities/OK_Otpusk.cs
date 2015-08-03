@@ -84,8 +84,8 @@ namespace Kadr.Data
                 if (FactStaffPrikaz.IsNull() || FactStaffPrikaz == null) throw new ArgumentNullException("Приказ.");
                 if ((OK_Otpuskvid == null) || (OK_Otpuskvid.IsNull())) throw new ArgumentNullException("Вид отпуска.");
                 if (RealDateEnd != null)
-                    if (RealDateEnd <= RealDateBegin)
-                        throw new ArgumentOutOfRangeException("Дата увольнения должна быть позже даты приема на работу.");
+                    if (RealDateEnd < RealDateBegin)
+                        throw new ArgumentOutOfRangeException("Дата окончания отпуска должна быть позже даты его начала.");
             }
         }
 

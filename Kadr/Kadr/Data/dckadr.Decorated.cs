@@ -4557,6 +4557,23 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.DisplayName("Сотрудник")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Сотрудник")]
+        [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
+        public Employee Employee
+        {
+            get
+            {
+                return ok_Otpusk.FactStaff.Employee;
+            }
+            set
+            {
+                ok_Otpusk.FactStaff.Employee = value;
+            }
+        }
+
         [System.ComponentModel.DisplayName("Количество дней")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Количество дней отпуска")]
@@ -4605,7 +4622,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Вид отпуска")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Вид отпуска")]
-        [System.ComponentModel.Editor(typeof(OK_OtpuskvidEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(OK_OtpuskvidConverter))]
         public OK_Otpuskvid OK_Otpuskvid
         {
             get
@@ -4621,6 +4638,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ")]
+        //[System.ComponentModel.TypeConverter(typeof(PrikazConverter))]
         [System.ComponentModel.Editor(typeof(PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz Prikaz
         {
@@ -4634,21 +4652,22 @@ namespace Kadr.Data
             }
         }
 
-        /*[System.ComponentModel.DisplayName("Сотрудник")]
+        [System.ComponentModel.DisplayName("ЛЬготный проезд")]
         [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Сотрудник")]
-        [System.ComponentModel.Editor(typeof(FactStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public FactStaff FactStaff
+        [System.ComponentModel.Description("ЛЬготный проезд")]
+        //[System.ComponentModel.TypeConverter(typeof(SocialFareTransitConverter))]
+        [System.ComponentModel.Editor(typeof(SocialFareTransitEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public SocialFareTransit SocialFareTransit
         {
             get
             {
-                return ok_Otpusk.FactStaffPrikaz.FactStaff;
+                return ok_Otpusk.SocialFareTransit;
             }
             set
             {
-                ok_Otpusk.FactStaffPrikaz.FactStaff = value;
+                ok_Otpusk.SocialFareTransit = value;
             }
-        }*/
+        }
 
 
     }
@@ -4781,8 +4800,6 @@ namespace Kadr.Data
 
     }
     #endregion
-
-
 
     #region BusinessTrip Decorator
 
@@ -4975,7 +4992,6 @@ namespace Kadr.Data
     }
 
     #endregion
-
 
     #region OK_phone Decorator
     class OK_phoneDecorator
