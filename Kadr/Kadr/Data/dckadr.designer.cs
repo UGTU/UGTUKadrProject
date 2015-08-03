@@ -210,9 +210,6 @@ namespace Kadr.Data
     partial void InsertEmployeeStanding(EmployeeStanding instance);
     partial void UpdateEmployeeStanding(EmployeeStanding instance);
     partial void DeleteEmployeeStanding(EmployeeStanding instance);
-    partial void InsertBusinessTripRegionType(BusinessTripRegionType instance);
-    partial void UpdateBusinessTripRegionType(BusinessTripRegionType instance);
-    partial void DeleteBusinessTripRegionType(BusinessTripRegionType instance);
     partial void InsertEmployee(Employee instance);
     partial void UpdateEmployee(Employee instance);
     partial void DeleteEmployee(Employee instance);
@@ -240,10 +237,22 @@ namespace Kadr.Data
     partial void InsertOK_phone(OK_phone instance);
     partial void UpdateOK_phone(OK_phone instance);
     partial void DeleteOK_phone(OK_phone instance);
+    partial void InsertOK_MembFam(OK_MembFam instance);
+    partial void UpdateOK_MembFam(OK_MembFam instance);
+    partial void DeleteOK_MembFam(OK_MembFam instance);
+    partial void InsertOK_DopInf(OK_DopInf instance);
+    partial void UpdateOK_DopInf(OK_DopInf instance);
+    partial void DeleteOK_DopInf(OK_DopInf instance);
+    partial void InsertOK_Fam(OK_Fam instance);
+    partial void UpdateOK_Fam(OK_Fam instance);
+    partial void DeleteOK_Fam(OK_Fam instance);
+    partial void InsertBusinessTripRegionType(BusinessTripRegionType instance);
+    partial void UpdateBusinessTripRegionType(BusinessTripRegionType instance);
+    partial void DeleteBusinessTripRegionType(BusinessTripRegionType instance);
     #endregion
 		
 		public dckadrDataContext() : 
-				base(global::Kadr.Properties.Settings.Default.KadrConnectionString4, mappingSource)
+				base(global::Kadr.Properties.Settings.Default.KadrConnectionString5, mappingSource)
 		{
 			OnCreated();
 		}
@@ -768,14 +777,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<BusinessTripRegionType> BusinessTripRegionTypes
-		{
-			get
-			{
-				return this.GetTable<BusinessTripRegionType>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Employee> Employees
 		{
 			get
@@ -845,6 +846,38 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<OK_phone>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_MembFam> OK_MembFams
+		{
+			get
+			{
+				return this.GetTable<OK_MembFam>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_DopInf> OK_DopInfs
+		{
+			get
+			{
+				return this.GetTable<OK_DopInf>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_Fam> OK_Fams
+		{
+			get
+			{
+				return this.GetTable<OK_Fam>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BusinessTripRegionType> BusinessTripRegionTypes
+		{
+			get
+			{
+				return this.GetTable<BusinessTripRegionType>();
 			}
 		}
 		
@@ -16940,222 +16973,6 @@ namespace Kadr.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BusinessTripRegionType")]
-	public partial class BusinessTripRegionType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idRegionType;
-		
-		private int _idBusinessTrip;
-		
-		private System.DateTime _DateBegin;
-		
-		private System.DateTime _DateEnd;
-		
-		private EntityRef<RegionType> _RegionType;
-		
-		private EntityRef<BusinessTrip> _BusinessTrip;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidRegionTypeChanging(int value);
-    partial void OnidRegionTypeChanged();
-    partial void OnidBusinessTripChanging(int value);
-    partial void OnidBusinessTripChanged();
-    partial void OnDateBeginChanging(System.DateTime value);
-    partial void OnDateBeginChanged();
-    partial void OnDateEndChanging(System.DateTime value);
-    partial void OnDateEndChanged();
-    #endregion
-		
-		public BusinessTripRegionType()
-		{
-			this._RegionType = default(EntityRef<RegionType>);
-			this._BusinessTrip = default(EntityRef<BusinessTrip>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRegionType", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idRegionType
-		{
-			get
-			{
-				return this._idRegionType;
-			}
-			set
-			{
-				if ((this._idRegionType != value))
-				{
-					if (this._RegionType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidRegionTypeChanging(value);
-					this.SendPropertyChanging();
-					this._idRegionType = value;
-					this.SendPropertyChanged("idRegionType");
-					this.OnidRegionTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idBusinessTrip", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idBusinessTrip
-		{
-			get
-			{
-				return this._idBusinessTrip;
-			}
-			set
-			{
-				if ((this._idBusinessTrip != value))
-				{
-					if (this._BusinessTrip.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidBusinessTripChanging(value);
-					this.SendPropertyChanging();
-					this._idBusinessTrip = value;
-					this.SendPropertyChanged("idBusinessTrip");
-					this.OnidBusinessTripChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="Date NOT NULL")]
-		public System.DateTime DateBegin
-		{
-			get
-			{
-				return this._DateBegin;
-			}
-			set
-			{
-				if ((this._DateBegin != value))
-				{
-					this.OnDateBeginChanging(value);
-					this.SendPropertyChanging();
-					this._DateBegin = value;
-					this.SendPropertyChanged("DateBegin");
-					this.OnDateBeginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="Date NOT NULL")]
-		public System.DateTime DateEnd
-		{
-			get
-			{
-				return this._DateEnd;
-			}
-			set
-			{
-				if ((this._DateEnd != value))
-				{
-					this.OnDateEndChanging(value);
-					this.SendPropertyChanging();
-					this._DateEnd = value;
-					this.SendPropertyChanged("DateEnd");
-					this.OnDateEndChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegionType_BusinessTripRegionType", Storage="_RegionType", ThisKey="idRegionType", OtherKey="id", IsForeignKey=true)]
-		public RegionType RegionType
-		{
-			get
-			{
-				return this._RegionType.Entity;
-			}
-			set
-			{
-				RegionType previousValue = this._RegionType.Entity;
-				if (((previousValue != value) 
-							|| (this._RegionType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._RegionType.Entity = null;
-						previousValue.BusinessTripRegionTypes.Remove(this);
-					}
-					this._RegionType.Entity = value;
-					if ((value != null))
-					{
-						value.BusinessTripRegionTypes.Add(this);
-						this._idRegionType = value.id;
-					}
-					else
-					{
-						this._idRegionType = default(int);
-					}
-					this.SendPropertyChanged("RegionType");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BusinessTrip_BusinessTripRegionType", Storage="_BusinessTrip", ThisKey="idBusinessTrip", OtherKey="id", IsForeignKey=true)]
-		public BusinessTrip BusinessTrip
-		{
-			get
-			{
-				return this._BusinessTrip.Entity;
-			}
-			set
-			{
-				BusinessTrip previousValue = this._BusinessTrip.Entity;
-				if (((previousValue != value) 
-							|| (this._BusinessTrip.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._BusinessTrip.Entity = null;
-						previousValue.BusinessTripRegionTypes.Remove(this);
-					}
-					this._BusinessTrip.Entity = value;
-					if ((value != null))
-					{
-						value.BusinessTripRegionTypes.Add(this);
-						this._idBusinessTrip = value.id;
-					}
-					else
-					{
-						this._idBusinessTrip = default(int);
-					}
-					this.SendPropertyChanged("BusinessTrip");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee")]
 	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -17234,6 +17051,10 @@ namespace Kadr.Data
 		
 		private EntitySet<OK_phone> _OK_phones;
 		
+		private EntitySet<OK_DopInf> _OK_DopInfs;
+		
+		private EntitySet<OK_Fam> _OK_Fams;
+		
 		private EntityRef<Grazd> _Grazd;
 		
 		private EntityRef<SemPol> _SemPol;
@@ -17311,6 +17132,8 @@ namespace Kadr.Data
 			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
 			this._OK_Adresses = new EntitySet<OK_Adress>(new Action<OK_Adress>(this.attach_OK_Adresses), new Action<OK_Adress>(this.detach_OK_Adresses));
 			this._OK_phones = new EntitySet<OK_phone>(new Action<OK_phone>(this.attach_OK_phones), new Action<OK_phone>(this.detach_OK_phones));
+			this._OK_DopInfs = new EntitySet<OK_DopInf>(new Action<OK_DopInf>(this.attach_OK_DopInfs), new Action<OK_DopInf>(this.detach_OK_DopInfs));
+			this._OK_Fams = new EntitySet<OK_Fam>(new Action<OK_Fam>(this.attach_OK_Fams), new Action<OK_Fam>(this.detach_OK_Fams));
 			this._Grazd = default(EntityRef<Grazd>);
 			this._SemPol = default(EntityRef<SemPol>);
 			OnCreated();
@@ -17995,6 +17818,32 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopInf", Storage="_OK_DopInfs", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_DopInf> OK_DopInfs
+		{
+			get
+			{
+				return this._OK_DopInfs;
+			}
+			set
+			{
+				this._OK_DopInfs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Fam", Storage="_OK_Fams", ThisKey="id", OtherKey="idemployee")]
+		public EntitySet<OK_Fam> OK_Fams
+		{
+			get
+			{
+				return this._OK_Fams;
+			}
+			set
+			{
+				this._OK_Fams.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grazd_Employee", Storage="_Grazd", ThisKey="idGrazd", OtherKey="id", IsForeignKey=true)]
 		public Grazd Grazd
 		{
@@ -18162,6 +18011,30 @@ namespace Kadr.Data
 		}
 		
 		private void detach_OK_phones(OK_phone entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_DopInfs(OK_DopInf entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_DopInfs(OK_DopInf entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_Fams(OK_Fam entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_Fams(OK_Fam entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
@@ -19976,6 +19849,751 @@ namespace Kadr.Data
 						this._idEmployee = default(int);
 					}
 					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_MembFam")]
+	public partial class OK_MembFam : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idmembfam;
+		
+		private string _membfamname;
+		
+		private EntitySet<OK_Fam> _OK_Fams;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidmembfamChanging(int value);
+    partial void OnidmembfamChanged();
+    partial void OnmembfamnameChanging(string value);
+    partial void OnmembfamnameChanged();
+    #endregion
+		
+		public OK_MembFam()
+		{
+			this._OK_Fams = new EntitySet<OK_Fam>(new Action<OK_Fam>(this.attach_OK_Fams), new Action<OK_Fam>(this.detach_OK_Fams));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idmembfam", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idmembfam
+		{
+			get
+			{
+				return this._idmembfam;
+			}
+			set
+			{
+				if ((this._idmembfam != value))
+				{
+					this.OnidmembfamChanging(value);
+					this.SendPropertyChanging();
+					this._idmembfam = value;
+					this.SendPropertyChanged("idmembfam");
+					this.OnidmembfamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_membfamname", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string membfamname
+		{
+			get
+			{
+				return this._membfamname;
+			}
+			set
+			{
+				if ((this._membfamname != value))
+				{
+					this.OnmembfamnameChanging(value);
+					this.SendPropertyChanging();
+					this._membfamname = value;
+					this.SendPropertyChanged("membfamname");
+					this.OnmembfamnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_MembFam_OK_Fam", Storage="_OK_Fams", ThisKey="idmembfam", OtherKey="idmembfam")]
+		public EntitySet<OK_Fam> OK_Fams
+		{
+			get
+			{
+				return this._OK_Fams;
+			}
+			set
+			{
+				this._OK_Fams.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OK_Fams(OK_Fam entity)
+		{
+			this.SendPropertyChanging();
+			entity.OK_MembFam = this;
+		}
+		
+		private void detach_OK_Fams(OK_Fam entity)
+		{
+			this.SendPropertyChanging();
+			entity.OK_MembFam = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_DopInf")]
+	public partial class OK_DopInf : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idDopInf;
+		
+		private int _idEmployee;
+		
+		private string _DopInf;
+		
+		private EntityRef<Employee> _Employee;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidDopInfChanging(int value);
+    partial void OnidDopInfChanged();
+    partial void OnidEmployeeChanging(int value);
+    partial void OnidEmployeeChanged();
+    partial void OnDopInfChanging(string value);
+    partial void OnDopInfChanged();
+    #endregion
+		
+		public OK_DopInf()
+		{
+			this._Employee = default(EntityRef<Employee>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idDopInf", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idDopInf
+		{
+			get
+			{
+				return this._idDopInf;
+			}
+			set
+			{
+				if ((this._idDopInf != value))
+				{
+					this.OnidDopInfChanging(value);
+					this.SendPropertyChanging();
+					this._idDopInf = value;
+					this.SendPropertyChanged("idDopInf");
+					this.OnidDopInfChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
+		public int idEmployee
+		{
+			get
+			{
+				return this._idEmployee;
+			}
+			set
+			{
+				if ((this._idEmployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idEmployee = value;
+					this.SendPropertyChanged("idEmployee");
+					this.OnidEmployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DopInf", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string DopInf
+		{
+			get
+			{
+				return this._DopInf;
+			}
+			set
+			{
+				if ((this._DopInf != value))
+				{
+					this.OnDopInfChanging(value);
+					this.SendPropertyChanging();
+					this._DopInf = value;
+					this.SendPropertyChanged("DopInf");
+					this.OnDopInfChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopInf", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.OK_DopInfs.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.OK_DopInfs.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Fam")]
+	public partial class OK_Fam : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idfam;
+		
+		private int _idmembfam;
+		
+		private int _idemployee;
+		
+		private string _fiomembfam;
+		
+		private string _godbirth;
+		
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<OK_MembFam> _OK_MembFam;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidfamChanging(int value);
+    partial void OnidfamChanged();
+    partial void OnidmembfamChanging(int value);
+    partial void OnidmembfamChanged();
+    partial void OnidemployeeChanging(int value);
+    partial void OnidemployeeChanged();
+    partial void OnfiomembfamChanging(string value);
+    partial void OnfiomembfamChanged();
+    partial void OngodbirthChanging(string value);
+    partial void OngodbirthChanged();
+    #endregion
+		
+		public OK_Fam()
+		{
+			this._Employee = default(EntityRef<Employee>);
+			this._OK_MembFam = default(EntityRef<OK_MembFam>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idfam", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idfam
+		{
+			get
+			{
+				return this._idfam;
+			}
+			set
+			{
+				if ((this._idfam != value))
+				{
+					this.OnidfamChanging(value);
+					this.SendPropertyChanging();
+					this._idfam = value;
+					this.SendPropertyChanged("idfam");
+					this.OnidfamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idmembfam", DbType="Int NOT NULL")]
+		public int idmembfam
+		{
+			get
+			{
+				return this._idmembfam;
+			}
+			set
+			{
+				if ((this._idmembfam != value))
+				{
+					if (this._OK_MembFam.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidmembfamChanging(value);
+					this.SendPropertyChanging();
+					this._idmembfam = value;
+					this.SendPropertyChanged("idmembfam");
+					this.OnidmembfamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idemployee", DbType="Int NOT NULL")]
+		public int idemployee
+		{
+			get
+			{
+				return this._idemployee;
+			}
+			set
+			{
+				if ((this._idemployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidemployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idemployee = value;
+					this.SendPropertyChanged("idemployee");
+					this.OnidemployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fiomembfam", DbType="VarChar(255)")]
+		public string fiomembfam
+		{
+			get
+			{
+				return this._fiomembfam;
+			}
+			set
+			{
+				if ((this._fiomembfam != value))
+				{
+					this.OnfiomembfamChanging(value);
+					this.SendPropertyChanging();
+					this._fiomembfam = value;
+					this.SendPropertyChanged("fiomembfam");
+					this.OnfiomembfamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_godbirth", DbType="VarChar(10)")]
+		public string godbirth
+		{
+			get
+			{
+				return this._godbirth;
+			}
+			set
+			{
+				if ((this._godbirth != value))
+				{
+					this.OngodbirthChanging(value);
+					this.SendPropertyChanging();
+					this._godbirth = value;
+					this.SendPropertyChanged("godbirth");
+					this.OngodbirthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Fam", Storage="_Employee", ThisKey="idemployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.OK_Fams.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Fams.Add(this);
+						this._idemployee = value.id;
+					}
+					else
+					{
+						this._idemployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_MembFam_OK_Fam", Storage="_OK_MembFam", ThisKey="idmembfam", OtherKey="idmembfam", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public OK_MembFam OK_MembFam
+		{
+			get
+			{
+				return this._OK_MembFam.Entity;
+			}
+			set
+			{
+				OK_MembFam previousValue = this._OK_MembFam.Entity;
+				if (((previousValue != value) 
+							|| (this._OK_MembFam.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OK_MembFam.Entity = null;
+						previousValue.OK_Fams.Remove(this);
+					}
+					this._OK_MembFam.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Fams.Add(this);
+						this._idmembfam = value.idmembfam;
+					}
+					else
+					{
+						this._idmembfam = default(int);
+					}
+					this.SendPropertyChanged("OK_MembFam");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BusinessTripRegionType")]
+	public partial class BusinessTripRegionType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idRegionType;
+		
+		private int _idBusinessTrip;
+		
+		private System.DateTime _DateBegin;
+		
+		private System.DateTime _DateEnd;
+		
+		private int _ID;
+		
+		private EntityRef<BusinessTrip> _BusinessTrip;
+		
+		private EntityRef<RegionType> _RegionType;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidRegionTypeChanging(int value);
+    partial void OnidRegionTypeChanged();
+    partial void OnidBusinessTripChanging(int value);
+    partial void OnidBusinessTripChanged();
+    partial void OnDateBeginChanging(System.DateTime value);
+    partial void OnDateBeginChanged();
+    partial void OnDateEndChanging(System.DateTime value);
+    partial void OnDateEndChanged();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    #endregion
+		
+		public BusinessTripRegionType()
+		{
+			this._BusinessTrip = default(EntityRef<BusinessTrip>);
+			this._RegionType = default(EntityRef<RegionType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRegionType", DbType="Int NOT NULL")]
+		public int idRegionType
+		{
+			get
+			{
+				return this._idRegionType;
+			}
+			set
+			{
+				if ((this._idRegionType != value))
+				{
+					if (this._RegionType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidRegionTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idRegionType = value;
+					this.SendPropertyChanged("idRegionType");
+					this.OnidRegionTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idBusinessTrip", DbType="Int NOT NULL")]
+		public int idBusinessTrip
+		{
+			get
+			{
+				return this._idBusinessTrip;
+			}
+			set
+			{
+				if ((this._idBusinessTrip != value))
+				{
+					if (this._BusinessTrip.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidBusinessTripChanging(value);
+					this.SendPropertyChanging();
+					this._idBusinessTrip = value;
+					this.SendPropertyChanged("idBusinessTrip");
+					this.OnidBusinessTripChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="DateTime NOT NULL")]
+		public System.DateTime DateBegin
+		{
+			get
+			{
+				return this._DateBegin;
+			}
+			set
+			{
+				if ((this._DateBegin != value))
+				{
+					this.OnDateBeginChanging(value);
+					this.SendPropertyChanging();
+					this._DateBegin = value;
+					this.SendPropertyChanged("DateBegin");
+					this.OnDateBeginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="DateTime NOT NULL")]
+		public System.DateTime DateEnd
+		{
+			get
+			{
+				return this._DateEnd;
+			}
+			set
+			{
+				if ((this._DateEnd != value))
+				{
+					this.OnDateEndChanging(value);
+					this.SendPropertyChanging();
+					this._DateEnd = value;
+					this.SendPropertyChanged("DateEnd");
+					this.OnDateEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BusinessTrip_BusinessTripRegionType", Storage="_BusinessTrip", ThisKey="idBusinessTrip", OtherKey="id", IsForeignKey=true)]
+		public BusinessTrip BusinessTrip
+		{
+			get
+			{
+				return this._BusinessTrip.Entity;
+			}
+			set
+			{
+				BusinessTrip previousValue = this._BusinessTrip.Entity;
+				if (((previousValue != value) 
+							|| (this._BusinessTrip.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BusinessTrip.Entity = null;
+						previousValue.BusinessTripRegionTypes.Remove(this);
+					}
+					this._BusinessTrip.Entity = value;
+					if ((value != null))
+					{
+						value.BusinessTripRegionTypes.Add(this);
+						this._idBusinessTrip = value.id;
+					}
+					else
+					{
+						this._idBusinessTrip = default(int);
+					}
+					this.SendPropertyChanged("BusinessTrip");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegionType_BusinessTripRegionType", Storage="_RegionType", ThisKey="idRegionType", OtherKey="id", IsForeignKey=true)]
+		public RegionType RegionType
+		{
+			get
+			{
+				return this._RegionType.Entity;
+			}
+			set
+			{
+				RegionType previousValue = this._RegionType.Entity;
+				if (((previousValue != value) 
+							|| (this._RegionType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._RegionType.Entity = null;
+						previousValue.BusinessTripRegionTypes.Remove(this);
+					}
+					this._RegionType.Entity = value;
+					if ((value != null))
+					{
+						value.BusinessTripRegionTypes.Add(this);
+						this._idRegionType = value.id;
+					}
+					else
+					{
+						this._idRegionType = default(int);
+					}
+					this.SendPropertyChanged("RegionType");
 				}
 			}
 		}

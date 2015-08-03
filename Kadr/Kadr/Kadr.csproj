@@ -193,6 +193,7 @@
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Converters\FinSourceConverter.cs" />
+    <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
     <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
     <Compile Include="Data\dckadr.designer.cs">
@@ -242,6 +243,9 @@
     <Compile Include="Data\Entities\MaterialResponsibility.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Adress.cs" />
+    <Compile Include="Data\Entities\OK_DopInf.cs" />
+    <Compile Include="Data\Entities\OK_Fam.cs" />
+    <Compile Include="Data\Entities\OK_MembFam.cs" />
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
     <Compile Include="Data\Entities\OK_phone.cs" />
@@ -962,6 +966,8 @@
     <None Include="Properties\DataSources\Kadr.Data.GetStaffErrorsByPeriod.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OKVED.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_Adress.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_DopInf.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_Fam.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_Otpusk.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_phone.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.PlanStaff.datasource" />
