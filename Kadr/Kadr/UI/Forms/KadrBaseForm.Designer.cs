@@ -168,6 +168,7 @@ namespace Kadr.UI.Forms
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.организацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             tsmiDismissedEmployees = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -1001,7 +1002,8 @@ namespace Kadr.UI.Forms
             // отделыToolStripMenuItem
             // 
             this.отделыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.типыОтделовToolStripMenuItem});
+            this.типыОтделовToolStripMenuItem,
+            this.организацииToolStripMenuItem});
             this.отделыToolStripMenuItem.Name = "отделыToolStripMenuItem";
             this.отделыToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.отделыToolStripMenuItem.Text = "Остальное";
@@ -1419,6 +1421,13 @@ namespace Kadr.UI.Forms
             // 
             this.departmentBindingSource.DataSource = typeof(Kadr.Data.Department);
             // 
+            // организацииToolStripMenuItem
+            // 
+            this.организацииToolStripMenuItem.Name = "организацииToolStripMenuItem";
+            this.организацииToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.организацииToolStripMenuItem.Text = "Организации";
+            this.организацииToolStripMenuItem.Click += new System.EventHandler(this.организацииToolStripMenuItem_Click);
+            // 
             // KadrBaseForm
             // 
             this.AllowDrop = true;
@@ -1604,6 +1613,7 @@ namespace Kadr.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem продлитьНадбавкурасширеннаяФормаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типыРегионовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem видыСтажаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem организацииToolStripMenuItem;
 
     }
 }

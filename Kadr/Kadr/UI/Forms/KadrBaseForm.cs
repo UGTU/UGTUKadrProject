@@ -1349,6 +1349,11 @@ namespace Kadr.UI.Forms
             }
         }
 
+        private void îğãàíèçàöèèToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         
 
        
