@@ -24,7 +24,7 @@ namespace Kadr.Data.Converters
             }
             else
             {
-                return Kadr.Controllers.KadrController.Instance.Model.Prikazs.ToArray();
+                return Kadr.Controllers.KadrController.Instance.Model.Prikazs.OrderByDescending(Pr => Pr.DatePrikaz).ThenBy(Pr => Pr.PrikazName).ToList();
             }
         }
 

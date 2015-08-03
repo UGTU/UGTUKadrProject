@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Kadr.Data.Converters
 {
-    class OK_MembFamConverter : TypeConverter
+    class OK_OtpuskvidConverter : TypeConverter
     {
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
@@ -16,8 +16,8 @@ namespace Kadr.Data.Converters
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            ICollection collection = Kadr.Controllers.KadrController.Instance.Model.OK_MembFams.OrderBy(MF => MF.membfamname).ToList();
-            return collection;
+            
+            return Kadr.Controllers.KadrController.Instance.Model.OK_Otpuskvids.OrderBy(oV => oV.otpuskvidname).ToArray();
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
@@ -42,10 +42,9 @@ namespace Kadr.Data.Converters
         public override object ConvertTo(ITypeDescriptorContext context,
        System.Globalization.CultureInfo culture, object value, Type destinationType)
         {
-            if (destinationType == typeof(string) && value is OK_MembFam)
+            if (destinationType == typeof(string) && value is OK_Otpuskvid)
             {
-                OK_MembFam item = (OK_MembFam)value;
-                return item.ToString();
+                return (value as OK_Otpuskvid).ToString();
             }
             return base.ConvertTo(context, culture, value, destinationType);
         }
@@ -67,11 +66,12 @@ namespace Kadr.Data.Converters
         {
             if (value.GetType() == typeof(string))
             {
-                OK_MembFam itemSelected = null;
 
-                foreach (OK_MembFam Item in GetCollection(context))
+                OK_Otpuskvid itemSelected = null;
+                var c = GetCollection(context);
+                foreach (OK_Otpuskvid Item in c)
                 {
-                    string ItemName = Item.membfamname;
+                    string ItemName = Item.ToString();
 
                     if (ItemName.Equals((string)value))
                     {
