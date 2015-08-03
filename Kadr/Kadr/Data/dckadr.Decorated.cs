@@ -7,6 +7,8 @@ using Kadr.UI.Editors;
 using Kadr.Controllers;
 using Kadr.Data;
 using Kadr.Data.Common;
+using Kadr.UI.Common;
+using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
@@ -70,7 +72,7 @@ namespace Kadr.Data
                 return Convert.ToInt16(department.LastChange.id);
                 //else return 0;
             }
-            
+
         }
 
         [System.ComponentModel.DisplayName("Название отдела")]
@@ -214,7 +216,7 @@ namespace Kadr.Data
                 return department.Prikaz;
             }
             set
-            { 
+            {
                 department.Prikaz = value;
             }
         }
@@ -316,7 +318,7 @@ namespace Kadr.Data
                 departmentHistory.id = value;
             }
         }
- 
+
         [System.ComponentModel.DisplayName("Название отдела")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Уникальное название отдела в организации")]
@@ -347,7 +349,7 @@ namespace Kadr.Data
             }
         }
 
-        
+
         [System.ComponentModel.DisplayName("Руководящий отдел")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Руководящий отдел")]
@@ -383,7 +385,7 @@ namespace Kadr.Data
             }
         }
 
-        
+
         [System.ComponentModel.DisplayName("Приказ о создании")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ о создании отдела")]
@@ -400,7 +402,7 @@ namespace Kadr.Data
             }
         }
 
-        
+
 
     }
     #endregion
@@ -657,7 +659,7 @@ namespace Kadr.Data
             }
         }
 
-        
+
         [System.ComponentModel.DisplayName("Подподкатегория")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
@@ -675,7 +677,7 @@ namespace Kadr.Data
             }
         }
 
-        
+
         [System.ComponentModel.DisplayName("Должность в штатном расписании")]
         [System.ComponentModel.Category("Общие")]
         [System.ComponentModel.Description("Должность в штатном расписании")]
@@ -827,7 +829,7 @@ namespace Kadr.Data
             }
         }
 
-        
+
     }
 
 
@@ -1407,7 +1409,7 @@ namespace Kadr.Data
                 bonus.IntermediateEndPrikaz = value;
             }
         }
-        
+
         [System.ComponentModel.DisplayName("Приказ отмены")]
         [System.ComponentModel.Category("Прекращение начисления")]
         [System.ComponentModel.Description("Приказ отмены надбавки")]
@@ -1560,7 +1562,7 @@ namespace Kadr.Data
 
         override public string ToString()
         {
-            
+
             return "Сотрудник " + employee.EmployeeSmallName;
         }
 
@@ -1587,7 +1589,7 @@ namespace Kadr.Data
         {
             get
             {
-                
+
                 return (employee.itab_n);
             }
             set
@@ -1620,7 +1622,7 @@ namespace Kadr.Data
             get
             {
                 return employee.SexBit;
-            }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+            }
             set
             {
                 employee.SexBit = value;
@@ -1746,7 +1748,7 @@ namespace Kadr.Data
                 employee.EmplHistNumber = value;
             }
         }
-        
+
         [System.ComponentModel.DisplayName("Дата выдачи ТК")]
         [System.ComponentModel.Category("Трудовая книжка")]
         [System.ComponentModel.Description("Дата выдачи трудовой книжки сотрудника")]
@@ -1809,7 +1811,7 @@ namespace Kadr.Data
         /*[System.ComponentModel.DisplayName("ИНН")]
         [System.ComponentModel.Category("Документы")]
         [System.ComponentModel.Description("ИНН сотрудника")]
-        public string 
+        public string
         {
             get
             {
@@ -2241,7 +2243,7 @@ namespace Kadr.Data
                 post.CategoryZP = value;
             }
         }
-        
+
         [System.ComponentModel.DisplayName("Руководитель")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Руководящая должность")]
@@ -2268,7 +2270,7 @@ namespace Kadr.Data
             get
             {
                 return post.PKCategory;
-                
+
             }
             set
             {
@@ -2600,7 +2602,7 @@ namespace Kadr.Data
                 return "Научная степень "+employeeDegree.Employee.ToString();
         }
 
-        
+
 
         [System.ComponentModel.DisplayName("Диссертационный совет")]
         [System.ComponentModel.Category("Основные параметры")]
@@ -3093,7 +3095,7 @@ namespace Kadr.Data
                 timeSheet.TimeSheetWorkingDayCount = value;
             }
         }
-       
+
         [System.ComponentModel.DisplayName("Месяц")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Месяц табеля")]
@@ -3226,7 +3228,7 @@ namespace Kadr.Data
             return planStaffHistory.ToString();
         }
 
-        
+
         [System.ComponentModel.DisplayName("Дата изменения")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Дата изменения записи в штатном расписании")]
@@ -3251,7 +3253,7 @@ namespace Kadr.Data
         {
             get
             {
-                return planStaffHistory.Prikaz;               
+                return planStaffHistory.Prikaz;
             }
             set
             {
@@ -3448,7 +3450,7 @@ namespace Kadr.Data
             }
         }
 
-        
+
         [System.ComponentModel.DisplayName("Отдел")]
         [System.ComponentModel.Category("Общие")]
         [System.ComponentModel.Description("Название отдела")]
@@ -3663,7 +3665,7 @@ namespace Kadr.Data
             return bonusHistory.ToString();
         }
 
-        
+
         [System.ComponentModel.DisplayName("Дата назначения")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Дата назначения/изменения надбавки")]
@@ -3770,7 +3772,7 @@ namespace Kadr.Data
             this.departmentTimeNorm = departmentTimeNorm;
         }
 
- 
+
         [System.ComponentModel.DisplayName("ID")]
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код нормы времени")]
@@ -3867,7 +3869,7 @@ namespace Kadr.Data
         }
 
 
-       
+
         [System.ComponentModel.DisplayName("Отдел")]
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Название отдела, к которому относится норма времени")]
@@ -3884,7 +3886,7 @@ namespace Kadr.Data
             }
         }
 
-        
+
         [System.ComponentModel.DisplayName("Дата назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата назначения")]
@@ -4351,7 +4353,7 @@ namespace Kadr.Data
                 return factStaff.HourStaffCount;
             }
         }
-        
+
         [System.ComponentModel.DisplayName("Количество часов")]
         [System.ComponentModel.Category("Почасовики")]
         [System.ComponentModel.Description("Количество часов для почасовиков")]
@@ -4394,7 +4396,7 @@ namespace Kadr.Data
                 return factStaff.Department;
             }
         }
-        
+
         [System.ComponentModel.DisplayName("Название вида работы")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название вида работы")]
@@ -4523,7 +4525,7 @@ namespace Kadr.Data
 
 
     #endregion
-    
+
     #region OK_OtpuskDecorator Decorator
     class OK_OtpuskDecorator
     {
@@ -4599,7 +4601,7 @@ namespace Kadr.Data
                 ok_Otpusk.RealDateEnd = value;
             }
         }
-        
+
         [System.ComponentModel.DisplayName("Вид отпуска")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Вид отпуска")]
@@ -4648,7 +4650,7 @@ namespace Kadr.Data
             }
         }*/
 
- 
+
     }
 
 
@@ -4783,14 +4785,18 @@ namespace Kadr.Data
 
 
     #region BusinessTrip Decorator
-    
+
     class BusinessTripDecorator
     {
         private BusinessTrip Trip;
+        private DateTime PDate = DateTime.Now.Date;
 
         public BusinessTripDecorator(BusinessTrip Trip)
         {
             this.Trip = Trip;
+            if (Trip.FactStaffPrikaz.Prikaz != null)
+                if (Trip.FactStaffPrikaz.Prikaz.DatePrikaz != null)
+                PDate = (DateTime)Trip.FactStaffPrikaz.Prikaz.DatePrikaz;
         }
 
         public override string ToString()
@@ -4815,10 +4821,27 @@ namespace Kadr.Data
             }*/
         }
 
+        [System.ComponentModel.DisplayName("Дата приказа")]
+        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Description("Дата, по которой будет отфильтровано поле 'Приказ'")]
+        public DateTime PrikazDate
+        {
+            get
+            {
+                return PDate;
+            }
+            set
+            {
+                if (value != null) PDate = value;
+               }
+        }
+
         [System.ComponentModel.DisplayName("Приказ")]
+
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Приказ, назначающий командировку")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(PrikazConverter))]
+        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz Prikaz
         {
             get
@@ -4834,40 +4857,59 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата начала")]
+
         [System.ComponentModel.Category("Сроки")]
         [System.ComponentModel.Description("Дата начала командировки, значащаяся в приказе")]
+
         public DateTime DateBegin
         {
             get
             {
+
                 return (DateTime)Trip.FactStaffPrikaz.DateBegin;
             }
             set
             {
-                if (value != null) Trip.FactStaffPrikaz.DateBegin = value;
+                if (value != null)
+                {
+                    if (Trip.BusinessTripRegionTypes.First().DateBegin == DateBegin) Trip.BusinessTripRegionTypes.First().DateBegin = value;
+                    Trip.FactStaffPrikaz.DateBegin = value;
+                }
+                
             }
         }
 
-      
+
 
         [System.ComponentModel.DisplayName("Дата окончания")]
+
         [System.ComponentModel.Category("Сроки")]
         [System.ComponentModel.Description("Дата окончания командировки, значащаяся в приказе")]
+
 
         public DateTime DateEnd
         {
             get
             {
+
                 return (DateTime)Trip.FactStaffPrikaz.DateEnd;
             }
             set
             {
-                if (value != null) Trip.FactStaffPrikaz.DateEnd = value;
+
+                if (value != null)
+                {
+                    if (Trip.BusinessTripRegionTypes.First().DateEnd == DateEnd) Trip.BusinessTripRegionTypes.First().DateEnd = value;
+                    Trip.FactStaffPrikaz.DateEnd = value;
+                }
+                
             }
         }
 
+
+
         [System.ComponentModel.DisplayName("Основное место назначения")]
-        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Category("Места пребывания")]
         [System.ComponentModel.Description("Основное место назначения командировки")]
 
         public string TargetPlace
@@ -4882,10 +4924,12 @@ namespace Kadr.Data
             }
         }
 
+
         [System.ComponentModel.DisplayName("Финансирование")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("За счет каких средств осуществляется командировка")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(FinSourceConverter))]
+        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public FinancingSource FinSource
         {
             get
@@ -4898,10 +4942,35 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.DisplayName("Регион пребывания")]
+        [System.ComponentModel.Category("Места пребывания")]
+        [System.ComponentModel.Description("В какой регион командируется сотрудник")]
+        [System.ComponentModel.TypeConverter(typeof(RegionConverter))]
+        //В случае, если регион не требует дополнительного указания сроков пребывания, для создания записи BusinessTripRegionType будут использованы сроки командировки из приказа
+        //В ином случае предполагается, что пользователь отредактирует запись места пребывания при помощи пункта меню "Изменить сроки пребывания в регионе"
+        public RegionType TripMainRegion 
+        {
+            get
+            {
+                return Trip.BusinessTripRegionTypes.First().RegionType;
+            }
+
+            set
+            {
+                Trip.BusinessTripRegionTypes.First().RegionType = value;
+            }
+            
+        }
+
 
         internal BusinessTrip GetTrip()
         {
             return Trip;
+        }
+
+        internal BusinessTripRegionType GetRegionType()
+        {
+            return Trip.BusinessTripRegionTypes.FirstOrDefault(); 
         }
     }
 
@@ -4953,7 +5022,7 @@ namespace Kadr.Data
             }
         }
     }
-        
+
 
     #endregion
 
@@ -5020,6 +5089,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Показатель регистрации")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Показатель регистрации")]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool RegBit
         {
             get
@@ -5057,7 +5127,7 @@ namespace Kadr.Data
         [System.ComponentModel.Description("Уникальный код материальной ответственности")]
         [System.ComponentModel.ReadOnly(true)]
         [System.ComponentModel.Browsable(false)]
-        
+
         public int Id
         {
             get
@@ -5165,6 +5235,84 @@ namespace Kadr.Data
         {
             return materialResponsibility;
         }
+    }
+    #endregion
+
+    #region BusinessTripRegionType Decorator
+
+    class BusinessTripRegionTypeDecorator
+    {
+        private BusinessTripRegionType Type;
+
+        public BusinessTripRegionTypeDecorator(BusinessTripRegionType Type)
+        {
+            this.Type = Type;
+        }
+
+        public override string ToString()
+        {
+            return Type.ToString();
+        }
+        [System.ComponentModel.Category("Регион")]
+        [System.ComponentModel.DisplayName("Регион пребывания")]
+        [System.ComponentModel.Description("В какой регион командируется сотрудник")]
+        [System.ComponentModel.TypeConverter(typeof(RegionConverter))]
+
+        public RegionType TripMainRegion
+        {
+            get
+            {
+                return Type.RegionType;
+            }
+
+            set
+            {
+                Type.RegionType = value;
+            }
+
+        }
+
+
+        [System.ComponentModel.DisplayName("Дата начала")]
+        [System.ComponentModel.Category("Сроки")]
+        [System.ComponentModel.Description("Дата начала пребывания в регионе")]
+        public DateTime DateBegin
+        {
+            get
+            {
+                return Type.DateBegin;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    Type.DateBegin = value;
+                }
+
+            }
+        }
+        
+        [System.ComponentModel.DisplayName("Дата окончания")]
+        [System.ComponentModel.Category("Сроки")]
+        [System.ComponentModel.Description("Дата окончания пребывания в регионе")]
+
+        public DateTime DateEnd
+        {
+            get
+            {
+                return Type.DateEnd;
+            }
+            set
+            {
+
+                if (value != null)
+                {
+                    Type.DateEnd = value;
+                }
+
+            }
+        }
+
     }
     #endregion
 }

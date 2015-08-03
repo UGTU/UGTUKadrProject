@@ -361,3 +361,69 @@ GO
 ALTER TABLE [dbo].[MaterialResponsibility] CHECK CONSTRAINT [FK_MaterialResponsibility_FactStaffPrikaz]
 GO
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--Образование и подтверждающие документы
+----------------------------------------
+CREATE TABLE [dbo].[Organisation](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](900) NOT NULL,
+ CONSTRAINT [PK_Organisation] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+
+ alter table EducDocument add idOrganisation int null
+
+  insert into Organisation(Name)
+  select distinct [EducWhere]
+  from [dbo].[OK_Educ]
+
+  update [dbo].[EducDocument]
+  set idOrganisation = (select Organisation.id
+						from Organisation, OK_Educ
+						where OK_Educ.idEducDocument = EducDocument.id
+						and OK_Educ.EducWhere = Organisation.Name)
+
+  alter table OK_Educ add idEducationType int null
+
+  update OK_Educ set idEducationType = (select [idEducDocType]
+										from EducDocument
+										where EducDocument.id = OK_Educ.idEducDocument)
+
+
+CREATE NONCLUSTERED INDEX [IX_EducDocument_1] ON [dbo].[EducDocument]
+(
+	[IdOrganisation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_OK_Educ] ON [dbo].[OK_Educ]
+(
+	[idEducationType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_OK_Educ_1] ON [dbo].[OK_Educ]
+(
+	[idEmployee] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+CREATE NONCLUSTERED INDEX [IX_Organisation] ON [dbo].[Organisation]
+(
+	[Name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[EducDocument]  WITH CHECK ADD  CONSTRAINT [FK_EducDocument_Organisation] FOREIGN KEY([IdOrganisation])
+REFERENCES [dbo].[Organisation] ([id])
+GO
+ALTER TABLE [dbo].[EducDocument] CHECK CONSTRAINT [FK_EducDocument_Organisation]
+GO
+ALTER TABLE [dbo].[OK_Educ]  WITH CHECK ADD  CONSTRAINT [FK_OK_Educ_EducDocumentType] FOREIGN KEY([idEducationType])
+REFERENCES [dbo].[EducDocumentType] ([id])
+GO
+ALTER TABLE [dbo].[OK_Educ] CHECK CONSTRAINT [FK_OK_Educ_EducDocumentType]
+GO
+

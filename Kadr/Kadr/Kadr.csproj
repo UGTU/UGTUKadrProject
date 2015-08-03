@@ -192,9 +192,8 @@
     <Compile Include="Controllers\MonthController.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
-    <Compile Include="Data\dckadr.cs">
-      <DependentUpon>dckadr.dbml</DependentUpon>
-    </Compile>
+    <Compile Include="Data\Converters\FinSourceConverter.cs" />
+    <Compile Include="Data\Converters\PrikazConverter.cs" />
     <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
     <Compile Include="Data\dckadr.designer.cs">
       <AutoGen>True</AutoGen>
@@ -344,6 +343,7 @@
     <Compile Include="UI\Common\LinqPropertyGridDialogEditing.Designer.cs">
       <DependentUpon>LinqPropertyGridDialogEditing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\Converters\RegionConverter.cs" />
     <Compile Include="UI\Dialogs\BonusMeasureDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -554,6 +554,12 @@
     <Compile Include="UI\Dialogs\TimeSheetSheduleTypeDialog.Designer.cs">
       <DependentUpon>TimeSheetSheduleTypeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dialogs\TripRegionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\TripRegionsDialog.Designer.cs">
+      <DependentUpon>TripRegionsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\WorkTypeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -594,6 +600,7 @@
     <Compile Include="UI\Editors\MonthEditor.cs" />
     <Compile Include="UI\Editors\SocialFareTransitEditor.cs" />
     <Compile Include="UI\Editors\StandingTypeEditor.cs" />
+    <Compile Include="UI\Editors\TripRegionsEditor.cs" />
     <Compile Include="UI\Editors\WorkSheduleEditor.cs" />
     <Compile Include="UI\Editors\WorkTypeEditor.cs" />
     <Compile Include="UI\Forms\BonusHistoryForm.cs">
@@ -832,6 +839,9 @@
     <EmbeddedResource Include="UI\Dialogs\TimeSheetSheduleTypeDialog.resx">
       <DependentUpon>TimeSheetSheduleTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\TripRegionsDialog.resx">
+      <DependentUpon>TripRegionsDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\WorkTypeDialog.resx">
       <DependentUpon>WorkTypeDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -910,6 +920,9 @@
     </None>
     <Fakes Include="Fakes\Microsoft.ReportViewer.Common.fakes" />
     <Fakes Include="Fakes\Microsoft.ReportViewer.WinForms.fakes" />
+    <None Include="Properties\DataSources\Kadr.Data.BusinessTripRegionType.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.BusinessTripDecorator.datasource">
       <SubType>Designer</SubType>
     </None>
