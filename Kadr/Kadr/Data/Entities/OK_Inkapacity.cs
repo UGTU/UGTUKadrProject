@@ -10,12 +10,6 @@ namespace Kadr.Data
     public partial class OK_Inkapacity : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
 
-        public void Init(UIX.Commands.ICommandManager commandManager, Employee Employee1)
-        {
-            // TODO: Complete member initialization
-
-        }
-
         public override string ToString()
         {
             if (DateEnd != null)

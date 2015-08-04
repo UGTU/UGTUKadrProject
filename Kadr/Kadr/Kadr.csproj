@@ -203,7 +203,43 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dckadr.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Data\dckadr.Decorated.cs" />
+    <Compile Include="Data\Decorators\BusinessTripDecorator.cs" />
+    <Compile Include="Data\Decorators\BusinessTripRegionTypeDecorator.cs" />
+    <Compile Include="Data\Decorators\BonusTypeDecorator.cs" />
+    <Compile Include="Data\Decorators\BonusDecorator.cs" />
+    <Compile Include="Data\Decorators\BonusHistoryDecorator.cs" />
+    <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
+    <Compile Include="Data\Decorators\OK_AdressDecorator.cs" />
+    <Compile Include="Data\Decorators\OK_phoneDecorator.cs" />
+    <Compile Include="Data\Decorators\SocialFareTransitDecorator.cs" />
+    <Compile Include="Data\Decorators\OK_OtpuskDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHourContractDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHourDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffMonthHourDecorator.cs" />
+    <Compile Include="Data\Decorators\DepartmentFundDecorator.cs" />
+    <Compile Include="Data\Decorators\DepartmentTimeNormDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryReplacementDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryDecorator.cs" />
+    <Compile Include="Data\Decorators\PlanStaffHistoryDecorator.cs" />
+    <Compile Include="Data\Decorators\TimeSheetFSWorkingDaysDecorator.cs" />
+    <Compile Include="Data\Decorators\TimeSheetDecorator.cs" />
+    <Compile Include="Data\Decorators\EmployeeStandingDecorator.cs" />
+    <Compile Include="Data\Decorators\EmployeeRankDecorator.cs" />
+    <Compile Include="Data\Decorators\EmployeeDegreeDecorator.cs" />
+    <Compile Include="Data\Decorators\PlanStaffSalaryDecorator.cs" />
+    <Compile Include="Data\Decorators\PKCategorySalaryDecorator.cs" />
+    <Compile Include="Data\Decorators\PostDecorator.cs" />
+    <Compile Include="Data\Decorators\PKCategoryDecorator.cs" />
+    <Compile Include="Data\Decorators\PKGroupDecorator.cs" />
+    <Compile Include="Data\Decorators\EmployeeDecorator.cs" />
+    <Compile Include="Data\Decorators\PrikazDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffReplacementDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffDecorator.cs" />
+    <Compile Include="Data\Decorators\PlanStaffDecorator.cs" />
+    <Compile Include="Data\Decorators\DepartmentHistoryDecorator.cs" />
+    <Compile Include="Data\Decorators\DepartmentDecorator.cs" />
+    <Compile Include="Data\Decorators\InkapacityDecorator.cs" />
+    <Compile Include="Data\Entities\Award.cs" />
     <Compile Include="Data\Entities\Bonus.cs" />
     <Compile Include="Data\Entities\BonusHistory.cs" />
     <Compile Include="Data\Entities\BonusMeasure.cs" />

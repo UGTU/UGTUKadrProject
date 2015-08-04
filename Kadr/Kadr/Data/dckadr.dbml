@@ -122,6 +122,7 @@
       <Association Name="EducDocument_EmployeeRank" Member="EmployeeRank" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeRank" Cardinality="One" />
       <Association Name="EducDocument_EmployeeDegree" Member="EmployeeDegree" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeDegree" Cardinality="One" />
       <Association Name="EducDocument_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEducDocument" Type="OK_Inkapacity" />
+      <Association Name="EducDocument_Award" Member="Awards" ThisKey="id" OtherKey="IDEducDocument" Type="Award" />
       <Association Name="EducDocumentType_EducDocument" Member="EducDocumentType" ThisKey="idEducDocType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
     </Type>
   </Table>
@@ -717,6 +718,7 @@
       <Association Name="FactStaffPrikaz_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="OK_Otpusk" />
       <Association Name="FactStaffPrikaz_MaterialResponsibility" Member="MaterialResponsibilities" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="MaterialResponsibility" />
       <Association Name="FactStaffPrikaz_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="SocialFareTransit" />
+      <Association Name="FactStaffPrikaz_Award" Member="Awards" ThisKey="id" OtherKey="IDFactStaffPrikaz" Type="Award" />
       <Association Name="FactStaff_FactStaffPrikaz" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
       <Association Name="FactStaffPrikaz_FactStaffPrikaz" Member="FactStaffPrikaz1" ThisKey="idMainFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
       <Association Name="Prikaz_FactStaffPrikaz" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
@@ -791,6 +793,7 @@
       <Association Name="Employee_OK_Adress" Member="OK_Adresses" ThisKey="id" OtherKey="idEmployee" Type="OK_Adress" />
       <Association Name="Employee_OK_phone" Member="OK_phones" ThisKey="id" OtherKey="idEmployee" Type="OK_phone" />
       <Association Name="Employee_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEmployee" Type="OK_Inkapacity" />
+      <Association Name="Employee_Award" Member="Awards" ThisKey="id" OtherKey="IDEmployee" Type="Award" />
       <Association Name="Grazd_Employee" Member="Grazd" ThisKey="idGrazd" OtherKey="id" Type="Grazd" IsForeignKey="true" />
       <Association Name="SemPol_Employee" Member="SemPol" ThisKey="idSemPol" OtherKey="id" Type="SemPol" IsForeignKey="true" />
     </Type>
@@ -902,6 +905,26 @@
       <Column Name="idEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="EducDocument_OK_Inkapacity" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
       <Association Name="Employee_OK_Inkapacity" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Award" Member="Awards">
+    <Type Name="Award">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IDEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDEducDocument" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDAwardType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDFactStaffPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EducDocument_Award" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Employee_Award" Member="Employee" ThisKey="IDEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="FactStaffPrikaz_Award" Member="FactStaffPrikaz" ThisKey="IDFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
+      <Association Name="AwardType_Award" Member="AwardType" ThisKey="IDAwardType" OtherKey="ID" Type="AwardType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AwardType" Member="AwardTypes">
+    <Type Name="AwardType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="AwardType_Award" Member="Awards" ThisKey="ID" OtherKey="IDAwardType" Type="Award" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">
