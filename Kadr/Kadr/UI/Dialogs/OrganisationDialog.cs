@@ -21,7 +21,7 @@ namespace Kadr.UI.Dialogs
         private void OrganisationDialog_Load(object sender, EventArgs e)
         {
             bindingNavigator1.BindingSource = OrganisationBindingSource;
-            OrganisationBindingSource.DataSource = KadrController.Instance.Model.Organisations;
+            OrganisationBindingSource.DataSource = KadrController.Instance.Model.Organisations.OrderBy(x => x.Name);
         }
 
         private void dgvOrganisation_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
