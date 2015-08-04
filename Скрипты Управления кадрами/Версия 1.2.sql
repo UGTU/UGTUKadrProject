@@ -462,5 +462,74 @@ ALTER TABLE dbo.OK_Inkapacity ADD CONSTRAINT
 GO
 COMMIT
 
+-----------------------------------------------
+---------Добавления таблиц для учета наград----
+-----------------------------------------------
+
+USE [Kadr]
+GO
+
+/****** Object:  Table [dbo].[AwardType]    Script Date: 04.08.2015 14:09:42 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[AwardType](
+	[ID] [int] NOT NULL,
+	[Name] [nvarchar](200) NOT NULL,
+ CONSTRAINT [PK_AwardType] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Award](
+	[ID] [int] NOT NULL,
+	[IDEmployee] [int] NOT NULL,
+	[IDEducDocument] [int] NOT NULL,
+	[IDAwardType] [int] NOT NULL,
+	[IDFactStaffPrikaz] [int] NULL,
+ CONSTRAINT [PK_Award] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Award]  WITH CHECK ADD  CONSTRAINT [FK_Award_AwardType] FOREIGN KEY([IDAwardType])
+REFERENCES [dbo].[AwardType] ([ID])
+GO
+
+ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_AwardType]
+GO
+
+ALTER TABLE [dbo].[Award]  WITH CHECK ADD  CONSTRAINT [FK_Award_EducDocument] FOREIGN KEY([IDEducDocument])
+REFERENCES [dbo].[EducDocument] ([id])
+GO
+
+ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_EducDocument]
+GO
+
+ALTER TABLE [dbo].[Award]  WITH CHECK ADD  CONSTRAINT [FK_Award_Employee] FOREIGN KEY([IDEmployee])
+REFERENCES [dbo].[Employee] ([id])
+GO
+
+ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_Employee]
+GO
+
+ALTER TABLE [dbo].[Award]  WITH CHECK ADD  CONSTRAINT [FK_Award_FactStaffPrikaz] FOREIGN KEY([IDFactStaffPrikaz])
+REFERENCES [dbo].[FactStaffPrikaz] ([id])
+GO
+
+ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_FactStaffPrikaz]
+GO
+
+
+
 
 
