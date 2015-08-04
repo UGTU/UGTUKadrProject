@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Kadr.Data.Converters
 {
-    class PrikazConverter : TypeConverter
+    class OK_MembFamConverter : TypeConverter
     {
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
@@ -16,16 +16,8 @@ namespace Kadr.Data.Converters
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            if (context.Instance is BusinessTripDecorator)
-            {
-                var res = Kadr.Controllers.KadrController.Instance.Model.Prikazs.Where(x => x.DatePrikaz == (context.Instance as BusinessTripDecorator).PrikazDate);
-                if (res.Count()>0) return res.ToList();
-                else return null;
-            }
-            else
-            {
-                return Kadr.Controllers.KadrController.Instance.Model.Prikazs.OrderByDescending(Pr => Pr.DatePrikaz).ThenBy(Pr => Pr.PrikazName).ToList();
-            }
+            ICollection collection = Kadr.Controllers.KadrController.Instance.Model.OK_MembFams.OrderBy(MF => MF.membfamname).ToList();
+            return collection;
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
@@ -50,9 +42,10 @@ namespace Kadr.Data.Converters
         public override object ConvertTo(ITypeDescriptorContext context,
        System.Globalization.CultureInfo culture, object value, Type destinationType)
         {
-            if (destinationType == typeof(string) && value is Prikaz)
+            if (destinationType == typeof(string) && value is OK_MembFam)
             {
-                return (value as Prikaz).PrikazFullName;
+                OK_MembFam item = (OK_MembFam)value;
+                return item.ToString();
             }
             return base.ConvertTo(context, culture, value, destinationType);
         }
@@ -74,13 +67,11 @@ namespace Kadr.Data.Converters
         {
             if (value.GetType() == typeof(string))
             {
+                OK_MembFam itemSelected = null;
 
-               // return Kadr.Controllers.KadrController.Instance.Model.Prikazs.Single(x => x.PrikazFullName == (string)value);
-                Prikaz itemSelected = null;
-                var c = GetCollection(context);
-                foreach (Prikaz Item in c)
+                foreach (OK_MembFam Item in GetCollection(context))
                 {
-                    string ItemName = Item.PrikazFullName;
+                    string ItemName = Item.membfamname;
 
                     if (ItemName.Equals((string)value))
                     {
@@ -100,3 +91,5 @@ namespace Kadr.Data.Converters
 
     }
 }
+
+

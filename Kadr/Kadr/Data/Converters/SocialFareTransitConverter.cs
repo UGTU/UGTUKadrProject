@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Kadr.Data.Converters
 {
-    class PrikazConverter : TypeConverter
+    class SocialFareTransitConverter : TypeConverter
     {
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
@@ -16,15 +16,15 @@ namespace Kadr.Data.Converters
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            if (context.Instance is BusinessTripDecorator)
+            if (context.Instance is OK_OtpuskDecorator)
             {
-                var res = Kadr.Controllers.KadrController.Instance.Model.Prikazs.Where(x => x.DatePrikaz == (context.Instance as BusinessTripDecorator).PrikazDate);
+                var res = Kadr.Controllers.KadrController.Instance.Model.SocialFareTransits.Where(x => x.Employee == (context.Instance as OK_OtpuskDecorator).Employee);
                 if (res.Count()>0) return res.ToList();
                 else return null;
             }
             else
             {
-                return Kadr.Controllers.KadrController.Instance.Model.Prikazs.OrderByDescending(Pr => Pr.DatePrikaz).ThenBy(Pr => Pr.PrikazName).ToList();
+                return Kadr.Controllers.KadrController.Instance.Model.SocialFareTransits.ToArray();
             }
         }
 
@@ -50,9 +50,9 @@ namespace Kadr.Data.Converters
         public override object ConvertTo(ITypeDescriptorContext context,
        System.Globalization.CultureInfo culture, object value, Type destinationType)
         {
-            if (destinationType == typeof(string) && value is Prikaz)
+            if (destinationType == typeof(string) && value is SocialFareTransit)
             {
-                return (value as Prikaz).PrikazFullName;
+                return (value as SocialFareTransit).ToString();
             }
             return base.ConvertTo(context, culture, value, destinationType);
         }
@@ -72,15 +72,16 @@ namespace Kadr.Data.Converters
         public override object ConvertFrom(ITypeDescriptorContext context,
         System.Globalization.CultureInfo culture, object value)
         {
+            if (value == null)
+                return NullSocialFareTransit.Instance;
             if (value.GetType() == typeof(string))
             {
 
-               // return Kadr.Controllers.KadrController.Instance.Model.Prikazs.Single(x => x.PrikazFullName == (string)value);
-                Prikaz itemSelected = null;
+                SocialFareTransit itemSelected = null;
                 var c = GetCollection(context);
-                foreach (Prikaz Item in c)
+                foreach (SocialFareTransit Item in c)
                 {
-                    string ItemName = Item.PrikazFullName;
+                    string ItemName = Item.ToString();
 
                     if (ItemName.Equals((string)value))
                     {
@@ -100,3 +101,5 @@ namespace Kadr.Data.Converters
 
     }
 }
+
+

@@ -196,7 +196,10 @@
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Converters\FinSourceConverter.cs" />
+    <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
+    <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
+    <Compile Include="Data\Converters\SocialFareTransitConverter.cs" />
     <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
     <Compile Include="Data\dckadr.designer.cs">
       <AutoGen>True</AutoGen>
@@ -282,9 +285,13 @@
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Adress.cs" />
     <Compile Include="Data\Entities\OK_Inkapacity.cs" />
+    <Compile Include="Data\Entities\OK_DopInf.cs" />
+    <Compile Include="Data\Entities\OK_Fam.cs" />
+    <Compile Include="Data\Entities\OK_MembFam.cs" />
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
     <Compile Include="Data\Entities\OK_phone.cs" />
+    <Compile Include="Data\Entities\Organisation.cs" />
     <Compile Include="Data\Entities\PKCategory.cs" />
     <Compile Include="Data\Entities\PKCategorySalary.cs" />
     <Compile Include="Data\Entities\PKGroup.cs" />
@@ -503,6 +510,12 @@
     </Compile>
     <Compile Include="UI\Dialogs\OKVEDDialog.Designer.cs">
       <DependentUpon>OKVEDDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\OrganisationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\OrganisationDialog.Designer.cs">
+      <DependentUpon>OrganisationDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\PKCategoryDialog.cs">
       <SubType>Form</SubType>
@@ -827,6 +840,9 @@
     <EmbeddedResource Include="UI\Dialogs\OKVEDDialog.resx">
       <DependentUpon>OKVEDDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\OrganisationDialog.resx">
+      <DependentUpon>OrganisationDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\PKCategoryDialog.resx">
       <DependentUpon>PKCategoryDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1005,6 +1021,8 @@
     <None Include="Properties\DataSources\Kadr.Data.GetStaffErrorsByPeriod.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OKVED.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_Adress.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_DopInf.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_Fam.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_Otpusk.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_phone.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.PlanStaff.datasource" />
@@ -1027,6 +1045,8 @@
     <None Include="Properties\DataSources\Kadr.Data.Contract.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibility.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibilityDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Organisation.datasource" />
+    <None Include="Properties\DataSources\Kadr.OK_Educ.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Kadr.Data.Converters
 {
-    class PrikazConverter : TypeConverter
+    class OK_OtpuskvidConverter : TypeConverter
     {
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
@@ -16,16 +16,8 @@ namespace Kadr.Data.Converters
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            if (context.Instance is BusinessTripDecorator)
-            {
-                var res = Kadr.Controllers.KadrController.Instance.Model.Prikazs.Where(x => x.DatePrikaz == (context.Instance as BusinessTripDecorator).PrikazDate);
-                if (res.Count()>0) return res.ToList();
-                else return null;
-            }
-            else
-            {
-                return Kadr.Controllers.KadrController.Instance.Model.Prikazs.OrderByDescending(Pr => Pr.DatePrikaz).ThenBy(Pr => Pr.PrikazName).ToList();
-            }
+            
+            return Kadr.Controllers.KadrController.Instance.Model.OK_Otpuskvids.OrderBy(oV => oV.otpuskvidname).ToArray();
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
@@ -50,9 +42,9 @@ namespace Kadr.Data.Converters
         public override object ConvertTo(ITypeDescriptorContext context,
        System.Globalization.CultureInfo culture, object value, Type destinationType)
         {
-            if (destinationType == typeof(string) && value is Prikaz)
+            if (destinationType == typeof(string) && value is OK_Otpuskvid)
             {
-                return (value as Prikaz).PrikazFullName;
+                return (value as OK_Otpuskvid).ToString();
             }
             return base.ConvertTo(context, culture, value, destinationType);
         }
@@ -75,12 +67,11 @@ namespace Kadr.Data.Converters
             if (value.GetType() == typeof(string))
             {
 
-               // return Kadr.Controllers.KadrController.Instance.Model.Prikazs.Single(x => x.PrikazFullName == (string)value);
-                Prikaz itemSelected = null;
+                OK_Otpuskvid itemSelected = null;
                 var c = GetCollection(context);
-                foreach (Prikaz Item in c)
+                foreach (OK_Otpuskvid Item in c)
                 {
-                    string ItemName = Item.PrikazFullName;
+                    string ItemName = Item.ToString();
 
                     if (ItemName.Equals((string)value))
                     {
@@ -100,3 +91,5 @@ namespace Kadr.Data.Converters
 
     }
 }
+
+
