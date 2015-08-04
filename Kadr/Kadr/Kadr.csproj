@@ -211,6 +211,8 @@
     <Compile Include="Data\Decorators\BonusTypeDecorator.cs" />
     <Compile Include="Data\Decorators\BonusDecorator.cs" />
     <Compile Include="Data\Decorators\BonusHistoryDecorator.cs" />
+    <Compile Include="Data\Decorators\OK_Fam.cs" />
+    <Compile Include="Data\Decorators\OK_DopInfDecorator.cs" />
     <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
     <Compile Include="Data\Decorators\OK_AdressDecorator.cs" />
     <Compile Include="Data\Decorators\OK_phoneDecorator.cs" />
@@ -740,6 +742,7 @@
     <None Include="CrystalReport1.mht" />
     <None Include="Data\dckadr.dbml.layout">
       <DependentUpon>dckadr.dbml</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <EmbeddedResource Include="UI\Common\CustomBaseDialog.resx">
       <DependentUpon>CustomBaseDialog.cs</DependentUpon>

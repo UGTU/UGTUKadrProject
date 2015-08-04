@@ -130,6 +130,24 @@ namespace Kadr.Data
         }*/
 
 
+
+        [System.ComponentModel.DisplayName("Сотрудник")]
+        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Description("Сотрудник")]
+        [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
+        public Employee Employee
+        {
+            get
+            {
+                return ok_Otpusk.FactStaff.Employee;
+            }
+            set
+            {
+                ok_Otpusk.FactStaff.Employee = value;
+            }
+        }
+
     }
 
 }
