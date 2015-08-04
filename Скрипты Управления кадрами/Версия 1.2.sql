@@ -361,69 +361,175 @@ GO
 ALTER TABLE [dbo].[MaterialResponsibility] CHECK CONSTRAINT [FK_MaterialResponsibility_FactStaffPrikaz]
 GO
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---Образование и подтверждающие документы
-----------------------------------------
-CREATE TABLE [dbo].[Organisation](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[Name] [varchar](900) NOT NULL,
- CONSTRAINT [PK_Organisation] PRIMARY KEY CLUSTERED 
+
+-----------------------------------------
+-----Добавление суррогатного ключа в таблицу BusinessTripRegionType
+-----------------------------------------
+DROP TABLE [dbo].[BusinessTripRegionType]
+GO
+
+CREATE TABLE [dbo].[BusinessTripRegionType](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[idRegionType] [int] NOT NULL,
+	[idBusinessTrip] [int] NOT NULL,
+	[DateBegin] [datetime] NOT NULL,
+	[DateEnd] [datetime] NOT NULL,
+ CONSTRAINT [PK_BusinessTripRegionType] PRIMARY KEY CLUSTERED 
 (
-	[id] ASC
+	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+
+ALTER TABLE [dbo].[BusinessTripRegionType]  WITH CHECK ADD  CONSTRAINT [FK_BusinessTripRegionType_BusinessTrip] FOREIGN KEY([idBusinessTrip])
+REFERENCES [dbo].[BusinessTrip] ([id])
 GO
 
- alter table EducDocument add idOrganisation int null
+ALTER TABLE [dbo].[BusinessTripRegionType] CHECK CONSTRAINT [FK_BusinessTripRegionType_BusinessTrip]
+GO
 
-  insert into Organisation(Name)
-  select distinct [EducWhere]
-  from [dbo].[OK_Educ]
+ALTER TABLE [dbo].[BusinessTripRegionType]  WITH CHECK ADD  CONSTRAINT [FK_BusinessTripRegionType_RegionType] FOREIGN KEY([idRegionType])
+REFERENCES [dbo].[RegionType] ([id])
+GO
 
-  update [dbo].[EducDocument]
-  set idOrganisation = (select Organisation.id
-						from Organisation, OK_Educ
-						where OK_Educ.idEducDocument = EducDocument.id
-						and OK_Educ.EducWhere = Organisation.Name)
+ALTER TABLE [dbo].[BusinessTripRegionType] CHECK CONSTRAINT [FK_BusinessTripRegionType_RegionType]
+GO
 
-  alter table OK_Educ add idEducationType int null
+---------------------------------------------
+---Добавление даты выдачи документа в "Больничный"
+---------------------------------------------
+/*
+   31 июля 2015 г.14:06:58
+   Пользователь: 
+   Сервер: ugtudb
+   База данных: KadrRealTest
+   Приложение: 
+*/
 
-  update OK_Educ set idEducationType = (select [idEducDocType]
-										from EducDocument
-										where EducDocument.id = OK_Educ.idEducDocument)
+/* Чтобы предотвратить возможность потери данных, необходимо внимательно просмотреть этот скрипт, прежде чем запускать его вне контекста конструктора баз данных.*/
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.OK_Inkapacity
+	DROP CONSTRAINT FK_OK_Inkapacity_Employee
+GO
+ALTER TABLE dbo.Employee SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.Tmp_OK_Inkapacity
+	(
+	idInkapacity int NOT NULL IDENTITY (1, 1),
+	idEmployee int NOT NULL,
+	NInkapacity varchar(50) NOT NULL,
+	DateBegin datetime NOT NULL,
+	DateEnd datetime NULL,
+	DateDocument datetime NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Tmp_OK_Inkapacity SET (LOCK_ESCALATION = TABLE)
+GO
+SET IDENTITY_INSERT dbo.Tmp_OK_Inkapacity ON
+GO
+IF EXISTS(SELECT * FROM dbo.OK_Inkapacity)
+	 EXEC('INSERT INTO dbo.Tmp_OK_Inkapacity (idInkapacity, idEmployee, NInkapacity, DateBegin, DateEnd)
+		SELECT idInkapacity, idEmployee, NInkapacity, DateBegin, DateEnd FROM dbo.OK_Inkapacity WITH (HOLDLOCK TABLOCKX)')
+GO
+SET IDENTITY_INSERT dbo.Tmp_OK_Inkapacity OFF
+GO
+DROP TABLE dbo.OK_Inkapacity
+GO
+EXECUTE sp_rename N'dbo.Tmp_OK_Inkapacity', N'OK_Inkapacity', 'OBJECT' 
+GO
+ALTER TABLE dbo.OK_Inkapacity ADD CONSTRAINT
+	PK_OK_Inkapacity PRIMARY KEY CLUSTERED 
+	(
+	idInkapacity
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 
+GO
+ALTER TABLE dbo.OK_Inkapacity ADD CONSTRAINT
+	FK_OK_Inkapacity_Employee FOREIGN KEY
+	(
+	idEmployee
+	) REFERENCES dbo.Employee
+	(
+	id
+	) ON UPDATE  CASCADE 
+	 ON DELETE  CASCADE 
+	
+GO
+COMMIT
 
-CREATE NONCLUSTERED INDEX [IX_EducDocument_1] ON [dbo].[EducDocument]
+-----------------------------------------------
+---------Добавления таблиц для учета наград----
+-----------------------------------------------
+
+USE [Kadr]
+GO
+
+/****** Object:  Table [dbo].[AwardType]    Script Date: 04.08.2015 14:09:42 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[AwardType](
+	[ID] [int] NOT NULL,
+	[Name] [nvarchar](200) NOT NULL,
+ CONSTRAINT [PK_AwardType] PRIMARY KEY CLUSTERED 
 (
-	[IdOrganisation] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
 GO
-CREATE NONCLUSTERED INDEX [IX_OK_Educ] ON [dbo].[OK_Educ]
+
+CREATE TABLE [dbo].[Award](
+	[ID] [int] NOT NULL,
+	[IDEmployee] [int] NOT NULL,
+	[IDEducDocument] [int] NOT NULL,
+	[IDAwardType] [int] NOT NULL,
+	[IDFactStaffPrikaz] [int] NULL,
+ CONSTRAINT [PK_Award] PRIMARY KEY CLUSTERED 
 (
-	[idEducationType] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
 GO
-CREATE NONCLUSTERED INDEX [IX_OK_Educ_1] ON [dbo].[OK_Educ]
-(
-	[idEmployee] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+ALTER TABLE [dbo].[Award]  WITH CHECK ADD  CONSTRAINT [FK_Award_AwardType] FOREIGN KEY([IDAwardType])
+REFERENCES [dbo].[AwardType] ([ID])
 GO
-SET ANSI_PADDING ON
-CREATE NONCLUSTERED INDEX [IX_Organisation] ON [dbo].[Organisation]
-(
-	[Name] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_AwardType]
 GO
-ALTER TABLE [dbo].[EducDocument]  WITH CHECK ADD  CONSTRAINT [FK_EducDocument_Organisation] FOREIGN KEY([IdOrganisation])
-REFERENCES [dbo].[Organisation] ([id])
+
+ALTER TABLE [dbo].[Award]  WITH CHECK ADD  CONSTRAINT [FK_Award_EducDocument] FOREIGN KEY([IDEducDocument])
+REFERENCES [dbo].[EducDocument] ([id])
 GO
-ALTER TABLE [dbo].[EducDocument] CHECK CONSTRAINT [FK_EducDocument_Organisation]
+
+ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_EducDocument]
 GO
-ALTER TABLE [dbo].[OK_Educ]  WITH CHECK ADD  CONSTRAINT [FK_OK_Educ_EducDocumentType] FOREIGN KEY([idEducationType])
-REFERENCES [dbo].[EducDocumentType] ([id])
+
+ALTER TABLE [dbo].[Award]  WITH CHECK ADD  CONSTRAINT [FK_Award_Employee] FOREIGN KEY([IDEmployee])
+REFERENCES [dbo].[Employee] ([id])
 GO
-ALTER TABLE [dbo].[OK_Educ] CHECK CONSTRAINT [FK_OK_Educ_EducDocumentType]
+
+ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_Employee]
 GO
+
+ALTER TABLE [dbo].[Award]  WITH CHECK ADD  CONSTRAINT [FK_Award_FactStaffPrikaz] FOREIGN KEY([IDFactStaffPrikaz])
+REFERENCES [dbo].[FactStaffPrikaz] ([id])
+GO
+
+ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_FactStaffPrikaz]
+GO
+
+
+
+
 
