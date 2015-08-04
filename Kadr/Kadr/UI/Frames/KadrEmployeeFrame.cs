@@ -4424,6 +4424,7 @@ namespace Kadr.UI.Frames
 
                 dlg.ShowDialog();
             }
+
             LoadFamMembers();
         }
 
