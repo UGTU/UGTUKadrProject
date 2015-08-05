@@ -116,7 +116,8 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Тип региона")]
         [System.ComponentModel.Category("Данные трудовой книжки")]
         [System.ComponentModel.Description("Тип региона")]
-        [System.ComponentModel.Editor(typeof(RegionTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]//RegionType
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.RegionConverter))]
+        //[System.ComponentModel.Editor(typeof(RegionTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]//RegionType
         public RegionType RegionType
         {
             get

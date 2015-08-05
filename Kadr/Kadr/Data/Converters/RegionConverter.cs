@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace Kadr.Data
+namespace Kadr.Data.Converters
 {
     class RegionConverter : TypeConverter
     {

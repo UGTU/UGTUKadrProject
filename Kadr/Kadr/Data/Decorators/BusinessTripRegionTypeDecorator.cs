@@ -21,7 +21,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Регион")]
         [System.ComponentModel.DisplayName("Регион пребывания")]
         [System.ComponentModel.Description("В какой регион командируется сотрудник")]
-        [System.ComponentModel.TypeConverter(typeof(RegionConverter))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.RegionConverter))]
 
         public RegionType TripMainRegion
         {

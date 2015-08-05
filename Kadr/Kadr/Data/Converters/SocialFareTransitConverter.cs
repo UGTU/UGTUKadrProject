@@ -19,8 +19,13 @@ namespace Kadr.Data.Converters
             if (context.Instance is OK_OtpuskDecorator)
             {
                 var res = Kadr.Controllers.KadrController.Instance.Model.SocialFareTransits.Where(x => x.Employee == (context.Instance as OK_OtpuskDecorator).Employee);
-                if (res.Count()>0) return res.ToList();
-                else return null;
+                if (res == null)
+                    return null;
+                List<SocialFareTransit> resList = res.ToList();
+                resList.Add(Kadr.Data.NullSocialFareTransit.Instance);
+               // if (res != null)
+                return resList;//res.ToList();
+                //else 
             }
             else
             {
