@@ -981,6 +981,9 @@
     </None>
     <Fakes Include="Fakes\Microsoft.ReportViewer.Common.fakes" />
     <Fakes Include="Fakes\Microsoft.ReportViewer.WinForms.fakes" />
+    <None Include="Properties\DataSources\Kadr.Data.AwardDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.InkapacityDecorator.datasource">
       <SubType>Designer</SubType>
     </None>
