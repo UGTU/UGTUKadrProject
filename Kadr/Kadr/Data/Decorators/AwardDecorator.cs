@@ -5,7 +5,7 @@ using System.Drawing.Design;
 using System.Linq;
 using System.Text;
 
-namespace Kadr.Data.Decorators
+namespace Kadr.Data
 {
     class AwardDecorator
     {
@@ -56,7 +56,7 @@ namespace Kadr.Data.Decorators
         }
 
         [System.ComponentModel.DisplayName("Дата вручения")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Category("\tПодтверждающий документ")]
         [System.ComponentModel.Description("Дата вручения награды")]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
 
@@ -78,7 +78,7 @@ namespace Kadr.Data.Decorators
         }
 
         [System.ComponentModel.DisplayName("Серия")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Category("\tПодтверждающий документ")]
         [System.ComponentModel.Description("Серия документа, подтверждающего факт награждения")]
         public string Serie
         {
@@ -97,7 +97,7 @@ namespace Kadr.Data.Decorators
         }
 
         [System.ComponentModel.DisplayName("Номер")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Category("\tПодтверждающий документ")]
         [System.ComponentModel.Description("Номер документа, подтверждающего факт награждения")]
 
         public string Number
@@ -117,7 +117,7 @@ namespace Kadr.Data.Decorators
         }
 
         [System.ComponentModel.DisplayName("Организация")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Category("\tПодтверждающий документ")]
         [System.ComponentModel.Description("Организация, вручившая награду")]
 
         public Organisation Organization

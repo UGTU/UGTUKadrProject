@@ -54,8 +54,7 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
-            return null;
-            //return new AwardDecorator(this);
+            return new AwardDecorator(this);
         }
 
         #endregion
