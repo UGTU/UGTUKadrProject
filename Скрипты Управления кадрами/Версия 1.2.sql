@@ -486,9 +486,15 @@ CREATE TABLE [dbo].[AwardType](
 ) ON [PRIMARY]
 
 GO
+/****** Object:  Table [dbo].[Award]    Script Date: 05.08.2015 13:52:29 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE TABLE [dbo].[Award](
-	[ID] [int] NOT NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[IDEmployee] [int] NOT NULL,
 	[IDEducDocument] [int] NOT NULL,
 	[IDAwardType] [int] NOT NULL,
@@ -528,6 +534,9 @@ GO
 
 ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_FactStaffPrikaz]
 GO
+
+
+
 
 
 

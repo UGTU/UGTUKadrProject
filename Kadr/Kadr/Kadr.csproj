@@ -206,6 +206,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dckadr.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Decorators\AwardDecorator.cs" />
     <Compile Include="Data\Decorators\BusinessTripDecorator.cs" />
     <Compile Include="Data\Decorators\BusinessTripRegionTypeDecorator.cs" />
     <Compile Include="Data\Decorators\BonusTypeDecorator.cs" />
@@ -245,6 +246,7 @@
     <Compile Include="Data\Decorators\DepartmentDecorator.cs" />
     <Compile Include="Data\Decorators\InkapacityDecorator.cs" />
     <Compile Include="Data\Entities\Award.cs" />
+    <Compile Include="Data\Entities\AwardType.cs" />
     <Compile Include="Data\Entities\Bonus.cs" />
     <Compile Include="Data\Entities\BonusHistory.cs" />
     <Compile Include="Data\Entities\BonusMeasure.cs" />
