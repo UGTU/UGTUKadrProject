@@ -309,6 +309,18 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn71;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn72;
+        private TabPage tpIncapacities;
+        private DataGridView dgvIncapacities;
+        private BindingSource inkapacityDecoratorBindingSource;
+        private ToolStrip toolStrip12;
+        private ToolStripButton tsbAddIncapacity;
+        private ToolStripButton tsbEditIncapacity;
+        private ToolStripButton tsbDeleteIncapacity;
+        private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn;
         #region Properties
 
         /// <summary>
@@ -746,6 +758,13 @@ namespace Kadr.UI.Frames
             this.tsbAddEmplStanding = new System.Windows.Forms.ToolStripButton();
             this.tsbEditEmplStanding = new System.Windows.Forms.ToolStripButton();
             this.tsbDelEmplStanding = new System.Windows.Forms.ToolStripButton();
+            this.tpIncapacities = new System.Windows.Forms.TabPage();
+            this.dgvIncapacities = new System.Windows.Forms.DataGridView();
+            this.inkapacityDecoratorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip12 = new System.Windows.Forms.ToolStrip();
+            this.tsbAddIncapacity = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditIncapacity = new System.Windows.Forms.ToolStripButton();
+            this.tsbDeleteIncapacity = new System.Windows.Forms.ToolStripButton();
             this.tpBonus = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvAllBonus = new System.Windows.Forms.DataGridView();
@@ -899,6 +918,11 @@ namespace Kadr.UI.Frames
             this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateBeginDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateEndDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -950,6 +974,10 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeStandingBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
+            this.tpIncapacities.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncapacities)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inkapacityDecoratorBindingSource)).BeginInit();
+            this.toolStrip12.SuspendLayout();
             this.tpBonus.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllBonus)).BeginInit();
@@ -1108,7 +1136,7 @@ namespace Kadr.UI.Frames
             this.tpContData.Controls.Add(this.splitContainer3);
             this.tpContData.Location = new System.Drawing.Point(4, 22);
             this.tpContData.Name = "tpContData";
-            this.tpContData.Size = new System.Drawing.Size(869, 339);
+
             this.tpContData.TabIndex = 2;
             this.tpContData.Text = "Контактные данные";
             this.tpContData.UseVisualStyleBackColor = true;
@@ -1127,6 +1155,7 @@ namespace Kadr.UI.Frames
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
+
             this.splitContainer3.Size = new System.Drawing.Size(869, 339);
             this.splitContainer3.SplitterDistance = 174;
             this.splitContainer3.TabIndex = 0;
@@ -1144,6 +1173,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
             this.tableLayoutPanel8.Size = new System.Drawing.Size(869, 174);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
@@ -1165,6 +1195,7 @@ namespace Kadr.UI.Frames
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dataGridView1.Size = new System.Drawing.Size(863, 233);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.tsbEditPhone_Click);
@@ -1213,6 +1244,7 @@ namespace Kadr.UI.Frames
             this.tsbDelPhone});
             this.toolStrip7.Location = new System.Drawing.Point(0, 0);
             this.toolStrip7.Name = "toolStrip7";
+
             this.toolStrip7.Size = new System.Drawing.Size(869, 24);
             this.toolStrip7.TabIndex = 2;
             this.toolStrip7.Text = "toolStrip7";
@@ -1259,6 +1291,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
             this.tableLayoutPanel9.Size = new System.Drawing.Size(869, 161);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
@@ -1282,6 +1315,7 @@ namespace Kadr.UI.Frames
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dataGridView6.Size = new System.Drawing.Size(863, 228);
             this.dataGridView6.TabIndex = 3;
             this.dataGridView6.DoubleClick += new System.EventHandler(this.tsbUpdAddress_Click);
@@ -1344,6 +1378,7 @@ namespace Kadr.UI.Frames
             this.tsbDelAddress});
             this.toolStrip8.Location = new System.Drawing.Point(0, 0);
             this.toolStrip8.Name = "toolStrip8";
+
             this.toolStrip8.Size = new System.Drawing.Size(869, 24);
             this.toolStrip8.TabIndex = 2;
             this.toolStrip8.Text = "toolStrip8";
@@ -1383,6 +1418,7 @@ namespace Kadr.UI.Frames
             this.tpFamily.Location = new System.Drawing.Point(4, 22);
             this.tpFamily.Name = "tpFamily";
             this.tpFamily.Padding = new System.Windows.Forms.Padding(3);
+
             this.tpFamily.Size = new System.Drawing.Size(869, 339);
             this.tpFamily.TabIndex = 1;
             this.tpFamily.Text = "Состав семьи";
@@ -1401,6 +1437,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
             this.tableLayoutPanel10.Size = new System.Drawing.Size(863, 333);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
@@ -1425,6 +1462,7 @@ namespace Kadr.UI.Frames
             this.dataGridView7.ReadOnly = true;
             this.dataGridView7.RowHeadersVisible = false;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dataGridView7.Size = new System.Drawing.Size(857, 465);
             this.dataGridView7.TabIndex = 4;
             this.dataGridView7.DoubleClick += new System.EventHandler(this.tsbEditFamMember_Click);
@@ -1497,6 +1535,7 @@ namespace Kadr.UI.Frames
             this.tsbDelFamMember});
             this.toolStrip9.Location = new System.Drawing.Point(0, 0);
             this.toolStrip9.Name = "toolStrip9";
+
             this.toolStrip9.Size = new System.Drawing.Size(863, 24);
             this.toolStrip9.TabIndex = 3;
             this.toolStrip9.Text = "toolStrip9";
@@ -1537,6 +1576,7 @@ namespace Kadr.UI.Frames
             this.tpEmpPost.Location = new System.Drawing.Point(4, 22);
             this.tpEmpPost.Name = "tpEmpPost";
             this.tpEmpPost.Padding = new System.Windows.Forms.Padding(3);
+
             this.tpEmpPost.Size = new System.Drawing.Size(883, 371);
             this.tpEmpPost.TabIndex = 1;
             this.tpEmpPost.Text = "Трудовая деятельность";
@@ -1546,10 +1586,12 @@ namespace Kadr.UI.Frames
             // 
             this.tcEmplWorkData.Controls.Add(this.tpUGTUPosts);
             this.tcEmplWorkData.Controls.Add(this.tpEmplStading);
+            this.tcEmplWorkData.Controls.Add(this.tpIncapacities);
             this.tcEmplWorkData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcEmplWorkData.Location = new System.Drawing.Point(3, 3);
             this.tcEmplWorkData.Name = "tcEmplWorkData";
             this.tcEmplWorkData.SelectedIndex = 0;
+
             this.tcEmplWorkData.Size = new System.Drawing.Size(877, 365);
             this.tcEmplWorkData.TabIndex = 1;
             this.tcEmplWorkData.SelectedIndexChanged += new System.EventHandler(this.tcEmplWorkData_SelectedIndexChanged);
@@ -1560,6 +1602,7 @@ namespace Kadr.UI.Frames
             this.tpUGTUPosts.Location = new System.Drawing.Point(4, 22);
             this.tpUGTUPosts.Name = "tpUGTUPosts";
             this.tpUGTUPosts.Padding = new System.Windows.Forms.Padding(3);
+
             this.tpUGTUPosts.Size = new System.Drawing.Size(869, 339);
             this.tpUGTUPosts.TabIndex = 0;
             this.tpUGTUPosts.Text = "Должности";
@@ -1579,6 +1622,7 @@ namespace Kadr.UI.Frames
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tcEmplPostInf);
+
             this.splitContainer1.Size = new System.Drawing.Size(863, 333);
             this.splitContainer1.SplitterDistance = 196;
             this.splitContainer1.TabIndex = 2;
@@ -1610,6 +1654,7 @@ namespace Kadr.UI.Frames
             this.dgvEmplPosts.ReadOnly = true;
             this.dgvEmplPosts.RowHeadersVisible = false;
             this.dgvEmplPosts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dgvEmplPosts.Size = new System.Drawing.Size(863, 196);
             this.dgvEmplPosts.TabIndex = 0;
             // 
@@ -1741,6 +1786,7 @@ namespace Kadr.UI.Frames
             this.tpEmpOtpusk.Location = new System.Drawing.Point(4, 22);
             this.tpEmpOtpusk.Name = "tpEmpOtpusk";
             this.tpEmpOtpusk.Padding = new System.Windows.Forms.Padding(3);
+
             this.tpEmpOtpusk.Size = new System.Drawing.Size(855, 107);
             this.tpEmpOtpusk.TabIndex = 0;
             this.tpEmpOtpusk.Text = "Отпуска";
@@ -1759,6 +1805,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
             this.tableLayoutPanel7.Size = new System.Drawing.Size(849, 101);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
@@ -1779,6 +1826,7 @@ namespace Kadr.UI.Frames
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dataGridView5.Size = new System.Drawing.Size(843, 155);
             this.dataGridView5.TabIndex = 2;
             this.dataGridView5.DoubleClick += new System.EventHandler(this.tsbEditOtp_Click);
@@ -1820,6 +1868,7 @@ namespace Kadr.UI.Frames
             this.tsbSocialFareTransit});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
+
             this.toolStrip5.Size = new System.Drawing.Size(849, 24);
             this.toolStrip5.TabIndex = 1;
             this.toolStrip5.Text = "toolStrip5";
@@ -1875,6 +1924,7 @@ namespace Kadr.UI.Frames
             this.tpBusTrip.Location = new System.Drawing.Point(4, 22);
             this.tpBusTrip.Name = "tpBusTrip";
             this.tpBusTrip.Padding = new System.Windows.Forms.Padding(3);
+
             this.tpBusTrip.Size = new System.Drawing.Size(855, 107);
             this.tpBusTrip.TabIndex = 1;
             this.tpBusTrip.Text = "Командировки";
@@ -1895,6 +1945,7 @@ namespace Kadr.UI.Frames
             this.dgvTrips.Location = new System.Drawing.Point(3, 28);
             this.dgvTrips.Name = "dgvTrips";
             this.dgvTrips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dgvTrips.Size = new System.Drawing.Size(849, 76);
             this.dgvTrips.TabIndex = 13;
             this.dgvTrips.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrips_CellDoubleClick);
@@ -1993,6 +2044,7 @@ namespace Kadr.UI.Frames
             this.tpMaterial.Location = new System.Drawing.Point(4, 22);
             this.tpMaterial.Name = "tpMaterial";
             this.tpMaterial.Padding = new System.Windows.Forms.Padding(3);
+
             this.tpMaterial.Size = new System.Drawing.Size(855, 107);
             this.tpMaterial.TabIndex = 2;
             this.tpMaterial.Text = "Материальная ответственность";
@@ -2019,6 +2071,7 @@ namespace Kadr.UI.Frames
             this.dgvMaterial.ReadOnly = true;
             this.dgvMaterial.RowHeadersWidth = 4;
             this.dgvMaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dgvMaterial.Size = new System.Drawing.Size(849, 76);
             this.dgvMaterial.TabIndex = 14;
             this.dgvMaterial.DoubleClick += new System.EventHandler(this.tsbEditMaterial_Click);
@@ -2302,6 +2355,86 @@ namespace Kadr.UI.Frames
             this.tsbDelEmplStanding.ToolTipText = "Удалить запись";
             this.tsbDelEmplStanding.Click += new System.EventHandler(this.tsbDelEmplStanding_Click);
             // 
+            // tpIncapacities
+            // 
+            this.tpIncapacities.Controls.Add(this.dgvIncapacities);
+            this.tpIncapacities.Controls.Add(this.toolStrip12);
+            this.tpIncapacities.Location = new System.Drawing.Point(4, 22);
+            this.tpIncapacities.Name = "tpIncapacities";
+            this.tpIncapacities.Padding = new System.Windows.Forms.Padding(3);
+            this.tpIncapacities.Size = new System.Drawing.Size(869, 339);
+            this.tpIncapacities.TabIndex = 2;
+            this.tpIncapacities.Text = "Периоды нетрудоспособности";
+            this.tpIncapacities.UseVisualStyleBackColor = true;
+            // 
+            // dgvIncapacities
+            // 
+            this.dgvIncapacities.AllowUserToAddRows = false;
+            this.dgvIncapacities.AllowUserToDeleteRows = false;
+            this.dgvIncapacities.AutoGenerateColumns = false;
+            this.dgvIncapacities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIncapacities.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dateBeginDataGridViewTextBoxColumn2,
+            this.dateEndDataGridViewTextBoxColumn3,
+            this.serieDataGridViewTextBoxColumn,
+            this.numberDataGridViewTextBoxColumn,
+            this.docDateDataGridViewTextBoxColumn});
+            this.dgvIncapacities.DataSource = this.inkapacityDecoratorBindingSource;
+            this.dgvIncapacities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvIncapacities.Location = new System.Drawing.Point(3, 28);
+            this.dgvIncapacities.MultiSelect = false;
+            this.dgvIncapacities.Name = "dgvIncapacities";
+            this.dgvIncapacities.ReadOnly = true;
+            this.dgvIncapacities.RowHeadersVisible = false;
+            this.dgvIncapacities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvIncapacities.Size = new System.Drawing.Size(863, 308);
+            this.dgvIncapacities.TabIndex = 11;
+            // 
+            // inkapacityDecoratorBindingSource
+            // 
+            this.inkapacityDecoratorBindingSource.DataSource = typeof(Kadr.Data.InkapacityDecorator);
+            // 
+            // toolStrip12
+            // 
+            this.toolStrip12.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAddIncapacity,
+            this.tsbEditIncapacity,
+            this.tsbDeleteIncapacity});
+            this.toolStrip12.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip12.Name = "toolStrip12";
+            this.toolStrip12.Size = new System.Drawing.Size(863, 25);
+            this.toolStrip12.TabIndex = 10;
+            this.toolStrip12.Text = "toolStrip12";
+            // 
+            // tsbAddIncapacity
+            // 
+            this.tsbAddIncapacity.Image = global::Kadr.Properties.Resources.AddTableHS;
+            this.tsbAddIncapacity.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbAddIncapacity.Name = "tsbAddIncapacity";
+            this.tsbAddIncapacity.Size = new System.Drawing.Size(119, 22);
+            this.tsbAddIncapacity.Text = "Добавить запись";
+            this.tsbAddIncapacity.Click += new System.EventHandler(this.tsbAddIncapacity_Click);
+            // 
+            // tsbEditIncapacity
+            // 
+            this.tsbEditIncapacity.Image = global::Kadr.Properties.Resources.EditTableHS;
+            this.tsbEditIncapacity.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbEditIncapacity.Name = "tsbEditIncapacity";
+            this.tsbEditIncapacity.Size = new System.Drawing.Size(107, 22);
+            this.tsbEditIncapacity.Text = "Редактировать";
+            this.tsbEditIncapacity.ToolTipText = "Редактировать запись";
+            this.tsbEditIncapacity.Click += new System.EventHandler(this.tsbEditIncapacity_Click);
+            // 
+            // tsbDeleteIncapacity
+            // 
+            this.tsbDeleteIncapacity.Image = global::Kadr.Properties.Resources.DelTableHS;
+            this.tsbDeleteIncapacity.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDeleteIncapacity.Name = "tsbDeleteIncapacity";
+            this.tsbDeleteIncapacity.Size = new System.Drawing.Size(71, 22);
+            this.tsbDeleteIncapacity.Text = "Удалить";
+            this.tsbDeleteIncapacity.ToolTipText = "Удалить запись";
+            this.tsbDeleteIncapacity.Click += new System.EventHandler(this.tsbDeleteIncapacity_Click);
+            // 
             // tpBonus
             // 
             this.tpBonus.AutoScroll = true;
@@ -2309,6 +2442,7 @@ namespace Kadr.UI.Frames
             this.tpBonus.Location = new System.Drawing.Point(4, 22);
             this.tpBonus.Name = "tpBonus";
             this.tpBonus.Padding = new System.Windows.Forms.Padding(3);
+
             this.tpBonus.Size = new System.Drawing.Size(883, 371);
             this.tpBonus.TabIndex = 2;
             this.tpBonus.Text = "Надбавки";
@@ -2327,6 +2461,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+
             this.tableLayoutPanel1.Size = new System.Drawing.Size(877, 365);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
@@ -2518,7 +2653,8 @@ namespace Kadr.UI.Frames
             this.tpEducation.Location = new System.Drawing.Point(4, 22);
             this.tpEducation.Name = "tpEducation";
             this.tpEducation.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEducation.Size = new System.Drawing.Size(883, 371);
+
+            this.tpEducation.Size = new System.Drawing.Size(802, 533);
             this.tpEducation.TabIndex = 3;
             this.tpEducation.Text = "Образование";
             this.tpEducation.UseVisualStyleBackColor = true;
@@ -2531,7 +2667,8 @@ namespace Kadr.UI.Frames
             this.tcEducation.Location = new System.Drawing.Point(3, 3);
             this.tcEducation.Name = "tcEducation";
             this.tcEducation.SelectedIndex = 0;
-            this.tcEducation.Size = new System.Drawing.Size(877, 365);
+
+            this.tcEducation.Size = new System.Drawing.Size(796, 527);
             this.tcEducation.TabIndex = 4;
             // 
             // tpGrandEducation
@@ -3041,6 +3178,7 @@ namespace Kadr.UI.Frames
             this.tpEmplBonusReport.Location = new System.Drawing.Point(4, 22);
             this.tpEmplBonusReport.Name = "tpEmplBonusReport";
             this.tpEmplBonusReport.Padding = new System.Windows.Forms.Padding(3);
+
             this.tpEmplBonusReport.Size = new System.Drawing.Size(883, 371);
             this.tpEmplBonusReport.TabIndex = 4;
             this.tpEmplBonusReport.Text = "Отчет по надбавкам";
@@ -3093,6 +3231,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
             this.tableLayoutPanel6.Size = new System.Drawing.Size(877, 365);
             this.tableLayoutPanel6.TabIndex = 22;
             // 
@@ -3131,6 +3270,7 @@ namespace Kadr.UI.Frames
             this.tpDopInf.Controls.Add(this.tableLayoutPanel11);
             this.tpDopInf.Location = new System.Drawing.Point(4, 22);
             this.tpDopInf.Name = "tpDopInf";
+
             this.tpDopInf.Size = new System.Drawing.Size(883, 371);
             this.tpDopInf.TabIndex = 5;
             this.tpDopInf.Text = "Дополнительные сведения";
@@ -3149,6 +3289,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
             this.tableLayoutPanel11.Size = new System.Drawing.Size(883, 371);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
@@ -3741,6 +3882,41 @@ namespace Kadr.UI.Frames
             this.dataGridViewTextBoxColumn65.HeaderText = "Звание утверждено";
             this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
             // 
+            // dateBeginDataGridViewTextBoxColumn2
+            // 
+            this.dateBeginDataGridViewTextBoxColumn2.DataPropertyName = "DateBegin";
+            this.dateBeginDataGridViewTextBoxColumn2.HeaderText = "Дата начала";
+            this.dateBeginDataGridViewTextBoxColumn2.Name = "dateBeginDataGridViewTextBoxColumn2";
+            this.dateBeginDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dateEndDataGridViewTextBoxColumn3
+            // 
+            this.dateEndDataGridViewTextBoxColumn3.DataPropertyName = "DateEnd";
+            this.dateEndDataGridViewTextBoxColumn3.HeaderText = "Дата окончания";
+            this.dateEndDataGridViewTextBoxColumn3.Name = "dateEndDataGridViewTextBoxColumn3";
+            this.dateEndDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // serieDataGridViewTextBoxColumn
+            // 
+            this.serieDataGridViewTextBoxColumn.DataPropertyName = "Serie";
+            this.serieDataGridViewTextBoxColumn.HeaderText = "Серия";
+            this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
+            this.serieDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "Номер";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // docDateDataGridViewTextBoxColumn
+            // 
+            this.docDateDataGridViewTextBoxColumn.DataPropertyName = "DocDate";
+            this.docDateDataGridViewTextBoxColumn.HeaderText = "Дата выдачи документа";
+            this.docDateDataGridViewTextBoxColumn.Name = "docDateDataGridViewTextBoxColumn";
+            this.docDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3812,6 +3988,12 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.employeeStandingBindingSource)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.tpIncapacities.ResumeLayout(false);
+            this.tpIncapacities.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncapacities)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inkapacityDecoratorBindingSource)).EndInit();
+            this.toolStrip12.ResumeLayout(false);
+            this.toolStrip12.PerformLayout();
             this.tpBonus.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -3963,6 +4145,9 @@ namespace Kadr.UI.Frames
                 LoadStandings();
             if (tcEmplWorkData.SelectedTab == tpUGTUPosts)
                 LoadPostList();
+            if (tcEmplWorkData.SelectedTab == tpIncapacities)
+                LoadIncapacities();
+
             
         }
 
@@ -4511,6 +4696,69 @@ namespace Kadr.UI.Frames
             LinqActionsController<OK_DopInf>.Instance.DeleteObject(CurrentDopInf, KadrController.Instance.Model.OK_DopInfs, null);
 
             LoadDopInf();
+        }
+
+        private void tsbAddIncapacity_Click(object sender, EventArgs e)
+        {
+            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Inkapacity> dlg =
+               new Kadr.UI.Common.PropertyGridDialogAdding<OK_Inkapacity>())
+            {
+                dlg.ObjectList = KadrController.Instance.Model.OK_Inkapacities;
+                //dlg.BindingSource = employeeStandingBindingSource;
+                dlg.UseInternalCommandManager = true;
+
+                EducDocument ed = new EducDocument();
+
+                dlg.InitializeNewObject = (x =>
+                {
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, Employee>(x, "Employee", Employee, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, EducDocument>(x, "EducDocument",
+                        new EducDocument(commandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.InkapacityDocTypeName))), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, DateTime>(x, "DateBegin", DateTime.Today.Date, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, DateTime?>(x, "DateEnd", DateTime.Today.AddDays(7).Date, null), this);
+                });
+                dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.OK_Inkapacities;
+                };
+
+                dlg.ShowDialog();
+            }
+            LoadIncapacities();
+        }
+
+        private void LoadIncapacities()
+        {
+            inkapacityDecoratorBindingSource.DataSource = KadrController.Instance.Model.OK_Inkapacities.Where(x => x.Employee == Employee)
+                    .OrderBy(x => x.DateBegin)
+                    .Select(x => new InkapacityDecorator(x)); 
+
+        }
+
+        private void tsbEditIncapacity_Click(object sender, EventArgs e)
+        {
+            if (inkapacityDecoratorBindingSource.Current != null)
+                LinqActionsController<OK_Inkapacity>.Instance.EditObject(
+                        (inkapacityDecoratorBindingSource.Current as InkapacityDecorator).GetInkapacity(), true);
+            LoadIncapacities();
+
+        }
+
+        private void tsbDeleteIncapacity_Click(object sender, EventArgs e)
+        {
+            if (inkapacityDecoratorBindingSource.Current == null)
+                MessageBox.Show("Не выбрана командировка!");
+            else
+                if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (inkapacityDecoratorBindingSource.Current as InkapacityDecorator).ToString()), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    OK_Inkapacity i = (inkapacityDecoratorBindingSource.Current as InkapacityDecorator).GetInkapacity();
+
+                    KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(i.EducDocument);
+                    LinqActionsController<OK_Inkapacity>.Instance.DeleteObject(i, KadrController.Instance.Model.OK_Inkapacities, null);
+
+                }
+            LoadIncapacities();
+
         }
 
 
