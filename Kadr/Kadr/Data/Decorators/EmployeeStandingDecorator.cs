@@ -133,7 +133,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Тип стажа")]
         [System.ComponentModel.Category("Данные трудовой книжки")]
         [System.ComponentModel.Description("Тип стажа")]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.StandingTypeConverter))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<StandingType>))]
         //[System.ComponentModel.Editor(typeof(StandingTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public StandingType StandingType
         {
