@@ -4,6 +4,7 @@ using System.ComponentModel.Design;
 using System.Drawing.Design;
 using System.Linq;
 using System.Text;
+using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
@@ -38,6 +39,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Наименование награды")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Наименование награды сотрудника")]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<AwardType>))]
 
         public AwardType Type
         {
@@ -56,7 +58,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата вручения")]
-        [System.ComponentModel.Category("\tПодтверждающий документ")]
+        [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Дата вручения награды")]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
 
@@ -77,8 +79,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Серия")]
-        [System.ComponentModel.Category("\tПодтверждающий документ")]
+        [System.ComponentModel.DisplayName("\t\tСерия")]
+        [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Серия документа, подтверждающего факт награждения")]
         public string Serie
         {
@@ -96,8 +98,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Номер")]
-        [System.ComponentModel.Category("\tПодтверждающий документ")]
+        [System.ComponentModel.DisplayName("\tНомер")]
+        [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Номер документа, подтверждающего факт награждения")]
 
         public string Number
@@ -117,9 +119,9 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Организация")]
-        [System.ComponentModel.Category("\tПодтверждающий документ")]
+        [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Организация, вручившая награду")]
-
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Organisation>))]
         public Organisation Organization
         {
             get

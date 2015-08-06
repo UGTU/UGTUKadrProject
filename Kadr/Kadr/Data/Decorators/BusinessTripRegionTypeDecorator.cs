@@ -18,6 +18,7 @@ namespace Kadr.Data
         {
             return Type.ToString();
         }
+
         [System.ComponentModel.Category("Регион")]
         [System.ComponentModel.DisplayName("Регион пребывания")]
         [System.ComponentModel.Description("В какой регион командируется сотрудник")]

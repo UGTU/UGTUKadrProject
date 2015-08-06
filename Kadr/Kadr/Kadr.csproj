@@ -199,6 +199,7 @@
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
+    <Compile Include="Data\Converters\SimpleToStringConvertor.cs" />
     <Compile Include="Data\Converters\SocialFareTransitConverter.cs" />
     <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
     <Compile Include="Data\dckadr.designer.cs">

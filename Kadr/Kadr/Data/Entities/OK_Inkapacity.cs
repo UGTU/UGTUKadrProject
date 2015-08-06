@@ -29,7 +29,7 @@ namespace Kadr.Data
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
-                if (EducDocument == null) throw new ArgumentNullException("Подтверждающий документ"); else
+                if ((EducDocument == null)&&((NInkapacity==null)||(NInkapacity==""))) throw new ArgumentNullException("Подтверждающий документ"); else
 
                 if (DateBegin == null) throw new ArgumentNullException("Дата начала периода");
                 if (DateEnd == null) throw new ArgumentNullException("Дата окончания периода");

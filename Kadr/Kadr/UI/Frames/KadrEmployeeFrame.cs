@@ -160,11 +160,6 @@ namespace Kadr.UI.Frames
         private ToolStripButton tsbDelMaterial;
         private DataGridView dgvMaterial;
         private BindingSource MaterialResponsibilitybindingSource;
-        private DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn targetPlaceDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn finSourceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
@@ -316,23 +311,28 @@ namespace Kadr.UI.Frames
         private ToolStripButton tsbAddIncapacity;
         private ToolStripButton tsbEditIncapacity;
         private ToolStripButton tsbDeleteIncapacity;
-        private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn;
         private TabPage tpAwards;
         private DataGridView dgvAwards;
         private ToolStrip toolStrip13;
         private ToolStripButton tsbAddAward;
         private ToolStripButton tsbEditAward;
         private ToolStripButton tsbDelAward;
+        private BindingSource awardDecoratorBindingSource;
         private DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn;
-        private BindingSource awardDecoratorBindingSource;
+        private DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn targetPlaceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn finSourceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn;
         #region Properties
 
         /// <summary>
@@ -694,6 +694,12 @@ namespace Kadr.UI.Frames
             this.tsbDelFamMember = new System.Windows.Forms.ToolStripButton();
             this.tpAwards = new System.Windows.Forms.TabPage();
             this.dgvAwards = new System.Windows.Forms.DataGridView();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serieDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.organizationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.awardDecoratorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip13 = new System.Windows.Forms.ToolStrip();
             this.tsbAddAward = new System.Windows.Forms.ToolStripButton();
             this.tsbEditAward = new System.Windows.Forms.ToolStripButton();
@@ -941,12 +947,6 @@ namespace Kadr.UI.Frames
             this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.awardDecoratorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serieDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.organizationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -973,6 +973,7 @@ namespace Kadr.UI.Frames
             this.toolStrip9.SuspendLayout();
             this.tpAwards.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAwards)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardDecoratorBindingSource)).BeginInit();
             this.toolStrip13.SuspendLayout();
             this.tpEmpPost.SuspendLayout();
             this.tcEmplWorkData.SuspendLayout();
@@ -1043,7 +1044,6 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.materialResponsibilityDecoratorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusReportColumnBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusTypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.awardDecoratorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -1185,7 +1185,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
             this.splitContainer3.Size = new System.Drawing.Size(788, 501);
-            this.splitContainer3.SplitterDistance = 257;
+            this.splitContainer3.SplitterDistance = 255;
             this.splitContainer3.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -1201,7 +1201,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 257);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 255);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // dataGridView1
@@ -1316,7 +1316,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 240);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 242);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // dataGridView6
@@ -1594,7 +1594,7 @@ namespace Kadr.UI.Frames
             this.tpAwards.Location = new System.Drawing.Point(4, 22);
             this.tpAwards.Name = "tpAwards";
             this.tpAwards.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAwards.Size = new System.Drawing.Size(869, 339);
+            this.tpAwards.Size = new System.Drawing.Size(788, 501);
             this.tpAwards.TabIndex = 3;
             this.tpAwards.Text = "Награды";
             this.tpAwards.UseVisualStyleBackColor = true;
@@ -1618,8 +1618,49 @@ namespace Kadr.UI.Frames
             this.dgvAwards.ReadOnly = true;
             this.dgvAwards.RowHeadersVisible = false;
             this.dgvAwards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAwards.Size = new System.Drawing.Size(863, 308);
+            this.dgvAwards.Size = new System.Drawing.Size(782, 470);
             this.dgvAwards.TabIndex = 6;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Наименование награды";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typeDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата вручения";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // serieDataGridViewTextBoxColumn1
+            // 
+            this.serieDataGridViewTextBoxColumn1.DataPropertyName = "Serie";
+            this.serieDataGridViewTextBoxColumn1.HeaderText = "Серия";
+            this.serieDataGridViewTextBoxColumn1.Name = "serieDataGridViewTextBoxColumn1";
+            this.serieDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // numberDataGridViewTextBoxColumn1
+            // 
+            this.numberDataGridViewTextBoxColumn1.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn1.HeaderText = "Номер";
+            this.numberDataGridViewTextBoxColumn1.Name = "numberDataGridViewTextBoxColumn1";
+            this.numberDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // organizationDataGridViewTextBoxColumn
+            // 
+            this.organizationDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.organizationDataGridViewTextBoxColumn.DataPropertyName = "Organization";
+            this.organizationDataGridViewTextBoxColumn.HeaderText = "Организация";
+            this.organizationDataGridViewTextBoxColumn.Name = "organizationDataGridViewTextBoxColumn";
+            this.organizationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // awardDecoratorBindingSource
+            // 
+            this.awardDecoratorBindingSource.DataSource = typeof(Kadr.Data.AwardDecorator);
             // 
             // toolStrip13
             // 
@@ -1629,7 +1670,7 @@ namespace Kadr.UI.Frames
             this.tsbDelAward});
             this.toolStrip13.Location = new System.Drawing.Point(3, 3);
             this.toolStrip13.Name = "toolStrip13";
-            this.toolStrip13.Size = new System.Drawing.Size(863, 25);
+            this.toolStrip13.Size = new System.Drawing.Size(782, 25);
             this.toolStrip13.TabIndex = 5;
             this.toolStrip13.Text = "toolStrip13";
             // 
@@ -2060,6 +2101,7 @@ namespace Kadr.UI.Frames
             // 
             // finSourceDataGridViewTextBoxColumn
             // 
+            this.finSourceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.finSourceDataGridViewTextBoxColumn.DataPropertyName = "FinSource";
             this.finSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
             this.finSourceDataGridViewTextBoxColumn.Name = "finSourceDataGridViewTextBoxColumn";
@@ -2469,6 +2511,7 @@ namespace Kadr.UI.Frames
             this.dgvIncapacities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvIncapacities.Size = new System.Drawing.Size(863, 308);
             this.dgvIncapacities.TabIndex = 11;
+            this.dgvIncapacities.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIncapacities_CellDoubleClick);
             // 
             // dateBeginDataGridViewTextBoxColumn2
             // 
@@ -2500,6 +2543,7 @@ namespace Kadr.UI.Frames
             // 
             // docDateDataGridViewTextBoxColumn
             // 
+            this.docDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.docDateDataGridViewTextBoxColumn.DataPropertyName = "DocDate";
             this.docDateDataGridViewTextBoxColumn.HeaderText = "Дата выдачи документа";
             this.docDateDataGridViewTextBoxColumn.Name = "docDateDataGridViewTextBoxColumn";
@@ -3989,45 +4033,6 @@ namespace Kadr.UI.Frames
             this.dataGridViewTextBoxColumn65.HeaderText = "Звание утверждено";
             this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
             // 
-            // awardDecoratorBindingSource
-            // 
-            this.awardDecoratorBindingSource.DataSource = typeof(Kadr.Data.AwardDecorator);
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Наименование награды";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата вручения";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // serieDataGridViewTextBoxColumn1
-            // 
-            this.serieDataGridViewTextBoxColumn1.DataPropertyName = "Serie";
-            this.serieDataGridViewTextBoxColumn1.HeaderText = "Серия";
-            this.serieDataGridViewTextBoxColumn1.Name = "serieDataGridViewTextBoxColumn1";
-            this.serieDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // numberDataGridViewTextBoxColumn1
-            // 
-            this.numberDataGridViewTextBoxColumn1.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn1.HeaderText = "Номер";
-            this.numberDataGridViewTextBoxColumn1.Name = "numberDataGridViewTextBoxColumn1";
-            this.numberDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // organizationDataGridViewTextBoxColumn
-            // 
-            this.organizationDataGridViewTextBoxColumn.DataPropertyName = "Organization";
-            this.organizationDataGridViewTextBoxColumn.HeaderText = "Организация";
-            this.organizationDataGridViewTextBoxColumn.Name = "organizationDataGridViewTextBoxColumn";
-            this.organizationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4067,6 +4072,7 @@ namespace Kadr.UI.Frames
             this.tpAwards.ResumeLayout(false);
             this.tpAwards.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAwards)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardDecoratorBindingSource)).EndInit();
             this.toolStrip13.ResumeLayout(false);
             this.toolStrip13.PerformLayout();
             this.tpEmpPost.ResumeLayout(false);
@@ -4161,7 +4167,6 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.materialResponsibilityDecoratorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusReportColumnBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bonusTypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.awardDecoratorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4873,6 +4878,7 @@ namespace Kadr.UI.Frames
                 {
                     OK_Inkapacity i = (inkapacityDecoratorBindingSource.Current as InkapacityDecorator).GetInkapacity();
 
+                    if (i.EducDocument!=null)
                     KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(i.EducDocument);
                     LinqActionsController<OK_Inkapacity>.Instance.DeleteObject(i, KadrController.Instance.Model.OK_Inkapacities, null);
 
@@ -4936,6 +4942,11 @@ namespace Kadr.UI.Frames
 
                 }
             LoadAwards();
+        }
+
+        private void dgvIncapacities_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tsbEditIncapacity_Click(sender, null);
         }
 
 

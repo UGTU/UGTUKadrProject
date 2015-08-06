@@ -80,7 +80,7 @@ GO
 GO
 
 CREATE TABLE [dbo].[BusinessTripRegionType](
-	[idRegionType] [int] NOT NULL,
+	[idRegionType] [int] NOT NULL IDENTITY(1,1) NOT NULL,
 	[idBusinessTrip] [int] NOT NULL,
 	[DayTrip] [int] NOT NULL,
 	[DayTravel] [int] NOT NULL,
@@ -477,7 +477,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[AwardType](
-	[ID] [int] NOT NULL,
+	[ID] [int] NOT NULL IDENTITY (1, 1),
 	[Name] [nvarchar](200) NOT NULL,
  CONSTRAINT [PK_AwardType] PRIMARY KEY CLUSTERED 
 (
@@ -534,6 +534,221 @@ GO
 
 ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_FactStaffPrikaz]
 GO
+
+
+=============================================================
+==========Делаем необязательным тип подтверждающего документа
+=============================================================
+/*
+   6 августа 2015 г.15:58:41
+   Пользователь: 
+   Сервер: ugtudb
+   База данных: KadrRealTest
+   Приложение: 
+*/
+
+/* Чтобы предотвратить возможность потери данных, необходимо внимательно просмотреть этот скрипт, прежде чем запускать его вне контекста конструктора баз данных.*/
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.EducDocument
+	DROP CONSTRAINT FK_EducDocument_EducDocumentType
+GO
+ALTER TABLE dbo.EducDocumentType SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.EducDocument
+	DROP CONSTRAINT FK_EducDocument_Organisation
+GO
+ALTER TABLE dbo.Organisation SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.Tmp_EducDocument
+	(
+	id int NOT NULL IDENTITY (1, 1),
+	idEducDocType int NULL,
+	DocSeries varchar(15) NULL,
+	DocNumber varchar(50) NULL,
+	DocDate datetime NULL,
+	IdOrganisation int NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Tmp_EducDocument SET (LOCK_ESCALATION = TABLE)
+GO
+SET IDENTITY_INSERT dbo.Tmp_EducDocument ON
+GO
+IF EXISTS(SELECT * FROM dbo.EducDocument)
+	 EXEC('INSERT INTO dbo.Tmp_EducDocument (id, idEducDocType, DocSeries, DocNumber, DocDate, IdOrganisation)
+		SELECT id, idEducDocType, DocSeries, DocNumber, DocDate, IdOrganisation FROM dbo.EducDocument WITH (HOLDLOCK TABLOCKX)')
+GO
+SET IDENTITY_INSERT dbo.Tmp_EducDocument OFF
+GO
+ALTER TABLE dbo.OK_Educ
+	DROP CONSTRAINT FK_OK_Educ_EducDocument
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_EducDocument
+GO
+ALTER TABLE dbo.OK_Inkapacity
+	DROP CONSTRAINT FK_OK_Inkapacity_EducDocument
+GO
+ALTER TABLE dbo.EmployeeDegree
+	DROP CONSTRAINT FK_EmployeeDegree_EducDocument
+GO
+ALTER TABLE dbo.EmployeeRank
+	DROP CONSTRAINT FK_EmployeeRank_EducDocument
+GO
+DROP TABLE dbo.EducDocument
+GO
+EXECUTE sp_rename N'dbo.Tmp_EducDocument', N'EducDocument', 'OBJECT' 
+GO
+ALTER TABLE dbo.EducDocument ADD CONSTRAINT
+	PK_EdicDocument PRIMARY KEY CLUSTERED 
+	(
+	id
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+CREATE NONCLUSTERED INDEX IX_EducDocument ON dbo.EducDocument
+	(
+	idEducDocType
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX IX_EducDocument_1 ON dbo.EducDocument
+	(
+	IdOrganisation
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE dbo.EducDocument ADD CONSTRAINT
+	FK_EducDocument_Organisation FOREIGN KEY
+	(
+	IdOrganisation
+	) REFERENCES dbo.Organisation
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.EducDocument ADD CONSTRAINT
+	FK_EducDocument_EducDocumentType FOREIGN KEY
+	(
+	idEducDocType
+	) REFERENCES dbo.EducDocumentType
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE TRIGGER [dbo].[EducDocumentUniq]
+   ON dbo.EducDocument 
+   FOR INSERT, UPDATE 
+AS
+BEGIN
+	IF EXISTS(SELECT 'TRUE' 
+			FROM INSERTED, dbo.EducDocument
+					WHERE INSERTED.id<>EducDocument.id
+						AND INSERTED.idEducDocType=EducDocument.idEducDocType
+						AND INSERTED.DocSeries=EducDocument.DocSeries AND INSERTED.DocSeries IS NOT NULL
+						AND INSERTED.DocNumber=EducDocument.DocNumber AND INSERTED.DocNumber IS NOT NULL
+						--AND INSERTED.DocDate=EducDocument.DocDate AND INSERTED.DocDate IS NOT NULL
+	)			
+	BEGIN
+		  RAISERROR('Ошибка! Такие данные диплома уже есть в базе данных.', 16,1)
+		  ROLLBACK TRAN 
+	END
+END
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.EmployeeRank ADD CONSTRAINT
+	FK_EmployeeRank_EducDocument FOREIGN KEY
+	(
+	idEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.EmployeeRank SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.EmployeeDegree ADD CONSTRAINT
+	FK_EmployeeDegree_EducDocument FOREIGN KEY
+	(
+	idEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.EmployeeDegree SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.OK_Inkapacity ADD CONSTRAINT
+	FK_OK_Inkapacity_EducDocument FOREIGN KEY
+	(
+	idEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.OK_Inkapacity SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_EducDocument FOREIGN KEY
+	(
+	IDEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.OK_Educ ADD CONSTRAINT
+	FK_OK_Educ_EducDocument FOREIGN KEY
+	(
+	idEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  CASCADE 
+	 ON DELETE  CASCADE 
+	
+GO
+ALTER TABLE dbo.OK_Educ SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
 
 
 
