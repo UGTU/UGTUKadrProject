@@ -26,13 +26,27 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="InkapacityDocTypeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Больничный</Value>
+    </Setting>
     <Setting Name="kadrConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=ugtudb.ugtu.net;Initial Catalog=kadrRealTest;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=LAB-5;Initial Catalog=kadr;Integrated Security=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=ugtudb.ugtu.net;Initial Catalog=kadrRealTest;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=LAB-5;Initial Catalog=kadr;Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="KadrConnectionString5" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="AwardDocTypeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Награда</Value>
     </Setting>
     <Setting Name="KadrConnectionString4" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -41,17 +55,6 @@
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True</Value>
-    </Setting>
-    <Setting Name="KadrConnectionString5" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=ugtudb.ugtu.net;Initial Catalog=Kadr;Integrated Security=True&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=ugtudb.ugtu.net;Initial Catalog=Kadr;Integrated Security=True</Value>
-    </Setting>
-    <Setting Name="InkapacityDocTypeName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Больничный</Value>
     </Setting>
   </Settings>
 </SettingsFile>

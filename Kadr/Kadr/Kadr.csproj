@@ -128,26 +128,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="CrystalDecisions.Windows.Forms, Version=14.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304">
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common.Fakes">
       <HintPath>FakesAssemblies\Microsoft.ReportViewer.Common.Fakes.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
@@ -159,12 +149,6 @@
     </Reference>
     <Reference Include="System.Data.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Design">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Drawing.Design">
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web">
@@ -210,14 +194,15 @@
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
+    <Compile Include="Data\Converters\SimpleToStringConvertor.cs" />
     <Compile Include="Data\Converters\SocialFareTransitConverter.cs" />
-    <Compile Include="Data\Converters\StandingTypeConverter.cs" />
     <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
     <Compile Include="Data\dckadr.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dckadr.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Decorators\AwardDecorator.cs" />
     <Compile Include="Data\Decorators\BusinessTripDecorator.cs" />
     <Compile Include="Data\Decorators\BusinessTripRegionTypeDecorator.cs" />
     <Compile Include="Data\Decorators\BonusTypeDecorator.cs" />
@@ -257,6 +242,7 @@
     <Compile Include="Data\Decorators\DepartmentDecorator.cs" />
     <Compile Include="Data\Decorators\InkapacityDecorator.cs" />
     <Compile Include="Data\Entities\Award.cs" />
+    <Compile Include="Data\Entities\AwardType.cs" />
     <Compile Include="Data\Entities\Bonus.cs" />
     <Compile Include="Data\Entities\BonusHistory.cs" />
     <Compile Include="Data\Entities\BonusMeasure.cs" />
@@ -987,6 +973,9 @@
     <None Include="Data\dckadr.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>dckadr.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Kadr.Data.AwardDecorator.datasource">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\Kadr.Data.InkapacityDecorator.datasource">

@@ -35,7 +35,16 @@ namespace Kadr.Data
        {
            if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
            {
-               //TODO:validation for an award
+               if (EducDocument == null) throw new ArgumentNullException("Подтверждающий документ");
+               else
+               {
+                   if (EducDocument.Organisation == null) throw new ArgumentNullException("Выдавшая организация");
+                   if (EducDocument.DocDate> DateTime.Now) throw new ArgumentNullException("Дата выдачи не может находиться в будущем");
+                   if ((EducDocument.DocNumber == "") || (EducDocument.DocNumber == null)) throw new ArgumentNullException("Номер документа");
+               }
+
+               if (Employee == null) throw new ArgumentNullException("Сотрудник");
+               if (AwardType == null) throw new ArgumentNullException("Наименование награды");
            }
        }
         
@@ -54,8 +63,7 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
-            return null;
-            //return new AwardDecorator(this);
+            return new AwardDecorator(this);
         }
 
         #endregion
