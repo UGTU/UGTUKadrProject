@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KadrRealTest" Class="dckadrDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="KadrConnectionString2" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Kadr" Class="dckadrDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=Kadr;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="KadrConnectionString4" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DepartmentType" Member="DepartmentTypes">
     <Type Name="DepartmentType">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -717,14 +717,6 @@
       <Association Name="StandingType_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idStandingType" Type="EmployeeStanding" />
     </Type>
   </Table>
-  <Table Name="dbo.RegionType" Member="RegionTypes">
-    <Type Name="RegionType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="RegionTypeName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
-      <Association Name="RegionType_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idRegionType" Type="EmployeeStanding" />
-      <Association Name="RegionType_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idRegionType" Type="BusinessTripRegionType" />
-    </Type>
-  </Table>
   <Table Name="dbo.EmployeeStanding" Member="EmployeeStandings">
     <Type Name="EmployeeStanding">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -735,9 +727,9 @@
       <Column Name="idRegionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idStandingType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="RegionType_EmployeeStanding" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
       <Association Name="StandingType_EmployeeStanding" Member="StandingType" ThisKey="idStandingType" OtherKey="id" Type="StandingType" IsForeignKey="true" />
       <Association Name="Employee_EmployeeStanding" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="RegionType_EmployeeStanding" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Employee" Member="Employees">
@@ -962,6 +954,15 @@
       <Association Name="EducDocument_Award" Member="Awards" ThisKey="id" OtherKey="IDEducDocument" Type="Award" />
       <Association Name="EducDocumentType_EducDocument" Member="EducDocumentType" ThisKey="idEducDocType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
       <Association Name="Organisation_EducDocument" Member="Organisation" ThisKey="idOrganisation" OtherKey="id" Type="Organisation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegionType" Member="RegionTypes">
+    <Type Name="RegionType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegionTypeName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="RegionTypeSmallName" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="RegionType_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idRegionType" Type="EmployeeStanding" />
+      <Association Name="RegionType_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idRegionType" Type="BusinessTripRegionType" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

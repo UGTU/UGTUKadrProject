@@ -533,3 +533,12 @@ GO
 
 
 
+
+
+
+ALTER TABLE [dbo].[RegionType]
+ADD [RegionTypeSmallName] VARCHAR(10) NULL
+
+ALTER TABLE [dbo].[RegionType]
+ALTER COLUMN [RegionTypeSmallName] VARCHAR(10) NOT NULL
+

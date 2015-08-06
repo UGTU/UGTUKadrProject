@@ -21,7 +21,7 @@ namespace Kadr.Data.Converters
                 var res = Kadr.Controllers.KadrController.Instance.Model.SocialFareTransits.Where(x => x.Employee == (context.Instance as OK_OtpuskDecorator).Employee);
                 if (res == null)
                     return null;
-                List<SocialFareTransit> resList = res.ToList();
+                List<SocialFareTransit> resList = res.ToList().Where(x => !x.IsUsed).ToList();
                 resList.Add(Kadr.Data.NullSocialFareTransit.Instance);
                // if (res != null)
                 return resList;//res.ToList();
