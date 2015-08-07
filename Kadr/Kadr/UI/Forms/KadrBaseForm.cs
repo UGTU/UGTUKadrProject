@@ -410,6 +410,7 @@ namespace Kadr.UI.Forms
 
         private void KadrBaseForm_Load(object sender, EventArgs e)
         {
+            Text = "ИС \"Управление кадрами\" (" + DateTime.Today.ToShortDateString() + ")";
             KadrController.Instance.CheckDataBaseVersion();
             //ImportDailyReportFiles();
             kadrTreeView1.CreateRootNodes();

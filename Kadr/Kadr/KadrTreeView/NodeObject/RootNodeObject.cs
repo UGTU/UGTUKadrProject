@@ -59,22 +59,24 @@ namespace Kadr.KadrTreeView
         public override string GetObjectInfo()
         {
             string objectInfo = "";
-            decimal CatPlanStaffCount, CatFactStaffCount;
+            decimal CatPlanStaffCount, CatFactStaffCount, CatAllFactStaffCount;
             foreach (Kadr.Data.Category cat in KadrController.Instance.Model.Categories)
             {
 
                 if (Department.PlanStaffs.Where(planSt => (planSt.Post.Category == cat) && (planSt.Prikaz == null)).Count() > 0)
                 {
                     CatPlanStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Post.Category == cat) && (planSt.Prikaz == null)).Sum(planSt => planSt.StaffCount);
-                    CatFactStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Post.Category == cat) && (planSt.Prikaz == null)).Sum(planSt => planSt.FactStaffCount); 
-                    objectInfo += "   " + cat.CategorySmallName + " " + CatPlanStaffCount.ToString() + "/ " + CatFactStaffCount.ToString();
+                    CatFactStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Post.Category == cat) && (planSt.Prikaz == null)).Sum(planSt => planSt.FactStaffCount);
+                    CatAllFactStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Post.Category == cat) && (planSt.Prikaz == null)).Sum(planSt => planSt.AllFactStaffCount);
+                    objectInfo += "   " + cat.CategorySmallName + " " + CatPlanStaffCount.ToString() + "/ " + CatFactStaffCount.ToString() + " /" + CatAllFactStaffCount.ToString();
                 }
             }
             if (Department.PlanStaffs.Where(planSt => (planSt.Prikaz == null)).Count() > 0)
             {
                 CatPlanStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Prikaz == null)).Sum(planSt => planSt.StaffCount);
                 CatFactStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Prikaz == null)).Sum(planSt => planSt.FactStaffCount);
-                objectInfo += "   Всего " + CatPlanStaffCount.ToString() + "/ " + CatFactStaffCount.ToString();                
+                CatAllFactStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Prikaz == null)).Sum(planSt => planSt.AllFactStaffCount);
+                objectInfo += "   Всего " + CatPlanStaffCount.ToString() + "/ " + CatFactStaffCount.ToString() + " /" + CatAllFactStaffCount.ToString();               
             }
 
             return objectInfo;
