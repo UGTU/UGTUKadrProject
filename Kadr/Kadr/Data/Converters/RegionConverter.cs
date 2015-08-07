@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace Kadr.Data
+namespace Kadr.Data.Converters
 {
     class RegionConverter : TypeConverter
     {
@@ -48,7 +48,7 @@ namespace Kadr.Data
             if (destinationType == typeof(string) && value is RegionType)
             {
                 RegionType item = (RegionType)value;
-                return item.RegionTypeName;
+                return item.ToString();
             }
             return base.ConvertTo(context, culture, value, destinationType);
         }
@@ -74,7 +74,7 @@ namespace Kadr.Data
 
                 foreach (RegionType Item in GetCollection(context))
                 {
-                    string sCraftName = Item.RegionTypeName;
+                    string sCraftName = Item.ToString();
                     if (sCraftName.Equals((string)value))
                     {
                         itemSelected = Item;

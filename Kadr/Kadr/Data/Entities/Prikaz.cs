@@ -18,7 +18,7 @@ namespace Kadr.Data
         {
             get
             {
-                return this.PrikazName + " от " + this.DatePrikaz.GetValueOrDefault().ToShortDateString();
+                return this.PrikazName + " от " + this.DatePrikaz.GetValueOrDefault().ToShortDateString();//GetValueOrDefault()
             }
         }
 
@@ -45,7 +45,6 @@ namespace Kadr.Data
         }
         #endregion
 
-
         #region IDecorable Members
 
         public object GetDecorator()
@@ -54,8 +53,6 @@ namespace Kadr.Data
         }
 
         #endregion        
-
-
 
         #region Члены IValidatable
 

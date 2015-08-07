@@ -32,6 +32,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.regionTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegionTypeSmallName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regionTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -73,6 +74,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
+            this.RegionTypeSmallName,
             this.regionTypeNameDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.regionTypeBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -92,6 +94,12 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // RegionTypeSmallName
+            // 
+            this.RegionTypeSmallName.DataPropertyName = "RegionTypeSmallName";
+            this.RegionTypeSmallName.HeaderText = "Краткое (основное) название";
+            this.RegionTypeSmallName.Name = "RegionTypeSmallName";
             // 
             // regionTypeNameDataGridViewTextBoxColumn
             // 
@@ -124,6 +132,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource regionTypeBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegionTypeSmallName;
         private System.Windows.Forms.DataGridViewTextBoxColumn regionTypeNameDataGridViewTextBoxColumn;
     }
 }
