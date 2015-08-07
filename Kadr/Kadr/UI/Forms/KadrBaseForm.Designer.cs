@@ -114,6 +114,8 @@ namespace Kadr.UI.Forms
             this.табельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.статусДняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.графикиРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.образованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типОбразованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отделыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типыОтделовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.организацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -725,6 +727,7 @@ namespace Kadr.UI.Forms
             this.окладToolStripMenuItem,
             this.совмещенияToolStripMenuItem,
             this.табельToolStripMenuItem,
+            this.образованиеToolStripMenuItem,
             this.отделыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
@@ -998,6 +1001,20 @@ namespace Kadr.UI.Forms
             this.графикиРаботыToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.графикиРаботыToolStripMenuItem.Text = "Графики работы";
             this.графикиРаботыToolStripMenuItem.Click += new System.EventHandler(this.графикиРаботыToolStripMenuItem_Click);
+            // 
+            // образованиеToolStripMenuItem
+            // 
+            this.образованиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.типОбразованияToolStripMenuItem});
+            this.образованиеToolStripMenuItem.Name = "образованиеToolStripMenuItem";
+            this.образованиеToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.образованиеToolStripMenuItem.Text = "Образование";
+            // 
+            // типОбразованияToolStripMenuItem
+            // 
+            this.типОбразованияToolStripMenuItem.Name = "типОбразованияToolStripMenuItem";
+            this.типОбразованияToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.типОбразованияToolStripMenuItem.Text = "Тип образования";
             // 
             // отделыToolStripMenuItem
             // 
@@ -1613,6 +1630,8 @@ namespace Kadr.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem типыРегионовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem видыСтажаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem организацииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem образованиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типОбразованияToolStripMenuItem;
 
     }
 }
