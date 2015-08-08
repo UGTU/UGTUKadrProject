@@ -219,7 +219,7 @@
     <Compile Include="Data\Decorators\BonusTypeDecorator.cs" />
     <Compile Include="Data\Decorators\BonusDecorator.cs" />
     <Compile Include="Data\Decorators\BonusHistoryDecorator.cs" />
-    <Compile Include="Data\Decorators\OkEducDecorator.cs" />
+    <Compile Include="Data\Decorators\EducationDecorator.cs" />
     <Compile Include="Data\Decorators\OK_Fam.cs" />
     <Compile Include="Data\Decorators\OK_DopInfDecorator.cs" />
     <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
@@ -273,6 +273,7 @@
     <Compile Include="Data\Entities\DepartmentFund.cs" />
     <Compile Include="Data\Entities\DepartmentHistory.cs" />
     <Compile Include="Data\Entities\DepartmentTimeNorm.cs" />
+    <Compile Include="Data\Entities\EducationType.cs" />
     <Compile Include="Data\Entities\EducDocument.cs" />
     <Compile Include="Data\Entities\EducDocumentType.cs" />
     <Compile Include="Data\Entities\Employee.cs" />
@@ -469,6 +470,12 @@
     </Compile>
     <Compile Include="UI\Dialogs\DepartmentTypeDialog.Designer.cs">
       <DependentUpon>DepartmentTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\EducationTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\EducationTypeDialog.Designer.cs">
+      <DependentUpon>EducationTypeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\FactStaffBonusDialog.cs">
       <SubType>Form</SubType>
@@ -824,6 +831,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\DepartmentTypeDialog.resx">
       <DependentUpon>DepartmentTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\EducationTypeDialog.resx">
+      <DependentUpon>EducationTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\FactStaffBonusDialog.resx">
       <DependentUpon>FactStaffBonusDialog.cs</DependentUpon>

@@ -1343,7 +1343,7 @@ namespace Kadr.UI.Forms
 
         private void âèäûÑòàæàToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (StandingTypeDialog dlg = new StandingTypeDialog())
+            using (var dlg = new StandingTypeDialog())
             {
                 dlg.ShowDialog();
             }
@@ -1352,6 +1352,14 @@ namespace Kadr.UI.Forms
         private void îğãàíèçàöèèToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new OrganisationDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void òèïÎáğàçîâàíèÿToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new EducationTypeDialog())
             {
                 dlg.ShowDialog();
             }
