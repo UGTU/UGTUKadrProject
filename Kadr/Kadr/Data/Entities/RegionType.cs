@@ -6,7 +6,7 @@ namespace Kadr.Data
     {
         public override string ToString()
         {
-            return RegionTypeName;
+            return RegionTypeSmallName;
         }
 
         #region Члены INull
@@ -25,7 +25,7 @@ namespace Kadr.Data
         private NullRegionType()
         {
             this.id = 0;
-            RegionTypeName = "(Не задан)";
+            RegionTypeSmallName = "(Не задан)";
         }
 
         public static readonly NullRegionType Instance = new NullRegionType();

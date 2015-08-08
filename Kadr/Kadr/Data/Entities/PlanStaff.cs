@@ -31,6 +31,14 @@ namespace Kadr.Data
         }
 
 
+        public decimal AllFactStaffCount
+        {
+            get
+            {
+                return FactStaffs.Where(factSt => ((factSt.Prikaz == null) || (factSt.DateEnd > DateTime.Today))).Sum(factSt => factSt.StaffCount);
+            }
+        }
+
         public Category Category
         {
             get

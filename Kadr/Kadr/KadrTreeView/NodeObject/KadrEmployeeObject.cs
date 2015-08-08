@@ -28,7 +28,13 @@ namespace Kadr.KadrTreeView
         }
 
 
-    private FactStaff factStaff;
+        public override string GetObjectName()
+        {
+            
+            return Employee.ToString()+ " (" +Employee.EmployeeYearsOld.ToString() +" лет)";
+        }
+
+        private FactStaff factStaff;
 
         public FactStaff FactStaff
         {
@@ -59,7 +65,7 @@ namespace Kadr.KadrTreeView
         /// <returns></returns>
         protected override bool DoAddChildNodes()
         {
-            return true;
+            return false;
         }
 
         private APG.CodeHelper.DBTreeView.DBTreeNodeAction nodeActions;

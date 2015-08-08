@@ -5466,4 +5466,17 @@ namespace Kadr.Data
 
 
     #endregion
+
+    #region OK_Educ Decorator
+
+    internal class OkEducDecorator
+    {
+        private OK_Educ okEduc;
+        public OkEducDecorator(OK_Educ okEduc)
+        {
+            this.okEduc = okEduc;
+        }
+    }
+
+    #endregion
 }

@@ -169,6 +169,8 @@ namespace Kadr.UI.Forms
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.образованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типОбразованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             tsmiDismissedEmployees = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -725,7 +727,8 @@ namespace Kadr.UI.Forms
             this.окладToolStripMenuItem,
             this.совмещенияToolStripMenuItem,
             this.табельToolStripMenuItem,
-            this.отделыToolStripMenuItem});
+            this.отделыToolStripMenuItem,
+            this.образованиеToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "&Справочники";
@@ -1427,6 +1430,20 @@ namespace Kadr.UI.Forms
             // 
             this.departmentBindingSource.DataSource = typeof(Kadr.Data.Department);
             // 
+            // образованиеToolStripMenuItem
+            // 
+            this.образованиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.типОбразованияToolStripMenuItem});
+            this.образованиеToolStripMenuItem.Name = "образованиеToolStripMenuItem";
+            this.образованиеToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.образованиеToolStripMenuItem.Text = "Образование";
+            // 
+            // типОбразованияToolStripMenuItem
+            // 
+            this.типОбразованияToolStripMenuItem.Name = "типОбразованияToolStripMenuItem";
+            this.типОбразованияToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.типОбразованияToolStripMenuItem.Text = "Тип образования";
+            // 
             // KadrBaseForm
             // 
             this.AllowDrop = true;
@@ -1613,6 +1630,8 @@ namespace Kadr.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem типыРегионовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem видыСтажаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem организацииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem образованиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типОбразованияToolStripMenuItem;
 
     }
 }

@@ -29,6 +29,23 @@ namespace Kadr.Data
             }
         }*/
 
+        public int? EmployeeYearsOld
+        {
+            get
+            {
+                
+                if (BirthDate != null)
+                {
+                    int YearsDiff = DateTime.Today.Year - BirthDate.Value.Year;
+                    if (DateTime.Today < BirthDate.Value.AddYears(YearsDiff))
+                        return YearsDiff - 1;
+                    else
+                        return YearsDiff;
+                }
+                return null;
+            }
+        }
+
         public EmployeeRank Rank
         {
             get

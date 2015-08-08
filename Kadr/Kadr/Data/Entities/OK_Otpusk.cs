@@ -61,6 +61,14 @@ namespace Kadr.Data
                 FactStaffPrikaz.DateEnd = value;
             }
         }
+
+        public bool WithSocialFareTransit
+        {
+            get
+            {
+                return SocialFareTransit != null;
+            }
+        }
         
         #region IDecorable Members
 
@@ -80,7 +88,9 @@ namespace Kadr.Data
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
-
+                if (SocialFareTransit != null)
+                    if (SocialFareTransit.IsNull())
+                        SocialFareTransit = null;
                 if (FactStaffPrikaz.IsNull() || FactStaffPrikaz == null) throw new ArgumentNullException("Приказ.");
                 if ((OK_Otpuskvid == null) || (OK_Otpuskvid.IsNull())) throw new ArgumentNullException("Вид отпуска.");
                 if (RealDateEnd != null)

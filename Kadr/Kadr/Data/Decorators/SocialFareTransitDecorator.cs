@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
+
     class SocialFareTransitDecorator
     {
 
@@ -35,9 +36,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата вступления в силу")]
+        [System.ComponentModel.DisplayName("Дата начала периода")]
         [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Дата вступления приказа в силу")]
+        [System.ComponentModel.Description("Дата начала периода")]
         public DateTime DateBegin
         {
             get
@@ -50,9 +51,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата вступления в силу")]
+        [System.ComponentModel.DisplayName("Дата окончания периода")]
         [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Дата вступления приказа в силу")]
+        [System.ComponentModel.Description("Дата окончания периода")]
         public DateTime DateEnd
         {
             get
@@ -66,66 +67,9 @@ namespace Kadr.Data
         }
 
 
-        /* [System.ComponentModel.DisplayName("Дата вступления в силу")]
-         [System.ComponentModel.Category("Основные параметры")]
-         [System.ComponentModel.Description("Дата вступления приказа в силу")]
-         public DateTime dfg
-         {
-             get
-             {
-                 return socialFareTransit;
-             }
-             set
-             {
-                 socialFareTransit. = value;
-             }
-         }
-         [System.ComponentModel.DisplayName("Название приказа")]
-         [System.ComponentModel.Category("Основные параметры")]
-         [System.ComponentModel.Description("Название приказа")]
-         public string PrikazName
-         {
-             get
-             {
-                 return prikaz.PrikazName;
-             }
-             set
-             {
-                 prikaz.PrikazName = value;
-             }
-         }
-
-         [System.ComponentModel.DisplayName("Дата вступления в силу")]
-         [System.ComponentModel.Category("Основные параметры")]
-         [System.ComponentModel.Description("Дата вступления приказа в силу")]
-         public DateTime DatePrikaz
-         {
-             get
-             {
-                 return Convert.ToDateTime(prikaz.DatePrikaz);
-             }
-             set
-             {
-                 prikaz.DatePrikaz = value;
-             }
-         }
-
-         [System.ComponentModel.DisplayName("Вид приказа")]
-         [System.ComponentModel.Category("Основные параметры")]
-         [System.ComponentModel.Description("Вид приказа")]
-         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
-         public Kadr.Data.PrikazType PrikazType
-         {
-             get
-             {
-                 return prikaz.PrikazType;
-             }
-             set
-             {
-                 prikaz.PrikazType = value;
-             }
-         }*/
-
 
     }
+
+
+
 }

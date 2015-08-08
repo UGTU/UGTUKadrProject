@@ -1,5 +1,4 @@
-﻿using Kadr.Data;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +7,7 @@ using System.Text;
 
 namespace Kadr.Data.Converters
 {
-    class RegionConverter : TypeConverter
+    class StandingTypeConverter : TypeConverter
     {
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
@@ -17,10 +16,7 @@ namespace Kadr.Data.Converters
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            ICollection collection = Kadr.Controllers.KadrController.Instance.Model.RegionTypes.ToList();
-            //if (context.Instance is BusinessTripDecorator) collection = (context.Instance as BusinessTripDecorator)..RegionTypes.ToList();
-
-            return collection;
+            return Kadr.Controllers.KadrController.Instance.Model.StandingTypes.ToArray();
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
@@ -28,7 +24,7 @@ namespace Kadr.Data.Converters
             return new StandardValuesCollection(GetCollection(context));
         }
 
-        
+
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
             if (destinationType.Equals(typeof(string)))
@@ -41,14 +37,13 @@ namespace Kadr.Data.Converters
             }
         }
 
-        
+
         public override object ConvertTo(ITypeDescriptorContext context,
        System.Globalization.CultureInfo culture, object value, Type destinationType)
         {
-            if (destinationType == typeof(string) && value is RegionType)
+            if (destinationType == typeof(string) && value is StandingType)
             {
-                RegionType item = (RegionType)value;
-                return item.ToString();
+                return (value as StandingType).ToString();
             }
             return base.ConvertTo(context, culture, value, destinationType);
         }
@@ -68,14 +63,18 @@ namespace Kadr.Data.Converters
         public override object ConvertFrom(ITypeDescriptorContext context,
         System.Globalization.CultureInfo culture, object value)
         {
+            if (value == null)
+                return NullStandingType.Instance;
             if (value.GetType() == typeof(string))
             {
-                RegionType itemSelected = null;
 
-                foreach (RegionType Item in GetCollection(context))
+                StandingType itemSelected = null;
+                var c = GetCollection(context);
+                foreach (StandingType Item in c)
                 {
-                    string sCraftName = Item.ToString();
-                    if (sCraftName.Equals((string)value))
+                    string ItemName = Item.ToString();
+
+                    if (ItemName.Equals((string)value))
                     {
                         itemSelected = Item;
                     }
@@ -90,6 +89,9 @@ namespace Kadr.Data.Converters
         {
             return true;
         }
- 
+
     }
 }
+
+
+

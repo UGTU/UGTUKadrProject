@@ -52,8 +52,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName(" Фамилия")]
-        [System.ComponentModel.Category(" Фамилия, имя, отчество")]
+        [System.ComponentModel.DisplayName("\t\tФамилия")]
+        [System.ComponentModel.Category("\tФамилия, имя, отчество")]
         [System.ComponentModel.Description("Фамилия сотрудника")]
         public string LastName
         {
@@ -83,8 +83,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Имя")]
-        [System.ComponentModel.Category(" Фамилия, имя, отчество")]
+        [System.ComponentModel.DisplayName("\tИмя")]
+        [System.ComponentModel.Category("\tФамилия, имя, отчество")]
         [System.ComponentModel.Description("Имя сотрудника")]
         public string FirstName
         {
@@ -99,7 +99,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Отчество")]
-        [System.ComponentModel.Category(" Фамилия, имя, отчество")]
+        [System.ComponentModel.Category("\tФамилия, имя, отчество")]
         [System.ComponentModel.Description("Отчество сотрудника")]
         public string Otch
         {

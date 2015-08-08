@@ -134,14 +134,21 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common.Fakes">
       <HintPath>FakesAssemblies\Microsoft.ReportViewer.Common.Fakes.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
@@ -155,7 +162,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Design" />
-    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Web">
       <Private>True</Private>
     </Reference>
@@ -213,6 +219,7 @@
     <Compile Include="Data\Decorators\BonusTypeDecorator.cs" />
     <Compile Include="Data\Decorators\BonusDecorator.cs" />
     <Compile Include="Data\Decorators\BonusHistoryDecorator.cs" />
+    <Compile Include="Data\Decorators\OkEducDecorator.cs" />
     <Compile Include="Data\Decorators\OK_Fam.cs" />
     <Compile Include="Data\Decorators\OK_DopInfDecorator.cs" />
     <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
@@ -289,6 +296,7 @@
     <Compile Include="Data\Entities\MaterialResponsibility.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Adress.cs" />
+    <Compile Include="Data\Entities\OK_Educ.cs" />
     <Compile Include="Data\Entities\OK_Inkapacity.cs" />
     <Compile Include="Data\Entities\OK_DopInf.cs" />
     <Compile Include="Data\Entities\OK_Fam.cs" />
@@ -741,7 +749,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CrystalReport1.mht" />
     <None Include="Data\dckadr.dbml.layout">
       <DependentUpon>dckadr.dbml</DependentUpon>
@@ -980,8 +990,6 @@
       <LastGenOutput>dckadr.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <Fakes Include="Fakes\Microsoft.ReportViewer.Common.fakes" />
-    <Fakes Include="Fakes\Microsoft.ReportViewer.WinForms.fakes" />
     <None Include="Properties\DataSources\Kadr.Data.AwardDecorator.datasource">
       <SubType>Designer</SubType>
     </None>
@@ -1055,7 +1063,8 @@
     <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibility.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibilityDecorator.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.Organisation.datasource" />
-    <None Include="Properties\DataSources\Kadr.OK_Educ.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.EducationType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_Educ.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

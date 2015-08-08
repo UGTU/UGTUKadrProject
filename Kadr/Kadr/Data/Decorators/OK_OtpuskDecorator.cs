@@ -24,6 +24,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код отпуска")]
         [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(true)]
         public int ID
         {
             get
@@ -84,7 +85,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Вид отпуска")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Вид отпуска")]
-        [System.ComponentModel.Editor(typeof(OK_OtpuskvidEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OK_OtpuskvidConverter))]
         public OK_Otpuskvid OK_Otpuskvid
         {
             get
@@ -94,6 +95,22 @@ namespace Kadr.Data
             set
             {
                 ok_Otpusk.OK_Otpuskvid = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Льготный проезд")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Льготный проезд")]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SocialFareTransitConverter))]
+        public SocialFareTransit SocialFareTransit
+        {
+            get
+            {
+                return ok_Otpusk.SocialFareTransit;
+            }
+            set
+            {
+                ok_Otpusk.SocialFareTransit = value;
             }
         }
 
@@ -113,23 +130,6 @@ namespace Kadr.Data
             }
         }
 
-        /*[System.ComponentModel.DisplayName("Сотрудник")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Сотрудник")]
-        [System.ComponentModel.Editor(typeof(FactStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public FactStaff FactStaff
-        {
-            get
-            {
-                return ok_Otpusk.FactStaffPrikaz.FactStaff;
-            }
-            set
-            {
-                ok_Otpusk.FactStaffPrikaz.FactStaff = value;
-            }
-        }*/
-
-
 
         [System.ComponentModel.DisplayName("Сотрудник")]
         [System.ComponentModel.Category("Атрибуты")]
@@ -140,11 +140,11 @@ namespace Kadr.Data
         {
             get
             {
-                return ok_Otpusk.FactStaff.Employee;
+                return ok_Otpusk.RealFactStaff.Employee;
             }
             set
             {
-                ok_Otpusk.FactStaff.Employee = value;
+                ok_Otpusk.RealFactStaff.Employee = value;
             }
         }
 

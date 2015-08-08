@@ -757,3 +757,69 @@ COMMIT
 
 
 
+
+
+
+ALTER TABLE [dbo].[RegionType]
+ADD [RegionTypeSmallName] VARCHAR(10) NULL
+
+ALTER TABLE [dbo].[RegionType]
+ALTER COLUMN [RegionTypeSmallName] VARCHAR(10) NOT NULL
+
+-----------------------------------------------------------------------------------------------------------------------------
+--ТИП ОБРАЗОВАНИЯ
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[EducationType](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[EduTypeName] [varchar](500) NOT NULL,
+ CONSTRAINT [PK_EducationType] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[EducationType] ON 
+
+GO
+INSERT [dbo].[EducationType] ([id], [EduTypeName]) VALUES (4, N'Высшее профессиональное')
+GO
+INSERT [dbo].[EducationType] ([id], [EduTypeName]) VALUES (5, N'Начальное профессиональное')
+GO
+INSERT [dbo].[EducationType] ([id], [EduTypeName]) VALUES (7, N'Неполное высшее профессиональное')
+GO
+INSERT [dbo].[EducationType] ([id], [EduTypeName]) VALUES (8, N'Профессиональная переподготовка')
+GO
+INSERT [dbo].[EducationType] ([id], [EduTypeName]) VALUES (6, N'Среднее (полное) общее')
+GO
+INSERT [dbo].[EducationType] ([id], [EduTypeName]) VALUES (3, N'Среднее профессиональное')
+GO
+SET IDENTITY_INSERT [dbo].[EducationType] OFF
+GO
+
+CREATE UNIQUE NONCLUSTERED INDEX [IX_EducationType] ON [dbo].[EducationType]
+(
+	[EduTypeName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_OK_Educ]    Script Date: 07.08.2015 15:36:42 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_Educ] ON [dbo].[OK_Educ]
+(
+	[idEducationType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[OK_Educ]  WITH CHECK ADD  CONSTRAINT [FK_OK_Educ_EducDocumentType] FOREIGN KEY([idEducationType])
+REFERENCES [dbo].[EducationType] ([id])
+GO
+ALTER TABLE [dbo].[OK_Educ] CHECK CONSTRAINT [FK_OK_Educ_EducDocumentType]
+GO
+
+------------------------------------------------------------------------------------------------------------------
