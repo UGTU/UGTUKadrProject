@@ -225,6 +225,7 @@
     <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
     <Compile Include="Data\Decorators\OK_AdressDecorator.cs" />
     <Compile Include="Data\Decorators\OK_phoneDecorator.cs" />
+    <Compile Include="Data\Decorators\SocialDecorator.cs" />
     <Compile Include="Data\Decorators\SocialFareTransitDecorator.cs" />
     <Compile Include="Data\Decorators\OK_OtpuskDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHourContractDecorator.cs" />
@@ -304,6 +305,7 @@
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
     <Compile Include="Data\Entities\OK_phone.cs" />
+    <Compile Include="Data\Entities\OK_Social.cs" />
     <Compile Include="Data\Entities\Organisation.cs" />
     <Compile Include="Data\Entities\PKCategory.cs" />
     <Compile Include="Data\Entities\PKCategorySalary.cs" />
@@ -988,6 +990,9 @@
     <None Include="Data\dckadr.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>dckadr.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Kadr.Data.SocialDecorator.datasource">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\Kadr.Data.AwardDecorator.datasource">
