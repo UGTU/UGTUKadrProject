@@ -14,7 +14,7 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
-            return new OkEducDecorator(this);
+            return new EducationDecorator(this);
         }
 
         #endregion

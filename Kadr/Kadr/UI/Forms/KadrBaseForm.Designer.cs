@@ -117,6 +117,8 @@ namespace Kadr.UI.Forms
             this.отделыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типыОтделовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.организацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.образованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типОбразованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.продлитьНадбавкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -169,8 +171,6 @@ namespace Kadr.UI.Forms
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.образованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.типОбразованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             tsmiDismissedEmployees = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -1025,6 +1025,21 @@ namespace Kadr.UI.Forms
             this.организацииToolStripMenuItem.Text = "Организации";
             this.организацииToolStripMenuItem.Click += new System.EventHandler(this.организацииToolStripMenuItem_Click);
             // 
+            // образованиеToolStripMenuItem
+            // 
+            this.образованиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.типОбразованияToolStripMenuItem});
+            this.образованиеToolStripMenuItem.Name = "образованиеToolStripMenuItem";
+            this.образованиеToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.образованиеToolStripMenuItem.Text = "Образование";
+            // 
+            // типОбразованияToolStripMenuItem
+            // 
+            this.типОбразованияToolStripMenuItem.Name = "типОбразованияToolStripMenuItem";
+            this.типОбразованияToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.типОбразованияToolStripMenuItem.Text = "Тип образования";
+            this.типОбразованияToolStripMenuItem.Click += new System.EventHandler(this.типОбразованияToolStripMenuItem_Click);
+            // 
             // сервисToolStripMenuItem
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1429,20 +1444,6 @@ namespace Kadr.UI.Forms
             // departmentBindingSource
             // 
             this.departmentBindingSource.DataSource = typeof(Kadr.Data.Department);
-            // 
-            // образованиеToolStripMenuItem
-            // 
-            this.образованиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.типОбразованияToolStripMenuItem});
-            this.образованиеToolStripMenuItem.Name = "образованиеToolStripMenuItem";
-            this.образованиеToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.образованиеToolStripMenuItem.Text = "Образование";
-            // 
-            // типОбразованияToolStripMenuItem
-            // 
-            this.типОбразованияToolStripMenuItem.Name = "типОбразованияToolStripMenuItem";
-            this.типОбразованияToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.типОбразованияToolStripMenuItem.Text = "Тип образования";
             // 
             // KadrBaseForm
             // 
