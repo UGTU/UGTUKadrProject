@@ -199,9 +199,9 @@
     <Compile Include="Controllers\KadrController.cs" />
     <Compile Include="Controllers\LinqActionsController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
+    <Compile Include="Controllers\SimpleActionsController.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
-    <Compile Include="Data\Converters\FinSourceConverter.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
@@ -306,6 +306,7 @@
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
     <Compile Include="Data\Entities\OK_phone.cs" />
     <Compile Include="Data\Entities\OK_Social.cs" />
+    <Compile Include="Data\Entities\OK_SocialStatus.cs" />
     <Compile Include="Data\Entities\Organisation.cs" />
     <Compile Include="Data\Entities\PKCategory.cs" />
     <Compile Include="Data\Entities\PKCategorySalary.cs" />
@@ -1194,6 +1195,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

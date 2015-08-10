@@ -26,19 +26,20 @@ namespace Kadr.Data
         /// <param name="action"></param>
         partial void OnValidate(System.Data.Linq.ChangeAction action)
         {
-            /*if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
+            if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
-                if (EducDocument == null) throw new ArgumentNullException("Подтверждающий документ");
-                else
+                if (EducDocument != null)               
                 {
+                    if (EducDocument.DocDate==null)
+                        throw new ArgumentNullException("Дата выдачи документа");
                     if (EducDocument.Organisation == null) throw new ArgumentNullException("Выдавшая организация");
-                    if (EducDocument.DocDate > DateTime.Now) throw new ArgumentNullException("Дата выдачи не может находиться в будущем");
+                    if (EducDocument.DocDate > DateTime.Now) throw new ArgumentNullException("Дата выдачи документа не может находиться в будущем");
                     if ((EducDocument.DocNumber == "") || (EducDocument.DocNumber == null)) throw new ArgumentNullException("Номер документа");
                 }
 
                 if (Employee == null) throw new ArgumentNullException("Сотрудник");
-                if (AwardType == null) throw new ArgumentNullException("Наименование награды");
-            }*/
+                if (OK_SocialStatus == null) throw new ArgumentNullException("Социальный статус");
+            }
         }
 
         #endregion

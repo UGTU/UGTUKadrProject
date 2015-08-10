@@ -67,12 +67,14 @@ namespace Kadr.Data
         {
             get
             {
-                return Social.EducDocument.DocDate;
+                if (Social.EducDocument != null)
+                    return Social.EducDocument.DocDate;
+                else return null; 
             }
             set
             {
 
-                if (value != null)
+                if ((value != null) && (Social.EducDocument != null))
                 {
                     Social.EducDocument.DocDate = value;
                 }

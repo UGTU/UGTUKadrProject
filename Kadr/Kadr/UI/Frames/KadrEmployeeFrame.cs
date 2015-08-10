@@ -334,8 +334,8 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn DateEnd;
         private DataGridViewCheckBoxColumn SocialFareTransit;
-        private TabPage tbSocial;
-        private DataGridView dataGridView10;
+        private TabPage tpSocial;
+        private DataGridView dgvSocials;
         private ToolStrip toolStrip14;
         private ToolStripButton tsbAddSocial;
         private ToolStripButton tsbEditSocial;
@@ -717,8 +717,8 @@ namespace Kadr.UI.Frames
             this.tsbAddAward = new System.Windows.Forms.ToolStripButton();
             this.tsbEditAward = new System.Windows.Forms.ToolStripButton();
             this.tsbDelAward = new System.Windows.Forms.ToolStripButton();
-            this.tbSocial = new System.Windows.Forms.TabPage();
-            this.dataGridView10 = new System.Windows.Forms.DataGridView();
+            this.tpSocial = new System.Windows.Forms.TabPage();
+            this.dgvSocials = new System.Windows.Forms.DataGridView();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serieDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1001,8 +1001,8 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.dgvAwards)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardDecoratorBindingSource)).BeginInit();
             this.toolStrip13.SuspendLayout();
-            this.tbSocial.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
+            this.tpSocial.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSocials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.socialDecoratorBindingSource)).BeginInit();
             this.toolStrip14.SuspendLayout();
             this.tpEmpPost.SuspendLayout();
@@ -1115,7 +1115,7 @@ namespace Kadr.UI.Frames
             this.tcEmplData.Controls.Add(this.tpContData);
             this.tcEmplData.Controls.Add(this.tpFamily);
             this.tcEmplData.Controls.Add(this.tpAwards);
-            this.tcEmplData.Controls.Add(this.tbSocial);
+            this.tcEmplData.Controls.Add(this.tpSocial);
             this.tcEmplData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcEmplData.Location = new System.Drawing.Point(3, 3);
             this.tcEmplData.Name = "tcEmplData";
@@ -1216,7 +1216,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
             this.splitContainer3.Size = new System.Drawing.Size(788, 501);
-            this.splitContainer3.SplitterDistance = 255;
+            this.splitContainer3.SplitterDistance = 254;
             this.splitContainer3.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -1232,7 +1232,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 255);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 254);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // dataGridView1
@@ -1347,7 +1347,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 242);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 243);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // dataGridView6
@@ -1625,7 +1625,7 @@ namespace Kadr.UI.Frames
             this.tpAwards.Location = new System.Drawing.Point(4, 22);
             this.tpAwards.Name = "tpAwards";
             this.tpAwards.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAwards.Size = new System.Drawing.Size(788, 501);
+            this.tpAwards.Size = new System.Drawing.Size(869, 339);
             this.tpAwards.TabIndex = 3;
             this.tpAwards.Text = "Награды";
             this.tpAwards.UseVisualStyleBackColor = true;
@@ -1649,8 +1649,9 @@ namespace Kadr.UI.Frames
             this.dgvAwards.ReadOnly = true;
             this.dgvAwards.RowHeadersVisible = false;
             this.dgvAwards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAwards.Size = new System.Drawing.Size(782, 470);
+            this.dgvAwards.Size = new System.Drawing.Size(863, 308);
             this.dgvAwards.TabIndex = 6;
+            this.dgvAwards.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAwards_CellDoubleClick);
             // 
             // typeDataGridViewTextBoxColumn
             // 
@@ -1701,7 +1702,7 @@ namespace Kadr.UI.Frames
             this.tsbDelAward});
             this.toolStrip13.Location = new System.Drawing.Point(3, 3);
             this.toolStrip13.Name = "toolStrip13";
-            this.toolStrip13.Size = new System.Drawing.Size(782, 25);
+            this.toolStrip13.Size = new System.Drawing.Size(863, 25);
             this.toolStrip13.TabIndex = 5;
             this.toolStrip13.Text = "toolStrip13";
             // 
@@ -1734,39 +1735,40 @@ namespace Kadr.UI.Frames
             this.tsbDelAward.ToolTipText = "Удалить члена семьи";
             this.tsbDelAward.Click += new System.EventHandler(this.tsbDelAward_Click);
             // 
-            // tbSocial
+            // tpSocial
             // 
-            this.tbSocial.Controls.Add(this.dataGridView10);
-            this.tbSocial.Controls.Add(this.toolStrip14);
-            this.tbSocial.Location = new System.Drawing.Point(4, 22);
-            this.tbSocial.Name = "tbSocial";
-            this.tbSocial.Padding = new System.Windows.Forms.Padding(3);
-            this.tbSocial.Size = new System.Drawing.Size(869, 339);
-            this.tbSocial.TabIndex = 4;
-            this.tbSocial.Text = "Социальные льготы";
-            this.tbSocial.UseVisualStyleBackColor = true;
+            this.tpSocial.Controls.Add(this.dgvSocials);
+            this.tpSocial.Controls.Add(this.toolStrip14);
+            this.tpSocial.Location = new System.Drawing.Point(4, 22);
+            this.tpSocial.Name = "tpSocial";
+            this.tpSocial.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSocial.Size = new System.Drawing.Size(788, 501);
+            this.tpSocial.TabIndex = 4;
+            this.tpSocial.Text = "Социальные льготы";
+            this.tpSocial.UseVisualStyleBackColor = true;
             // 
-            // dataGridView10
+            // dgvSocials
             // 
-            this.dataGridView10.AllowUserToAddRows = false;
-            this.dataGridView10.AllowUserToDeleteRows = false;
-            this.dataGridView10.AutoGenerateColumns = false;
-            this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView10.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvSocials.AllowUserToAddRows = false;
+            this.dgvSocials.AllowUserToDeleteRows = false;
+            this.dgvSocials.AutoGenerateColumns = false;
+            this.dgvSocials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSocials.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.statusDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn1,
             this.serieDataGridViewTextBoxColumn2,
             this.numberDataGridViewTextBoxColumn2,
             this.organizationDataGridViewTextBoxColumn1});
-            this.dataGridView10.DataSource = this.socialDecoratorBindingSource;
-            this.dataGridView10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView10.Location = new System.Drawing.Point(3, 28);
-            this.dataGridView10.Name = "dataGridView10";
-            this.dataGridView10.ReadOnly = true;
-            this.dataGridView10.RowHeadersVisible = false;
-            this.dataGridView10.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView10.Size = new System.Drawing.Size(863, 308);
-            this.dataGridView10.TabIndex = 8;
+            this.dgvSocials.DataSource = this.socialDecoratorBindingSource;
+            this.dgvSocials.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSocials.Location = new System.Drawing.Point(3, 28);
+            this.dgvSocials.Name = "dgvSocials";
+            this.dgvSocials.ReadOnly = true;
+            this.dgvSocials.RowHeadersVisible = false;
+            this.dgvSocials.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSocials.Size = new System.Drawing.Size(782, 470);
+            this.dgvSocials.TabIndex = 8;
+            this.dgvSocials.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSocials_CellDoubleClick);
             // 
             // statusDataGridViewTextBoxColumn
             // 
@@ -1774,6 +1776,7 @@ namespace Kadr.UI.Frames
             this.statusDataGridViewTextBoxColumn.HeaderText = "Социальный статус";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.statusDataGridViewTextBoxColumn.Width = 200;
             // 
             // dateDataGridViewTextBoxColumn1
             // 
@@ -1798,6 +1801,7 @@ namespace Kadr.UI.Frames
             // 
             // organizationDataGridViewTextBoxColumn1
             // 
+            this.organizationDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.organizationDataGridViewTextBoxColumn1.DataPropertyName = "Organization";
             this.organizationDataGridViewTextBoxColumn1.HeaderText = "Организация";
             this.organizationDataGridViewTextBoxColumn1.Name = "organizationDataGridViewTextBoxColumn1";
@@ -1815,7 +1819,7 @@ namespace Kadr.UI.Frames
             this.tsbDelSocial});
             this.toolStrip14.Location = new System.Drawing.Point(3, 3);
             this.toolStrip14.Name = "toolStrip14";
-            this.toolStrip14.Size = new System.Drawing.Size(863, 25);
+            this.toolStrip14.Size = new System.Drawing.Size(782, 25);
             this.toolStrip14.TabIndex = 7;
             this.toolStrip14.Text = "toolStrip14";
             // 
@@ -1846,6 +1850,7 @@ namespace Kadr.UI.Frames
             this.tsbDelSocial.Size = new System.Drawing.Size(71, 22);
             this.tsbDelSocial.Text = "Удалить";
             this.tsbDelSocial.ToolTipText = "Удалить члена семьи";
+            this.tsbDelSocial.Click += new System.EventHandler(this.tsbDelSocial_Click);
             // 
             // tpEmpPost
             // 
@@ -2205,7 +2210,7 @@ namespace Kadr.UI.Frames
             this.tpBusTrip.Location = new System.Drawing.Point(4, 22);
             this.tpBusTrip.Name = "tpBusTrip";
             this.tpBusTrip.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBusTrip.Size = new System.Drawing.Size(855, 111);
+            this.tpBusTrip.Size = new System.Drawing.Size(855, 112);
             this.tpBusTrip.TabIndex = 1;
             this.tpBusTrip.Text = "Командировки";
             this.tpBusTrip.UseVisualStyleBackColor = true;
@@ -2225,7 +2230,7 @@ namespace Kadr.UI.Frames
             this.dgvTrips.Location = new System.Drawing.Point(3, 28);
             this.dgvTrips.Name = "dgvTrips";
             this.dgvTrips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTrips.Size = new System.Drawing.Size(849, 80);
+            this.dgvTrips.Size = new System.Drawing.Size(849, 81);
             this.dgvTrips.TabIndex = 13;
             this.dgvTrips.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrips_CellDoubleClick);
             // 
@@ -2324,7 +2329,7 @@ namespace Kadr.UI.Frames
             this.tpMaterial.Location = new System.Drawing.Point(4, 22);
             this.tpMaterial.Name = "tpMaterial";
             this.tpMaterial.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMaterial.Size = new System.Drawing.Size(855, 111);
+            this.tpMaterial.Size = new System.Drawing.Size(855, 112);
             this.tpMaterial.TabIndex = 2;
             this.tpMaterial.Text = "Материальная ответственность";
             this.tpMaterial.UseVisualStyleBackColor = true;
@@ -2350,7 +2355,7 @@ namespace Kadr.UI.Frames
             this.dgvMaterial.ReadOnly = true;
             this.dgvMaterial.RowHeadersWidth = 4;
             this.dgvMaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaterial.Size = new System.Drawing.Size(849, 80);
+            this.dgvMaterial.Size = new System.Drawing.Size(849, 81);
             this.dgvMaterial.TabIndex = 14;
             this.dgvMaterial.DoubleClick += new System.EventHandler(this.tsbEditMaterial_Click);
             // 
@@ -2803,7 +2808,7 @@ namespace Kadr.UI.Frames
             this.dgvAllBonus.ReadOnly = true;
             this.dgvAllBonus.RowHeadersVisible = false;
             this.dgvAllBonus.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllBonus.Size = new System.Drawing.Size(883, 479);
+            this.dgvAllBonus.Size = new System.Drawing.Size(883, 496);
             this.dgvAllBonus.TabIndex = 9;
             this.dgvAllBonus.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvAllBonus_RowPrePaint);
             this.dgvAllBonus.DoubleClick += new System.EventHandler(this.dgvAllBonus_DoubleClick);
@@ -4230,9 +4235,9 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.awardDecoratorBindingSource)).EndInit();
             this.toolStrip13.ResumeLayout(false);
             this.toolStrip13.PerformLayout();
-            this.tbSocial.ResumeLayout(false);
-            this.tbSocial.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
+            this.tpSocial.ResumeLayout(false);
+            this.tpSocial.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSocials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.socialDecoratorBindingSource)).EndInit();
             this.toolStrip14.ResumeLayout(false);
             this.toolStrip14.PerformLayout();
@@ -4756,6 +4761,9 @@ namespace Kadr.UI.Frames
 
             if (tcEmplData.SelectedTab == tpAwards)
                 LoadAwards();
+
+            if (tcEmplData.SelectedTab == tpSocial)
+                LoadSocials();
         }
 
         private void LoadFamMembers()
@@ -4987,14 +4995,9 @@ namespace Kadr.UI.Frames
         private void tsbAddIncapacity_Click(object sender, EventArgs e)
         {
             using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Inkapacity> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<OK_Inkapacity>())
+               SimpleActionsController.NewSimpleObjectDialog<OK_Inkapacity>())
             {
-                dlg.ObjectList = KadrController.Instance.Model.OK_Inkapacities;
-                //dlg.BindingSource = employeeStandingBindingSource;
-                dlg.UseInternalCommandManager = true;
-
-                //EducDocument ed = new EducDocument();
-
+             
                 dlg.InitializeNewObject = (x =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, Employee>(x, "Employee", Employee, null), this);
@@ -5003,11 +5006,7 @@ namespace Kadr.UI.Frames
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, DateTime>(x, "DateBegin", DateTime.Today.Date, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, DateTime?>(x, "DateEnd", DateTime.Today.AddDays(7).Date, null), this);
                 });
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.OK_Inkapacities;
-                };
-
+              
                 dlg.ShowDialog();
             }
             LoadIncapacities();
@@ -5048,15 +5047,17 @@ namespace Kadr.UI.Frames
 
         }
 
+
+        private void dgvIncapacities_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tsbEditIncapacity_Click(sender, null);
+        }
+
         private void tsbAddAward_Click(object sender, EventArgs e)
         {
             using (Kadr.UI.Common.PropertyGridDialogAdding<Award> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<Award>())
+               SimpleActionsController.NewSimpleObjectDialog<Award>())
             {
-                dlg.ObjectList = KadrController.Instance.Model.Awards;
-                //dlg.BindingSource = employeeStandingBindingSource;
-                dlg.UseInternalCommandManager = true;
-
                 dlg.InitializeNewObject = (x =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Award, Employee>(x, "Employee", Employee, null), this);
@@ -5064,13 +5065,9 @@ namespace Kadr.UI.Frames
                         new EducDocument(commandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.AwardDocTypeName))), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Award, AwardType>(x, "AwardType", KadrController.Instance.Model.AwardTypes.FirstOrDefault(), null), this);
                 });
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.Awards;
-                };
 
                 dlg.ShowDialog();
-    }
+            }
             LoadAwards();
         }
 
@@ -5097,50 +5094,42 @@ namespace Kadr.UI.Frames
                 if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (awardDecoratorBindingSource.Current as AwardDecorator).ToString()), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     Award a = (awardDecoratorBindingSource.Current as AwardDecorator).GetAward();
-
                     KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(a.EducDocument);
                     LinqActionsController<Award>.Instance.DeleteObject(a, KadrController.Instance.Model.Awards, null);
-
                 }
             LoadAwards();
         }
 
-        private void dgvIncapacities_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvAwards_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            tsbEditIncapacity_Click(sender, null);
+            tsbEditAward_Click(this, null);
         }
+
 
         private void tsbAddSocial_Click(object sender, EventArgs e)
         {
             using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Social> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<OK_Social>())
+               SimpleActionsController.NewSimpleObjectDialog<OK_Social>())
             {
-                dlg.ObjectList = KadrController.Instance.Model.OK_Socials;
-                //dlg.BindingSource = employeeStandingBindingSource;
-                dlg.UseInternalCommandManager = true;
-
                 dlg.InitializeNewObject = (x =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Social, Employee>(x, "Employee", Employee, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Social, EducDocument>(x, "EducDocument",
-                        new EducDocument(commandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.AwardDocTypeName))), this);
+                        new EducDocument(commandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.SocialDocType))), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Social, OK_SocialStatus>(x, "OK_SocialStatus", KadrController.Instance.Model.OK_SocialStatus.FirstOrDefault(), null), this);
                 });
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.OK_Socials;
-                };
-
+               
                 dlg.ShowDialog();
             }
-            LoadAwards();
+
+            LoadSocials();
         }
 
         private void tsbEditSocial_Click(object sender, EventArgs e)
         {
             if (socialDecoratorBindingSource.Current != null)
                 LinqActionsController<OK_Social>.Instance.EditObject(
-                        (awardDecoratorBindingSource.Current as SocialDecorator).GetSocial(), true);
+                        (socialDecoratorBindingSource.Current as SocialDecorator).GetSocial(), true);
             LoadSocials();
         }
 
@@ -5149,6 +5138,31 @@ namespace Kadr.UI.Frames
             socialDecoratorBindingSource.DataSource = KadrController.Instance.Model.OK_Socials.Where(x => x.Employee == Employee)
                     .Select(x => new SocialDecorator(x)); 
         }
+
+        private void tsbDelSocial_Click(object sender, EventArgs e)
+        {
+            if (socialDecoratorBindingSource.Current == null)
+                MessageBox.Show("Не выбран социальный статус!");
+            else
+                if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (socialDecoratorBindingSource.Current as SocialDecorator).ToString()), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    OK_Social o = (socialDecoratorBindingSource.Current as SocialDecorator).GetSocial();
+
+                    if (o.EducDocument!=null)
+                    KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(o.EducDocument);
+                    LinqActionsController<OK_Social>.Instance.DeleteObject(o, KadrController.Instance.Model.OK_Socials, null);
+
+                }
+            LoadSocials();
+        }
+
+        private void dgvSocials_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tsbEditSocial_Click(this,null);
+        }
+
+
+
 
 
     }
