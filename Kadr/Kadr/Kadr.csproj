@@ -199,9 +199,9 @@
     <Compile Include="Controllers\KadrController.cs" />
     <Compile Include="Controllers\LinqActionsController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
+    <Compile Include="Controllers\SimpleActionsController.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
-    <Compile Include="Data\Converters\FinSourceConverter.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
@@ -225,6 +225,7 @@
     <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
     <Compile Include="Data\Decorators\OK_AdressDecorator.cs" />
     <Compile Include="Data\Decorators\OK_phoneDecorator.cs" />
+    <Compile Include="Data\Decorators\SocialDecorator.cs" />
     <Compile Include="Data\Decorators\SocialFareTransitDecorator.cs" />
     <Compile Include="Data\Decorators\OK_OtpuskDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHourContractDecorator.cs" />
@@ -304,6 +305,8 @@
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
     <Compile Include="Data\Entities\OK_phone.cs" />
+    <Compile Include="Data\Entities\OK_Social.cs" />
+    <Compile Include="Data\Entities\OK_SocialStatus.cs" />
     <Compile Include="Data\Entities\Organisation.cs" />
     <Compile Include="Data\Entities\PKCategory.cs" />
     <Compile Include="Data\Entities\PKCategorySalary.cs" />
@@ -990,6 +993,9 @@
       <LastGenOutput>dckadr.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Kadr.Data.SocialDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.AwardDecorator.datasource">
       <SubType>Designer</SubType>
     </None>
@@ -1189,6 +1195,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
