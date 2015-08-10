@@ -119,6 +119,8 @@ namespace Kadr.UI.Forms
             this.организацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.образованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типОбразованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.языкToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.степеньВладенияЯзыкомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.продлитьНадбавкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1028,7 +1030,9 @@ namespace Kadr.UI.Forms
             // образованиеToolStripMenuItem
             // 
             this.образованиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.типОбразованияToolStripMenuItem});
+            this.типОбразованияToolStripMenuItem,
+            this.языкToolStripMenuItem,
+            this.степеньВладенияЯзыкомToolStripMenuItem});
             this.образованиеToolStripMenuItem.Name = "образованиеToolStripMenuItem";
             this.образованиеToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.образованиеToolStripMenuItem.Text = "Образование";
@@ -1036,9 +1040,23 @@ namespace Kadr.UI.Forms
             // типОбразованияToolStripMenuItem
             // 
             this.типОбразованияToolStripMenuItem.Name = "типОбразованияToolStripMenuItem";
-            this.типОбразованияToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.типОбразованияToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.типОбразованияToolStripMenuItem.Text = "Тип образования";
             this.типОбразованияToolStripMenuItem.Click += new System.EventHandler(this.типОбразованияToolStripMenuItem_Click);
+            // 
+            // языкToolStripMenuItem
+            // 
+            this.языкToolStripMenuItem.Name = "языкToolStripMenuItem";
+            this.языкToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.языкToolStripMenuItem.Text = "Язык";
+            this.языкToolStripMenuItem.Click += new System.EventHandler(this.языкToolStripMenuItem_Click);
+            // 
+            // степеньВладенияЯзыкомToolStripMenuItem
+            // 
+            this.степеньВладенияЯзыкомToolStripMenuItem.Name = "степеньВладенияЯзыкомToolStripMenuItem";
+            this.степеньВладенияЯзыкомToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.степеньВладенияЯзыкомToolStripMenuItem.Text = "Степень владения языком";
+            this.степеньВладенияЯзыкомToolStripMenuItem.Click += new System.EventHandler(this.степеньВладенияЯзыкомToolStripMenuItem_Click);
             // 
             // сервисToolStripMenuItem
             // 
@@ -1633,6 +1651,8 @@ namespace Kadr.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem организацииToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem образованиеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типОбразованияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem степеньВладенияЯзыкомToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem языкToolStripMenuItem;
 
     }
 }

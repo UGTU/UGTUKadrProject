@@ -1365,6 +1365,22 @@ namespace Kadr.UI.Forms
             }
         }
 
+        private void ñòåïåíüÂëàäåíèÿßçûêîìToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new LanguageLevelDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void ÿçûêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new LanguageDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
         
 
        
