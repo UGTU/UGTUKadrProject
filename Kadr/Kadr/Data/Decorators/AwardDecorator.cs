@@ -5,12 +5,14 @@ using System.Drawing.Design;
 using System.Linq;
 using System.Text;
 using Kadr.Data.Converters;
+using Kadr.Interfaces;
 
 namespace Kadr.Data
 {
     class AwardDecorator
     {
         private Award Award;
+
 
         public AwardDecorator(Award Award)
         {
@@ -142,6 +144,13 @@ namespace Kadr.Data
         internal Award GetAward()
         {
             return Award;
+        }
+
+        public string[] GetOrderProperties(Type T)
+        {
+            if (T == typeof(AwardType)) return new string[2] { "Name", "ID" };
+
+            return null;
         }
     }
     }
