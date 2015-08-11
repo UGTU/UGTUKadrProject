@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    public partial class Award : UIX.Views.IDecorable, UIX.Views.IValidatable
+    public partial class Award : UIX.Views.IDecorable, UIX.Views.IValidatable, IComparable
     {
      #region partial Methods
 

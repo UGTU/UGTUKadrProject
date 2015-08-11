@@ -16,16 +16,7 @@ namespace Kadr.Data.Converters
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            if (context.Instance is BusinessTripDecorator)
-            {
-                var res = Kadr.Controllers.KadrController.Instance.Model.Prikazs.Where(x => x.DatePrikaz == (context.Instance as BusinessTripDecorator).PrikazDate);
-                if (res.Count()>0) return res.ToList();
-                else return null;
-            }
-            else
-            {
                 return Kadr.Controllers.KadrController.Instance.Model.Prikazs.OrderByDescending(Pr => Pr.DatePrikaz).ThenBy(Pr => Pr.PrikazName).ToList();
-            }
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)

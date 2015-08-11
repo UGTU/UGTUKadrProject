@@ -202,7 +202,6 @@
     <Compile Include="Controllers\SimpleActionsController.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
-
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
@@ -333,6 +332,7 @@
     <Compile Include="Data\Entities\TimeSheetRecord.cs" />
     <Compile Include="Data\Entities\WorkShedule.cs" />
     <Compile Include="Data\Entities\WorkType.cs" />
+    <Compile Include="Interfaces\IOrderInformer.cs" />
     <Compile Include="KadrTreeView\KadrTreeView.cs">
       <SubType>Component</SubType>
     </Compile>

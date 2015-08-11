@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Kadr.Interfaces;
+using Kadr.Controllers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +19,32 @@ namespace Kadr.Data.Converters
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            ICollection collection = Kadr.Controllers.KadrController.Instance.Model.GetTable<T>().ToList();
+            ICollection collection;
+
+            // реализуй IOrderInformer для своего контекста (например, декоратора), чтобы передать названия полей для сортировки — и конвертер отсортирует сам
+            if (context.Instance is IOrderInformer)
+            {
+                List<T> tmp = KadrController.Instance.Model.GetTable<T>().ToList();
+
+                string[] OrderProps = (context.Instance as IOrderInformer).GetOrderProperties(typeof(T));
+
+                if (OrderProps!=null)
+                    for (int i=OrderProps.Length-1; i>=0; i--)
+                    {
+                        string s = OrderProps[i];
+                        tmp = tmp.OrderBy(x => x.GetType().GetProperty(s).GetValue(x,null)).ToList();
+                    }
+
+                collection = tmp;
+            }
+            else
+            {
+                var l = KadrController.Instance.Model.GetTable<T>().ToList();
+                if (typeof(IComparable).IsAssignableFrom(typeof(T)))
+                    l.Sort();
+                collection = l;
+            }
+            
             return collection;
         }
 
