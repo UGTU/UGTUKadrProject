@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
@@ -83,7 +84,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Ученое звание сотрудника")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название ученого звания сотрудника")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.RankEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Rank>))]
         public Kadr.Data.Rank Rank
         {
             get

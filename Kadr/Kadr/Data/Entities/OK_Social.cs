@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    public partial class OK_Social : UIX.Views.IDecorable, UIX.Views.IValidatable
+    public partial class OK_Social : Common.CompareObject, UIX.Views.IDecorable, UIX.Views.IValidatable
     {
         #region partial Methods
 
@@ -62,9 +62,9 @@ namespace Kadr.Data
 
         #endregion
 
-        public int CompareTo(object obj)
+        /*public int CompareTo(object obj)
         {
             return this.ToString().CompareTo(obj.ToString());
-        }
+        }*/
     }
 }
