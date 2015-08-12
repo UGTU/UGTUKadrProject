@@ -31,7 +31,7 @@ namespace Kadr.Data
 
         #endregion
 
-         #region Члены INull
+        #region Члены INull
 
         bool INull.IsNull()
         {
@@ -39,6 +39,8 @@ namespace Kadr.Data
         }
 
         #endregion
+
+        
     }
 
     public class NullSocialFareTransit : SocialFareTransit, INull
