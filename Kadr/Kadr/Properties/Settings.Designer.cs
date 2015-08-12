@@ -133,5 +133,17 @@ namespace Kadr.Properties {
                 this["SocialDocType"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Свидетельство прохождения аттестации")]
+        public string ValidationDocType {
+            get {
+                return ((string)(this["ValidationDocType"]));
+            }
+            set {
+                this["ValidationDocType"] = value;
+            }
+        }
     }
 }

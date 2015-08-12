@@ -705,6 +705,7 @@
       <Association Name="FactStaffPrikaz_MaterialResponsibility" Member="MaterialResponsibilities" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="MaterialResponsibility" />
       <Association Name="FactStaffPrikaz_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="SocialFareTransit" />
       <Association Name="FactStaffPrikaz_Award" Member="Awards" ThisKey="id" OtherKey="IDFactStaffPrikaz" Type="Award" />
+      <Association Name="FactStaffPrikaz_Validation" Member="Validations" ThisKey="id" OtherKey="IDFactStaffPrikaz" Type="Validation" />
       <Association Name="FactStaff_FactStaffPrikaz" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
       <Association Name="FactStaffPrikaz_FactStaffPrikaz" Member="FactStaffPrikaz1" ThisKey="idMainFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
       <Association Name="Prikaz_FactStaffPrikaz" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
@@ -973,6 +974,7 @@
       <Association Name="EducDocument_OK_Educ" Member="OK_Educ" ThisKey="id" OtherKey="idEducDocument" Type="OK_Educ" Cardinality="One" />
       <Association Name="EducDocument_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEducDocument" Type="OK_Social" />
       <Association Name="EducDocument_Award" Member="Awards" ThisKey="id" OtherKey="IDEducDocument" Type="Award" />
+      <Association Name="EducDocument_Validation" Member="Validations" ThisKey="id" OtherKey="IDEducDocument" Type="Validation" />
       <Association Name="EducDocumentType_EducDocument" Member="EducDocumentType" ThisKey="idEducDocType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
       <Association Name="Organisation_EducDocument" Member="Organisation" ThisKey="IdOrganisation" OtherKey="id" Type="Organisation" IsForeignKey="true" />
     </Type>
@@ -1006,6 +1008,26 @@
       <Association Name="EducDocument_Award" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
       <Association Name="Employee_Award" Member="Employee" ThisKey="IDEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
       <Association Name="FactStaffPrikaz_Award" Member="FactStaffPrikaz" ThisKey="IDFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ValidationDecision" Member="ValidationDecisions">
+    <Type Name="ValidationDecision">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="ValidationDecision_Validation" Member="Validations" ThisKey="ID" OtherKey="IDValidDecision" Type="Validation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Validation" Member="Validations">
+    <Type Name="Validation">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDFactStaffPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDValidDecision" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Commentary" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="EducDocument_Validation" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="FactStaffPrikaz_Validation" Member="FactStaffPrikaz" ThisKey="IDFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
+      <Association Name="ValidationDecision_Validation" Member="ValidationDecision" ThisKey="IDValidDecision" OtherKey="ID" Type="ValidationDecision" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">
