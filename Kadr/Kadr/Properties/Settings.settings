@@ -67,5 +67,8 @@
     <Setting Name="SocialDocType" Type="System.String" Scope="User">
       <Value Profile="(Default)">Социальный статус</Value>
     </Setting>
+    <Setting Name="ValidationDocType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Свидетельство прохождения аттестации</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

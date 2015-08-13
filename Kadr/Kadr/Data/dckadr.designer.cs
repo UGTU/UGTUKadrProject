@@ -273,6 +273,12 @@ namespace Kadr.Data
     partial void InsertAward(Award instance);
     partial void UpdateAward(Award instance);
     partial void DeleteAward(Award instance);
+    partial void InsertValidationDecision(ValidationDecision instance);
+    partial void UpdateValidationDecision(ValidationDecision instance);
+    partial void DeleteValidationDecision(ValidationDecision instance);
+    partial void InsertValidation(Validation instance);
+    partial void UpdateValidation(Validation instance);
+    partial void DeleteValidation(Validation instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -966,6 +972,22 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<Award>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ValidationDecision> ValidationDecisions
+		{
+			get
+			{
+				return this.GetTable<ValidationDecision>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Validation> Validations
+		{
+			get
+			{
+				return this.GetTable<Validation>();
 			}
 		}
 		
@@ -15774,6 +15796,8 @@ namespace Kadr.Data
 		
 		private EntitySet<Award> _Awards;
 		
+		private EntitySet<Validation> _Validations;
+		
 		private EntityRef<FactStaff> _FactStaff;
 		
 		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz1;
@@ -15806,6 +15830,7 @@ namespace Kadr.Data
 			this._MaterialResponsibilities = new EntitySet<MaterialResponsibility>(new Action<MaterialResponsibility>(this.attach_MaterialResponsibilities), new Action<MaterialResponsibility>(this.detach_MaterialResponsibilities));
 			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
 			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
+			this._Validations = new EntitySet<Validation>(new Action<Validation>(this.attach_Validations), new Action<Validation>(this.detach_Validations));
 			this._FactStaff = default(EntityRef<FactStaff>);
 			this._FactStaffPrikaz1 = default(EntityRef<FactStaffPrikaz>);
 			this._Prikaz = default(EntityRef<Prikaz>);
@@ -16022,6 +16047,19 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaffPrikaz_Validation", Storage="_Validations", ThisKey="id", OtherKey="IDFactStaffPrikaz")]
+		public EntitySet<Validation> Validations
+		{
+			get
+			{
+				return this._Validations;
+			}
+			set
+			{
+				this._Validations.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_FactStaffPrikaz", Storage="_FactStaff", ThisKey="idFactStaff", OtherKey="id", IsForeignKey=true)]
 		public FactStaff FactStaff
 		{
@@ -16211,6 +16249,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_Awards(Award entity)
+		{
+			this.SendPropertyChanging();
+			entity.FactStaffPrikaz = null;
+		}
+		
+		private void attach_Validations(Validation entity)
+		{
+			this.SendPropertyChanging();
+			entity.FactStaffPrikaz = this;
+		}
+		
+		private void detach_Validations(Validation entity)
 		{
 			this.SendPropertyChanging();
 			entity.FactStaffPrikaz = null;
@@ -21573,6 +21623,8 @@ namespace Kadr.Data
 		
 		private EntitySet<Award> _Awards;
 		
+		private EntitySet<Validation> _Validations;
+		
 		private EntityRef<EducDocumentType> _EducDocumentType;
 		
 		private EntityRef<Organisation> _Organisation;
@@ -21603,6 +21655,7 @@ namespace Kadr.Data
 			this._OK_Educ = default(EntityRef<OK_Educ>);
 			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
 			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
+			this._Validations = new EntitySet<Validation>(new Action<Validation>(this.attach_Validations), new Action<Validation>(this.detach_Validations));
 			this._EducDocumentType = default(EntityRef<EducDocumentType>);
 			this._Organisation = default(EntityRef<Organisation>);
 			OnCreated();
@@ -21862,6 +21915,19 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Validation", Storage="_Validations", ThisKey="id", OtherKey="IDEducDocument")]
+		public EntitySet<Validation> Validations
+		{
+			get
+			{
+				return this._Validations;
+			}
+			set
+			{
+				this._Validations.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_EducDocument", Storage="_EducDocumentType", ThisKey="idEducDocType", OtherKey="id", IsForeignKey=true)]
 		public EducDocumentType EducDocumentType
 		{
@@ -21981,6 +22047,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_Awards(Award entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = null;
+		}
+		
+		private void attach_Validations(Validation entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = this;
+		}
+		
+		private void detach_Validations(Validation entity)
 		{
 			this.SendPropertyChanging();
 			entity.EducDocument = null;
@@ -22655,6 +22733,401 @@ namespace Kadr.Data
 						this._IDFactStaffPrikaz = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("FactStaffPrikaz");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ValidationDecision")]
+	public partial class ValidationDecision : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private EntitySet<Validation> _Validations;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public ValidationDecision()
+		{
+			this._Validations = new EntitySet<Validation>(new Action<Validation>(this.attach_Validations), new Action<Validation>(this.detach_Validations));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ValidationDecision_Validation", Storage="_Validations", ThisKey="ID", OtherKey="IDValidDecision")]
+		public EntitySet<Validation> Validations
+		{
+			get
+			{
+				return this._Validations;
+			}
+			set
+			{
+				this._Validations.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Validations(Validation entity)
+		{
+			this.SendPropertyChanging();
+			entity.ValidationDecision = this;
+		}
+		
+		private void detach_Validations(Validation entity)
+		{
+			this.SendPropertyChanging();
+			entity.ValidationDecision = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Validation")]
+	public partial class Validation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _IDEducDocument;
+		
+		private int _IDFactStaffPrikaz;
+		
+		private System.Nullable<int> _IDValidDecision;
+		
+		private string _Commentary;
+		
+		private EntityRef<EducDocument> _EducDocument;
+		
+		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz;
+		
+		private EntityRef<ValidationDecision> _ValidationDecision;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnIDEducDocumentChanging(System.Nullable<int> value);
+    partial void OnIDEducDocumentChanged();
+    partial void OnIDFactStaffPrikazChanging(int value);
+    partial void OnIDFactStaffPrikazChanged();
+    partial void OnIDValidDecisionChanging(System.Nullable<int> value);
+    partial void OnIDValidDecisionChanged();
+    partial void OnCommentaryChanging(string value);
+    partial void OnCommentaryChanged();
+    #endregion
+		
+		public Validation()
+		{
+			this._EducDocument = default(EntityRef<EducDocument>);
+			this._FactStaffPrikaz = default(EntityRef<FactStaffPrikaz>);
+			this._ValidationDecision = default(EntityRef<ValidationDecision>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDEducDocument", DbType="Int")]
+		public System.Nullable<int> IDEducDocument
+		{
+			get
+			{
+				return this._IDEducDocument;
+			}
+			set
+			{
+				if ((this._IDEducDocument != value))
+				{
+					if (this._EducDocument.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDEducDocumentChanging(value);
+					this.SendPropertyChanging();
+					this._IDEducDocument = value;
+					this.SendPropertyChanged("IDEducDocument");
+					this.OnIDEducDocumentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDFactStaffPrikaz", DbType="Int NOT NULL")]
+		public int IDFactStaffPrikaz
+		{
+			get
+			{
+				return this._IDFactStaffPrikaz;
+			}
+			set
+			{
+				if ((this._IDFactStaffPrikaz != value))
+				{
+					if (this._FactStaffPrikaz.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDFactStaffPrikazChanging(value);
+					this.SendPropertyChanging();
+					this._IDFactStaffPrikaz = value;
+					this.SendPropertyChanged("IDFactStaffPrikaz");
+					this.OnIDFactStaffPrikazChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDValidDecision", DbType="Int")]
+		public System.Nullable<int> IDValidDecision
+		{
+			get
+			{
+				return this._IDValidDecision;
+			}
+			set
+			{
+				if ((this._IDValidDecision != value))
+				{
+					if (this._ValidationDecision.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDValidDecisionChanging(value);
+					this.SendPropertyChanging();
+					this._IDValidDecision = value;
+					this.SendPropertyChanged("IDValidDecision");
+					this.OnIDValidDecisionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Commentary", DbType="VarChar(MAX)")]
+		public string Commentary
+		{
+			get
+			{
+				return this._Commentary;
+			}
+			set
+			{
+				if ((this._Commentary != value))
+				{
+					this.OnCommentaryChanging(value);
+					this.SendPropertyChanging();
+					this._Commentary = value;
+					this.SendPropertyChanged("Commentary");
+					this.OnCommentaryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Validation", Storage="_EducDocument", ThisKey="IDEducDocument", OtherKey="id", IsForeignKey=true)]
+		public EducDocument EducDocument
+		{
+			get
+			{
+				return this._EducDocument.Entity;
+			}
+			set
+			{
+				EducDocument previousValue = this._EducDocument.Entity;
+				if (((previousValue != value) 
+							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducDocument.Entity = null;
+						previousValue.Validations.Remove(this);
+					}
+					this._EducDocument.Entity = value;
+					if ((value != null))
+					{
+						value.Validations.Add(this);
+						this._IDEducDocument = value.id;
+					}
+					else
+					{
+						this._IDEducDocument = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EducDocument");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaffPrikaz_Validation", Storage="_FactStaffPrikaz", ThisKey="IDFactStaffPrikaz", OtherKey="id", IsForeignKey=true)]
+		public FactStaffPrikaz FactStaffPrikaz
+		{
+			get
+			{
+				return this._FactStaffPrikaz.Entity;
+			}
+			set
+			{
+				FactStaffPrikaz previousValue = this._FactStaffPrikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._FactStaffPrikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FactStaffPrikaz.Entity = null;
+						previousValue.Validations.Remove(this);
+					}
+					this._FactStaffPrikaz.Entity = value;
+					if ((value != null))
+					{
+						value.Validations.Add(this);
+						this._IDFactStaffPrikaz = value.id;
+					}
+					else
+					{
+						this._IDFactStaffPrikaz = default(int);
+					}
+					this.SendPropertyChanged("FactStaffPrikaz");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ValidationDecision_Validation", Storage="_ValidationDecision", ThisKey="IDValidDecision", OtherKey="ID", IsForeignKey=true)]
+		public ValidationDecision ValidationDecision
+		{
+			get
+			{
+				return this._ValidationDecision.Entity;
+			}
+			set
+			{
+				ValidationDecision previousValue = this._ValidationDecision.Entity;
+				if (((previousValue != value) 
+							|| (this._ValidationDecision.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ValidationDecision.Entity = null;
+						previousValue.Validations.Remove(this);
+					}
+					this._ValidationDecision.Entity = value;
+					if ((value != null))
+					{
+						value.Validations.Add(this);
+						this._IDValidDecision = value.ID;
+					}
+					else
+					{
+						this._IDValidDecision = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ValidationDecision");
 				}
 			}
 		}

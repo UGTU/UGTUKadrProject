@@ -823,3 +823,55 @@ ALTER TABLE [dbo].[OK_Educ] CHECK CONSTRAINT [FK_OK_Educ_EducDocumentType]
 GO
 
 ------------------------------------------------------------------------------------------------------------------
+====================================
+Таблицы для аттестаций
+====================================
+CREATE TABLE [dbo].[ValidationDecision](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_ValidationDecision] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Validation](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[IDEducDocument] [int] NULL,
+	[IDFactStaffPrikaz] [int] NOT NULL,
+	[IDValidDecision] [int] NULL,
+	[Commentary] [varchar](max) NULL,
+ CONSTRAINT [PK_Attestation] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[Validation]  WITH CHECK ADD  CONSTRAINT [FK_Validation_Educ] FOREIGN KEY([IDEducDocument])
+REFERENCES [dbo].[EducDocument] ([id])
+GO
+
+ALTER TABLE [dbo].[Validation] CHECK CONSTRAINT [FK_Validation_Educ]
+GO
+
+ALTER TABLE [dbo].[Validation]  WITH CHECK ADD  CONSTRAINT [FK_Validation_FactStaffPrikaz] FOREIGN KEY([IDFactStaffPrikaz])
+REFERENCES [dbo].[FactStaffPrikaz] ([id])
+GO
+
+ALTER TABLE [dbo].[Validation] CHECK CONSTRAINT [FK_Validation_FactStaffPrikaz]
+GO
+
+ALTER TABLE [dbo].[Validation]  WITH CHECK ADD  CONSTRAINT [FK_Validation_ValidationDecision] FOREIGN KEY([IDValidDecision])
+REFERENCES [dbo].[ValidationDecision] ([ID])
+GO
+
+ALTER TABLE [dbo].[Validation] CHECK CONSTRAINT [FK_Validation_ValidationDecision]
+GO
+
