@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
@@ -24,6 +25,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код сотрудника")]
         [System.ComponentModel.ReadOnly(true)]
+       // [System.ComponentModel.Browsable(false)]
         public int ID
         {
             get
@@ -339,7 +341,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Гражданство")]
         [System.ComponentModel.Category("Личные данные")]
         [System.ComponentModel.Description("Гражданство сотрудника")]
-        [System.ComponentModel.Editor(typeof(GrazdEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Grazd>))]
         public Grazd Grazd
         {
             get
@@ -355,7 +357,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Семейное положение")]
         [System.ComponentModel.Category("Личные данные")]
         [System.ComponentModel.Description("Семейное положение сотрудника")]
-        [System.ComponentModel.Editor(typeof(SemPolEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<SemPol>))]
         public SemPol SemPol
         {
             get

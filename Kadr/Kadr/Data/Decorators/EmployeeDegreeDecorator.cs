@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
@@ -117,7 +118,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Научная степень сотрудника")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название научной степени сотрудника")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.DegreeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Degree>))]
         public Kadr.Data.Degree Degree
         {
             get
@@ -133,7 +134,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Научное направление")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Научное направление, в котором присвоена степень")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.ScienceTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<ScienceType>))]
         public Kadr.Data.ScienceType ScienceType
         {
             get

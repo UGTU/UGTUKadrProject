@@ -24,7 +24,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код родственника")]
         [System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.Browsable(false)]
+        //[System.ComponentModel.Browsable(false)]
         public int idfam
         {
             get
@@ -40,7 +40,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Степень родства")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Стeпень родства")]
-        [System.ComponentModel.TypeConverter(typeof(OK_MembFamConverter))]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<OK_MembFam>))]
         public OK_MembFam OK_MembFam
         {
             get

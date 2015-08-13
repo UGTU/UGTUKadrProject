@@ -8,7 +8,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class ScienceType : INull
+    public partial class ScienceType : CompareObject, INull
     {
         public override string ToString()
         {

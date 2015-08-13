@@ -2,7 +2,7 @@
 
 namespace Kadr.Data
 {
-    public partial class StandingType : INull
+    public partial class StandingType : CompareObject, INull
     {
         public override string ToString()
         {
