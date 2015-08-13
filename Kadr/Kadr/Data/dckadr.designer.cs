@@ -22888,8 +22888,6 @@ namespace Kadr.Data
 		
 		private string _Commentary;
 		
-		private System.Nullable<System.DateTime> _Date;
-		
 		private EntityRef<EducDocument> _EducDocument;
 		
 		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz;
@@ -22910,8 +22908,6 @@ namespace Kadr.Data
     partial void OnIDValidDecisionChanged();
     partial void OnCommentaryChanging(string value);
     partial void OnCommentaryChanged();
-    partial void OnDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateChanged();
     #endregion
 		
 		public Validation()
@@ -23030,26 +23026,6 @@ namespace Kadr.Data
 					this._Commentary = value;
 					this.SendPropertyChanged("Commentary");
 					this.OnCommentaryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
 				}
 			}
 		}

@@ -44,13 +44,15 @@ namespace Kadr.Data
        {
            if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
            {
+               if (FactStaffPrikaz == null) throw new ArgumentNullException("Приказ по сотруднику");
+
                if (EducDocument != null) 
                {
-                   if (EducDocument.Organisation == null) throw new ArgumentNullException("Выдавшая организация");
+                   //if (EducDocument.Organisation == null) throw new ArgumentNullException("Выдавшая организация");
                    if (EducDocument.DocDate> DateTime.Now) throw new ArgumentNullException("Дата выдачи не может находиться в будущем");
+                   if (EducDocument.DocDate < FactStaffPrikaz.DateBegin) throw new ArgumentNullException("Дата выдачи не может быть раньше даты аттестации");
                }
-
-               if (FactStaffPrikaz == null) throw new ArgumentNullException("Приказ по сотруднику");
+              
                if (FactStaffPrikaz.Prikaz == null) throw new ArgumentNullException("Приказ");
 
            }

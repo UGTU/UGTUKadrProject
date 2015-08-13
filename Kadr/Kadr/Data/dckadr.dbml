@@ -1024,7 +1024,6 @@
       <Column Name="IDFactStaffPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IDValidDecision" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Commentary" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="EducDocument_Validation" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
       <Association Name="FactStaffPrikaz_Validation" Member="FactStaffPrikaz" ThisKey="IDFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
       <Association Name="ValidationDecision_Validation" Member="ValidationDecision" ThisKey="IDValidDecision" OtherKey="ID" Type="ValidationDecision" IsForeignKey="true" />
