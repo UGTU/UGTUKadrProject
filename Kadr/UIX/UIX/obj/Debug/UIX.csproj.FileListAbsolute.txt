@@ -19,6 +19,6 @@ D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Debug\UIX.dll
 D:\tanvok\работа\main Projects\kadr\Kadr\UIX\UIX\obj\Debug\UIX.pdb
 E:\Projects\GitHub\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.dll
 E:\Projects\GitHub\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.pdb
-E:\Projects\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
 E:\Projects\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
 E:\Projects\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb
+E:\Projects\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache

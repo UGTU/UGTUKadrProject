@@ -28,7 +28,7 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(true)]
         [System.ComponentModel.Browsable(false)]
 
-        public int Id
+        public int idEducDocument
         {
             get
             {
@@ -60,11 +60,13 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Учреждение, где было получено образование")]
         [System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.Browsable(false)]
-        public string EducWhere
+      
+        public string Where
         {
             get
             {
+                if ((_education.EducDocument != null) && (_education.EducDocument.Organisation != null))
+                    return _education.EducDocument.Organisation.ToString();
                 return _education.EducWhere;
             }
         }
@@ -84,7 +86,21 @@ namespace Kadr.Data
             }
         }
 
-        
+        [System.ComponentModel.DisplayName("Вид документа")]
+        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Description("Вид документа, подтверждающего образование")]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<EducDocumentType>))]
+        public EducDocumentType EducDocumentType
+        {
+            get
+            {
+                return _education.EducDocument.EducDocumentType;
+            }
+            set
+            {
+                _education.EducDocument.EducDocumentType = value;
+            }
+        }
 
         [System.ComponentModel.DisplayName("Дата вручения")]
         [System.ComponentModel.Category("Подтверждающий документ")]

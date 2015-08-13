@@ -15,6 +15,7 @@ namespace Kadr.Data
         {
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<EducDocument, EducDocumentType>(this, "EducDocumentType", type, null), this);
         }
+
         public override string ToString()
         {
             if (DocDate != null)

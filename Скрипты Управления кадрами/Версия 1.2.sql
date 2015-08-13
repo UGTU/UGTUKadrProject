@@ -907,4 +907,5 @@ GO
 alter table OK_Educ alter column  EducWhere varchar(255) null
 alter table OK_Educ alter column  EducWhen int null
 
+alter table EducDocument alter column idEducDocType int null 
 -----------------------------------------------------------------------------------------------------------------------------------------

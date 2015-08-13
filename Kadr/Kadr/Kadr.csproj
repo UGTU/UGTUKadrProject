@@ -1101,9 +1101,10 @@
     <None Include="Properties\DataSources\Kadr.Data.Language.datasource">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\DataSources\Kadr.Data.OK_EmployeeLangDecorator.datasource">
+    <None Include="Properties\DataSources\Kadr.Data.EmployeeLangDecorator.datasource">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Kadr.Data.EducationDecorator.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -7,7 +7,7 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class OK_Educ : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IComparable
+    public partial class OK_Educ : UIX.Views.IDecorable, UIX.Views.IValidatable, IComparable
     {
        #region partial Methods
 
@@ -23,6 +23,17 @@ namespace Kadr.Data
             }
             else res = string.Format("{0}, {1}, {2} год", res, EducWhere, EducWhen);
             return res;
+        }
+
+        public string Where
+        {
+
+            get
+            {
+                if ((EducDocument != null) && (EducDocument.Organisation != null))
+                    return EducDocument.Organisation.ToString();
+                return EducWhere;
+            }
         }
 
         /// <summary>
@@ -55,19 +66,18 @@ namespace Kadr.Data
 
         #endregion
 
-        public void Validate()
+        #region IValidatable Members
+
+        void UIX.Views.IValidatable.Validate()
         {
-            throw new NotImplementedException();
+            OnValidate(ChangeAction.Insert);
         }
 
-        public bool IsNull()
-        {
-            throw new NotImplementedException();
-        }
+        #endregion
 
         public int CompareTo(object obj)
         {
-            throw new NotImplementedException();
+            return ToString().CompareTo(obj.ToString());
         }
     }
 }
