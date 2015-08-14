@@ -195,12 +195,26 @@
   <ItemGroup>
     <Compile Include="Command\CreatePlanStaffCommand.cs" />
     <Compile Include="Controllers\BonusController.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDSocial.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDAward.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDIncapacity.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDMembFam.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDPhone.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDAddress.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDBusinessRegionType.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDBusinessTrips.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDDopInfo.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDEmployeeDegree.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDEmployeeRank.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDMaterials.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDStandings.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDVacation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDValidation.cs" />
     <Compile Include="Controllers\ExcelExportController.cs" />
     <Compile Include="Controllers\KadrController.cs" />
     <Compile Include="Controllers\LinqActionsController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
-    <Compile Include="Controllers\CRUDControllers\SimpleActionsController.cs" />
+    <Compile Include="Controllers\SimpleActionsProvider.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />

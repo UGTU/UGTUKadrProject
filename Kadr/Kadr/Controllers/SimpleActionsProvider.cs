@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Kadr.Controllers
 {
-    static class SimpleActionsController
+    static class SimpleActionsProvider
     {
-        public static Kadr.UI.Common.PropertyGridDialogAdding<T> NewSimpleObjectDialog<T>() where T : class, new() 
+        public static Kadr.UI.Common.PropertyGridDialogAdding<T> NewSimpleObjectAddingDialog<T>() where T : class, new() 
         {
             Kadr.UI.Common.PropertyGridDialogAdding<T> dlg =
                new Kadr.UI.Common.PropertyGridDialogAdding<T>();
