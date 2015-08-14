@@ -363,6 +363,7 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn commentaryDataGridViewTextBoxColumn;
         private BindingSource timeSheetDayStateBindingSource;
+
         #region Properties
 
         /// <summary>
@@ -414,260 +415,6 @@ namespace Kadr.UI.Frames
 
 
         #endregion
-
-        #region LoadData
-
-        private void LoadPostList()
-        {
- 
-            factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
-        }
-
-        private void LoadBonus()
-        {
-            tsbBonusFilter_DropDownItemClicked(null, null);
-        }
-
-        private void LoadBonus(ArrayList BonusFilters)
-        {
-            //фильтруем элементы
-            ArrayList bon = new ArrayList();
-            IEnumerable<Bonus> bonus = BonusController.Instance.GetAllEmployeeBonus((this.FrameNodeObject as KadrEmployeeObject).Employee);
-            foreach (Bonus bn in bonus)
-            {
-                if (BonusFilters.Contains((bn as IObjectState).State()))
-                {
-                    if (bn.BonusPlanStaff != null)
-                    {
-
-                        foreach (FactStaff fcSt in (bn.BonusPlanStaff.PlanStaff.FactStaffs.Where(fcSt
-                                => fcSt.Employee == (this.FrameNodeObject as KadrEmployeeObject).Employee)))
-                            if (BonusFilters.Contains((fcSt as IObjectState).State()))
-                            {
-                                bon.Add(bn);
-                                break;
-                            }
-                    }
-                    else
-                    {
-                        if (bn.BonusPost != null)
-                        {
-                            foreach (FactStaff fcSt in bn.BonusPost.Post.PlanStaffs.SelectMany(plSt =>
-                                plSt.FactStaffs).Where(fcSt => fcSt.Employee == (this.FrameNodeObject as KadrEmployeeObject).Employee))
-                                if (BonusFilters.Contains((fcSt as IObjectState).State()))
-                                {
-                                    bon.Add(bn);
-                                    break;
-                                }
-                        }
-                        else
-                            bon.Add(bn);
-                    }
-                }
- 
-            }
-
-            AllbonusBindingSource.DataSource = bon;
-           
-            
-            //bonusBindingSource.DataSource = BonusController.Instance.GetBonus((this.FrameNodeObject as KadrEmployeeObject).Employee);
-            //AllbonusBindingSource.DataSource = BonusController.Instance.GetAllEmployeeBonus((this.FrameNodeObject as KadrEmployeeObject).Employee);
-                //KadrController.Instance.Model.Bonus.Where(bonus => bonus.FactStaff.Employee == Employee);
-        }
-
-        private void LoadEmployee()
-        {          
-            
-            cpgEmployee.SelectedObjects = new object[] { Employee.GetDecorator() };
-            commandManager = new UIX.Commands.CommandManager();
-            cpgEmployee.CommandRegister = commandManager.GetCommandRegister();
-            commandManager.BeginBatchCommand();
-        }
-
-        private void LoadEducation()
-        {
-            employeeDegreeBindingSource.DataSource = KadrController.Instance.Model.EmployeeDegrees.Where(empDegr => empDegr.Employee == Employee);
-            employeeRankBindingSource.DataSource = KadrController.Instance.Model.EmployeeRanks.Where(empRank => empRank.Employee == Employee);
-        }
-
-        private void LoadOtpusk()
-        {
-            //IEnumerable<OK_Otpusk>
-            if (factStaffBindingSource.Current != null )
-                oKOtpuskBindingSource.DataSource =
-               KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.FactStaffPrikaz.FactStaff == (factStaffBindingSource.Current as FactStaff)).Where(
-                    otp => otp.FactStaffPrikaz.DateBegin >= DateTime.Today.AddYears(-2)).OrderByDescending(otp => otp.FactStaffPrikaz.DateBegin);
-            else
-                oKOtpuskBindingSource.DataSource =
-                    KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.FactStaffPrikaz.FactStaff.Employee == Employee).Where(
-                    otp => otp.FactStaffPrikaz.DateBegin >= DateTime.Today.AddYears(-2)).OrderByDescending(otp => otp.FactStaffPrikaz.DateBegin);
-
-            //foreach ()
-            /* KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.FactStaff.Employee == Employee).Where(
-                    otp => otp.DateBegin >= DateTime.Today.AddYears(-2)).OrderByDescending(otp => otp.DateBegin);*/
-        }
-
-        private void LoadTrips()
-        {
-            FactStaff f = (FactStaff)factStaffBindingSource.Current;
-            BusinessTripsBindingSource.DataSource = KadrController.Instance.Model.BusinessTrips.Where(t => t.FactStaffPrikaz.FactStaff == f).Select(x=>new BusinessTripDecorator(x)).ToList();
-            dgvTrips.Refresh();
-
-        }
-
-        private void LoadMaterials()
-        {
-            var f = (FactStaff)factStaffBindingSource.Current;
-            MaterialResponsibilitybindingSource.DataSource = KadrController.Instance.Model.MaterialResponsibilities.Where(t => t.FactStaffPrikaz.FactStaff == f);
-            dgvMaterial.Refresh();
-
-        }
-
-        #endregion
-
-        public KadrEmployeeFrame()
-        {
-            InitializeComponent();
-        }
-
-        public KadrEmployeeFrame(object AObject)
-        {
-            InitializeComponent();
-            FrameObject = AObject;
-        }
-
-        protected override void DoRefreshFrame()
-        {
-            tcEmployee_SelectedIndexChanged(null,null);
-        }
-
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            if (commandManager.IsInBatchMode)
-            {
-                commandManager.EndBatchCommand();
-            }
-            KadrController.Instance.SubmitChanges();
-            commandManager.BeginBatchCommand();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            if (commandManager != null)
-            {
-                if (commandManager.IsInBatchMode)
-                {
-                    commandManager.TerminateBatchCommand();
-                }
-            }
-            commandManager.BeginBatchCommand();
-            cpgEmployee.SelectedObjects = new object[] { Employee.GetDecorator() };
-        }
-
-
-        private void EditDegreeBtn_Click(object sender, EventArgs e)
-        {
-            if (employeeDegreeBindingSource.Current != null)
-                LinqActionsController<EmployeeDegree>.Instance.EditObject(
-                        employeeDegreeBindingSource.Current as EmployeeDegree, false);
-
-        }
-
-        private void AddDegreeBtn_Click(object sender, EventArgs e)
-        {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<EmployeeDegree> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<EmployeeDegree>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.EmployeeDegrees;
-                dlg.BindingSource = employeeDegreeBindingSource;
-                dlg.UseInternalCommandManager = true;
-                dlg.InitializeNewObject = (x) =>
-                {
-                    EducDocument educDocument = new EducDocument();
-                    EducDocumentType docType = KadrController.Instance.Model.EducDocumentTypes.Where(educDocType
-                        => educDocType.id == 1).First();
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EducDocument, EducDocumentType>(educDocument, "EducDocumentType", docType, null), this);
-
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeDegree, ScienceType>(x, "ScienceType", NullScienceType.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeDegree, Degree>(x, "Degree", NullDegree.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeDegree, Employee>(x, "Employee", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeDegree, EducDocument>(x, "EducDocument", educDocument, null), this);
-                };
-
-
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.EmployeeDegrees;
-                };
-
-                dlg.ShowDialog();
-            }
-
-        }
-
-        private void DelDegreeBtn_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Удалить научную степень сотрудника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
-                == DialogResult.OK)
-            {
-                LinqActionsController<EducDocument>.Instance.DeleteObject((employeeDegreeBindingSource.Current as EmployeeDegree).EducDocument,
-                     KadrController.Instance.Model.EducDocuments, null);
-
-                LinqActionsController<EmployeeDegree>.Instance.DeleteObject(employeeDegreeBindingSource.Current as EmployeeDegree,
-                     KadrController.Instance.Model.EmployeeDegrees, employeeDegreeBindingSource);
-            }
-        }
-
-        private void AddRankBtn_Click(object sender, EventArgs e)
-        {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<EmployeeRank> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<EmployeeRank>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.EmployeeRanks;
-                dlg.BindingSource = employeeRankBindingSource;
-                dlg.UseInternalCommandManager = true;
-                dlg.InitializeNewObject = (x) =>
-                {
-                    EducDocument educDocument = new EducDocument();
-                    EducDocumentType docType = Kadr.Controllers.KadrController.Instance.Model.EducDocumentTypes.Where(educDocType
-                        => educDocType.id == 2).First();
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EducDocument, EducDocumentType>(educDocument, "EducDocumentType", docType, null), this);
-
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeRank, Rank>(x, "Rank", NullRank.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeRank, Employee>(x, "Employee", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeRank, EducDocument>(x, "EducDocument", educDocument, null), this);
-
-                };
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.EmployeeRanks;
-                };
-
-                dlg.ShowDialog();
-            }
-        }
-
-        private void EditRankBtn_Click(object sender, EventArgs e)
-        {
-            if (employeeRankBindingSource.Current != null)
-                LinqActionsController<EmployeeRank>.Instance.EditObject(
-                        employeeRankBindingSource.Current as EmployeeRank, false);
-        }
-
-        private void DelRankBtn_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Удалить ученое звание сотрудника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
-                 == DialogResult.OK)
-            {
-                LinqActionsController<EducDocument>.Instance.DeleteObject((employeeRankBindingSource.Current as EmployeeRank).EducDocument,
-                     KadrController.Instance.Model.EducDocuments, null);
-
-                LinqActionsController<EmployeeRank>.Instance.DeleteObject(employeeRankBindingSource.Current as EmployeeRank,
-                     KadrController.Instance.Model.EmployeeRanks, employeeRankBindingSource);
-            }
-        }
 
         private void InitializeComponent()
         {
@@ -1268,7 +1015,7 @@ namespace Kadr.UI.Frames
             this.tpContData.Controls.Add(this.splitContainer3);
             this.tpContData.Location = new System.Drawing.Point(4, 22);
             this.tpContData.Name = "tpContData";
-            this.tpContData.Size = new System.Drawing.Size(869, 339);
+            this.tpContData.Size = new System.Drawing.Size(788, 501);
             this.tpContData.TabIndex = 2;
             this.tpContData.Text = "Контактные данные";
             this.tpContData.UseVisualStyleBackColor = true;
@@ -1287,9 +1034,8 @@ namespace Kadr.UI.Frames
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
-
-            this.splitContainer3.Size = new System.Drawing.Size(869, 339);
-            this.splitContainer3.SplitterDistance = 170;
+            this.splitContainer3.Size = new System.Drawing.Size(788, 501);
+            this.splitContainer3.SplitterDistance = 251;
             this.splitContainer3.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -1305,8 +1051,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(869, 170);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 251);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // dataGridView1
@@ -1343,8 +1088,7 @@ namespace Kadr.UI.Frames
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-
-            this.dataGridView1.Size = new System.Drawing.Size(863, 233);
+            this.dataGridView1.Size = new System.Drawing.Size(782, 233);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.tsbEditPhone_Click);
             // 
@@ -1392,7 +1136,7 @@ namespace Kadr.UI.Frames
             this.tsbDelPhone});
             this.toolStrip7.Location = new System.Drawing.Point(0, 0);
             this.toolStrip7.Name = "toolStrip7";
-            this.toolStrip7.Size = new System.Drawing.Size(869, 24);
+            this.toolStrip7.Size = new System.Drawing.Size(788, 24);
             this.toolStrip7.TabIndex = 2;
             this.toolStrip7.Text = "toolStrip7";
             // 
@@ -1438,8 +1182,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(869, 165);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 246);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // dataGridView6
@@ -1478,8 +1221,7 @@ namespace Kadr.UI.Frames
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-
-            this.dataGridView6.Size = new System.Drawing.Size(863, 228);
+            this.dataGridView6.Size = new System.Drawing.Size(782, 228);
             this.dataGridView6.TabIndex = 3;
             this.dataGridView6.DoubleClick += new System.EventHandler(this.tsbUpdAddress_Click);
             // 
@@ -1541,7 +1283,7 @@ namespace Kadr.UI.Frames
             this.tsbDelAddress});
             this.toolStrip8.Location = new System.Drawing.Point(0, 0);
             this.toolStrip8.Name = "toolStrip8";
-            this.toolStrip8.Size = new System.Drawing.Size(869, 24);
+            this.toolStrip8.Size = new System.Drawing.Size(788, 24);
             this.toolStrip8.TabIndex = 2;
             this.toolStrip8.Text = "toolStrip8";
             // 
@@ -1580,7 +1322,7 @@ namespace Kadr.UI.Frames
             this.tpFamily.Location = new System.Drawing.Point(4, 22);
             this.tpFamily.Name = "tpFamily";
             this.tpFamily.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFamily.Size = new System.Drawing.Size(869, 339);
+            this.tpFamily.Size = new System.Drawing.Size(788, 501);
             this.tpFamily.TabIndex = 1;
             this.tpFamily.Text = "Состав семьи";
             this.tpFamily.UseVisualStyleBackColor = true;
@@ -1598,7 +1340,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(863, 333);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(782, 495);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // dataGridView7
@@ -1638,7 +1380,7 @@ namespace Kadr.UI.Frames
             this.dataGridView7.ReadOnly = true;
             this.dataGridView7.RowHeadersVisible = false;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView7.Size = new System.Drawing.Size(857, 465);
+            this.dataGridView7.Size = new System.Drawing.Size(776, 465);
             this.dataGridView7.TabIndex = 4;
             this.dataGridView7.DoubleClick += new System.EventHandler(this.tsbEditFamMember_Click);
             // 
@@ -1710,7 +1452,7 @@ namespace Kadr.UI.Frames
             this.tsbDelFamMember});
             this.toolStrip9.Location = new System.Drawing.Point(0, 0);
             this.toolStrip9.Name = "toolStrip9";
-            this.toolStrip9.Size = new System.Drawing.Size(863, 24);
+            this.toolStrip9.Size = new System.Drawing.Size(782, 24);
             this.toolStrip9.TabIndex = 3;
             this.toolStrip9.Text = "toolStrip9";
             // 
@@ -2043,9 +1785,8 @@ namespace Kadr.UI.Frames
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tcEmplPostInf);
-
-            this.splitContainer1.Size = new System.Drawing.Size(782, 495);
-            this.splitContainer1.SplitterDistance = 283;
+            this.splitContainer1.Size = new System.Drawing.Size(863, 333);
+            this.splitContainer1.SplitterDistance = 190;
             this.splitContainer1.TabIndex = 2;
             // 
             // dgvEmplPosts
@@ -2091,8 +1832,7 @@ namespace Kadr.UI.Frames
             this.dgvEmplPosts.ReadOnly = true;
             this.dgvEmplPosts.RowHeadersVisible = false;
             this.dgvEmplPosts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-
-            this.dgvEmplPosts.Size = new System.Drawing.Size(782, 283);
+            this.dgvEmplPosts.Size = new System.Drawing.Size(863, 190);
             this.dgvEmplPosts.TabIndex = 0;
             // 
             // Department
@@ -2214,8 +1954,7 @@ namespace Kadr.UI.Frames
             this.tcEmplPostInf.Location = new System.Drawing.Point(0, 0);
             this.tcEmplPostInf.Name = "tcEmplPostInf";
             this.tcEmplPostInf.SelectedIndex = 0;
-
-            this.tcEmplPostInf.Size = new System.Drawing.Size(782, 208);
+            this.tcEmplPostInf.Size = new System.Drawing.Size(863, 139);
             this.tcEmplPostInf.TabIndex = 1;
             this.tcEmplPostInf.SelectedIndexChanged += new System.EventHandler(this.tcEmplPostInf_SelectedIndexChanged);
             // 
@@ -2225,8 +1964,7 @@ namespace Kadr.UI.Frames
             this.tpEmpOtpusk.Location = new System.Drawing.Point(4, 22);
             this.tpEmpOtpusk.Name = "tpEmpOtpusk";
             this.tpEmpOtpusk.Padding = new System.Windows.Forms.Padding(3);
-
-            this.tpEmpOtpusk.Size = new System.Drawing.Size(774, 182);
+            this.tpEmpOtpusk.Size = new System.Drawing.Size(855, 113);
             this.tpEmpOtpusk.TabIndex = 0;
             this.tpEmpOtpusk.Text = "Отпуска";
             this.tpEmpOtpusk.UseVisualStyleBackColor = true;
@@ -2244,8 +1982,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(768, 176);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(849, 107);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // dataGridView5
@@ -2389,7 +2126,7 @@ namespace Kadr.UI.Frames
             this.tpBusTrip.Location = new System.Drawing.Point(4, 22);
             this.tpBusTrip.Name = "tpBusTrip";
             this.tpBusTrip.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBusTrip.Size = new System.Drawing.Size(855, 137);
+            this.tpBusTrip.Size = new System.Drawing.Size(855, 113);
             this.tpBusTrip.TabIndex = 1;
             this.tpBusTrip.Text = "Командировки";
             this.tpBusTrip.UseVisualStyleBackColor = true;
@@ -2425,7 +2162,7 @@ namespace Kadr.UI.Frames
             this.dgvTrips.Location = new System.Drawing.Point(3, 28);
             this.dgvTrips.Name = "dgvTrips";
             this.dgvTrips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTrips.Size = new System.Drawing.Size(849, 106);
+            this.dgvTrips.Size = new System.Drawing.Size(849, 82);
             this.dgvTrips.TabIndex = 13;
             this.dgvTrips.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrips_CellDoubleClick);
             // 
@@ -2524,7 +2261,7 @@ namespace Kadr.UI.Frames
             this.tpMaterial.Location = new System.Drawing.Point(4, 22);
             this.tpMaterial.Name = "tpMaterial";
             this.tpMaterial.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMaterial.Size = new System.Drawing.Size(855, 137);
+            this.tpMaterial.Size = new System.Drawing.Size(855, 113);
             this.tpMaterial.TabIndex = 2;
             this.tpMaterial.Text = "Материальная ответственность";
             this.tpMaterial.UseVisualStyleBackColor = true;
@@ -2566,7 +2303,7 @@ namespace Kadr.UI.Frames
             this.dgvMaterial.ReadOnly = true;
             this.dgvMaterial.RowHeadersWidth = 4;
             this.dgvMaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaterial.Size = new System.Drawing.Size(849, 106);
+            this.dgvMaterial.Size = new System.Drawing.Size(849, 82);
             this.dgvMaterial.TabIndex = 14;
             this.dgvMaterial.DoubleClick += new System.EventHandler(this.tsbEditMaterial_Click);
             // 
@@ -2666,7 +2403,7 @@ namespace Kadr.UI.Frames
             this.tpValidations.Location = new System.Drawing.Point(4, 22);
             this.tpValidations.Name = "tpValidations";
             this.tpValidations.Padding = new System.Windows.Forms.Padding(3);
-            this.tpValidations.Size = new System.Drawing.Size(855, 112);
+            this.tpValidations.Size = new System.Drawing.Size(855, 113);
             this.tpValidations.TabIndex = 3;
             this.tpValidations.Text = "Аттестации";
             this.tpValidations.UseVisualStyleBackColor = true;
@@ -2709,7 +2446,7 @@ namespace Kadr.UI.Frames
             this.dgvValidations.ReadOnly = true;
             this.dgvValidations.RowHeadersWidth = 4;
             this.dgvValidations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvValidations.Size = new System.Drawing.Size(849, 81);
+            this.dgvValidations.Size = new System.Drawing.Size(849, 82);
             this.dgvValidations.TabIndex = 16;
             this.dgvValidations.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvValidations_CellDoubleClick);
             // 
@@ -3157,7 +2894,7 @@ namespace Kadr.UI.Frames
             this.tpBonus.Location = new System.Drawing.Point(4, 22);
             this.tpBonus.Name = "tpBonus";
             this.tpBonus.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBonus.Size = new System.Drawing.Size(883, 371);
+            this.tpBonus.Size = new System.Drawing.Size(802, 533);
             this.tpBonus.TabIndex = 2;
             this.tpBonus.Text = "Надбавки";
             this.tpBonus.UseVisualStyleBackColor = true;
@@ -3175,7 +2912,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(877, 365);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 527);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // dgvAllBonus
@@ -3220,7 +2957,7 @@ namespace Kadr.UI.Frames
             this.dgvAllBonus.ReadOnly = true;
             this.dgvAllBonus.RowHeadersVisible = false;
             this.dgvAllBonus.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllBonus.Size = new System.Drawing.Size(883, 496);
+            this.dgvAllBonus.Size = new System.Drawing.Size(883, 479);
             this.dgvAllBonus.TabIndex = 9;
             this.dgvAllBonus.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvAllBonus_RowPrePaint);
             this.dgvAllBonus.DoubleClick += new System.EventHandler(this.dgvAllBonus_DoubleClick);
@@ -3961,7 +3698,7 @@ namespace Kadr.UI.Frames
             this.tpEmplBonusReport.Location = new System.Drawing.Point(4, 22);
             this.tpEmplBonusReport.Name = "tpEmplBonusReport";
             this.tpEmplBonusReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmplBonusReport.Size = new System.Drawing.Size(883, 371);
+            this.tpEmplBonusReport.Size = new System.Drawing.Size(802, 533);
             this.tpEmplBonusReport.TabIndex = 4;
             this.tpEmplBonusReport.Text = "Отчет по надбавкам";
             this.tpEmplBonusReport.UseVisualStyleBackColor = true;
@@ -4013,7 +3750,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(877, 365);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(796, 527);
             this.tableLayoutPanel6.TabIndex = 22;
             // 
             // toolStrip6
@@ -4051,7 +3788,7 @@ namespace Kadr.UI.Frames
             this.tpDopInf.Controls.Add(this.tableLayoutPanel11);
             this.tpDopInf.Location = new System.Drawing.Point(4, 22);
             this.tpDopInf.Name = "tpDopInf";
-            this.tpDopInf.Size = new System.Drawing.Size(883, 371);
+            this.tpDopInf.Size = new System.Drawing.Size(802, 533);
             this.tpDopInf.TabIndex = 5;
             this.tpDopInf.Text = "Дополнительные сведения";
             this.tpDopInf.UseVisualStyleBackColor = true;
@@ -4069,7 +3806,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(883, 371);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(802, 533);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
             // dataGridView8
@@ -4837,6 +4574,128 @@ namespace Kadr.UI.Frames
 
         }
 
+        #region LoadData
+
+        private void LoadPostList()
+        {
+            factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
+        }
+
+        private void LoadBonus()
+        {
+            tsbBonusFilter_DropDownItemClicked(null, null);
+        }
+
+        private void LoadBonus(ArrayList BonusFilters)
+        {
+            //фильтруем элементы
+            ArrayList bon = new ArrayList();
+            IEnumerable<Bonus> bonus = BonusController.Instance.GetAllEmployeeBonus((this.FrameNodeObject as KadrEmployeeObject).Employee);
+            foreach (Bonus bn in bonus)
+            {
+                if (BonusFilters.Contains((bn as IObjectState).State()))
+                {
+                    if (bn.BonusPlanStaff != null)
+                    {
+
+                        foreach (FactStaff fcSt in (bn.BonusPlanStaff.PlanStaff.FactStaffs.Where(fcSt
+                                => fcSt.Employee == (this.FrameNodeObject as KadrEmployeeObject).Employee)))
+                            if (BonusFilters.Contains((fcSt as IObjectState).State()))
+                            {
+                                bon.Add(bn);
+                                break;
+                            }
+                    }
+                    else
+                    {
+                        if (bn.BonusPost != null)
+                        {
+                            foreach (FactStaff fcSt in bn.BonusPost.Post.PlanStaffs.SelectMany(plSt =>
+                                plSt.FactStaffs).Where(fcSt => fcSt.Employee == (this.FrameNodeObject as KadrEmployeeObject).Employee))
+                                if (BonusFilters.Contains((fcSt as IObjectState).State()))
+                                {
+                                    bon.Add(bn);
+                                    break;
+                                }
+                        }
+                        else
+                            bon.Add(bn);
+                    }
+                }
+ 
+            }
+
+            AllbonusBindingSource.DataSource = bon;
+           
+            
+            //bonusBindingSource.DataSource = BonusController.Instance.GetBonus((this.FrameNodeObject as KadrEmployeeObject).Employee);
+            //AllbonusBindingSource.DataSource = BonusController.Instance.GetAllEmployeeBonus((this.FrameNodeObject as KadrEmployeeObject).Employee);
+                //KadrController.Instance.Model.Bonus.Where(bonus => bonus.FactStaff.Employee == Employee);
+        }
+
+        private void LoadEmployee()
+        {          
+            
+            cpgEmployee.SelectedObjects = new object[] { Employee.GetDecorator() };
+            commandManager = new UIX.Commands.CommandManager();
+            cpgEmployee.CommandRegister = commandManager.GetCommandRegister();
+            commandManager.BeginBatchCommand();
+        }
+
+        private void LoadEducation()
+        {
+            CRUDEmployeeRank.Read(Employee,employeeRankBindingSource);
+            CRUDEmployeeDegree.Read(Employee, employeeDegreeBindingSource);
+        }
+
+        private void LoadContactData()
+        {
+            CRUDPhone.Read(Employee, oKphoneBindingSource);
+            CRUDAddress.Read(Employee, oKAdressBindingSource);
+        }
+
+
+        #endregion
+
+        public KadrEmployeeFrame()
+        {
+            InitializeComponent();
+        }
+
+        public KadrEmployeeFrame(object AObject)
+        {
+            InitializeComponent();
+            FrameObject = AObject;
+        }
+
+        protected override void DoRefreshFrame()
+        {
+            tcEmployee_SelectedIndexChanged(null,null);
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            if (commandManager.IsInBatchMode)
+            {
+                commandManager.EndBatchCommand();
+            }
+            KadrController.Instance.SubmitChanges();
+            commandManager.BeginBatchCommand();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (commandManager != null)
+            {
+                if (commandManager.IsInBatchMode)
+                {
+                    commandManager.TerminateBatchCommand();
+                }
+            }
+            commandManager.BeginBatchCommand();
+            cpgEmployee.SelectedObjects = new object[] { Employee.GetDecorator() };
+        }
+
         public void RefreshBonusFilter()
         {
             tsbBonusFilter_DropDownItemClicked(this, null);
@@ -4846,8 +4705,6 @@ namespace Kadr.UI.Frames
         {
             LoadBonus(ObjectStateController.Instance.GetObjectStatesForFilter(tsbBonusFilter, e));
         }
-
-        
 
         private void KadrEmployeeFrame_Load(object sender, EventArgs e)
         {
@@ -4879,10 +4736,6 @@ namespace Kadr.UI.Frames
             }
         }
 
-        private void LoadDopInf()
-        {
-            oKDopInfBindingSource.DataSource = KadrController.Instance.Model.OK_DopInfs.Where(dInf => dInf.Employee == Employee).ToArray();
-        }
 
         private void tcEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -4890,7 +4743,9 @@ namespace Kadr.UI.Frames
                 LoadBonus();*/
 
             if (tcEmployee.SelectedTab == tpEducation)
+            {
                 LoadEducation();
+            }   
 
             if (tcEmployee.SelectedTab == tpEmpPost)
                 tcEmplWorkData_SelectedIndexChanged(null, null);
@@ -4899,9 +4754,7 @@ namespace Kadr.UI.Frames
                 LoadEmployee();
 
             if (tcEmployee.SelectedTab == tpDopInf)
-            {
-                LoadDopInf();
-            }
+                CRUDDopInfo.Read(Employee, oKDopInfBindingSource);
 
         }
 
@@ -4930,300 +4783,11 @@ namespace Kadr.UI.Frames
         private void tcEmplWorkData_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tcEmplWorkData.SelectedTab == tpEmplStading)
-                LoadStandings();
+                CRUDStanding.Read(Employee, employeeStandingBindingSource);
             if (tcEmplWorkData.SelectedTab == tpUGTUPosts)
                 LoadPostList();
             if (tcEmplWorkData.SelectedTab == tpIncapacities)
-                LoadIncapacities();
-
-            
-        }
-
-        private void LoadStandings()
-        {
-            employeeStandingBindingSource.DataSource =
-                KadrController.Instance.Model.EmployeeStandings.Where(empSt => empSt.Employee == Employee)
-                    .OrderBy(empSt => empSt.DateBegin)
-                    .ToArray(); 
-        }
-
-        private void tsbAddEmplStanding_Click(object sender, EventArgs e)
-        {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<EmployeeStanding> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<EmployeeStanding>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.EmployeeStandings;
-                //dlg.BindingSource = employeeStandingBindingSource;
-                dlg.UseInternalCommandManager = true;
-                dlg.InitializeNewObject = (x) =>
-                {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, DateTime>(x, "DateBegin", DateTime.Today, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, DateTime>(x, "DateEnd", DateTime.Today, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, Employee>(x, "Employee", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, RegionType>(x, "RegionType", NullRegionType.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, StandingType>(x, "StandingType", NullStandingType.Instance, null), this);
-                };
-
-
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.EmployeeStandings;
-                };
-
-                dlg.ShowDialog();
-            }
-            LoadStandings();
-            
-        }
-
-        private void tsbEditEmplStanding_Click(object sender, EventArgs e)
-        {
-            if (employeeStandingBindingSource.Current != null)
-                LinqActionsController<EmployeeStanding>.Instance.EditObject(
-                        employeeStandingBindingSource.Current as EmployeeStanding, false);
-            LoadStandings();
-        }
-
-        private void tsbDelEmplStanding_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Удалить запись трудовой книжки сотрудника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
-                == DialogResult.OK)
-            {
-                LinqActionsController<EmployeeStanding>.Instance.DeleteObject((employeeStandingBindingSource.Current as EmployeeStanding),
-                     KadrController.Instance.Model.EmployeeStandings, null);
-
-                LoadStandings();
-            }
-        }
-
-        private void factStaffBindingSource_PositionChanged(object sender, EventArgs e)
-        {
-            tcEmplPostInf_SelectedIndexChanged(null, null);
-        }
-
-        private void tsbAddOtp_Click(object sender, EventArgs e)
-        {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Otpusk> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<OK_Otpusk>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.OK_Otpusks;
-                //dlg.BindingSource = employeeStandingBindingSource;
-                dlg.UseInternalCommandManager = true;
-                dlg.InitializeNewObject = (x) =>
-                {
-
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, FactStaffPrikaz>(x, "FactStaffPrikaz", 
-                        FactStaffPrikaz.CreateFactStaffPrikaz(dlg.CommandManager, factStaffBindingSource.Current as FactStaff), null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, OK_Otpuskvid>(x, "OK_Otpuskvid", NullOK_Otpuskvid.Instance, null), this);
-                };
-
-
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.OK_Otpusks;
-                };
-
-                dlg.ShowDialog();
-            }
-            LoadOtpusk();
-        }
-
-        
-
-
-        private void tsbEditOtp_Click(object sender, EventArgs e)
-        {
-            if (oKOtpuskBindingSource.Current != null)
-                LinqActionsController<OK_Otpusk>.Instance.EditObject(
-                        oKOtpuskBindingSource.Current as OK_Otpusk, true);
-            LoadStandings();
-        }
-
-        private void tcEmplPostInf_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
-                LoadOtpusk();
-            if (tcEmplPostInf.SelectedTab == tpBusTrip)
-                LoadTrips();
-            if (tcEmplPostInf.SelectedTab == tpMaterial)
-                LoadMaterials();
-            if (tcEmplPostInf.SelectedTab == tpValidations)
-                CRUDValidation.LoadValidations((FactStaff)factStaffBindingSource.Current,validationDecoratorBindingSource);
-        }
-
-        private void tsbAddEmplTrip_Click(object sender, EventArgs e)
-        {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<BusinessTrip> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<BusinessTrip>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.BusinessTrips;
-                //dlg.BindingSource = employeeStandingBindingSo;
-                dlg.UseInternalCommandManager = true;
-
-                FactStaff fs = (FactStaff)factStaffBindingSource.Current;
-                BusinessTripRegionType btrt = new BusinessTripRegionType(DateTime.Now.Date, DateTime.Now.AddDays(7).Date, KadrController.Instance.Model.RegionTypes.First());
-                    
-                dlg.InitializeNewObject = (x) =>
-                {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, BusinessTrip>(btrt, "BusinessTrip", x, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(DateTime.Now.Date, DateTime.Now.AddDays(7).Date, fs), null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FinancingSource>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.FirstOrDefault(), null), this);
-                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.First(), null), this);
-                };
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.BusinessTrips;
-                };
-
-                dlg.ShowDialog();
-            }
-            LoadTrips();
-        }
-
-        private void tsbDelEmplTrip_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (BusinessTripsBindingSource.Current as BusinessTripDecorator).ToString()),"Подтверждение", MessageBoxButtons.OKCancel)==DialogResult.OK)
-            {
-              BusinessTrip bt = (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip();
-
-              foreach (BusinessTripRegionType rt in bt.BusinessTripRegionTypes)
-              KadrController.Instance.Model.BusinessTripRegionTypes.DeleteOnSubmit(rt);
-
-              KadrController.Instance.Model.BusinessTrips.DeleteOnSubmit(bt);
-              KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(bt.FactStaffPrikaz);
-              KadrController.Instance.Model.SubmitChanges();
-            }
-            LoadTrips();
-
-        }
-
-        private void tsbEditEmplTrip_Click(object sender, EventArgs e)
-        {
-            if (BusinessTripsBindingSource.Current != null)
-                LinqActionsController<BusinessTrip>.Instance.EditObject(
-                        (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip(), true);
-            LoadTrips();
-        }
-
-        private void dgvTrips_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            tsbEditEmplTrip_Click(sender, null);
-        }
-
-        private void tsbDelOtp_Click(object sender, EventArgs e)
-        {
-            OK_Otpusk CurrentOtp = oKOtpuskBindingSource.Current as OK_Otpusk;
-            FactStaffPrikaz CurrentPrikaz = CurrentOtp.FactStaffPrikaz;
-
-            if (CurrentOtp == null)
-            {
-                MessageBox.Show("Не выбран удаляемый отпуск.", "ИС \"Управление кадрами\"");
-                return;
-            }
-
-            if (MessageBox.Show("Удалить отпуск?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
-                != DialogResult.OK)
-            {
-                return;
-            }
-
-            KadrController.Instance.Model.OK_Otpusks.DeleteOnSubmit(CurrentOtp);
-
-            LinqActionsController<FactStaffPrikaz>.Instance.DeleteObject(CurrentPrikaz, KadrController.Instance.Model.FactStaffPrikazs, null);
-
-            LoadOtpusk();
-        }
-
-        private void tsbChangeRegionDates_Click(object sender, EventArgs e)
-        {
-            if (BusinessTripsBindingSource.Current != null)
-                LinqActionsController<BusinessTripRegionType>.Instance.EditObject(
-                        (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetRegionType(), true);
-            //LoadTrips();
-        }
-
-        private void tsbAddMaterial_Click(object sender, EventArgs e)
-        {
-            using (var dlg = new Common.PropertyGridDialogAdding<MaterialResponsibility>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.MaterialResponsibilities;
-                dlg.UseInternalCommandManager = true;
-                dlg.InitializeNewObject = (x) =>
-                {
-                    var factStaffPrikaz = new FactStaffPrikaz();
-                    dlg.CommandManager.Execute(
-                        new GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikaz, "FactStaff",
-                            factStaffBindingSource.Current as FactStaff, null), this);
-                    dlg.CommandManager.Execute(
-                        new GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikaz, "Prikaz",
-                            NullPrikaz.Instance, null), this);
-                    dlg.CommandManager.Execute(
-                        new GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateBegin",
-                            DateTime.Today, null), this);
-                    dlg.CommandManager.Execute(
-                        new GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateEnd",
-                            null, null), this);
-
-                    dlg.CommandManager.Execute(
-                        new GenericPropertyCommand<MaterialResponsibility, FactStaffPrikaz>(x,
-                            "FactStaffPrikaz", factStaffPrikaz, null), this);
-                   // var contract = new Data.Contract();
-                    dlg.CommandManager.Execute(new GenericPropertyCommand<MaterialResponsibility, Contract>(x, "Contract", new Contract(), null), this);
-                    dlg.CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(x.Contract, "DateContract", DateTime.Today, null), this);
-                    dlg.CommandManager.Execute(
-                        new GenericPropertyCommand<Contract, string>(x.Contract, "ContractName", "", null),
-                        this);
-
-                };
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.MaterialResponsibilities;
-                };
-
-                dlg.ShowDialog();
-            }
-            LoadMaterials();
-        }
-
-        private void tsbDelMaterial_Click(object sender, EventArgs e)
-        {
-            if (MaterialResponsibilitybindingSource.Current == null)
-            {
-                MessageBox.Show(@"Не выбрана удаляемая материальная ответственность.", @"ИС ""Управление кадрами""");
-                return;
-            }
-
-            var currMaterial = MaterialResponsibilitybindingSource.Current as MaterialResponsibility;
-
-            if (MessageBox.Show("Удалить материальную ответственность?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
-                != DialogResult.OK)
-            {
-                return;
-            }
-            var currentPrikaz = currMaterial.FactStaffPrikaz;
-            var currContract = currMaterial.Contract;
-
-            KadrController.Instance.Model.MaterialResponsibilities.DeleteOnSubmit(currMaterial);
-            LinqActionsController<FactStaffPrikaz>.Instance.DeleteObject(currentPrikaz, KadrController.Instance.Model.FactStaffPrikazs, null);
-            LinqActionsController<Contract>.Instance.DeleteObject(currContract, KadrController.Instance.Model.Contracts, null);
-
-            LoadMaterials();
-        }
-
-        private void tsbEditMaterial_Click(object sender, EventArgs e)
-        {
-            if (MaterialResponsibilitybindingSource.Current != null)
-            {
-                var currMaterial = MaterialResponsibilitybindingSource.Current as MaterialResponsibility;
-                LinqActionsController<MaterialResponsibility>.Instance.EditObject(
-                    currMaterial, true);
-            }
-            LoadMaterials();
+                CRUDIncapacity.Read(Employee, inkapacityDecoratorBindingSource);
         }
 
         private void tsbSocialFareTransit_Click(object sender, EventArgs e)
@@ -5235,318 +4799,226 @@ namespace Kadr.UI.Frames
             }
         }
 
-        private void LoadContactData()
+        private void tcEmplPostInf_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadPhones();
-            LoadAddress();
+            if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
+                CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource);
+
+            if (tcEmplPostInf.SelectedTab == tpBusTrip)
+                CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
+
+            if (tcEmplPostInf.SelectedTab == tpMaterial)
+                CRUDMaterial.Read((FactStaff)factStaffBindingSource.Current, MaterialResponsibilitybindingSource);
+
+            if (tcEmplPostInf.SelectedTab == tpValidations)
+                CRUDValidation.Read((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
         }
 
-        private void LoadPhones()
-        {
-            oKphoneBindingSource.DataSource = KadrController.Instance.Model.OK_phones.Where(pH => pH.Employee == Employee).ToArray();
-        }
-
-        private void LoadAddress()
-        {
-            oKAdressBindingSource.DataSource = KadrController.Instance.Model.OK_Adresses.Where(Addr => Addr.Employee == Employee).ToArray();
-        }
 
         private void tcEmplData_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*if (tcEmplData.SelectedTab == tpPersonData)
                 LoadStandings();*/
+
             if (tcEmplData.SelectedTab == tpContData)
                 LoadContactData();
 
             if (tcEmplData.SelectedTab == tpFamily)
-                LoadFamMembers();
+                CRUDMembFam.Read(Employee, oKFamBindingSource);
 
             if (tcEmplData.SelectedTab == tpAwards)
-                LoadAwards();
+                CRUDAward.Read(Employee, awardDecoratorBindingSource);
 
             if (tcEmplData.SelectedTab == tpSocial)
-                LoadSocials();
+                CRUDSocial.Read(Employee, socialDecoratorBindingSource);
         }
 
-        private void LoadFamMembers()
+        private void EditDegreeBtn_Click(object sender, EventArgs e)
         {
-            oKFamBindingSource.DataSource = KadrController.Instance.Model.OK_Fams.Where(fM => fM.Employee == Employee).ToArray();
+            CRUDEmployeeDegree.Update(employeeDegreeBindingSource);
+
         }
+
+        private void AddDegreeBtn_Click(object sender, EventArgs e)
+        {
+            CRUDEmployeeDegree.Create(Employee, this);
+
+        }
+
+        private void DelDegreeBtn_Click(object sender, EventArgs e)
+        {
+            CRUDEmployeeDegree.Delete(employeeDegreeBindingSource);
+        }
+
+        private void AddRankBtn_Click(object sender, EventArgs e)
+        {
+            CRUDEmployeeRank.Create(Employee, this);
+        }
+
+        private void EditRankBtn_Click(object sender, EventArgs e)
+        {
+            CRUDEmployeeRank.Update(employeeDegreeBindingSource);
+        }
+
+        private void DelRankBtn_Click(object sender, EventArgs e)
+        {
+            CRUDEmployeeRank.Delete(employeeDegreeBindingSource);
+        }
+
+        private void tsbAddEmplStanding_Click(object sender, EventArgs e)
+        {
+            CRUDStanding.Create(Employee,employeeStandingBindingSource,this);
+        }
+
+        private void tsbEditEmplStanding_Click(object sender, EventArgs e)
+        {
+           CRUDStanding.Update(Employee,employeeStandingBindingSource);
+        }
+
+        private void tsbDelEmplStanding_Click(object sender, EventArgs e)
+        {
+            CRUDStanding.Delete(Employee, employeeStandingBindingSource);
+        }
+
+        private void factStaffBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            tcEmplPostInf_SelectedIndexChanged(null, null);
+        }
+
+        private void tsbAddOtp_Click(object sender, EventArgs e)
+        {
+            CRUDVacation.Create((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource, this);
+        }
+
+
+        private void tsbEditOtp_Click(object sender, EventArgs e)
+        {
+            CRUDVacation.Update((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource);
+        }
+
+                private void tsbDelOtp_Click(object sender, EventArgs e)
+        {
+            CRUDVacation.Delete((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource);
+        }
+
+
+        private void tsbAddEmplTrip_Click(object sender, EventArgs e)
+        {
+            CRUDBusinessTrips.Create((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource, this);
+        }
+
+        private void tsbDelEmplTrip_Click(object sender, EventArgs e)
+        {
+            CRUDBusinessTrips.Delete((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
+
+        }
+
+        private void tsbEditEmplTrip_Click(object sender, EventArgs e)
+        {
+            CRUDBusinessTrips.Update((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
+        }
+
+        private void dgvTrips_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tsbEditEmplTrip_Click(sender, null);
+        }
+
+
+        private void tsbChangeRegionDates_Click(object sender, EventArgs e)
+        {
+            CRUDBusinessRegionType.Update(BusinessTripsBindingSource);
+        }
+
+        private void tsbAddMaterial_Click(object sender, EventArgs e)
+        {
+            CRUDMaterial.Create((FactStaff)factStaffBindingSource.Current, MaterialResponsibilitybindingSource, this);
+        }
+
+        private void tsbDelMaterial_Click(object sender, EventArgs e)
+        {
+            CRUDMaterial.Delete((FactStaff)factStaffBindingSource.Current, MaterialResponsibilitybindingSource);
+        }
+
+        private void tsbEditMaterial_Click(object sender, EventArgs e)
+        {
+            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, MaterialResponsibilitybindingSource);
+        }
+
 
         private void tsbAddPhone_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_phone> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<OK_phone>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.OK_phones;
-                dlg.PrikazButtonVisible = false;
-                //dlg.BindingSource = employeeStandingBindingSource;
-                dlg.UseInternalCommandManager = true;
-
-                dlg.InitializeNewObject = (x) =>
-                {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_phone, Employee>(x, "Employee", Employee, null), this);
-                };
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.OK_phones;
-                };
-
-                dlg.ShowDialog();
-            }
-            LoadPhones();
+            CRUDPhone.Create(Employee, oKphoneBindingSource, this);
         }
 
         private void tsbEditPhone_Click(object sender, EventArgs e)
         {
-            if (oKphoneBindingSource.Current != null)
-                LinqActionsController<OK_phone>.Instance.EditObject(
-                        oKphoneBindingSource.Current as OK_phone, true);
-            LoadPhones();
+            CRUDPhone.Update(Employee, oKphoneBindingSource);
         }
 
         private void tsbDelPhone_Click(object sender, EventArgs e)
         {
-            OK_phone CurrentPhone = oKphoneBindingSource.Current as OK_phone;
-
-            if (CurrentPhone == null)
-            {
-                MessageBox.Show("Не выбран удаляемый номер.", "ИС \"Управление кадрами\"");
-                return;
-            }
-
-            if (MessageBox.Show("Удалить номер?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
-                != DialogResult.OK)
-            {
-                return;
-            }
-
-            LinqActionsController<OK_phone>.Instance.DeleteObject(CurrentPhone, KadrController.Instance.Model.OK_phones, null);
-
-            LoadPhones();
+            CRUDPhone.Delete(Employee, oKphoneBindingSource);
         }
 
         private void tsbAddAddress_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Adress> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<OK_Adress>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.OK_Adresses;
-                dlg.PrikazButtonVisible = false;
-                //dlg.BindingSource = employeeStandingBindingSource;
-                dlg.UseInternalCommandManager = true;
-
-                dlg.InitializeNewObject = (x) =>
-                {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Adress, Employee>(x, "Employee", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Adress, DateTime?>(x, "DateReg", DateTime.Today, null), this);
-                };
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.OK_Adresses;
-                };
-
-                dlg.ShowDialog();
-            }
-            LoadAddress();
+            CRUDAddress.Create(Employee, oKAdressBindingSource, this);
         }
 
         private void tsbUpdAddress_Click(object sender, EventArgs e)
         {
-            if (oKAdressBindingSource.Current != null)
-                LinqActionsController<OK_Adress>.Instance.EditObject(
-                        oKAdressBindingSource.Current as OK_Adress, true);
-            LoadAddress();
+            CRUDAddress.Update(Employee, oKAdressBindingSource);
         }
 
         private void tsbDelAddress_Click(object sender, EventArgs e)
         {
-            OK_Adress CurrentAddress = oKAdressBindingSource.Current as OK_Adress;
-
-            if (CurrentAddress == null)
-            {
-                MessageBox.Show("Не выбран удаляемый адрес.", "ИС \"Управление кадрами\"");
-                return;
-            }
-
-            if (MessageBox.Show("Удалить адрес?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
-                != DialogResult.OK)
-            {
-                return;
-            }
-
-            LinqActionsController<OK_Adress>.Instance.DeleteObject(CurrentAddress, KadrController.Instance.Model.OK_Adresses, null);
-
-            LoadAddress();
+            CRUDAddress.Delete(Employee, oKAdressBindingSource);
         }
 
         private void tsbAddFamMember_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Fam> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<OK_Fam>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.OK_Fams;
-                //dlg.BindingSource = employeeStandingBindingSource;
-                dlg.UseInternalCommandManager = true;
-                dlg.PrikazButtonVisible = false;
-
-                dlg.InitializeNewObject = (x) =>
-                {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Fam, Employee>(x, "Employee", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Fam, OK_MembFam>(x, "OK_MembFam", NullOK_MembFam.Instance, null), this);
-                };
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.OK_Fams;
-                };
-
-                dlg.ShowDialog();
-            }
-
-            LoadFamMembers();
+            CRUDMembFam.Create(Employee, oKFamBindingSource, this);
         }
 
         private void tsbEditFamMember_Click(object sender, EventArgs e)
         {
-            if (oKFamBindingSource.Current != null)
-                LinqActionsController<OK_Fam>.Instance.EditObject(
-                        oKFamBindingSource.Current as OK_Fam, true);
-            LoadFamMembers();
-            
+            CRUDMembFam.Update(Employee, oKFamBindingSource);
         }
 
         private void tsbDelFamMember_Click(object sender, EventArgs e)
         {
-            OK_Fam CurrentFamMemb = oKFamBindingSource.Current as OK_Fam;
-
-            if (CurrentFamMemb == null)
-            {
-                MessageBox.Show("Не выбран удаляемый родственник.", "ИС \"Управление кадрами\"");
-                return;
-            }
-
-            if (MessageBox.Show("Удалить родственника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
-                != DialogResult.OK)
-            {
-                return;
-            }
-
-            LinqActionsController<OK_Fam>.Instance.DeleteObject(CurrentFamMemb, KadrController.Instance.Model.OK_Fams, null);
-
-            LoadFamMembers();
+            CRUDMembFam.Delete(Employee, oKFamBindingSource);
         }
 
         private void tsbAddDopInf_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_DopInf> dlg =
-               new Kadr.UI.Common.PropertyGridDialogAdding<OK_DopInf>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.OK_DopInfs;
-                //dlg.BindingSource = employeeStandingBindingSource;
-                dlg.UseInternalCommandManager = true;
-                dlg.PrikazButtonVisible = false;
-
-                dlg.InitializeNewObject = (x) =>
-                {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopInf, Employee>(x, "Employee", Employee, null), this);
-                };
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.OK_DopInfs;
-                };
-
-                dlg.ShowDialog();
-            }
-            
-            LoadDopInf();
+            CRUDDopInfo.Create(Employee, oKDopInfBindingSource, this);
         }
 
         private void tsbEditDopInf_Click(object sender, EventArgs e)
         {
-            if (oKDopInfBindingSource.Current != null)
-                LinqActionsController<OK_DopInf>.Instance.EditObject(
-                        oKDopInfBindingSource.Current as OK_DopInf, true);
-            LoadDopInf();
+            CRUDDopInfo.Update(Employee, oKDopInfBindingSource);
         }
 
         private void tsbDelDopInf_Click(object sender, EventArgs e)
         {
-            OK_DopInf CurrentDopInf = oKDopInfBindingSource.Current as OK_DopInf;
-
-            if (CurrentDopInf == null)
-            {
-                MessageBox.Show("Не выбрана удаляемая строка.", "ИС \"Управление кадрами\"");
-                return;
-            }
-
-            if (MessageBox.Show("Удалить выбранную строку из дополнительных сведений?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
-                != DialogResult.OK)
-            {
-                return;
-            }
-
-            LinqActionsController<OK_DopInf>.Instance.DeleteObject(CurrentDopInf, KadrController.Instance.Model.OK_DopInfs, null);
-
-            LoadDopInf();
+            CRUDDopInfo.Delete(Employee, oKDopInfBindingSource);
         }
 
         private void tsbAddIncapacity_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Inkapacity> dlg =
-               SimpleActionsController.NewSimpleObjectDialog<OK_Inkapacity>())
-            {
-             
-                dlg.InitializeNewObject = (x =>
-                {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, Employee>(x, "Employee", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, EducDocument>(x, "EducDocument",
-                        new EducDocument(commandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.InkapacityDocTypeName))), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, DateTime>(x, "DateBegin", DateTime.Today.Date, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Inkapacity, DateTime?>(x, "DateEnd", DateTime.Today.AddDays(7).Date, null), this);
-                });
-              
-                dlg.ShowDialog();
-            }
-            LoadIncapacities();
+            CRUDIncapacity.Create(Employee, inkapacityDecoratorBindingSource, this);
         }
 
-        private void LoadIncapacities()
-        {
-            inkapacityDecoratorBindingSource.DataSource = KadrController.Instance.Model.OK_Inkapacities.Where(x => x.Employee == Employee)
-                    .OrderBy(x => x.DateBegin)
-                    .Select(x => new InkapacityDecorator(x)); 
-
-        }
 
         private void tsbEditIncapacity_Click(object sender, EventArgs e)
         {
-            if (inkapacityDecoratorBindingSource.Current != null)
-                LinqActionsController<OK_Inkapacity>.Instance.EditObject(
-                        (inkapacityDecoratorBindingSource.Current as InkapacityDecorator).GetInkapacity(), true);
-            LoadIncapacities();
-
+            CRUDIncapacity.Update(Employee, inkapacityDecoratorBindingSource);
         }
 
         private void tsbDeleteIncapacity_Click(object sender, EventArgs e)
         {
-            if (inkapacityDecoratorBindingSource.Current == null)
-                MessageBox.Show("Не выбрана командировка!");
-            else
-                if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (inkapacityDecoratorBindingSource.Current as InkapacityDecorator).ToString()), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    OK_Inkapacity i = (inkapacityDecoratorBindingSource.Current as InkapacityDecorator).GetInkapacity();
-
-                    if (i.EducDocument!=null)
-                    KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(i.EducDocument);
-                    LinqActionsController<OK_Inkapacity>.Instance.DeleteObject(i, KadrController.Instance.Model.OK_Inkapacities, null);
-
-                }
-            LoadIncapacities();
-
+            CRUDIncapacity.Delete(Employee, inkapacityDecoratorBindingSource);
         }
 
 
@@ -5557,49 +5029,17 @@ namespace Kadr.UI.Frames
 
         private void tsbAddAward_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<Award> dlg =
-               SimpleActionsController.NewSimpleObjectDialog<Award>())
-            {
-                dlg.InitializeNewObject = (x =>
-                {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Award, Employee>(x, "Employee", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Award, EducDocument>(x, "EducDocument",
-                        new EducDocument(commandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.AwardDocTypeName))), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Award, AwardType>(x, "AwardType", KadrController.Instance.Model.AwardTypes.FirstOrDefault(), null), this);
-                });
-
-                dlg.ShowDialog();
-            }
-            LoadAwards();
-        }
-
-        private void LoadAwards()
-        {
-            awardDecoratorBindingSource.DataSource = KadrController.Instance.Model.Awards.Where(x => x.Employee == Employee)
-                    .OrderBy(x => x.EducDocument.DocDate)
-                    .Select(x => new AwardDecorator(x)); 
+            CRUDAward.Create(Employee, awardDecoratorBindingSource, this);
         }
 
         private void tsbEditAward_Click(object sender, EventArgs e)
         {
-            if (awardDecoratorBindingSource.Current != null)
-                LinqActionsController<Award>.Instance.EditObject(
-                        (awardDecoratorBindingSource.Current as AwardDecorator).GetAward(), true);
-            LoadAwards();
+            CRUDAward.Update(Employee, awardDecoratorBindingSource);
         }
 
         private void tsbDelAward_Click(object sender, EventArgs e)
         {
-            if (awardDecoratorBindingSource.Current == null)
-                MessageBox.Show("Не выбрана награда!");
-            else
-                if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (awardDecoratorBindingSource.Current as AwardDecorator).ToString()), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    Award a = (awardDecoratorBindingSource.Current as AwardDecorator).GetAward();
-                    KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(a.EducDocument);
-                    LinqActionsController<Award>.Instance.DeleteObject(a, KadrController.Instance.Model.Awards, null);
-                }
-            LoadAwards();
+            CRUDAward.Delete(Employee, awardDecoratorBindingSource);
         }
 
         private void dgvAwards_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -5610,52 +5050,18 @@ namespace Kadr.UI.Frames
 
         private void tsbAddSocial_Click(object sender, EventArgs e)
         {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<OK_Social> dlg =
-               SimpleActionsController.NewSimpleObjectDialog<OK_Social>())
-            {
-                dlg.InitializeNewObject = (x =>
-                {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Social, Employee>(x, "Employee", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Social, EducDocument>(x, "EducDocument",
-                        new EducDocument(dlg.CommandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.SocialDocType))), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Social, OK_SocialStatus>(x, "OK_SocialStatus", KadrController.Instance.Model.OK_SocialStatus.FirstOrDefault(), null), this);
-                });
-               
-                dlg.ShowDialog();
-            }
-
-            LoadSocials();
+            CRUDSocial.Create(Employee, socialDecoratorBindingSource, this);
         }
 
         private void tsbEditSocial_Click(object sender, EventArgs e)
         {
-            if (socialDecoratorBindingSource.Current != null)
-                LinqActionsController<OK_Social>.Instance.EditObject(
-                        (socialDecoratorBindingSource.Current as SocialDecorator).GetSocial(), true);
-            LoadSocials();
+            CRUDSocial.Update(Employee, socialDecoratorBindingSource);
         }
 
-        private void LoadSocials()
-        {
-            socialDecoratorBindingSource.DataSource = KadrController.Instance.Model.OK_Socials.Where(x => x.Employee == Employee)
-                    .Select(x => new SocialDecorator(x)); 
-        }
 
         private void tsbDelSocial_Click(object sender, EventArgs e)
         {
-            if (socialDecoratorBindingSource.Current == null)
-                MessageBox.Show("Не выбран социальный статус!");
-            else
-                if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (socialDecoratorBindingSource.Current as SocialDecorator).ToString()), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    OK_Social o = (socialDecoratorBindingSource.Current as SocialDecorator).GetSocial();
-
-                    if (o.EducDocument!=null)
-                    KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(o.EducDocument);
-                    LinqActionsController<OK_Social>.Instance.DeleteObject(o, KadrController.Instance.Model.OK_Socials, null);
-
-                }
-            LoadSocials();
+            CRUDSocial.Delete(Employee, socialDecoratorBindingSource);
         }
 
         private void dgvSocials_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -5665,17 +5071,17 @@ namespace Kadr.UI.Frames
 
         private void tsbAddValidation_Click(object sender, EventArgs e)
         {
-            CRUDValidation.AddValidation((FactStaff)factStaffBindingSource.Current,validationDecoratorBindingSource,this); 
+            CRUDValidation.Create((FactStaff)factStaffBindingSource.Current,validationDecoratorBindingSource,this); 
         }
 
         private void tsbEditValidation_Click(object sender, EventArgs e)
         {
-            CRUDValidation.EditValidation((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
+            CRUDValidation.Update((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
         }
 
         private void tsbDelValidation_Click(object sender, EventArgs e)
         {
-            CRUDValidation.DeleteValidation((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
+            CRUDValidation.Delete((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
         }
 
         private void dgvValidations_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

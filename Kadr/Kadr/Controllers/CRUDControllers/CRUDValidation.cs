@@ -10,10 +10,10 @@ namespace Kadr.Controllers
 {
     static class CRUDValidation
     {
-        public static void AddValidation(FactStaff fs, BindingSource ValidationDecoratorBS, object sender)
+        public static void Create(FactStaff fs, BindingSource ValidationDecoratorBS, object sender)
         {
         using (PropertyGridDialogAdding<Validation> dlg =
-               SimpleActionsController.NewSimpleObjectDialog<Validation>())
+               SimpleActionsProvider.NewSimpleObjectAddingDialog<Validation>())
             {
 
                 dlg.InitializeNewObject = (x =>
@@ -33,18 +33,24 @@ namespace Kadr.Controllers
                 dlg.ShowDialog();
             }
 
-        LoadValidations(fs, ValidationDecoratorBS);
+        Read(fs, ValidationDecoratorBS);
         }
 
-        public static void EditValidation(FactStaff fs, BindingSource ValidationDecoratorBS)
+        public static void Read(FactStaff fs, BindingSource ValidationDecoratorBS)
+        {
+            ValidationDecoratorBS.DataSource = KadrController.Instance.Model.Validations.Where(t => t.FactStaffPrikaz.FactStaff == fs)
+                .Select(x => x.GetDecorator()).ToList();
+        }
+
+        public static void Update(FactStaff fs, BindingSource ValidationDecoratorBS)
         {
             if (ValidationDecoratorBS.Current != null)
                 LinqActionsController<Validation>.Instance.EditObject(
                         (ValidationDecoratorBS.Current as ValidationDecorator).GetValidation(), true);
-            LoadValidations(fs, ValidationDecoratorBS);
+            Read(fs, ValidationDecoratorBS);
         }
 
-        public static void DeleteValidation(FactStaff fs, BindingSource ValidationDecoratorBS)
+        public static void Delete(FactStaff fs, BindingSource ValidationDecoratorBS)
         {
             if (ValidationDecoratorBS.Current == null)
                 MessageBox.Show("Не выбран социальный статус!");
@@ -62,13 +68,9 @@ namespace Kadr.Controllers
                     LinqActionsController<Validation>.Instance.DeleteObject(v, KadrController.Instance.Model.Validations, null);
 
                 }
-            LoadValidations(fs, ValidationDecoratorBS);
+            Read(fs, ValidationDecoratorBS);
         }
 
-        public static void LoadValidations(FactStaff fs, BindingSource ValidationDecoratorBS)
-        {
-            ValidationDecoratorBS.DataSource = KadrController.Instance.Model.Validations.Where(t => t.FactStaffPrikaz.FactStaff == fs)
-                .Select(x => x.GetDecorator()).ToList();
-        }
+        
     }
 }
