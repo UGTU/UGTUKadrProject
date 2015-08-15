@@ -38,7 +38,7 @@ namespace Kadr.Data
 
         [System.ComponentModel.DisplayName("Тип образования")]
         [System.ComponentModel.Category("Основные")]
-        [System.ComponentModel.Description("Наименование типа образования")]
+        [System.ComponentModel.Description("Наименование образования")]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<EducationType>))]
         public EducationType Type
         {

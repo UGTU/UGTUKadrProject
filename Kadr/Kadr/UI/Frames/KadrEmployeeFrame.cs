@@ -330,23 +330,22 @@ namespace Kadr.UI.Frames
         private ToolStripButton DeleteLanguageBtn;
         private DataGridView dataGridView9;
         private BindingSource EmplLanguageBindingSource;
-        private DataGridViewTextBoxColumn Language;
-        private DataGridViewTextBoxColumn LanguageLevel;
-        private DataGridViewTextBoxColumn Serie;
-        private DataGridViewTextBoxColumn Number;
-        private DataGridViewTextBoxColumn Date;
-        private DataGridViewTextBoxColumn Organization;
+        private DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn educWhenDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn whereDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn educDocumentTypeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn seriaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn specDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn qualificationDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn languageDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn languageLevelDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn EducWhen;
-        private DataGridViewTextBoxColumn Where;
-        private DataGridViewTextBoxColumn Spec;
-        private DataGridViewTextBoxColumn Qualification;
         #region Properties
 
         /// <summary>
@@ -475,7 +474,7 @@ namespace Kadr.UI.Frames
             EducationBindingSource.DataSource =
                 KadrController.Instance.Model.OK_Educs.Where(educ => educ.Employee == Employee).Select(x => new EducationDecorator(x)).ToList();
             EmplLanguageBindingSource.DataSource =
-                KadrController.Instance.Model.OK_EmployeeLangs.Where(educLang => educLang.Employee == Employee);
+                KadrController.Instance.Model.OK_EmployeeLangs.Where(educLang => educLang.Employee == Employee).Select(x=> new EmployeeLangDecorator(x)).ToList();
         }
 
         private void LoadOtpusk()
@@ -874,6 +873,16 @@ namespace Kadr.UI.Frames
             this.EditEducation = new System.Windows.Forms.ToolStripButton();
             this.DeleteEducationBtn = new System.Windows.Forms.ToolStripButton();
             this.dataGridView10 = new System.Windows.Forms.DataGridView();
+            this.typeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.educWhenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.whereDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.educDocumentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.organizationDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qualificationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EducationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbLanguages = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
@@ -882,12 +891,6 @@ namespace Kadr.UI.Frames
             this.EditLanguageBtn = new System.Windows.Forms.ToolStripButton();
             this.DeleteLanguageBtn = new System.Windows.Forms.ToolStripButton();
             this.dataGridView9 = new System.Windows.Forms.DataGridView();
-            this.Language = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LanguageLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.languageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.languageLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1004,11 +1007,6 @@ namespace Kadr.UI.Frames
             this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EducWhen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Where = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Spec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -3174,11 +3172,16 @@ namespace Kadr.UI.Frames
             dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView10.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridView10.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.EducWhen,
-            this.Where,
-            this.Spec,
-            this.Qualification});
+            this.typeDataGridViewTextBoxColumn1,
+            this.educWhenDataGridViewTextBoxColumn,
+            this.whereDataGridViewTextBoxColumn,
+            this.educDocumentTypeDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn2,
+            this.seriaDataGridViewTextBoxColumn,
+            this.numberDataGridViewTextBoxColumn3,
+            this.organizationDataGridViewTextBoxColumn2,
+            this.specDataGridViewTextBoxColumn,
+            this.qualificationDataGridViewTextBoxColumn});
             this.dataGridView10.DataSource = this.EducationBindingSource;
             dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
@@ -3197,6 +3200,84 @@ namespace Kadr.UI.Frames
             this.dataGridView10.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView10.Size = new System.Drawing.Size(929, 236);
             this.dataGridView10.TabIndex = 8;
+            // 
+            // typeDataGridViewTextBoxColumn1
+            // 
+            this.typeDataGridViewTextBoxColumn1.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn1.HeaderText = "Тип образования";
+            this.typeDataGridViewTextBoxColumn1.Name = "typeDataGridViewTextBoxColumn1";
+            this.typeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.typeDataGridViewTextBoxColumn1.Width = 250;
+            // 
+            // educWhenDataGridViewTextBoxColumn
+            // 
+            this.educWhenDataGridViewTextBoxColumn.DataPropertyName = "EducWhen";
+            this.educWhenDataGridViewTextBoxColumn.HeaderText = "Год окончания";
+            this.educWhenDataGridViewTextBoxColumn.Name = "educWhenDataGridViewTextBoxColumn";
+            this.educWhenDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // whereDataGridViewTextBoxColumn
+            // 
+            this.whereDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.whereDataGridViewTextBoxColumn.DataPropertyName = "Where";
+            this.whereDataGridViewTextBoxColumn.HeaderText = "Образовательное учреждение";
+            this.whereDataGridViewTextBoxColumn.Name = "whereDataGridViewTextBoxColumn";
+            this.whereDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // educDocumentTypeDataGridViewTextBoxColumn
+            // 
+            this.educDocumentTypeDataGridViewTextBoxColumn.DataPropertyName = "EducDocumentType";
+            this.educDocumentTypeDataGridViewTextBoxColumn.HeaderText = "Вид документа";
+            this.educDocumentTypeDataGridViewTextBoxColumn.Name = "educDocumentTypeDataGridViewTextBoxColumn";
+            this.educDocumentTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.educDocumentTypeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dateDataGridViewTextBoxColumn2
+            // 
+            this.dateDataGridViewTextBoxColumn2.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn2.HeaderText = "Дата вручения";
+            this.dateDataGridViewTextBoxColumn2.Name = "dateDataGridViewTextBoxColumn2";
+            this.dateDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dateDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // seriaDataGridViewTextBoxColumn
+            // 
+            this.seriaDataGridViewTextBoxColumn.DataPropertyName = "Seria";
+            this.seriaDataGridViewTextBoxColumn.HeaderText = "\t\tСерия";
+            this.seriaDataGridViewTextBoxColumn.Name = "seriaDataGridViewTextBoxColumn";
+            this.seriaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.seriaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // numberDataGridViewTextBoxColumn3
+            // 
+            this.numberDataGridViewTextBoxColumn3.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn3.HeaderText = "\tНомер";
+            this.numberDataGridViewTextBoxColumn3.Name = "numberDataGridViewTextBoxColumn3";
+            this.numberDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.numberDataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // organizationDataGridViewTextBoxColumn2
+            // 
+            this.organizationDataGridViewTextBoxColumn2.DataPropertyName = "Organization";
+            this.organizationDataGridViewTextBoxColumn2.HeaderText = "Организация";
+            this.organizationDataGridViewTextBoxColumn2.Name = "organizationDataGridViewTextBoxColumn2";
+            this.organizationDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.organizationDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // specDataGridViewTextBoxColumn
+            // 
+            this.specDataGridViewTextBoxColumn.DataPropertyName = "Spec";
+            this.specDataGridViewTextBoxColumn.HeaderText = "Направление/Специальность";
+            this.specDataGridViewTextBoxColumn.Name = "specDataGridViewTextBoxColumn";
+            this.specDataGridViewTextBoxColumn.ReadOnly = true;
+            this.specDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // qualificationDataGridViewTextBoxColumn
+            // 
+            this.qualificationDataGridViewTextBoxColumn.DataPropertyName = "Qualification";
+            this.qualificationDataGridViewTextBoxColumn.HeaderText = "Квалификация";
+            this.qualificationDataGridViewTextBoxColumn.Name = "qualificationDataGridViewTextBoxColumn";
+            this.qualificationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // EducationBindingSource
             // 
@@ -3284,12 +3365,6 @@ namespace Kadr.UI.Frames
             dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView9.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridView9.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Language,
-            this.LanguageLevel,
-            this.Serie,
-            this.Number,
-            this.Date,
-            this.Organization,
             this.languageDataGridViewTextBoxColumn,
             this.languageLevelDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn1,
@@ -3315,55 +3390,13 @@ namespace Kadr.UI.Frames
             this.dataGridView9.Size = new System.Drawing.Size(929, 227);
             this.dataGridView9.TabIndex = 8;
             // 
-            // Language
-            // 
-            this.Language.DataPropertyName = "Language";
-            this.Language.HeaderText = "Язык";
-            this.Language.Name = "Language";
-            this.Language.ReadOnly = true;
-            // 
-            // LanguageLevel
-            // 
-            this.LanguageLevel.DataPropertyName = "LanguageLevel";
-            this.LanguageLevel.HeaderText = "Уровень владения";
-            this.LanguageLevel.Name = "LanguageLevel";
-            this.LanguageLevel.ReadOnly = true;
-            // 
-            // Serie
-            // 
-            this.Serie.DataPropertyName = "Serie";
-            this.Serie.HeaderText = "Серия";
-            this.Serie.Name = "Serie";
-            this.Serie.ReadOnly = true;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "Номер";
-            this.Number.Name = "Number";
-            this.Number.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Дата документа";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Organization
-            // 
-            this.Organization.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Organization.DataPropertyName = "Organization";
-            this.Organization.HeaderText = "Учреждение, выдавшее сертификат";
-            this.Organization.Name = "Organization";
-            this.Organization.ReadOnly = true;
-            // 
             // languageDataGridViewTextBoxColumn
             // 
             this.languageDataGridViewTextBoxColumn.DataPropertyName = "Language";
             this.languageDataGridViewTextBoxColumn.HeaderText = "Название языка";
             this.languageDataGridViewTextBoxColumn.Name = "languageDataGridViewTextBoxColumn";
             this.languageDataGridViewTextBoxColumn.ReadOnly = true;
+            this.languageDataGridViewTextBoxColumn.Width = 150;
             // 
             // languageLevelDataGridViewTextBoxColumn
             // 
@@ -3395,6 +3428,7 @@ namespace Kadr.UI.Frames
             // 
             // organizationDataGridViewTextBoxColumn1
             // 
+            this.organizationDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.organizationDataGridViewTextBoxColumn1.DataPropertyName = "Organization";
             this.organizationDataGridViewTextBoxColumn1.HeaderText = "Организация";
             this.organizationDataGridViewTextBoxColumn1.Name = "organizationDataGridViewTextBoxColumn1";
@@ -4434,42 +4468,6 @@ namespace Kadr.UI.Frames
             this.dataGridViewTextBoxColumn65.HeaderText = "Звание утверждено";
             this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Type";
-            this.Column1.HeaderText = "Тип образования";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // EducWhen
-            // 
-            this.EducWhen.DataPropertyName = "EducWhen";
-            this.EducWhen.HeaderText = "Год окончания";
-            this.EducWhen.Name = "EducWhen";
-            this.EducWhen.ReadOnly = true;
-            // 
-            // Where
-            // 
-            this.Where.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Where.DataPropertyName = "Where";
-            this.Where.HeaderText = "Образовательное учреждение";
-            this.Where.Name = "Where";
-            this.Where.ReadOnly = true;
-            // 
-            // Spec
-            // 
-            this.Spec.DataPropertyName = "Spec";
-            this.Spec.HeaderText = "Специальность/направление";
-            this.Spec.Name = "Spec";
-            this.Spec.ReadOnly = true;
-            // 
-            // Qualification
-            // 
-            this.Qualification.DataPropertyName = "Qualification";
-            this.Qualification.HeaderText = "Квалификация";
-            this.Qualification.Name = "Qualification";
-            this.Qualification.ReadOnly = true;
-            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5403,14 +5401,11 @@ namespace Kadr.UI.Frames
 
                 dlg.InitializeNewObject = (x) =>
                 {
-                    var educDocument = new EducDocument();
-                    EducDocumentType docType = KadrController.Instance.Model.EducDocumentTypes.Where(educDocType
-                        => educDocType.id == 12).First();
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, Employee>(x, "Employee", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, EducDocument>(x, "EducDocument", educDocument, null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, EducDocument>(x, "EducDocument",
+                         new EducDocument(commandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.id == EducDocumentType.EducationDoc))), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, EducationType>(x, "EducationType", KadrController.Instance.Model.EducationTypes.FirstOrDefault(), null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, int>(x, "EducWhen", DateTime.Today.Year, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EducDocument, EducDocumentType>(x.EducDocument, "EducDocument", docType, null), this);
                 };
                 dlg.UpdateObjectList = () =>
                 {

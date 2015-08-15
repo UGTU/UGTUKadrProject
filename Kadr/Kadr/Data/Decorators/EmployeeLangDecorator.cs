@@ -98,7 +98,9 @@ namespace Kadr.Data
         {
             get
             {
-                return _employeeLang.EducDocument.DocDate;
+                if (_employeeLang.EducDocument != null)
+                  return _employeeLang.EducDocument.DocDate;
+                return null;
             }
             set
             {
