@@ -145,5 +145,17 @@ namespace Kadr.Properties {
                 this["ValidationDocType"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SexImagesInterval {
+            get {
+                return ((int)(this["SexImagesInterval"]));
+            }
+            set {
+                this["SexImagesInterval"] = value;
+            }
+        }
     }
 }

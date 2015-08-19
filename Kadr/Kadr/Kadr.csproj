@@ -1182,6 +1182,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CONSTRUC.ICO" />
+    <Content Include="Resources\woman_unavailable.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\1320205531_1.jpg" />
     <None Include="Resources\Excel.bmp" />
