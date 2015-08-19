@@ -81,7 +81,7 @@ namespace Kadr.Controllers
         {
             if (editObject == null)
             {
-                MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
+                MessageBox.Show("Не выбран редактируемый объект.", "ИС \"Управление кадрами\"");
                 return;
             }
 

@@ -80,7 +80,6 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Показатель хорошего владения языком")]
         [System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.Browsable(false)]
 
         public bool levelbit
         {

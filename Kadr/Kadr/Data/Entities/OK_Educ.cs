@@ -31,8 +31,8 @@ namespace Kadr.Data
             get
             {
                 if ((EducDocument != null) && (EducDocument.Organisation != null))
-                    return EducDocument.Organisation.ToString();
-                return EducWhere;
+                     return EducDocument.Organisation.ToString();
+                return EducWhere ?? "";
             }
         }
 

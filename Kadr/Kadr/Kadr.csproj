@@ -195,13 +195,30 @@
   <ItemGroup>
     <Compile Include="Command\CreatePlanStaffCommand.cs" />
     <Compile Include="Controllers\BonusController.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDSocial.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDAward.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDIncapacity.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDMembFam.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDPhone.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDAddress.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDBusinessRegionType.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDBusinessTrips.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDDopInfo.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDEmployeeDegree.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDEmployeeRank.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDMaterials.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDStandings.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDVacation.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDValidation.cs" />
     <Compile Include="Controllers\ExcelExportController.cs" />
     <Compile Include="Controllers\KadrController.cs" />
     <Compile Include="Controllers\LinqActionsController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
+    <Compile Include="Controllers\SimpleActionsProvider.cs" />
+    <Compile Include="Data\Common\CompareObject.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
-    <Compile Include="Data\Converters\FinSourceConverter.cs" />
+    <Compile Include="Data\Common\NullObject.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
@@ -226,6 +243,7 @@
     <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
     <Compile Include="Data\Decorators\OK_AdressDecorator.cs" />
     <Compile Include="Data\Decorators\OK_phoneDecorator.cs" />
+    <Compile Include="Data\Decorators\SocialDecorator.cs" />
     <Compile Include="Data\Decorators\SocialFareTransitDecorator.cs" />
     <Compile Include="Data\Decorators\OK_OtpuskDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHourContractDecorator.cs" />
@@ -254,6 +272,7 @@
     <Compile Include="Data\Decorators\DepartmentHistoryDecorator.cs" />
     <Compile Include="Data\Decorators\DepartmentDecorator.cs" />
     <Compile Include="Data\Decorators\InkapacityDecorator.cs" />
+    <Compile Include="Data\Decorators\ValidationDecorator.cs" />
     <Compile Include="Data\Entities\Award.cs" />
     <Compile Include="Data\Entities\AwardType.cs" />
     <Compile Include="Data\Entities\Bonus.cs" />
@@ -304,10 +323,13 @@
     <Compile Include="Data\Entities\OK_Inkapacity.cs" />
     <Compile Include="Data\Entities\OK_DopInf.cs" />
     <Compile Include="Data\Entities\OK_Fam.cs" />
+    <Compile Include="Data\Entities\OK_Language.cs" />
     <Compile Include="Data\Entities\OK_MembFam.cs" />
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
     <Compile Include="Data\Entities\OK_phone.cs" />
+    <Compile Include="Data\Entities\OK_Social.cs" />
+    <Compile Include="Data\Entities\OK_SocialStatus.cs" />
     <Compile Include="Data\Entities\Organisation.cs" />
     <Compile Include="Data\Entities\PKCategory.cs" />
     <Compile Include="Data\Entities\PKCategorySalary.cs" />
@@ -330,8 +352,11 @@
     <Compile Include="Data\Entities\TimeSheet.cs" />
     <Compile Include="Data\Entities\TimeSheetFSWorkingDay.cs" />
     <Compile Include="Data\Entities\TimeSheetRecord.cs" />
+    <Compile Include="Data\Entities\Validation.cs" />
+    <Compile Include="Data\Entities\ValidationDecision.cs" />
     <Compile Include="Data\Entities\WorkShedule.cs" />
     <Compile Include="Data\Entities\WorkType.cs" />
+    <Compile Include="Interfaces\IOrderInformer.cs" />
     <Compile Include="KadrTreeView\KadrTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1021,6 +1046,12 @@
       <LastGenOutput>dckadr.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Kadr.Data.ValidationDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Kadr.Data.SocialDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.AwardDecorator.datasource">
       <SubType>Designer</SubType>
     </None>
@@ -1229,6 +1260,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

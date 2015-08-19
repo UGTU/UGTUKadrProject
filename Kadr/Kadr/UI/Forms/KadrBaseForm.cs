@@ -414,7 +414,7 @@ namespace Kadr.UI.Forms
             //ImportDailyReportFiles();
             kadrTreeView1.CreateRootNodes();
             CreateNodeContextItems();
-           
+            Text = "ИС \"Управление кадрами\" (" + DateTime.Today.ToShortDateString() + ")";
         }
 
         // Импортирует файлы, переданные через командную сроку

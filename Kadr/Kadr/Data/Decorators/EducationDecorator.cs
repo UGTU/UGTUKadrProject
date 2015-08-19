@@ -63,18 +63,13 @@ namespace Kadr.Data
       
         public string Where
         {
-            get
-            {
-                if ((_education.EducDocument != null) && (_education.EducDocument.Organisation != null))
-                    return _education.EducDocument.Organisation.ToString();
-                return _education.EducWhere;
-            }
+            get { return _education.Where; }
         }
 
         [System.ComponentModel.DisplayName("Год окончания")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Год окончания образования")]
-        public int EducWhen
+        public int? EducWhen
         {
             get
             {
@@ -129,8 +124,7 @@ namespace Kadr.Data
             {
                 if (_education.EducDocument != null)
                     return _education.EducDocument.DocSeries;
-                else
-                    return "";
+                return "";
             }
             set
             {
@@ -149,8 +143,7 @@ namespace Kadr.Data
             {
                 if (_education.EducDocument != null)
                     return _education.EducDocument.DocNumber;
-                else
-                    return "";
+                return "";
             }
             set
             {

@@ -9,14 +9,13 @@ namespace Kadr.Data
     class BusinessTripDecorator
     {
         private BusinessTrip Trip;
-        private DateTime PDate = DateTime.Now.Date;
 
         public BusinessTripDecorator(BusinessTrip Trip)
         {
             this.Trip = Trip;
-            if (Trip.FactStaffPrikaz.Prikaz != null)
+            /*if (Trip.FactStaffPrikaz.Prikaz != null)
                 if (Trip.FactStaffPrikaz.Prikaz.DatePrikaz != null)
-                    PDate = (DateTime)Trip.FactStaffPrikaz.Prikaz.DatePrikaz;
+                    PDate = (DateTime)Trip.FactStaffPrikaz.Prikaz.DatePrikaz;*/
         }
 
         public override string ToString()
@@ -41,6 +40,7 @@ namespace Kadr.Data
             }*/
         }
 
+        /*
         [System.ComponentModel.DisplayName("Дата приказа")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Дата, по которой будет отфильтровано поле 'Приказ'")]
@@ -54,7 +54,7 @@ namespace Kadr.Data
             {
                 if (value != null) PDate = value;
             }
-        }
+        }*/
 
         [System.ComponentModel.DisplayName("Приказ")]
 
