@@ -10,6 +10,8 @@ namespace Kadr.Data
 {
     public partial class EducDocumentType : INull
     {
+        public static int EducationDoc = 12;
+
         public override string ToString()
         {
             return DocTypeName;

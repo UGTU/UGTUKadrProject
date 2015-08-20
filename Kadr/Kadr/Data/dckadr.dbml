@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KadrRealTest" Class="dckadrDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="KadrConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="kadrConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DepartmentType" Member="DepartmentTypes">
     <Type Name="DepartmentType">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -774,9 +774,10 @@
       <Association Name="Employee_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEmployee" Type="OK_Inkapacity" />
       <Association Name="Employee_OK_DopInf" Member="OK_DopInfs" ThisKey="id" OtherKey="idEmployee" Type="OK_DopInf" />
       <Association Name="Employee_OK_Fam" Member="OK_Fams" ThisKey="id" OtherKey="idemployee" Type="OK_Fam" />
+      <Association Name="Employee_Award" Member="Awards" ThisKey="id" OtherKey="IDEmployee" Type="Award" />
+      <Association Name="Employee_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="id" OtherKey="idEmployee" Type="OK_EmployeeLang" />
       <Association Name="Employee_OK_Educ" Member="OK_Educs" ThisKey="id" OtherKey="idEmployee" Type="OK_Educ" />
       <Association Name="Employee_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEmployee" Type="OK_Social" />
-      <Association Name="Employee_Award" Member="Awards" ThisKey="id" OtherKey="IDEmployee" Type="Award" />
       <Association Name="Grazd_Employee" Member="Grazd" ThisKey="idGrazd" OtherKey="id" Type="Grazd" IsForeignKey="true" />
       <Association Name="SemPol_Employee" Member="SemPol" ThisKey="idSemPol" OtherKey="id" Type="SemPol" IsForeignKey="true" />
     </Type>
@@ -939,57 +940,6 @@
       <Association Name="RegionType_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idRegionType" Type="BusinessTripRegionType" />
     </Type>
   </Table>
-  <Table Name="dbo.EducationType" Member="EducationTypes">
-    <Type Name="EducationType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EduTypeName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="EducationType_OK_Educ" Member="OK_Educs" ThisKey="id" OtherKey="idEducationType" Type="OK_Educ" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_Educ" Member="OK_Educs">
-    <Type Name="OK_Educ">
-      <Column Name="idEducDocument" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EducWhere" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="EducWhen" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Spec" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Kvalif" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="idEducationType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="EducationType_OK_Educ" Member="EducationType" ThisKey="idEducationType" OtherKey="id" Type="EducationType" IsForeignKey="true" />
-      <Association Name="Employee_OK_Educ" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="EducDocument_OK_Educ" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.EducDocument" Member="EducDocuments">
-    <Type Name="EducDocument">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEducDocType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DocSeries" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="DocNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="DocDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IdOrganisation" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="EducDocument_EmployeeRank" Member="EmployeeRank" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeRank" Cardinality="One" />
-      <Association Name="EducDocument_EmployeeDegree" Member="EmployeeDegree" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeDegree" Cardinality="One" />
-      <Association Name="EducDocument_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEducDocument" Type="OK_Inkapacity" />
-      <Association Name="EducDocument_OK_Educ" Member="OK_Educ" ThisKey="id" OtherKey="idEducDocument" Type="OK_Educ" Cardinality="One" />
-      <Association Name="EducDocument_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEducDocument" Type="OK_Social" />
-      <Association Name="EducDocument_Award" Member="Awards" ThisKey="id" OtherKey="IDEducDocument" Type="Award" />
-      <Association Name="EducDocument_Validation" Member="Validations" ThisKey="id" OtherKey="IDEducDocument" Type="Validation" />
-      <Association Name="EducDocumentType_EducDocument" Member="EducDocumentType" ThisKey="idEducDocType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
-      <Association Name="Organisation_EducDocument" Member="Organisation" ThisKey="IdOrganisation" OtherKey="id" Type="Organisation" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_Social" Member="OK_Socials">
-    <Type Name="OK_Social">
-      <Column Name="idSocial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idSocialStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="EducDocument_OK_Social" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
-      <Association Name="Employee_OK_Social" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="OK_SocialStatus_OK_Social" Member="OK_SocialStatus" ThisKey="idSocialStatus" OtherKey="idSocialStatus" Type="OK_SocialStatus" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.OK_SocialStatus" Member="OK_SocialStatus">
     <Type Name="OK_SocialStatus">
       <Column Name="idSocialStatus" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1005,9 +955,9 @@
       <Column Name="IDAwardType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IDFactStaffPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="AwardType_Award" Member="AwardType" ThisKey="IDAwardType" OtherKey="ID" Type="AwardType" IsForeignKey="true" />
-      <Association Name="EducDocument_Award" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
       <Association Name="Employee_Award" Member="Employee" ThisKey="IDEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
       <Association Name="FactStaffPrikaz_Award" Member="FactStaffPrikaz" ThisKey="IDFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
+      <Association Name="EducDocument_Award" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ValidationDecision" Member="ValidationDecisions">
@@ -1024,9 +974,90 @@
       <Column Name="IDFactStaffPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IDValidDecision" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Commentary" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="EducDocument_Validation" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
       <Association Name="FactStaffPrikaz_Validation" Member="FactStaffPrikaz" ThisKey="IDFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
       <Association Name="ValidationDecision_Validation" Member="ValidationDecision" ThisKey="IDValidDecision" OtherKey="ID" Type="ValidationDecision" IsForeignKey="true" />
+      <Association Name="EducDocument_Validation" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Language" Member="OK_Languages">
+    <Type Name="OK_Language">
+      <Column Name="idlanguage" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="languagename" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="OK_Language_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="idlanguage" OtherKey="idLanguage" Type="OK_EmployeeLang" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_EmployeeLang" Member="OK_EmployeeLangs">
+    <Type Name="OK_EmployeeLang">
+      <Column Name="idEmployeeLang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idLanguage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="goodlevelbit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idLanguageLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Employee_OK_EmployeeLang" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="OK_Language_OK_EmployeeLang" Member="OK_Language" ThisKey="idLanguage" OtherKey="idlanguage" Type="OK_Language" IsForeignKey="true" />
+      <Association Name="EducDocument_OK_EmployeeLang" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="LanguageLevel_OK_EmployeeLang" Member="LanguageLevel" ThisKey="idLanguageLevel" OtherKey="id" Type="LanguageLevel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Educ" Member="OK_Educs">
+    <Type Name="OK_Educ">
+      <Column Name="idEducDocument" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EducWhere" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EducWhen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Spec" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Kvalif" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="idEducationType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Employee_OK_Educ" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="EducationType_OK_Educ" Member="EducationType" ThisKey="idEducationType" OtherKey="id" Type="EducationType" IsForeignKey="true" />
+      <Association Name="EducDocument_OK_Educ" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EducationType" Member="EducationTypes">
+    <Type Name="EducationType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EduTypeName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="EducationType_OK_Educ" Member="OK_Educs" ThisKey="id" OtherKey="idEducationType" Type="OK_Educ" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EducDocument" Member="EducDocuments">
+    <Type Name="EducDocument">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEducDocType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocSeries" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DocNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DocDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdOrganisation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EducDocument_EmployeeRank" Member="EmployeeRank" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeRank" Cardinality="One" />
+      <Association Name="EducDocument_EmployeeDegree" Member="EmployeeDegree" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeDegree" Cardinality="One" />
+      <Association Name="EducDocument_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEducDocument" Type="OK_Inkapacity" />
+      <Association Name="EducDocument_Award" Member="Awards" ThisKey="id" OtherKey="IDEducDocument" Type="Award" />
+      <Association Name="EducDocument_Validation" Member="Validations" ThisKey="id" OtherKey="IDEducDocument" Type="Validation" />
+      <Association Name="EducDocument_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="id" OtherKey="idEducDocument" Type="OK_EmployeeLang" />
+      <Association Name="EducDocument_OK_Educ" Member="OK_Educ" ThisKey="id" OtherKey="idEducDocument" Type="OK_Educ" Cardinality="One" />
+      <Association Name="EducDocument_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEducDocument" Type="OK_Social" />
+      <Association Name="EducDocumentType_EducDocument" Member="EducDocumentType" ThisKey="idEducDocType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
+      <Association Name="Organisation_EducDocument" Member="Organisation" ThisKey="IdOrganisation" OtherKey="id" Type="Organisation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Social" Member="OK_Socials">
+    <Type Name="OK_Social">
+      <Column Name="idSocial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idSocialStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EducDocument_OK_Social" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Employee_OK_Social" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="OK_SocialStatus_OK_Social" Member="OK_SocialStatus" ThisKey="idSocialStatus" OtherKey="idSocialStatus" Type="OK_SocialStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LanguageLevel" Member="LanguageLevels">
+    <Type Name="LanguageLevel">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LevelName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="GoodBit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="LanguageLevel_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="id" OtherKey="idLanguageLevel" Type="OK_EmployeeLang" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">
