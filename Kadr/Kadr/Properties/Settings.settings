@@ -30,5 +30,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="SexImagesInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
