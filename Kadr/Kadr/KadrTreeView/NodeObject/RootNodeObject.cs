@@ -173,10 +173,12 @@ namespace Kadr.KadrTreeView
                         {
                             System.Windows.Forms.TreeNode node =
                                CreateTreeNode(empl.EmployeeName, typeof(KadrEmployeeObject));
+
                             KadrEmployeeObject obj =
                                 APG.CodeHelper.DBTreeView.DBTreeNodeObject.GetNodeObjectOfNode<KadrEmployeeObject>(node);
                             //obj.Employee = empl;
                             obj.FactStaff = factSt;
+                            node.Nodes.Clear();
                         }
                     }
                 }

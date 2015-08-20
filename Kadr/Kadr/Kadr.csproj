@@ -195,11 +195,26 @@
   <ItemGroup>
     <Compile Include="Command\CreatePlanStaffCommand.cs" />
     <Compile Include="Controllers\BonusController.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDSocial.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDAward.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDIncapacity.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDMembFam.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDPhone.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDAddress.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDBusinessRegionType.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDBusinessTrips.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDDopInfo.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDEmployeeDegree.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDEmployeeRank.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDMaterials.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDStandings.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDVacation.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDValidation.cs" />
     <Compile Include="Controllers\ExcelExportController.cs" />
     <Compile Include="Controllers\KadrController.cs" />
     <Compile Include="Controllers\LinqActionsController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
-    <Compile Include="Controllers\SimpleActionsController.cs" />
+    <Compile Include="Controllers\SimpleActionsProvider.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
@@ -222,6 +237,7 @@
     <Compile Include="Data\Decorators\BonusDecorator.cs" />
     <Compile Include="Data\Decorators\BonusHistoryDecorator.cs" />
     <Compile Include="Data\Decorators\EducationDecorator.cs" />
+    <Compile Include="Data\Decorators\EmployeeLangDecorator.cs" />
     <Compile Include="Data\Decorators\OK_Fam.cs" />
     <Compile Include="Data\Decorators\OK_DopInfDecorator.cs" />
     <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
@@ -256,6 +272,7 @@
     <Compile Include="Data\Decorators\DepartmentHistoryDecorator.cs" />
     <Compile Include="Data\Decorators\DepartmentDecorator.cs" />
     <Compile Include="Data\Decorators\InkapacityDecorator.cs" />
+    <Compile Include="Data\Decorators\ValidationDecorator.cs" />
     <Compile Include="Data\Entities\Award.cs" />
     <Compile Include="Data\Entities\AwardType.cs" />
     <Compile Include="Data\Entities\Bonus.cs" />
@@ -297,13 +314,16 @@
     <Compile Include="Data\Entities\FundingCenter.cs" />
     <Compile Include="Data\Entities\GlobalPrikaz.cs" />
     <Compile Include="Data\Entities\Grazd.cs" />
+    <Compile Include="Data\Entities\LanguageLevel.cs" />
     <Compile Include="Data\Entities\MaterialResponsibility.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Adress.cs" />
     <Compile Include="Data\Entities\OK_Educ.cs" />
+    <Compile Include="Data\Entities\OK_EmployeeLang.cs" />
     <Compile Include="Data\Entities\OK_Inkapacity.cs" />
     <Compile Include="Data\Entities\OK_DopInf.cs" />
     <Compile Include="Data\Entities\OK_Fam.cs" />
+    <Compile Include="Data\Entities\OK_Language.cs" />
     <Compile Include="Data\Entities\OK_MembFam.cs" />
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
@@ -332,6 +352,8 @@
     <Compile Include="Data\Entities\TimeSheet.cs" />
     <Compile Include="Data\Entities\TimeSheetFSWorkingDay.cs" />
     <Compile Include="Data\Entities\TimeSheetRecord.cs" />
+    <Compile Include="Data\Entities\Validation.cs" />
+    <Compile Include="Data\Entities\ValidationDecision.cs" />
     <Compile Include="Data\Entities\WorkShedule.cs" />
     <Compile Include="Data\Entities\WorkType.cs" />
     <Compile Include="Interfaces\IOrderInformer.cs" />
@@ -530,6 +552,18 @@
     </Compile>
     <Compile Include="UI\Dialogs\GrazdDialog.Designer.cs">
       <DependentUpon>GrazdDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\LanguageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\LanguageDialog.Designer.cs">
+      <DependentUpon>LanguageDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\LanguageLevelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\LanguageLevelDialog.Designer.cs">
+      <DependentUpon>LanguageLevelDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\OKVEDDialog.cs">
       <SubType>Form</SubType>
@@ -869,6 +903,12 @@
       <DependentUpon>GrazdDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\LanguageDialog.resx">
+      <DependentUpon>LanguageDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\LanguageLevelDialog.resx">
+      <DependentUpon>LanguageLevelDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\OKVEDDialog.resx">
       <DependentUpon>OKVEDDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -1006,6 +1046,9 @@
       <LastGenOutput>dckadr.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Kadr.Data.ValidationDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.SocialDecorator.datasource">
       <SubType>Designer</SubType>
     </None>
@@ -1084,6 +1127,15 @@
     <None Include="Properties\DataSources\Kadr.Data.Organisation.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EducationType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_Educ.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.LanguageLevel.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_EmployeeLang.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Language.datasource">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Kadr.Data.EmployeeLangDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Kadr.Data.EducationDecorator.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1161,6 +1213,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CONSTRUC.ICO" />
+    <Content Include="Resources\woman_unavailable.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\1320205531_1.jpg" />
     <None Include="Resources\Excel.bmp" />

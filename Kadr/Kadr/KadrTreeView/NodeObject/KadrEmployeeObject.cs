@@ -41,10 +41,24 @@ namespace Kadr.KadrTreeView
             get { return factStaff; }
             set
             {
-                if (factStaff == value) return;
+                //if (factStaff == value) return;
                 factStaff = value;
-                /*if (factStaff!=null)
-                    employee = FactStaff.Employee;*/
+
+                if (factStaff!=null)
+                    RefreshNode();
+            }
+        }
+
+        private void RefreshNode()
+        {
+            if (factStaff != null)
+            {
+                Employee e = factStaff.Employee;
+                
+                if (!e.SexBit)
+                    Node.ImageIndex += Properties.Settings.Default.SexImagesInterval;
+
+
             }
         }
 
@@ -54,6 +68,10 @@ namespace Kadr.KadrTreeView
             : base(node)
         {
             ObjectViewType = typeof(Kadr.UI.Frames.KadrEmployeeFrame);
+            if (factStaff!=null)
+            {
+                factStaff = null;
+            }
             node.ImageIndex = 9;
             node.SelectedImageIndex = 4;
            
