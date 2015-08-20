@@ -5087,6 +5087,7 @@ namespace Kadr.UI.Frames
         private void dgvValidations_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             tsbEditValidation_Click(this, null);
+            //tried to edit for GitHub
         }
 
 
