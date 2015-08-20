@@ -13,6 +13,7 @@ namespace Kadr.Data
             return LevelName;
         }
 
+
         #region INull Members
         public bool IsNull()
         {

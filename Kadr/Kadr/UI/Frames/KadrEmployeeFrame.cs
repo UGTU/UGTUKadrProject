@@ -315,34 +315,7 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn DateEnd;
         private DataGridViewCheckBoxColumn SocialFareTransit;
         private BindingSource EducationBindingSource;
-        private GroupBox gbEducation;
-        private TableLayoutPanel tableLayoutPanel13;
-        private ToolStrip toolStrip14;
-        private ToolStripButton AddEducationBtn;
-        private ToolStripButton EditEducation;
-        private ToolStripButton DeleteEducationBtn;
-        private DataGridView dataGridView10;
-        private GroupBox gbLanguages;
-        private TableLayoutPanel tableLayoutPanel12;
         private BindingSource EmplLanguageBindingSource;
-        private DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn educWhenDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn whereDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn educDocumentTypeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn seriaDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn specDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn qualificationDataGridViewTextBoxColumn;
-        private DataGridView dataGridView9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn71;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn73;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn74;
-        private ToolStrip toolStrip11;
-        private ToolStripButton AddLanguageBtn;
-        private ToolStripButton EditLanguageBtn;
-        private ToolStripButton DeleteLanguageBtn;
         private TabPage tpQualificationGrowth;
         private ToolStrip toolStrip15;
         private ToolStripButton toolStripButton1;
@@ -359,6 +332,38 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn77;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn78;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn79;
+        private SplitContainer splitContainer4;
+        private GroupBox gbEducation;
+        private TableLayoutPanel tableLayoutPanel13;
+        private ToolStrip EducationToolStrip;
+        private ToolStripButton AddEducationBtn;
+        private ToolStripButton EditEducation;
+        private ToolStripButton DeleteEducationBtn;
+        private DataGridView dgvEducation;
+        private DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn educWhenDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn whereDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn educDocumentTypeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn seriaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn specDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn qualificationDataGridViewTextBoxColumn;
+        private GroupBox gbLanguages;
+        private TableLayoutPanel tableLayoutPanel12;
+        private DataGridView dgvLanguage;
+        private ToolStrip LanguageToolStrip;
+        private ToolStripButton AddLanguageBtn;
+        private ToolStripButton EditLanguageBtn;
+        private ToolStripButton DeleteLanguageBtn;
+        private ToolStrip miniToolStrip;
+        private DataGridViewTextBoxColumn Language;
+        private DataGridViewTextBoxColumn LanguageLevel;
+        private DataGridViewTextBoxColumn Level;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn71;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn73;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn74;
         #region Properties
 
         /// <summary>
@@ -881,13 +886,14 @@ namespace Kadr.UI.Frames
             this.tpEducation = new System.Windows.Forms.TabPage();
             this.tcEducation = new System.Windows.Forms.TabControl();
             this.tpGrandEducation = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.gbEducation = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStrip14 = new System.Windows.Forms.ToolStrip();
+            this.EducationToolStrip = new System.Windows.Forms.ToolStrip();
             this.AddEducationBtn = new System.Windows.Forms.ToolStripButton();
             this.EditEducation = new System.Windows.Forms.ToolStripButton();
             this.DeleteEducationBtn = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView10 = new System.Windows.Forms.DataGridView();
+            this.dgvEducation = new System.Windows.Forms.DataGridView();
             this.typeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.educWhenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.whereDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -901,12 +907,15 @@ namespace Kadr.UI.Frames
             this.EducationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbLanguages = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.dgvLanguage = new System.Windows.Forms.DataGridView();
+            this.Language = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LanguageLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn73 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn74 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmplLanguageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStrip11 = new System.Windows.Forms.ToolStrip();
+            this.LanguageToolStrip = new System.Windows.Forms.ToolStrip();
             this.AddLanguageBtn = new System.Windows.Forms.ToolStripButton();
             this.EditLanguageBtn = new System.Windows.Forms.ToolStripButton();
             this.DeleteLanguageBtn = new System.Windows.Forms.ToolStripButton();
@@ -1035,6 +1044,7 @@ namespace Kadr.UI.Frames
             this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -1102,16 +1112,19 @@ namespace Kadr.UI.Frames
             this.tpEducation.SuspendLayout();
             this.tcEducation.SuspendLayout();
             this.tpGrandEducation.SuspendLayout();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
             this.gbEducation.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
-            this.toolStrip14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
+            this.EducationToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEducation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EducationBindingSource)).BeginInit();
             this.gbLanguages.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLanguage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmplLanguageBindingSource)).BeginInit();
-            this.toolStrip11.SuspendLayout();
+            this.LanguageToolStrip.SuspendLayout();
             this.tpPostGradEduc.SuspendLayout();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -3112,8 +3125,7 @@ namespace Kadr.UI.Frames
             // 
             // tpGrandEducation
             // 
-            this.tpGrandEducation.Controls.Add(this.gbEducation);
-            this.tpGrandEducation.Controls.Add(this.gbLanguages);
+            this.tpGrandEducation.Controls.Add(this.splitContainer4);
             this.tpGrandEducation.Location = new System.Drawing.Point(4, 22);
             this.tpGrandEducation.Name = "tpGrandEducation";
             this.tpGrandEducation.Padding = new System.Windows.Forms.Padding(3);
@@ -3122,14 +3134,32 @@ namespace Kadr.UI.Frames
             this.tpGrandEducation.Text = "Основное образование";
             this.tpGrandEducation.UseVisualStyleBackColor = true;
             // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.gbEducation);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.gbLanguages);
+            this.splitContainer4.Size = new System.Drawing.Size(981, 450);
+            this.splitContainer4.SplitterDistance = 250;
+            this.splitContainer4.TabIndex = 4;
+            // 
             // gbEducation
             // 
             this.gbEducation.Controls.Add(this.tableLayoutPanel13);
             this.gbEducation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbEducation.Location = new System.Drawing.Point(3, 3);
+            this.gbEducation.Location = new System.Drawing.Point(0, 0);
             this.gbEducation.Name = "gbEducation";
-            this.gbEducation.Size = new System.Drawing.Size(981, 241);
-            this.gbEducation.TabIndex = 12;
+            this.gbEducation.Size = new System.Drawing.Size(981, 250);
+            this.gbEducation.TabIndex = 13;
             this.gbEducation.TabStop = false;
             this.gbEducation.Text = "Образование";
             // 
@@ -3138,28 +3168,28 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel13.AutoScroll = true;
             this.tableLayoutPanel13.ColumnCount = 1;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel13.Controls.Add(this.toolStrip14, 0, 0);
-            this.tableLayoutPanel13.Controls.Add(this.dataGridView10, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.EducationToolStrip, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this.dgvEducation, 0, 1);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(975, 222);
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(975, 231);
             this.tableLayoutPanel13.TabIndex = 3;
             // 
-            // toolStrip14
+            // EducationToolStrip
             // 
-            this.toolStrip14.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EducationToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddEducationBtn,
             this.EditEducation,
             this.DeleteEducationBtn});
-            this.toolStrip14.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip14.Name = "toolStrip14";
-            this.toolStrip14.Size = new System.Drawing.Size(975, 25);
-            this.toolStrip14.TabIndex = 7;
-            this.toolStrip14.Text = "toolStrip14";
+            this.EducationToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.EducationToolStrip.Name = "EducationToolStrip";
+            this.EducationToolStrip.Size = new System.Drawing.Size(975, 25);
+            this.EducationToolStrip.TabIndex = 7;
+            this.EducationToolStrip.Text = "toolStrip14";
             // 
             // AddEducationBtn
             // 
@@ -3177,7 +3207,7 @@ namespace Kadr.UI.Frames
             this.EditEducation.Name = "EditEducation";
             this.EditEducation.Size = new System.Drawing.Size(107, 22);
             this.EditEducation.Text = "Редактировать";
-            this.EditEducation.ToolTipText = "Редактировать степень";
+            this.EditEducation.ToolTipText = "Редактировать образование";
             this.EditEducation.Click += new System.EventHandler(this.EditEducation_Click);
             // 
             // DeleteEducationBtn
@@ -3187,14 +3217,14 @@ namespace Kadr.UI.Frames
             this.DeleteEducationBtn.Name = "DeleteEducationBtn";
             this.DeleteEducationBtn.Size = new System.Drawing.Size(71, 22);
             this.DeleteEducationBtn.Text = "Удалить";
-            this.DeleteEducationBtn.ToolTipText = "Удалить степень";
+            this.DeleteEducationBtn.ToolTipText = "Удалить образование";
             this.DeleteEducationBtn.Click += new System.EventHandler(this.DeleteEducationBtn_Click);
             // 
-            // dataGridView10
+            // dgvEducation
             // 
-            this.dataGridView10.AllowUserToAddRows = false;
-            this.dataGridView10.AllowUserToDeleteRows = false;
-            this.dataGridView10.AutoGenerateColumns = false;
+            this.dgvEducation.AllowUserToAddRows = false;
+            this.dgvEducation.AllowUserToDeleteRows = false;
+            this.dgvEducation.AutoGenerateColumns = false;
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -3202,8 +3232,8 @@ namespace Kadr.UI.Frames
             dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView10.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            this.dataGridView10.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEducation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            this.dgvEducation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.typeDataGridViewTextBoxColumn1,
             this.educWhenDataGridViewTextBoxColumn,
             this.whereDataGridViewTextBoxColumn,
@@ -3214,7 +3244,7 @@ namespace Kadr.UI.Frames
             this.organizationDataGridViewTextBoxColumn2,
             this.specDataGridViewTextBoxColumn,
             this.qualificationDataGridViewTextBoxColumn});
-            this.dataGridView10.DataSource = this.EducationBindingSource;
+            this.dgvEducation.DataSource = this.EducationBindingSource;
             dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -3222,17 +3252,17 @@ namespace Kadr.UI.Frames
             dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView10.DefaultCellStyle = dataGridViewCellStyle24;
-            this.dataGridView10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView10.Location = new System.Drawing.Point(3, 28);
-            this.dataGridView10.MultiSelect = false;
-            this.dataGridView10.Name = "dataGridView10";
-            this.dataGridView10.ReadOnly = true;
-            this.dataGridView10.RowHeadersVisible = false;
-            this.dataGridView10.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView10.Size = new System.Drawing.Size(969, 236);
-            this.dataGridView10.TabIndex = 8;
-            this.dataGridView10.DoubleClick += new System.EventHandler(this.EditEducation_Click);
+            this.dgvEducation.DefaultCellStyle = dataGridViewCellStyle24;
+            this.dgvEducation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEducation.Location = new System.Drawing.Point(3, 28);
+            this.dgvEducation.MultiSelect = false;
+            this.dgvEducation.Name = "dgvEducation";
+            this.dgvEducation.ReadOnly = true;
+            this.dgvEducation.RowHeadersVisible = false;
+            this.dgvEducation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEducation.Size = new System.Drawing.Size(969, 225);
+            this.dgvEducation.TabIndex = 8;
+            this.dgvEducation.DoubleClick += new System.EventHandler(this.EditEducation_Click);
             // 
             // typeDataGridViewTextBoxColumn1
             // 
@@ -3319,11 +3349,11 @@ namespace Kadr.UI.Frames
             // gbLanguages
             // 
             this.gbLanguages.Controls.Add(this.tableLayoutPanel12);
-            this.gbLanguages.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbLanguages.Location = new System.Drawing.Point(3, 244);
+            this.gbLanguages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbLanguages.Location = new System.Drawing.Point(0, 0);
             this.gbLanguages.Name = "gbLanguages";
-            this.gbLanguages.Size = new System.Drawing.Size(981, 209);
-            this.gbLanguages.TabIndex = 11;
+            this.gbLanguages.Size = new System.Drawing.Size(981, 196);
+            this.gbLanguages.TabIndex = 12;
             this.gbLanguages.TabStop = false;
             this.gbLanguages.Text = "Языки";
             // 
@@ -3332,8 +3362,8 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel12.AutoScroll = true;
             this.tableLayoutPanel12.ColumnCount = 1;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel12.Controls.Add(this.dataGridView9, 0, 1);
-            this.tableLayoutPanel12.Controls.Add(this.toolStrip11, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.dgvLanguage, 0, 1);
+            this.tableLayoutPanel12.Controls.Add(this.LanguageToolStrip, 0, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -3341,14 +3371,14 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(975, 190);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(975, 177);
             this.tableLayoutPanel12.TabIndex = 3;
             // 
-            // dataGridView9
+            // dgvLanguage
             // 
-            this.dataGridView9.AllowUserToAddRows = false;
-            this.dataGridView9.AllowUserToDeleteRows = false;
-            this.dataGridView9.AutoGenerateColumns = false;
+            this.dgvLanguage.AllowUserToAddRows = false;
+            this.dgvLanguage.AllowUserToDeleteRows = false;
+            this.dgvLanguage.AutoGenerateColumns = false;
             dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -3356,12 +3386,15 @@ namespace Kadr.UI.Frames
             dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView9.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
-            this.dataGridView9.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLanguage.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            this.dgvLanguage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Language,
+            this.LanguageLevel,
+            this.Level,
             this.dataGridViewTextBoxColumn71,
             this.dataGridViewTextBoxColumn73,
             this.dataGridViewTextBoxColumn74});
-            this.dataGridView9.DataSource = this.EmplLanguageBindingSource;
+            this.dgvLanguage.DataSource = this.EmplLanguageBindingSource;
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -3369,24 +3402,46 @@ namespace Kadr.UI.Frames
             dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView9.DefaultCellStyle = dataGridViewCellStyle26;
-            this.dataGridView9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView9.Location = new System.Drawing.Point(3, 26);
-            this.dataGridView9.MultiSelect = false;
-            this.dataGridView9.Name = "dataGridView9";
-            this.dataGridView9.ReadOnly = true;
-            this.dataGridView9.RowHeadersVisible = false;
-            this.dataGridView9.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView9.Size = new System.Drawing.Size(969, 236);
-            this.dataGridView9.TabIndex = 12;
+            this.dgvLanguage.DefaultCellStyle = dataGridViewCellStyle26;
+            this.dgvLanguage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLanguage.Location = new System.Drawing.Point(3, 26);
+            this.dgvLanguage.MultiSelect = false;
+            this.dgvLanguage.Name = "dgvLanguage";
+            this.dgvLanguage.ReadOnly = true;
+            this.dgvLanguage.RowHeadersVisible = false;
+            this.dgvLanguage.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLanguage.Size = new System.Drawing.Size(969, 238);
+            this.dgvLanguage.TabIndex = 12;
+            this.dgvLanguage.DoubleClick += new System.EventHandler(this.EditLanguageBtn_Click);
+            // 
+            // Language
+            // 
+            this.Language.DataPropertyName = "Language";
+            this.Language.HeaderText = "Язык";
+            this.Language.Name = "Language";
+            this.Language.ReadOnly = true;
+            this.Language.Width = 200;
+            // 
+            // LanguageLevel
+            // 
+            this.LanguageLevel.DataPropertyName = "LanguageLevel";
+            this.LanguageLevel.HeaderText = "Степень владения";
+            this.LanguageLevel.Name = "LanguageLevel";
+            this.LanguageLevel.ReadOnly = true;
+            // 
+            // Level
+            // 
+            this.Level.DataPropertyName = "Level";
+            this.Level.HeaderText = "Хороший уровень";
+            this.Level.Name = "Level";
+            this.Level.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn71
             // 
             this.dataGridViewTextBoxColumn71.DataPropertyName = "Date";
-            this.dataGridViewTextBoxColumn71.HeaderText = "Дата вручения";
+            this.dataGridViewTextBoxColumn71.HeaderText = "Дата получения образования";
             this.dataGridViewTextBoxColumn71.Name = "dataGridViewTextBoxColumn71";
             this.dataGridViewTextBoxColumn71.ReadOnly = true;
-            this.dataGridViewTextBoxColumn71.Visible = false;
             // 
             // dataGridViewTextBoxColumn73
             // 
@@ -3398,27 +3453,27 @@ namespace Kadr.UI.Frames
             // 
             // dataGridViewTextBoxColumn74
             // 
+            this.dataGridViewTextBoxColumn74.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn74.DataPropertyName = "Organization";
             this.dataGridViewTextBoxColumn74.HeaderText = "Организация";
             this.dataGridViewTextBoxColumn74.Name = "dataGridViewTextBoxColumn74";
             this.dataGridViewTextBoxColumn74.ReadOnly = true;
-            this.dataGridViewTextBoxColumn74.Visible = false;
             // 
             // EmplLanguageBindingSource
             // 
             this.EmplLanguageBindingSource.DataSource = typeof(Kadr.Data.EmployeeLangDecorator);
             // 
-            // toolStrip11
+            // LanguageToolStrip
             // 
-            this.toolStrip11.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LanguageToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddLanguageBtn,
             this.EditLanguageBtn,
             this.DeleteLanguageBtn});
-            this.toolStrip11.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip11.Name = "toolStrip11";
-            this.toolStrip11.Size = new System.Drawing.Size(975, 23);
-            this.toolStrip11.TabIndex = 11;
-            this.toolStrip11.Text = "toolStrip11";
+            this.LanguageToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.LanguageToolStrip.Name = "LanguageToolStrip";
+            this.LanguageToolStrip.Size = new System.Drawing.Size(975, 23);
+            this.LanguageToolStrip.TabIndex = 11;
+            this.LanguageToolStrip.Text = "toolStrip11";
             // 
             // AddLanguageBtn
             // 
@@ -3427,6 +3482,7 @@ namespace Kadr.UI.Frames
             this.AddLanguageBtn.Name = "AddLanguageBtn";
             this.AddLanguageBtn.Size = new System.Drawing.Size(108, 20);
             this.AddLanguageBtn.Text = "Добавить язык";
+            this.AddLanguageBtn.Click += new System.EventHandler(this.AddLanguageBtn_Click);
             // 
             // EditLanguageBtn
             // 
@@ -3435,7 +3491,8 @@ namespace Kadr.UI.Frames
             this.EditLanguageBtn.Name = "EditLanguageBtn";
             this.EditLanguageBtn.Size = new System.Drawing.Size(107, 20);
             this.EditLanguageBtn.Text = "Редактировать";
-            this.EditLanguageBtn.ToolTipText = "Редактировать степень";
+            this.EditLanguageBtn.ToolTipText = "Редактировать язык";
+            this.EditLanguageBtn.Click += new System.EventHandler(this.EditLanguageBtn_Click);
             // 
             // DeleteLanguageBtn
             // 
@@ -3444,7 +3501,8 @@ namespace Kadr.UI.Frames
             this.DeleteLanguageBtn.Name = "DeleteLanguageBtn";
             this.DeleteLanguageBtn.Size = new System.Drawing.Size(71, 20);
             this.DeleteLanguageBtn.Text = "Удалить";
-            this.DeleteLanguageBtn.ToolTipText = "Удалить степень";
+            this.DeleteLanguageBtn.ToolTipText = "Удалить язык";
+            this.DeleteLanguageBtn.Click += new System.EventHandler(this.DeleteLanguageBtn_Click);
             // 
             // tpPostGradEduc
             // 
@@ -4646,6 +4704,17 @@ namespace Kadr.UI.Frames
             this.dataGridViewTextBoxColumn65.HeaderText = "Звание утверждено";
             this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
             // 
+            // miniToolStrip
+            // 
+            this.miniToolStrip.AutoSize = false;
+            this.miniToolStrip.CanOverflow = false;
+            this.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.miniToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.miniToolStrip.Location = new System.Drawing.Point(340, 3);
+            this.miniToolStrip.Name = "miniToolStrip";
+            this.miniToolStrip.Size = new System.Drawing.Size(975, 25);
+            this.miniToolStrip.TabIndex = 7;
+            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4739,20 +4808,23 @@ namespace Kadr.UI.Frames
             this.tpEducation.ResumeLayout(false);
             this.tcEducation.ResumeLayout(false);
             this.tpGrandEducation.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            this.splitContainer4.ResumeLayout(false);
             this.gbEducation.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
-            this.toolStrip14.ResumeLayout(false);
-            this.toolStrip14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
+            this.EducationToolStrip.ResumeLayout(false);
+            this.EducationToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEducation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EducationBindingSource)).EndInit();
             this.gbLanguages.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLanguage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmplLanguageBindingSource)).EndInit();
-            this.toolStrip11.ResumeLayout(false);
-            this.toolStrip11.PerformLayout();
+            this.LanguageToolStrip.ResumeLayout(false);
+            this.LanguageToolStrip.PerformLayout();
             this.tpPostGradEduc.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -5605,6 +5677,7 @@ namespace Kadr.UI.Frames
             if (EducationBindingSource.Current != null)
             {
               var ed = (EducationBindingSource.Current as EducationDecorator).GetEmplEduc();
+              if (ed.EducDocument == null) ed.EducDocument = new EducDocument();
               LinqActionsController<OK_Educ>.Instance.EditObject(ed, false);
             }
             LoadEducation();
@@ -5618,7 +5691,8 @@ namespace Kadr.UI.Frames
                 if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (EducationBindingSource.Current as EducationDecorator).ToString()), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     var educ = (EducationBindingSource.Current as EducationDecorator).GetEmplEduc();
-                    LinqActionsController<EducDocument>.Instance.DeleteObject(educ.EducDocument, KadrController.Instance.Model.EducDocuments, null);
+                    if (educ.EducDocument != null)
+                      LinqActionsController<EducDocument>.Instance.DeleteObject(educ.EducDocument, KadrController.Instance.Model.EducDocuments, null);
                     LinqActionsController<OK_Educ>.Instance.DeleteObject(educ, KadrController.Instance.Model.OK_Educs, EducationBindingSource);
                 }
             LoadEducation();
@@ -5654,8 +5728,11 @@ namespace Kadr.UI.Frames
         private void EditLanguageBtn_Click(object sender, EventArgs e)
         {
             if (EmplLanguageBindingSource.Current != null)
-                LinqActionsController<OK_EmployeeLang>.Instance.EditObject(
-                        (EmplLanguageBindingSource.Current as EmployeeLangDecorator).GetEmployeeLang(), true);
+            {
+                var lang = (EmplLanguageBindingSource.Current as EmployeeLangDecorator).GetEmployeeLang();
+                if (lang.EducDocument == null) lang.EducDocument = new EducDocument();
+                LinqActionsController<OK_EmployeeLang>.Instance.EditObject(lang, true);
+            }
             LoadEducation();
         }
 
@@ -5668,7 +5745,8 @@ namespace Kadr.UI.Frames
                 {
                     var educLang = (EmplLanguageBindingSource.Current as EmployeeLangDecorator).GetEmployeeLang();
 
-                    KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(educLang.EducDocument);
+                    if (educLang.EducDocument != null)
+                      KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(educLang.EducDocument);
                     LinqActionsController<OK_EmployeeLang>.Instance.DeleteObject(educLang, KadrController.Instance.Model.OK_EmployeeLangs, null);
 
                 }

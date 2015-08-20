@@ -33,6 +33,7 @@
             this.dgvLanguageLevel = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.levelNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GoodBit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageLevelBindingSource)).BeginInit();
@@ -77,7 +78,8 @@
             this.dgvLanguageLevel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLanguageLevel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.levelNameDataGridViewTextBoxColumn});
+            this.levelNameDataGridViewTextBoxColumn,
+            this.GoodBit});
             this.dgvLanguageLevel.DataSource = this.LanguageLevelBindingSource;
             this.dgvLanguageLevel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLanguageLevel.Location = new System.Drawing.Point(0, 0);
@@ -100,6 +102,14 @@
             this.levelNameDataGridViewTextBoxColumn.HeaderText = "Наименование степени владения";
             this.levelNameDataGridViewTextBoxColumn.Name = "levelNameDataGridViewTextBoxColumn";
             // 
+            // GoodBit
+            // 
+            this.GoodBit.DataPropertyName = "GoodBit";
+            this.GoodBit.HeaderText = "Хороший уровень";
+            this.GoodBit.Name = "GoodBit";
+            this.GoodBit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.GoodBit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // LanguageLevelDialog
             // 
             this.ApplyButtonVisible = true;
@@ -108,7 +118,7 @@
             this.ClientSize = new System.Drawing.Size(575, 263);
             this.Name = "LanguageLevelDialog";
             this.helpProvider1.SetShowHelp(this, true);
-            this.Text = "Уровень владения иностранным языком";
+            this.Text = "Степень владения иностранным языком";
             this.Load += new System.EventHandler(this.LanguageLevelDialog_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -125,5 +135,6 @@
         private System.Windows.Forms.DataGridView dgvLanguageLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn levelNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn GoodBit;
     }
 }

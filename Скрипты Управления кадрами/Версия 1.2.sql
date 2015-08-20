@@ -960,4 +960,8 @@ alter table OK_Educ alter column  EducWhere varchar(255) null
 alter table OK_Educ alter column  EducWhen int null
 
 alter table EducDocument alter column idEducDocType int null 
+
+alter table [dbo].[LanguageLevel] add GoodBit bit null
+update LanguageLevel set GoodBit = 0 where GoodBit is null
+alter table [dbo].[LanguageLevel] alter column GoodBit bit not null
 -----------------------------------------------------------------------------------------------------------------------------------------

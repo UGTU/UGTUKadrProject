@@ -21,7 +21,7 @@ namespace Kadr.UI.Dialogs
         private void LanguageLevelDialog_Load(object sender, EventArgs e)
         {
             bindingNavigator1.BindingSource = LanguageLevelBindingSource;
-            LanguageLevelBindingSource.DataSource = KadrController.Instance.Model.LanguageLevels.OrderBy(x => x.LevelName);
+            LanguageLevelBindingSource.DataSource = KadrController.Instance.Model.LanguageLevels.OrderBy(x => x.id);
         }
 
         private void dgvLanguageLevel_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)

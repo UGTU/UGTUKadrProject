@@ -273,9 +273,6 @@ namespace Kadr.Data
     partial void InsertOK_EmployeeLang(OK_EmployeeLang instance);
     partial void UpdateOK_EmployeeLang(OK_EmployeeLang instance);
     partial void DeleteOK_EmployeeLang(OK_EmployeeLang instance);
-    partial void InsertLanguageLevel(LanguageLevel instance);
-    partial void UpdateLanguageLevel(LanguageLevel instance);
-    partial void DeleteLanguageLevel(LanguageLevel instance);
     partial void InsertOK_Educ(OK_Educ instance);
     partial void UpdateOK_Educ(OK_Educ instance);
     partial void DeleteOK_Educ(OK_Educ instance);
@@ -288,10 +285,13 @@ namespace Kadr.Data
     partial void InsertOK_Social(OK_Social instance);
     partial void UpdateOK_Social(OK_Social instance);
     partial void DeleteOK_Social(OK_Social instance);
+    partial void InsertLanguageLevel(LanguageLevel instance);
+    partial void UpdateLanguageLevel(LanguageLevel instance);
+    partial void DeleteLanguageLevel(LanguageLevel instance);
     #endregion
 		
 		public dckadrDataContext() : 
-				base(global::Kadr.Properties.Settings.Default.KadrConnectionString2, mappingSource)
+				base(global::Kadr.Properties.Settings.Default.kadrConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -984,14 +984,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<LanguageLevel> LanguageLevels
-		{
-			get
-			{
-				return this.GetTable<LanguageLevel>();
-			}
-		}
-		
 		public System.Data.Linq.Table<OK_Educ> OK_Educs
 		{
 			get
@@ -1021,6 +1013,14 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<OK_Social>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LanguageLevel> LanguageLevels
+		{
+			get
+			{
+				return this.GetTable<LanguageLevel>();
 			}
 		}
 		
@@ -22178,9 +22178,9 @@ namespace Kadr.Data
 		
 		private EntityRef<OK_Language> _OK_Language;
 		
-		private EntityRef<LanguageLevel> _LanguageLevel;
-		
 		private EntityRef<EducDocument> _EducDocument;
+		
+		private EntityRef<LanguageLevel> _LanguageLevel;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -22204,8 +22204,8 @@ namespace Kadr.Data
 		{
 			this._Employee = default(EntityRef<Employee>);
 			this._OK_Language = default(EntityRef<OK_Language>);
-			this._LanguageLevel = default(EntityRef<LanguageLevel>);
 			this._EducDocument = default(EntityRef<EducDocument>);
+			this._LanguageLevel = default(EntityRef<LanguageLevel>);
 			OnCreated();
 		}
 		
@@ -22413,40 +22413,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LanguageLevel_OK_EmployeeLang", Storage="_LanguageLevel", ThisKey="idLanguageLevel", OtherKey="id", IsForeignKey=true)]
-		public LanguageLevel LanguageLevel
-		{
-			get
-			{
-				return this._LanguageLevel.Entity;
-			}
-			set
-			{
-				LanguageLevel previousValue = this._LanguageLevel.Entity;
-				if (((previousValue != value) 
-							|| (this._LanguageLevel.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._LanguageLevel.Entity = null;
-						previousValue.OK_EmployeeLangs.Remove(this);
-					}
-					this._LanguageLevel.Entity = value;
-					if ((value != null))
-					{
-						value.OK_EmployeeLangs.Add(this);
-						this._idLanguageLevel = value.id;
-					}
-					else
-					{
-						this._idLanguageLevel = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("LanguageLevel");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_EmployeeLang", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
 		public EducDocument EducDocument
 		{
@@ -22481,105 +22447,37 @@ namespace Kadr.Data
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LanguageLevel")]
-	public partial class LanguageLevel : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _LevelName;
-		
-		private EntitySet<OK_EmployeeLang> _OK_EmployeeLangs;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnLevelNameChanging(string value);
-    partial void OnLevelNameChanged();
-    #endregion
-		
-		public LanguageLevel()
-		{
-			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LanguageLevel_OK_EmployeeLang", Storage="_LanguageLevel", ThisKey="idLanguageLevel", OtherKey="id", IsForeignKey=true)]
+		public LanguageLevel LanguageLevel
 		{
 			get
 			{
-				return this._id;
+				return this._LanguageLevel.Entity;
 			}
 			set
 			{
-				if ((this._id != value))
+				LanguageLevel previousValue = this._LanguageLevel.Entity;
+				if (((previousValue != value) 
+							|| (this._LanguageLevel.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
+					if ((previousValue != null))
+					{
+						this._LanguageLevel.Entity = null;
+						previousValue.OK_EmployeeLangs.Remove(this);
+					}
+					this._LanguageLevel.Entity = value;
+					if ((value != null))
+					{
+						value.OK_EmployeeLangs.Add(this);
+						this._idLanguageLevel = value.id;
+					}
+					else
+					{
+						this._idLanguageLevel = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("LanguageLevel");
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LevelName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string LevelName
-		{
-			get
-			{
-				return this._LevelName;
-			}
-			set
-			{
-				if ((this._LevelName != value))
-				{
-					this.OnLevelNameChanging(value);
-					this.SendPropertyChanging();
-					this._LevelName = value;
-					this.SendPropertyChanged("LevelName");
-					this.OnLevelNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LanguageLevel_OK_EmployeeLang", Storage="_OK_EmployeeLangs", ThisKey="id", OtherKey="idLanguageLevel")]
-		public EntitySet<OK_EmployeeLang> OK_EmployeeLangs
-		{
-			get
-			{
-				return this._OK_EmployeeLangs;
-			}
-			set
-			{
-				this._OK_EmployeeLangs.Assign(value);
 			}
 		}
 		
@@ -22601,18 +22499,6 @@ namespace Kadr.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_OK_EmployeeLangs(OK_EmployeeLang entity)
-		{
-			this.SendPropertyChanging();
-			entity.LanguageLevel = this;
-		}
-		
-		private void detach_OK_EmployeeLangs(OK_EmployeeLang entity)
-		{
-			this.SendPropertyChanging();
-			entity.LanguageLevel = null;
 		}
 	}
 	
@@ -23813,6 +23699,144 @@ namespace Kadr.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LanguageLevel")]
+	public partial class LanguageLevel : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _LevelName;
+		
+		private bool _GoodBit;
+		
+		private EntitySet<OK_EmployeeLang> _OK_EmployeeLangs;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnLevelNameChanging(string value);
+    partial void OnLevelNameChanged();
+    partial void OnGoodBitChanging(bool value);
+    partial void OnGoodBitChanged();
+    #endregion
+		
+		public LanguageLevel()
+		{
+			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LevelName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string LevelName
+		{
+			get
+			{
+				return this._LevelName;
+			}
+			set
+			{
+				if ((this._LevelName != value))
+				{
+					this.OnLevelNameChanging(value);
+					this.SendPropertyChanging();
+					this._LevelName = value;
+					this.SendPropertyChanged("LevelName");
+					this.OnLevelNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GoodBit", DbType="Bit NOT NULL")]
+		public bool GoodBit
+		{
+			get
+			{
+				return this._GoodBit;
+			}
+			set
+			{
+				if ((this._GoodBit != value))
+				{
+					this.OnGoodBitChanging(value);
+					this.SendPropertyChanging();
+					this._GoodBit = value;
+					this.SendPropertyChanged("GoodBit");
+					this.OnGoodBitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LanguageLevel_OK_EmployeeLang", Storage="_OK_EmployeeLangs", ThisKey="id", OtherKey="idLanguageLevel")]
+		public EntitySet<OK_EmployeeLang> OK_EmployeeLangs
+		{
+			get
+			{
+				return this._OK_EmployeeLangs;
+			}
+			set
+			{
+				this._OK_EmployeeLangs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OK_EmployeeLangs(OK_EmployeeLang entity)
+		{
+			this.SendPropertyChanging();
+			entity.LanguageLevel = this;
+		}
+		
+		private void detach_OK_EmployeeLangs(OK_EmployeeLang entity)
+		{
+			this.SendPropertyChanging();
+			entity.LanguageLevel = null;
 		}
 	}
 	

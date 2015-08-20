@@ -81,11 +81,11 @@ namespace Kadr.Data
         [System.ComponentModel.Description("Показатель хорошего владения языком")]
         [System.ComponentModel.ReadOnly(true)]
 
-        public bool levelbit
+        public string Level
         {
             get
             {
-                return _employeeLang.goodlevelbit;
+                return (_employeeLang.Level);
             }
         }
 

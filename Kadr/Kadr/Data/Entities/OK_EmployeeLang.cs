@@ -20,6 +20,15 @@ namespace Kadr.Data
             return res;
         }
 
+        public string Level
+        {
+            get
+            {
+                if (LanguageLevel != null) return (LanguageLevel.GoodBit ? "Да" : "Нет");
+                return (goodlevelbit ? "Да" : "Нет");
+            }
+        }
+
         public int CompareTo(object obj)
         {
             return this.ToString().CompareTo(obj.ToString());
