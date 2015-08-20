@@ -7,7 +7,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Post : INull, UIX.Views.IDecorable, UIX.Views.IValidatable, IComparable, IObjectState
+    public partial class Post : CompareObject, INull, UIX.Views.IDecorable, UIX.Views.IValidatable, IObjectState
     {
         public override string ToString()
         {
@@ -106,14 +106,14 @@ namespace Kadr.Data
 
         #endregion
 
-        #region Члены IComparable
+        /*#region Члены IComparable
 
         public int CompareTo(object obj)
         {
             return PostName.CompareTo(obj.ToString());
         }
 
-        #endregion
+        #endregion*/
     }
 
     public class NullPost : Post, INull
