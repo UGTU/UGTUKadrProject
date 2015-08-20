@@ -822,6 +822,10 @@ GO
 ALTER TABLE [dbo].[OK_Educ] CHECK CONSTRAINT [FK_OK_Educ_EducDocumentType]
 GO
 
+update OK_Educ set idEducationType = (select idEducDocType
+									  from EducDocument
+									  where EducDocument.id = OK_Educ.idEducDocument)
+
 ------------------------------------------------------------------------------------------------------------------
 ====================================
 “‡·ÎËˆ˚ ‰Îˇ ‡ÚÚÂÒÚ‡ˆËÈ
@@ -875,3 +879,89 @@ GO
 ALTER TABLE [dbo].[Validation] CHECK CONSTRAINT [FK_Validation_ValidationDecision]
 GO
 
+--ﬂ«€ » Ë —“≈œ≈Õ» ¬À¿ƒ≈Õ»ﬂ
+
+CREATE TABLE [dbo].[LanguageLevel](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[LevelName] [varchar](255) NOT NULL,
+ CONSTRAINT [PK_LanguageLevel] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[OK_EmployeeLang]    Script Date: 09.08.2015 15:33:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE UNIQUE NONCLUSTERED INDEX [IX_LanguageLevel] ON [dbo].[LanguageLevel]
+(
+	[LevelName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+alter table OK_EmployeeLang add idEducDocument int null
+alter table OK_EmployeeLang add idLanguageLevel int null
+
+/****** Object:  Index [IX_OK_EmployeeLang]    Script Date: 09.08.2015 15:33:19 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_EmployeeLang] ON [dbo].[OK_EmployeeLang]
+(
+	[idEducDocument] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+/****** Object:  Index [IX_OK_EmployeeLang_1]    Script Date: 09.08.2015 15:33:19 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_EmployeeLang_1] ON [dbo].[OK_EmployeeLang]
+(
+	[idEmployee] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+/****** Object:  Index [IX_OK_EmployeeLang_2]    Script Date: 09.08.2015 15:33:19 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_EmployeeLang_2] ON [dbo].[OK_EmployeeLang]
+(
+	[idLanguage] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+/****** Object:  Index [IX_OK_EmployeeLang_3]    Script Date: 09.08.2015 15:33:19 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_EmployeeLang_3] ON [dbo].[OK_EmployeeLang]
+(
+	[idLanguageLevel] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[OK_EmployeeLang]  WITH CHECK ADD  CONSTRAINT [FK_OK_EmployeeLang_EducDocument] FOREIGN KEY([idEducDocument])
+REFERENCES [dbo].[EducDocument] ([id])
+GO
+ALTER TABLE [dbo].[OK_EmployeeLang] CHECK CONSTRAINT [FK_OK_EmployeeLang_EducDocument]
+GO
+
+ALTER TABLE [dbo].[OK_EmployeeLang]  WITH CHECK ADD  CONSTRAINT [FK_OK_EmployeeLang_LanguageLevel] FOREIGN KEY([idLanguageLevel])
+REFERENCES [dbo].[LanguageLevel] ([id])
+GO
+ALTER TABLE [dbo].[OK_EmployeeLang] CHECK CONSTRAINT [FK_OK_EmployeeLang_LanguageLevel]
+GO
+
+update OK_EmployeeLang set idLanguage = 7 where idLanguage = 0
+
+ALTER TABLE [dbo].[OK_EmployeeLang]  WITH CHECK ADD  CONSTRAINT [FK_OK_EmployeeLang_OK_Language] FOREIGN KEY([idLanguage])
+REFERENCES [dbo].[OK_Language] ([idlanguage])
+GO
+ALTER TABLE [dbo].[OK_EmployeeLang] CHECK CONSTRAINT [FK_OK_EmployeeLang_OK_Language]
+GO
+
+alter table OK_Educ alter column  EducWhere varchar(255) null
+alter table OK_Educ alter column  EducWhen int null
+
+alter table EducDocument alter column idEducDocType int null 
+
+alter table [dbo].[LanguageLevel] add GoodBit bit null
+update LanguageLevel set GoodBit = 0 where GoodBit is null
+alter table [dbo].[LanguageLevel] alter column GoodBit bit not null
+-----------------------------------------------------------------------------------------------------------------------------------------

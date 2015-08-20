@@ -237,6 +237,7 @@
     <Compile Include="Data\Decorators\BonusDecorator.cs" />
     <Compile Include="Data\Decorators\BonusHistoryDecorator.cs" />
     <Compile Include="Data\Decorators\EducationDecorator.cs" />
+    <Compile Include="Data\Decorators\EmployeeLangDecorator.cs" />
     <Compile Include="Data\Decorators\OK_Fam.cs" />
     <Compile Include="Data\Decorators\OK_DopInfDecorator.cs" />
     <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
@@ -313,13 +314,16 @@
     <Compile Include="Data\Entities\FundingCenter.cs" />
     <Compile Include="Data\Entities\GlobalPrikaz.cs" />
     <Compile Include="Data\Entities\Grazd.cs" />
+    <Compile Include="Data\Entities\LanguageLevel.cs" />
     <Compile Include="Data\Entities\MaterialResponsibility.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Adress.cs" />
     <Compile Include="Data\Entities\OK_Educ.cs" />
+    <Compile Include="Data\Entities\OK_EmployeeLang.cs" />
     <Compile Include="Data\Entities\OK_Inkapacity.cs" />
     <Compile Include="Data\Entities\OK_DopInf.cs" />
     <Compile Include="Data\Entities\OK_Fam.cs" />
+    <Compile Include="Data\Entities\OK_Language.cs" />
     <Compile Include="Data\Entities\OK_MembFam.cs" />
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
@@ -548,6 +552,18 @@
     </Compile>
     <Compile Include="UI\Dialogs\GrazdDialog.Designer.cs">
       <DependentUpon>GrazdDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\LanguageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\LanguageDialog.Designer.cs">
+      <DependentUpon>LanguageDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\LanguageLevelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\LanguageLevelDialog.Designer.cs">
+      <DependentUpon>LanguageLevelDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\OKVEDDialog.cs">
       <SubType>Form</SubType>
@@ -887,6 +903,12 @@
       <DependentUpon>GrazdDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\LanguageDialog.resx">
+      <DependentUpon>LanguageDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\LanguageLevelDialog.resx">
+      <DependentUpon>LanguageLevelDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\OKVEDDialog.resx">
       <DependentUpon>OKVEDDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -1105,6 +1127,15 @@
     <None Include="Properties\DataSources\Kadr.Data.Organisation.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EducationType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_Educ.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.LanguageLevel.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_EmployeeLang.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Language.datasource">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Kadr.Data.EmployeeLangDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Kadr.Data.EducationDecorator.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
