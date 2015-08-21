@@ -195,7 +195,8 @@
   <ItemGroup>
     <Compile Include="Command\CreatePlanStaffCommand.cs" />
     <Compile Include="Controllers\BonusController.cs" />
-    <Compile Include="Controllers\CRUDControllers\CRUDFactStaff.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDEducation.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDLanguage.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDSocial.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDAward.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDIncapacity.cs" />
@@ -220,7 +221,6 @@
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
-    <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
@@ -500,6 +500,12 @@
     </Compile>
     <Compile Include="UI\Dialogs\DepartmentTypeDialog.Designer.cs">
       <DependentUpon>DepartmentTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\DocumentTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\DocumentTypeDialog.Designer.cs">
+      <DependentUpon>DocumentTypeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\EducationTypeDialog.cs">
       <SubType>Form</SubType>
@@ -874,6 +880,9 @@
     <EmbeddedResource Include="UI\Dialogs\DepartmentTypeDialog.resx">
       <DependentUpon>DepartmentTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\DocumentTypeDialog.resx">
+      <DependentUpon>DocumentTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\EducationTypeDialog.resx">
       <DependentUpon>EducationTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -1138,6 +1147,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\Kadr.Data.EducationDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.EducDocumentType.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1215,7 +1225,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CONSTRUC.ICO" />
-    <Content Include="Resources\woman_unavailable.png" />
+    <Content Include="Resources\TreeIcons\woman_restricted.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\1320205531_1.jpg" />
     <None Include="Resources\Excel.bmp" />

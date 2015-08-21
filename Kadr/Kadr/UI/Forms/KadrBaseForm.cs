@@ -1381,6 +1381,14 @@ namespace Kadr.UI.Forms
             }
         }
 
+        private void типыДокументовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new DocumentTypeDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
         
 
        
