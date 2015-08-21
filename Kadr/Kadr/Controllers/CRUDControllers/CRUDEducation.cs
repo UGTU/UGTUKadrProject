@@ -33,7 +33,7 @@ namespace Kadr.Controllers
 
         public static void Read(Employee e, BindingSource EducationBindingSource)
         {
-            EducationBindingSource.DataSource = KadrController.Instance.Model.OK_Educs.Where(educ => educ.Employee == e).Select(x => x.GetDecorator()).ToList();
+            EducationBindingSource.DataSource = KadrController.Instance.Model.OK_Educs.Where(educ => educ.Employee == e).Select(x => new EducationDecorator(x)).ToList();
             
         }
 

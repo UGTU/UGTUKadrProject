@@ -114,13 +114,14 @@ namespace Kadr.UI.Forms
             this.табельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.статусДняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.графикиРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.отделыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.типыОтделовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.организацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.образованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типОбразованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.языкToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.степеньВладенияЯзыкомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отделыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типыОтделовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.организацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типыДокументовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.продлитьНадбавкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -734,8 +735,8 @@ namespace Kadr.UI.Forms
             this.окладToolStripMenuItem,
             this.совмещенияToolStripMenuItem,
             this.табельToolStripMenuItem,
-            this.отделыToolStripMenuItem,
-            this.образованиеToolStripMenuItem});
+            this.образованиеToolStripMenuItem,
+            this.отделыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "&Справочники";
@@ -1009,29 +1010,6 @@ namespace Kadr.UI.Forms
             this.графикиРаботыToolStripMenuItem.Text = "Графики работы";
             this.графикиРаботыToolStripMenuItem.Click += new System.EventHandler(this.графикиРаботыToolStripMenuItem_Click);
             // 
-            // отделыToolStripMenuItem
-            // 
-            this.отделыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.типыОтделовToolStripMenuItem,
-            this.организацииToolStripMenuItem});
-            this.отделыToolStripMenuItem.Name = "отделыToolStripMenuItem";
-            this.отделыToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.отделыToolStripMenuItem.Text = "Остальное";
-            // 
-            // типыОтделовToolStripMenuItem
-            // 
-            this.типыОтделовToolStripMenuItem.Name = "типыОтделовToolStripMenuItem";
-            this.типыОтделовToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.типыОтделовToolStripMenuItem.Text = "Типы отделов ";
-            this.типыОтделовToolStripMenuItem.Click += new System.EventHandler(this.типыОтделовToolStripMenuItem_Click);
-            // 
-            // организацииToolStripMenuItem
-            // 
-            this.организацииToolStripMenuItem.Name = "организацииToolStripMenuItem";
-            this.организацииToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.организацииToolStripMenuItem.Text = "Организации";
-            this.организацииToolStripMenuItem.Click += new System.EventHandler(this.организацииToolStripMenuItem_Click);
-            // 
             // образованиеToolStripMenuItem
             // 
             this.образованиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1062,6 +1040,37 @@ namespace Kadr.UI.Forms
             this.степеньВладенияЯзыкомToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.степеньВладенияЯзыкомToolStripMenuItem.Text = "Степень владения языком";
             this.степеньВладенияЯзыкомToolStripMenuItem.Click += new System.EventHandler(this.степеньВладенияЯзыкомToolStripMenuItem_Click);
+            // 
+            // отделыToolStripMenuItem
+            // 
+            this.отделыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.типыОтделовToolStripMenuItem,
+            this.организацииToolStripMenuItem,
+            this.типыДокументовToolStripMenuItem});
+            this.отделыToolStripMenuItem.Name = "отделыToolStripMenuItem";
+            this.отделыToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.отделыToolStripMenuItem.Text = "Остальное";
+            // 
+            // типыОтделовToolStripMenuItem
+            // 
+            this.типыОтделовToolStripMenuItem.Name = "типыОтделовToolStripMenuItem";
+            this.типыОтделовToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.типыОтделовToolStripMenuItem.Text = "Типы отделов ";
+            this.типыОтделовToolStripMenuItem.Click += new System.EventHandler(this.типыОтделовToolStripMenuItem_Click);
+            // 
+            // организацииToolStripMenuItem
+            // 
+            this.организацииToolStripMenuItem.Name = "организацииToolStripMenuItem";
+            this.организацииToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.организацииToolStripMenuItem.Text = "Организации";
+            this.организацииToolStripMenuItem.Click += new System.EventHandler(this.организацииToolStripMenuItem_Click);
+            // 
+            // типыДокументовToolStripMenuItem
+            // 
+            this.типыДокументовToolStripMenuItem.Name = "типыДокументовToolStripMenuItem";
+            this.типыДокументовToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.типыДокументовToolStripMenuItem.Text = "Виды документов";
+            this.типыДокументовToolStripMenuItem.Click += new System.EventHandler(this.типыДокументовToolStripMenuItem_Click);
             // 
             // сервисToolStripMenuItem
             // 
@@ -1658,6 +1667,7 @@ namespace Kadr.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem типОбразованияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem степеньВладенияЯзыкомToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem языкToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типыДокументовToolStripMenuItem;
 
     }
 }

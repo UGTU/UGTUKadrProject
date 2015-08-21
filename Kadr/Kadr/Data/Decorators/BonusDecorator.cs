@@ -54,7 +54,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Последний назначенный источник финансирования надбавки")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.AllFinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<FinancingSource>))]
         public FinancingSource FinancingSource
         {
             get
@@ -115,7 +115,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Вид надбавки")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Вид назначаемой надбавки")]
-        [System.ComponentModel.Editor(typeof(BonusTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<BonusType>))]
         public BonusType BonusType
         {
             get
@@ -179,7 +179,7 @@ namespace Kadr.Data
             }
         }
 
-
+        /*
         [System.ComponentModel.DisplayName("Надбавка только для вакансий")]
         [System.ComponentModel.Category("Атрибуты надбавки штатной должности")]
         [System.ComponentModel.Description("Показатель того, что надбавка только для вакансий")]
@@ -218,6 +218,6 @@ namespace Kadr.Data
                 if (bonus.BonusPlanStaff != null)
                     bonus.BonusPlanStaff.ForEmployee = value;
             }
-        }
+        }*/
     }
 }

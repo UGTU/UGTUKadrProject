@@ -1,11 +1,17 @@
-﻿using Kadr.Controllers;
-using System;
+﻿using System;
+//using System.
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kadr.UI.Editors;
+using Kadr.Controllers;
+using Kadr.Data;
+using Kadr.Data.Common;
+using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
+    #region PlanStaff Decorator
     class PlanStaffDecorator
     {
         private PlanStaff planStaff;
@@ -65,6 +71,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Должность")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название должности в штатном расписании")]
+        //[System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Post>))]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Post Post
         {
@@ -131,7 +138,6 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата назначения")]
-        // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime DataBegin
         {
             get
@@ -147,7 +153,6 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата отмены")]
         [System.ComponentModel.Category("Отмена штатного расписания")]
         [System.ComponentModel.Description("Дата отмены")]
-        // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime DataEnd
         {
             get
@@ -162,7 +167,8 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Источник финансирования записи в штатном расписании")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.AllFinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<FinancingSource>))]
+        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.AllFinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.FinancingSource FinancingSource
         {
             get
@@ -193,4 +199,6 @@ namespace Kadr.Data
         }
 
     }
+    #endregion
+
 }

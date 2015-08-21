@@ -56,7 +56,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Новый вид работы")]
         [System.ComponentModel.Category("Новые значения атрибутов")]
         [System.ComponentModel.Description("Новый вид работы сотрудника")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.WorkTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
         public WorkType WorkType
         {
             get

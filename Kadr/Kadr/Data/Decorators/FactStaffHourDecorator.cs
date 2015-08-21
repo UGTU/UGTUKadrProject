@@ -141,7 +141,8 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Почасовики")]
         [System.ComponentModel.Description("Источник финансирования (редактировать для почасовиков)")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.FinancingSourceConvertor))]
+        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.FinancingSource FinancingSource
         {
             get

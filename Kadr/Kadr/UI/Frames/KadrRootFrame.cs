@@ -1580,6 +1580,11 @@ namespace Kadr.UI.Frames
  
        }
 
+       private void tsbAddEmplFactStaff_Click(object sender, EventArgs e)
+       {
+
+       }
+
  
        
 

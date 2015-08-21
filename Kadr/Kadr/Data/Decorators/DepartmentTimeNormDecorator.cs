@@ -55,6 +55,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Источник финансирования, для которой задана норма времени")]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.FinancingSourceConvertor))]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.FinancingSource FinancingSource
         {
