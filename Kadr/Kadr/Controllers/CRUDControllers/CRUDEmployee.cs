@@ -11,13 +11,15 @@ namespace Kadr.Controllers
 {
     public static class CRUDEmployee
     {
-        public static void Create(Employee e, object sender)
+        public static void Create(object sender)
         {
             using (PropertyGridDialogAdding<Employee> dlg =
                 new PropertyGridDialogAdding<Employee>())
             {
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.Employees;
+                dlg.PrikazButtonVisible = false;
+                dlg.ApplyButtonVisible = false;
                 //dlg.BindingSource = employeeBindingSource;
                 dlg.InitializeNewObject = (x) =>
                 {
