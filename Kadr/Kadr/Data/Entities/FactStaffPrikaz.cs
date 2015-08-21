@@ -26,7 +26,6 @@ namespace Kadr.Data
         
         public override string ToString()
         {
-
             return string.Format("Приказ {0}  — сотрудник {1}", Prikaz.PrikazFullName, this.FactStaff.Employee.ToString()); ;
         }
 

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
@@ -101,7 +102,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название вида работы")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название вида работы")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.WorkTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
         public Kadr.Data.WorkType WorkType
         {
             get
@@ -133,7 +134,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("ОКВЭД")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Код экономической деятельности")]
-        [System.ComponentModel.Editor(typeof(OKVEDEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<OKVED>))]
         public OKVED OKVED
         {
             get

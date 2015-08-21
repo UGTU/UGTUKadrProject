@@ -102,7 +102,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Профессиональная группа")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Профессионально-квалификационная группа")]
-        [System.ComponentModel.Editor(typeof(PKGroupEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<PKGroup>))]
         public PKGroup PKGroup
         {
             get
