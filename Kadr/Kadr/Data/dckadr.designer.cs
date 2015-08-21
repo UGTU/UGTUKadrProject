@@ -63,9 +63,6 @@ namespace Kadr.Data
     partial void InsertEmployeeRank(EmployeeRank instance);
     partial void UpdateEmployeeRank(EmployeeRank instance);
     partial void DeleteEmployeeRank(EmployeeRank instance);
-    partial void InsertEducDocumentType(EducDocumentType instance);
-    partial void UpdateEducDocumentType(EducDocumentType instance);
-    partial void DeleteEducDocumentType(EducDocumentType instance);
     partial void InsertEmployeeDegree(EmployeeDegree instance);
     partial void UpdateEmployeeDegree(EmployeeDegree instance);
     partial void DeleteEmployeeDegree(EmployeeDegree instance);
@@ -288,6 +285,9 @@ namespace Kadr.Data
     partial void InsertLanguageLevel(LanguageLevel instance);
     partial void UpdateLanguageLevel(LanguageLevel instance);
     partial void DeleteLanguageLevel(LanguageLevel instance);
+    partial void InsertEducDocumentType(EducDocumentType instance);
+    partial void UpdateEducDocumentType(EducDocumentType instance);
+    partial void DeleteEducDocumentType(EducDocumentType instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -405,14 +405,6 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<EmployeeRank>();
-			}
-		}
-		
-		public System.Data.Linq.Table<EducDocumentType> EducDocumentTypes
-		{
-			get
-			{
-				return this.GetTable<EducDocumentType>();
 			}
 		}
 		
@@ -1021,6 +1013,14 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<LanguageLevel>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EducDocumentType> EducDocumentTypes
+		{
+			get
+			{
+				return this.GetTable<EducDocumentType>();
 			}
 		}
 		
@@ -3662,120 +3662,6 @@ namespace Kadr.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EducDocumentType")]
-	public partial class EducDocumentType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _DocTypeName;
-		
-		private EntitySet<EducDocument> _EducDocuments;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnDocTypeNameChanging(string value);
-    partial void OnDocTypeNameChanged();
-    #endregion
-		
-		public EducDocumentType()
-		{
-			this._EducDocuments = new EntitySet<EducDocument>(new Action<EducDocument>(this.attach_EducDocuments), new Action<EducDocument>(this.detach_EducDocuments));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocTypeName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string DocTypeName
-		{
-			get
-			{
-				return this._DocTypeName;
-			}
-			set
-			{
-				if ((this._DocTypeName != value))
-				{
-					this.OnDocTypeNameChanging(value);
-					this.SendPropertyChanging();
-					this._DocTypeName = value;
-					this.SendPropertyChanged("DocTypeName");
-					this.OnDocTypeNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_EducDocument", Storage="_EducDocuments", ThisKey="id", OtherKey="idEducDocType")]
-		public EntitySet<EducDocument> EducDocuments
-		{
-			get
-			{
-				return this._EducDocuments;
-			}
-			set
-			{
-				this._EducDocuments.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_EducDocuments(EducDocument entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocumentType = this;
-		}
-		
-		private void detach_EducDocuments(EducDocument entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocumentType = null;
 		}
 	}
 	
@@ -22979,9 +22865,9 @@ namespace Kadr.Data
 		
 		private EntitySet<OK_Social> _OK_Socials;
 		
-		private EntityRef<EducDocumentType> _EducDocumentType;
-		
 		private EntityRef<Organisation> _Organisation;
+		
+		private EntityRef<EducDocumentType> _EducDocumentType;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -23011,8 +22897,8 @@ namespace Kadr.Data
 			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
 			this._OK_Educ = default(EntityRef<OK_Educ>);
 			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
-			this._EducDocumentType = default(EntityRef<EducDocumentType>);
 			this._Organisation = default(EntityRef<Organisation>);
+			this._EducDocumentType = default(EntityRef<EducDocumentType>);
 			OnCreated();
 		}
 		
@@ -23296,40 +23182,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_EducDocument", Storage="_EducDocumentType", ThisKey="idEducDocType", OtherKey="id", IsForeignKey=true)]
-		public EducDocumentType EducDocumentType
-		{
-			get
-			{
-				return this._EducDocumentType.Entity;
-			}
-			set
-			{
-				EducDocumentType previousValue = this._EducDocumentType.Entity;
-				if (((previousValue != value) 
-							|| (this._EducDocumentType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EducDocumentType.Entity = null;
-						previousValue.EducDocuments.Remove(this);
-					}
-					this._EducDocumentType.Entity = value;
-					if ((value != null))
-					{
-						value.EducDocuments.Add(this);
-						this._idEducDocType = value.id;
-					}
-					else
-					{
-						this._idEducDocType = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("EducDocumentType");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Organisation_EducDocument", Storage="_Organisation", ThisKey="IdOrganisation", OtherKey="id", IsForeignKey=true)]
 		public Organisation Organisation
 		{
@@ -23360,6 +23212,40 @@ namespace Kadr.Data
 						this._IdOrganisation = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Organisation");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_EducDocument", Storage="_EducDocumentType", ThisKey="idEducDocType", OtherKey="id", IsForeignKey=true)]
+		public EducDocumentType EducDocumentType
+		{
+			get
+			{
+				return this._EducDocumentType.Entity;
+			}
+			set
+			{
+				EducDocumentType previousValue = this._EducDocumentType.Entity;
+				if (((previousValue != value) 
+							|| (this._EducDocumentType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducDocumentType.Entity = null;
+						previousValue.EducDocuments.Remove(this);
+					}
+					this._EducDocumentType.Entity = value;
+					if ((value != null))
+					{
+						value.EducDocuments.Add(this);
+						this._idEducDocType = value.id;
+					}
+					else
+					{
+						this._idEducDocType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EducDocumentType");
 				}
 			}
 		}
@@ -23837,6 +23723,144 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.LanguageLevel = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EducDocumentType")]
+	public partial class EducDocumentType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _DocTypeName;
+		
+		private System.Nullable<bool> _isOld;
+		
+		private EntitySet<EducDocument> _EducDocuments;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnDocTypeNameChanging(string value);
+    partial void OnDocTypeNameChanged();
+    partial void OnisOldChanging(System.Nullable<bool> value);
+    partial void OnisOldChanged();
+    #endregion
+		
+		public EducDocumentType()
+		{
+			this._EducDocuments = new EntitySet<EducDocument>(new Action<EducDocument>(this.attach_EducDocuments), new Action<EducDocument>(this.detach_EducDocuments));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocTypeName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string DocTypeName
+		{
+			get
+			{
+				return this._DocTypeName;
+			}
+			set
+			{
+				if ((this._DocTypeName != value))
+				{
+					this.OnDocTypeNameChanging(value);
+					this.SendPropertyChanging();
+					this._DocTypeName = value;
+					this.SendPropertyChanged("DocTypeName");
+					this.OnDocTypeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isOld", DbType="Bit")]
+		public System.Nullable<bool> isOld
+		{
+			get
+			{
+				return this._isOld;
+			}
+			set
+			{
+				if ((this._isOld != value))
+				{
+					this.OnisOldChanging(value);
+					this.SendPropertyChanging();
+					this._isOld = value;
+					this.SendPropertyChanged("isOld");
+					this.OnisOldChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_EducDocument", Storage="_EducDocuments", ThisKey="id", OtherKey="idEducDocType")]
+		public EntitySet<EducDocument> EducDocuments
+		{
+			get
+			{
+				return this._EducDocuments;
+			}
+			set
+			{
+				this._EducDocuments.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_EducDocuments(EducDocument entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocumentType = this;
+		}
+		
+		private void detach_EducDocuments(EducDocument entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocumentType = null;
 		}
 	}
 	

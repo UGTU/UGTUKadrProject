@@ -499,6 +499,12 @@
     <Compile Include="UI\Dialogs\DepartmentTypeDialog.Designer.cs">
       <DependentUpon>DepartmentTypeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dialogs\DocumentTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\DocumentTypeDialog.Designer.cs">
+      <DependentUpon>DocumentTypeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\EducationTypeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -872,6 +878,9 @@
     <EmbeddedResource Include="UI\Dialogs\DepartmentTypeDialog.resx">
       <DependentUpon>DepartmentTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\DocumentTypeDialog.resx">
+      <DependentUpon>DocumentTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\EducationTypeDialog.resx">
       <DependentUpon>EducationTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -1136,6 +1145,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\Kadr.Data.EducationDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.EducDocumentType.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

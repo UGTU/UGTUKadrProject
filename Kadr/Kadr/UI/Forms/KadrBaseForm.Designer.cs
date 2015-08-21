@@ -62,6 +62,7 @@ namespace Kadr.UI.Forms
             this.CurrentObjectLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.CurrentObjectInfoLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.kadrTreeView1 = new Kadr.KadrTreeView.KadrTreeView(this.components);
             this.treeViewImageList = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,13 +114,14 @@ namespace Kadr.UI.Forms
             this.òàáåëüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ñòàòóñÄíÿToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ãğàôèêèĞàáîòûToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.îòäåëûToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.òèïûÎòäåëîâToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.îğãàíèçàöèèToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.îáğàçîâàíèåToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.òèïÎáğàçîâàíèÿToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ÿçûêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ñòåïåíüÂëàäåíèÿßçûêîìToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.îòäåëûToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.òèïûÎòäåëîâToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.îğãàíèçàöèèToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.òèïûÄîêóìåíòîâToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ñåğâèñToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ïàğàìåòğûToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ïğîäëèòüÍàäáàâêóToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -172,7 +174,6 @@ namespace Kadr.UI.Forms
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kadrTreeView1 = new Kadr.KadrTreeView.KadrTreeView(this.components);
             tsmiDismissedEmployees = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -428,7 +429,7 @@ namespace Kadr.UI.Forms
             this.tsbDepartmentFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbDepartmentFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbDepartmentFilter.Name = "tsbDepartmentFilter";
-            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 22);
+            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 20);
             this.tsbDepartmentFilter.Text = "Îòäåëû";
             this.tsbDepartmentFilter.ToolTipText = "Íàñòğîéêè ôèëüòğà ïî îòäåëàì";
             this.tsbDepartmentFilter.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsbDepartmentFilter_DropDownItemClicked);
@@ -565,6 +566,21 @@ namespace Kadr.UI.Forms
             this.splitContainer1.Size = new System.Drawing.Size(841, 389);
             this.splitContainer1.SplitterDistance = 192;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // kadrTreeView1
+            // 
+            this.kadrTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kadrTreeView1.ImageIndex = 0;
+            this.kadrTreeView1.ImageList = this.treeViewImageList;
+            this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
+            this.kadrTreeView1.Name = "kadrTreeView1";
+            this.kadrTreeView1.SelectedImageIndex = 0;
+            this.kadrTreeView1.Size = new System.Drawing.Size(190, 387);
+            this.kadrTreeView1.TabIndex = 0;
+            this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
+            this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
+            this.kadrTreeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.kadrTreeView1_AfterSelect);
+            this.kadrTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.kadrTreeView1_MouseClick);
             // 
             // treeViewImageList
             // 
@@ -719,8 +735,8 @@ namespace Kadr.UI.Forms
             this.îêëàäToolStripMenuItem,
             this.ñîâìåùåíèÿToolStripMenuItem,
             this.òàáåëüToolStripMenuItem,
-            this.îòäåëûToolStripMenuItem,
-            this.îáğàçîâàíèåToolStripMenuItem});
+            this.îáğàçîâàíèåToolStripMenuItem,
+            this.îòäåëûToolStripMenuItem});
             this.ñïğàâî÷íèêèToolStripMenuItem.Name = "ñïğàâî÷íèêèToolStripMenuItem";
             this.ñïğàâî÷íèêèToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.ñïğàâî÷íèêèToolStripMenuItem.Text = "&Ñïğàâî÷íèêè";
@@ -994,29 +1010,6 @@ namespace Kadr.UI.Forms
             this.ãğàôèêèĞàáîòûToolStripMenuItem.Text = "Ãğàôèêè ğàáîòû";
             this.ãğàôèêèĞàáîòûToolStripMenuItem.Click += new System.EventHandler(this.ãğàôèêèĞàáîòûToolStripMenuItem_Click);
             // 
-            // îòäåëûToolStripMenuItem
-            // 
-            this.îòäåëûToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.òèïûÎòäåëîâToolStripMenuItem,
-            this.îğãàíèçàöèèToolStripMenuItem});
-            this.îòäåëûToolStripMenuItem.Name = "îòäåëûToolStripMenuItem";
-            this.îòäåëûToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.îòäåëûToolStripMenuItem.Text = "Îñòàëüíîå";
-            // 
-            // òèïûÎòäåëîâToolStripMenuItem
-            // 
-            this.òèïûÎòäåëîâToolStripMenuItem.Name = "òèïûÎòäåëîâToolStripMenuItem";
-            this.òèïûÎòäåëîâToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.òèïûÎòäåëîâToolStripMenuItem.Text = "Òèïû îòäåëîâ ";
-            this.òèïûÎòäåëîâToolStripMenuItem.Click += new System.EventHandler(this.òèïûÎòäåëîâToolStripMenuItem_Click);
-            // 
-            // îğãàíèçàöèèToolStripMenuItem
-            // 
-            this.îğãàíèçàöèèToolStripMenuItem.Name = "îğãàíèçàöèèToolStripMenuItem";
-            this.îğãàíèçàöèèToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.îğãàíèçàöèèToolStripMenuItem.Text = "Îğãàíèçàöèè";
-            this.îğãàíèçàöèèToolStripMenuItem.Click += new System.EventHandler(this.îğãàíèçàöèèToolStripMenuItem_Click);
-            // 
             // îáğàçîâàíèåToolStripMenuItem
             // 
             this.îáğàçîâàíèåToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1047,6 +1040,37 @@ namespace Kadr.UI.Forms
             this.ñòåïåíüÂëàäåíèÿßçûêîìToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.ñòåïåíüÂëàäåíèÿßçûêîìToolStripMenuItem.Text = "Ñòåïåíü âëàäåíèÿ ÿçûêîì";
             this.ñòåïåíüÂëàäåíèÿßçûêîìToolStripMenuItem.Click += new System.EventHandler(this.ñòåïåíüÂëàäåíèÿßçûêîìToolStripMenuItem_Click);
+            // 
+            // îòäåëûToolStripMenuItem
+            // 
+            this.îòäåëûToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.òèïûÎòäåëîâToolStripMenuItem,
+            this.îğãàíèçàöèèToolStripMenuItem,
+            this.òèïûÄîêóìåíòîâToolStripMenuItem});
+            this.îòäåëûToolStripMenuItem.Name = "îòäåëûToolStripMenuItem";
+            this.îòäåëûToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.îòäåëûToolStripMenuItem.Text = "Îñòàëüíîå";
+            // 
+            // òèïûÎòäåëîâToolStripMenuItem
+            // 
+            this.òèïûÎòäåëîâToolStripMenuItem.Name = "òèïûÎòäåëîâToolStripMenuItem";
+            this.òèïûÎòäåëîâToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.òèïûÎòäåëîâToolStripMenuItem.Text = "Òèïû îòäåëîâ ";
+            this.òèïûÎòäåëîâToolStripMenuItem.Click += new System.EventHandler(this.òèïûÎòäåëîâToolStripMenuItem_Click);
+            // 
+            // îğãàíèçàöèèToolStripMenuItem
+            // 
+            this.îğãàíèçàöèèToolStripMenuItem.Name = "îğãàíèçàöèèToolStripMenuItem";
+            this.îğãàíèçàöèèToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.îğãàíèçàöèèToolStripMenuItem.Text = "Îğãàíèçàöèè";
+            this.îğãàíèçàöèèToolStripMenuItem.Click += new System.EventHandler(this.îğãàíèçàöèèToolStripMenuItem_Click);
+            // 
+            // òèïûÄîêóìåíòîâToolStripMenuItem
+            // 
+            this.òèïûÄîêóìåíòîâToolStripMenuItem.Name = "òèïûÄîêóìåíòîâToolStripMenuItem";
+            this.òèïûÄîêóìåíòîâToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.òèïûÄîêóìåíòîâToolStripMenuItem.Text = "Âèäû äîêóìåíòîâ";
+            this.òèïûÄîêóìåíòîâToolStripMenuItem.Click += new System.EventHandler(this.òèïûÄîêóìåíòîâToolStripMenuItem_Click);
             // 
             // ñåğâèñToolStripMenuItem
             // 
@@ -1453,21 +1477,6 @@ namespace Kadr.UI.Forms
             // 
             this.departmentBindingSource.DataSource = typeof(Kadr.Data.Department);
             // 
-            // kadrTreeView1
-            // 
-            this.kadrTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kadrTreeView1.ImageIndex = 0;
-            this.kadrTreeView1.ImageList = this.treeViewImageList;
-            this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
-            this.kadrTreeView1.Name = "kadrTreeView1";
-            this.kadrTreeView1.SelectedImageIndex = 0;
-            this.kadrTreeView1.Size = new System.Drawing.Size(190, 387);
-            this.kadrTreeView1.TabIndex = 0;
-            this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
-            this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
-            this.kadrTreeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.kadrTreeView1_AfterSelect);
-            this.kadrTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.kadrTreeView1_MouseClick);
-            // 
             // KadrBaseForm
             // 
             this.AllowDrop = true;
@@ -1658,6 +1667,7 @@ namespace Kadr.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem òèïÎáğàçîâàíèÿToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ñòåïåíüÂëàäåíèÿßçûêîìToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ÿçûêToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem òèïûÄîêóìåíòîâToolStripMenuItem;
 
     }
 }
