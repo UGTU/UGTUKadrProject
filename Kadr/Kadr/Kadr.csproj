@@ -195,6 +195,8 @@
   <ItemGroup>
     <Compile Include="Command\CreatePlanStaffCommand.cs" />
     <Compile Include="Controllers\BonusController.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDEducation.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDLanguage.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDSocial.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDAward.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDIncapacity.cs" />
@@ -1223,7 +1225,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CONSTRUC.ICO" />
-    <Content Include="Resources\woman_unavailable.png" />
+    <Content Include="Resources\TreeIcons\woman_restricted.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\1320205531_1.jpg" />
     <None Include="Resources\Excel.bmp" />

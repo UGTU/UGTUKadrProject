@@ -597,10 +597,10 @@ namespace Kadr.UI.Forms
             this.treeViewImageList.Images.SetKeyName(8, "im1.bmp");
             this.treeViewImageList.Images.SetKeyName(9, "man.png");
             this.treeViewImageList.Images.SetKeyName(10, "woman.png");
-            this.treeViewImageList.Images.SetKeyName(11, "man_unavailable.png");
-            this.treeViewImageList.Images.SetKeyName(12, "woman_unavailable.png");
-            this.treeViewImageList.Images.SetKeyName(13, "user_ill.png");
-            this.treeViewImageList.Images.SetKeyName(14, "user_vacation.png");
+            this.treeViewImageList.Images.SetKeyName(11, "man_restricted.png");
+            this.treeViewImageList.Images.SetKeyName(12, "woman_restricted.png");
+            this.treeViewImageList.Images.SetKeyName(13, "woman_unavailable.png");
+            this.treeViewImageList.Images.SetKeyName(14, "man_unavailable.png");
             // 
             // menuStrip1
             // 
