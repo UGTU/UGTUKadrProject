@@ -16,7 +16,8 @@ namespace Kadr.Data
         {
             return DocTypeName;
         }
-        
+
+
         bool INull.IsNull()
         {
             return false;

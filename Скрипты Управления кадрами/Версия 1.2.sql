@@ -1011,4 +1011,6 @@ alter table [dbo].[EducDocumentType] add isOld bit null
 
 ALTER TABLE dbo.EducDocumentType ADD CONSTRAINT col_isOld_def DEFAULT 0 FOR isOld
 
+alter table [dbo].[EducDocumentType] alter column isOld bit not null
+
 ---------------------------------------------------------------------------------------------------------------------

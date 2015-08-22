@@ -288,6 +288,9 @@ namespace Kadr.Data
     partial void InsertEducDocumentType(EducDocumentType instance);
     partial void UpdateEducDocumentType(EducDocumentType instance);
     partial void DeleteEducDocumentType(EducDocumentType instance);
+    partial void InsertOK_DopEduc(OK_DopEduc instance);
+    partial void UpdateOK_DopEduc(OK_DopEduc instance);
+    partial void DeleteOK_DopEduc(OK_DopEduc instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -1021,6 +1024,14 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<EducDocumentType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_DopEduc> OK_DopEducs
+		{
+			get
+			{
+				return this.GetTable<OK_DopEduc>();
 			}
 		}
 		
@@ -23736,9 +23747,11 @@ namespace Kadr.Data
 		
 		private string _DocTypeName;
 		
-		private System.Nullable<bool> _isOld;
+		private bool _isOld;
 		
 		private EntitySet<EducDocument> _EducDocuments;
+		
+		private EntitySet<OK_DopEduc> _OK_DopEducs;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -23748,13 +23761,14 @@ namespace Kadr.Data
     partial void OnidChanged();
     partial void OnDocTypeNameChanging(string value);
     partial void OnDocTypeNameChanged();
-    partial void OnisOldChanging(System.Nullable<bool> value);
+    partial void OnisOldChanging(bool value);
     partial void OnisOldChanged();
     #endregion
 		
 		public EducDocumentType()
 		{
 			this._EducDocuments = new EntitySet<EducDocument>(new Action<EducDocument>(this.attach_EducDocuments), new Action<EducDocument>(this.detach_EducDocuments));
+			this._OK_DopEducs = new EntitySet<OK_DopEduc>(new Action<OK_DopEduc>(this.attach_OK_DopEducs), new Action<OK_DopEduc>(this.detach_OK_DopEducs));
 			OnCreated();
 		}
 		
@@ -23798,8 +23812,8 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isOld", DbType="Bit")]
-		public System.Nullable<bool> isOld
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isOld", DbType="Bit NOT NULL")]
+		public bool isOld
 		{
 			get
 			{
@@ -23828,6 +23842,19 @@ namespace Kadr.Data
 			set
 			{
 				this._EducDocuments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_OK_DopEduc", Storage="_OK_DopEducs", ThisKey="id", OtherKey="idEducDocumentType")]
+		public EntitySet<OK_DopEduc> OK_DopEducs
+		{
+			get
+			{
+				return this._OK_DopEducs;
+			}
+			set
+			{
+				this._OK_DopEducs.Assign(value);
 			}
 		}
 		
@@ -23861,6 +23888,193 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.EducDocumentType = null;
+		}
+		
+		private void attach_OK_DopEducs(OK_DopEduc entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocumentType = this;
+		}
+		
+		private void detach_OK_DopEducs(OK_DopEduc entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocumentType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_DopEduc")]
+	public partial class OK_DopEduc : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _DopEducName;
+		
+		private string _Duration;
+		
+		private System.Nullable<int> _idEducDocumentType;
+		
+		private EntityRef<EducDocumentType> _EducDocumentType;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnDopEducNameChanging(string value);
+    partial void OnDopEducNameChanged();
+    partial void OnDurationChanging(string value);
+    partial void OnDurationChanged();
+    partial void OnidEducDocumentTypeChanging(System.Nullable<int> value);
+    partial void OnidEducDocumentTypeChanged();
+    #endregion
+		
+		public OK_DopEduc()
+		{
+			this._EducDocumentType = default(EntityRef<EducDocumentType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DopEducName", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string DopEducName
+		{
+			get
+			{
+				return this._DopEducName;
+			}
+			set
+			{
+				if ((this._DopEducName != value))
+				{
+					this.OnDopEducNameChanging(value);
+					this.SendPropertyChanging();
+					this._DopEducName = value;
+					this.SendPropertyChanged("DopEducName");
+					this.OnDopEducNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Duration", DbType="VarChar(50)")]
+		public string Duration
+		{
+			get
+			{
+				return this._Duration;
+			}
+			set
+			{
+				if ((this._Duration != value))
+				{
+					this.OnDurationChanging(value);
+					this.SendPropertyChanging();
+					this._Duration = value;
+					this.SendPropertyChanged("Duration");
+					this.OnDurationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEducDocumentType", DbType="Int")]
+		public System.Nullable<int> idEducDocumentType
+		{
+			get
+			{
+				return this._idEducDocumentType;
+			}
+			set
+			{
+				if ((this._idEducDocumentType != value))
+				{
+					if (this._EducDocumentType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEducDocumentTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idEducDocumentType = value;
+					this.SendPropertyChanged("idEducDocumentType");
+					this.OnidEducDocumentTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_OK_DopEduc", Storage="_EducDocumentType", ThisKey="idEducDocumentType", OtherKey="id", IsForeignKey=true)]
+		public EducDocumentType EducDocumentType
+		{
+			get
+			{
+				return this._EducDocumentType.Entity;
+			}
+			set
+			{
+				EducDocumentType previousValue = this._EducDocumentType.Entity;
+				if (((previousValue != value) 
+							|| (this._EducDocumentType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducDocumentType.Entity = null;
+						previousValue.OK_DopEducs.Remove(this);
+					}
+					this._EducDocumentType.Entity = value;
+					if ((value != null))
+					{
+						value.OK_DopEducs.Add(this);
+						this._idEducDocumentType = value.id;
+					}
+					else
+					{
+						this._idEducDocumentType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EducDocumentType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

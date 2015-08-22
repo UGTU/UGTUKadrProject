@@ -1389,6 +1389,14 @@ namespace Kadr.UI.Forms
             }
         }
 
+        private void типПовышенияКвалификацииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new DopEducTypeDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
         
 
        

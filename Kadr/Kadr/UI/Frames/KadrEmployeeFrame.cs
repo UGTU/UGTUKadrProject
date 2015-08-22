@@ -3510,6 +3510,7 @@ namespace Kadr.UI.Frames
             this.dgvLanguages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLanguages.Size = new System.Drawing.Size(877, 227);
             this.dgvLanguages.TabIndex = 8;
+            this.dgvLanguages.DoubleClick += new System.EventHandler(this.tsbEditLanguage_Click);
             // 
             // languageDataGridViewTextBoxColumn
             // 

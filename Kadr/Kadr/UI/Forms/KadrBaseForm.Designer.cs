@@ -174,6 +174,7 @@ namespace Kadr.UI.Forms
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.типПовышенияКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             tsmiDismissedEmployees = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -1014,6 +1015,7 @@ namespace Kadr.UI.Forms
             // 
             this.образованиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.типОбразованияToolStripMenuItem,
+            this.типПовышенияКвалификацииToolStripMenuItem,
             this.языкToolStripMenuItem,
             this.степеньВладенияЯзыкомToolStripMenuItem});
             this.образованиеToolStripMenuItem.Name = "образованиеToolStripMenuItem";
@@ -1023,21 +1025,21 @@ namespace Kadr.UI.Forms
             // типОбразованияToolStripMenuItem
             // 
             this.типОбразованияToolStripMenuItem.Name = "типОбразованияToolStripMenuItem";
-            this.типОбразованияToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.типОбразованияToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.типОбразованияToolStripMenuItem.Text = "Тип образования";
             this.типОбразованияToolStripMenuItem.Click += new System.EventHandler(this.типОбразованияToolStripMenuItem_Click);
             // 
             // языкToolStripMenuItem
             // 
             this.языкToolStripMenuItem.Name = "языкToolStripMenuItem";
-            this.языкToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.языкToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.языкToolStripMenuItem.Text = "Язык";
             this.языкToolStripMenuItem.Click += new System.EventHandler(this.языкToolStripMenuItem_Click);
             // 
             // степеньВладенияЯзыкомToolStripMenuItem
             // 
             this.степеньВладенияЯзыкомToolStripMenuItem.Name = "степеньВладенияЯзыкомToolStripMenuItem";
-            this.степеньВладенияЯзыкомToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.степеньВладенияЯзыкомToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.степеньВладенияЯзыкомToolStripMenuItem.Text = "Степень владения языком";
             this.степеньВладенияЯзыкомToolStripMenuItem.Click += new System.EventHandler(this.степеньВладенияЯзыкомToolStripMenuItem_Click);
             // 
@@ -1477,6 +1479,13 @@ namespace Kadr.UI.Forms
             // 
             this.departmentBindingSource.DataSource = typeof(Kadr.Data.Department);
             // 
+            // типПовышенияКвалификацииToolStripMenuItem
+            // 
+            this.типПовышенияКвалификацииToolStripMenuItem.Name = "типПовышенияКвалификацииToolStripMenuItem";
+            this.типПовышенияКвалификацииToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
+            this.типПовышенияКвалификацииToolStripMenuItem.Text = "Тип повышения квалификации";
+            this.типПовышенияКвалификацииToolStripMenuItem.Click += new System.EventHandler(this.типПовышенияКвалификацииToolStripMenuItem_Click);
+            // 
             // KadrBaseForm
             // 
             this.AllowDrop = true;
@@ -1668,6 +1677,7 @@ namespace Kadr.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem степеньВладенияЯзыкомToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem языкToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типыДокументовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типПовышенияКвалификацииToolStripMenuItem;
 
     }
 }
