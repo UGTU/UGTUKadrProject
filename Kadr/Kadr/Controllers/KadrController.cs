@@ -176,7 +176,7 @@ namespace Kadr.Controllers
                     });*/
         }
 
-        public void AddFactStaff(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, Dep department = null, WorkType workType = null)
+        /*public void AddFactStaff(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, Dep department = null, WorkType workType = null)
         {
             if (workType == null)
                 workType = NullWorkType.Instance;
@@ -229,7 +229,7 @@ namespace Kadr.Controllers
                 };
                 dlg.ShowDialog();
             }
-        }
+        }*/
 
         public void AddFactStaffHistory(FactStaff currentFactStaff)
         {

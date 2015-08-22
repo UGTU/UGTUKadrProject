@@ -116,6 +116,7 @@ namespace Kadr.UI.Forms
             this.графикиРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.образованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типОбразованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типПовышенияКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.языкToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.степеньВладенияЯзыкомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отделыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -174,7 +175,6 @@ namespace Kadr.UI.Forms
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.типПовышенияКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             tsmiDismissedEmployees = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -1029,6 +1029,13 @@ namespace Kadr.UI.Forms
             this.типОбразованияToolStripMenuItem.Text = "Тип образования";
             this.типОбразованияToolStripMenuItem.Click += new System.EventHandler(this.типОбразованияToolStripMenuItem_Click);
             // 
+            // типПовышенияКвалификацииToolStripMenuItem
+            // 
+            this.типПовышенияКвалификацииToolStripMenuItem.Name = "типПовышенияКвалификацииToolStripMenuItem";
+            this.типПовышенияКвалификацииToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
+            this.типПовышенияКвалификацииToolStripMenuItem.Text = "Тип повышения квалификации";
+            this.типПовышенияКвалификацииToolStripMenuItem.Click += new System.EventHandler(this.типПовышенияКвалификацииToolStripMenuItem_Click);
+            // 
             // языкToolStripMenuItem
             // 
             this.языкToolStripMenuItem.Name = "языкToolStripMenuItem";
@@ -1478,13 +1485,6 @@ namespace Kadr.UI.Forms
             // departmentBindingSource
             // 
             this.departmentBindingSource.DataSource = typeof(Kadr.Data.Department);
-            // 
-            // типПовышенияКвалификацииToolStripMenuItem
-            // 
-            this.типПовышенияКвалификацииToolStripMenuItem.Name = "типПовышенияКвалификацииToolStripMenuItem";
-            this.типПовышенияКвалификацииToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
-            this.типПовышенияКвалификацииToolStripMenuItem.Text = "Тип повышения квалификации";
-            this.типПовышенияКвалификацииToolStripMenuItem.Click += new System.EventHandler(this.типПовышенияКвалификацииToolStripMenuItem_Click);
             // 
             // KadrBaseForm
             // 

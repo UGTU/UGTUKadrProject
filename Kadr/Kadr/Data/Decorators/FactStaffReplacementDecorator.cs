@@ -92,7 +92,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название вида работы")]
         //[System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.WorkTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
         public Kadr.Data.WorkType WorkType
         {
             get
@@ -139,7 +139,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Причина замещения")]
         [System.ComponentModel.Category("Параметры замещения")]
         [System.ComponentModel.Description("Причина замещения сотрудника")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FactStaffReplacementReasonEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<NullFactStaffReplacementReason>))]
         public Kadr.Data.FactStaffReplacementReason FactStaffReplacementReason
         {
             get

@@ -56,7 +56,8 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Источник финансирования надбавки")]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.AllFinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.AllFinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<FinancingSource>))]
         public FinancingSource FinancingSource
         {
             get
