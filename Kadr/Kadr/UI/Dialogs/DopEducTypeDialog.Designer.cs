@@ -105,7 +105,7 @@
             // 
             // DopEducTypeBindingSource
             // 
-            this.DopEducTypeBindingSource.DataSource = typeof(Kadr.Data.OK_DopEducDecorator);
+            this.DopEducTypeBindingSource.DataSource = typeof(Kadr.Data.DopEducTypeDecorator);
             // 
             // dataGridViewTextBoxColumn1
             // 

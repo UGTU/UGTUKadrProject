@@ -288,9 +288,9 @@ namespace Kadr.Data
     partial void InsertEducDocumentType(EducDocumentType instance);
     partial void UpdateEducDocumentType(EducDocumentType instance);
     partial void DeleteEducDocumentType(EducDocumentType instance);
-    partial void InsertOK_DopEduc(OK_DopEduc instance);
-    partial void UpdateOK_DopEduc(OK_DopEduc instance);
-    partial void DeleteOK_DopEduc(OK_DopEduc instance);
+    partial void InsertDopEducType(DopEducType instance);
+    partial void UpdateDopEducType(DopEducType instance);
+    partial void DeleteDopEducType(DopEducType instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -1027,11 +1027,11 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<OK_DopEduc> OK_DopEducs
+		public System.Data.Linq.Table<DopEducType> DopEducTypes
 		{
 			get
 			{
-				return this.GetTable<OK_DopEduc>();
+				return this.GetTable<DopEducType>();
 			}
 		}
 		
@@ -23751,7 +23751,7 @@ namespace Kadr.Data
 		
 		private EntitySet<EducDocument> _EducDocuments;
 		
-		private EntitySet<OK_DopEduc> _OK_DopEducs;
+		private EntitySet<DopEducType> _DopEducTypes;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -23768,7 +23768,7 @@ namespace Kadr.Data
 		public EducDocumentType()
 		{
 			this._EducDocuments = new EntitySet<EducDocument>(new Action<EducDocument>(this.attach_EducDocuments), new Action<EducDocument>(this.detach_EducDocuments));
-			this._OK_DopEducs = new EntitySet<OK_DopEduc>(new Action<OK_DopEduc>(this.attach_OK_DopEducs), new Action<OK_DopEduc>(this.detach_OK_DopEducs));
+			this._DopEducTypes = new EntitySet<DopEducType>(new Action<DopEducType>(this.attach_DopEducTypes), new Action<DopEducType>(this.detach_DopEducTypes));
 			OnCreated();
 		}
 		
@@ -23845,16 +23845,16 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_OK_DopEduc", Storage="_OK_DopEducs", ThisKey="id", OtherKey="idEducDocumentType")]
-		public EntitySet<OK_DopEduc> OK_DopEducs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_DopEducType", Storage="_DopEducTypes", ThisKey="id", OtherKey="idEducDocumentType")]
+		public EntitySet<DopEducType> DopEducTypes
 		{
 			get
 			{
-				return this._OK_DopEducs;
+				return this._DopEducTypes;
 			}
 			set
 			{
-				this._OK_DopEducs.Assign(value);
+				this._DopEducTypes.Assign(value);
 			}
 		}
 		
@@ -23890,21 +23890,21 @@ namespace Kadr.Data
 			entity.EducDocumentType = null;
 		}
 		
-		private void attach_OK_DopEducs(OK_DopEduc entity)
+		private void attach_DopEducTypes(DopEducType entity)
 		{
 			this.SendPropertyChanging();
 			entity.EducDocumentType = this;
 		}
 		
-		private void detach_OK_DopEducs(OK_DopEduc entity)
+		private void detach_DopEducTypes(DopEducType entity)
 		{
 			this.SendPropertyChanging();
 			entity.EducDocumentType = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_DopEduc")]
-	public partial class OK_DopEduc : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DopEducType")]
+	public partial class DopEducType : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -23933,7 +23933,7 @@ namespace Kadr.Data
     partial void OnidEducDocumentTypeChanged();
     #endregion
 		
-		public OK_DopEduc()
+		public DopEducType()
 		{
 			this._EducDocumentType = default(EntityRef<EducDocumentType>);
 			OnCreated();
@@ -24023,7 +24023,7 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_OK_DopEduc", Storage="_EducDocumentType", ThisKey="idEducDocumentType", OtherKey="id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_DopEducType", Storage="_EducDocumentType", ThisKey="idEducDocumentType", OtherKey="id", IsForeignKey=true)]
 		public EducDocumentType EducDocumentType
 		{
 			get
@@ -24040,12 +24040,12 @@ namespace Kadr.Data
 					if ((previousValue != null))
 					{
 						this._EducDocumentType.Entity = null;
-						previousValue.OK_DopEducs.Remove(this);
+						previousValue.DopEducTypes.Remove(this);
 					}
 					this._EducDocumentType.Entity = value;
 					if ((value != null))
 					{
-						value.OK_DopEducs.Add(this);
+						value.DopEducTypes.Add(this);
 						this._idEducDocumentType = value.id;
 					}
 					else

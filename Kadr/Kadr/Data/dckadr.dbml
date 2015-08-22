@@ -1059,16 +1059,16 @@
       <Column Name="DocTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="isOld" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="EducDocumentType_EducDocument" Member="EducDocuments" ThisKey="id" OtherKey="idEducDocType" Type="EducDocument" />
-      <Association Name="EducDocumentType_OK_DopEduc" Member="OK_DopEducs" ThisKey="id" OtherKey="idEducDocumentType" Type="OK_DopEduc" />
+      <Association Name="EducDocumentType_DopEducType" Member="DopEducTypes" ThisKey="id" OtherKey="idEducDocumentType" Type="DopEducType" />
     </Type>
   </Table>
-  <Table Name="dbo.OK_DopEduc" Member="OK_DopEducs">
-    <Type Name="OK_DopEduc">
+  <Table Name="dbo.DopEducType" Member="DopEducTypes">
+    <Type Name="DopEducType">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="DopEducName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="Duration" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="idEducDocumentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="EducDocumentType_OK_DopEduc" Member="EducDocumentType" ThisKey="idEducDocumentType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
+      <Association Name="EducDocumentType_DopEducType" Member="EducDocumentType" ThisKey="idEducDocumentType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

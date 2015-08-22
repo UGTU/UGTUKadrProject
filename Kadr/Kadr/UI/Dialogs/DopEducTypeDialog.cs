@@ -23,7 +23,7 @@ namespace Kadr.UI.Dialogs
         private void DopEducTypeDialog_Load(object sender, EventArgs e)
         {
             bindingNavigator1.BindingSource = DopEducTypeBindingSource;
-            DopEducTypeBindingSource.DataSource = KadrController.Instance.Model.OK_DopEducs.OrderBy(x => x.id);
+            DopEducTypeBindingSource.DataSource = KadrController.Instance.Model.DopEducTypes.OrderBy(x => x.id);
             TypeDocumentBindingSource.DataSource = KadrController.Instance.Model.EducDocumentTypes.Where(x=>x.isOld == false).OrderBy(y => y.DocTypeName).ToArray();
             foreach (DataGridViewRow row in dgvDopEducType.Rows.Cast<DataGridViewRow>().Where(row => row.Cells["EducDocumentType"].Value != null))
             {

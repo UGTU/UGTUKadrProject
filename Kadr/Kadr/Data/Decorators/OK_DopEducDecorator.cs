@@ -7,18 +7,18 @@ using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
-    class OK_DopEducDecorator
+    class DopEducTypeDecorator
     {
-        private OK_DopEduc _educationDopEduc;
+        private DopEducType _DopEducType;
 
-        public OK_DopEducDecorator(OK_DopEduc educationDopEduc)
+        public DopEducTypeDecorator(DopEducType dopEducType)
         {
-            this._educationDopEduc = educationDopEduc;
+            this._DopEducType = dopEducType;
         }
 
         public override string ToString()
         {
-            return _educationDopEduc.DopEducName + " (" + _educationDopEduc.Duration + " часов)";
+            return _DopEducType.DopEducName + " (" + _DopEducType.Duration + " часов)";
         }
 
         [System.ComponentModel.DisplayName("idOK_DopEduc")]
@@ -26,11 +26,11 @@ namespace Kadr.Data
         [System.ComponentModel.Description("Уникальный код типа повышения квалификации")]
         [System.ComponentModel.ReadOnly(true)]
      //   [System.ComponentModel.Browsable(false)]
-        public int idOK_DopEduc
+        public int IdDopEducType
         {
             get
             {
-                return _educationDopEduc.id;
+                return _DopEducType.id;
             }
         }
 
@@ -41,11 +41,11 @@ namespace Kadr.Data
         {
             get
             {
-                return _educationDopEduc.DopEducName;
+                return _DopEducType.DopEducName;
             }
             set
             {
-                    _educationDopEduc.DopEducName = value;
+                    _DopEducType.DopEducName = value;
             }
         }
 
@@ -56,11 +56,11 @@ namespace Kadr.Data
         {
             get
             {
-                return _educationDopEduc.Duration;
+                return _DopEducType.Duration;
             }
             set
             {
-                _educationDopEduc.Duration = value;
+                _DopEducType.Duration = value;
             }
         }
 
@@ -72,11 +72,11 @@ namespace Kadr.Data
         {
             get
             {
-                return _educationDopEduc.EducDocumentType;
+                return _DopEducType.EducDocumentType;
             }
             set
             {
-                _educationDopEduc.EducDocumentType = value;
+                _DopEducType.EducDocumentType = value;
             }
         }
 
@@ -88,12 +88,12 @@ namespace Kadr.Data
         {
             get
             {
-                return _educationDopEduc.EducDocumentType == null ? "" : _educationDopEduc.EducDocumentType.DocTypeName;
+                return _DopEducType.EducDocumentType == null ? "" : _DopEducType.EducDocumentType.DocTypeName;
             }
             set
             {
                 if (value != "")
-                    _educationDopEduc.EducDocumentType = KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(x=>x.DocTypeName == value);
+                    _DopEducType.EducDocumentType = KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(x=>x.DocTypeName == value);
             }
         }
 
