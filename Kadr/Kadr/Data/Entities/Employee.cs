@@ -75,7 +75,7 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            return  EmployeeName;
+            return this.LastName + " " + this.FirstName + " " + this.Otch;
         }
 
 

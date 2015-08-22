@@ -13,7 +13,13 @@ namespace Kadr.Data
             return this.grazdName;
         }
 
-
+        static public Grazd DefaultGrazd
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.Grazds.Where(finS => finS.id == 2).First();
+            }
+        }
 
         #region INull Members
 

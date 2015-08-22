@@ -23,7 +23,6 @@ namespace Kadr.Controllers
                         EducDocumentType docType = KadrController.Instance.Model.EducDocumentTypes.Where(educDocType
                             => educDocType.id == 1).First();
                         dlg.CommandManager.Execute(new GenericPropertyCommand<EducDocument, EducDocumentType>(educDocument, "EducDocumentType", docType, null), sender);
-
                         dlg.CommandManager.Execute(new GenericPropertyCommand<EmployeeDegree, ScienceType>(x, "ScienceType", NullScienceType.Instance, null), sender);
                         dlg.CommandManager.Execute(new GenericPropertyCommand<EmployeeDegree, Degree>(x, "Degree", NullDegree.Instance, null), sender);
                         dlg.CommandManager.Execute(new GenericPropertyCommand<EmployeeDegree, Employee>(x, "Employee", e, null), sender);

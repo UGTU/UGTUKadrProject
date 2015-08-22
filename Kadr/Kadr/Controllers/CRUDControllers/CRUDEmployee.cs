@@ -11,7 +11,7 @@ namespace Kadr.Controllers
 {
     public static class CRUDEmployee
     {
-        public static void Create(object sender)
+        public static void Create(object sender, PlanStaff planStaff)
         {
             using (PropertyGridDialogAdding<Employee> dlg =
                 new PropertyGridDialogAdding<Employee>())
@@ -19,7 +19,7 @@ namespace Kadr.Controllers
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.Employees;
                 dlg.PrikazButtonVisible = false;
-                dlg.ApplyButtonVisible = false;
+                dlg.oneObjectCreated = true;
                 //dlg.BindingSource = employeeBindingSource;
                 dlg.InitializeNewObject = (x) =>
                 {
@@ -34,10 +34,20 @@ namespace Kadr.Controllers
                     else
                     {
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, SemPol>(x, "SemPol", NullSemPol.Instance, null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Grazd>(x, "Grazd", NullGrazd.Instance, null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Grazd>(x, "Grazd", Grazd.DefaultGrazd, null), sender);
 
                     }
                 };
+
+                dlg.CreateRelatedObject = (x) =>
+                {
+                    if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
+                    {
+                        CRUDFactStaff.Create(null, planStaff, sender, false, x, dlg.CommandManager,null, WorkType.MainWorkType);
+                    }
+
+                };
+
                 dlg.ShowDialog();
                 //RefreshFrame();
             }

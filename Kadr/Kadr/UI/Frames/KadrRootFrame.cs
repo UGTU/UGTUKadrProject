@@ -1583,7 +1583,7 @@ namespace Kadr.UI.Frames
 
        private void tsbAddEmplFactStaff_Click(object sender, EventArgs e)
        {
-           CRUDEmployee.Create(this);
+           CRUDEmployee.Create(this, planStaffBindingSource.Current as PlanStaff);
            //CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
            LoadFactStaff();
