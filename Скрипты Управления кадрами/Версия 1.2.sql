@@ -972,7 +972,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_PADDING ON
 GO
-CREATE TABLE [dbo].[OK_DopEduc](
+CREATE TABLE [dbo].[DopEducType](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[DopEducName] [varchar](500) NOT NULL,
 	[Duration] [varchar](50) NULL,
@@ -990,21 +990,21 @@ SET ANSI_PADDING ON
 
 GO
 /****** Object:  Index [IX_OK_DopEduc]    Script Date: 20.08.2015 13:07:23 ******/
-CREATE UNIQUE NONCLUSTERED INDEX [IX_OK_DopEduc] ON [dbo].[OK_DopEduc]
+CREATE UNIQUE NONCLUSTERED INDEX [IX_OK_DopEduc] ON [dbo].[DopEducType]
 (
 	[DopEducName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 /****** Object:  Index [IX_OK_DopEduc_1]    Script Date: 20.08.2015 13:07:23 ******/
-CREATE NONCLUSTERED INDEX [IX_OK_DopEduc_1] ON [dbo].[OK_DopEduc]
+CREATE NONCLUSTERED INDEX [IX_OK_DopEduc_1] ON [dbo].[DopEducType]
 (
 	[idEducDocumentType] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[OK_DopEduc]  WITH CHECK ADD  CONSTRAINT [FK_OK_DopEduc_EducDocumentType] FOREIGN KEY([idEducDocumentType])
+ALTER TABLE [dbo].[DopEducType]  WITH CHECK ADD  CONSTRAINT [FK_OK_DopEduc_EducDocumentType] FOREIGN KEY([idEducDocumentType])
 REFERENCES [dbo].[EducDocumentType] ([id])
 GO
-ALTER TABLE [dbo].[OK_DopEduc] CHECK CONSTRAINT [FK_OK_DopEduc_EducDocumentType]
+ALTER TABLE [dbo].[DopEducType] CHECK CONSTRAINT [FK_OK_DopEduc_EducDocumentType]
 GO
 
 alter table [dbo].[EducDocumentType] add isOld bit null
@@ -1014,3 +1014,77 @@ ALTER TABLE dbo.EducDocumentType ADD CONSTRAINT col_isOld_def DEFAULT 0 FOR isOl
 alter table [dbo].[EducDocumentType] alter column isOld bit not null
 
 ---------------------------------------------------------------------------------------------------------------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OK_DopEducation](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idDopEducType] [int] NOT NULL,
+	[DateBegin] [date] NULL,
+	[DateEnd] [date] NULL,
+	[idEducDocument] [int] NOT NULL,
+	[idFactStaffPrikaz] [int] NULL,
+ CONSTRAINT [PK_OK_DopEducEmployee] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Index [IX_OK_DopEducEmployee]    Script Date: 22.08.2015 15:29:41 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_DopEducEmployee] ON [dbo].[OK_DopEducation]
+(
+	[idDopEducType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_OK_DopEducEmployee_1]    Script Date: 22.08.2015 15:29:41 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_DopEducEmployee_1] ON [dbo].[OK_DopEducation]
+(
+	[idEducDocument] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_OK_DopEducEmployee_2]    Script Date: 22.08.2015 15:29:41 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_DopEducEmployee_2] ON [dbo].[OK_DopEducation]
+(
+	[idFactStaffPrikaz] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[OK_DopEducation]  WITH CHECK ADD  CONSTRAINT [FK_OK_DopEducEmployee_EducDocument] FOREIGN KEY([idEducDocument])
+REFERENCES [dbo].[EducDocument] ([id])
+GO
+ALTER TABLE [dbo].[OK_DopEducation] CHECK CONSTRAINT [FK_OK_DopEducEmployee_EducDocument]
+GO
+ALTER TABLE [dbo].[OK_DopEducation]  WITH CHECK ADD  CONSTRAINT [FK_OK_DopEducEmployee_FactStaffPrikaz] FOREIGN KEY([idFactStaffPrikaz])
+REFERENCES [dbo].[FactStaffPrikaz] ([id])
+GO
+ALTER TABLE [dbo].[OK_DopEducation] CHECK CONSTRAINT [FK_OK_DopEducEmployee_FactStaffPrikaz]
+GO
+ALTER TABLE [dbo].[OK_DopEducation]  WITH CHECK ADD  CONSTRAINT [FK_OK_DopEducEmployee_OK_DopEduc] FOREIGN KEY([idDopEducType])
+REFERENCES [dbo].[DopEducType] ([id])
+GO
+ALTER TABLE [dbo].[OK_DopEducation] CHECK CONSTRAINT [FK_OK_DopEducEmployee_OK_DopEduc]
+GO
+
+alter table OK_DopEducation add idEmployee int null
+alter table OK_DopEducation alter column idEmployee int not null
+
+ALTER TABLE [dbo].[OK_DopEducation]  WITH CHECK ADD  CONSTRAINT [FK_OK_DopEducation_Employee] FOREIGN KEY([idEmployee])
+REFERENCES [dbo].[Employee] ([id])
+GO
+ALTER TABLE [dbo].[OK_DopEducation] CHECK CONSTRAINT [FK_OK_DopEducation_Employee]
+GO
+/****** Object:  Index [IX_OK_DopEducation]    Script Date: 22.08.2015 16:06:33 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_DopEducation] ON [dbo].[OK_DopEducation]
+(
+	[idEmployee] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+alter table OK_DopEducation add idEmployee int null
+-----------------------------------
+insert into OK_DopEducation(idEducDocument,idEmployee,
+
+select * from [dbo].[OK_Educ] where [idEducationType] = 8
+
+select * from [dbo].[EducDocument] where id in (77112,79424)
