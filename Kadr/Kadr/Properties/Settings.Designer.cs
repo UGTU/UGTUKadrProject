@@ -82,6 +82,17 @@ namespace Kadr.Properties {
             }
         }
         
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" +
+            "")]
+        public string KadrConnectionString2 {
+            get {
+                return ((string)(this["KadrConnectionString2"]));
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
@@ -91,17 +102,6 @@ namespace Kadr.Properties {
             }
             set {
                 this["SexImagesInterval"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" +
-            "")]
-        public string KadrConnectionString2 {
-            get {
-                return ((string)(this["KadrConnectionString2"]));
             }
         }
     }

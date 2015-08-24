@@ -291,6 +291,9 @@ namespace Kadr.Data
     partial void InsertDopEducType(DopEducType instance);
     partial void UpdateDopEducType(DopEducType instance);
     partial void DeleteDopEducType(DopEducType instance);
+    partial void InsertOK_DopEducation(OK_DopEducation instance);
+    partial void UpdateOK_DopEducation(OK_DopEducation instance);
+    partial void DeleteOK_DopEducation(OK_DopEducation instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -1032,6 +1035,14 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<DopEducType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_DopEducation> OK_DopEducations
+		{
+			get
+			{
+				return this.GetTable<OK_DopEducation>();
 			}
 		}
 		
@@ -15728,6 +15739,8 @@ namespace Kadr.Data
 		
 		private EntitySet<Validation> _Validations;
 		
+		private EntitySet<OK_DopEducation> _OK_DopEducations;
+		
 		private EntityRef<FactStaff> _FactStaff;
 		
 		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz1;
@@ -15761,6 +15774,7 @@ namespace Kadr.Data
 			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
 			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
 			this._Validations = new EntitySet<Validation>(new Action<Validation>(this.attach_Validations), new Action<Validation>(this.detach_Validations));
+			this._OK_DopEducations = new EntitySet<OK_DopEducation>(new Action<OK_DopEducation>(this.attach_OK_DopEducations), new Action<OK_DopEducation>(this.detach_OK_DopEducations));
 			this._FactStaff = default(EntityRef<FactStaff>);
 			this._FactStaffPrikaz1 = default(EntityRef<FactStaffPrikaz>);
 			this._Prikaz = default(EntityRef<Prikaz>);
@@ -15990,6 +16004,19 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaffPrikaz_OK_DopEducation", Storage="_OK_DopEducations", ThisKey="id", OtherKey="idFactStaffPrikaz")]
+		public EntitySet<OK_DopEducation> OK_DopEducations
+		{
+			get
+			{
+				return this._OK_DopEducations;
+			}
+			set
+			{
+				this._OK_DopEducations.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_FactStaffPrikaz", Storage="_FactStaff", ThisKey="idFactStaff", OtherKey="id", IsForeignKey=true)]
 		public FactStaff FactStaff
 		{
@@ -16191,6 +16218,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_Validations(Validation entity)
+		{
+			this.SendPropertyChanging();
+			entity.FactStaffPrikaz = null;
+		}
+		
+		private void attach_OK_DopEducations(OK_DopEducation entity)
+		{
+			this.SendPropertyChanging();
+			entity.FactStaffPrikaz = this;
+		}
+		
+		private void detach_OK_DopEducations(OK_DopEducation entity)
 		{
 			this.SendPropertyChanging();
 			entity.FactStaffPrikaz = null;
@@ -16756,6 +16795,8 @@ namespace Kadr.Data
 		
 		private EntitySet<OK_Social> _OK_Socials;
 		
+		private EntitySet<OK_DopEducation> _OK_DopEducations;
+		
 		private EntityRef<Grazd> _Grazd;
 		
 		private EntityRef<SemPol> _SemPol;
@@ -16840,6 +16881,7 @@ namespace Kadr.Data
 			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
 			this._OK_Educs = new EntitySet<OK_Educ>(new Action<OK_Educ>(this.attach_OK_Educs), new Action<OK_Educ>(this.detach_OK_Educs));
 			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
+			this._OK_DopEducations = new EntitySet<OK_DopEducation>(new Action<OK_DopEducation>(this.attach_OK_DopEducations), new Action<OK_DopEducation>(this.detach_OK_DopEducations));
 			this._Grazd = default(EntityRef<Grazd>);
 			this._SemPol = default(EntityRef<SemPol>);
 			OnCreated();
@@ -17615,6 +17657,19 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopEducation", Storage="_OK_DopEducations", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_DopEducation> OK_DopEducations
+		{
+			get
+			{
+				return this._OK_DopEducations;
+			}
+			set
+			{
+				this._OK_DopEducations.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grazd_Employee", Storage="_Grazd", ThisKey="idGrazd", OtherKey="id", IsForeignKey=true)]
 		public Grazd Grazd
 		{
@@ -17866,6 +17921,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_OK_Socials(OK_Social entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_DopEducations(OK_DopEducation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_DopEducations(OK_DopEducation entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
@@ -22876,6 +22943,8 @@ namespace Kadr.Data
 		
 		private EntitySet<OK_Social> _OK_Socials;
 		
+		private EntitySet<OK_DopEducation> _OK_DopEducations;
+		
 		private EntityRef<Organisation> _Organisation;
 		
 		private EntityRef<EducDocumentType> _EducDocumentType;
@@ -22908,6 +22977,7 @@ namespace Kadr.Data
 			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
 			this._OK_Educ = default(EntityRef<OK_Educ>);
 			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
+			this._OK_DopEducations = new EntitySet<OK_DopEducation>(new Action<OK_DopEducation>(this.attach_OK_DopEducations), new Action<OK_DopEducation>(this.detach_OK_DopEducations));
 			this._Organisation = default(EntityRef<Organisation>);
 			this._EducDocumentType = default(EntityRef<EducDocumentType>);
 			OnCreated();
@@ -23193,6 +23263,19 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_DopEducation", Storage="_OK_DopEducations", ThisKey="id", OtherKey="idEducDocument")]
+		public EntitySet<OK_DopEducation> OK_DopEducations
+		{
+			get
+			{
+				return this._OK_DopEducations;
+			}
+			set
+			{
+				this._OK_DopEducations.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Organisation_EducDocument", Storage="_Organisation", ThisKey="IdOrganisation", OtherKey="id", IsForeignKey=true)]
 		public Organisation Organisation
 		{
@@ -23336,6 +23419,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_OK_Socials(OK_Social entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = null;
+		}
+		
+		private void attach_OK_DopEducations(OK_DopEducation entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = this;
+		}
+		
+		private void detach_OK_DopEducations(OK_DopEducation entity)
 		{
 			this.SendPropertyChanging();
 			entity.EducDocument = null;
@@ -23917,6 +24012,8 @@ namespace Kadr.Data
 		
 		private System.Nullable<int> _idEducDocumentType;
 		
+		private EntitySet<OK_DopEducation> _OK_DopEducations;
+		
 		private EntityRef<EducDocumentType> _EducDocumentType;
 		
     #region Определения метода расширяемости
@@ -23935,6 +24032,7 @@ namespace Kadr.Data
 		
 		public DopEducType()
 		{
+			this._OK_DopEducations = new EntitySet<OK_DopEducation>(new Action<OK_DopEducation>(this.attach_OK_DopEducations), new Action<OK_DopEducation>(this.detach_OK_DopEducations));
 			this._EducDocumentType = default(EntityRef<EducDocumentType>);
 			OnCreated();
 		}
@@ -24023,6 +24121,19 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DopEducType_OK_DopEducation", Storage="_OK_DopEducations", ThisKey="id", OtherKey="idDopEducType")]
+		public EntitySet<OK_DopEducation> OK_DopEducations
+		{
+			get
+			{
+				return this._OK_DopEducations;
+			}
+			set
+			{
+				this._OK_DopEducations.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_DopEducType", Storage="_EducDocumentType", ThisKey="idEducDocumentType", OtherKey="id", IsForeignKey=true)]
 		public EducDocumentType EducDocumentType
 		{
@@ -24053,6 +24164,460 @@ namespace Kadr.Data
 						this._idEducDocumentType = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("EducDocumentType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OK_DopEducations(OK_DopEducation entity)
+		{
+			this.SendPropertyChanging();
+			entity.DopEducType = this;
+		}
+		
+		private void detach_OK_DopEducations(OK_DopEducation entity)
+		{
+			this.SendPropertyChanging();
+			entity.DopEducType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_DopEducation")]
+	public partial class OK_DopEducation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _idDopEducType;
+		
+		private System.Nullable<System.DateTime> _DateBegin;
+		
+		private System.Nullable<System.DateTime> _DateEnd;
+		
+		private int _idEducDocument;
+		
+		private System.Nullable<int> _idFactStaffPrikaz;
+		
+		private int _idEmployee;
+		
+		private string _Spec;
+		
+		private string _Kvalif;
+		
+		private System.Nullable<int> _AuditHour;
+		
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<EducDocument> _EducDocument;
+		
+		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz;
+		
+		private EntityRef<DopEducType> _DopEducType;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnidDopEducTypeChanging(int value);
+    partial void OnidDopEducTypeChanged();
+    partial void OnDateBeginChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateBeginChanged();
+    partial void OnDateEndChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateEndChanged();
+    partial void OnidEducDocumentChanging(int value);
+    partial void OnidEducDocumentChanged();
+    partial void OnidFactStaffPrikazChanging(System.Nullable<int> value);
+    partial void OnidFactStaffPrikazChanged();
+    partial void OnidEmployeeChanging(int value);
+    partial void OnidEmployeeChanged();
+    partial void OnSpecChanging(string value);
+    partial void OnSpecChanged();
+    partial void OnKvalifChanging(string value);
+    partial void OnKvalifChanged();
+    partial void OnAuditHourChanging(System.Nullable<int> value);
+    partial void OnAuditHourChanged();
+    #endregion
+		
+		public OK_DopEducation()
+		{
+			this._Employee = default(EntityRef<Employee>);
+			this._EducDocument = default(EntityRef<EducDocument>);
+			this._FactStaffPrikaz = default(EntityRef<FactStaffPrikaz>);
+			this._DopEducType = default(EntityRef<DopEducType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idDopEducType", DbType="Int NOT NULL")]
+		public int idDopEducType
+		{
+			get
+			{
+				return this._idDopEducType;
+			}
+			set
+			{
+				if ((this._idDopEducType != value))
+				{
+					if (this._DopEducType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidDopEducTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idDopEducType = value;
+					this.SendPropertyChanged("idDopEducType");
+					this.OnidDopEducTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="Date")]
+		public System.Nullable<System.DateTime> DateBegin
+		{
+			get
+			{
+				return this._DateBegin;
+			}
+			set
+			{
+				if ((this._DateBegin != value))
+				{
+					this.OnDateBeginChanging(value);
+					this.SendPropertyChanging();
+					this._DateBegin = value;
+					this.SendPropertyChanged("DateBegin");
+					this.OnDateBeginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="Date")]
+		public System.Nullable<System.DateTime> DateEnd
+		{
+			get
+			{
+				return this._DateEnd;
+			}
+			set
+			{
+				if ((this._DateEnd != value))
+				{
+					this.OnDateEndChanging(value);
+					this.SendPropertyChanging();
+					this._DateEnd = value;
+					this.SendPropertyChanged("DateEnd");
+					this.OnDateEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEducDocument", DbType="Int NOT NULL")]
+		public int idEducDocument
+		{
+			get
+			{
+				return this._idEducDocument;
+			}
+			set
+			{
+				if ((this._idEducDocument != value))
+				{
+					if (this._EducDocument.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEducDocumentChanging(value);
+					this.SendPropertyChanging();
+					this._idEducDocument = value;
+					this.SendPropertyChanged("idEducDocument");
+					this.OnidEducDocumentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaffPrikaz", DbType="Int")]
+		public System.Nullable<int> idFactStaffPrikaz
+		{
+			get
+			{
+				return this._idFactStaffPrikaz;
+			}
+			set
+			{
+				if ((this._idFactStaffPrikaz != value))
+				{
+					if (this._FactStaffPrikaz.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidFactStaffPrikazChanging(value);
+					this.SendPropertyChanging();
+					this._idFactStaffPrikaz = value;
+					this.SendPropertyChanged("idFactStaffPrikaz");
+					this.OnidFactStaffPrikazChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
+		public int idEmployee
+		{
+			get
+			{
+				return this._idEmployee;
+			}
+			set
+			{
+				if ((this._idEmployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idEmployee = value;
+					this.SendPropertyChanged("idEmployee");
+					this.OnidEmployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Spec", DbType="VarChar(900)")]
+		public string Spec
+		{
+			get
+			{
+				return this._Spec;
+			}
+			set
+			{
+				if ((this._Spec != value))
+				{
+					this.OnSpecChanging(value);
+					this.SendPropertyChanging();
+					this._Spec = value;
+					this.SendPropertyChanged("Spec");
+					this.OnSpecChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kvalif", DbType="VarChar(900)")]
+		public string Kvalif
+		{
+			get
+			{
+				return this._Kvalif;
+			}
+			set
+			{
+				if ((this._Kvalif != value))
+				{
+					this.OnKvalifChanging(value);
+					this.SendPropertyChanging();
+					this._Kvalif = value;
+					this.SendPropertyChanged("Kvalif");
+					this.OnKvalifChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AuditHour", DbType="Int")]
+		public System.Nullable<int> AuditHour
+		{
+			get
+			{
+				return this._AuditHour;
+			}
+			set
+			{
+				if ((this._AuditHour != value))
+				{
+					this.OnAuditHourChanging(value);
+					this.SendPropertyChanging();
+					this._AuditHour = value;
+					this.SendPropertyChanged("AuditHour");
+					this.OnAuditHourChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopEducation", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.OK_DopEducations.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.OK_DopEducations.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_DopEducation", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
+		public EducDocument EducDocument
+		{
+			get
+			{
+				return this._EducDocument.Entity;
+			}
+			set
+			{
+				EducDocument previousValue = this._EducDocument.Entity;
+				if (((previousValue != value) 
+							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducDocument.Entity = null;
+						previousValue.OK_DopEducations.Remove(this);
+					}
+					this._EducDocument.Entity = value;
+					if ((value != null))
+					{
+						value.OK_DopEducations.Add(this);
+						this._idEducDocument = value.id;
+					}
+					else
+					{
+						this._idEducDocument = default(int);
+					}
+					this.SendPropertyChanged("EducDocument");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaffPrikaz_OK_DopEducation", Storage="_FactStaffPrikaz", ThisKey="idFactStaffPrikaz", OtherKey="id", IsForeignKey=true)]
+		public FactStaffPrikaz FactStaffPrikaz
+		{
+			get
+			{
+				return this._FactStaffPrikaz.Entity;
+			}
+			set
+			{
+				FactStaffPrikaz previousValue = this._FactStaffPrikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._FactStaffPrikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FactStaffPrikaz.Entity = null;
+						previousValue.OK_DopEducations.Remove(this);
+					}
+					this._FactStaffPrikaz.Entity = value;
+					if ((value != null))
+					{
+						value.OK_DopEducations.Add(this);
+						this._idFactStaffPrikaz = value.id;
+					}
+					else
+					{
+						this._idFactStaffPrikaz = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("FactStaffPrikaz");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DopEducType_OK_DopEducation", Storage="_DopEducType", ThisKey="idDopEducType", OtherKey="id", IsForeignKey=true)]
+		public DopEducType DopEducType
+		{
+			get
+			{
+				return this._DopEducType.Entity;
+			}
+			set
+			{
+				DopEducType previousValue = this._DopEducType.Entity;
+				if (((previousValue != value) 
+							|| (this._DopEducType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DopEducType.Entity = null;
+						previousValue.OK_DopEducations.Remove(this);
+					}
+					this._DopEducType.Entity = value;
+					if ((value != null))
+					{
+						value.OK_DopEducations.Add(this);
+						this._idDopEducType = value.id;
+					}
+					else
+					{
+						this._idDopEducType = default(int);
+					}
+					this.SendPropertyChanged("DopEducType");
 				}
 			}
 		}

@@ -195,6 +195,7 @@
   <ItemGroup>
     <Compile Include="Command\CreatePlanStaffCommand.cs" />
     <Compile Include="Controllers\BonusController.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDDopEducation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDEducation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDEmployee.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDFactStaff.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Controllers\KadrController.cs" />
     <Compile Include="Controllers\LinqActionsController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
+    <Compile Include="Controllers\PropertyGridExtensions.cs" />
     <Compile Include="Controllers\SimpleActionsProvider.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
     <Compile Include="Data\Common\INull.cs" />
@@ -300,6 +302,7 @@
     <Compile Include="Data\Entities\DepartmentFund.cs" />
     <Compile Include="Data\Entities\DepartmentHistory.cs" />
     <Compile Include="Data\Entities\DepartmentTimeNorm.cs" />
+    <Compile Include="Data\Entities\DopEducType.cs" />
     <Compile Include="Data\Entities\EducationType.cs" />
     <Compile Include="Data\Entities\EducDocument.cs" />
     <Compile Include="Data\Entities\EducDocumentType.cs" />
@@ -325,6 +328,7 @@
     <Compile Include="Data\Entities\MaterialResponsibility.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Adress.cs" />
+    <Compile Include="Data\Entities\OK_DopEducation.cs" />
     <Compile Include="Data\Entities\OK_Educ.cs" />
     <Compile Include="Data\Entities\OK_EmployeeLang.cs" />
     <Compile Include="Data\Entities\OK_Inkapacity.cs" />
@@ -1165,6 +1169,9 @@
     <None Include="Properties\DataSources\Kadr.Data.DopEducType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.DopEducationDecorator.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.DopEducTypeDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_DopEducation.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

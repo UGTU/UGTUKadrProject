@@ -1082,9 +1082,17 @@ CREATE NONCLUSTERED INDEX [IX_OK_DopEducation] ON [dbo].[OK_DopEducation]
 GO
 
 alter table OK_DopEducation add idEmployee int null
+alter table OK_DopEducation alter column idEmployee int not null
+alter table OK_DopEducation add Spec varchar(900) null
+alter table OK_DopEducation add Kvalif varchar(900) null
+
 -----------------------------------
-insert into OK_DopEducation(idEducDocument,idEmployee,
+insert into OK_DopEducation([idDopEducType],idEducDocument,idEmployee,[Spec],[Kvalif])
+  select 3, idEducDocument, idEmployee, [Spec],[Kvalif]
+  from [dbo].[OK_Educ] where [idEducationType] = 8
 
-select * from [dbo].[OK_Educ] where [idEducationType] = 8
+update [dbo].[EducDocument] set [idEducDocType] = 12
+where [dbo].[EducDocument].id in (77112,79424)
 
-select * from [dbo].[EducDocument] where id in (77112,79424)
+alter table Contract add DataBegin date null
+alter table Contract add DataEnd date null
