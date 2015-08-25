@@ -33,7 +33,7 @@
             this.DocumentTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isOldDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isOldDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentType)).BeginInit();
@@ -105,8 +105,13 @@
             // isOldDataGridViewTextBoxColumn
             // 
             this.isOldDataGridViewTextBoxColumn.DataPropertyName = "isOld";
+            this.isOldDataGridViewTextBoxColumn.FalseValue = "False";
             this.isOldDataGridViewTextBoxColumn.HeaderText = "isOld";
+            this.isOldDataGridViewTextBoxColumn.IndeterminateValue = "False";
             this.isOldDataGridViewTextBoxColumn.Name = "isOldDataGridViewTextBoxColumn";
+            this.isOldDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isOldDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.isOldDataGridViewTextBoxColumn.TrueValue = "True";
             this.isOldDataGridViewTextBoxColumn.Visible = false;
             // 
             // DocumentTypeDialog
@@ -134,6 +139,6 @@
         private System.Windows.Forms.BindingSource DocumentTypeBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn docTypeNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isOldDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isOldDataGridViewTextBoxColumn;
     }
 }
