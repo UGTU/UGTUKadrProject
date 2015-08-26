@@ -51,14 +51,21 @@ namespace Kadr.KadrTreeView
 
         private void RefreshNode()
         {
-            if (factStaff != null)
+            if (Employee != null)
             {
-                Employee e = factStaff.Employee;
-                
-                if (!e.SexBit)
+                var state = FactStaff.CurrentState;
+
+                if (state == FactStaffState.OnTrip)
+                    Node.ImageIndex = 11;
+
+                if (state == FactStaffState.Incapable)
+                    Node.ImageIndex = 13;
+
+                if (state == FactStaffState.OnVacation)
+                    Node.ImageIndex = 15;
+
+                if (!Employee.SexBit)
                     Node.ImageIndex += Properties.Settings.Default.SexImagesInterval;
-
-
             }
         }
 

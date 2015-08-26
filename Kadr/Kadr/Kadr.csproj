@@ -217,6 +217,7 @@
     <Compile Include="Controllers\LinqActionsController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
     <Compile Include="Controllers\SimpleActionsProvider.cs" />
+    <Compile Include="Data\Common\AdvancedBindingList.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
@@ -1226,7 +1227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CONSTRUC.ICO" />
-    <Content Include="Resources\TreeIcons\woman_restricted.png" />
+    <Content Include="Resources\TreeIcons\woman_gone.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\1320205531_1.jpg" />
     <None Include="Resources\Excel.bmp" />

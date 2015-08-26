@@ -33,7 +33,7 @@ namespace Kadr.Data
                     if (EducDocument.DocDate==null)
                         throw new ArgumentNullException("Дата выдачи документа");
                     if (EducDocument.Organisation == null) throw new ArgumentNullException("Выдавшая организация");
-                    if (EducDocument.DocDate > DateTime.Now) throw new ArgumentNullException("Дата выдачи документа не может находиться в будущем");
+                    if (EducDocument.DocDate > DateTime.Now) throw new ArgumentOutOfRangeException("Дата выдачи документа не может находиться в будущем");
                     if ((EducDocument.DocNumber == "") || (EducDocument.DocNumber == null)) throw new ArgumentNullException("Номер документа");
                 }
 

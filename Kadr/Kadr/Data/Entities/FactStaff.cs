@@ -10,6 +10,7 @@ using Kadr.Data;
 
 namespace Kadr.Data
 {
+    public enum FactStaffState {Present, Incapable, OnTrip, OnVacation};
 
     public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable
     {
@@ -500,7 +501,7 @@ namespace Kadr.Data
         #endregion 
 
         public override string ToString()
-        {
+        {           
             string res;
             res = "";
             if (UniversalEmployee != null)
@@ -523,6 +524,24 @@ namespace Kadr.Data
             return res;
         }
 
+        public FactStaffState CurrentState
+        {
+            get
+            {
+
+                var Trips = FactStaffPrikazs.SelectMany(x => x.BusinessTrips).Where(t => (t.FactStaffPrikaz.DateBegin < DateTime.Now) && (t.FactStaffPrikaz.DateEnd > DateTime.Now));
+                if (Trips.Count() > 0) return FactStaffState.OnTrip;
+
+
+                var Incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
+                if (Incapacities.Count() > 0) return FactStaffState.Incapable;
+
+                var Vacs = OK_Otpusks.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
+                if (Vacs.Count() > 0) return FactStaffState.OnVacation;
+
+                return FactStaffState.Present;
+            }
+        }
 
         #region partial Methods
 

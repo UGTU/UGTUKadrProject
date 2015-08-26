@@ -62,7 +62,6 @@ namespace Kadr.UI.Forms
             this.CurrentObjectLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.CurrentObjectInfoLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.kadrTreeView1 = new Kadr.KadrTreeView.KadrTreeView(this.components);
             this.treeViewImageList = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -174,6 +173,7 @@ namespace Kadr.UI.Forms
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kadrTreeView1 = new Kadr.KadrTreeView.KadrTreeView(this.components);
             tsmiDismissedEmployees = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -429,7 +429,7 @@ namespace Kadr.UI.Forms
             this.tsbDepartmentFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbDepartmentFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbDepartmentFilter.Name = "tsbDepartmentFilter";
-            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 20);
+            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 22);
             this.tsbDepartmentFilter.Text = "Отделы";
             this.tsbDepartmentFilter.ToolTipText = "Настройки фильтра по отделам";
             this.tsbDepartmentFilter.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsbDepartmentFilter_DropDownItemClicked);
@@ -567,21 +567,6 @@ namespace Kadr.UI.Forms
             this.splitContainer1.SplitterDistance = 192;
             this.splitContainer1.TabIndex = 0;
             // 
-            // kadrTreeView1
-            // 
-            this.kadrTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kadrTreeView1.ImageIndex = 0;
-            this.kadrTreeView1.ImageList = this.treeViewImageList;
-            this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
-            this.kadrTreeView1.Name = "kadrTreeView1";
-            this.kadrTreeView1.SelectedImageIndex = 0;
-            this.kadrTreeView1.Size = new System.Drawing.Size(190, 387);
-            this.kadrTreeView1.TabIndex = 0;
-            this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
-            this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
-            this.kadrTreeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.kadrTreeView1_AfterSelect);
-            this.kadrTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.kadrTreeView1_MouseClick);
-            // 
             // treeViewImageList
             // 
             this.treeViewImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("treeViewImageList.ImageStream")));
@@ -599,8 +584,10 @@ namespace Kadr.UI.Forms
             this.treeViewImageList.Images.SetKeyName(10, "woman.png");
             this.treeViewImageList.Images.SetKeyName(11, "man_restricted.png");
             this.treeViewImageList.Images.SetKeyName(12, "woman_restricted.png");
-            this.treeViewImageList.Images.SetKeyName(13, "woman_unavailable.png");
-            this.treeViewImageList.Images.SetKeyName(14, "man_unavailable.png");
+            this.treeViewImageList.Images.SetKeyName(13, "man_unavailable.png");
+            this.treeViewImageList.Images.SetKeyName(14, "woman_unavailable.png");
+            this.treeViewImageList.Images.SetKeyName(15, "man_vacation.png");
+            this.treeViewImageList.Images.SetKeyName(16, "woman_vacation.png");
             // 
             // menuStrip1
             // 
@@ -1476,6 +1463,21 @@ namespace Kadr.UI.Forms
             // departmentBindingSource
             // 
             this.departmentBindingSource.DataSource = typeof(Kadr.Data.Department);
+            // 
+            // kadrTreeView1
+            // 
+            this.kadrTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kadrTreeView1.ImageIndex = 0;
+            this.kadrTreeView1.ImageList = this.treeViewImageList;
+            this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
+            this.kadrTreeView1.Name = "kadrTreeView1";
+            this.kadrTreeView1.SelectedImageIndex = 0;
+            this.kadrTreeView1.Size = new System.Drawing.Size(190, 387);
+            this.kadrTreeView1.TabIndex = 0;
+            this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
+            this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
+            this.kadrTreeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.kadrTreeView1_AfterSelect);
+            this.kadrTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.kadrTreeView1_MouseClick);
             // 
             // KadrBaseForm
             // 
