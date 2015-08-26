@@ -195,7 +195,10 @@
   <ItemGroup>
     <Compile Include="Command\CreatePlanStaffCommand.cs" />
     <Compile Include="Controllers\BonusController.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDDopEducation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDEducation.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDEmployee.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDFactStaff.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDLanguage.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDSocial.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDAward.cs" />
@@ -216,6 +219,7 @@
     <Compile Include="Controllers\KadrController.cs" />
     <Compile Include="Controllers\LinqActionsController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
+    <Compile Include="Controllers\PropertyGridExtensions.cs" />
     <Compile Include="Controllers\SimpleActionsProvider.cs" />
     <Compile Include="Data\Common\AdvancedBindingList.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
@@ -240,8 +244,10 @@
     <Compile Include="Data\Decorators\BonusTypeDecorator.cs" />
     <Compile Include="Data\Decorators\BonusDecorator.cs" />
     <Compile Include="Data\Decorators\BonusHistoryDecorator.cs" />
+    <Compile Include="Data\Decorators\DopEducationDecorator.cs" />
     <Compile Include="Data\Decorators\EducationDecorator.cs" />
     <Compile Include="Data\Decorators\EmployeeLangDecorator.cs" />
+    <Compile Include="Data\Decorators\OK_DopEducDecorator.cs" />
     <Compile Include="Data\Decorators\OK_Fam.cs" />
     <Compile Include="Data\Decorators\OK_DopInfDecorator.cs" />
     <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
@@ -297,6 +303,7 @@
     <Compile Include="Data\Entities\DepartmentFund.cs" />
     <Compile Include="Data\Entities\DepartmentHistory.cs" />
     <Compile Include="Data\Entities\DepartmentTimeNorm.cs" />
+    <Compile Include="Data\Entities\DopEducType.cs" />
     <Compile Include="Data\Entities\EducationType.cs" />
     <Compile Include="Data\Entities\EducDocument.cs" />
     <Compile Include="Data\Entities\EducDocumentType.cs" />
@@ -322,6 +329,7 @@
     <Compile Include="Data\Entities\MaterialResponsibility.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Adress.cs" />
+    <Compile Include="Data\Entities\OK_DopEducation.cs" />
     <Compile Include="Data\Entities\OK_Educ.cs" />
     <Compile Include="Data\Entities\OK_EmployeeLang.cs" />
     <Compile Include="Data\Entities\OK_Inkapacity.cs" />
@@ -508,6 +516,12 @@
     </Compile>
     <Compile Include="UI\Dialogs\DocumentTypeDialog.Designer.cs">
       <DependentUpon>DocumentTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\DopEducTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\DopEducTypeDialog.Designer.cs">
+      <DependentUpon>DopEducTypeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\EducationTypeDialog.cs">
       <SubType>Form</SubType>
@@ -885,6 +899,9 @@
     <EmbeddedResource Include="UI\Dialogs\DocumentTypeDialog.resx">
       <DependentUpon>DocumentTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\DopEducTypeDialog.resx">
+      <DependentUpon>DopEducTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\EducationTypeDialog.resx">
       <DependentUpon>EducationTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -1150,6 +1167,12 @@
     </None>
     <None Include="Properties\DataSources\Kadr.Data.EducationDecorator.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EducDocumentType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.DopEducType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.DopEducationDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.DopEducTypeDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_DopEducation.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1227,6 +1250,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CONSTRUC.ICO" />
+    <Content Include="Resources\TreeIcons\briefcase.png" />
+    <Content Include="Resources\TreeIcons\palmtree.png" />
+    <Content Include="Resources\TreeIcons\thermometer.png" />
     <Content Include="Resources\TreeIcons\woman_gone.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\1320205531_1.jpg" />

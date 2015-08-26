@@ -25,7 +25,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код сотрудника")]
         [System.ComponentModel.ReadOnly(true)]
-       // [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.Browsable(false)]
         public int ID
         {
             get
@@ -39,7 +39,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Табельный номер")]
-        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Табельный номер сотрудника в системе отдела кадров")]
         public string itab_n
         {
@@ -54,8 +54,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\tФамилия")]
-        [System.ComponentModel.Category("\tФамилия, имя, отчество")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\tФамилия")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Фамилия сотрудника")]
         public string LastName
         {
@@ -69,8 +69,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Пол")]
-        [System.ComponentModel.Category("Личные данные")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\tПол")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Пол сотрудника")]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.GenderBooleanConverter))]//Kadr.UI.Common.CustomBooleanConverter
         public bool SexBit
@@ -85,8 +85,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\tИмя")]
-        [System.ComponentModel.Category("\tФамилия, имя, отчество")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tИмя")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Имя сотрудника")]
         public string FirstName
         {
@@ -100,8 +100,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Отчество")]
-        [System.ComponentModel.Category("\tФамилия, имя, отчество")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\tОтчество")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Отчество сотрудника")]
         public string Otch
         {
@@ -114,6 +114,113 @@ namespace Kadr.Data
                 employee.Otch = value;
             }
         }
+
+        /*[System.ComponentModel.DisplayName("ИНН")]
+        [System.ComponentModel.Category("Документы")]
+        [System.ComponentModel.Description("ИНН сотрудника")]
+        public string
+        {
+            get
+            {
+                return employee;
+            }
+            set
+            {
+                employee = value;
+            }
+        }*/
+        [System.ComponentModel.DisplayName("\t\t\t\tДата рождения")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Дата рождения сотрудника")]
+        public DateTime BirthDate
+        {
+            get
+            {
+                return Convert.ToDateTime(employee.BirthDate);
+            }
+            set
+            {
+                employee.BirthDate = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\t\tМесто рождения")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Место рождения сотрудника")]
+        public string BirthPlace
+        {
+            get
+            {
+                return employee.BirthPlace;
+            }
+            set
+            {
+                employee.BirthPlace = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\tГражданство")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Гражданство сотрудника")]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Grazd>))]
+        public Grazd Grazd
+        {
+            get
+            {
+                return employee.Grazd;
+            }
+            set
+            {
+                employee.Grazd = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\tСемейное положение")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Семейное положение сотрудника")]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<SemPol>))]
+        public SemPol SemPol
+        {
+            get
+            {
+                return employee.SemPol;
+            }
+            set
+            {
+                employee.SemPol = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Районный коэффициент")]
+        [System.ComponentModel.Category("Коэффициенты")]
+        [System.ComponentModel.Description("Районный коэффициент сотрудника")]
+        public int RayonKoeff
+        {
+            get
+            {
+                return employee.RayonKoeff;
+            }
+            set
+            {
+                employee.RayonKoeff = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Северный коэффициент")]
+        [System.ComponentModel.Category("Коэффициенты")]
+        [System.ComponentModel.Description("Северный коэффициент сотрудника")]
+        public int SeverKoeff
+        {
+            get
+            {
+                return employee.SeverKoeff;
+            }
+            set
+            {
+                employee.SeverKoeff = value;
+            }
+        }
+
 
         [System.ComponentModel.DisplayName("Серия")]
         [System.ComponentModel.Category("Паспорт")]
@@ -264,111 +371,6 @@ namespace Kadr.Data
             }
         }
 
-        /*[System.ComponentModel.DisplayName("ИНН")]
-        [System.ComponentModel.Category("Документы")]
-        [System.ComponentModel.Description("ИНН сотрудника")]
-        public string
-        {
-            get
-            {
-                return employee;
-            }
-            set
-            {
-                employee = value;
-            }
-        }*/
-        [System.ComponentModel.DisplayName("Дата рождения")]
-        [System.ComponentModel.Category("Личные данные")]
-        [System.ComponentModel.Description("Дата рождения сотрудника")]
-        public DateTime BirthDate
-        {
-            get
-            {
-                return Convert.ToDateTime(employee.BirthDate);
-            }
-            set
-            {
-                employee.BirthDate = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Место рождения")]
-        [System.ComponentModel.Category("Личные данные")]
-        [System.ComponentModel.Description("Место рождения сотрудника")]
-        public string BirthPlace
-        {
-            get
-            {
-                return employee.BirthPlace;
-            }
-            set
-            {
-                employee.BirthPlace = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Районный коэффициент")]
-        [System.ComponentModel.Category("Коэффициенты")]
-        [System.ComponentModel.Description("Районный коэффициент сотрудника")]
-        public int RayonKoeff
-        {
-            get
-            {
-                return employee.RayonKoeff;
-            }
-            set
-            {
-                employee.RayonKoeff = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Северный коэффициент")]
-        [System.ComponentModel.Category("Коэффициенты")]
-        [System.ComponentModel.Description("Северный коэффициент сотрудника")]
-        public int SeverKoeff
-        {
-            get
-            {
-                return employee.SeverKoeff;
-            }
-            set
-            {
-                employee.SeverKoeff = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Гражданство")]
-        [System.ComponentModel.Category("Личные данные")]
-        [System.ComponentModel.Description("Гражданство сотрудника")]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Grazd>))]
-        public Grazd Grazd
-        {
-            get
-            {
-                return employee.Grazd;
-            }
-            set
-            {
-                employee.Grazd = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Семейное положение")]
-        [System.ComponentModel.Category("Личные данные")]
-        [System.ComponentModel.Description("Семейное положение сотрудника")]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<SemPol>))]
-        public SemPol SemPol
-        {
-            get
-            {
-                return employee.SemPol;
-            }
-            set
-            {
-                employee.SemPol = value;
-            }
-        }
 
     }
 }

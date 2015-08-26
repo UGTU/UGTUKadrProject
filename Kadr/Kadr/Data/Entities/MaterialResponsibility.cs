@@ -89,7 +89,7 @@ namespace Kadr.Data
         {
             if ((action != ChangeAction.Insert) && (action != ChangeAction.Update)) return;
 
-            if (FactStaffPrikaz == null) throw new ArgumentNullException("Приказ.");
+            if (FactStaffPrikaz.idPrikaz == 0) throw new ArgumentNullException("Приказ.");
             if ((Contract.ContractName == null) || (Contract.ContractName.Trim()=="")) throw new ArgumentNullException("Номер договора.");
             if (Contract.DateContract == null) throw new ArgumentNullException("Дата договора.");
             if (FactStaffPrikaz.DateBegin == null) throw new ArgumentNullException("Дата начала действия.");

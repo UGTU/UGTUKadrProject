@@ -26,6 +26,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код сотрудника в штатном расписании")]
         [System.ComponentModel.ReadOnly(true)]
+        
         public int ID
         {
             get

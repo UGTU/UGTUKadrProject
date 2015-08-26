@@ -172,7 +172,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Квалификация")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Category("Образование")]
         [System.ComponentModel.Description("Квалификация по документу об образовании")]
         public string Qualification
         {
@@ -188,7 +188,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Направление/Специальность")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Category("Образование")]
         [System.ComponentModel.Description("Направление или специальность по документу об образовании")]
         public string Spec
         {

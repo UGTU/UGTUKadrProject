@@ -115,6 +115,7 @@ namespace Kadr.UI.Forms
             this.графикиРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.образованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типОбразованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типПовышенияКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.языкToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.степеньВладенияЯзыкомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отделыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -429,7 +430,7 @@ namespace Kadr.UI.Forms
             this.tsbDepartmentFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbDepartmentFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbDepartmentFilter.Name = "tsbDepartmentFilter";
-            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 22);
+            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 20);
             this.tsbDepartmentFilter.Text = "Отделы";
             this.tsbDepartmentFilter.ToolTipText = "Настройки фильтра по отделам";
             this.tsbDepartmentFilter.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsbDepartmentFilter_DropDownItemClicked);
@@ -582,12 +583,19 @@ namespace Kadr.UI.Forms
             this.treeViewImageList.Images.SetKeyName(8, "im1.bmp");
             this.treeViewImageList.Images.SetKeyName(9, "man.png");
             this.treeViewImageList.Images.SetKeyName(10, "woman.png");
-            this.treeViewImageList.Images.SetKeyName(11, "man_restricted.png");
-            this.treeViewImageList.Images.SetKeyName(12, "woman_restricted.png");
-            this.treeViewImageList.Images.SetKeyName(13, "man_unavailable.png");
-            this.treeViewImageList.Images.SetKeyName(14, "woman_unavailable.png");
-            this.treeViewImageList.Images.SetKeyName(15, "man_vacation.png");
-            this.treeViewImageList.Images.SetKeyName(16, "woman_vacation.png");
+            this.treeViewImageList.Images.SetKeyName(11, "briefcase.png");
+            this.treeViewImageList.Images.SetKeyName(12, "briefcase.png");
+            this.treeViewImageList.Images.SetKeyName(13, "thermometer.png");
+            this.treeViewImageList.Images.SetKeyName(14, "thermometer.png");
+            this.treeViewImageList.Images.SetKeyName(15, "palmtree.png");
+            this.treeViewImageList.Images.SetKeyName(16, "palmtree.png");
+            this.treeViewImageList.Images.SetKeyName(17, "man_gone.png");
+            this.treeViewImageList.Images.SetKeyName(18, "woman_gone.png");
+            this.treeViewImageList.Images.SetKeyName(19, "man_ill.png");
+            this.treeViewImageList.Images.SetKeyName(20, "woman_ill.png");
+            this.treeViewImageList.Images.SetKeyName(21, "man_unavailable.png");
+            this.treeViewImageList.Images.SetKeyName(22, "man_vacation.png");
+            this.treeViewImageList.Images.SetKeyName(23, "woman_vacation.png");
             // 
             // menuStrip1
             // 
@@ -1001,6 +1009,7 @@ namespace Kadr.UI.Forms
             // 
             this.образованиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.типОбразованияToolStripMenuItem,
+            this.типПовышенияКвалификацииToolStripMenuItem,
             this.языкToolStripMenuItem,
             this.степеньВладенияЯзыкомToolStripMenuItem});
             this.образованиеToolStripMenuItem.Name = "образованиеToolStripMenuItem";
@@ -1010,21 +1019,28 @@ namespace Kadr.UI.Forms
             // типОбразованияToolStripMenuItem
             // 
             this.типОбразованияToolStripMenuItem.Name = "типОбразованияToolStripMenuItem";
-            this.типОбразованияToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.типОбразованияToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.типОбразованияToolStripMenuItem.Text = "Тип образования";
             this.типОбразованияToolStripMenuItem.Click += new System.EventHandler(this.типОбразованияToolStripMenuItem_Click);
+            // 
+            // типПовышенияКвалификацииToolStripMenuItem
+            // 
+            this.типПовышенияКвалификацииToolStripMenuItem.Name = "типПовышенияКвалификацииToolStripMenuItem";
+            this.типПовышенияКвалификацииToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
+            this.типПовышенияКвалификацииToolStripMenuItem.Text = "Тип повышения квалификации";
+            this.типПовышенияКвалификацииToolStripMenuItem.Click += new System.EventHandler(this.типПовышенияКвалификацииToolStripMenuItem_Click);
             // 
             // языкToolStripMenuItem
             // 
             this.языкToolStripMenuItem.Name = "языкToolStripMenuItem";
-            this.языкToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.языкToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.языкToolStripMenuItem.Text = "Язык";
             this.языкToolStripMenuItem.Click += new System.EventHandler(this.языкToolStripMenuItem_Click);
             // 
             // степеньВладенияЯзыкомToolStripMenuItem
             // 
             this.степеньВладенияЯзыкомToolStripMenuItem.Name = "степеньВладенияЯзыкомToolStripMenuItem";
-            this.степеньВладенияЯзыкомToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.степеньВладенияЯзыкомToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.степеньВладенияЯзыкомToolStripMenuItem.Text = "Степень владения языком";
             this.степеньВладенияЯзыкомToolStripMenuItem.Click += new System.EventHandler(this.степеньВладенияЯзыкомToolStripMenuItem_Click);
             // 
@@ -1670,6 +1686,7 @@ namespace Kadr.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem степеньВладенияЯзыкомToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem языкToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типыДокументовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типПовышенияКвалификацииToolStripMenuItem;
 
     }
 }

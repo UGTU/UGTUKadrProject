@@ -131,6 +131,10 @@ namespace Kadr.UI.Common
                 }
            }
 
+            if (newObject is Kadr.Data.Employee)
+            {
+                return;
+            }
 
             try
             {
