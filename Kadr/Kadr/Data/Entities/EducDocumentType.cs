@@ -5,6 +5,7 @@ using System.Text;
 using Kadr.Data.Common;
 using Kadr.Controllers;
 using System.Data.Linq;
+using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
@@ -24,8 +25,8 @@ namespace Kadr.Data
         {
             return false;
         }
-    }
 
+    }
 
     public class NullEducDocumentType : EducDocumentType, INull
     {

@@ -107,11 +107,11 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.Contract.ContractName;
+                return materialResponsibility.ContractName;
             }
             set
             {
-                materialResponsibility.Contract.ContractName = value;
+                materialResponsibility.ContractName = value;
             }
         }
         [System.ComponentModel.DisplayName("Дата договора")]
@@ -121,11 +121,11 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.Contract.DateContract != null ? materialResponsibility.Contract.DateContract.Value : DateTime.MinValue;
+                return materialResponsibility.DateContract != null ? materialResponsibility.DateContract.Value : DateTime.MinValue;
             }
             set
             {
-                materialResponsibility.Contract.DateContract = value;
+                materialResponsibility.DateContract = value;
             }
         }
 

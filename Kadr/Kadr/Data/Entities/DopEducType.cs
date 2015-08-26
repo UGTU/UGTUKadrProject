@@ -10,7 +10,7 @@ namespace Kadr.Data
     {
         public override string ToString()
         {
-            return DopEducName + (Duration != "" ? " (" + Duration + " часов)" : "");
+            return DopEducName;
         }
 
         public bool IsNull()

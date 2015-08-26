@@ -36,10 +36,11 @@ namespace Kadr.Controllers
                             new GenericPropertyCommand<MaterialResponsibility, FactStaffPrikaz>(x,
                                 "FactStaffPrikaz", factStaffPrikaz, null), sender);
                         // var contract = new Data.Contract();
-                        dlg.CommandManager.Execute(new GenericPropertyCommand<MaterialResponsibility, Contract>(x, "Contract", new Contract(), null), sender);
-                        dlg.CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(x.Contract, "DateContract", DateTime.Today, null), sender);
+                        dlg.CommandManager.Execute(new GenericPropertyCommand<MaterialResponsibility, Prikaz>(x, "Prikaz", 
+                            new Prikaz(dlg.CommandManager, KadrController.Instance.Model.PrikazTypes.FirstOrDefault(y => y.id == Prikaz.MaterialPrikaz)), null), sender);
+                        dlg.CommandManager.Execute(new GenericPropertyCommand<Prikaz, DateTime?>(x.Contract, "DatePrikaz", DateTime.Today, null), sender);
                         dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<Contract, string>(x.Contract, "ContractName", "", null),
+                            new GenericPropertyCommand<Prikaz, string>(x.Contract, "PrikazName", "", null),
                             sender);
 
                     };
@@ -86,7 +87,7 @@ namespace Kadr.Controllers
 
             KadrController.Instance.Model.MaterialResponsibilities.DeleteOnSubmit(currMaterial);
             LinqActionsController<FactStaffPrikaz>.Instance.DeleteObject(currentPrikaz, KadrController.Instance.Model.FactStaffPrikazs, null);
-            LinqActionsController<Contract>.Instance.DeleteObject(currContract, KadrController.Instance.Model.Contracts, null);
+            LinqActionsController<Prikaz>.Instance.DeleteObject(currContract, KadrController.Instance.Model.Prikazs, null);
 
             Read(fs, MaterialResponsibilitybindingSource);
         }

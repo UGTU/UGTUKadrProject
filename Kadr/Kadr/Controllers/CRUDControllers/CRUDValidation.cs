@@ -20,7 +20,7 @@ namespace Kadr.Controllers
                      dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(DateTime.Now.Date, null, fs), null), sender)
                 );
 
-                dlg.CreateRelatedObject = (x =>
+                dlg.PostApplyAction = (x =>
                     {
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, EducDocument>(x, "EducDocument",
                             new EducDocument(dlg.CommandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.ValidationDocType))), sender);

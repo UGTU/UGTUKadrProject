@@ -5,12 +5,13 @@ using System.Text;
 using System.Windows.Forms;
 using Kadr.Data;
 using Kadr.UI.Common;
+using UIX.Commands;
 
 namespace Kadr.Controllers
 {
     public static class CRUDDopEducation
     {
-        public static void Create(Employee e, BindingSource DopEducationBindingSource, object sender)
+        public static void Create(Employee e, FactStaff fs, BindingSource DopEducationBindingSource, object sender)
         {
             using (PropertyGridDialogAdding<OK_DopEducation> dlg =
                SimpleActionsProvider.NewSimpleObjectAddingDialog<OK_DopEducation>())
@@ -19,9 +20,10 @@ namespace Kadr.Controllers
                 dlg.InitializeNewObject = (x) =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, Employee>(x, "Employee", e, null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, FactStaff>(x, "FactStaff", fs, null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, EducDocument>(x, "EducDocument",
-                         new EducDocument(dlg.CommandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.id == EducDocumentType.DefualtDopEducationDoc))), sender);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, DopEducType>(x, "DopEducType", KadrController.Instance.Model.DopEducTypes.FirstOrDefault(), null), sender);
+                         new EducDocument()), sender);
+                    
                 };
 
                 dlg.ShowDialog();
@@ -51,10 +53,13 @@ namespace Kadr.Controllers
             if (DopEducationBindingSource.Current == null)
                 MessageBox.Show("Не выбрано удаляемое обучение!");
             else
-                if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (DopEducationBindingSource.Current as DopEducationDecorator).ToString()), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (DopEducationBindingSource.Current as DopEducationDecorator)), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     var educ = (DopEducationBindingSource.Current as DopEducationDecorator).GetDopEduc();
-                    LinqActionsController<EducDocument>.Instance.DeleteObject(educ.EducDocument, KadrController.Instance.Model.EducDocuments, null);
+                   
+                    KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(educ.EducDocument);
+                    if (educ.FactStaffPrikaz != null)
+                        KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(educ.FactStaffPrikaz);
                     LinqActionsController<OK_DopEducation>.Instance.DeleteObject(educ, KadrController.Instance.Model.OK_DopEducations, DopEducationBindingSource);
                 }
             Read(e, DopEducationBindingSource);

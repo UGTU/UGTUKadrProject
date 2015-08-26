@@ -84,7 +84,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Вид документа")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Вид документа, подтверждающего образование")]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<EducDocumentType>))]
+        [System.ComponentModel.TypeConverter(typeof(DocumentTypeToStringConvertor))]
         public EducDocumentType EducDocumentType
         {
             get

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Data.Linq;
@@ -74,9 +75,18 @@ namespace Kadr.Controllers
             get
             {
                 if (instance == null)
+                {
                     instance = new KadrController();
+                    instance.CreatingModel += instance_CreatingModel;
+                }
                 return instance;
             }
+        }
+
+        static void instance_CreatingModel(object sender, EventArgs e)
+        {
+            var controller = sender as KadrController;
+            Debug.Assert(controller != null);                        
         }
 
 

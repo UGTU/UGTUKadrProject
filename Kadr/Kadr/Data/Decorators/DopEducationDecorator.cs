@@ -13,21 +13,6 @@ using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
-
-    /*public static class PropertyGridExtensions
-    {
-        public static void SetPropertyReadOnly<T, TU>(this T obj, Expression<Func<TU>> propertySelector, bool value) where T : class
-        {
-            var body = propertySelector.Body as MemberExpression;
-            //var expression = body.Expression as ConstantExpression;
-            var descriptor = TypeDescriptor.GetProperties(obj.GetType())[body.Member.Name];
-            var attribute = (ReadOnlyAttribute)descriptor.Attributes[typeof(ReadOnlyAttribute)];
-            var fieldToChange = attribute.GetType().GetField("isReadOnly",
-                                             BindingFlags.NonPublic |
-                                             BindingFlags.Instance);
-            fieldToChange.SetValue(attribute, value);
-        }
-    }*/
     class DopEducationDecorator
     {
         private OK_DopEducation _dop;
@@ -39,10 +24,10 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            return _dop.DopEducType.ToString();
+            return (_dop.DopEducType != null) ?_dop.DopEducType.ToString() : "";
         }
 
-        [System.ComponentModel.DisplayName("id")]
+        [DisplayName("id")]
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код доп. образования")]
         [System.ComponentModel.ReadOnly(true)]
@@ -56,11 +41,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Тип повышения квалификации")]
-        [System.ComponentModel.Category("Основные")]
-        [System.ComponentModel.Description("Тип повышения квалификации согласно классификатору")]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<DopEducType>))]
-        [RefreshProperties(System.ComponentModel.RefreshProperties.All)]
+        [DisplayName("\t\tТип повышения квалификации")]
+        [Category("Основные")]
+        [Description("Тип повышения квалификации согласно классификатору")]
+        [TypeConverter(typeof(SimpleToStringConvertor<DopEducType>))]
+        [RefreshProperties(RefreshProperties.All)]
         [ReadOnly(false)]
         public DopEducType DopEducType
         {
@@ -73,9 +58,21 @@ namespace Kadr.Data
                _dop.DopEducType = value;
                 if (value.EducDocumentType != null) _dop.EducDocument.EducDocumentType = value.EducDocumentType;
 
+
                 this.SetPropertyReadOnly(() => EducDocumentType, value.EducDocumentType != null);
             }
         }
+
+        [DisplayName("\tНорма продолжительности")]
+        [Category("Основные")]
+        [Description("Норма продолжительности обучения в аудиторных часах для указанного типа обучения")]
+        [EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
+        [ReadOnly(true)]
+        public string Duration
+        {
+            get { return ((_dop.DopEducType != null) && (_dop.DopEducType.Duration != "")) ? _dop.DopEducType.Duration : "(не определена)"; }
+        }
+
 
         [System.ComponentModel.DisplayName("Начало")]
         [System.ComponentModel.Category("Основные")]
@@ -85,7 +82,11 @@ namespace Kadr.Data
         public DateTime? DateBegin
         {
             get {return _dop.DateBegin;}
-            set { _dop.DateBegin = value; }
+            set 
+            { 
+                _dop.DateBegin = value;
+                _dop.FactStaffPrikaz.DateBegin = value;
+            }
         }
 
         [System.ComponentModel.DisplayName("Окончание")]
@@ -95,8 +96,8 @@ namespace Kadr.Data
         [ReadOnly(false)]
         public DateTime? DateEnd
         {
-            get { return _dop.DateBegin; }
-            set { _dop.DateBegin = value; }
+            get { return _dop.DateEnd; }
+            set { _dop.DateEnd = value; }
         }
 
         [System.ComponentModel.DisplayName("Аудиторных часов")]
@@ -108,8 +109,6 @@ namespace Kadr.Data
             get { return _dop.AuditHour; }
             set { _dop.AuditHour = value; }
         }
-
-
 
         [System.ComponentModel.DisplayName("Приказ")]
         [System.ComponentModel.Category("Основные")]
@@ -124,14 +123,21 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null) _dop.FactStaffPrikaz.Prikaz = value;
+                if (value != null)
+                {
+                    if (_dop.FactStaffPrikaz == null) _dop.FactStaffPrikaz = new FactStaffPrikaz()
+                    {
+                        FactStaff = _dop.FactStaff
+                    };
+                    _dop.FactStaffPrikaz.Prikaz = value;
+                }
             }
         }
 
-        [System.ComponentModel.DisplayName("Вид документа")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
-        [System.ComponentModel.Description("Вид документа, подтверждающего обучение")]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<EducDocumentType>))]
+        [DisplayName("Вид документа")]
+        [Category("Подтверждающий документ")]
+        [Description("Вид документа, подтверждающего обучение")]
+        [TypeConverter(typeof(DocumentTypeToStringConvertor))]
         public EducDocumentType EducDocumentType
         {
             get
@@ -220,7 +226,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Квалификация")]
-        [System.ComponentModel.Category("Образование")]
+        [System.ComponentModel.Category("Сведения по образованию")]
         [System.ComponentModel.Description("Квалификация по документу об образовании")]
         [ReadOnly(false)]
         public string Qualification
@@ -237,7 +243,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Направление/Специальность")]
-        [System.ComponentModel.Category("Образование")]
+        [System.ComponentModel.Category("Сведения по образованию")]
         [System.ComponentModel.Description("Направление или специальность по документу об образовании")]
         [ReadOnly(false)]
         public string Spec

@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.ComponentModel;
+using System.Web.UI.WebControls;
 
 namespace Kadr.Data
-{
+{    
+
     public partial class dckadrDataContext  
     {
+
+
 
         /// <summary>
         /// Добавление нового отдела
