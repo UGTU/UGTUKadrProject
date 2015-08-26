@@ -302,11 +302,6 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn targetPlaceDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn finSourceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn DateEnd;
@@ -391,6 +386,17 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn colSumMaterial;
         private DataGridViewTextBoxColumn colDataBeginMaterial;
         private DataGridViewTextBoxColumn colDateEndMaterial;
+
+        private DataGridViewTextBoxColumn kvalifDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn idEducationTypeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn educationTypeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn educDocumentDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn targetPlaceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn finSourceDataGridViewTextBoxColumn;
 
         #region Properties
 
@@ -2202,6 +2208,8 @@ namespace Kadr.UI.Frames
             // 
             // dgvTrips
             // 
+            this.dgvTrips.AllowUserToAddRows = false;
+            this.dgvTrips.AllowUserToDeleteRows = false;
             this.dgvTrips.AutoGenerateColumns = false;
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
@@ -2230,6 +2238,8 @@ namespace Kadr.UI.Frames
             this.dgvTrips.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTrips.Location = new System.Drawing.Point(3, 28);
             this.dgvTrips.Name = "dgvTrips";
+            this.dgvTrips.ReadOnly = true;
+            this.dgvTrips.RowHeadersVisible = false;
             this.dgvTrips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrips.Size = new System.Drawing.Size(849, 84);
             this.dgvTrips.TabIndex = 13;
@@ -2240,6 +2250,7 @@ namespace Kadr.UI.Frames
             this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
             this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
             this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
+            this.prikazDataGridViewTextBoxColumn.ReadOnly = true;
             this.prikazDataGridViewTextBoxColumn.Width = 200;
             // 
             // dateBeginDataGridViewTextBoxColumn1
@@ -2247,18 +2258,22 @@ namespace Kadr.UI.Frames
             this.dateBeginDataGridViewTextBoxColumn1.DataPropertyName = "DateBegin";
             this.dateBeginDataGridViewTextBoxColumn1.HeaderText = "Дата начала";
             this.dateBeginDataGridViewTextBoxColumn1.Name = "dateBeginDataGridViewTextBoxColumn1";
+            this.dateBeginDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dateEndDataGridViewTextBoxColumn2
             // 
             this.dateEndDataGridViewTextBoxColumn2.DataPropertyName = "DateEnd";
             this.dateEndDataGridViewTextBoxColumn2.HeaderText = "Дата окончания";
             this.dateEndDataGridViewTextBoxColumn2.Name = "dateEndDataGridViewTextBoxColumn2";
+            this.dateEndDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dateEndDataGridViewTextBoxColumn2.Width = 150;
             // 
             // targetPlaceDataGridViewTextBoxColumn
             // 
             this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
             this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
             this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
+            this.targetPlaceDataGridViewTextBoxColumn.ReadOnly = true;
             this.targetPlaceDataGridViewTextBoxColumn.Width = 200;
             // 
             // finSourceDataGridViewTextBoxColumn
@@ -2267,6 +2282,7 @@ namespace Kadr.UI.Frames
             this.finSourceDataGridViewTextBoxColumn.DataPropertyName = "FinSource";
             this.finSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
             this.finSourceDataGridViewTextBoxColumn.Name = "finSourceDataGridViewTextBoxColumn";
+            this.finSourceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // BusinessTripsBindingSource
             // 
@@ -2319,8 +2335,8 @@ namespace Kadr.UI.Frames
             this.tsbChangeRegionDates.Image = global::Kadr.Properties.Resources.TableHS;
             this.tsbChangeRegionDates.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbChangeRegionDates.Name = "tsbChangeRegionDates";
-            this.tsbChangeRegionDates.Size = new System.Drawing.Size(245, 22);
-            this.tsbChangeRegionDates.Text = "Изменить сроки пребывания в регионе";
+            this.tsbChangeRegionDates.Size = new System.Drawing.Size(247, 22);
+            this.tsbChangeRegionDates.Text = "Уточнить сроки пребывания в регионах";
             this.tsbChangeRegionDates.Click += new System.EventHandler(this.tsbChangeRegionDates_Click);
             // 
             // tpMaterial
@@ -2943,7 +2959,7 @@ namespace Kadr.UI.Frames
             this.tsbEditIncapacity.Name = "tsbEditIncapacity";
             this.tsbEditIncapacity.Size = new System.Drawing.Size(107, 22);
             this.tsbEditIncapacity.Text = "Редактировать";
-            this.tsbEditIncapacity.ToolTipText = "Редактировать запись";
+            this.tsbEditIncapacity.ToolTipText = "Редактировать период нетрудоспособности";
             this.tsbEditIncapacity.Click += new System.EventHandler(this.tsbEditIncapacity_Click);
             // 
             // tsbDeleteIncapacity
@@ -2953,7 +2969,7 @@ namespace Kadr.UI.Frames
             this.tsbDeleteIncapacity.Name = "tsbDeleteIncapacity";
             this.tsbDeleteIncapacity.Size = new System.Drawing.Size(71, 22);
             this.tsbDeleteIncapacity.Text = "Удалить";
-            this.tsbDeleteIncapacity.ToolTipText = "Удалить запись";
+            this.tsbDeleteIncapacity.ToolTipText = "Удалить период нетрудоспособности";
             this.tsbDeleteIncapacity.Click += new System.EventHandler(this.tsbDeleteIncapacity_Click);
             // 
             // tpBonus
@@ -5279,7 +5295,6 @@ namespace Kadr.UI.Frames
         private void tsbDelEmplTrip_Click(object sender, EventArgs e)
         {
             CRUDBusinessTrips.Delete((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
-
         }
 
         private void tsbEditEmplTrip_Click(object sender, EventArgs e)
@@ -5295,7 +5310,11 @@ namespace Kadr.UI.Frames
 
         private void tsbChangeRegionDates_Click(object sender, EventArgs e)
         {
-            CRUDBusinessRegionType.Update(BusinessTripsBindingSource);
+            if (BusinessTripsBindingSource.Current != null)
+            {
+                CRUDBusinessRegionType.Update((BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip());
+                CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
+            }
         }
 
         private void tsbAddMaterial_Click(object sender, EventArgs e)

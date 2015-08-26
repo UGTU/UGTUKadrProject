@@ -1080,7 +1080,7 @@
             this.dgvFactStaff.RowHeadersVisible = false;
             this.dgvFactStaff.RowHeadersWidth = 4;
             this.dgvFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFactStaff.Size = new System.Drawing.Size(980, 305);
+            this.dgvFactStaff.Size = new System.Drawing.Size(980, 307);
             this.dgvFactStaff.TabIndex = 6;
             this.dgvFactStaff.DoubleClick += new System.EventHandler(this.dgvFactStaff_DoubleClick);
             // 

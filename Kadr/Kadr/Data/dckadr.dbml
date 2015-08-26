@@ -860,8 +860,8 @@
       <Column Name="idBusinessTrip" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTrip" ThisKey="idBusinessTrip" OtherKey="id" Type="BusinessTrip" IsForeignKey="true" />
-      <Association Name="RegionType_BusinessTripRegionType" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
+      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTrip" ThisKey="idBusinessTrip" OtherKey="id" Type="BusinessTrip" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="RegionType_BusinessTripRegionType" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.OK_Inkapacity" Member="OK_Inkapacities">

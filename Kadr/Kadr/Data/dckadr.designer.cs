@@ -19707,7 +19707,7 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BusinessTrip_BusinessTripRegionType", Storage="_BusinessTrip", ThisKey="idBusinessTrip", OtherKey="id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BusinessTrip_BusinessTripRegionType", Storage="_BusinessTrip", ThisKey="idBusinessTrip", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public BusinessTrip BusinessTrip
 		{
 			get
@@ -19741,7 +19741,7 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegionType_BusinessTripRegionType", Storage="_RegionType", ThisKey="idRegionType", OtherKey="id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegionType_BusinessTripRegionType", Storage="_RegionType", ThisKey="idRegionType", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public RegionType RegionType
 		{
 			get

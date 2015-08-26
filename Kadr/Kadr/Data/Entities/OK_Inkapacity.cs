@@ -34,7 +34,7 @@ namespace Kadr.Data
                 if (DateBegin == null) throw new ArgumentNullException("Дата начала периода");
                 if (DateEnd == null) throw new ArgumentNullException("Дата окончания периода");
 
-                if (DateBegin > DateEnd) throw new ArgumentNullException("Дата начала периода не может быть позже даты окончания");
+                if (DateBegin > DateEnd) throw new ArgumentOutOfRangeException("Дата начала периода не может быть позже даты окончания");
 
             }
         }

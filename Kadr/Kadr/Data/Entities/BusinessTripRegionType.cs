@@ -8,7 +8,7 @@ using UIX.Views;
 
 namespace Kadr.Data
 {
-    public partial class BusinessTripRegionType : INull, IComparable, IDecorable
+    public partial class BusinessTripRegionType : INull, IComparable, IDecorable, IValidatable
     {
         #region Properties
 
@@ -30,7 +30,7 @@ namespace Kadr.Data
             else return "Не задано";
         }
 
-        /*#region partial Methods
+        #region partial Methods
 
 
         /// <summary>
@@ -39,7 +39,15 @@ namespace Kadr.Data
         /// <param name="action"></param>
         partial void OnValidate(System.Data.Linq.ChangeAction action)
         {
+            if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
+            {
+                if ((idBusinessTrip == 0)&&(BusinessTrip == null)) throw new ArgumentNullException("Командировка");
+                if ((idRegionType == 0)&&(RegionType == null)) throw new ArgumentNullException("Регион пребывания");
 
+                if (DateBegin > DateEnd) throw new ArgumentOutOfRangeException("Дата начала пребывания в регионе не может быть позже даты окончания!");
+                if ((BusinessTrip.FactStaffPrikaz.DateBegin > DateBegin) || (BusinessTrip.FactStaffPrikaz.DateEnd < DateBegin)) throw new ArgumentOutOfRangeException("Дата начала пребывания выходит за рамки командировки!");
+                if ((BusinessTrip.FactStaffPrikaz.DateBegin > DateEnd) || (BusinessTrip.FactStaffPrikaz.DateEnd < DateEnd)) throw new ArgumentOutOfRangeException("Дата начала пребывания выходит за рамки командировки!");
+            }
         }
 
         #endregion
@@ -52,7 +60,7 @@ namespace Kadr.Data
             OnValidate(ChangeAction.Insert);
         }
 
-        #endregion*/
+        #endregion
 
 
         #region INull Members

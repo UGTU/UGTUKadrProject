@@ -53,7 +53,7 @@ namespace Kadr.Controllers
         public static void Delete(FactStaff fs, BindingSource ValidationDecoratorBS)
         {
             if (ValidationDecoratorBS.Current == null)
-                MessageBox.Show("Не выбран социальный статус!");
+                MessageBox.Show("Не выбрана аттестация!");
             else
                 if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (ValidationDecoratorBS.Current as ValidationDecorator).ToString()), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {

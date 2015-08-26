@@ -55,6 +55,9 @@ namespace Kadr.Controllers
 
         public static void Delete(FactStaff fs, BindingSource BusinessTripsBindingSource)
         {
+            if (BusinessTripsBindingSource.Current == null)
+                MessageBox.Show("Не выбрана командировка!");
+            else
             if (MessageBox.Show(string.Format("Вы уверены, что хотите удалить '{0}'?", (BusinessTripsBindingSource.Current as BusinessTripDecorator).ToString()), "Подтверждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 BusinessTrip bt = (BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip();

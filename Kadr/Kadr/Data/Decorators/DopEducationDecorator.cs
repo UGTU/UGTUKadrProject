@@ -85,7 +85,8 @@ namespace Kadr.Data
             set 
             { 
                 _dop.DateBegin = value;
-                _dop.FactStaffPrikaz.DateBegin = value;
+                if (_dop.FactStaffPrikaz != null)
+                  _dop.FactStaffPrikaz.DateBegin = value;
             }
         }
 
@@ -97,7 +98,12 @@ namespace Kadr.Data
         public DateTime? DateEnd
         {
             get { return _dop.DateEnd; }
-            set { _dop.DateEnd = value; }
+            set
+            {
+                _dop.DateEnd = value;
+                if (_dop.FactStaffPrikaz != null)
+                    _dop.FactStaffPrikaz.DateEnd = value;
+            }
         }
 
         [System.ComponentModel.DisplayName("Аудиторных часов")]
