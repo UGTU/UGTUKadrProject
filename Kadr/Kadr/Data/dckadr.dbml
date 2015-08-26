@@ -790,7 +790,7 @@
       <Column Name="idFactStaffPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TripTargetPlace" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="idFinanceSource" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idBusinessTrip" Type="BusinessTripRegionType" />
+      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idBusinessTrip" Type="BusinessTripRegionType" DeleteOnNull="true" DeleteRule="Cascade" />
       <Association Name="FactStaffPrikaz_BusinessTrip" Member="FactStaffPrikaz" ThisKey="idFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
       <Association Name="FinancingSource_BusinessTrip" Member="FinancingSource" ThisKey="idFinanceSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
     </Type>
@@ -861,8 +861,8 @@
       <Column Name="idBusinessTrip" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTrip" ThisKey="idBusinessTrip" OtherKey="id" Type="BusinessTrip" IsForeignKey="true" />
-      <Association Name="RegionType_BusinessTripRegionType" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
+      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTrip" ThisKey="idBusinessTrip" OtherKey="id" Type="BusinessTrip" IsForeignKey="true" DeleteOnNull="true" DeleteRule="Cascade"/>
+      <Association Name="RegionType_BusinessTripRegionType" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" DeleteOnNull="true" DeleteRule="Cascade"/>
     </Type>
   </Table>
   <Table Name="dbo.OK_Inkapacity" Member="OK_Inkapacities">

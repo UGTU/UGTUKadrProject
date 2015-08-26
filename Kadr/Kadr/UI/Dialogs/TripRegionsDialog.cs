@@ -1,8 +1,11 @@
-﻿using Kadr.Data;
+﻿using Kadr.Controllers;
+using Kadr.Data;
+using Kadr.Data.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -12,13 +15,20 @@ namespace Kadr.UI.Dialogs
     public partial class TripRegionsDialog : Kadr.UI.Common.LinqDataGridViewDialog
     {
         private object DataSource;
+
+        private AdvancedBindingList<BusinessTripRegionType> Source = new AdvancedBindingList<BusinessTripRegionType>();
+
+        private BusinessTrip bt;
+        private BusinessTripRegionType last;
+        private BusinessTripRegionType cur;
         //private IEnumerable<BusinessTripRegionType> DataSource;
 
-        public TripRegionsDialog(object source)
+        public TripRegionsDialog(BusinessTrip bt)
         {
             InitializeComponent();
-            DataSource = source;
-            
+            regionTypeBindingSource.DataSource = Kadr.Controllers.KadrController.Instance.Model.RegionTypes;
+            businessTripRegionTypeBindingSource.DataSource = bt.BusinessTripRegionTypes.GetNewBindingList();
+            this.bt = bt;
         }
 
         internal object Result()
@@ -28,10 +38,34 @@ namespace Kadr.UI.Dialogs
 
         private void TripRegionsDialog_Load(object sender, EventArgs e)
         {
-            regionTypeBindingSource.DataSource = Kadr.Controllers.KadrController.Instance.Model.RegionTypes;
-            businessTripRegionTypeBindingSource.DataSource = DataSource;
             bindingNavigator1.BindingSource = businessTripRegionTypeBindingSource;
+            ApplyButtonVisible = false;
         }
+
+
+        private void dgvRegionType_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //Do nothing
+        }
+
+
+        override protected void DoApply()
+        {
+            foreach (object o in businessTripRegionTypeBindingSource)
+            {
+                UIX.Views.IValidatable validatable = (o as UIX.Views.IValidatable);
+                if (validatable != null)
+                    validatable.Validate();
+            }
+            KadrController.Instance.SubmitChanges();
+            IsModified = true;
+        }
+
+        override protected void DoCancel()
+        {
+            KadrController.Instance.Model.Refresh(RefreshMode.OverwriteCurrentValues);
+        }
+
 
 
     }

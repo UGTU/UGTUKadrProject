@@ -47,21 +47,23 @@ namespace Kadr.Data
                 if (FactStaffPrikaz.DateBegin == null) throw new ArgumentNullException("Срок начала командировки");
                 if (FactStaffPrikaz.DateEnd == null) throw new ArgumentNullException("Срок окончания командировки");
 
-                if (BusinessTripRegionTypes.First().DateBegin == null) throw new ArgumentNullException("Срок начала командировки");
-                if (BusinessTripRegionTypes.First().DateEnd == null) throw new ArgumentNullException("Срок окончания командировки");
+                if (BusinessTripRegionTypes.First().DateBegin == null) throw new ArgumentNullException("Срок начала пребывания в регионе");
+                if (BusinessTripRegionTypes.First().DateEnd == null) throw new ArgumentNullException("Срок окончания пребывания в регионе");
 
                 if (FactStaffPrikaz.DateEnd < FactStaffPrikaz.DateBegin)
                         throw new ArgumentOutOfRangeException("Дата окончания командировки должна быть не раньше даты начала командировки");
 
-                if (BusinessTripRegionTypes.First().DateBegin > BusinessTripRegionTypes.First().DateEnd)
+                foreach (BusinessTripRegionType btr in BusinessTripRegionTypes)
+                {
+                    if (btr.DateBegin > btr.DateEnd)
                         throw new ArgumentOutOfRangeException("Дата начала пребывания в регионе не может быть больше даты окончания пребывания в регионе");
 
-                if (BusinessTripRegionTypes.First().DateBegin < FactStaffPrikaz.DateBegin)
+                    if (btr.DateBegin < FactStaffPrikaz.DateBegin)
                         throw new ArgumentOutOfRangeException("Дата начала пребывания в регионе не может быть раньше даты начала командировки");
 
-                if (BusinessTripRegionTypes.First().DateEnd > FactStaffPrikaz.DateEnd)
+                    if (btr.DateEnd > FactStaffPrikaz.DateEnd)
                         throw new ArgumentOutOfRangeException("Дата окончания пребывания в регионе не может быть позже даты окончания командировки");
-
+                }
 
             }
         }
