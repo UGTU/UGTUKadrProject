@@ -1096,9 +1096,3 @@ where [dbo].[EducDocument].id in (77112,79424)
 
 alter table Contract add DataBegin date null
 alter table Contract add DataEnd date null
-
-
-
-
-
-

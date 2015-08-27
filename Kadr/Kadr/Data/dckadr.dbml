@@ -714,6 +714,7 @@
       <Association Name="Employee_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEmployee" Type="OK_Social" />
       <Association Name="Employee_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idEmployee" Type="OK_DopEducation" />
       <Association Name="Employee_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idEmployee" Type="FactStaff" />
+      <Association Name="Employee_OK_Military" Member="OK_Militaries" ThisKey="id" OtherKey="idEmployee" Type="OK_Military" />
       <Association Name="Grazd_Employee" Member="Grazd" ThisKey="idGrazd" OtherKey="id" Type="Grazd" IsForeignKey="true" />
       <Association Name="SemPol_Employee" Member="SemPol" ThisKey="idSemPol" OtherKey="id" Type="SemPol" IsForeignKey="true" />
     </Type>
@@ -1109,6 +1110,62 @@
       <Association Name="Prikaz_FactStaffHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
       <Association Name="SalaryKoeff_FactStaffHistory" Member="SalaryKoeff" ThisKey="idSalaryKoeff" OtherKey="id" Type="SalaryKoeff" IsForeignKey="true" />
       <Association Name="WorkType_FactStaffHistory" Member="WorkType" ThisKey="idTypeWork" OtherKey="id" Type="WorkType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MilitaryCategory" Member="MilitaryCategories">
+    <Type Name="MilitaryCategory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MilitaryCategoryName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="MilitaryCategory_OK_Military" Member="OK_Militaries" ThisKey="id" OtherKey="idCategory" Type="OK_Military" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MilitaryFitness" Member="MilitaryFitnesses">
+    <Type Name="MilitaryFitness">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Letter" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="MilitaryFitness_OK_Military" Member="OK_Militaries" ThisKey="id" OtherKey="idFitness" Type="OK_Military" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MilitaryRank" Member="MilitaryRanks">
+    <Type Name="MilitaryRank">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MilitaryRankName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="MilitaryRank_OK_Military" Member="OK_Militaries" ThisKey="id" OtherKey="idRank" Type="OK_Military" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MilitaryStructure" Member="MilitaryStructures">
+    <Type Name="MilitaryStructure">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MilitaryStructureName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="MilitaryStructure_OK_Military" Member="OK_Militaries" ThisKey="id" OtherKey="idStructure" Type="OK_Military" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MilitaryType" Member="MilitaryTypes">
+    <Type Name="MilitaryType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MilitaryTypeName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="MilitaryType_OK_Military" Member="OK_Militaries" ThisKey="id" OtherKey="idType" Type="OK_Military" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Military" Member="OK_Militaries">
+    <Type Name="OK_Military">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idRank" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VUSCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idFitness" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MilitaryCommissariat" Type="System.String" DbType="VarChar(900)" CanBeNull="true" />
+      <Column Name="idType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RemovalMark" Type="System.String" DbType="VarChar(900)" CanBeNull="true" />
+      <Column Name="idStructure" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Employee_OK_Military" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="MilitaryCategory_OK_Military" Member="MilitaryCategory" ThisKey="idCategory" OtherKey="id" Type="MilitaryCategory" IsForeignKey="true" />
+      <Association Name="MilitaryFitness_OK_Military" Member="MilitaryFitness" ThisKey="idFitness" OtherKey="id" Type="MilitaryFitness" IsForeignKey="true" />
+      <Association Name="MilitaryRank_OK_Military" Member="MilitaryRank" ThisKey="idRank" OtherKey="id" Type="MilitaryRank" IsForeignKey="true" />
+      <Association Name="MilitaryStructure_OK_Military" Member="MilitaryStructure" ThisKey="idStructure" OtherKey="id" Type="MilitaryStructure" IsForeignKey="true" />
+      <Association Name="MilitaryType_OK_Military" Member="MilitaryType" ThisKey="idType" OtherKey="id" Type="MilitaryType" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">
