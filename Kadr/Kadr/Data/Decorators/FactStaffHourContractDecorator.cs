@@ -41,6 +41,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Cотрудник договора")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Сотрудник, для которого указывается договор")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FactStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.FactStaffCurrentMainData MainFactStaff
         {
@@ -58,6 +59,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество ставок")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Занимаемое сотрудником по факту количество ставок")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal StaffCount
         {
             get
@@ -85,6 +87,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество часов")]
         [System.ComponentModel.Category("Почасовики")]
         [System.ComponentModel.Description("Количество часов для почасовиков")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal? HourCount
         {
             get
@@ -100,6 +103,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Оплата за час")]
         [System.ComponentModel.Category("Почасовики")]
         [System.ComponentModel.Description("Оплата за час для почасовиков")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal? HourSalary
         {
             get
@@ -128,6 +132,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название вида работы")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название вида работы")]
+        [System.ComponentModel.ReadOnly(false)]
         //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.WorkTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.WorkType WorkType
         {
@@ -144,6 +149,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Почасовики")]
         [System.ComponentModel.Description("Источник финансирования (редактировать для почасовиков)")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.FinancingSourceConvertor))]
         //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.FinancingSource FinancingSource
@@ -161,6 +167,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ увольнения")]
         [System.ComponentModel.Category("Параметры увольнения")]
         [System.ComponentModel.Description("Приказ увольнения сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz PrikazEnd
         {
@@ -177,6 +184,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата назначения на должность")]
+        [System.ComponentModel.ReadOnly(false)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime DataBegin
         {
@@ -193,6 +201,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата увольнения")]
         [System.ComponentModel.Category("Параметры увольнения")]
         [System.ComponentModel.Description("Дата снятия с должности")]
+        [System.ComponentModel.ReadOnly(false)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime DataEnd
         {
@@ -221,6 +230,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Центр затрат")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Центр затрат")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(FundingCenterEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public FundingCenter FundingCenter
         {
@@ -237,6 +247,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Комментарий")]
         [System.ComponentModel.Category("Почасовики")]
         [System.ComponentModel.Description("Комментарий")]
+        [System.ComponentModel.ReadOnly(false)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public string Comment
         {

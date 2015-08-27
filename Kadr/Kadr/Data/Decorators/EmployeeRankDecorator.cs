@@ -24,6 +24,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата выдачи диплома")]
         [System.ComponentModel.Category("Данные диплома")]
         [System.ComponentModel.Description("Дата выдачи диплома")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DocDate
         {
             get
@@ -39,6 +40,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Серия диплома")]
         [System.ComponentModel.Category("Данные диплома")]
         [System.ComponentModel.Description("Серия диплома")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DocSeries
         {
             get
@@ -54,6 +56,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Номер диплома")]
         [System.ComponentModel.Category("Данные диплома")]
         [System.ComponentModel.Description("Номер диплома")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DocNumber
         {
             get
@@ -69,6 +72,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Кем выдан диплом")]
         [System.ComponentModel.Category("Данные диплома")]
         [System.ComponentModel.Description("Кем выдан диплом")]
+        [System.ComponentModel.ReadOnly(false)]
         public string diplWhere
         {
             get
@@ -84,6 +88,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Ученое звание сотрудника")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название ученого звания сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Rank>))]
         public Kadr.Data.Rank Rank
         {

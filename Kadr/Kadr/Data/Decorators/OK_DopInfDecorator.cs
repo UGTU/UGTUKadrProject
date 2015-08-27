@@ -39,6 +39,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дополнительные сведения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дополнительные сведения")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DopInf
         {
             get

@@ -40,6 +40,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Степень родства")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Стeпень родства")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<OK_MembFam>))]
         public OK_MembFam OK_MembFam
         {
@@ -56,6 +57,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("ФИО родственника")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("ФИО родственника")]
+        [System.ComponentModel.ReadOnly(false)]
         public string fiomembfam
         {
             get
@@ -71,6 +73,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата/год рождения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата/год рождения")]
+        [System.ComponentModel.ReadOnly(false)]
         public string godbirth
         {
             get

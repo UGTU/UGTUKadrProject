@@ -41,6 +41,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата назначения")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DataBegin
         {
             get
@@ -56,6 +57,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Плановый размер фонда")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Плановый размер фонда отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal PlanFundSum
         {
             get
@@ -71,6 +73,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Фактический размер фонда")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Фактический размер фонда отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal FactFundSum
         {
             get
@@ -86,6 +89,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Размер внеплановых выплат")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Размер внеплановых выплат, установленный для отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal ExtraordSum
         {
             get

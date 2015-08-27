@@ -39,6 +39,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название языка")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Название языка, которым владеет сотрудник")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<OK_Language>))]
         public OK_Language Language
         {
@@ -59,6 +60,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Степень владения языком")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Степень владения указанным языком")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<LanguageLevel>))]
         public LanguageLevel LanguageLevel
         {
@@ -92,6 +94,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата вручения")]
         [System.ComponentModel.Category("Подтверждающий документ (если таковой имеется)")]
         [System.ComponentModel.Description("Дата вручения сертификата")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
         public DateTime? Date
         {
@@ -110,6 +113,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("\t\tСерия")]
         [System.ComponentModel.Category("Подтверждающий документ (если таковой имеется)")]
         [System.ComponentModel.Description("Серия документа, подтверждающего владение языком")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Serie
         {
             get
@@ -129,6 +133,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("\tНомер")]
         [System.ComponentModel.Category("Подтверждающий документ (если таковой имеется)")]
         [System.ComponentModel.Description("Номер документа, подтверждающего владение языком")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Number
         {
             get
@@ -148,6 +153,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Организация")]
         [System.ComponentModel.Category("Подтверждающий документ (если таковой имеется)")]
         [System.ComponentModel.Description("Организация, вручившая документ (сертификат)")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Organisation>))]
         public Organisation Organization
         {

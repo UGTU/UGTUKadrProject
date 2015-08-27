@@ -28,6 +28,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Диссертационный совет")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Диссертационный совет, в котором была защищена степень")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DissertCouncil
         {
             get
@@ -43,6 +44,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата присвоения степени")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата присвоения научной степени")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime degreeDate
         {
             get
@@ -58,6 +60,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата выдачи диплома")]
         [System.ComponentModel.Category("Данные диплома")]
         [System.ComponentModel.Description("Дата выдачи диплома")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DocDate
         {
             get
@@ -73,6 +76,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Серия диплома")]
         [System.ComponentModel.Category("Данные диплома")]
         [System.ComponentModel.Description("Серия диплома")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DocSeries
         {
             get
@@ -88,6 +92,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Номер диплома")]
         [System.ComponentModel.Category("Данные диплома")]
         [System.ComponentModel.Description("Номер диплома")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DocNumber
         {
             get
@@ -103,6 +108,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Кем выдан диплом")]
         [System.ComponentModel.Category("Данные диплома")]
         [System.ComponentModel.Description("Кем выдан диплом")]
+        [System.ComponentModel.ReadOnly(false)]
         public string diplWhere
         {
             get
@@ -118,6 +124,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Научная степень сотрудника")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название научной степени сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Degree>))]
         public Kadr.Data.Degree Degree
         {
@@ -134,6 +141,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Научное направление")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Научное направление, в котором присвоена степень")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<ScienceType>))]
         public Kadr.Data.ScienceType ScienceType
         {

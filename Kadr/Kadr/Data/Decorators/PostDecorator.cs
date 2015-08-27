@@ -38,6 +38,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название должности")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название должности")]
+        [System.ComponentModel.ReadOnly(false)]
         public string PostName
         {
             get
@@ -54,6 +55,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название категории персонала")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название категории персонала, к которой относится должность")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.CategryEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Category Category
         {
@@ -71,6 +73,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Новая категория персонала")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название новой категории персонала, к которой относится должность")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.CategryEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Category NewCategory
         {
@@ -88,6 +91,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название группы должностей")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название группы должностей, к которой относится должность")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostGroupEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.PostGroup PostGroup
         {
@@ -104,6 +108,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название категории для ВПО-2")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название категории для ВПО-2, к которой относится должность")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.CategoryVPOEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.CategoryVPO CategoryVPO
         {
@@ -120,6 +125,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название категории для ЗП-образования")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название категории для ЗП-образования, к которой относится должность")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.CategoryZPEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.CategoryZP CategoryZP
         {
@@ -136,6 +142,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Руководитель")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Руководящая должность")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         //[System.ComponentModel.TypeConverter
         public bool ManagerBit
@@ -153,6 +160,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Профессиональный уровень")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Профессиональный уровень должности")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(PKCategoryEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public PKCategory PKCategory
         {
@@ -170,6 +178,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ министерства")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ министерства")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(GlobalPrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public GlobalPrikaz GlobalPrikaz
         {
@@ -186,6 +195,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Вид должности")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Вид должности")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(PostTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public PostType PostType
         {
@@ -203,6 +213,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата отмены должности")]
         [System.ComponentModel.Category("Параметры отмены")]
         [System.ComponentModel.Description("Дата отмены должности")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -218,6 +229,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Примечание")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Комментарий к должности")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Comment
         {
             get
@@ -233,6 +245,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Код должности")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Код должности")]
+        [System.ComponentModel.ReadOnly(false)]
         public string PostCode
         {
             get

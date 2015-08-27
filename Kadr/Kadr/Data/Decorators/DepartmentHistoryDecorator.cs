@@ -38,6 +38,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название отдела")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Уникальное название отдела в организации")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DepartmentName
         {
             get
@@ -53,6 +54,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Краткое название отдела")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Краткое название отдела в организации")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DepartmentSmallName
         {
             get
@@ -69,6 +71,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Руководящий отдел")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Руководящий отдел")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(DepartmentEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Department ManagerDepartment
         {
@@ -89,6 +92,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата изменения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата изменения отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime dateCreate
         {
             get
@@ -105,6 +109,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ о создании")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ о создании отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz PrikazBegin
         {

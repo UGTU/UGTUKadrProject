@@ -23,6 +23,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата назначения")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Дата назначения/изменения надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -39,6 +40,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ назначения")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Приказ назначения/изменения надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz Prikaz
         {
@@ -56,6 +58,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Источник финансирования надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.AllFinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<FinancingSource>))]
         public FinancingSource FinancingSource
@@ -73,6 +76,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Размер надбавки")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Новый размер надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public decimal BonusCount
         {

@@ -39,6 +39,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название приказа")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название приказа")]
+        [System.ComponentModel.ReadOnly(false)]
         public string PrikazName
         {
             get
@@ -54,6 +55,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата вступления в силу")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата вступления приказа в силу")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DatePrikaz
         {
             get
@@ -69,6 +71,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Вид приказа")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Вид приказа")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.PrikazType PrikazType
         {

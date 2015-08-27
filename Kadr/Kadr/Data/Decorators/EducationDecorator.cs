@@ -39,6 +39,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Тип образования")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Наименование образования")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<EducationType>))]
         public EducationType Type
         {
@@ -69,6 +70,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Год окончания")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Год окончания образования")]
+        [System.ComponentModel.ReadOnly(false)]
         public int? EducWhen
         {
             get
@@ -84,6 +86,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Вид документа")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Вид документа, подтверждающего образование")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(DocumentTypeToStringConvertor))]
         public EducDocumentType EducDocumentType
         {
@@ -100,6 +103,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата вручения")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Дата вручения документа об образовании")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
         public DateTime? Date
         {
@@ -118,6 +122,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("\t\tСерия")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Серия документа, подтверждающего факт образования")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Seria
         {
             get
@@ -136,7 +141,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("\tНомер")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Номер документа, подтверждающего факт образования")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public string Number
         {
             get
@@ -155,6 +160,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Организация")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Организация, вручившая документ об образовании")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Organisation>))]
         public Organisation Organization
         {
@@ -174,6 +180,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Квалификация")]
         [System.ComponentModel.Category("Образование")]
         [System.ComponentModel.Description("Квалификация по документу об образовании")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Qualification
         {
             get
@@ -190,6 +197,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Направление/Специальность")]
         [System.ComponentModel.Category("Образование")]
         [System.ComponentModel.Description("Направление или специальность по документу об образовании")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Spec
         {
             get

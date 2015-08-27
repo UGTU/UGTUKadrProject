@@ -24,6 +24,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата изменения")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Дата изменения")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -40,6 +41,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ изменения")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Приказ изменения записи в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz PrikazBegin
         {
@@ -57,6 +59,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Новый вид работы")]
         [System.ComponentModel.Category("Новые значения атрибутов")]
         [System.ComponentModel.Description("Новый вид работы сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
         public WorkType WorkType
         {
@@ -73,6 +76,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество часов")]
         [System.ComponentModel.Category("Почасовики")]
         [System.ComponentModel.Description("Количество часов для почасовиков")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal? HourCount
         {
             get
@@ -88,6 +92,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Подподкатегория")]
         [System.ComponentModel.Category("Новые значения атрибутов")]
         [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
+        [System.ComponentModel.ReadOnly(false)]
         public int? SalaryKoeff
         {
             get
@@ -105,6 +110,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Оплата за час")]
         [System.ComponentModel.Category("Почасовики")]
         [System.ComponentModel.Description("Оплата за час для почасовиков")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal? HourSalary
         {
             get
@@ -136,6 +142,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("% совмещения")]
         [System.ComponentModel.Category("Параметры совмещения")]
         [System.ComponentModel.Description("% совмещения сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal StaffCount
         {
             get
@@ -151,6 +158,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Причина совмещения")]
         [System.ComponentModel.Category("Параметры совмещения")]
         [System.ComponentModel.Description("Причина замещения сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<FactStaffReplacementReason>))]
         public Kadr.Data.FactStaffReplacementReason FactStaffReplacementReason
         {
@@ -167,6 +175,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата окончания совмещения")]
         [System.ComponentModel.Category("Параметры совмещения")]
         [System.ComponentModel.Description("Дата окончания совмещения")]
+        [System.ComponentModel.ReadOnly(false)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime ReplacementDataEnd
         {

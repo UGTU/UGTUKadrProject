@@ -37,6 +37,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ, назначающий мат. ответственность")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz Prikaz
         {
@@ -53,6 +54,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата начала")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата начала мат. ответственности, значащаяся в приказе")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -70,7 +72,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата окончания")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата окончания мат. ответственности, значащаяся в приказе")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
         {
             get
@@ -88,6 +90,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Сумма выплаты")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Сумма выплаты за мат. ответственность по приказу")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal Sum
         {
             get
@@ -103,6 +106,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Номер договора")]
         [System.ComponentModel.Category("Договор")]
         [System.ComponentModel.Description("Номер договора о мат. ответственности")]
+        [System.ComponentModel.ReadOnly(false)]
         public string ContractName
         {
             get
@@ -117,6 +121,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата договора")]
         [System.ComponentModel.Category("Договор")]
         [System.ComponentModel.Description("Дата договора о мат. ответственности")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateContract
         {
             get
