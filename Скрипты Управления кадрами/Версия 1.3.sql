@@ -127,5 +127,22 @@ inner join dbo.[Contract]
 
 
 
+  update dbo.FactStaffHistory
+  set idContract=[Contract].id
+  --select *
+  from 
+   dbo.FactStaffHistory 
+   inner join dbo.FactStaff ON FactStaffHistory.idFactStaff=FactStaff.id
+  inner join dbo.Prikaz ON FactStaff.idlaborcontrakt=Prikaz.id
+  -- where FactStaffHistory.idlaborcontrakt is not null
+inner join dbo.[Contract]
+   ON ([Prikaz].DateBegin=[Contract].DataBegin or ([Prikaz].DateBegin IS NULL AND [Contract].DataBegin IS NULL))
+    and ([Prikaz].DateEnd=[Contract].DataEnd OR ([Prikaz].DateEnd IS NULL AND [Contract].DataEnd IS NULL))
+	 and [Prikaz].PrikazName=[Contract].ContractName  and [Prikaz].DatePrikaz=[Contract].DateContract 
+	 and [Prikaz].idPrikazType=[Contract].idPrikazType
+	 where FactStaffHistory.idContract is null
+
+	 
+
 
 
