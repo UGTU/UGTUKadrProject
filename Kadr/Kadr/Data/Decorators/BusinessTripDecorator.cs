@@ -60,6 +60,7 @@ namespace Kadr.Data
 
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Приказ, назначающий командировку")]
+        [System.ComponentModel.ReadOnly(false)]
         //[System.ComponentModel.TypeConverter())]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz Prikaz
@@ -80,7 +81,7 @@ namespace Kadr.Data
 
         [System.ComponentModel.Category("Сроки")]
         [System.ComponentModel.Description("Дата начала командировки, значащаяся в приказе")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -99,14 +100,10 @@ namespace Kadr.Data
             }
         }
 
-
-
         [System.ComponentModel.DisplayName("Дата окончания")]
-
         [System.ComponentModel.Category("Сроки")]
         [System.ComponentModel.Description("Дата окончания командировки, значащаяся в приказе")]
-
-
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
         {
             get
@@ -131,7 +128,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Основное место назначения")]
         [System.ComponentModel.Category("Места пребывания")]
         [System.ComponentModel.Description("Основное место назначения командировки")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public string TargetPlace
         {
             get
@@ -148,6 +145,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Финансирование")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("За счет каких средств осуществляется командировка")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<FinancingSource>))]
         //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public FinancingSource FinSource
@@ -165,6 +163,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Регион пребывания")]
         [System.ComponentModel.Category("Места пребывания")]
         [System.ComponentModel.Description("В какой регион командируется сотрудник")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<RegionType>))]
         //В случае, если регион не требует дополнительного указания сроков пребывания, для создания записи BusinessTripRegionType будут использованы сроки командировки из приказа
         //В ином случае предполагается, что пользователь отредактирует запись места пребывания при помощи пункта меню "Изменить сроки пребывания в регионе"

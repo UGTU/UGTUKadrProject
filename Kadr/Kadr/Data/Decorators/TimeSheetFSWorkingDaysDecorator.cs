@@ -70,6 +70,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество рабочих дней")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Общее количество рабочих дней сотрудника за месяц")]
+        [System.ComponentModel.ReadOnly(false)]
         public int WorkingDaysCount
         {
             get
@@ -85,6 +86,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Заполнена")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Признак закрытой записи табеля")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool IsClosed
         {

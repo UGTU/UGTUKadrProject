@@ -79,7 +79,7 @@ namespace Kadr.Controllers
                 };
 
 
-                dlg.CreateRelatedObject = (x) =>
+                dlg.PostApplyAction = (x) =>
                 {
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {

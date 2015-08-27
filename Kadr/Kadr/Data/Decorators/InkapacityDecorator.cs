@@ -38,7 +38,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата начала")]
         [System.ComponentModel.Category("Даты")]
         [System.ComponentModel.Description("Дата начала больничного")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -58,6 +58,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата окончания")]
         [System.ComponentModel.Category("Даты")]
         [System.ComponentModel.Description("Дата окончания больничного")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
 
         public DateTime? DateEnd
@@ -80,7 +81,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Серия")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Серия документа, подтверждающего период нетрудоспособности")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public string Serie
         {
             get
@@ -100,7 +101,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Номер")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Номер документа, подтверждающего период нетрудоспособности")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public string Number
         {
             get
@@ -122,6 +123,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата выдачи документа")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Дата выдачи документа, подтверждающего период нетрудоспособности")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
         public DateTime? DocDate
         {

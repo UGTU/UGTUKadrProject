@@ -41,6 +41,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Наименование награды")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Наименование награды сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<AwardType>))]
 
         public AwardType Type
@@ -62,6 +63,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата вручения")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Дата вручения награды")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
 
         public DateTime? Date
@@ -84,6 +86,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("\t\tСерия")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Серия документа, подтверждающего факт награждения")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Serie
         {
             get
@@ -103,7 +106,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("\tНомер")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Номер документа, подтверждающего факт награждения")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public string Number
         {
             get
@@ -123,6 +126,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Организация")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Организация, вручившая награду")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Organisation>))]
         public Organisation Organization
         {

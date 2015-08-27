@@ -37,6 +37,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Тип повышения квалификации")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Наименование типа повышения квалификации")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DopEducName
         {
             get
@@ -52,6 +53,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Продолжительность")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Продолжительность в аудиторных часах")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Duration
         {
             get
@@ -67,6 +69,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Вид документа")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Вид документа, подтверждающего обучение")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<EducDocumentType>))]
         public EducDocumentType EducDocumentType
         {
@@ -83,6 +86,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название документа")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Вид документа, подтверждающего обучение")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<EducDocumentType>))]
         public string DocTypeName
         {

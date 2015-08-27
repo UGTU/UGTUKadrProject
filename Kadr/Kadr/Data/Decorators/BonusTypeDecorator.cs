@@ -38,6 +38,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Единица измерения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Единица измерения надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.BonusMeasureEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public BonusMeasure BonusMeasure
         {
@@ -54,6 +55,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Тип надбавки")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Тип надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.BonusSuperTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public BonusSuperType BonusSuperType
         {
@@ -70,6 +72,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название вида надбавки")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Полное название вида надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         public string BonusTypeName
         {
             get
@@ -85,6 +88,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Источник финансирования, используемый по умолчанию для данного вида надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<FinancingSource>))]
         //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.AllFinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public FinancingSource FinancingSource
@@ -102,6 +106,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Краткое название")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Краткое название вида надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         public string BonusTypeShortName
         {
             get
@@ -117,6 +122,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Начисляются северные")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Признак, указывающий начисляются ли северный и районный коэффициент для надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool HasEnvironmentBonus
         {
@@ -133,6 +139,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Зависит от размера ставки")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Признак, указывающий зависит ли размер надбавки от размера ставки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool IsStaffRateable
         {
@@ -149,6 +156,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата отмены")]
         [System.ComponentModel.Category("Параметры отмены")]
         [System.ComponentModel.Description("Дата отмены вида надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get

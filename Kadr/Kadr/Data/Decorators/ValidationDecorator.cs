@@ -41,6 +41,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Решение комиссии")]
         [System.ComponentModel.Category("Результат")]
         [System.ComponentModel.Description("Решение, принятое комиссией в результате аттестации")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<ValidationDecision>))]
 
         public ValidationDecision Decision
@@ -59,7 +60,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дополнительная информация")]
         [System.ComponentModel.Category("Результат")]
         [System.ComponentModel.Description("Дополнительная информация, предоставленная комиссией (комментарии, замечания и др.)")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public string Commentary
         {
             get
@@ -76,6 +77,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("\t\tСерия подтверждающего документа")]
         [System.ComponentModel.Category("Результат")]
         [System.ComponentModel.Description("Серия документа, подтверждающего факт награждения")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Serie
         {
             get
@@ -97,7 +99,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("\tНомер подтверждающего документа")]
         [System.ComponentModel.Category("Результат")]
         [System.ComponentModel.Description("Номер документа, подтверждающего факт награждения")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public string Number
         {
             get
@@ -120,6 +122,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата выдачи подтверждающего документа")]
         [System.ComponentModel.Category("Результат")]
         [System.ComponentModel.Description("Дата выдачи подтверждающего документа")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
 
         public DateTime? DocDate
@@ -145,6 +148,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ")]
         [System.ComponentModel.Category("Приказ")]
         [System.ComponentModel.Description("Приказ, назначающий аттестацию")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz Prikaz
         {
@@ -161,6 +165,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата аттестации")]
         [System.ComponentModel.Category("Приказ")]
         [System.ComponentModel.Description("Дата проведения аттестации")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
         public DateTime? Date
         {

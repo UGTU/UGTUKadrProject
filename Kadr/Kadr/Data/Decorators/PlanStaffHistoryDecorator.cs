@@ -23,6 +23,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата изменения")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Дата изменения записи в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -39,6 +40,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ изменения")]
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Приказ изменения записи в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz Prikaz
         {
@@ -55,6 +57,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Новый источник финансирования")]
         [System.ComponentModel.Category("Новые значения атрибутов")]
         [System.ComponentModel.Description("Новый источник финансирования записи в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<FinancingSource>))]
         //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.AllFinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public FinancingSource FinancingSource
@@ -73,6 +76,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество ставок")]
         [System.ComponentModel.Category("Новые значения атрибутов")]
         [System.ComponentModel.Description("Запланированное количество ставок в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal StaffCount
         {
             get

@@ -39,6 +39,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Размер надбавки")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Последний размер, назначенной сотруднику надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal BonusCount
         {
             get
@@ -54,6 +55,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Последний назначенный источник финансирования надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<FinancingSource>))]
         public FinancingSource FinancingSource
         {
@@ -70,6 +72,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Примечание")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Примечание к надбавке")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Comment
         {
             get
@@ -85,6 +88,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата начала начисления")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата начала начисления (последнего изменения) надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -100,6 +104,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата прекращения начисления")]
         [System.ComponentModel.Category("Прекращение начисления")]
         [System.ComponentModel.Description("Дата прекращения начисления надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
         {
             get
@@ -115,6 +120,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Вид надбавки")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Вид назначаемой надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<BonusType>))]
         public BonusType BonusType
         {
@@ -133,6 +139,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ назначения (последнего изменения) надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz Prikaz
         {
@@ -150,6 +157,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Промежуточный приказ отмены")]
         [System.ComponentModel.Category("Прекращение начисления")]
         [System.ComponentModel.Description("Промежуточный приказ отмены надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz IntermediateEndPrikaz
         {
@@ -166,6 +174,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ отмены")]
         [System.ComponentModel.Category("Прекращение начисления")]
         [System.ComponentModel.Description("Приказ отмены надбавки")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz EndPrikaz
         {

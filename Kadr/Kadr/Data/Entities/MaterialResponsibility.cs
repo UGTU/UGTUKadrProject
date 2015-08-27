@@ -16,7 +16,7 @@ namespace Kadr.Data
 
         #region Properties
 
-        public Kadr.Data.Prikaz Prikaz
+        public Kadr.Data.Prikaz FSPrikaz
         {
             get
             {
@@ -53,15 +53,21 @@ namespace Kadr.Data
             }
         }
 
+        public Prikaz Contract
+        {
+            get { return Prikaz; }
+            set { Prikaz = value; }
+        }
+
         public string ContractName
         {
             get
             {
-                return Contract.ContractName;
+                return Prikaz.PrikazName;
             }
             set
             {
-                Contract.ContractName = value;
+                Prikaz.PrikazName = value;
             }
         }
 
@@ -69,11 +75,11 @@ namespace Kadr.Data
         {
             get
             {
-                return Contract.DateContract;
+                return Prikaz.DatePrikaz;
             }
             set
             {
-                Contract.DateContract = value;
+                Prikaz.DatePrikaz = value;
             }
         }
 
@@ -90,8 +96,8 @@ namespace Kadr.Data
             if ((action != ChangeAction.Insert) && (action != ChangeAction.Update)) return;
 
             if (FactStaffPrikaz.idPrikaz == 0) throw new ArgumentNullException("Приказ.");
-            if ((Contract.ContractName == null) || (Contract.ContractName.Trim()=="")) throw new ArgumentNullException("Номер договора.");
-            if (Contract.DateContract == null) throw new ArgumentNullException("Дата договора.");
+            if ((ContractName == null) || (ContractName.Trim()=="")) throw new ArgumentNullException("Номер договора.");
+            if (DateContract == null) throw new ArgumentNullException("Дата договора.");
             if (FactStaffPrikaz.DateBegin == null) throw new ArgumentNullException("Дата начала действия.");
             if (FactStaffPrikaz.DateEnd == DateTime.MinValue)
                 FactStaffPrikaz.DateEnd = null;

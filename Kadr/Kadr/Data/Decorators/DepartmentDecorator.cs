@@ -73,6 +73,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название отдела")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Уникальное название отдела в организации")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DepartmentName
         {
             get
@@ -88,6 +89,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Краткое название отдела")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Краткое название отдела в организации")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DepartmentSmallName
         {
             get
@@ -103,6 +105,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Руководитель отдела")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Руководитель отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(PlanStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public PlanStaff ManagmentPlanStaff
         {
@@ -119,6 +122,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("ОКВЭД")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Код экономической деятельности")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<OKVED>))]
         public OKVED OKVED
         {
@@ -135,6 +139,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Руководящий отдел")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Руководящий отдел")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(DepartmentEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Department ManagerDepartment
         {
@@ -157,6 +162,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата создания")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата создания отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime dateCreate
         {
             get
@@ -172,6 +178,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата расформирования")]
         [System.ComponentModel.Category("Расформирование отдела")]
         [System.ComponentModel.Description("Дата расформирования отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime dateExit
         {
             get
@@ -187,6 +194,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ о создании")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ о создании отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz PrikazBegin
         {
@@ -203,6 +211,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ о расформировании")]
         [System.ComponentModel.Category("Расформирование отдела")]
         [System.ComponentModel.Description("Приказ о расформировании отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz PrikazEnd
         {
@@ -219,6 +228,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Центр затрат отдела")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Центр затрат отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(FundingCenterEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public FundingCenter FundingCenter
         {
@@ -235,6 +245,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Номер телефона отдела")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Основной номер телефона отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DepPhoneNumber
         {
             get
@@ -250,6 +261,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Код отдела")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Код отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         public string DepartmentIndex
         {
             get
@@ -265,6 +277,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Тип отдела")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Код типа отдела")]
+        [System.ComponentModel.ReadOnly(false)]
         public int? WorkSheduleToIntSing
         {
             get

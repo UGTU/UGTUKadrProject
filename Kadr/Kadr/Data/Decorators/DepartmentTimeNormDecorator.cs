@@ -55,6 +55,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Источник финансирования, для которой задана норма времени")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.FinancingSourceConvertor))]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.FinancingSource FinancingSource
@@ -72,6 +73,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата назначения")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DataBegin
         {
             get
@@ -87,6 +89,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество часов по норме")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Количество часов по норме времени на ставку")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal NormHoursCount
         {
             get

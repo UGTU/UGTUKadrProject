@@ -39,6 +39,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата начала периода")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата начала периода")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -54,6 +55,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата окончания периода")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата окончания периода")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
         {
             get
