@@ -169,7 +169,7 @@ namespace Kadr.Data
             }
         }
 
-        public Contract Contract
+        /*public Contract Contract
         {
             get
             {
@@ -179,7 +179,7 @@ namespace Kadr.Data
             {
                 LastChange.Contract = value;
             }
-        }
+        }*/
 
         public Prikaz PrikazBegin
         {

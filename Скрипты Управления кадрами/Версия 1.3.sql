@@ -158,3 +158,26 @@ GO
 ALTER TABLE [dbo].[FactStaff] CHECK CONSTRAINT [FK_FactStaff_OK_Reason]
 GO
 
+GO
+
+ALTER TABLE [dbo].[FactStaffHistory]  WITH CHECK ADD  CONSTRAINT [FK_FactStaffHistory_Contract] FOREIGN KEY([idContract])
+REFERENCES [dbo].[Contract] ([id])
+GO
+
+ALTER TABLE [dbo].[FactStaffHistory] CHECK CONSTRAINT [FK_FactStaffHistory_Contract]
+GO
+
+
+
+
+
+select *
+from [dbo].[Contract]
+where [idPrikazType]!=27
+
+
+
+update [dbo].[Contract]
+set idMainContract=[Contract].id
+--from [dbo].[Contract]
+where [idPrikazType]!=27
