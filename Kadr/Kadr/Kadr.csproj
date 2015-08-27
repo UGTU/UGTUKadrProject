@@ -341,6 +341,7 @@
     <Compile Include="Data\Entities\OK_Otpusk.cs" />
     <Compile Include="Data\Entities\OK_Otpuskvid.cs" />
     <Compile Include="Data\Entities\OK_phone.cs" />
+    <Compile Include="Data\Entities\OK_Reason.cs" />
     <Compile Include="Data\Entities\OK_Social.cs" />
     <Compile Include="Data\Entities\OK_SocialStatus.cs" />
     <Compile Include="Data\Entities\Organisation.cs" />

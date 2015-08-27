@@ -144,5 +144,17 @@ inner join dbo.[Contract]
 
 	 
 
+update [dbo].[FactStaff]
+set [idreason]=null
+where [idreason]=0
 
+
+GO
+
+ALTER TABLE [dbo].[FactStaff]  WITH CHECK ADD  CONSTRAINT [FK_FactStaff_OK_Reason] FOREIGN KEY([idreason])
+REFERENCES [dbo].[OK_Reason] ([idreason])
+GO
+
+ALTER TABLE [dbo].[FactStaff] CHECK CONSTRAINT [FK_FactStaff_OK_Reason]
+GO
 
