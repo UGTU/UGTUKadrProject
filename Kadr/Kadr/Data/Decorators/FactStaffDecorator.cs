@@ -121,6 +121,7 @@ namespace Kadr.Data
             }
         }
 
+
         /*[System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Почасовики")]
         [System.ComponentModel.Description("Источник финансирования (редактировать для почасовиков)")]
@@ -207,7 +208,7 @@ namespace Kadr.Data
 
         [System.ComponentModel.DisplayName("Дата увольнения")]
         [System.ComponentModel.Category("Параметры увольнения")]
-        [System.ComponentModel.Description("Дата снятия с должности")]
+        [System.ComponentModel.Description("Дата увольнения с должности")]
         [System.ComponentModel.ReadOnly(false)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime DataEnd
@@ -230,8 +231,24 @@ namespace Kadr.Data
                 }*/
             }
 
+        }
 
 
+        [System.ComponentModel.DisplayName("Причина увольнения")]
+        [System.ComponentModel.Category("Параметры увольнения")]
+        [System.ComponentModel.Description("Причина увольнения")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<OK_Reason>))]
+        public OK_Reason OK_Reason
+        {
+            get
+            {
+                return factStaff.OK_Reason;
+            }
+            set
+            {
+                factStaff.OK_Reason = value;
+            }
         }
 
         [System.ComponentModel.DisplayName("Центр затрат")]
@@ -251,7 +268,24 @@ namespace Kadr.Data
             }
         }
 
-
+        /*[System.ComponentModel.DisplayName("Номер договора")]
+        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Description("Номер договора")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string ContractName
+        {
+            get
+            {
+                if (factStaff.Contract != null)
+                    return factStaff.Contract.ContractName;
+                else
+                    return null;
+            }
+            set
+            {
+                factStaff.Contract.ContractName = value;
+            }
+        }*/
     }
 
 }

@@ -50,7 +50,14 @@ or(OK_Adress.Adress like '%Ухта%Первомайская%'
 	and (OK_Adress.Adress like '%19%к%' or OK_Adress.Adress like '%21%к%' or OK_Adress.Adress like '%23%к%' or OK_Adress.Adress like '%25%к%' or OK_Adress.Adress like '%27%к%' or OK_Adress.Adress like '%29%к%'
 	 or OK_Adress.Adress like '%30%к%' or OK_Adress.Adress like '%31%к%' or OK_Adress.Adress like '%32%к%' or OK_Adress.Adress like '%33%к%' or OK_Adress.Adress like '%34%к%'
 	  or OK_Adress.Adress like '%35%к%' or OK_Adress.Adress like '%36%к%' or OK_Adress.Adress like '%38%к%' or OK_Adress.Adress like '%40%к%' or OK_Adress.Adress like '%41%к%'
-	   or OK_Adress.Adress like '%42%к%' or OK_Adress.Adress like '%43%к%' or OK_Adress.Adress like '%46%к%'))
+	   or OK_Adress.Adress like '%42%к%' or OK_Adress.Adress like '%43%к%' or OK_Adress.Adress like '%46%к%')
+or(OK_Adress.Adress like '%Ухта%Береговая%' )
+
+or(OK_Adress.Adress like '%Ухта%Володарского%' )
+or
+(OK_Adress.Adress like '%Ухта%Загородная%' )
+or
+(OK_Adress.Adress like '%Ухта%Семяшкина%' ))
 	
 GROUP BY empl.EmplFullName,OK_Adress.Adress 
 ORDER BY OK_Adress.Adress , dep, post
