@@ -75,7 +75,15 @@ select *--, cast([godbirth] as DATE)-- CONVERT(DATE, CONVERT(VARCHAR(10), [godbi
 from [dbo].[OK_Fam]
 where BirthDate is null and BirthYear is null
 
-
+go
 EXEC sp_rename 'dbo.Contract.DataBegin', 'DateBegin', 'COLUMN'
-
+go
 EXEC sp_rename 'dbo.Contract.DataEnd', 'DateEnd', 'COLUMN'
+
+go
+
+alter table [dbo].[OK_Adress]
+add DateEnd DATE NULL
+
+
+
