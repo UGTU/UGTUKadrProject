@@ -39,6 +39,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Социальный статус")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Социальный статус льготника")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<OK_SocialStatus>))]
 
         public OK_SocialStatus Status
@@ -61,6 +62,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата утверждения")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Дата утверждения социального статуса")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
 
         public DateTime? Date
@@ -85,6 +87,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("\t\tСерия документа")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Серия документа, подтверждающего социальный статус")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Serie
         {
             get
@@ -104,7 +107,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("\tНомер документа")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Номер документа, подтверждающего социальный статус")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public string Number
         {
             get
@@ -124,6 +127,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Организация")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Организация, утвердившая социальный статус")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Organisation>))]
         public Organisation Organization
         {

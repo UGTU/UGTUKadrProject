@@ -39,6 +39,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Год табеля")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Год табеля")]
+        [System.ComponentModel.ReadOnly(false)]
         public int TimeSheetYear
         {
             get
@@ -54,6 +55,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Среднемесячное количество часов")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Среднемесячное количество часов")]
+        [System.ComponentModel.ReadOnly(false)]
         public double TimeSheetHourCount
         {
             get
@@ -69,6 +71,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Заполнен")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Признак заполненного табеля")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool IsFilled
         {
@@ -85,6 +88,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Закрыт")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Признак закрытого табеля")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool IsClosed
         {
@@ -116,6 +120,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество рабочих дней")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Количество дней в месяце")]
+        [System.ComponentModel.ReadOnly(false)]
         public int TimeSheetWorkingDayCount
         {
             get
@@ -131,6 +136,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Месяц")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Месяц табеля")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.MonthEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public string MonthName
         {

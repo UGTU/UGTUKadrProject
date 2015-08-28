@@ -169,6 +169,18 @@ namespace Kadr.Data
             }
         }
 
+        /*public Contract Contract
+        {
+            get
+            {
+                return LastChange.Contract;
+            }
+            set
+            {
+                LastChange.Contract = value;
+            }
+        }*/
+
         public Prikaz PrikazBegin
         {
             get

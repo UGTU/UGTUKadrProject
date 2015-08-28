@@ -240,7 +240,6 @@
             this.newStaffCountDataGridViewTextBoxColumn.HeaderText = "Новое кол-во ставок";
             this.newStaffCountDataGridViewTextBoxColumn.Name = "newStaffCountDataGridViewTextBoxColumn";
             this.newStaffCountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.newStaffCountDataGridViewTextBoxColumn.Width = 55;
             // 
             // HourStaffCount
             // 

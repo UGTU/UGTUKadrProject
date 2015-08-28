@@ -40,6 +40,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Номер уровня")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Номер профессионально-квалификационного уровня")]
+        [System.ComponentModel.ReadOnly(false)]
         public int PKCategoryNumber
         {
             get
@@ -55,6 +56,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Номер подуровня 1")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Номер профессионально-квалификационного подуровня 1")]
+        [System.ComponentModel.ReadOnly(false)]
         public int PKSubCategoryNumber
         {
             get
@@ -70,6 +72,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Номер подуровня 2")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Номер профессионально-квалификационного подуровня 2")]
+        [System.ComponentModel.ReadOnly(false)]
         public int? PKSubSubCategoryNumber
         {
             get
@@ -85,6 +88,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Подподкатегория")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
+        [System.ComponentModel.ReadOnly(false)]
         public int? SalaryKoeff
         {
             get
@@ -102,6 +106,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Профессиональная группа")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Профессионально-квалификационная группа")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<PKGroup>))]
         public PKGroup PKGroup
         {
@@ -130,6 +135,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Комментарий")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Комментарий к профессионально-квалификационному подуровню")]
+        [System.ComponentModel.ReadOnly(false)]
         public string PKComment
         {
             get

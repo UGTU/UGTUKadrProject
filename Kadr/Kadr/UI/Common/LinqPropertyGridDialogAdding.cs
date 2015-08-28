@@ -37,7 +37,7 @@ namespace Kadr.UI.Common
         public Action<T> InitializeNewObject;
 
         //создание связанных объектов
-        public Action<T> CreateRelatedObject;
+        public Action<T> PostApplyAction;
 
 
         T newObject;    //текущий объект
@@ -102,8 +102,8 @@ namespace Kadr.UI.Common
 
 
             //добавляем связанные объекты, если необходимо
-            if (CreateRelatedObject != null)
-                CreateRelatedObject(newObject);
+            if (PostApplyAction != null)
+                PostApplyAction(newObject);
 
             //сохраняем прежний объект
             if (objectList != null)

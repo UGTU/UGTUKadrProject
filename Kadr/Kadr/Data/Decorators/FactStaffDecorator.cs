@@ -42,6 +42,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("ФИО сотрудника")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("ФИО сотрудника, назначенного на должность")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.EmployeeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Employee Employee
         {
@@ -58,6 +59,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество ставок")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Занимаемое сотрудником по факту количество ставок")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal StaffCount
         {
             get
@@ -74,6 +76,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Подподкатегория")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
+        [System.ComponentModel.ReadOnly(false)]
         public int? SalaryKoeff
         {
             get
@@ -92,6 +95,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Должность в штатном расписании")]
         [System.ComponentModel.Category("Общие")]
         [System.ComponentModel.Description("Должность в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         public Kadr.Data.PlanStaff PlanStaff
         {
             get
@@ -103,6 +107,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Название вида работы")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название вида работы")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
         public Kadr.Data.WorkType WorkType
         {
@@ -115,6 +120,7 @@ namespace Kadr.Data
                 factStaff.WorkType = value;
             }
         }
+
 
         /*[System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Почасовики")]
@@ -135,6 +141,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("ОКВЭД")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Код экономической деятельности")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<OKVED>))]
         public OKVED OKVED
         {
@@ -151,6 +158,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ утверждения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ назначения сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz PrikazBegin
         {
@@ -167,6 +175,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ увольнения")]
         [System.ComponentModel.Category("Параметры увольнения")]
         [System.ComponentModel.Description("Приказ увольнения сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz PrikazEnd
         {
@@ -183,6 +192,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата назначения на должность")]
+        [System.ComponentModel.ReadOnly(false)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime DataBegin
         {
@@ -198,7 +208,8 @@ namespace Kadr.Data
 
         [System.ComponentModel.DisplayName("Дата увольнения")]
         [System.ComponentModel.Category("Параметры увольнения")]
-        [System.ComponentModel.Description("Дата снятия с должности")]
+        [System.ComponentModel.Description("Дата увольнения с должности")]
+        [System.ComponentModel.ReadOnly(false)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime DataEnd
         {
@@ -220,13 +231,30 @@ namespace Kadr.Data
                 }*/
             }
 
+        }
 
 
+        [System.ComponentModel.DisplayName("Причина увольнения")]
+        [System.ComponentModel.Category("Параметры увольнения")]
+        [System.ComponentModel.Description("Причина увольнения")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<OK_Reason>))]
+        public OK_Reason OK_Reason
+        {
+            get
+            {
+                return factStaff.OK_Reason;
+            }
+            set
+            {
+                factStaff.OK_Reason = value;
+            }
         }
 
         [System.ComponentModel.DisplayName("Центр затрат")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Центр затрат")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(FundingCenterEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public FundingCenter FundingCenter
         {
@@ -240,7 +268,24 @@ namespace Kadr.Data
             }
         }
 
-
+        /*[System.ComponentModel.DisplayName("Номер договора")]
+        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Description("Номер договора")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string ContractName
+        {
+            get
+            {
+                if (factStaff.Contract != null)
+                    return factStaff.Contract.ContractName;
+                else
+                    return null;
+            }
+            set
+            {
+                factStaff.Contract.ContractName = value;
+            }
+        }*/
     }
 
 }

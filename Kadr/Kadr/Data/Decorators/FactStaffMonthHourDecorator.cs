@@ -38,6 +38,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество часов")]
         [System.ComponentModel.Category("Основные атрибуты")]
         [System.ComponentModel.Description("Проведенное количество часов за месяц")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal HourCount
         {
             get
@@ -53,6 +54,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Месяц")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Месяц")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.MonthEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public string MonthName
         {
@@ -69,6 +71,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Год")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Год, для которого указываются часы")]
+        [System.ComponentModel.ReadOnly(false)]
         public int YearNumber
         {
             get

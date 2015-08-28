@@ -15,6 +15,8 @@ namespace Kadr.Data
             return DopEducType.DopEducName + (DopEducType.Duration != "" ? " (" + DopEducType.Duration + " часов)" : "");
         }
 
+        public FactStaff FactStaff { get; set; }
+
         /// <summary>
         /// Проверка всех параметров перед сохранением
         /// </summary>

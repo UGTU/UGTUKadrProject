@@ -40,6 +40,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество дней")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Количество дней отпуска")]
+        [System.ComponentModel.ReadOnly(false)]
         public int? CountDay
         {
             get
@@ -55,6 +56,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата начала")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата начала отпуска")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -70,6 +72,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата завершения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата завершения отпуска")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
         {
             get
@@ -85,6 +88,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Вид отпуска")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Вид отпуска")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OK_OtpuskvidConverter))]
         public OK_Otpuskvid OK_Otpuskvid
         {
@@ -101,6 +105,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Льготный проезд")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Льготный проезд")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SocialFareTransitConverter))]
         public SocialFareTransit SocialFareTransit
         {
@@ -117,6 +122,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz Prikaz
         {

@@ -175,6 +175,12 @@ namespace Kadr.UI.Forms
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.военныйУчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.категорияЗапасаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.воинскоеЗваниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.составпрофильToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.категорияГодностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типВоинскогоУчетаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             tsmiDismissedEmployees = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -746,6 +752,7 @@ namespace Kadr.UI.Forms
             this.совмещенияToolStripMenuItem,
             this.табельToolStripMenuItem,
             this.образованиеToolStripMenuItem,
+            this.военныйУчетToolStripMenuItem,
             this.отделыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
@@ -1495,6 +1502,48 @@ namespace Kadr.UI.Forms
             // 
             this.departmentBindingSource.DataSource = typeof(Kadr.Data.Department);
             // 
+            // военныйУчетToolStripMenuItem
+            // 
+            this.военныйУчетToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.категорияЗапасаToolStripMenuItem,
+            this.воинскоеЗваниеToolStripMenuItem,
+            this.составпрофильToolStripMenuItem,
+            this.категорияГодностиToolStripMenuItem,
+            this.типВоинскогоУчетаToolStripMenuItem});
+            this.военныйУчетToolStripMenuItem.Name = "военныйУчетToolStripMenuItem";
+            this.военныйУчетToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.военныйУчетToolStripMenuItem.Text = "Воинский учет";
+            // 
+            // категорияЗапасаToolStripMenuItem
+            // 
+            this.категорияЗапасаToolStripMenuItem.Name = "категорияЗапасаToolStripMenuItem";
+            this.категорияЗапасаToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.категорияЗапасаToolStripMenuItem.Text = "Категория запаса";
+            // 
+            // воинскоеЗваниеToolStripMenuItem
+            // 
+            this.воинскоеЗваниеToolStripMenuItem.Name = "воинскоеЗваниеToolStripMenuItem";
+            this.воинскоеЗваниеToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.воинскоеЗваниеToolStripMenuItem.Text = "Воинское звание";
+            // 
+            // составпрофильToolStripMenuItem
+            // 
+            this.составпрофильToolStripMenuItem.Name = "составпрофильToolStripMenuItem";
+            this.составпрофильToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.составпрофильToolStripMenuItem.Text = "Состав (профиль)";
+            // 
+            // категорияГодностиToolStripMenuItem
+            // 
+            this.категорияГодностиToolStripMenuItem.Name = "категорияГодностиToolStripMenuItem";
+            this.категорияГодностиToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.категорияГодностиToolStripMenuItem.Text = "Категория годности";
+            // 
+            // типВоинскогоУчетаToolStripMenuItem
+            // 
+            this.типВоинскогоУчетаToolStripMenuItem.Name = "типВоинскогоУчетаToolStripMenuItem";
+            this.типВоинскогоУчетаToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.типВоинскогоУчетаToolStripMenuItem.Text = "Тип воинского учета";
+            // 
             // KadrBaseForm
             // 
             this.AllowDrop = true;
@@ -1687,6 +1736,12 @@ namespace Kadr.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem языкToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типыДокументовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типПовышенияКвалификацииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem военныйУчетToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem категорияЗапасаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem воинскоеЗваниеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem составпрофильToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem категорияГодностиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типВоинскогоУчетаToolStripMenuItem;
 
     }
 }

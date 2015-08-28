@@ -37,6 +37,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Номер телефона")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Номер телефона")]
+        [System.ComponentModel.ReadOnly(false)]
         public string phoneNumber
         {
             get

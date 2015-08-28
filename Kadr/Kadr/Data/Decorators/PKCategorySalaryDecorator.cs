@@ -37,6 +37,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Профессиональный уровень")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Профессионально-квалификационный уровень")]
+        [System.ComponentModel.ReadOnly(false)]
         public PKCategory PKCategory
         {
             get
@@ -52,6 +53,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Размер оклада")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Размер оклада профессионально-квалификационной категории")]
+        [System.ComponentModel.ReadOnly(false)]
         //[System.ComponentModel.]
         public decimal SalarySize
         {
@@ -68,6 +70,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата назначения оклада")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата назначения оклада категории")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -83,6 +86,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата отмены оклада")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата отмены оклада категории")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
         {
             get
@@ -98,6 +102,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ назначения оклада")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz Prikaz
         {

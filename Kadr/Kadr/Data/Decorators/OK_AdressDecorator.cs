@@ -37,6 +37,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Адрес")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Адрес")]
+        [System.ComponentModel.ReadOnly(false)]
         public string Adress
         {
             get
@@ -52,6 +53,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата регистрации")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата регистрации")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateReg
         {
             get
@@ -67,6 +69,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Показатель регистрации")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Показатель регистрации")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool RegBit
         {

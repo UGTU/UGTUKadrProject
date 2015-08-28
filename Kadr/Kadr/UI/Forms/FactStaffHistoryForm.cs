@@ -44,6 +44,10 @@ namespace Kadr.UI.Forms
                 factStaffHistoryBindingSource.DataSource =
                     Kadr.Controllers.KadrController.Instance.Model.FactStaffHistories.Where(hist =>
                         hist.FactStaff == FactStaff).OrderByDescending(hist => hist.DateBegin);
+                
+                HourCount.Visible = FactStaff.IsHourStaff;
+                HourStaffCount.Visible = FactStaff.IsHourStaff;
+                HourSalary.Visible = FactStaff.IsHourStaff;
             }
         }
 

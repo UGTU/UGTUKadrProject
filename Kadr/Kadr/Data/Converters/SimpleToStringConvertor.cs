@@ -12,40 +12,37 @@ namespace Kadr.Data.Converters
     class SimpleToStringConvertor<T> : TypeConverter
         where T:class
     {
+
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
             return true;
         }
 
-        private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
-        {
-            ICollection collection;
-
+        protected virtual ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
+        {            
+            var table = KadrController.Instance.Model.GetTable<T>().ToList();            
+            
             // реализуй IOrderInformer для своего контекста (например, декоратора), чтобы передать названия полей для сортировки — и конвертер отсортирует сам
             if (context.Instance is IOrderInformer)
-            {
-                List<T> tmp = KadrController.Instance.Model.GetTable<T>().ToList();
+            {             
 
-                string[] OrderProps = (context.Instance as IOrderInformer).GetOrderProperties(typeof(T));
+                var orderProps = (context.Instance as IOrderInformer).GetOrderProperties(typeof(T));
 
-                if (OrderProps!=null)
-                    for (int i=OrderProps.Length-1; i>=0; i--)
+                if (orderProps!=null)
+                    for (var i=orderProps.Length-1; i>=0; i--)
                     {
-                        string s = OrderProps[i];
-                        tmp = tmp.OrderBy(x => x.GetType().GetProperty(s).GetValue(x,null)).ToList();
-                    }
-
-                collection = tmp;
+                        var s = orderProps[i];
+                        table = table.OrderBy(x => x.GetType().GetProperty(s).GetValue(x, null)).ToList();
+                    }                
             }
             else
-            {
-                var l = KadrController.Instance.Model.GetTable<T>().ToList();
+            {                
                 if (typeof(IComparable).IsAssignableFrom(typeof(T)))
-                    l.Sort();
-                collection = l;
+                    table.Sort();                
             }
             
-            return collection;
+
+            return table;
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
@@ -117,5 +114,13 @@ namespace Kadr.Data.Converters
             return true;
         }
 
+    }
+
+    class DocumentTypeToStringConvertor : SimpleToStringConvertor<EducDocumentType>
+    {
+        protected override ICollection GetCollection(ITypeDescriptorContext context)
+        {
+            return base.GetCollection(context).Cast<EducDocumentType>().Where(x => !x.isOld).ToList();
+        }
     }
 }

@@ -71,6 +71,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Должность")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Название должности в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         //[System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Post>))]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Post Post
@@ -88,6 +89,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Количество ставок")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Запланированное количество ставок в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         public decimal StaffCount
         {
             get
@@ -106,6 +108,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ утверждения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ утверждения записи в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz PrikazBegin
         {
@@ -122,6 +125,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Приказ отмены")]
         [System.ComponentModel.Category("Отмена штатного расписания")]
         [System.ComponentModel.Description("Приказ отмены записи в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz PrikazEnd
         {
@@ -138,6 +142,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата назначения")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DataBegin
         {
             get
@@ -153,6 +158,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата отмены")]
         [System.ComponentModel.Category("Отмена штатного расписания")]
         [System.ComponentModel.Description("Дата отмены")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DataEnd
         {
             get
@@ -167,6 +173,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Источник финансирования")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Источник финансирования записи в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<FinancingSource>))]
         //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.AllFinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.FinancingSource FinancingSource
@@ -184,6 +191,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("График работы")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("График работы сотрудников на данной должности")]
+        [System.ComponentModel.ReadOnly(false)]
         public int? WorkSheduleToIntSing
         {
             get

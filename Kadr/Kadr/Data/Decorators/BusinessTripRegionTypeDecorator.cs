@@ -22,6 +22,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Регион")]
         [System.ComponentModel.DisplayName("Регион пребывания")]
         [System.ComponentModel.Description("В какой регион командируется сотрудник")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.RegionConverter))]
 
         public RegionType TripMainRegion
@@ -42,6 +43,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата начала")]
         [System.ComponentModel.Category("Сроки")]
         [System.ComponentModel.Description("Дата начала пребывания в регионе")]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
         {
             get
@@ -61,7 +63,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Дата окончания")]
         [System.ComponentModel.Category("Сроки")]
         [System.ComponentModel.Description("Дата окончания пребывания в регионе")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
         {
             get
