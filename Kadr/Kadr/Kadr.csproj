@@ -1175,6 +1175,13 @@
     <None Include="Properties\DataSources\Kadr.Data.OK_DopEducation.datasource">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryCategory.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryFitness.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryRank.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryStructure.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_Military.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryDecorator.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
