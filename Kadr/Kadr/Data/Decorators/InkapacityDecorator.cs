@@ -80,7 +80,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Серия")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Серия документа, подтверждающего период нетрудоспособности")]
-
+        [System.ComponentModel.Browsable(false)]
         public string Serie
         {
             get
