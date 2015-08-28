@@ -1,6 +1,7 @@
 ﻿using System.Data.Linq;
 using System;
 using Kadr.Data.Common;
+using Kadr.Interfaces;
 
 namespace Kadr.Data
 {

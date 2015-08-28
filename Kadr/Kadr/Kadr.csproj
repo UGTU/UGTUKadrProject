@@ -223,6 +223,7 @@
     <Compile Include="Controllers\SimpleActionsProvider.cs" />
     <Compile Include="Data\Common\AdvancedBindingList.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
+    <Compile Include="Data\Common\EmployeeExperienceExtensions.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
@@ -370,6 +371,8 @@
     <Compile Include="Data\Entities\ValidationDecision.cs" />
     <Compile Include="Data\Entities\WorkShedule.cs" />
     <Compile Include="Data\Entities\WorkType.cs" />
+    <Compile Include="Data\Common\IEmployeeExperienceRecord.cs" />
+    <Compile Include="Data\Common\IExperienceProvider.cs" />
     <Compile Include="Interfaces\IOrderInformer.cs" />
     <Compile Include="KadrTreeView\KadrTreeView.cs">
       <SubType>Component</SubType>
@@ -400,9 +403,7 @@
     </Compile>
     <Compile Include="UI\Common\CustomBooleanConverter.cs" />
     <Compile Include="UI\Common\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
