@@ -96,6 +96,10 @@ where idlaborcontrakt=9439
 delete from dbo.Prikaz
 where id=9439
 
+
+
+
+
 go
 alter table Contract 
 add [idPrikazType] int null
@@ -109,6 +113,11 @@ from [dbo].[Prikaz]
   or
    Prikaz.id in (select idlaborcontrakt from dbo.FactStaffHistory))
   
+
+
+
+
+
 
 
   update dbo.FactStaffHistory
@@ -181,6 +190,64 @@ update [dbo].[Contract]
 set idMainContract=[Contract].id
 --from [dbo].[Contract]
 where [idPrikazType]!=27
+
+
+
+
+--те, у кого только один договор внесен
+select Employee.id, COUNT(distinct [Contract].id)
+
+from dbo.Employee inner join
+dbo.FactStaff on Employee.id=FactStaff.idEmployee
+ inner join
+dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+ inner join
+dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+where [Contract].idPrikazType=27
+group by Employee.id
+having COUNT(distinct [Contract].id)=1
+
+--указываем им в доп соглашениях договора
+
+
+update dbo.[Contract]
+set [Contract].idMainContract=UniqueContract.idContract
+--select * 
+from
+
+--dbo.Employee inner join
+dbo.FactStaff --on Employee.id=FactStaff.
+ inner join
+dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+ inner join
+dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+--inner join dbo.[Contract] MainContract on [Contract].id=FactStaffHistory.idContract
+inner join
+	(select distinct Empl.id idEmployee, [Contract].id idContract
+	from
+	(select Employee.id--, COUNT(distinct [Contract].id)
+
+	from dbo.Employee inner join
+	dbo.FactStaff on Employee.id=FactStaff.idEmployee
+	 inner join
+	dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+	 inner join
+	dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+	where [Contract].idPrikazType=27
+	group by Employee.id
+	having COUNT(distinct [Contract].id)=1)empl
+	 inner join
+	dbo.FactStaff on empl.id=FactStaff.idEmployee
+	 inner join
+	dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+	 inner join
+	dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+	where [Contract].idPrikazType=27)UniqueContract
+	ON FactStaff.idEmployee=UniqueContract.idEmployee
+where [Contract].idPrikazType!=27
+--and  in
+
+
 ---------------------------------Военный учет---------------------------------------------------------------------------------------------
 SET ANSI_NULLS ON
 GO

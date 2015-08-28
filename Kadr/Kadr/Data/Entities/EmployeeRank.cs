@@ -34,10 +34,10 @@ namespace Kadr.Data
                     throw new ArgumentNullException("Ученое звание.");
                 if (Employee.IsNull())
                     throw new ArgumentNullException("Сотрудник.");
-                if ((EducDocument.DocNumber == "") || (EducDocument.DocNumber == null))
-                    throw new ArgumentNullException("Номер диплома.");
                 if (EducDocument.IsNull())
-                    throw new ArgumentNullException("Данные диплома.");
+                    throw new ArgumentNullException("Данные аттестата.");
+                if ((EducDocument.DocNumber == "") || (EducDocument.DocNumber == null))
+                    throw new ArgumentNullException("Номер аттестата.");
 
             }
         }

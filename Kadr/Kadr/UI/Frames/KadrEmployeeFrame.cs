@@ -360,7 +360,7 @@ namespace Kadr.UI.Frames
 
         private void EditRankBtn_Click(object sender, EventArgs e)
         {
-            CRUDEmployeeRank.Update(employeeDegreeBindingSource);
+            CRUDEmployeeRank.Update(employeeRankBindingSource);
         }
 
         private void DelRankBtn_Click(object sender, EventArgs e)

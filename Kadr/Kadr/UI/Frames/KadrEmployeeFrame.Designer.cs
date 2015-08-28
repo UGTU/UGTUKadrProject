@@ -102,6 +102,14 @@ namespace Kadr.UI.Frames
             this.tpFamily = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
+            this.idfamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idmembfamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idemployeeDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oKMembFamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fiomembfamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.godbirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oKFamBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip9 = new System.Windows.Forms.ToolStrip();
             this.tsbAddFamMember = new System.Windows.Forms.ToolStripButton();
@@ -418,14 +426,6 @@ namespace Kadr.UI.Frames
             this.timeSheetDayStateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oKLanguageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idfamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idmembfamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idemployeeDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oKMembFamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fiomembfamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.godbirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -975,7 +975,7 @@ namespace Kadr.UI.Frames
             this.tpFamily.Location = new System.Drawing.Point(4, 22);
             this.tpFamily.Name = "tpFamily";
             this.tpFamily.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFamily.Size = new System.Drawing.Size(869, 339);
+            this.tpFamily.Size = new System.Drawing.Size(788, 501);
             this.tpFamily.TabIndex = 1;
             this.tpFamily.Text = "Состав семьи";
             this.tpFamily.UseVisualStyleBackColor = true;
@@ -993,7 +993,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(863, 333);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(782, 495);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // dataGridView7
@@ -1034,9 +1034,72 @@ namespace Kadr.UI.Frames
             this.dataGridView7.ReadOnly = true;
             this.dataGridView7.RowHeadersVisible = false;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView7.Size = new System.Drawing.Size(857, 465);
+            this.dataGridView7.Size = new System.Drawing.Size(776, 465);
             this.dataGridView7.TabIndex = 4;
             this.dataGridView7.DoubleClick += new System.EventHandler(this.tsbEditFamMember_Click);
+            // 
+            // idfamDataGridViewTextBoxColumn
+            // 
+            this.idfamDataGridViewTextBoxColumn.DataPropertyName = "idfam";
+            this.idfamDataGridViewTextBoxColumn.HeaderText = "idfam";
+            this.idfamDataGridViewTextBoxColumn.Name = "idfamDataGridViewTextBoxColumn";
+            this.idfamDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idfamDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idmembfamDataGridViewTextBoxColumn
+            // 
+            this.idmembfamDataGridViewTextBoxColumn.DataPropertyName = "idmembfam";
+            this.idmembfamDataGridViewTextBoxColumn.HeaderText = "idmembfam";
+            this.idmembfamDataGridViewTextBoxColumn.Name = "idmembfamDataGridViewTextBoxColumn";
+            this.idmembfamDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idmembfamDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idemployeeDataGridViewTextBoxColumn3
+            // 
+            this.idemployeeDataGridViewTextBoxColumn3.DataPropertyName = "idemployee";
+            this.idemployeeDataGridViewTextBoxColumn3.HeaderText = "idemployee";
+            this.idemployeeDataGridViewTextBoxColumn3.Name = "idemployeeDataGridViewTextBoxColumn3";
+            this.idemployeeDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.idemployeeDataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // oKMembFamDataGridViewTextBoxColumn
+            // 
+            this.oKMembFamDataGridViewTextBoxColumn.DataPropertyName = "OK_MembFam";
+            this.oKMembFamDataGridViewTextBoxColumn.HeaderText = "Степень родства";
+            this.oKMembFamDataGridViewTextBoxColumn.Name = "oKMembFamDataGridViewTextBoxColumn";
+            this.oKMembFamDataGridViewTextBoxColumn.ReadOnly = true;
+            this.oKMembFamDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // fiomembfamDataGridViewTextBoxColumn
+            // 
+            this.fiomembfamDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fiomembfamDataGridViewTextBoxColumn.DataPropertyName = "fiomembfam";
+            this.fiomembfamDataGridViewTextBoxColumn.HeaderText = "ФИО родственника";
+            this.fiomembfamDataGridViewTextBoxColumn.Name = "fiomembfamDataGridViewTextBoxColumn";
+            this.fiomembfamDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // godbirthDataGridViewTextBoxColumn
+            // 
+            this.godbirthDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
+            this.godbirthDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            this.godbirthDataGridViewTextBoxColumn.Name = "godbirthDataGridViewTextBoxColumn";
+            this.godbirthDataGridViewTextBoxColumn.ReadOnly = true;
+            this.godbirthDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // BirthYear
+            // 
+            this.BirthYear.DataPropertyName = "BirthYear";
+            this.BirthYear.HeaderText = "Год рождения";
+            this.BirthYear.Name = "BirthYear";
+            this.BirthYear.ReadOnly = true;
+            // 
+            // employeeDataGridViewTextBoxColumn3
+            // 
+            this.employeeDataGridViewTextBoxColumn3.DataPropertyName = "Employee";
+            this.employeeDataGridViewTextBoxColumn3.HeaderText = "Employee";
+            this.employeeDataGridViewTextBoxColumn3.Name = "employeeDataGridViewTextBoxColumn3";
+            this.employeeDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.employeeDataGridViewTextBoxColumn3.Visible = false;
             // 
             // oKFamBindingSource
             // 
@@ -1050,7 +1113,7 @@ namespace Kadr.UI.Frames
             this.tsbDelFamMember});
             this.toolStrip9.Location = new System.Drawing.Point(0, 0);
             this.toolStrip9.Name = "toolStrip9";
-            this.toolStrip9.Size = new System.Drawing.Size(863, 24);
+            this.toolStrip9.Size = new System.Drawing.Size(782, 24);
             this.toolStrip9.TabIndex = 3;
             this.toolStrip9.Text = "toolStrip9";
             // 
@@ -2719,7 +2782,7 @@ namespace Kadr.UI.Frames
             this.tpEducation.Location = new System.Drawing.Point(4, 22);
             this.tpEducation.Name = "tpEducation";
             this.tpEducation.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEducation.Size = new System.Drawing.Size(802, 533);
+            this.tpEducation.Size = new System.Drawing.Size(883, 371);
             this.tpEducation.TabIndex = 3;
             this.tpEducation.Text = "Образование";
             this.tpEducation.UseVisualStyleBackColor = true;
@@ -2733,7 +2796,7 @@ namespace Kadr.UI.Frames
             this.tcEducation.Location = new System.Drawing.Point(3, 3);
             this.tcEducation.Name = "tcEducation";
             this.tcEducation.SelectedIndex = 0;
-            this.tcEducation.Size = new System.Drawing.Size(796, 527);
+            this.tcEducation.Size = new System.Drawing.Size(877, 365);
             this.tcEducation.TabIndex = 4;
             // 
             // tpGrandEducation
@@ -2742,7 +2805,7 @@ namespace Kadr.UI.Frames
             this.tpGrandEducation.Location = new System.Drawing.Point(4, 22);
             this.tpGrandEducation.Name = "tpGrandEducation";
             this.tpGrandEducation.Padding = new System.Windows.Forms.Padding(3);
-            this.tpGrandEducation.Size = new System.Drawing.Size(788, 501);
+            this.tpGrandEducation.Size = new System.Drawing.Size(869, 339);
             this.tpGrandEducation.TabIndex = 1;
             this.tpGrandEducation.Text = "Основное образование";
             this.tpGrandEducation.UseVisualStyleBackColor = true;
@@ -2761,8 +2824,8 @@ namespace Kadr.UI.Frames
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer4.Size = new System.Drawing.Size(782, 495);
-            this.splitContainer4.SplitterDistance = 266;
+            this.splitContainer4.Size = new System.Drawing.Size(863, 333);
+            this.splitContainer4.SplitterDistance = 178;
             this.splitContainer4.TabIndex = 11;
             // 
             // groupBox3
@@ -2772,7 +2835,7 @@ namespace Kadr.UI.Frames
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(782, 266);
+            this.groupBox3.Size = new System.Drawing.Size(863, 178);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
@@ -2789,7 +2852,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(776, 247);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(857, 159);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // dgvEducation
@@ -2840,7 +2903,7 @@ namespace Kadr.UI.Frames
             this.dgvEducation.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dgvEducation.RowHeadersVisible = false;
             this.dgvEducation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEducation.Size = new System.Drawing.Size(770, 333);
+            this.dgvEducation.Size = new System.Drawing.Size(851, 333);
             this.dgvEducation.TabIndex = 9;
             this.dgvEducation.DoubleClick += new System.EventHandler(this.EditEducationBtn_Click);
             // 
@@ -2934,7 +2997,7 @@ namespace Kadr.UI.Frames
             this.DeleteEducationBtn});
             this.toolStrip16.Location = new System.Drawing.Point(0, 0);
             this.toolStrip16.Name = "toolStrip16";
-            this.toolStrip16.Size = new System.Drawing.Size(776, 25);
+            this.toolStrip16.Size = new System.Drawing.Size(857, 25);
             this.toolStrip16.TabIndex = 8;
             this.toolStrip16.Text = "toolStrip16";
             // 
@@ -2973,7 +3036,7 @@ namespace Kadr.UI.Frames
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(782, 225);
+            this.groupBox2.Size = new System.Drawing.Size(863, 151);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Языки";
@@ -2991,7 +3054,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(776, 206);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(857, 132);
             this.tableLayoutPanel12.TabIndex = 3;
             // 
             // dgvLanguages
@@ -3379,7 +3442,7 @@ namespace Kadr.UI.Frames
             // educDocumentDataGridViewTextBoxColumn1
             // 
             this.educDocumentDataGridViewTextBoxColumn1.DataPropertyName = "EducDocument";
-            this.educDocumentDataGridViewTextBoxColumn1.HeaderText = "Данные диплома";
+            this.educDocumentDataGridViewTextBoxColumn1.HeaderText = "Данные аттестата";
             this.educDocumentDataGridViewTextBoxColumn1.MinimumWidth = 200;
             this.educDocumentDataGridViewTextBoxColumn1.Name = "educDocumentDataGridViewTextBoxColumn1";
             this.educDocumentDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -4302,69 +4365,6 @@ namespace Kadr.UI.Frames
             // 
             this.oKLanguageBindingSource.DataSource = typeof(Kadr.Data.OK_Language);
             // 
-            // idfamDataGridViewTextBoxColumn
-            // 
-            this.idfamDataGridViewTextBoxColumn.DataPropertyName = "idfam";
-            this.idfamDataGridViewTextBoxColumn.HeaderText = "idfam";
-            this.idfamDataGridViewTextBoxColumn.Name = "idfamDataGridViewTextBoxColumn";
-            this.idfamDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idfamDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idmembfamDataGridViewTextBoxColumn
-            // 
-            this.idmembfamDataGridViewTextBoxColumn.DataPropertyName = "idmembfam";
-            this.idmembfamDataGridViewTextBoxColumn.HeaderText = "idmembfam";
-            this.idmembfamDataGridViewTextBoxColumn.Name = "idmembfamDataGridViewTextBoxColumn";
-            this.idmembfamDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idmembfamDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idemployeeDataGridViewTextBoxColumn3
-            // 
-            this.idemployeeDataGridViewTextBoxColumn3.DataPropertyName = "idemployee";
-            this.idemployeeDataGridViewTextBoxColumn3.HeaderText = "idemployee";
-            this.idemployeeDataGridViewTextBoxColumn3.Name = "idemployeeDataGridViewTextBoxColumn3";
-            this.idemployeeDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.idemployeeDataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // oKMembFamDataGridViewTextBoxColumn
-            // 
-            this.oKMembFamDataGridViewTextBoxColumn.DataPropertyName = "OK_MembFam";
-            this.oKMembFamDataGridViewTextBoxColumn.HeaderText = "Степень родства";
-            this.oKMembFamDataGridViewTextBoxColumn.Name = "oKMembFamDataGridViewTextBoxColumn";
-            this.oKMembFamDataGridViewTextBoxColumn.ReadOnly = true;
-            this.oKMembFamDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // fiomembfamDataGridViewTextBoxColumn
-            // 
-            this.fiomembfamDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fiomembfamDataGridViewTextBoxColumn.DataPropertyName = "fiomembfam";
-            this.fiomembfamDataGridViewTextBoxColumn.HeaderText = "ФИО родственника";
-            this.fiomembfamDataGridViewTextBoxColumn.Name = "fiomembfamDataGridViewTextBoxColumn";
-            this.fiomembfamDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // godbirthDataGridViewTextBoxColumn
-            // 
-            this.godbirthDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
-            this.godbirthDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
-            this.godbirthDataGridViewTextBoxColumn.Name = "godbirthDataGridViewTextBoxColumn";
-            this.godbirthDataGridViewTextBoxColumn.ReadOnly = true;
-            this.godbirthDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // BirthYear
-            // 
-            this.BirthYear.DataPropertyName = "BirthYear";
-            this.BirthYear.HeaderText = "Год рождения";
-            this.BirthYear.Name = "BirthYear";
-            this.BirthYear.ReadOnly = true;
-            // 
-            // employeeDataGridViewTextBoxColumn3
-            // 
-            this.employeeDataGridViewTextBoxColumn3.DataPropertyName = "Employee";
-            this.employeeDataGridViewTextBoxColumn3.HeaderText = "Employee";
-            this.employeeDataGridViewTextBoxColumn3.Name = "employeeDataGridViewTextBoxColumn3";
-            this.employeeDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.employeeDataGridViewTextBoxColumn3.Visible = false;
-            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4564,9 +4564,6 @@ namespace Kadr.UI.Frames
         private Button btnCancel;
         private Button btnOk;
         private BindingSource employeeDegreeBindingSource;
-        private DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn educDocumentDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn rankWhereDataGridViewTextBoxColumn;
         private BindingSource employeeRankBindingSource;
         public ToolStripSplitButton tsbBonusFilter;
         private ToolStripMenuItem текущиеToolStripMenuItem;
@@ -4914,5 +4911,8 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn godbirthDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn BirthYear;
         private DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn educDocumentDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn rankWhereDataGridViewTextBoxColumn;
     }
 }

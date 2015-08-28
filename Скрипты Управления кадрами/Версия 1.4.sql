@@ -25,7 +25,7 @@ WHERE Len([godbirth])=4
 from [dbo].[OK_Fam]
 where
 Len([godbirth])=10 and 
- NOT-- ISDATE([godbirth])=1
+ ISDATE([godbirth])=1
 (substring([godbirth],3,1)='.'
 and substring([godbirth],6,1)='.')
 and
@@ -69,3 +69,13 @@ WHERE Len([godbirth])=10 and /*CONVERT(INT,substring([godbirth],1,2)) BETWEEN 1 
 and CONVERT(INT,substring([godbirth],4,2)) BETWEEN 1 AND 12
 and CONVERT(INT,substring([godbirth],7,7)) BETWEEN 1900 AND 2050*/
  ISDATE([godbirth])=1
+
+
+select *--, cast([godbirth] as DATE)-- CONVERT(DATE, CONVERT(VARCHAR(10), [godbirth]))--, CONVERT(DATE, [godbirth])
+from [dbo].[OK_Fam]
+where BirthDate is null and BirthYear is null
+
+
+EXEC sp_rename 'dbo.Contract.DataBegin', 'DateBegin', 'COLUMN'
+
+EXEC sp_rename 'dbo.Contract.DataEnd', 'DateEnd', 'COLUMN'
