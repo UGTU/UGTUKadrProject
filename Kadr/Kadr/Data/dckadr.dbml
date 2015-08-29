@@ -1054,20 +1054,6 @@
       <Association Name="OK_Reason_FactStaff" Member="FactStaffs" ThisKey="idreason" OtherKey="idreason" Type="FactStaff" />
     </Type>
   </Table>
-  <Table Name="dbo.Contract" Member="Contracts">
-    <Type Name="Contract">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ContractName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DateContract" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DataBegin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DataEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="idMainContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idPrikazType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Contract_Contract" Member="Contracts" ThisKey="id" OtherKey="idMainContract" Type="Contract" />
-      <Association Name="Contract_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idContract" Type="FactStaffHistory" />
-      <Association Name="Contract_Contract" Member="Contract1" ThisKey="idMainContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.FactStaffHistory" Member="FactStaffHistories">
     <Type Name="FactStaffHistory">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1084,11 +1070,11 @@
       <Column Name="CalcStaffCount" Type="System.Decimal" DbType="Decimal(6,4) NOT NULL" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="HourFullSalary" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
       <Column Name="idContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Contract_FactStaffHistory" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
       <Association Name="FactStaff_FactStaffHistory" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Prikaz_FactStaffHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
       <Association Name="SalaryKoeff_FactStaffHistory" Member="SalaryKoeff" ThisKey="idSalaryKoeff" OtherKey="id" Type="SalaryKoeff" IsForeignKey="true" />
       <Association Name="WorkType_FactStaffHistory" Member="WorkType" ThisKey="idTypeWork" OtherKey="id" Type="WorkType" IsForeignKey="true" />
+      <Association Name="Contract_FactStaffHistory" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.MilitaryCategory" Member="MilitaryCategories">
@@ -1169,6 +1155,20 @@
       <Column Name="RegBit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="Employee_OK_Adress" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contract" Member="Contracts">
+    <Type Name="Contract">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContractName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateContract" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="idMainContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idPrikazType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Contract_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idContract" Type="FactStaffHistory" />
+      <Association Name="Contract_Contract" Member="Contracts" ThisKey="id" OtherKey="idMainContract" Type="Contract" />
+      <Association Name="Contract_Contract" Member="Contract1" ThisKey="idMainContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">
