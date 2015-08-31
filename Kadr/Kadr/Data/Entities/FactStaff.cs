@@ -450,6 +450,7 @@ namespace Kadr.Data
 
         #region Contracts
 
+
         public Contract CurrentContract
         {
             get
@@ -651,6 +652,8 @@ namespace Kadr.Data
                 if (OKVED != null)
                     if (OKVED.IsNull())
                         OKVED = null;
+
+                (CurrentChange as UIX.Views.IValidatable).Validate();
             }
         }
 

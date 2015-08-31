@@ -93,4 +93,42 @@ from dbo.FactStaffHistory
 where idContract is null
 
 
+go 
+
+
+
+
+insert into dbo.[Contract]([ContractName],[DateContract],[DateBegin],[DateEnd])
+select '<не указан>', [DatePrikaz],ISNULL([FactStaffHistory].[DateBegin],Prikaz.DateBegin),null
+from [dbo].[FactStaffHistory]
+inner join dbo.Prikaz
+ON [FactStaffHistory].idBeginPrikaz=Prikaz.id
+and [FactStaffHistory].idContract is null
+
+update [dbo].[FactStaffHistory]
+set [idContract]=[Contract].id
+--select *
+from  [dbo].[FactStaffHistory]
+inner join dbo.Prikaz
+ON [FactStaffHistory].idBeginPrikaz=Prikaz.id
+inner join dbo.[Contract] 
+	ON (ISNULL([FactStaffHistory].[DateBegin],Prikaz.DateBegin)=[Contract].DateBegin or (Prikaz.DateBegin is null and [Contract].DateBegin is null))
+	AND (Prikaz.DatePrikaz=[Contract].DateContract or (Prikaz.DatePrikaz is null and [Contract].DateContract is null))
+	and [FactStaffHistory].[idContract] is null and [Contract].ContractName='<не указан>'
+	and [Contract].id not in (select ISNULL(idContract,0) from [dbo].[FactStaffHistory])
+
+	delete from dbo.[Contract]
+where  [ContractName]='<не указан>'
+and 
+id not in (select isnull(idContract,0) from [dbo].[FactStaffHistory])
+
+/*
+	select [FactStaffHistory].id, [FactStaffHistory].idContract, COUNT(id) from
+	[dbo].[FactStaffHistory]
+where idContract is not null
+GROUP BY [FactStaffHistory].id, [FactStaffHistory].idContract
+having COUNT(id)>1*/
+
+
+
 

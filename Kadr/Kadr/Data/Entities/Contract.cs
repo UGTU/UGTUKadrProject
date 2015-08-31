@@ -13,13 +13,15 @@ namespace Kadr.Data
     /// </summary>
     public partial class Contract : UIX.Views.IValidatable
     {
-        public Contract(FactStaffHistory factStaffHistory, string contractName = null, DateTime? dateContract = null, DateTime? dateBegin = null, DateTime? dateEnd = null): this()
+
+        public Contract(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory, string contractName = null, DateTime? dateContract = null, DateTime? dateBegin = null, DateTime? dateEnd = null)
+            : this()
         {
-            factStaffHistory.Contract = this;
-            ContractName = contractName;
-            DateContract = dateContract;
-            DateBegin = dateBegin;
-            DateEnd = dateEnd;
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Contract>(factStaffHistory, "Contract", this, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, string>(this, "ContractName", contractName, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(this, "DateContract", dateContract, null), null); ContractName = contractName;
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(this, "DateBegin", dateBegin, null), null); ContractName = contractName;
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(this, "DateEnd", dateEnd, null), null); ContractName = contractName;
         }
 
         public override string ToString()
@@ -79,7 +81,7 @@ namespace Kadr.Data
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
-                if (ContractName == null)
+                if ((ContractName == null) || (ContractName == ""))
                     throw new ArgumentNullException("Номер договора.");
                 
                 if (DateEnd == DateTime.MinValue)
