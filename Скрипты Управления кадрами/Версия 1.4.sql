@@ -87,3 +87,10 @@ add DateEnd DATE NULL
 
 
 
+go
+select *
+from dbo.FactStaffHistory
+where idContract is null
+
+
+
