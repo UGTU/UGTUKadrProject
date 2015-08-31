@@ -13,6 +13,15 @@ namespace Kadr.Tests
     public class EmployeeExperienceTests
     {
         [TestMethod]
+        public void FormatAsExperienceTest()
+        {
+            var ts = TimeSpan.FromDays(2*360 + 180 + 15);
+            var str = ts.FormatAsExperience();
+            Console.WriteLine(str);
+            Assert.AreEqual("2 года, 6 месяцев, 15 дней", str);
+        }
+        
+        [TestMethod]
         public void EmployeeDecoratorExperienceTest()
         {
             var employee = new Employee()
@@ -25,10 +34,7 @@ namespace Kadr.Tests
             };
 
             var decorator = new EmployeeDecorator(employee);
-
-            Assert.AreEqual(1, decorator.ExperienceYears);
-            Assert.AreEqual(6, decorator.ExperienceMonthes);
-            Assert.AreEqual(15, decorator.ExperienceDays);
+            Assert.AreEqual("1 год, 6 месяцев, 15 дней", decorator.TotalExperience);
         }
 
         [TestMethod]

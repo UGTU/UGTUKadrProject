@@ -7,7 +7,7 @@ using Kadr.Controllers;
 using System.Data.Linq;
 
 namespace Kadr.Data
-{
+{    
     public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IComparable, IExperienceProvider
     {
        /* public string EmployeeName
@@ -28,23 +28,6 @@ namespace Kadr.Data
                     return LastName;
             }
         }*/
-
-        public int? EmployeeYearsOld
-        {
-            get
-            {
-                
-                if (BirthDate != null)
-                {
-                    int YearsDiff = DateTime.Today.Year - BirthDate.Value.Year;
-                    if (DateTime.Today < BirthDate.Value.AddYears(YearsDiff))
-                        return YearsDiff - 1;
-                    else
-                        return YearsDiff;
-                }
-                return null;
-            }
-        }
 
         public EmployeeRank Rank
         {

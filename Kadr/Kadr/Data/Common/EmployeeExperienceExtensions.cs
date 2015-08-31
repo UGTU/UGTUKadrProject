@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using APG.Base;
 
 namespace Kadr.Data.Common
 {
@@ -38,7 +39,19 @@ namespace Kadr.Data.Common
         {
             return (timeSpan.Days % YearDays % Month);
         }
-
+        /// <summary>
+        /// Возвращает строку с данными по стажу
+        /// </summary>
+        /// <param name="tsExperience">Стаж в объекте TimeSpan</param>
+        /// <returns>Строка данных стажа</returns>
+        public static string FormatAsExperience(this TimeSpan tsExperience)
+        {
+            var years = tsExperience.GetExperienceYears();
+            var monthes = tsExperience.GetExperienceMonthes();
+            var days = tsExperience.GetExperienceDays();
+            return string.Format("{0} {1}, {2} {3}, {4} {5}", years, years.GetYearStr(), monthes, monthes.GetMonthStr(), days, days.GetDayStr());
+        }
+    
         /// <summary>
         /// Расчитывает и возвращает стаж сотрудника
         /// </summary>

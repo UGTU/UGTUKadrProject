@@ -224,6 +224,7 @@
     <Compile Include="Data\Common\AdvancedBindingList.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
     <Compile Include="Data\Common\EmployeeExperienceExtensions.cs" />
+    <Compile Include="Data\Common\EmployeeExtensions.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\NullObject.cs" />

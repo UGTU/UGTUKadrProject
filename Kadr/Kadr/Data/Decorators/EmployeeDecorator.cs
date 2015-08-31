@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using APG.Base;
 using Kadr.Data.Common;
 using Kadr.Data.Converters;
 
@@ -38,7 +39,20 @@ namespace Kadr.Data
                 _employee.id = value;
             }
         }
-
+        [System.ComponentModel.DisplayName("Возраст")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Возраст полных лет сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string Age
+        {
+            get
+            {
+                var age = _employee.GetAge();
+                if (!age.HasValue) return "Не указана дата рождения";
+                return string.Format("{0} {1}", age.Value, age.Value.GetYearStr());
+            }
+            
+        }
         [System.ComponentModel.DisplayName("Табельный номер")]
         [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Табельный номер сотрудника в системе отдела кадров")]
@@ -392,31 +406,63 @@ namespace Kadr.Data
                 _employee.ssgps = value;
             }
         }
-        [System.ComponentModel.DisplayName("Лет")]
-        [System.ComponentModel.Category("Общий трудовой стаж")]
-        [System.ComponentModel.Description("Число лет стажа сторудника")]
+        [System.ComponentModel.DisplayName("Общий трудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника")]
         [System.ComponentModel.ReadOnly(true)]
-        public int ExperienceYears
+        public string TotalExperience
         {
-            get { return _employee.EmployeeExperiences.GetExperience().GetExperienceYears(); }            
-        }
-        [System.ComponentModel.DisplayName("Месяцев")]
-        [System.ComponentModel.Category("Общий трудовой стаж")]
-        [System.ComponentModel.Description("Число месяцев трудового стажа сторудника")]
-        [System.ComponentModel.ReadOnly(true)]
-        public int ExperienceMonthes
-        {
-            get { return _employee.EmployeeExperiences.GetExperience().GetExperienceMonthes(); }
-        }
-        [System.ComponentModel.DisplayName("Дней")]
-        [System.ComponentModel.Category("Общий трудовой стаж")]
-        [System.ComponentModel.Description("Число дней трудового стажа сторудника")]
-        [System.ComponentModel.ReadOnly(true)]
-        public int ExperienceDays
-        {
-            get { return _employee.EmployeeExperiences.GetExperience().GetExperienceDays(); }
+            get { return _employee.EmployeeExperiences
+                    .GetExperience().FormatAsExperience(); }            
         }
 
+        [System.ComponentModel.DisplayName("Научно-педагогический трудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника на научно-педагогических должностях")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string TotalPedagogicalExperience
+        {
+            get { return _employee.EmployeeExperiences
+                    .Where(x=>x.Experience == KindOfExperience.Pedagogical)
+                    .GetExperience().FormatAsExperience(); }
+        }
 
+        [System.ComponentModel.DisplayName("Северный трудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах МКС или РКС")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string TotalNorthExperience
+        {
+            get { return _employee.EmployeeExperiences
+                    .Where(x => x.Territory == TerritoryConditions.North 
+                    || x.Territory == TerritoryConditions.StrictNorth)
+                    .GetExperience().FormatAsExperience();
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Трудовой стаж в организации")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в этой организации")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string TotalOrganizationExperience
+        {
+            get { return _employee.EmployeeExperiences
+                    .Where(x => x.Affilation == Affilations.Organization)
+                    .GetExperience()
+                    .FormatAsExperience(); }
+        }
+
+        [System.ComponentModel.DisplayName("Непрерывный трудовой стаж в организации")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней непрерывного стажа сотрудника в этой организации")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string TotalOrganizationContiniousExperience
+        {
+            get { return _employee.EmployeeExperiences
+                    .Where(x => x.Affilation == Affilations.Organization)
+                    .Continious()
+                    .GetExperience()
+                    .FormatAsExperience(); }
+        }
     }
 }

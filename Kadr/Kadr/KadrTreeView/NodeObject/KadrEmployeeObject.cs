@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Kadr.Data;
+using Kadr.Data.Common;
 
 namespace Kadr.KadrTreeView
 {
@@ -30,8 +31,7 @@ namespace Kadr.KadrTreeView
 
         public override string GetObjectName()
         {
-            
-            return Employee.ToString()+ " (" +Employee.EmployeeYearsOld.ToString() +" лет)";
+            return string.Format("{0}", Employee);
         }
 
         private FactStaff factStaff;
