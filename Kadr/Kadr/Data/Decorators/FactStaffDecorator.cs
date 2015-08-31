@@ -142,7 +142,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Код экономической деятельности")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<OKVED>))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OKVEDConvertor))]
         public OKVED OKVED
         {
             get
