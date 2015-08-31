@@ -8,7 +8,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IComparable
+    public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IComparable, IExperienceProvider
     {
        /* public string EmployeeName
         {
@@ -142,6 +142,11 @@ namespace Kadr.Data
         }
 
         #endregion
+        
+        public IEnumerable<IEmployeeExperienceRecord> EmployeeExperiences
+        {
+            get { return EmployeeStandings.Cast<IEmployeeExperienceRecord>(); }
+        }
     }
 
     public class NullEmployee : Employee, INull

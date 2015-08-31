@@ -250,7 +250,7 @@
     <Compile Include="Data\Decorators\EducationDecorator.cs" />
     <Compile Include="Data\Decorators\EmployeeLangDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopEducDecorator.cs" />
-    <Compile Include="Data\Decorators\OK_Fam.cs" />
+    <Compile Include="Data\Decorators\OK_FamDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopInfDecorator.cs" />
     <Compile Include="Data\Decorators\MaterialResponsibilityDecorator.cs" />
     <Compile Include="Data\Decorators\OK_AdressDecorator.cs" />
@@ -1117,7 +1117,9 @@
     <None Include="Properties\DataSources\Kadr.Data.DepartmentType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.Employee1.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EmployeeDegree.datasource" />
-    <None Include="Properties\DataSources\Kadr.Data.EmployeeRank.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.EmployeeRank.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.EmployeeStanding.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EmployeeView.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.FactStaff.datasource" />
@@ -1176,6 +1178,13 @@
     <None Include="Properties\DataSources\Kadr.Data.OK_DopEducation.datasource">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryCategory.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryFitness.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryRank.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryStructure.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_Military.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MilitaryDecorator.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -2,8 +2,14 @@
 
 namespace Kadr.Data.Common
 {
+    /// <summary>
+    /// Определяет типы, возвращающие коллекцию записей по стажу
+    /// </summary>
     public interface IExperienceProvider
     {
-        IList<IEmployeeExperienceRecord> EmployeeExperiences { get; }
+        /// <summary>
+        /// Получает коллекцию записей стажа
+        /// </summary>
+        IEnumerable<IEmployeeExperienceRecord> EmployeeExperiences { get; }
     }
 }

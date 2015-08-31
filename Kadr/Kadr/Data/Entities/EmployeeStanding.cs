@@ -5,7 +5,7 @@ using Kadr.Interfaces;
 
 namespace Kadr.Data
 {
-    public partial class EmployeeStanding : UIX.Views.IDecorable, UIX.Views.IValidatable
+    public partial class EmployeeStanding : UIX.Views.IDecorable, UIX.Views.IValidatable, IEmployeeExperienceRecord
     {
         public override string ToString()
         {
@@ -54,5 +54,23 @@ namespace Kadr.Data
 
         #endregion
 
+        public DateTime StartOfWork {
+            get { return DateBegin; }
+        }
+        public DateTime? EndOfWork {
+            get { return DateEnd; }
+        }
+        public TerritoryConditions Territory { get { return RegionType.GetTerritoryCondition(); } }
+        public KindOfExperience Experience {
+            get { return StandingType.GetKindOfExperience(); }
+        }
+        /// <summary>
+        /// Получает место работы по записи в трудовой книжке. Книжка содержит данные 
+        /// по работе в других организациях, работа в этой организации содержится в записях 
+        /// штатного расписания
+        /// </summary>
+        public Affilations Affilation {
+            get {return Affilations.External; }
+        }
     }
 }

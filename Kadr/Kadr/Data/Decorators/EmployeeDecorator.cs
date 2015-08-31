@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kadr.Data.Common;
 using Kadr.Data.Converters;
 
 namespace Kadr.Data
@@ -390,6 +391,30 @@ namespace Kadr.Data
             {
                 employee.ssgps = value;
             }
+        }
+        [System.ComponentModel.DisplayName("Лет")]
+        [System.ComponentModel.Category("Общий трудовой стаж")]
+        [System.ComponentModel.Description("Число лет стажа сторудника")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int ExperienceYears
+        {
+            get { return employee.EmployeeExperiences.GetExperience().GetExperienceYears(); }            
+        }
+        [System.ComponentModel.DisplayName("Месяцев")]
+        [System.ComponentModel.Category("Общий трудовой стаж")]
+        [System.ComponentModel.Description("Число месяцев трудового стажа сторудника")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int ExperienceMonthes
+        {
+            get { return employee.EmployeeExperiences.GetExperience().GetExperienceMonthes(); }
+        }
+        [System.ComponentModel.DisplayName("Дней")]
+        [System.ComponentModel.Category("Общий трудовой стаж")]
+        [System.ComponentModel.Description("Число дней трудового стажа сторудника")]
+        [System.ComponentModel.ReadOnly(true)]
+        public int ExperienceDays
+        {
+            get { return employee.EmployeeExperiences.GetExperience().GetExperienceDays(); }
         }
 
 

@@ -26,6 +26,8 @@ namespace Kadr.Data
                 if ((Adress == null) || (Adress == "")) throw new ArgumentNullException("Адрес.");
                 if (DateReg == DateTime.MinValue)
                     DateReg = null;
+                if (DateEnd == DateTime.MinValue)
+                    DateEnd = null;
             }
         }
 

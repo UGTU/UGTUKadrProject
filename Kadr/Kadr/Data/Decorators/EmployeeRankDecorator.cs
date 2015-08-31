@@ -21,9 +21,9 @@ namespace Kadr.Data
         }
 
 
-        [System.ComponentModel.DisplayName("Дата выдачи диплома")]
-        [System.ComponentModel.Category("Данные диплома")]
-        [System.ComponentModel.Description("Дата выдачи диплома")]
+        [System.ComponentModel.DisplayName("Дата выдачи аттестата")]
+        [System.ComponentModel.Category("Данные аттестата")]
+        [System.ComponentModel.Description("Дата выдачи аттестата")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DocDate
         {
@@ -37,9 +37,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Серия диплома")]
-        [System.ComponentModel.Category("Данные диплома")]
-        [System.ComponentModel.Description("Серия диплома")]
+        [System.ComponentModel.DisplayName("Серия аттестата")]
+        [System.ComponentModel.Category("Данные аттестата")]
+        [System.ComponentModel.Description("Серия аттестата")]
         [System.ComponentModel.ReadOnly(false)]
         public string DocSeries
         {
@@ -53,9 +53,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Номер диплома")]
-        [System.ComponentModel.Category("Данные диплома")]
-        [System.ComponentModel.Description("Номер диплома")]
+        [System.ComponentModel.DisplayName("Номер аттестата")]
+        [System.ComponentModel.Category("Данные аттестата")]
+        [System.ComponentModel.Description("Номер аттестата")]
         [System.ComponentModel.ReadOnly(false)]
         public string DocNumber
         {
@@ -69,9 +69,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Кем выдан диплом")]
-        [System.ComponentModel.Category("Данные диплома")]
-        [System.ComponentModel.Description("Кем выдан диплом")]
+        [System.ComponentModel.DisplayName("Кем выдан аттестат")]
+        [System.ComponentModel.Category("Данные аттестата")]
+        [System.ComponentModel.Description("Кем выдан аттестат")]
         [System.ComponentModel.ReadOnly(false)]
         public string diplWhere
         {
