@@ -7,27 +7,27 @@ using Kadr.Controllers;
 using System.Data.Linq;
 
 namespace Kadr.Data
-{    
+{
     public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IComparable, IExperienceProvider
     {
-       /* public string EmployeeName
-        {
-            get
-            {
-                return this.LastName + " " + this.FirstName + " " + this.Otch;
-            }
-        }
+        /* public string EmployeeName
+         {
+             get
+             {
+                 return this.LastName + " " + this.FirstName + " " + this.Otch;
+             }
+         }
 
-        public string EmployeeSmallName
-        {
-            get
-            {
-                if ((FirstName != null) && (Otch != null))
-                    return this.LastName + " " + this.FirstName[0] + "." + this.Otch[0] + ".";
-                else
-                    return LastName;
-            }
-        }*/
+         public string EmployeeSmallName
+         {
+             get
+             {
+                 if ((FirstName != null) && (Otch != null))
+                     return this.LastName + " " + this.FirstName[0] + "." + this.Otch[0] + ".";
+                 else
+                     return LastName;
+             }
+         }*/
 
         public EmployeeRank Rank
         {
@@ -52,7 +52,7 @@ namespace Kadr.Data
                 if (this.SexBit)
                     return "Мужской";
                 else
-                    return "Женский"; 
+                    return "Женский";
             }
         }
 
@@ -106,12 +106,12 @@ namespace Kadr.Data
 
         #endregion
 
-    
+
         #region INull Members
 
         bool INull.IsNull()
         {
- 	        return false;
+            return false;
         }
 
         #endregion
@@ -125,10 +125,17 @@ namespace Kadr.Data
         }
 
         #endregion
-        
+
         public IEnumerable<IEmployeeExperienceRecord> EmployeeExperiences
         {
-            get { return EmployeeStandings.Cast<IEmployeeExperienceRecord>(); }
+            get
+            {
+                // Записи из трудовой книжки, другие организации
+                var standingSet = EmployeeStandings.Cast<IEmployeeExperienceRecord>();
+                // Записи из штатного расписания, эта организация
+                var stuffSet = FactStaffs.Cast<IEmployeeExperienceRecord>();
+                return standingSet.Concat(stuffSet);
+            }
         }
     }
 

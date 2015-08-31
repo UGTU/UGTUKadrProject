@@ -222,6 +222,7 @@
     <Compile Include="Controllers\PropertyGridExtensions.cs" />
     <Compile Include="Controllers\SimpleActionsProvider.cs" />
     <Compile Include="Data\Common\AdvancedBindingList.cs" />
+    <Compile Include="Data\Common\CategoryExtensions.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
     <Compile Include="Data\Common\EmployeeExperienceExtensions.cs" />
     <Compile Include="Data\Common\EmployeeExtensions.cs" />
