@@ -13,6 +13,25 @@ namespace Kadr.Tests
     public class EmployeeExperienceTests
     {
         [TestMethod]
+        public void EmployeeDecoratorExperienceTest()
+        {
+            var employee = new Employee()
+            {
+                EmployeeStandings = new EntitySet<EmployeeStanding>()
+                {
+                    new EmployeeStanding() {DateBegin = DateTime.Parse("01.01.2014"),
+                        DateEnd = DateTime.Parse("01.01.2014").AddDays(359+180+15) }
+                }
+            };
+
+            var decorator = new EmployeeDecorator(employee);
+
+            Assert.AreEqual(1, decorator.ExperienceYears);
+            Assert.AreEqual(6, decorator.ExperienceMonthes);
+            Assert.AreEqual(15, decorator.ExperienceDays);
+        }
+
+        [TestMethod]
         public void EmployeeExperienceProviderIsNotNullTest()
         {
             var employee = new Employee() {EmployeeStandings = new EntitySet<EmployeeStanding>()};
