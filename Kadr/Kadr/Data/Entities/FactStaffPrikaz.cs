@@ -14,14 +14,13 @@ namespace Kadr.Data
 
         #endregion
 
-        public static FactStaffPrikaz CreateFactStaffPrikaz(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff)
+        public FactStaffPrikaz(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff)
+            : this()
         {
-            FactStaffPrikaz factStaffPrikaz = new Data.FactStaffPrikaz();
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikaz, "FactStaff", factStaff, null), null);
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikaz, "Prikaz", NullPrikaz.Instance, null), null);
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateBegin", DateTime.Today, null), null);
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateEnd", DateTime.Today, null), null);
-            return factStaffPrikaz;
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, FactStaff>(this, "FactStaff", factStaff, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, Prikaz>(this, "Prikaz", NullPrikaz.Instance, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, DateTime?>(this, "DateBegin", DateTime.Today, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, DateTime?>(this, "DateEnd", DateTime.Today, null), null);
         }
         
         public override string ToString()

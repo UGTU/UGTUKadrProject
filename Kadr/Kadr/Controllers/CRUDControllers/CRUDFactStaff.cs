@@ -11,8 +11,14 @@ namespace Kadr.Controllers
 {
     public static class CRUDFactStaff
     {
-        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, Employee employee = null,UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null)
+        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null,UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null)
         {
+            if (planStaffCurrent == null)
+            {
+                MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
+                return;
+            }
+
             if (workType == null)
                 workType = NullWorkType.Instance;
             if (employee == null)
@@ -64,9 +70,25 @@ namespace Kadr.Controllers
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x, "FundingCenter", NullFundingCenter.Instance, null), sender);
                     //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "SalaryKoeff", 1, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", x, null), sender);
+
+                    Contract newContract = new Contract(dlg.CommandManager,fcStHistory, "", DateTime.Today.Date, DateTime.Today.Date);
                 };
 
-                
+                dlg.PostApplyAction = (x) =>
+                {
+                    if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
+                    {
+                        if (x.CurrentChange != null)
+                            if (x.CurrentChange.Contract != null)
+                            {
+                                dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, string>(x.CurrentChange.Contract, "ContractName", x.CurrentChange.Contract.ContractName, null), sender);
+                                dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(x.CurrentChange.Contract, "DateBegin", x.CurrentChange.Contract.DateBegin, null), sender);
+                                dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(x.CurrentChange.Contract, "DateEnd", x.CurrentChange.Contract.DateEnd, null), sender);
+                                dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(x.CurrentChange.Contract, "DateContract", x.CurrentChange.Contract.DateContract, null), sender);
+                            }
+                    }
+
+                };
 
                 dlg.UpdateObjectList = () =>
                 {

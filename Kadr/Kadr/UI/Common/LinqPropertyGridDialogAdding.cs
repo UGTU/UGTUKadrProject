@@ -180,6 +180,10 @@ namespace Kadr.UI.Common
         protected override void DoCancel()
         {
             base.DoCancel();
+            /*if (newObject is FactStaff)
+            {
+                KadrController.Instance.DeleteModel();
+            }*/
         }
 
         private void PropertyGridDialogAdding_Load(object sender, EventArgs e)

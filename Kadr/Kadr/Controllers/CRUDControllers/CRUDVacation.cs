@@ -19,7 +19,7 @@ namespace Kadr.Controllers
                 dlg.InitializeNewObject = (x) =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, FactStaffPrikaz>(x, "FactStaffPrikaz", 
-                        FactStaffPrikaz.CreateFactStaffPrikaz(dlg.CommandManager, fs as FactStaff), null), sender);
+                        new FactStaffPrikaz(dlg.CommandManager, fs as FactStaff), null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, OK_Otpuskvid>(x, "OK_Otpuskvid", NullOK_Otpuskvid.Instance, null), sender);
                 };
 

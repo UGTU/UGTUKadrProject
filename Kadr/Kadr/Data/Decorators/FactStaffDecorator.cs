@@ -304,11 +304,11 @@ namespace Kadr.Data
                 {
                     if (factStaff.CurrentContract != null)
                         factStaff.CurrentContract.ContractName = value;
-                    else
+                    /*else
                     {
                         factStaff.CurrentContract = new Contract(factStaff.CurrentChange, value, DateTime.Today.Date, DateTime.Today.Date, DateTime.Today.AddDays(1).Date);
                         //factStaff.CurrentContract.ContractName = value;
-                    }
+                    }*/
                 }
             }
         }
@@ -332,11 +332,11 @@ namespace Kadr.Data
                 {
                     if (factStaff.CurrentContract != null)
                         factStaff.CurrentContract.DateContract = value;
-                    else
+                    /*else
                     {
                         factStaff.CurrentContract = new Contract(factStaff.CurrentChange, null, value, value, value.AddDays(1).Date);
                         //factStaff.CurrentContract.ContractName = value;
-                    }
+                    }*/
                 }
             }
         }
@@ -360,11 +360,11 @@ namespace Kadr.Data
                 {
                     if (factStaff.CurrentContract != null)
                         factStaff.CurrentContract.DateBegin = value;
-                    else
+                    /*else
                     {
                         factStaff.CurrentContract = new Contract(factStaff.CurrentChange, null, value, value, value.AddDays(1).Date);
                         //factStaff.CurrentContract.ContractName = value;
-                    }
+                    }*/
                 }
             }
         }
@@ -388,11 +388,11 @@ namespace Kadr.Data
                 {
                     if (factStaff.CurrentContract != null)
                         factStaff.CurrentContract.DateEnd = value;
-                    else
+                    /*else
                     {
                         factStaff.CurrentContract = new Contract(factStaff.CurrentChange, null, value.AddDays(-1), value.AddDays(-1), value);
                         //factStaff.CurrentContract.ContractName = value;
-                    }
+                    }*/
                 }
             }
         }

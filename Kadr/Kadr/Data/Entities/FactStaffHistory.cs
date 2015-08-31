@@ -14,6 +14,17 @@ namespace Kadr.Data
             return "Изменение " + FactStaff.ToString();
         }
 
+        /// <summary>
+        /// новый контракт - используется при создании контракта
+        /// </summary>
+        public Contract NewContract
+        {
+            get;
+            set;
+        }
+
+
+
         public bool IsLatest
         {
             get
@@ -64,6 +75,20 @@ namespace Kadr.Data
                     throw new ArgumentOutOfRangeException("Количество ставок.");
                 if (DateBegin == null) 
                     throw new ArgumentNullException("Дата изменения.");
+
+
+                if (Contract != null)
+                {
+                    (Contract as UIX.Views.IValidatable).Validate();
+                }
+
+                if (NewContract != null)
+                {
+                    (NewContract as UIX.Views.IValidatable).Validate();
+                    Contract = NewContract;
+                    Kadr.Controllers.KadrController.Instance.Model.Contracts.InsertOnSubmit(Contract);
+                }
+
 
                 //проверка на переполнение штатов на начало периода
                 /*decimal factStaffCount = Kadr.Controllers.KadrController.Instance.Model.GetFactStaffByPeriod(DateBegin, DateBegin).Where(fcSt => fcSt.idPlanStaff == FactStaff.idPlanStaff).Sum(fcSt => fcSt.StaffCount);
