@@ -22,6 +22,19 @@ namespace Kadr.Data
             DateEnd = dateEnd;
         }
 
+        public override string ToString()
+        {
+            if (MainContract == null)
+                return "Договор " + ContractName;
+            else
+                return "Доп соглашение " + ContractName + " к договору " + MainContract.ToString();
+        }
+
+        #region MainContractData
+
+        /// <summary>
+        /// Основной договор, если есть
+        /// </summary>
         public Contract MainContract
         {
             get
@@ -34,16 +47,30 @@ namespace Kadr.Data
             }
         }
 
+        /// <summary>
+        /// Признак договора - используется при создании объекта
+        /// </summary>
+        private bool? isMainContract = null;
 
-        public override string ToString()
+
+        /// <summary>
+        /// Признак основного договора (не доп соглашения) 
+        /// </summary>
+        public bool IsMainContract
         {
-            if (MainContract == null)
-                return "Договор " +  ContractName;
-            else
-                return "Доп соглашение " + ContractName + " к договору " + MainContract.ToString();
+            get
+            {
+                if (isMainContract == null)
+                    return (MainContract == null);
+                else
+                    return isMainContract.Value;
+            }
+            set
+            {
+                isMainContract = value;
+            }
         }
-
-
+        #endregion
 
         #region partial Methods
 
@@ -52,6 +79,9 @@ namespace Kadr.Data
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
+                if (ContractName == null)
+                    throw new ArgumentNullException("Номер договора.");
+                
                 if (DateEnd == DateTime.MinValue)
                     DateEnd = null;
 
@@ -62,12 +92,10 @@ namespace Kadr.Data
                     DateContract = null;
 
                 if ((DateEnd != null) && (DateBegin != null))
-                    if (DateEnd <= DateBegin)
-                        throw new ArgumentOutOfRangeException("Дата окончания договора должна быть позже даты начала.");
+                    if (DateEnd < DateBegin)
+                        throw new ArgumentOutOfRangeException("Дата окончания договора/доп. соглашения должна быть позже даты начала.");
             }
         }
-
-
         #endregion
 
 
