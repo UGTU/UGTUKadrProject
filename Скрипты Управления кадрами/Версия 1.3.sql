@@ -96,6 +96,10 @@ where idlaborcontrakt=9439
 delete from dbo.Prikaz
 where id=9439
 
+
+
+
+
 go
 alter table Contract 
 add [idPrikazType] int null
@@ -109,6 +113,11 @@ from [dbo].[Prikaz]
   or
    Prikaz.id in (select idlaborcontrakt from dbo.FactStaffHistory))
   
+
+
+
+
+
 
 
   update dbo.FactStaffHistory
@@ -181,3 +190,316 @@ update [dbo].[Contract]
 set idMainContract=[Contract].id
 --from [dbo].[Contract]
 where [idPrikazType]!=27
+
+
+
+
+--те, у кого только один договор внесен
+select Employee.id, COUNT(distinct [Contract].id)
+
+from dbo.Employee inner join
+dbo.FactStaff on Employee.id=FactStaff.idEmployee
+ inner join
+dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+ inner join
+dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+where [Contract].idPrikazType=27
+group by Employee.id
+having COUNT(distinct [Contract].id)=1
+
+--указываем им в доп соглашениях договора
+
+
+update dbo.[Contract]
+set [Contract].idMainContract=UniqueContract.idContract
+--select * 
+from
+
+--dbo.Employee inner join
+dbo.FactStaff --on Employee.id=FactStaff.
+ inner join
+dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+ inner join
+dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+--inner join dbo.[Contract] MainContract on [Contract].id=FactStaffHistory.idContract
+inner join
+	(select distinct Empl.id idEmployee, [Contract].id idContract
+	from
+	(select Employee.id--, COUNT(distinct [Contract].id)
+
+	from dbo.Employee inner join
+	dbo.FactStaff on Employee.id=FactStaff.idEmployee
+	 inner join
+	dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+	 inner join
+	dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+	where [Contract].idPrikazType=27
+	group by Employee.id
+	having COUNT(distinct [Contract].id)=1)empl
+	 inner join
+	dbo.FactStaff on empl.id=FactStaff.idEmployee
+	 inner join
+	dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+	 inner join
+	dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+	where [Contract].idPrikazType=27)UniqueContract
+	ON FactStaff.idEmployee=UniqueContract.idEmployee
+where [Contract].idPrikazType!=27
+--and  in
+
+
+---------------------------------Военный учет---------------------------------------------------------------------------------------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[MilitaryCategory](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[MilitaryCategoryName] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_MilitaryCategory] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[MilitaryFitness]    Script Date: 27.08.2015 13:33:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[MilitaryFitness](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Letter] [varchar](10) NOT NULL,
+	[Description] [varchar](500) NOT NULL,
+ CONSTRAINT [PK_MilitaryFitness] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[MilitaryRank]    Script Date: 27.08.2015 13:33:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[MilitaryRank](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[MilitaryRankName] [varchar](500) NOT NULL,
+ CONSTRAINT [PK_MilitaryRank] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[MilitaryStructure]    Script Date: 27.08.2015 13:33:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[MilitaryStructure](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[MilitaryStructureName] [varchar](500) NOT NULL,
+ CONSTRAINT [PK_MilitaryStructure] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[MilitaryType]    Script Date: 27.08.2015 13:33:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[MilitaryType](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[MilitaryTypeName] [varchar](500) NOT NULL,
+ CONSTRAINT [PK_MilitaryType] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[OK_Military]    Script Date: 27.08.2015 13:33:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[OK_Military](
+	[id] [int] NOT NULL,
+	[idEmployee] [int] NOT NULL,
+	[idCategory] [int] NULL,
+	[idRank] [int] NULL,
+	[VUSCode] [varchar](50) NULL,
+	[idFitness] [int] NULL,
+	[MilitaryCommissariat] [varchar](900) NULL,
+	[idType] [int] NULL,
+	[RemovalMark] [varchar](900) NULL,
+ CONSTRAINT [PK_OK_Military] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+SET ANSI_PADDING ON
+
+GO
+/****** Object:  Index [IX_MilitaryCategory]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE UNIQUE NONCLUSTERED INDEX [IX_MilitaryCategory] ON [dbo].[MilitaryCategory]
+(
+	[MilitaryCategoryName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+/****** Object:  Index [IX_MilitaryFitness]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE UNIQUE NONCLUSTERED INDEX [IX_MilitaryFitness] ON [dbo].[MilitaryFitness]
+(
+	[Letter] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+/****** Object:  Index [IX_MilitaryFitness_1]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE UNIQUE NONCLUSTERED INDEX [IX_MilitaryFitness_1] ON [dbo].[MilitaryFitness]
+(
+	[Description] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+/****** Object:  Index [IX_MilitaryRank]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE UNIQUE NONCLUSTERED INDEX [IX_MilitaryRank] ON [dbo].[MilitaryRank]
+(
+	[MilitaryRankName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+/****** Object:  Index [IX_MilitaryStructure]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE UNIQUE NONCLUSTERED INDEX [IX_MilitaryStructure] ON [dbo].[MilitaryStructure]
+(
+	[MilitaryStructureName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+/****** Object:  Index [IX_MilitaryType]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE UNIQUE NONCLUSTERED INDEX [IX_MilitaryType] ON [dbo].[MilitaryType]
+(
+	[MilitaryTypeName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_OK_Military]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_Military] ON [dbo].[OK_Military]
+(
+	[idCategory] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_OK_Military_1]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_Military_1] ON [dbo].[OK_Military]
+(
+	[idEmployee] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_OK_Military_2]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_Military_2] ON [dbo].[OK_Military]
+(
+	[idFitness] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_OK_Military_3]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_Military_3] ON [dbo].[OK_Military]
+(
+	[idRank] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_OK_Military_4]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_Military_4] ON [dbo].[OK_Military]
+(
+	[idType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+/****** Object:  Index [IX_OK_Military_5]    Script Date: 27.08.2015 13:33:32 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_Military_5] ON [dbo].[OK_Military]
+(
+	[MilitaryCommissariat] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[OK_Military]  WITH CHECK ADD  CONSTRAINT [FK_OK_Military_Employee] FOREIGN KEY([idEmployee])
+REFERENCES [dbo].[Employee] ([id])
+GO
+ALTER TABLE [dbo].[OK_Military] CHECK CONSTRAINT [FK_OK_Military_Employee]
+GO
+ALTER TABLE [dbo].[OK_Military]  WITH CHECK ADD  CONSTRAINT [FK_OK_Military_MilitaryCategory] FOREIGN KEY([idCategory])
+REFERENCES [dbo].[MilitaryCategory] ([id])
+GO
+ALTER TABLE [dbo].[OK_Military] CHECK CONSTRAINT [FK_OK_Military_MilitaryCategory]
+GO
+ALTER TABLE [dbo].[OK_Military]  WITH CHECK ADD  CONSTRAINT [FK_OK_Military_MilitaryFitness] FOREIGN KEY([idFitness])
+REFERENCES [dbo].[MilitaryFitness] ([id])
+GO
+ALTER TABLE [dbo].[OK_Military] CHECK CONSTRAINT [FK_OK_Military_MilitaryFitness]
+GO
+ALTER TABLE [dbo].[OK_Military]  WITH CHECK ADD  CONSTRAINT [FK_OK_Military_MilitaryRank] FOREIGN KEY([idRank])
+REFERENCES [dbo].[MilitaryRank] ([id])
+GO
+ALTER TABLE [dbo].[OK_Military] CHECK CONSTRAINT [FK_OK_Military_MilitaryRank]
+GO
+ALTER TABLE [dbo].[OK_Military]  WITH CHECK ADD  CONSTRAINT [FK_OK_Military_MilitaryType] FOREIGN KEY([idType])
+REFERENCES [dbo].[MilitaryType] ([id])
+GO
+ALTER TABLE [dbo].[OK_Military] CHECK CONSTRAINT [FK_OK_Military_MilitaryType]
+GO
+
+ALTER TABLE [dbo].[OK_Military] add idStructure int
+
+/****** Object:  Index [IX_OK_Military_6]    Script Date: 27.08.2015 13:50:58 ******/
+CREATE NONCLUSTERED INDEX [IX_OK_Military_6] ON [dbo].[OK_Military]
+(
+	[idStructure] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[OK_Military]  WITH CHECK ADD  CONSTRAINT [FK_OK_Military_MilitaryStructure] FOREIGN KEY([idStructure])
+REFERENCES [dbo].[MilitaryStructure] ([id])
+GO
+ALTER TABLE [dbo].[OK_Military] CHECK CONSTRAINT [FK_OK_Military_MilitaryStructure]
+GO
