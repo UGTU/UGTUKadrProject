@@ -285,9 +285,6 @@ namespace Kadr.Data
     partial void InsertOK_Reason(OK_Reason instance);
     partial void UpdateOK_Reason(OK_Reason instance);
     partial void DeleteOK_Reason(OK_Reason instance);
-    partial void InsertContract(Contract instance);
-    partial void UpdateContract(Contract instance);
-    partial void DeleteContract(Contract instance);
     partial void InsertFactStaffHistory(FactStaffHistory instance);
     partial void UpdateFactStaffHistory(FactStaffHistory instance);
     partial void DeleteFactStaffHistory(FactStaffHistory instance);
@@ -315,6 +312,9 @@ namespace Kadr.Data
     partial void InsertOK_Adress(OK_Adress instance);
     partial void UpdateOK_Adress(OK_Adress instance);
     partial void DeleteOK_Adress(OK_Adress instance);
+    partial void InsertContract(Contract instance);
+    partial void UpdateContract(Contract instance);
+    partial void DeleteContract(Contract instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -1043,14 +1043,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Contract> Contracts
-		{
-			get
-			{
-				return this.GetTable<Contract>();
-			}
-		}
-		
 		public System.Data.Linq.Table<FactStaffHistory> FactStaffHistories
 		{
 			get
@@ -1120,6 +1112,14 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<OK_Adress>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Contract> Contracts
+		{
+			get
+			{
+				return this.GetTable<Contract>();
 			}
 		}
 		
@@ -23864,309 +23864,6 @@ namespace Kadr.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Contract")]
-	public partial class Contract : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _ContractName;
-		
-		private System.Nullable<System.DateTime> _DateContract;
-		
-		private System.Nullable<System.DateTime> _DataBegin;
-		
-		private System.Nullable<System.DateTime> _DataEnd;
-		
-		private System.Nullable<int> _idMainContract;
-		
-		private System.Nullable<int> _idPrikazType;
-		
-		private EntitySet<Contract> _Contracts;
-		
-		private EntitySet<FactStaffHistory> _FactStaffHistories;
-		
-		private EntityRef<Contract> _Contract1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnContractNameChanging(string value);
-    partial void OnContractNameChanged();
-    partial void OnDateContractChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateContractChanged();
-    partial void OnDataBeginChanging(System.Nullable<System.DateTime> value);
-    partial void OnDataBeginChanged();
-    partial void OnDataEndChanging(System.Nullable<System.DateTime> value);
-    partial void OnDataEndChanged();
-    partial void OnidMainContractChanging(System.Nullable<int> value);
-    partial void OnidMainContractChanged();
-    partial void OnidPrikazTypeChanging(System.Nullable<int> value);
-    partial void OnidPrikazTypeChanged();
-    #endregion
-		
-		public Contract()
-		{
-			this._Contracts = new EntitySet<Contract>(new Action<Contract>(this.attach_Contracts), new Action<Contract>(this.detach_Contracts));
-			this._FactStaffHistories = new EntitySet<FactStaffHistory>(new Action<FactStaffHistory>(this.attach_FactStaffHistories), new Action<FactStaffHistory>(this.detach_FactStaffHistories));
-			this._Contract1 = default(EntityRef<Contract>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ContractName
-		{
-			get
-			{
-				return this._ContractName;
-			}
-			set
-			{
-				if ((this._ContractName != value))
-				{
-					this.OnContractNameChanging(value);
-					this.SendPropertyChanging();
-					this._ContractName = value;
-					this.SendPropertyChanged("ContractName");
-					this.OnContractNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateContract", DbType="Date")]
-		public System.Nullable<System.DateTime> DateContract
-		{
-			get
-			{
-				return this._DateContract;
-			}
-			set
-			{
-				if ((this._DateContract != value))
-				{
-					this.OnDateContractChanging(value);
-					this.SendPropertyChanging();
-					this._DateContract = value;
-					this.SendPropertyChanged("DateContract");
-					this.OnDateContractChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataBegin", DbType="Date")]
-		public System.Nullable<System.DateTime> DataBegin
-		{
-			get
-			{
-				return this._DataBegin;
-			}
-			set
-			{
-				if ((this._DataBegin != value))
-				{
-					this.OnDataBeginChanging(value);
-					this.SendPropertyChanging();
-					this._DataBegin = value;
-					this.SendPropertyChanged("DataBegin");
-					this.OnDataBeginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataEnd", DbType="Date")]
-		public System.Nullable<System.DateTime> DataEnd
-		{
-			get
-			{
-				return this._DataEnd;
-			}
-			set
-			{
-				if ((this._DataEnd != value))
-				{
-					this.OnDataEndChanging(value);
-					this.SendPropertyChanging();
-					this._DataEnd = value;
-					this.SendPropertyChanged("DataEnd");
-					this.OnDataEndChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMainContract", DbType="Int")]
-		public System.Nullable<int> idMainContract
-		{
-			get
-			{
-				return this._idMainContract;
-			}
-			set
-			{
-				if ((this._idMainContract != value))
-				{
-					if (this._Contract1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidMainContractChanging(value);
-					this.SendPropertyChanging();
-					this._idMainContract = value;
-					this.SendPropertyChanged("idMainContract");
-					this.OnidMainContractChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPrikazType", DbType="Int")]
-		public System.Nullable<int> idPrikazType
-		{
-			get
-			{
-				return this._idPrikazType;
-			}
-			set
-			{
-				if ((this._idPrikazType != value))
-				{
-					this.OnidPrikazTypeChanging(value);
-					this.SendPropertyChanging();
-					this._idPrikazType = value;
-					this.SendPropertyChanged("idPrikazType");
-					this.OnidPrikazTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_Contract", Storage="_Contracts", ThisKey="id", OtherKey="idMainContract")]
-		public EntitySet<Contract> Contracts
-		{
-			get
-			{
-				return this._Contracts;
-			}
-			set
-			{
-				this._Contracts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_FactStaffHistory", Storage="_FactStaffHistories", ThisKey="id", OtherKey="idContract")]
-		public EntitySet<FactStaffHistory> FactStaffHistories
-		{
-			get
-			{
-				return this._FactStaffHistories;
-			}
-			set
-			{
-				this._FactStaffHistories.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_Contract", Storage="_Contract1", ThisKey="idMainContract", OtherKey="id", IsForeignKey=true)]
-		public Contract Contract1
-		{
-			get
-			{
-				return this._Contract1.Entity;
-			}
-			set
-			{
-				Contract previousValue = this._Contract1.Entity;
-				if (((previousValue != value) 
-							|| (this._Contract1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contract1.Entity = null;
-						previousValue.Contracts.Remove(this);
-					}
-					this._Contract1.Entity = value;
-					if ((value != null))
-					{
-						value.Contracts.Add(this);
-						this._idMainContract = value.id;
-					}
-					else
-					{
-						this._idMainContract = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Contract1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Contracts(Contract entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contract1 = this;
-		}
-		
-		private void detach_Contracts(Contract entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contract1 = null;
-		}
-		
-		private void attach_FactStaffHistories(FactStaffHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contract = this;
-		}
-		
-		private void detach_FactStaffHistories(FactStaffHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contract = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FactStaffHistory")]
 	public partial class FactStaffHistory : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -24201,8 +23898,6 @@ namespace Kadr.Data
 		
 		private System.Nullable<int> _idContract;
 		
-		private EntityRef<Contract> _Contract;
-		
 		private EntityRef<FactStaff> _FactStaff;
 		
 		private EntityRef<Prikaz> _Prikaz;
@@ -24210,6 +23905,8 @@ namespace Kadr.Data
 		private EntityRef<SalaryKoeff> _SalaryKoeff;
 		
 		private EntityRef<WorkType> _WorkType;
+		
+		private EntityRef<Contract> _Contract;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -24247,11 +23944,11 @@ namespace Kadr.Data
 		
 		public FactStaffHistory()
 		{
-			this._Contract = default(EntityRef<Contract>);
 			this._FactStaff = default(EntityRef<FactStaff>);
 			this._Prikaz = default(EntityRef<Prikaz>);
 			this._SalaryKoeff = default(EntityRef<SalaryKoeff>);
 			this._WorkType = default(EntityRef<WorkType>);
+			this._Contract = default(EntityRef<Contract>);
 			OnCreated();
 		}
 		
@@ -24555,40 +24252,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_FactStaffHistory", Storage="_Contract", ThisKey="idContract", OtherKey="id", IsForeignKey=true)]
-		public Contract Contract
-		{
-			get
-			{
-				return this._Contract.Entity;
-			}
-			set
-			{
-				Contract previousValue = this._Contract.Entity;
-				if (((previousValue != value) 
-							|| (this._Contract.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contract.Entity = null;
-						previousValue.FactStaffHistories.Remove(this);
-					}
-					this._Contract.Entity = value;
-					if ((value != null))
-					{
-						value.FactStaffHistories.Add(this);
-						this._idContract = value.id;
-					}
-					else
-					{
-						this._idContract = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Contract");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_FactStaffHistory", Storage="_FactStaff", ThisKey="idFactStaff", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public FactStaff FactStaff
 		{
@@ -24721,6 +24384,40 @@ namespace Kadr.Data
 						this._idTypeWork = default(int);
 					}
 					this.SendPropertyChanged("WorkType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_FactStaffHistory", Storage="_Contract", ThisKey="idContract", OtherKey="id", IsForeignKey=true)]
+		public Contract Contract
+		{
+			get
+			{
+				return this._Contract.Entity;
+			}
+			set
+			{
+				Contract previousValue = this._Contract.Entity;
+				if (((previousValue != value) 
+							|| (this._Contract.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contract.Entity = null;
+						previousValue.FactStaffHistories.Remove(this);
+					}
+					this._Contract.Entity = value;
+					if ((value != null))
+					{
+						value.FactStaffHistories.Add(this);
+						this._idContract = value.id;
+					}
+					else
+					{
+						this._idContract = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Contract");
 				}
 			}
 		}
@@ -26372,6 +26069,309 @@ namespace Kadr.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Contract")]
+	public partial class Contract : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _ContractName;
+		
+		private System.Nullable<System.DateTime> _DateContract;
+		
+		private System.Nullable<System.DateTime> _DateBegin;
+		
+		private System.Nullable<System.DateTime> _DateEnd;
+		
+		private System.Nullable<int> _idMainContract;
+		
+		private System.Nullable<int> _idPrikazType;
+		
+		private EntitySet<FactStaffHistory> _FactStaffHistories;
+		
+		private EntitySet<Contract> _Contracts;
+		
+		private EntityRef<Contract> _Contract1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnContractNameChanging(string value);
+    partial void OnContractNameChanged();
+    partial void OnDateContractChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateContractChanged();
+    partial void OnDateBeginChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateBeginChanged();
+    partial void OnDateEndChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateEndChanged();
+    partial void OnidMainContractChanging(System.Nullable<int> value);
+    partial void OnidMainContractChanged();
+    partial void OnidPrikazTypeChanging(System.Nullable<int> value);
+    partial void OnidPrikazTypeChanged();
+    #endregion
+		
+		public Contract()
+		{
+			this._FactStaffHistories = new EntitySet<FactStaffHistory>(new Action<FactStaffHistory>(this.attach_FactStaffHistories), new Action<FactStaffHistory>(this.detach_FactStaffHistories));
+			this._Contracts = new EntitySet<Contract>(new Action<Contract>(this.attach_Contracts), new Action<Contract>(this.detach_Contracts));
+			this._Contract1 = default(EntityRef<Contract>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ContractName
+		{
+			get
+			{
+				return this._ContractName;
+			}
+			set
+			{
+				if ((this._ContractName != value))
+				{
+					this.OnContractNameChanging(value);
+					this.SendPropertyChanging();
+					this._ContractName = value;
+					this.SendPropertyChanged("ContractName");
+					this.OnContractNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateContract", DbType="Date")]
+		public System.Nullable<System.DateTime> DateContract
+		{
+			get
+			{
+				return this._DateContract;
+			}
+			set
+			{
+				if ((this._DateContract != value))
+				{
+					this.OnDateContractChanging(value);
+					this.SendPropertyChanging();
+					this._DateContract = value;
+					this.SendPropertyChanged("DateContract");
+					this.OnDateContractChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="Date")]
+		public System.Nullable<System.DateTime> DateBegin
+		{
+			get
+			{
+				return this._DateBegin;
+			}
+			set
+			{
+				if ((this._DateBegin != value))
+				{
+					this.OnDateBeginChanging(value);
+					this.SendPropertyChanging();
+					this._DateBegin = value;
+					this.SendPropertyChanged("DateBegin");
+					this.OnDateBeginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="Date")]
+		public System.Nullable<System.DateTime> DateEnd
+		{
+			get
+			{
+				return this._DateEnd;
+			}
+			set
+			{
+				if ((this._DateEnd != value))
+				{
+					this.OnDateEndChanging(value);
+					this.SendPropertyChanging();
+					this._DateEnd = value;
+					this.SendPropertyChanged("DateEnd");
+					this.OnDateEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMainContract", DbType="Int")]
+		public System.Nullable<int> idMainContract
+		{
+			get
+			{
+				return this._idMainContract;
+			}
+			set
+			{
+				if ((this._idMainContract != value))
+				{
+					if (this._Contract1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidMainContractChanging(value);
+					this.SendPropertyChanging();
+					this._idMainContract = value;
+					this.SendPropertyChanged("idMainContract");
+					this.OnidMainContractChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPrikazType", DbType="Int")]
+		public System.Nullable<int> idPrikazType
+		{
+			get
+			{
+				return this._idPrikazType;
+			}
+			set
+			{
+				if ((this._idPrikazType != value))
+				{
+					this.OnidPrikazTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idPrikazType = value;
+					this.SendPropertyChanged("idPrikazType");
+					this.OnidPrikazTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_FactStaffHistory", Storage="_FactStaffHistories", ThisKey="id", OtherKey="idContract")]
+		public EntitySet<FactStaffHistory> FactStaffHistories
+		{
+			get
+			{
+				return this._FactStaffHistories;
+			}
+			set
+			{
+				this._FactStaffHistories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_Contract", Storage="_Contracts", ThisKey="id", OtherKey="idMainContract")]
+		public EntitySet<Contract> Contracts
+		{
+			get
+			{
+				return this._Contracts;
+			}
+			set
+			{
+				this._Contracts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_Contract", Storage="_Contract1", ThisKey="idMainContract", OtherKey="id", IsForeignKey=true)]
+		public Contract Contract1
+		{
+			get
+			{
+				return this._Contract1.Entity;
+			}
+			set
+			{
+				Contract previousValue = this._Contract1.Entity;
+				if (((previousValue != value) 
+							|| (this._Contract1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contract1.Entity = null;
+						previousValue.Contracts.Remove(this);
+					}
+					this._Contract1.Entity = value;
+					if ((value != null))
+					{
+						value.Contracts.Add(this);
+						this._idMainContract = value.id;
+					}
+					else
+					{
+						this._idMainContract = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Contract1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_FactStaffHistories(FactStaffHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contract = this;
+		}
+		
+		private void detach_FactStaffHistories(FactStaffHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contract = null;
+		}
+		
+		private void attach_Contracts(Contract entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contract1 = this;
+		}
+		
+		private void detach_Contracts(Contract entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contract1 = null;
 		}
 	}
 	

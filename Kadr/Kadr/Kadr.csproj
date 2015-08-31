@@ -234,6 +234,7 @@
     <Compile Include="Data\Converters\PrikazConverter.cs" />
     <Compile Include="Data\Converters\SimpleToStringConvertor.cs" />
     <Compile Include="Data\Converters\SocialFareTransitConverter.cs" />
+    <Compile Include="Data\Converters\OKVEDConvertor.cs" />
     <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
     <Compile Include="Data\dckadr.designer.cs">
       <AutoGen>True</AutoGen>

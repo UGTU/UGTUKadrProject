@@ -7,24 +7,17 @@ using System.Text;
 
 namespace Kadr.Data.Converters
 {
-    class SocialFareTransitConverter : SimpleToStringConvertor<SocialFareTransit>
+    class OKVEDConvertor : SimpleToStringConvertor<OKVED>
     {
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            if (context.Instance is OK_OtpuskDecorator)
-            {
-                var res = Kadr.Controllers.KadrController.Instance.Model.SocialFareTransits.Where(x => x.Employee == (context.Instance as OK_OtpuskDecorator).Employee);
+                var res = Kadr.Controllers.KadrController.Instance.Model.OKVEDs;
                 if (res == null)
                     return null;
-                List<SocialFareTransit> resList = res.ToList().Where(x => !x.IsUsed).ToList();
-                resList.Add(Kadr.Data.NullSocialFareTransit.Instance);
+                List<OKVED> resList = res.ToList();
+                resList.Add(Kadr.Data.NullOKVED.Instance);
                 return resList;
-            }
-            else
-            {
-                return Kadr.Controllers.KadrController.Instance.Model.SocialFareTransits.ToArray();
-            }
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
@@ -36,13 +29,13 @@ namespace Kadr.Data.Converters
         System.Globalization.CultureInfo culture, object value)
         {
             if (value == null)
-                return NullSocialFareTransit.Instance;
+                return NullOKVED.Instance;
             if (value.GetType() == typeof(string))
             {
 
-                SocialFareTransit itemSelected = null;
+                OKVED itemSelected = null;
                 var c = GetCollection(context);
-                foreach (SocialFareTransit Item in c)
+                foreach (OKVED Item in c)
                 {
                     string ItemName = Item.ToString();
 
@@ -57,8 +50,10 @@ namespace Kadr.Data.Converters
                 return base.ConvertFrom(context, culture, value);
         }
 
- 
+
     }
 }
+
+
 
 
