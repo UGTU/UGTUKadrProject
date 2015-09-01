@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kadr", "Kadr\Kadr.csproj", "{474F0D94-C66E-4FE3-9BFE-0B0C587A5015}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHelper", "CodeHelper\CodeHelper.csproj", "{EC01AD24-E555-43E5-93BD-B99F082725D1}"
