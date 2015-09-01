@@ -48,15 +48,15 @@ namespace Kadr.Data
             get
             {
 
-                var Trips = FactStaffPrikazs.SelectMany(x => x.BusinessTrips).Where(t => (t.FactStaffPrikaz.DateBegin < DateTime.Now) && (t.FactStaffPrikaz.DateEnd > DateTime.Now));
-                if (Trips.Count() > 0) return FactStaffState.OnTrip;
+                var trips = FactStaffPrikazs.SelectMany(x => x.BusinessTrips).Where(t => (t.FactStaffPrikaz.DateBegin < DateTime.Now) && (t.FactStaffPrikaz.DateEnd > DateTime.Now));
+                if (trips.Any()) return FactStaffState.OnTrip;
 
 
-                var Incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
-                if (Incapacities.Count() > 0) return FactStaffState.Incapable;
+                var incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
+                if (incapacities.Any()) return FactStaffState.Incapable;
 
-                var Vacs = OK_Otpusks.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
-                if (Vacs.Count() > 0) return FactStaffState.OnVacation;
+                var vacs = OK_Otpusks.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
+                if (vacs.Any()) return FactStaffState.OnVacation;
 
                 return FactStaffState.Present;
             }
