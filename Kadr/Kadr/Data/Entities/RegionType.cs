@@ -1,7 +1,24 @@
-﻿using Kadr.Data.Common;
+﻿using System;
+using System.Linq;
+using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
+    public static class RegionTypeExtensions
+    {
+        /// <summary>
+        /// Получает территориальные условия региона
+        /// </summary>
+        /// <param name="regionType">Тип региона</param>
+        /// <returns>Территориальные условия</returns>
+        public static TerritoryConditions GetTerritoryCondition(this RegionType regionType)
+        {
+            var values = Enum.GetValues(typeof (TerritoryConditions)).Cast<int>();
+            if (values.Contains(regionType.id))
+                return (TerritoryConditions) regionType.id;
+            return TerritoryConditions.Default;
+        }
+    }
     public  partial class RegionType: INull
     {
         public override string ToString()

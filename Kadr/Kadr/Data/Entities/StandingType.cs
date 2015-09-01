@@ -1,7 +1,25 @@
-﻿using Kadr.Data.Common;
+﻿using System;
+using System.Linq;
+using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
+    public static class RStandingTypeExtensions
+    {
+        /// <summary>
+        /// Получает вид работы
+        /// </summary>
+        /// <param name="standingType">Вид работы по трудовой книжке</param>
+        /// <returns>Вид работы</returns>
+        public static KindOfExperience GetKindOfExperience(this StandingType standingType)
+        {
+            var values = Enum.GetValues(typeof(KindOfExperience)).Cast<int>();
+            if (values.Contains(standingType.id))
+                return (KindOfExperience)standingType.id;
+            return KindOfExperience.Other;
+        }
+    }
+
     public partial class StandingType : CompareObject, INull
     {
         public override string ToString()

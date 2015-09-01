@@ -12,7 +12,7 @@ namespace Kadr.Data
 {
     public enum FactStaffState {Present, Incapable, OnTrip, OnVacation};
 
-    public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable
+    public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable, IEmployeeExperienceRecord
     {
 
         public override string ToString()
@@ -48,15 +48,15 @@ namespace Kadr.Data
             get
             {
 
-                var Trips = FactStaffPrikazs.SelectMany(x => x.BusinessTrips).Where(t => (t.FactStaffPrikaz.DateBegin < DateTime.Now) && (t.FactStaffPrikaz.DateEnd > DateTime.Now));
-                if (Trips.Count() > 0) return FactStaffState.OnTrip;
+                var trips = FactStaffPrikazs.SelectMany(x => x.BusinessTrips).Where(t => (t.FactStaffPrikaz.DateBegin < DateTime.Now) && (t.FactStaffPrikaz.DateEnd > DateTime.Now));
+                if (trips.Any()) return FactStaffState.OnTrip;
 
 
-                var Incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
-                if (Incapacities.Count() > 0) return FactStaffState.Incapable;
+                var incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
+                if (incapacities.Any()) return FactStaffState.Incapable;
 
-                var Vacs = OK_Otpusks.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
-                if (Vacs.Count() > 0) return FactStaffState.OnVacation;
+                var vacs = OK_Otpusks.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
+                if (vacs.Any()) return FactStaffState.OnVacation;
 
                 return FactStaffState.Present;
             }
@@ -721,6 +721,35 @@ namespace Kadr.Data
                 return new FactStaffHour(this);
             }
         }*/
+        public DateTime StartOfWork {
+            get { return DateBegin; }
+        }
+        public DateTime? EndOfWork { get { return DateEnd; } }
+
+        public TerritoryConditions Territory
+        {
+            get
+            {
+
+                //Заглушка до тех пор, пока не определимся, что указывает на территориальные условия
+                return TerritoryConditions.North;
+            }
+        }
+        public KindOfExperience Experience {
+            get
+            {
+                return Category.GetKindOfExperience();
+            }
+
+        }
+        
+        public Affilations Affilation {
+            get
+            {
+                // Записи штатного расписания всегда являются стажем в организации
+                return Affilations.Organization;
+            }
+        }
     }
 
 
