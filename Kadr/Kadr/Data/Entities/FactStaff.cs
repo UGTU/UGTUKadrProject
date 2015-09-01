@@ -81,8 +81,7 @@ namespace Kadr.Data
             {
                 if (LastChange == null)
                     return null;
-                else
-                    return LastChange.Prikaz;
+               return LastChange.Prikaz;
             }
             set
             {
@@ -96,8 +95,7 @@ namespace Kadr.Data
             {
                 if (LastChange == null)
                     return null;
-                else
-                    return LastChange.WorkType;
+                return LastChange.WorkType;
             }
             set
             {
@@ -123,8 +121,7 @@ namespace Kadr.Data
             {
                 if (LastChange == null)
                     return 0;
-                else
-                    return LastChange.StaffCount;
+                return LastChange.StaffCount;
             }
             set
             {
@@ -213,7 +210,7 @@ namespace Kadr.Data
         {
             get
             {
-                if (FactStaffMonthHours.Count() > 0)
+                if (FactStaffMonthHours.Any())
                 {
                     return FactStaffMonthHours.Sum(fcStH => fcStH.HourCount);
                 }
@@ -228,7 +225,9 @@ namespace Kadr.Data
         {
             get
             {
-                return HourCount.Value - WorkedHoursSum;
+                if (HourCount != null)
+                    return HourCount.Value - WorkedHoursSum;
+                return 0;
             }
         }
 
@@ -274,8 +273,7 @@ namespace Kadr.Data
             {
                 if (LastChange == null)
                     return 0;
-                else
-                    return LastChange.HourStaffCount;
+                return LastChange.HourStaffCount;
             }
             set
             {
@@ -317,8 +315,7 @@ namespace Kadr.Data
             {
                 if (LastChange == null)
                     return 0;
-                else
-                    return LastChange.HourCount;
+                return LastChange.HourCount;
             }
             set
             {
@@ -335,8 +332,7 @@ namespace Kadr.Data
             {
                 if (LastChange == null)
                     return 0;
-                else
-                    return LastChange.HourSalary;
+                return LastChange.HourSalary;
             }
             set
             {
@@ -353,8 +349,7 @@ namespace Kadr.Data
             {
                 if (LastChange == null)
                     return 0;
-                else
-                    return LastChange.HourFullSalary;
+                return LastChange.HourFullSalary;
             }
             set
             {
@@ -383,8 +378,7 @@ namespace Kadr.Data
             {
                 if (PlanStaff == null)
                     return Dep;//почасовик
-                else
-                    return PlanStaff.Dep;//обычный сотрудник
+                return PlanStaff.Dep;//обычный сотрудник
             }
             set
             {
@@ -419,8 +413,7 @@ namespace Kadr.Data
             {
                 if (PlanStaff != null)
                     return PlanStaff.FinancingSource;
-                else
-                    return FinancingSource;
+                return FinancingSource;
             }
             set
             {
@@ -437,8 +430,7 @@ namespace Kadr.Data
             {
                 if (PlanStaff == null)
                     return NullPost.Instance;
-                else
-                    return PlanStaff.Post;
+                return PlanStaff.Post;
             }
             set
             {
@@ -469,8 +461,7 @@ namespace Kadr.Data
             {
                 if (CurrentChange.Contract != null)
                     return CurrentChange.Contract.MainContract;
-                else
-                    return null;
+                return null;
             }
             set
             {
@@ -504,9 +495,9 @@ namespace Kadr.Data
             get
             {
                 string res = "";
-                if (this.FactStaffReplacements.Count > 0)
+                if (FactStaffReplacements.Any())
                 {
-                    foreach (FactStaffReplacement factStaffRepl in this.FactStaffReplacements)
+                    foreach (FactStaffReplacement factStaffRepl in FactStaffReplacements)
                     {
                         if ((factStaffRepl.DateEnd == null) || (factStaffRepl.DateEnd > DateTime.Today))
                         {
@@ -530,7 +521,7 @@ namespace Kadr.Data
         {
             get
             {
-                OK_Otpusk leave = OK_Otpusks.Where(otp => ((otp.OK_Otpuskvid.isMaternity) && (otp.DateBegin <= DateTime.Today) && ((otp.DateEnd == null) || (otp.DateEnd >= DateTime.Today)))).FirstOrDefault();
+                var leave = OK_Otpusks.Where(otp => ((otp.OK_Otpuskvid.isMaternity) && (otp.DateBegin <= DateTime.Today) && ((otp.DateEnd == null) || (otp.DateEnd >= DateTime.Today)))).FirstOrDefault();
                 if (leave != null)
                     return leave.OK_Otpuskvid.otpTypeShortName;
                 return null;
@@ -702,16 +693,14 @@ namespace Kadr.Data
         {
             if ((((Prikaz == null) && (DateEnd == null)) || (DateEnd > DateTime.Today))&& (FactStaffHistories.Where(fcSt => fcSt.DateBegin <= DateTime.Today).Count()>0))
                 return ObjectState.Current;
-            else
-                return ObjectState.Canceled;
-
+            return ObjectState.Canceled;
         }
 
         #endregion
 
         public int CompareTo(object obj)
         {
-            return this.ToString().CompareTo(obj.ToString());
+            return ToString().CompareTo(obj.ToString());
         }
 
         /*public FactStaffHour FactStaffHour
