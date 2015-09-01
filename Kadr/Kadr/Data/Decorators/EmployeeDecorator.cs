@@ -3,22 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using APG.Base;
+using Kadr.Data.Common;
 using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
-    class EmployeeDecorator
+    public class EmployeeDecorator
     {
-        private Employee employee;
+        private readonly Employee _employee;
         public EmployeeDecorator(Employee employee)
         {
-            this.employee = employee;
+            this._employee = employee;
         }
 
         override public string ToString()
         {
 
-            return "Сотрудник " + employee.EmployeeSmallName;
+            return "Сотрудник " + _employee.EmployeeSmallName;
         }
 
         [System.ComponentModel.DisplayName("ID")]
@@ -30,14 +32,27 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.id;
+                return _employee.id;
             }
             set
             {
-                employee.id = value;
+                _employee.id = value;
             }
         }
-
+        [System.ComponentModel.DisplayName("Возраст")]
+        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Возраст полных лет сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string Age
+        {
+            get
+            {
+                var age = _employee.GetAge();
+                if (!age.HasValue) return "Не указана дата рождения";
+                return string.Format("{0} {1}", age.Value, age.Value.GetYearStr());
+            }
+            
+        }
         [System.ComponentModel.DisplayName("Табельный номер")]
         [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Табельный номер сотрудника в системе отдела кадров")]
@@ -47,11 +62,11 @@ namespace Kadr.Data
             get
             {
 
-                return (employee.itab_n);
+                return (_employee.itab_n);
             }
             set
             {
-                employee.itab_n = value;
+                _employee.itab_n = value;
             }
         }
 
@@ -63,11 +78,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.LastName;
+                return _employee.LastName;
             }
             set
             {
-                employee.LastName = value;
+                _employee.LastName = value;
             }
         }
 
@@ -80,11 +95,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.SexBit;
+                return _employee.SexBit;
             }
             set
             {
-                employee.SexBit = value;
+                _employee.SexBit = value;
             }
         }
 
@@ -96,11 +111,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.FirstName;
+                return _employee.FirstName;
             }
             set
             {
-                employee.FirstName = value;
+                _employee.FirstName = value;
             }
         }
 
@@ -112,11 +127,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.Otch;
+                return _employee.Otch;
             }
             set
             {
-                employee.Otch = value;
+                _employee.Otch = value;
             }
         }
 
@@ -142,11 +157,11 @@ namespace Kadr.Data
         {
             get
             {
-                return Convert.ToDateTime(employee.BirthDate);
+                return Convert.ToDateTime(_employee.BirthDate);
             }
             set
             {
-                employee.BirthDate = value;
+                _employee.BirthDate = value;
             }
         }
 
@@ -158,11 +173,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.BirthPlace;
+                return _employee.BirthPlace;
             }
             set
             {
-                employee.BirthPlace = value;
+                _employee.BirthPlace = value;
             }
         }
 
@@ -175,11 +190,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.Grazd;
+                return _employee.Grazd;
             }
             set
             {
-                employee.Grazd = value;
+                _employee.Grazd = value;
             }
         }
 
@@ -192,11 +207,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.SemPol;
+                return _employee.SemPol;
             }
             set
             {
-                employee.SemPol = value;
+                _employee.SemPol = value;
             }
         }
 
@@ -208,11 +223,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.RayonKoeff;
+                return _employee.RayonKoeff;
             }
             set
             {
-                employee.RayonKoeff = value;
+                _employee.RayonKoeff = value;
             }
         }
 
@@ -224,11 +239,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.SeverKoeff;
+                return _employee.SeverKoeff;
             }
             set
             {
-                employee.SeverKoeff = value;
+                _employee.SeverKoeff = value;
             }
         }
 
@@ -241,11 +256,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.paspser;
+                return _employee.paspser;
             }
             set
             {
-                employee.paspser = value;
+                _employee.paspser = value;
             }
         }
 
@@ -257,11 +272,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.paspnomer;
+                return _employee.paspnomer;
             }
             set
             {
-                employee.paspnomer = value;
+                _employee.paspnomer = value;
             }
         }
 
@@ -273,11 +288,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.paspkem;
+                return _employee.paspkem;
             }
             set
             {
-                employee.paspkem = value;
+                _employee.paspkem = value;
             }
         }
 
@@ -289,11 +304,11 @@ namespace Kadr.Data
         {
             get
             {
-                return Convert.ToDateTime(employee.paspdate);
+                return Convert.ToDateTime(_employee.paspdate);
             }
             set
             {
-                employee.paspdate = value;
+                _employee.paspdate = value;
             }
         }
 
@@ -305,11 +320,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.EmplHistSer;
+                return _employee.EmplHistSer;
             }
             set
             {
-                employee.EmplHistSer = value;
+                _employee.EmplHistSer = value;
             }
         }
 
@@ -321,11 +336,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.EmplHistNumber;
+                return _employee.EmplHistNumber;
             }
             set
             {
-                employee.EmplHistNumber = value;
+                _employee.EmplHistNumber = value;
             }
         }
 
@@ -337,11 +352,11 @@ namespace Kadr.Data
         {
             get
             {
-                return Convert.ToDateTime(employee.EmplHistDate);
+                return Convert.ToDateTime(_employee.EmplHistDate);
             }
             set
             {
-                employee.EmplHistDate = value;
+                _employee.EmplHistDate = value;
             }
         }
         [System.ComponentModel.DisplayName("ИНН")]
@@ -352,11 +367,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.inn;
+                return _employee.inn;
             }
             set
             {
-                employee.inn = value;
+                _employee.inn = value;
             }
         }
 
@@ -368,11 +383,11 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.medpolis;
+                return _employee.medpolis;
             }
             set
             {
-                employee.medpolis = value;
+                _employee.medpolis = value;
             }
         }
 
@@ -384,14 +399,70 @@ namespace Kadr.Data
         {
             get
             {
-                return employee.ssgps;
+                return _employee.ssgps;
             }
             set
             {
-                employee.ssgps = value;
+                _employee.ssgps = value;
+            }
+        }
+        [System.ComponentModel.DisplayName("Общий трудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string TotalExperience
+        {
+            get { return _employee.EmployeeExperiences
+                    .GetExperience().FormatAsExperience(); }            
+        }
+
+        [System.ComponentModel.DisplayName("Научно-педагогический трудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника на научно-педагогических должностях")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string TotalPedagogicalExperience
+        {
+            get { return _employee.EmployeeExperiences
+                    .Where(x=>x.Experience == KindOfExperience.Pedagogical)
+                    .GetExperience().FormatAsExperience(); }
+        }
+
+        [System.ComponentModel.DisplayName("Северный трудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах МКС или РКС")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string TotalNorthExperience
+        {
+            get { return _employee.EmployeeExperiences
+                    .Where(x => x.Territory == TerritoryConditions.North 
+                    || x.Territory == TerritoryConditions.StrictNorth)
+                    .GetExperience().FormatAsExperience();
             }
         }
 
+        [System.ComponentModel.DisplayName("Трудовой стаж в организации")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в этой организации")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string TotalOrganizationExperience
+        {
+            get { return _employee.EmployeeExperiences
+                    .Where(x => x.Affilation == Affilations.Organization)
+                    .GetExperience()
+                    .FormatAsExperience(); }
+        }
 
+        [System.ComponentModel.DisplayName("Непрерывный трудовой стаж в организации")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней непрерывного стажа сотрудника в этой организации")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string TotalOrganizationContiniousExperience
+        {
+            get { return _employee.EmployeeExperiences
+                    .Where(x => x.Affilation == Affilations.Organization)
+                    .Continious()
+                    .GetExperience()
+                    .FormatAsExperience(); }
+        }
     }
 }

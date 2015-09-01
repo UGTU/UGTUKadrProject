@@ -12,7 +12,7 @@ namespace Kadr.Data
 {
     public enum FactStaffState {Present, Incapable, OnTrip, OnVacation};
 
-    public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable
+    public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable, IEmployeeExperienceRecord
     {
 
         public override string ToString()
@@ -50,6 +50,7 @@ namespace Kadr.Data
 
                 var trips = FactStaffPrikazs.SelectMany(x => x.BusinessTrips).Where(t => (t.FactStaffPrikaz.DateBegin < DateTime.Now) && (t.FactStaffPrikaz.DateEnd > DateTime.Now));
                 if (trips.Any()) return FactStaffState.OnTrip;
+
 
                 var incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
                 if (incapacities.Any()) return FactStaffState.Incapable;
@@ -720,6 +721,35 @@ namespace Kadr.Data
                 return new FactStaffHour(this);
             }
         }*/
+        public DateTime StartOfWork {
+            get { return DateBegin; }
+        }
+        public DateTime? EndOfWork { get { return DateEnd; } }
+
+        public TerritoryConditions Territory
+        {
+            get
+            {
+
+                //Заглушка до тех пор, пока не определимся, что указывает на территориальные условия
+                return TerritoryConditions.North;
+            }
+        }
+        public KindOfExperience Experience {
+            get
+            {
+                return Category.GetKindOfExperience();
+            }
+
+        }
+        
+        public Affilations Affilation {
+            get
+            {
+                // Записи штатного расписания всегда являются стажем в организации
+                return Affilations.Organization;
+            }
+        }
     }
 
 

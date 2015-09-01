@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +41,7 @@ namespace Kadr.UI.Forms
         }
 
         /// <summary>
-        /// Получает элмент меню, куда добавляются дополнительные действия
+        /// РџРѕР»СѓС‡Р°РµС‚ СЌР»РјРµРЅС‚ РјРµРЅСЋ, РєСѓРґР° РґРѕР±Р°РІР»СЏСЋС‚СЃСЏ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РґРµР№СЃС‚РІРёСЏ
         /// </summary>
         public ToolStripItem ActionMenuStripItem
         {
@@ -58,33 +58,33 @@ namespace Kadr.UI.Forms
         private void CreateNodeContextItems()
         {
             nodeContextItems[0] = new ToolStripMenuItem();
-            nodeContextItems[0].Text = "Развернуть";
-            nodeContextItems[0].Click += new EventHandler(развернутьToolStripMenuItem_Click);
+            nodeContextItems[0].Text = "Р Р°Р·РІРµСЂРЅСѓС‚СЊ";
+            nodeContextItems[0].Click += new EventHandler(СЂР°Р·РІРµСЂРЅСѓС‚СЊToolStripMenuItem_Click);
            
             nodeContextItems[1] = new ToolStripMenuItem();
-            nodeContextItems[1].Text = "Свернуть";
-            nodeContextItems[1].Click += new EventHandler(свернутьToolStripMenuItem_Click);
+            nodeContextItems[1].Text = "РЎРІРµСЂРЅСѓС‚СЊ";
+            nodeContextItems[1].Click += new EventHandler(СЃРІРµСЂРЅСѓС‚СЊToolStripMenuItem_Click);
 
             nodeContextItems[2] = new ToolStripSeparator();
 
             nodeContextItems[3] = new ToolStripMenuItem();
-            nodeContextItems[3].Text = "Показать все";
-            nodeContextItems[3].Click += new EventHandler(показатьВсеToolStripMenuItem_Click);
+            nodeContextItems[3].Text = "РџРѕРєР°Р·Р°С‚СЊ РІСЃРµ";
+            nodeContextItems[3].Click += new EventHandler(РїРѕРєР°Р·Р°С‚СЊР’СЃРµToolStripMenuItem_Click);
 
             nodeContextItems[4] = new ToolStripMenuItem();
-            nodeContextItems[4].Text = "Свернуть все";
-            nodeContextItems[4].Click += new EventHandler(свернутьВсеToolStripMenuItem_Click);
+            nodeContextItems[4].Text = "РЎРІРµСЂРЅСѓС‚СЊ РІСЃРµ";
+            nodeContextItems[4].Click += new EventHandler(СЃРІРµСЂРЅСѓС‚СЊР’СЃРµToolStripMenuItem_Click);
             
             nodeContextItems[5] = new ToolStripSeparator();
 
             nodeContextItems[6] = new ToolStripMenuItem();
-            nodeContextItems[6].Text = "Обновить";
-            nodeContextItems[6].Click += new EventHandler(обновитьToolStripMenuItem_Click);
+            nodeContextItems[6].Text = "РћР±РЅРѕРІРёС‚СЊ";
+            nodeContextItems[6].Click += new EventHandler(РѕР±РЅРѕРІРёС‚СЊToolStripMenuItem_Click);
 
             nodeContextItems[7] = new ToolStripSeparator();
 
             nodeContextItems[8] = new ToolStripMenuItem();
-            nodeContextItems[8].Text = "Действия";
+            nodeContextItems[8].Text = "Р”РµР№СЃС‚РІРёСЏ";
             nodeContextItems[8].Image = treeViewImageList.Images[4];
             actionMenuStripItem = nodeContextItems[8];
 
@@ -160,7 +160,7 @@ namespace Kadr.UI.Forms
         
         private static void EnterSearchComboBox(object sender)
         {
-            // Очистка текста "введите текст" в окне поиска при установке фокуса
+            // РћС‡РёСЃС‚РєР° С‚РµРєСЃС‚Р° "РІРІРµРґРёС‚Рµ С‚РµРєСЃС‚" РІ РѕРєРЅРµ РїРѕРёСЃРєР° РїСЂРё СѓСЃС‚Р°РЅРѕРІРєРµ С„РѕРєСѓСЃР°
             (sender as ToolStripComboBox).ForeColor = SystemColors.WindowText;
             (sender as ToolStripComboBox).Text = "";
         }
@@ -168,15 +168,15 @@ namespace Kadr.UI.Forms
 
         private static void LeaveSearchComboBox(object sender)
         {
-            // При потере фокуса окном ввода запроса устанавливается текст "Введите текст"
-            (sender as ToolStripComboBox).Text = "Введите текст";
+            // РџСЂРё РїРѕС‚РµСЂРµ С„РѕРєСѓСЃР° РѕРєРЅРѕРј РІРІРѕРґР° Р·Р°РїСЂРѕСЃР° СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ С‚РµРєСЃС‚ "Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚"
+            (sender as ToolStripComboBox).Text = "Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚";
             (sender as ToolStripComboBox).ForeColor = Color.Gray;
         }
 
 
 
 
-        // Вызов контекстного меню для узла дерева 
+        // Р’С‹Р·РѕРІ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ РґР»СЏ СѓР·Р»Р° РґРµСЂРµРІР° 
         private void kadrTreeView1_MouseClick(object sender, MouseEventArgs e)
         {
             if ((SelectedObject == null) || (SelectedObject.NodeContextMenuStrip == null))
@@ -194,13 +194,13 @@ namespace Kadr.UI.Forms
 
         private void kadrTreeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            // Переход на новый узел дерева вызывает отображение кадра, связанного  с 
-            // заданным объектом узла
+            // РџРµСЂРµС…РѕРґ РЅР° РЅРѕРІС‹Р№ СѓР·РµР» РґРµСЂРµРІР° РІС‹Р·С‹РІР°РµС‚ РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РєР°РґСЂР°, СЃРІСЏР·Р°РЅРЅРѕРіРѕ  СЃ 
+            // Р·Р°РґР°РЅРЅС‹Рј РѕР±СЉРµРєС‚РѕРј СѓР·Р»Р°
             ShowSelectedNodeFrame(e);
 
-            // Назначает состояние элементам панели инструментов (toolStrip1) 
-            // на основании возможности выполнения действий выбранным узлом
-            // (метод UIAction.CanDoThis(UIObjectAction action))
+            // РќР°Р·РЅР°С‡Р°РµС‚ СЃРѕСЃС‚РѕСЏРЅРёРµ СЌР»РµРјРµРЅС‚Р°Рј РїР°РЅРµР»Рё РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ (toolStrip1) 
+            // РЅР° РѕСЃРЅРѕРІР°РЅРёРё РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РІС‹РїРѕР»РЅРµРЅРёСЏ РґРµР№СЃС‚РІРёР№ РІС‹Р±СЂР°РЅРЅС‹Рј СѓР·Р»РѕРј
+            // (РјРµС‚РѕРґ UIAction.CanDoThis(UIObjectAction action))
             AssignToolStripItemState(sender);          
 
         }
@@ -222,22 +222,22 @@ namespace Kadr.UI.Forms
             }
         }
 
-        // Вызов отображения кадра для текущего узла дерева
+        // Р’С‹Р·РѕРІ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РєР°РґСЂР° РґР»СЏ С‚РµРєСѓС‰РµРіРѕ СѓР·Р»Р° РґРµСЂРµРІР°
         private void ShowSelectedNodeFrame(TreeViewEventArgs e)
         {
             System.Type frame = null;
 
-            // Получить тип отображения, связанный с узлом
+            // РџРѕР»СѓС‡РёС‚СЊ С‚РёРї РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ, СЃРІСЏР·Р°РЅРЅС‹Р№ СЃ СѓР·Р»РѕРј
             Kadr.KadrTreeView.KadrNodeObject obj = (e.Node.Tag as Kadr.KadrTreeView.KadrNodeObject);
 
-            // Связан ли с узлом объект и является ли объект типом DBTreeNodeObject
+            // РЎРІСЏР·Р°РЅ Р»Рё СЃ СѓР·Р»РѕРј РѕР±СЉРµРєС‚ Рё СЏРІР»СЏРµС‚СЃСЏ Р»Рё РѕР±СЉРµРєС‚ С‚РёРїРѕРј DBTreeNodeObject
             if (obj != null)
             {
                 frame = obj.ObjectViewType;
 
 
 
-                //Отобразить кадр
+                //РћС‚РѕР±СЂР°Р·РёС‚СЊ РєР°РґСЂ
                 Frame = frame;
 
                 CurrentObjectLabel.Text = obj.GetObjectName();
@@ -250,13 +250,13 @@ namespace Kadr.UI.Forms
 
                // (obj as Kadr.KadrTreeView.KadrNodeObject).GetObjectStatus();
 
-                //если объект - отдел, отображаем фильтр по сотрудникам 
+                //РµСЃР»Рё РѕР±СЉРµРєС‚ - РѕС‚РґРµР», РѕС‚РѕР±СЂР°Р¶Р°РµРј С„РёР»СЊС‚СЂ РїРѕ СЃРѕС‚СЂСѓРґРЅРёРєР°Рј 
                 if (obj is Kadr.KadrTreeView.RootNodeObject)
                 {
                     tsbEmployeeFilter.Visible = true;
                     tsbDepartmentFilter.Visible = true;
 
-                     //устанавливаем фильтр 
+                     //СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј С„РёР»СЊС‚СЂ 
                     /*ArrayList EmployeeFilters = (activeFrame.FrameNodeObject as RootNodeObject).ObjectFilters;
                     for (ObjectState objectState = ObjectState.Current; objectState <= ObjectState.Canceled; objectState++)
                     {
@@ -264,7 +264,7 @@ namespace Kadr.UI.Forms
                             EmployeeFilters.Contains(objectState);
                     }
 
-                    //устанавливаем фильтр 
+                    //СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј С„РёР»СЊС‚СЂ 
                     ArrayList DepartmentFilters = (activeFrame.FrameNodeObject as RootNodeObject).DepartmentFilters;
                     for (ObjectState objectState = ObjectState.Current; objectState <= ObjectState.Canceled; objectState++)
                     {
@@ -285,7 +285,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        // Обновление предcтавления узла
+        // РћР±РЅРѕРІР»РµРЅРёРµ РїСЂРµРґcС‚Р°РІР»РµРЅРёСЏ СѓР·Р»Р°
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
             if (SelectedObject != null)
@@ -300,13 +300,13 @@ namespace Kadr.UI.Forms
 
         }
 
-        // Изменение заголовка кнопки добавления  объекта
+        // РР·РјРµРЅРµРЅРёРµ Р·Р°РіРѕР»РѕРІРєР° РєРЅРѕРїРєРё РґРѕР±Р°РІР»РµРЅРёСЏ  РѕР±СЉРµРєС‚Р°
         private void tsbNew_MouseEnter(object sender, EventArgs e)
         {
             //(sender as ToolStripItem).Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taAdd];
         }
 
-        // Вызов действия удаления объекта
+        // Р’С‹Р·РѕРІ РґРµР№СЃС‚РІРёСЏ СѓРґР°Р»РµРЅРёСЏ РѕР±СЉРµРєС‚Р°
         private void tsbDelete_Click(object sender, EventArgs e)
         {
             if (SelectedActions != null)
@@ -315,7 +315,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        // Вызов действия редактирования объекта
+        // Р’С‹Р·РѕРІ РґРµР№СЃС‚РІРёСЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
         private void tsbEdit_Click(object sender, EventArgs e)
         {
             if (SelectedActions != null)
@@ -324,84 +324,84 @@ namespace Kadr.UI.Forms
             }
         }
 
-        // Вызов действия вырезки объекта
+        // Р’С‹Р·РѕРІ РґРµР№СЃС‚РІРёСЏ РІС‹СЂРµР·РєРё РѕР±СЉРµРєС‚Р°
         private void tsbCut_Click(object sender, EventArgs e)
         {
             (sender as ToolStripItem).Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taCut];
         }
 
-        // Вызов действия копирования объекта
+        // Р’С‹Р·РѕРІ РґРµР№СЃС‚РІРёСЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
         private void tsbCopy_Click(object sender, EventArgs e)
         {
             (sender as ToolStripItem).Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taCopy];
         }
 
-        // Вызов действия вставки объекта
+        // Р’С‹Р·РѕРІ РґРµР№СЃС‚РІРёСЏ РІСЃС‚Р°РІРєРё РѕР±СЉРµРєС‚Р°
         private void tsbPaste_Click(object sender, EventArgs e)
         {
             (sender as ToolStripItem).Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taPaste];
         }
 
-        // Изменение заголовка кнопки удаления  объекта
+        // РР·РјРµРЅРµРЅРёРµ Р·Р°РіРѕР»РѕРІРєР° РєРЅРѕРїРєРё СѓРґР°Р»РµРЅРёСЏ  РѕР±СЉРµРєС‚Р°
         private void tsbDelete_MouseEnter(object sender, EventArgs e)
         {
            // (sender as ToolStripItem).Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taDelete];
         }
 
-        // Изменение заголовка кнопки редактирования  объекта
+        // РР·РјРµРЅРµРЅРёРµ Р·Р°РіРѕР»РѕРІРєР° РєРЅРѕРїРєРё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ  РѕР±СЉРµРєС‚Р°
         private void tsbEdit_MouseEnter(object sender, EventArgs e)
         {
             (sender as ToolStripItem).Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taUpdate];
         }
 
-        // Изменение заголовка кнопки вырезки  объекта
+        // РР·РјРµРЅРµРЅРёРµ Р·Р°РіРѕР»РѕРІРєР° РєРЅРѕРїРєРё РІС‹СЂРµР·РєРё  РѕР±СЉРµРєС‚Р°
         private void tsbCut_MouseEnter(object sender, EventArgs e)
         {
             (sender as ToolStripItem).Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taCut];
         }
 
-        // Изменение заголовка кнопки копирования  объекта
+        // РР·РјРµРЅРµРЅРёРµ Р·Р°РіРѕР»РѕРІРєР° РєРЅРѕРїРєРё РєРѕРїРёСЂРѕРІР°РЅРёСЏ  РѕР±СЉРµРєС‚Р°
         private void tsbCopy_MouseEnter(object sender, EventArgs e)
         {
             (sender as ToolStripItem).Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taCopy];
         }
-        // Изменение заголовка кнопки вставки  объекта
+        // РР·РјРµРЅРµРЅРёРµ Р·Р°РіРѕР»РѕРІРєР° РєРЅРѕРїРєРё РІСЃС‚Р°РІРєРё  РѕР±СЉРµРєС‚Р°
         private void tsbPaste_MouseEnter(object sender, EventArgs e)
         {
             (sender as ToolStripItem).Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taPaste];
         }
 
-        private void развернутьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СЂР°Р·РІРµСЂРЅСѓС‚СЊToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SelectedObject.Node.Expand();
         }
 
-        private void свернутьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СЃРІРµСЂРЅСѓС‚СЊToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SelectedObject.Node.Collapse(true);
         }
 
-        private void показатьВсеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РїРѕРєР°Р·Р°С‚СЊР’СЃРµToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SelectedObject.Node.ExpandAll();
         }
 
-        private void свернутьВсеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СЃРІРµСЂРЅСѓС‚СЊР’СЃРµToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SelectedObject.Node.Collapse(false);
         }
 
-        private void обновитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РѕР±РЅРѕРІРёС‚СЊToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SelectedObject.Refresh();
         }
 
-        private void развернутьToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        private void СЂР°Р·РІРµСЂРЅСѓС‚СЊToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
             (sender as ToolStripMenuItem).Enabled = !(SelectedObject.Node.IsExpanded);
         }
 
-        private void свернутьToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        private void СЃРІРµСЂРЅСѓС‚СЊToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
             (sender as ToolStripMenuItem).Enabled = SelectedObject.Node.IsExpanded;
         }
@@ -414,11 +414,10 @@ namespace Kadr.UI.Forms
             //ImportDailyReportFiles();
             kadrTreeView1.CreateRootNodes();
             CreateNodeContextItems();
-            Text = "ИС \"Управление кадрами\" (" + DateTime.Today.ToShortDateString() + ")";
-            tscbFindType.SelectedIndex = 0;
+            Text = "РРЎ \"РЈРїСЂР°РІР»РµРЅРёРµ РєР°РґСЂР°РјРё\" (" + DateTime.Today.ToShortDateString() + ")";
         }
 
-        // Импортирует файлы, переданные через командную сроку
+        // РРјРїРѕСЂС‚РёСЂСѓРµС‚ С„Р°Р№Р»С‹, РїРµСЂРµРґР°РЅРЅС‹Рµ С‡РµСЂРµР· РєРѕРјР°РЅРґРЅСѓСЋ СЃСЂРѕРєСѓ
         //private void ImportDailyReportFiles()
         //{            
         //    if (Environment.GetCommandLineArgs().Length > 1)
@@ -452,20 +451,20 @@ namespace Kadr.UI.Forms
         }
         
         /// <summary>
-        /// Пул фреймов различных типов для повторного использования
+        /// РџСѓР» С„СЂРµР№РјРѕРІ СЂР°Р·Р»РёС‡РЅС‹С… С‚РёРїРѕРІ РґР»СЏ РїРѕРІС‚РѕСЂРЅРѕРіРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ
         /// </summary>
         //private IDictionary<string, ISGBBaseFrame> framePool = 
         //    new Dictionary<string, ISGBBaseFrame>(10);
 
         /// <summary>
-        ///  Создаёт новый объект фрейма по его типу, размещает его на панели просмотра и обновляет его содержание через
-        ///  задание свойства FrameObject и метод RefreshFrame().
-        ///  Если объект заданного типа уже существует, то новый объект не создаётся, а извлекается из пула.
+        ///  РЎРѕР·РґР°С‘С‚ РЅРѕРІС‹Р№ РѕР±СЉРµРєС‚ С„СЂРµР№РјР° РїРѕ РµРіРѕ С‚РёРїСѓ, СЂР°Р·РјРµС‰Р°РµС‚ РµРіРѕ РЅР° РїР°РЅРµР»Рё РїСЂРѕСЃРјРѕС‚СЂР° Рё РѕР±РЅРѕРІР»СЏРµС‚ РµРіРѕ СЃРѕРґРµСЂР¶Р°РЅРёРµ С‡РµСЂРµР·
+        ///  Р·Р°РґР°РЅРёРµ СЃРІРѕР№СЃС‚РІР° FrameObject Рё РјРµС‚РѕРґ RefreshFrame().
+        ///  Р•СЃР»Рё РѕР±СЉРµРєС‚ Р·Р°РґР°РЅРЅРѕРіРѕ С‚РёРїР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, С‚Рѕ РЅРѕРІС‹Р№ РѕР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°С‘С‚СЃСЏ, Р° РёР·РІР»РµРєР°РµС‚СЃСЏ РёР· РїСѓР»Р°.
         /// </summary>
-        /// <param name="frameType">Тип фрейма для создания</param>
-        /// <param name="parent">Объект System.Windows.Forms.Control где будет распологаться фрейм</param>
-        /// <param name="AObject">Пользовательский объект фрейма</param>
-        /// <returns>Объект типа ISGB.Frames.ISGBBaseFrame</returns>
+        /// <param name="frameType">РўРёРї С„СЂРµР№РјР° РґР»СЏ СЃРѕР·РґР°РЅРёСЏ</param>
+        /// <param name="parent">РћР±СЉРµРєС‚ System.Windows.Forms.Control РіРґРµ Р±СѓРґРµС‚ СЂР°СЃРїРѕР»РѕРіР°С‚СЊСЃСЏ С„СЂРµР№Рј</param>
+        /// <param name="AObject">РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ РѕР±СЉРµРєС‚ С„СЂРµР№РјР°</param>
+        /// <returns>РћР±СЉРµРєС‚ С‚РёРїР° ISGB.Frames.ISGBBaseFrame</returns>
         protected Kadr.UI.Frames.KadrBaseFrame CreateFrame(System.Type frameType, System.Windows.Forms.Control parent, object AObject)
         {
 
@@ -479,8 +478,8 @@ namespace Kadr.UI.Forms
                 //}
                 //else
                 //{
-                // Если фрейм уже создан, то извелечь его из пула
-                    // Объект такого типа фрейма ещё не создавался
+                // Р•СЃР»Рё С„СЂРµР№Рј СѓР¶Рµ СЃРѕР·РґР°РЅ, С‚Рѕ РёР·РІРµР»РµС‡СЊ РµРіРѕ РёР· РїСѓР»Р°
+                    // РћР±СЉРµРєС‚ С‚Р°РєРѕРіРѕ С‚РёРїР° С„СЂРµР№РјР° РµС‰С‘ РЅРµ СЃРѕР·РґР°РІР°Р»СЃСЏ
 
                     frame = Activator.CreateInstance(frameType, AObject) as Kadr.UI.Frames.KadrBaseFrame;
                     frame.FrameDataChangedEvent += new Kadr.UI.Frames.FrameDataChangedDelegate(frame_FrameDataChangedEvent);
@@ -492,16 +491,16 @@ namespace Kadr.UI.Forms
                 frame.Parent = parent;
                 frame.Dock = DockStyle.Fill;
 
-                // Связать фрейм с текущим узлом
+                // РЎРІСЏР·Р°С‚СЊ С„СЂРµР№Рј СЃ С‚РµРєСѓС‰РёРј СѓР·Р»РѕРј
                 BindCurrentFrameWithNodeObject(frame);
 
-                //зарегестрировать фрейм в качестве предсталения 
+                //Р·Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°С‚СЊ С„СЂРµР№Рј РІ РєР°С‡РµСЃС‚РІРµ РїСЂРµРґСЃС‚Р°Р»РµРЅРёСЏ 
                 KadrController.Instance.AddView(frame);
 
                 if (frame is KadrEmployeeFrame)
                 {
                     //tsbBonusFilter.Visible = true;
-                    //устанавливаем фильтр на фрейме
+                    //СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј С„РёР»СЊС‚СЂ РЅР° С„СЂРµР№РјРµ
                     CopyFilter(tsbBonusFilter, (frame as KadrEmployeeFrame).tsbBonusFilter);
                 }
 
@@ -529,13 +528,13 @@ namespace Kadr.UI.Forms
             return frame;
         }
 
-        // Связывает созданный фрейм с узлом текущим дерева
+        // РЎРІСЏР·С‹РІР°РµС‚ СЃРѕР·РґР°РЅРЅС‹Р№ С„СЂРµР№Рј СЃ СѓР·Р»РѕРј С‚РµРєСѓС‰РёРј РґРµСЂРµРІР°
         private void BindCurrentFrameWithNodeObject(Kadr.UI.Frames.KadrBaseFrame frame)
         {
             BindCurrentFrameWithNodeObject(frame, SelectedObject);
         }
 
-        // Связывает фрейм с заданным узлом дерева
+        // РЎРІСЏР·С‹РІР°РµС‚ С„СЂРµР№Рј СЃ Р·Р°РґР°РЅРЅС‹Рј СѓР·Р»РѕРј РґРµСЂРµРІР°
         private void BindCurrentFrameWithNodeObject(Kadr.UI.Frames.KadrBaseFrame kadrBaseFrame, APG.CodeHelper.DBTreeView.DBTreeNodeObject SelectedObject)
         {
             if ((SelectedObject != null) && (kadrBaseFrame != null))
@@ -592,8 +591,8 @@ namespace Kadr.UI.Forms
                 if (activeFrame.IsModified)
                 {
                     switch (
-                        MessageBox.Show(string.Format("Данные кадра \"{0}\" были изменены.\nСледует сохранить изменения в базе данных?", activeFrame.FrameName),
-                        "Сохранение данных",
+                        MessageBox.Show(string.Format("Р”Р°РЅРЅС‹Рµ РєР°РґСЂР° \"{0}\" Р±С‹Р»Рё РёР·РјРµРЅРµРЅС‹.\nРЎР»РµРґСѓРµС‚ СЃРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С…?", activeFrame.FrameName),
+                        "РЎРѕС…СЂР°РЅРµРЅРёРµ РґР°РЅРЅС‹С…",
                         MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
                     {
                         case DialogResult.Yes:
@@ -687,7 +686,7 @@ namespace Kadr.UI.Forms
         {
             if (SelectedObject != null)
             {
-                (sender as ToolStripItem).Text = string.Format("Обновить: {0}", SelectedObject.Node.Text);
+                (sender as ToolStripItem).Text = string.Format("РћР±РЅРѕРІРёС‚СЊ: {0}", SelectedObject.Node.Text);
             }
                 
         }        
@@ -706,7 +705,7 @@ namespace Kadr.UI.Forms
                 ActiveFrame.RefreshFrame();
         }
 
-        private void оглавлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РѕРіР»Р°РІР»РµРЅРёРµToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, helpProvider1.HelpNamespace);
         }
@@ -715,7 +714,7 @@ namespace Kadr.UI.Forms
         {
             //if (SelectedObject is ReportNodeObject)
             //{
-            //    miExportReport.Text = string.Format("Экспортировать {0}...", SelectedObject.Node.Text);
+            //    miExportReport.Text = string.Format("Р­РєСЃРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ {0}...", SelectedObject.Node.Text);
             //    miExportReport.Enabled = true;
             //}
             //else
@@ -728,7 +727,7 @@ namespace Kadr.UI.Forms
         }
 
 
-        private void импортироватьСуточныйРапортToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РёРјРїРѕСЂС‚РёСЂРѕРІР°С‚СЊРЎСѓС‚РѕС‡РЅС‹Р№Р Р°РїРѕСЂС‚ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //ImportDayliReport();
         }
@@ -802,7 +801,7 @@ namespace Kadr.UI.Forms
         }
 
  
-        private void справочникиToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        private void СЃРїСЂР°РІРѕС‡РЅРёРєРёToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
         }
 
@@ -822,16 +821,16 @@ namespace Kadr.UI.Forms
 
 
         /// <summary>
-        /// Справочник типов надбавок
+        /// РЎРїСЂР°РІРѕС‡РЅРёРє С‚РёРїРѕРІ РЅР°РґР±Р°РІРѕРє
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void типНадбавкиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void С‚РёРїРќР°РґР±Р°РІРєРёToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BonusSuperTypeDialog dlg = new BonusSuperTypeDialog())
             {
                 //dlg.UseInternalCommandManager = true;
-                //dlg.Text = "Редактирование штатного расписания отдела " + Department.DepartmentName;
+                //dlg.Text = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С€С‚Р°С‚РЅРѕРіРѕ СЂР°СЃРїРёСЃР°РЅРёСЏ РѕС‚РґРµР»Р° " + Department.DepartmentName;
 
                 dlg.ShowDialog();
             }
@@ -839,11 +838,11 @@ namespace Kadr.UI.Forms
         }
 
         /// <summary>
-        /// Справочник видов надбавок
+        /// РЎРїСЂР°РІРѕС‡РЅРёРє РІРёРґРѕРІ РЅР°РґР±Р°РІРѕРє
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void видToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void РІРёРґToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             using (BonusTypeDialog dlg = new BonusTypeDialog())
             {
@@ -854,11 +853,11 @@ namespace Kadr.UI.Forms
 
 
         /// <summary>
-        /// Справочник профессионально-квалификационных групп
+        /// РЎРїСЂР°РІРѕС‡РЅРёРє РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕ-РєРІР°Р»РёС„РёРєР°С†РёРѕРЅРЅС‹С… РіСЂСѓРїРї
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void пКГToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РїРљР“ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (PKGroupDialog dlg = new PKGroupDialog())
             {
@@ -868,11 +867,11 @@ namespace Kadr.UI.Forms
         }
 
         /// <summary>
-        /// Справочник видов работ
+        /// РЎРїСЂР°РІРѕС‡РЅРёРє РІРёРґРѕРІ СЂР°Р±РѕС‚
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void видРаботыToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РІРёРґР Р°Р±РѕС‚С‹ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (WorkTypeDialog dlg = new WorkTypeDialog())
             {
@@ -882,11 +881,11 @@ namespace Kadr.UI.Forms
         }
 
         /// <summary>
-        /// Справочник Гражданство
+        /// РЎРїСЂР°РІРѕС‡РЅРёРє Р“СЂР°Р¶РґР°РЅСЃС‚РІРѕ
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void гражданствоToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РіСЂР°Р¶РґР°РЅСЃС‚РІРѕToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (GrazdDialog dlg = new GrazdDialog())
             {
@@ -895,7 +894,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void семейноеПоложениеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СЃРµРјРµР№РЅРѕРµРџРѕР»РѕР¶РµРЅРёРµToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SemPolDialog dlg = new SemPolDialog())
             {
@@ -905,11 +904,11 @@ namespace Kadr.UI.Forms
         }
 
         /// <summary>
-        /// Профессионально-квалификационная категория
+        /// РџСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕ-РєРІР°Р»РёС„РёРєР°С†РёРѕРЅРЅР°СЏ РєР°С‚РµРіРѕСЂРёСЏ
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void категорияToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РєР°С‚РµРіРѕСЂРёСЏToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (PKCategoryDialog dlg = new PKCategoryDialog())
             {
@@ -918,12 +917,12 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void должностьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РґРѕР»Р¶РЅРѕСЃС‚СЊToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void категорииПерсоналаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РєР°С‚РµРіРѕСЂРёРёРџРµСЂСЃРѕРЅР°Р»Р°ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (CategoryDialog dlg = new CategoryDialog())
             {
@@ -944,7 +943,7 @@ namespace Kadr.UI.Forms
 
         private void tsbDepartmentFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            //ищем самый верхний узел дерева 
+            //РёС‰РµРј СЃР°РјС‹Р№ РІРµСЂС…РЅРёР№ СѓР·РµР» РґРµСЂРµРІР° 
             //RootNodeObject MainParent = 
             //(activeFrame.FrameNodeObject as RootNodeObject).Parent
             if (activeFrame is KadrRootFrame)
@@ -955,7 +954,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void типыПриказовToolStripMenuItem_Click(object sender, EventArgs e)
+        private void С‚РёРїС‹РџСЂРёРєР°Р·РѕРІToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (PrikazSuperTypeDialog dlg = new PrikazSuperTypeDialog())
             {
@@ -963,7 +962,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void видыПриказовToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РІРёРґС‹РџСЂРёРєР°Р·РѕРІToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (PrikazTypeDialog dlg = new PrikazTypeDialog())
             {
@@ -972,7 +971,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void источникФинансированияToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РёСЃС‚РѕС‡РЅРёРєР¤РёРЅР°РЅСЃРёСЂРѕРІР°РЅРёСЏToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FinancingSourceDialog dlg = new FinancingSourceDialog())
             {
@@ -981,7 +980,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void базовыеОкладыToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Р±Р°Р·РѕРІС‹РµРћРєР»Р°РґС‹ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SalaryDialog dlg = new SalaryDialog())
             {
@@ -990,7 +989,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void приказыМинистерстваToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РїСЂРёРєР°Р·С‹РњРёРЅРёСЃС‚РµСЂСЃС‚РІР°ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (GlobalPrikazDialog dlg = new GlobalPrikazDialog())
             {
@@ -999,7 +998,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void единицыИзмеренияToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РµРґРёРЅРёС†С‹РР·РјРµСЂРµРЅРёСЏToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BonusMeasureDialog dlg = new BonusMeasureDialog())
             {
@@ -1008,7 +1007,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void причинаСовмещенияToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РїСЂРёС‡РёРЅР°РЎРѕРІРјРµС‰РµРЅРёСЏToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FactStaffReplacementReasonDialog dlg = new FactStaffReplacementReasonDialog())
             {
@@ -1017,7 +1016,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void графикБуренияToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РіСЂР°С„РёРєР‘СѓСЂРµРЅРёСЏToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
@@ -1041,7 +1040,7 @@ namespace Kadr.UI.Forms
         private void tscbFindType_SelectedIndexChanged(object sender, EventArgs e)
         {
             tscbTextSearch.Items.Clear();
-            if (tscbFindType.SelectedIndex == 1)//по отделу
+            if (tscbFindType.SelectedIndex == 1)//РїРѕ РѕС‚РґРµР»Сѓ
             {
                 foreach (Department dep in KadrController.Instance.Model.Departments.OrderBy(dep => dep.DepartmentSmallName))
                 {
@@ -1049,7 +1048,7 @@ namespace Kadr.UI.Forms
                 }
             }
 
-            if (tscbFindType.SelectedIndex == 0)//по cотруднику
+            if (tscbFindType.SelectedIndex == 0)//РїРѕ cРѕС‚СЂСѓРґРЅРёРєСѓ
             {
                 foreach (Employee empl in KadrController.Instance.Model.Employees.Where(empl => empl.FactStaffs.Count() > 0).OrderBy(empl => 
                     empl.LastName).ThenBy(empl => empl.FirstName).ThenBy(empl => empl.Otch))
@@ -1062,12 +1061,12 @@ namespace Kadr.UI.Forms
 
         private void tscbTextSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tscbFindType.SelectedIndex == 1)//по отделу
+            if (tscbFindType.SelectedIndex == 1)//РїРѕ РѕС‚РґРµР»Сѓ
             {
                 kadrTreeView1.FindAndSelectDepartment(
                     tscbTextSearch.SelectedItem as Department);
             }
-            if (tscbFindType.SelectedIndex == 0)//по сотрудникам
+            if (tscbFindType.SelectedIndex == 0)//РїРѕ СЃРѕС‚СЂСѓРґРЅРёРєР°Рј
             {
                 kadrTreeView1.FindAndSelectEmployee(
                     tscbTextSearch.SelectedItem as Employee);
@@ -1080,7 +1079,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void надбавкиПоОтделамToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РЅР°РґР±Р°РІРєРёРџРѕРћС‚РґРµР»Р°РјToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (Reports.Forms.BaseReportForm repForm = new Reports.Forms.BaseReportForm())
             {
@@ -1092,7 +1091,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void статусДняToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СЃС‚Р°С‚СѓСЃР”РЅСЏToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (TimeSheetDayStateDialog dlg = new TimeSheetDayStateDialog())
             {
@@ -1101,7 +1100,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void графикиРаботыToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РіСЂР°С„РёРєРёР Р°Р±РѕС‚С‹ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (TimeSheetSheduleTypeDialog dlg = new TimeSheetSheduleTypeDialog())
             {
@@ -1109,7 +1108,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void видыОтчетовToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РІРёРґС‹РћС‚С‡РµС‚РѕРІToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BonusReportDialog dlg = new BonusReportDialog())
             {
@@ -1117,7 +1116,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void последовательностьДанныхToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊР”Р°РЅРЅС‹С…ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BonusReportColumnsDialog dlg = new BonusReportColumnsDialog())
             {
@@ -1125,7 +1124,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void поЦентрамФинансированияToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РїРѕР¦РµРЅС‚СЂР°РјР¤РёРЅР°РЅСЃРёСЂРѕРІР°РЅРёСЏToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportFormWithYear dlg = new BaseReportFormWithYear())
             {
@@ -1133,7 +1132,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void надбавкиПоВидуРаботыToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РЅР°РґР±Р°РІРєРёРџРѕР’РёРґСѓР Р°Р±РѕС‚С‹ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
@@ -1148,7 +1147,7 @@ namespace Kadr.UI.Forms
             if (ActiveFrame is KadrEmployeeFrame)
             {
                 KadrEmployeeFrame frame = ActiveFrame as KadrEmployeeFrame;
-                //устанавливаем фильтр на фрейме
+                //СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј С„РёР»СЊС‚СЂ РЅР° С„СЂРµР№РјРµ
                 CopyFilter(tsbBonusFilter, frame.tsbBonusFilter);
                 int clickedItemNumber = tsbBonusFilter.DropDownItems.IndexOf(e.ClickedItem);
                 (frame.tsbBonusFilter.DropDownItems[clickedItemNumber] as ToolStripMenuItem).Checked =
@@ -1171,7 +1170,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void центрыФинансированияToolStripMenuItem_Click(object sender, EventArgs e)
+        private void С†РµРЅС‚СЂС‹Р¤РёРЅР°РЅСЃРёСЂРѕРІР°РЅРёСЏToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FundingCenterDialog dlg = new FundingCenterDialog())
             {
@@ -1179,7 +1178,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void профессиональноквалификационыеПодподкатегорииToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕРєРІР°Р»РёС„РёРєР°С†РёРѕРЅС‹РµРџРѕРґРїРѕРґРєР°С‚РµРіРѕСЂРёРёToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SalaryKoeffDialog dlg = new SalaryKoeffDialog())
             {
@@ -1187,7 +1186,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void видыДолжностейToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РІРёРґС‹Р”РѕР»Р¶РЅРѕСЃС‚РµР№ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (PostTypeDialog dlg = new PostTypeDialog())
             {
@@ -1195,7 +1194,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void надбавкиПоДолжностямToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РЅР°РґР±Р°РІРєРёРџРѕР”РѕР»Р¶РЅРѕСЃС‚СЏРјToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
@@ -1205,7 +1204,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void надбавкиТ3ПоППСToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РЅР°РґР±Р°РІРєРёРў3РџРѕРџРџРЎToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
@@ -1214,7 +1213,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void комплексныйОтчетПоНадбавкамToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РєРѕРјРїР»РµРєСЃРЅС‹Р№РћС‚С‡РµС‚РџРѕРќР°РґР±Р°РІРєР°РјToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
@@ -1224,7 +1223,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void отчетТ3ПоППСToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РѕС‚С‡РµС‚Рў3РџРѕРџРџРЎToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
@@ -1233,7 +1232,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void поискНадбавокПоПриказуToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РїРѕРёСЃРєРќР°РґР±Р°РІРѕРєРџРѕРџСЂРёРєР°Р·СѓToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
@@ -1242,7 +1241,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void продлитьНадбавкуToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РїСЂРѕРґР»РёС‚СЊРќР°РґР±Р°РІРєСѓToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BonusProlongDialog dlg = new BonusProlongDialog())
             {
@@ -1250,7 +1249,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void назначитьНадбавкиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РЅР°Р·РЅР°С‡РёС‚СЊРќР°РґР±Р°РІРєРёToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FactStaffBonusDialog bonForm = new FactStaffBonusDialog())
             {
@@ -1258,7 +1257,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void сеткаПоДолжностямИОкладамToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СЃРµС‚РєР°РџРѕР”РѕР»Р¶РЅРѕСЃС‚СЏРјРРћРєР»Р°РґР°РјToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
@@ -1267,7 +1266,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void фОТПоКатегориямБезИсточниковToolStripMenuItem_Click(object sender, EventArgs e)
+        private void С„РћРўРџРѕРљР°С‚РµРіРѕСЂРёСЏРјР‘РµР·РСЃС‚РѕС‡РЅРёРєРѕРІToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
@@ -1277,7 +1276,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void категорииToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РєР°С‚РµРіРѕСЂРёРёToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (CategoryVPODialog dlg = new CategoryVPODialog())
             {
@@ -1285,7 +1284,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void категорииToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void РєР°С‚РµРіРѕСЂРёРёToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             using (CategoryZPDialog dlg = new CategoryZPDialog())
             {
@@ -1293,7 +1292,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void назначитьЧасыToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РЅР°Р·РЅР°С‡РёС‚СЊР§Р°СЃС‹ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FactStaffHourDialog dlg = new FactStaffHourDialog())
             {
@@ -1302,7 +1301,7 @@ namespace Kadr.UI.Forms
 
         }
 
-        private void оКВЭДToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РѕРљР’Р­Р”ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OKVEDDialog dlg = new OKVEDDialog())
             {
@@ -1310,7 +1309,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void типыОтделовToolStripMenuItem_Click(object sender, EventArgs e)
+        private void С‚РёРїС‹РћС‚РґРµР»РѕРІToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (DepartmentTypeDialog dlg = new DepartmentTypeDialog())
             {
@@ -1318,7 +1317,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void группыДолжностейToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РіСЂСѓРїРїС‹Р”РѕР»Р¶РЅРѕСЃС‚РµР№ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (PostGroupDialog dlg = new PostGroupDialog())
             {
@@ -1326,7 +1325,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void продлитьНадбавкурасширеннаяФормаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РїСЂРѕРґР»РёС‚СЊРќР°РґР±Р°РІРєСѓСЂР°СЃС€РёСЂРµРЅРЅР°СЏР¤РѕСЂРјР°ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BonusProlongFullDialog dlg = new BonusProlongFullDialog())
             {
@@ -1334,7 +1333,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void типыРегионовToolStripMenuItem_Click(object sender, EventArgs e)
+        private void С‚РёРїС‹Р РµРіРёРѕРЅРѕРІToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (RegionTypeDialog dlg = new RegionTypeDialog())
             {
@@ -1342,7 +1341,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void видыСтажаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РІРёРґС‹РЎС‚Р°Р¶Р°ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new StandingTypeDialog())
             {
@@ -1350,7 +1349,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void организацииToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РѕСЂРіР°РЅРёР·Р°С†РёРёToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new OrganisationDialog())
             {
@@ -1358,7 +1357,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void типОбразованияToolStripMenuItem_Click(object sender, EventArgs e)
+        private void С‚РёРїРћР±СЂР°Р·РѕРІР°РЅРёСЏToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new EducationTypeDialog())
             {
@@ -1366,7 +1365,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void степеньВладенияЯзыкомToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СЃС‚РµРїРµРЅСЊР’Р»Р°РґРµРЅРёСЏРЇР·С‹РєРѕРјToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new LanguageLevelDialog())
             {
@@ -1374,7 +1373,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void языкToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СЏР·С‹РєToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new LanguageDialog())
             {
@@ -1382,7 +1381,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void типыДокументовToolStripMenuItem_Click(object sender, EventArgs e)
+        private void С‚РёРїС‹Р”РѕРєСѓРјРµРЅС‚РѕРІToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new DocumentTypeDialog())
             {
@@ -1390,7 +1389,7 @@ namespace Kadr.UI.Forms
             }
         }
 
-        private void типПовышенияКвалификацииToolStripMenuItem_Click(object sender, EventArgs e)
+        private void С‚РёРїРџРѕРІС‹С€РµРЅРёСЏРљРІР°Р»РёС„РёРєР°С†РёРёToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new DopEducTypeDialog())
             {
