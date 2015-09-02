@@ -197,5 +197,16 @@ namespace Kadr.UI.Common
             }
         }
 
+        private void commandProperyGrid1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (commandProperyGrid1.SelectedGridItem.PropertyDescriptor.ComponentType == typeof(DateTime))
+            {
+                if (commandProperyGrid1.SelectedGridItem.Value.ToString().Length == 2)
+                    commandProperyGrid1.SelectedGridItem.PropertyDescriptor.SetValue(commandProperyGrid1.SelectedObject,commandProperyGrid1.SelectedGridItem.Value.ToString() + ".");
+
+
+            }
+        }
+
     }
 }

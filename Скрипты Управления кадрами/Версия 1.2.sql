@@ -1096,3 +1096,50 @@ where [dbo].[EducDocument].id in (77112,79424)
 
 alter table Contract add DataBegin date null
 alter table Contract add DataEnd date null
+
+========================================
+Добавление атрибутов в социальный статус
+========================================
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.EducDocument SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.OK_SocialStatus SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.OK_Social ADD
+	idEducDocument int NULL,
+	DateBegin datetime NULL,
+	DateEnd datetime NULL
+GO
+ALTER TABLE dbo.OK_Social ADD CONSTRAINT
+	FK_OK_Social_OK_SocialStatus FOREIGN KEY
+	(
+	idSocialStatus
+	) REFERENCES dbo.OK_SocialStatus
+	(
+	idSocialStatus
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.OK_Social ADD CONSTRAINT
+	FK_OK_Social_EducDocument FOREIGN KEY
+	(
+	idEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.OK_Social SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+

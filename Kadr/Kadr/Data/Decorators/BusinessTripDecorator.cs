@@ -160,7 +160,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Регион пребывания")]
+        [System.ComponentModel.DisplayName("Территориальные условия")]
         [System.ComponentModel.Category("Места пребывания")]
         [System.ComponentModel.Description("В какой регион командируется сотрудник")]
         [System.ComponentModel.ReadOnly(false)]
@@ -179,6 +179,22 @@ namespace Kadr.Data
                 Trip.BusinessTripRegionTypes.First().RegionType = value;
             }
 
+        }
+
+        [System.ComponentModel.DisplayName("Сроки пребывания в регионах уточнены")]
+        [System.ComponentModel.Category("Места пребывания")]
+        [System.ComponentModel.Description("Изменены даты пребывания в регионах командировки")]
+        [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
+        //[System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<RegionType>))]
+
+        public bool IsRegionDatesChanged
+        {
+            get
+            {
+                var list = Trip.BusinessTripRegionTypes;
+                return ((list.Count > 1) || (list[0].DateBegin != DateBegin) || (list[0].DateEnd != DateEnd));
+            }
         }
 
 

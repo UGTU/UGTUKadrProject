@@ -503,3 +503,296 @@ REFERENCES [dbo].[MilitaryStructure] ([id])
 GO
 ALTER TABLE [dbo].[OK_Military] CHECK CONSTRAINT [FK_OK_Military_MilitaryStructure]
 GO
+
+==============================================
+Добавляем в больничный признак выздоровления
+===============================================
+
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.OK_Inkapacity ADD
+	IsFinished bit NOT NULL DEFAULT '1'
+GO
+ALTER TABLE dbo.OK_Inkapacity SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+
+=================================================
+Уровни наград
+================================================
+
+CREATE TABLE [dbo].[AwardLevel](
+	[ID] [int] NOT NULL IDENTITY (1, 1),
+	[Name] [varchar](50) NOT NULL,
+	[AwardLevel] [int] NULL,
+ CONSTRAINT [PK_AwardLevel] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.AwardLevel SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_AwardType
+GO
+ALTER TABLE dbo.AwardType SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_FactStaffPrikaz
+GO
+ALTER TABLE dbo.FactStaffPrikaz SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_Employee
+GO
+ALTER TABLE dbo.Employee SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_EducDocument
+GO
+ALTER TABLE dbo.EducDocument SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.Tmp_Award
+	(
+	ID int NOT NULL IDENTITY (1, 1),
+	IDEmployee int NOT NULL,
+	IDEducDocument int NOT NULL,
+	IDAwardType int NOT NULL,
+	IDFactStaffPrikaz int NULL,
+	IDAwardLevel int NOT NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Tmp_Award SET (LOCK_ESCALATION = TABLE)
+GO
+SET IDENTITY_INSERT dbo.Tmp_Award ON
+GO
+IF EXISTS(SELECT * FROM dbo.Award)
+	 EXEC('INSERT INTO dbo.Tmp_Award (ID, IDEmployee, IDEducDocument, IDAwardType, IDFactStaffPrikaz)
+		SELECT ID, IDEmployee, IDEducDocument, IDAwardType, IDFactStaffPrikaz FROM dbo.Award WITH (HOLDLOCK TABLOCKX)')
+GO
+SET IDENTITY_INSERT dbo.Tmp_Award OFF
+GO
+DROP TABLE dbo.Award
+GO
+EXECUTE sp_rename N'dbo.Tmp_Award', N'Award', 'OBJECT' 
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	PK_Award PRIMARY KEY CLUSTERED 
+	(
+	ID
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_EducDocument FOREIGN KEY
+	(
+	IDEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_Employee FOREIGN KEY
+	(
+	IDEmployee
+	) REFERENCES dbo.Employee
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_FactStaffPrikaz FOREIGN KEY
+	(
+	IDFactStaffPrikaz
+	) REFERENCES dbo.FactStaffPrikaz
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_AwardType FOREIGN KEY
+	(
+	IDAwardType
+	) REFERENCES dbo.AwardType
+	(
+	ID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_AwardLevel FOREIGN KEY
+	(
+	IDAwardLevel
+	) REFERENCES dbo.AwardLevel
+	(
+	ID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+COMMIT
+
+================================
+Название награды
+=================================
+
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_AwardLevel
+GO
+ALTER TABLE dbo.AwardLevel SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_AwardType
+GO
+ALTER TABLE dbo.AwardType SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_FactStaffPrikaz
+GO
+ALTER TABLE dbo.FactStaffPrikaz SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_Employee
+GO
+ALTER TABLE dbo.Employee SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_EducDocument
+GO
+ALTER TABLE dbo.EducDocument SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.Tmp_Award
+	(
+	ID int NOT NULL IDENTITY (1, 1),
+	Name varchar(100) NULL,
+	IDEmployee int NOT NULL,
+	IDEducDocument int NOT NULL,
+	IDAwardType int NOT NULL,
+	IDFactStaffPrikaz int NULL,
+	IDAwardLevel int NOT NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Tmp_Award SET (LOCK_ESCALATION = TABLE)
+GO
+SET IDENTITY_INSERT dbo.Tmp_Award ON
+GO
+IF EXISTS(SELECT * FROM dbo.Award)
+	 EXEC('INSERT INTO dbo.Tmp_Award (ID, IDEmployee, IDEducDocument, IDAwardType, IDFactStaffPrikaz, IDAwardLevel)
+		SELECT ID, IDEmployee, IDEducDocument, IDAwardType, IDFactStaffPrikaz, IDAwardLevel FROM dbo.Award WITH (HOLDLOCK TABLOCKX)')
+GO
+SET IDENTITY_INSERT dbo.Tmp_Award OFF
+GO
+DROP TABLE dbo.Award
+GO
+EXECUTE sp_rename N'dbo.Tmp_Award', N'Award', 'OBJECT' 
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	PK_Award PRIMARY KEY CLUSTERED 
+	(
+	ID
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_EducDocument FOREIGN KEY
+	(
+	IDEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_Employee FOREIGN KEY
+	(
+	IDEmployee
+	) REFERENCES dbo.Employee
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_FactStaffPrikaz FOREIGN KEY
+	(
+	IDFactStaffPrikaz
+	) REFERENCES dbo.FactStaffPrikaz
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_AwardType FOREIGN KEY
+	(
+	IDAwardType
+	) REFERENCES dbo.AwardType
+	(
+	ID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_AwardLevel FOREIGN KEY
+	(
+	IDAwardLevel
+	) REFERENCES dbo.AwardLevel
+	(
+	ID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+COMMIT
+
+

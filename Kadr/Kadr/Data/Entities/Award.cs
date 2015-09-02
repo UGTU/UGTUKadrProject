@@ -38,13 +38,14 @@ namespace Kadr.Data
                if (EducDocument == null) throw new ArgumentNullException("Подтверждающий документ");
                else
                {
-                   if (EducDocument.Organisation == null) throw new ArgumentNullException("Выдавшая организация");
+                   //if (EducDocument.Organisation == null) throw new ArgumentNullException("Выдавшая организация");
                    if (EducDocument.DocDate > DateTime.Now) throw new ArgumentOutOfRangeException("Дата выдачи не может находиться в будущем");
-                   if ((EducDocument.DocNumber == "") || (EducDocument.DocNumber == null)) throw new ArgumentNullException("Номер документа");
+                   //if ((EducDocument.DocNumber == "") || (EducDocument.DocNumber == null)) throw new ArgumentNullException("Номер документа");
                }
 
                if (Employee == null) throw new ArgumentNullException("Сотрудник");
                if (AwardType == null) throw new ArgumentNullException("Наименование награды");
+               if (AwardLevel == null) throw new ArgumentNullException("Уровень награды");
            }
        }
         

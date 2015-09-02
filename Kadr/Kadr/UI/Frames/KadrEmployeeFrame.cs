@@ -640,6 +640,14 @@ namespace Kadr.UI.Frames
             CRUDDopEducation.Delete(Employee, DopEducationBindingSource);
         }
 
+        private void dgvTrips_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+           for (int i = e.RowIndex; i < e.RowIndex+e.RowCount; i++)
+                dgvTrips.Rows[i].Cells["RegionDatesChanged"].Value = (BusinessTripsBindingSource[i] as BusinessTripDecorator).IsRegionDatesChanged; 
+
+
+        }
+
     }
 
 }
