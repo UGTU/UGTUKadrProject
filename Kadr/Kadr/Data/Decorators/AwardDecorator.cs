@@ -38,9 +38,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Наименование награды")]
+        [System.ComponentModel.DisplayName("Вид награды")]
         [System.ComponentModel.Category("Основные")]
-        [System.ComponentModel.Description("Наименование награды сотрудника")]
+        [System.ComponentModel.Description("Вид награды, полученной сотрудником")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<AwardType>))]
 
@@ -57,6 +57,46 @@ namespace Kadr.Data
                     Award.AwardType = value;
                 }
 
+            }
+        }
+
+
+        [System.ComponentModel.DisplayName("Уровень награды")]
+        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Description("Уровень награды, полученной сотрудником")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<AwardLevel>))]
+
+        public AwardLevel Level
+        {
+            get
+            {
+                return Award.AwardLevel;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    Award.AwardLevel = value;
+                }
+
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\tНаименование награды")]
+        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Description("Наименование награды, полученной сотрудником")]
+        [System.ComponentModel.ReadOnly(false)]
+
+        public string Name
+        {
+            get
+            {
+                return Award.Name;
+            }
+            set
+            {
+                    Award.Name = value;
             }
         }
 

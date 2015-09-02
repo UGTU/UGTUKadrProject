@@ -116,11 +116,5 @@ namespace Kadr.Data.Converters
 
     }
 
-    class DocumentTypeToStringConvertor : SimpleToStringConvertor<EducDocumentType>
-    {
-        protected override ICollection GetCollection(ITypeDescriptorContext context)
-        {
-            return base.GetCollection(context).Cast<EducDocumentType>().Where(x => !x.isOld).ToList();
-        }
-    }
+
 }

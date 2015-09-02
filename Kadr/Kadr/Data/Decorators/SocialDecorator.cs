@@ -1,4 +1,5 @@
 ﻿using Kadr.Data.Converters;
+using Kadr.UI.Editors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -36,7 +37,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Социальный статус")]
+        [System.ComponentModel.DisplayName("\tСоциальный статус")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Социальный статус льготника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -142,6 +143,42 @@ namespace Kadr.Data
             {
                 if (Social.EducDocument != null)
                     Social.EducDocument.Organisation = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата начала")]
+        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Description("Дата начала действия социального статуса (необязательно)")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
+
+        public DateTime? DateBegin
+        {
+            get
+            {
+                    return Social.DateBegin;
+            }
+            set
+            {
+                    Social.DateBegin = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата окончания")]
+        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Description("Дата окончания действия социального статуса (необязательно)")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
+
+        public DateTime? DateEnd
+        {
+            get
+            {
+                return Social.DateEnd;
+            }
+            set
+            {
+                Social.DateEnd = value;
             }
         }
 
