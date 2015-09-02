@@ -126,6 +126,8 @@ namespace Kadr.Data
 
         #endregion
 
+        #region Члены IEmployeeExperienceRecord
+
         public IEnumerable<IEmployeeExperienceRecord> EmployeeExperiences
         {
             get
@@ -134,9 +136,25 @@ namespace Kadr.Data
                 var standingSet = EmployeeStandings.Cast<IEmployeeExperienceRecord>();
                 // Записи из штатного расписания, эта организация
                 var stuffSet = FactStaffs.Cast<IEmployeeExperienceRecord>();
-                return standingSet.Concat(stuffSet);
+                // Записи о пребываниях в различных регионах во время командировок
+                var tripsSet = GetAllRegionTypes().Cast<IEmployeeExperienceRecord>();
+
+                return tripsSet.Concat(standingSet.Concat(stuffSet));
             }
         }
+
+        #endregion
+
+        public IEnumerable<BusinessTrip> GetAllTrips()
+        {
+            return FactStaffs.SelectMany(x => x.FactStaffPrikazs).SelectMany(p => p.BusinessTrips);
+        }
+
+        public IEnumerable<BusinessTripRegionType> GetAllRegionTypes()
+        {
+            return GetAllTrips().SelectMany(x => x.BusinessTripRegionTypes);
+        }
+
     }
 
     public class NullEmployee : Employee, INull

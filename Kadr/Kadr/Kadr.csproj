@@ -230,6 +230,7 @@
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
     <Compile Include="Data\Converters\ContractConvertor.cs" />
+    <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
     <Compile Include="Data\Converters\IEntitySelector.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
@@ -290,6 +291,7 @@
     <Compile Include="Data\Decorators\InkapacityDecorator.cs" />
     <Compile Include="Data\Decorators\ValidationDecorator.cs" />
     <Compile Include="Data\Entities\Award.cs" />
+    <Compile Include="Data\Entities\AwardLevel.cs" />
     <Compile Include="Data\Entities\AwardType.cs" />
     <Compile Include="Data\Entities\Bonus.cs" />
     <Compile Include="Data\Entities\BonusHistory.cs" />
@@ -405,11 +407,9 @@
     <Compile Include="UI\Common\CustomBaseDialog.designer.cs">
       <DependentUpon>CustomBaseDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Common\CustomBooleanConverter.cs" />
-    <Compile Include="UI\Common\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
+    <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
