@@ -570,7 +570,7 @@ namespace Kadr.UI.Forms
                 if (DisposeActiveFrame())
                    if (value != null)
                    {
-                       activeFrame = CreateFrame(value, splitContainer1.Panel2, kadrTreeView1.SelectedObject.ObjectTag);
+                       activeFrame = CreateFrame(value, splitContainer1.Panel2, kadrTreeView1.SelectedObject);
 
                        activeFrame.Caption = kadrTreeView1.SelectedNode.FullPath; 
   

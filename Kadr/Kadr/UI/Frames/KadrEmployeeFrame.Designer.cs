@@ -5722,7 +5722,6 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn idEmployeeDataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn adressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateRegDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
         private DataGridViewCheckBoxColumn regBitDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn2;
         private DataGridViewCheckBoxColumn RegionDatesChanged;
