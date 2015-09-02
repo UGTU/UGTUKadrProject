@@ -132,3 +132,41 @@ having COUNT(id)>1*/
 
 
 
+
+go
+alter table [dbo].[Category]
+add IsNP bit default (0)
+
+go
+update [dbo].[Category]
+set [IsNP]=1
+where [id] in (0,2,6)
+
+update [dbo].[Category]
+set [IsNP]=0
+where [id] not in (0,2,6)
+
+
+
+
+
+go
+alter table [dbo].[Dep]
+add idRegionType int null
+go
+alter table [dbo].[Dep]
+add Address varchar(500) null
+
+
+GO
+
+ALTER TABLE [dbo].[Dep]  WITH CHECK ADD  CONSTRAINT [FK_Dep_RegionType] FOREIGN KEY([idRegionType])
+REFERENCES [dbo].[RegionType] ([id])
+GO
+
+ALTER TABLE [dbo].[Dep] CHECK CONSTRAINT [FK_Dep_RegionType]
+GO
+
+go
+update [dbo].[Dep]
+set [idRegionType]=2

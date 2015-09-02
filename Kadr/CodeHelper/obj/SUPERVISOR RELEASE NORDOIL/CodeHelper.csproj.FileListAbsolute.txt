@@ -150,3 +150,8 @@ E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\Co
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csproj.GenerateResource.Cache
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll.config
+E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
+E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
+E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
