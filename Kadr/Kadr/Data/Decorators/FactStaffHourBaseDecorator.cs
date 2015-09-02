@@ -18,7 +18,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Количество ставок по нагрузке")]
-        [System.ComponentModel.Category("Почасовики")]
+        [System.ComponentModel.Category("\t\t\tПочасовики")]
         [System.ComponentModel.Description("Занимаемое сотрудником количество ставок по нагрузке")]
         [System.ComponentModel.ReadOnly(true)]
         public decimal? HourStaffCount
@@ -29,8 +29,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Отдел")]
-        [System.ComponentModel.Category("Общие")]
+        [System.ComponentModel.DisplayName("\t\tОтдел")]
+        [System.ComponentModel.Category("\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("Название отдела")]
         [System.ComponentModel.ReadOnly(true)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -42,8 +42,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Количество часов")]
-        [System.ComponentModel.Category("Почасовики")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\tКоличество часов")]
+        [System.ComponentModel.Category("\t\t\tПочасовики")]
         [System.ComponentModel.Description("Количество часов для почасовиков")]
         [System.ComponentModel.ReadOnly(false)]
         public decimal? HourCount
@@ -58,8 +58,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Оплата за час")]
-        [System.ComponentModel.Category("Почасовики")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\tОплата за час")]
+        [System.ComponentModel.Category("\t\t\tПочасовики")]
         [System.ComponentModel.Description("Оплата за час для почасовиков")]
         [System.ComponentModel.ReadOnly(false)]
         public decimal? HourSalary
@@ -76,7 +76,7 @@ namespace Kadr.Data
 
 
         [System.ComponentModel.DisplayName("Вид работы")]
-        [System.ComponentModel.Category("Общие")]
+        [System.ComponentModel.Category("\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("Название вида работы")]
         [System.ComponentModel.ReadOnly(false)]
         //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.WorkTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -92,8 +92,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Источник финансирования")]
-        [System.ComponentModel.Category("Почасовики")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\tИсточник финансирования")]
+        [System.ComponentModel.Category("\t\t\tПочасовики")]
         [System.ComponentModel.Description("Источник финансирования (редактировать для почасовиков)")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.FinancingSourceConvertor))]
@@ -109,8 +109,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Комментарий")]
-        [System.ComponentModel.Category("Почасовики")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\tКомментарий")]
+        [System.ComponentModel.Category("\t\t\tПочасовики")]
         [System.ComponentModel.Description("Комментарий")]
         [System.ComponentModel.ReadOnly(false)]
         public string Comment

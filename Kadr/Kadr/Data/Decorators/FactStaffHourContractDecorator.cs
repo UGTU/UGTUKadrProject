@@ -16,8 +16,8 @@ namespace Kadr.Data
 
 
 
-        [System.ComponentModel.DisplayName("Cотрудник договора")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\tCотрудник договора")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Сотрудник, для которого указывается договор")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FactStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]

@@ -8,7 +8,7 @@ using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
-    class FactStaffDecorator: FactStaffBaseDecorator
+    class FactStaffDecorator : FactStaffMainBaseDecorator
     {
         public FactStaffDecorator(FactStaff factStaff): base(factStaff)
         {
@@ -16,7 +16,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tФИО сотрудника")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("ФИО сотрудника, назначенного на должность")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.EmployeeEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -34,7 +34,7 @@ namespace Kadr.Data
 
 
         [System.ComponentModel.DisplayName("Подподкатегория")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
         [System.ComponentModel.ReadOnly(false)]
         public int? SalaryKoeff
@@ -53,7 +53,7 @@ namespace Kadr.Data
 
 
         [System.ComponentModel.DisplayName("Должность в штатном расписании")]
-        [System.ComponentModel.Category("Общие")]
+        [System.ComponentModel.Category("\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("Должность в штатном расписании")]
         [System.ComponentModel.ReadOnly(false)]
         public Kadr.Data.PlanStaff PlanStaff
@@ -64,8 +64,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\tНазвание вида работы")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.DisplayName("\t\t\t\tBид работы")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Название вида работы")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
@@ -83,7 +83,7 @@ namespace Kadr.Data
 
 
         [System.ComponentModel.DisplayName("\t\t\t\t\tКоличество ставок")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Занимаемое сотрудником по факту количество ставок")]
         [System.ComponentModel.ReadOnly(false)]
         public decimal StaffCount
@@ -116,7 +116,7 @@ namespace Kadr.Data
         }*/
 
         [System.ComponentModel.DisplayName("ОКВЭД")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Код экономической деятельности")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OKVEDConvertor))]
@@ -133,7 +133,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\tПриказ утверждения")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Приказ назначения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -150,7 +150,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\tНомер договора")]
-        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора")]
         [System.ComponentModel.Description("Номер договора")]
         [System.ComponentModel.ReadOnly(false)]
         public string CurrentContractName
@@ -173,7 +173,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата договора")]
-        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора")]
         [System.ComponentModel.Description("Дата составления договора")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateContract
@@ -196,7 +196,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата начала договора")]
-        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора")]
         [System.ComponentModel.Description("Дата начала действия договора")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
@@ -219,7 +219,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата окончания договора")]
-        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора")]
         [System.ComponentModel.Description("Дата окончания действия договора")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd

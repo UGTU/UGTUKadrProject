@@ -28,7 +28,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("ID")]
-        [System.ComponentModel.Category("Атрибуты")]
+        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\t\tАтрибуты")]
         [System.ComponentModel.Description("Уникальный код сотрудника в штатном расписании")]
         [System.ComponentModel.ReadOnly(true)]
         public int ID
@@ -61,7 +61,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\tДата назначения")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Дата назначения на должность")]
         [System.ComponentModel.ReadOnly(false)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -123,7 +123,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Центр затрат")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Центр затрат")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(FundingCenterEditor), typeof(System.Drawing.Design.UITypeEditor))]
