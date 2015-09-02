@@ -72,7 +72,6 @@ namespace Kadr.UI.Frames
 
 
         #endregion
-
    
         #region LoadData
 
@@ -638,6 +637,14 @@ namespace Kadr.UI.Frames
         private void DeleteDopEducBtn_Click(object sender, EventArgs e)
         {
             CRUDDopEducation.Delete(Employee, DopEducationBindingSource);
+        }
+
+        private void dgvTrips_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+           for (int i = e.RowIndex; i < e.RowIndex+e.RowCount; i++)
+                dgvTrips.Rows[i].Cells["RegionDatesChanged"].Value = (BusinessTripsBindingSource[i] as BusinessTripDecorator).IsRegionDatesChanged; 
+
+
         }
 
     }

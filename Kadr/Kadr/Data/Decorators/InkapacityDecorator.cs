@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Kadr.Data.Converters;
+using Kadr.UI.Common;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing.Design;
 using System.Linq;
@@ -37,6 +40,7 @@ namespace Kadr.Data
 
         [System.ComponentModel.DisplayName("Дата начала")]
         [System.ComponentModel.Category("Даты")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Description("Дата начала больничного")]
 
         public DateTime DateBegin
@@ -57,6 +61,7 @@ namespace Kadr.Data
 
         [System.ComponentModel.DisplayName("Дата окончания")]
         [System.ComponentModel.Category("Даты")]
+        [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Description("Дата окончания больничного")]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
 
@@ -81,6 +86,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Серия документа, подтверждающего период нетрудоспособности")]
         [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(false)]
         public string Serie
         {
             get
@@ -100,7 +106,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Номер")]
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Номер документа, подтверждающего период нетрудоспособности")]
-
+        [System.ComponentModel.ReadOnly(false)]
         public string Number
         {
             get
@@ -123,6 +129,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Дата выдачи документа, подтверждающего период нетрудоспособности")]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
+        [System.ComponentModel.ReadOnly(false)]
         public DateTime? DocDate
         {
             get
@@ -136,6 +143,23 @@ namespace Kadr.Data
             {
                 if (Inkapacity.EducDocument != null)
                     Inkapacity.EducDocument.DocDate = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Приступил к работе")]
+        [System.ComponentModel.Category("Результат")]
+        [System.ComponentModel.Description("Приступил ли сотрудник к работе после окончания данного периода нетрудоспособности")]
+        [System.ComponentModel.TypeConverter(typeof(CustomBooleanConverter))]
+        [System.ComponentModel.ReadOnly(false)]
+        public bool IsFinished
+        {
+            get
+            {
+                 return Inkapacity.IsFinished;
+            }
+            set
+            {
+                Inkapacity.IsFinished = value;
             }
         }
 

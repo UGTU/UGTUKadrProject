@@ -30,7 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvRegionType = new System.Windows.Forms.DataGridView();
+            this.idRegionType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.regionTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idBusinessTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regionTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateBeginDataGridViewTextBoxColumn = new Kadr.UI.Common.DataGridViewDateTimeColumn();
+            this.dateEndDataGridViewTextBoxColumn = new Kadr.UI.Common.DataGridViewDateTimeColumn();
+            this.businessTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.businessTripRegionTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.bDelete = new System.Windows.Forms.Button();
@@ -42,13 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbRegion = new System.Windows.Forms.ComboBox();
-            this.idRegionType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idBusinessTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regionTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateBeginDataGridViewTextBoxColumn = new Kadr.UI.Common.DataGridViewDateTimeColumn();
-            this.dateEndDataGridViewTextBoxColumn = new Kadr.UI.Common.DataGridViewDateTimeColumn();
-            this.businessTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegionType)).BeginInit();
@@ -81,6 +81,7 @@
             this.helpProvider1.SetHelpString(this.CancelBtn, "Отменяет все изменения с момента последноего сохранения и закрывает окно.");
             this.CancelBtn.Location = new System.Drawing.Point(385, 4);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // OKBtn
             // 
@@ -123,10 +124,71 @@
             this.dgvRegionType.Size = new System.Drawing.Size(569, 157);
             this.dgvRegionType.TabIndex = 5;
             this.dgvRegionType.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvRegionType_DataError);
+            this.dgvRegionType.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvRegionType_RowsAdded);
+            // 
+            // idRegionType
+            // 
+            this.idRegionType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idRegionType.DataPropertyName = "idRegionType";
+            this.idRegionType.DataSource = this.regionTypeBindingSource;
+            this.idRegionType.DisplayMember = "RegionTypeSmallName";
+            this.idRegionType.HeaderText = "Территориальные условия";
+            this.idRegionType.Name = "idRegionType";
+            this.idRegionType.ValueMember = "id";
             // 
             // regionTypeBindingSource
             // 
             this.regionTypeBindingSource.DataSource = typeof(Kadr.Data.RegionType);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            this.iDDataGridViewTextBoxColumn.Width = 43;
+            // 
+            // idBusinessTripDataGridViewTextBoxColumn
+            // 
+            this.idBusinessTripDataGridViewTextBoxColumn.DataPropertyName = "idBusinessTrip";
+            this.idBusinessTripDataGridViewTextBoxColumn.HeaderText = "idBusinessTrip";
+            this.idBusinessTripDataGridViewTextBoxColumn.Name = "idBusinessTripDataGridViewTextBoxColumn";
+            this.idBusinessTripDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // regionTypeDataGridViewTextBoxColumn
+            // 
+            this.regionTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.regionTypeDataGridViewTextBoxColumn.DataPropertyName = "RegionType";
+            this.regionTypeDataGridViewTextBoxColumn.HeaderText = "Регион";
+            this.regionTypeDataGridViewTextBoxColumn.Name = "regionTypeDataGridViewTextBoxColumn";
+            this.regionTypeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dateBeginDataGridViewTextBoxColumn
+            // 
+            this.dateBeginDataGridViewTextBoxColumn.DataPropertyName = "DateBegin";
+            this.dateBeginDataGridViewTextBoxColumn.HeaderText = "Дата начала пребывания";
+            this.dateBeginDataGridViewTextBoxColumn.Name = "dateBeginDataGridViewTextBoxColumn";
+            this.dateBeginDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dateBeginDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dateBeginDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // dateEndDataGridViewTextBoxColumn
+            // 
+            this.dateEndDataGridViewTextBoxColumn.DataPropertyName = "DateEnd";
+            this.dateEndDataGridViewTextBoxColumn.FillWeight = 150F;
+            this.dateEndDataGridViewTextBoxColumn.HeaderText = "Дата окончания пребывания";
+            this.dateEndDataGridViewTextBoxColumn.Name = "dateEndDataGridViewTextBoxColumn";
+            this.dateEndDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dateEndDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dateEndDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // businessTripDataGridViewTextBoxColumn
+            // 
+            this.businessTripDataGridViewTextBoxColumn.DataPropertyName = "BusinessTrip";
+            this.businessTripDataGridViewTextBoxColumn.HeaderText = "BusinessTrip";
+            this.businessTripDataGridViewTextBoxColumn.Name = "businessTripDataGridViewTextBoxColumn";
+            this.businessTripDataGridViewTextBoxColumn.Visible = false;
+            this.businessTripDataGridViewTextBoxColumn.Width = 92;
             // 
             // businessTripRegionTypeBindingSource
             // 
@@ -224,66 +286,6 @@
             this.cbRegion.Name = "cbRegion";
             this.cbRegion.Size = new System.Drawing.Size(203, 21);
             this.cbRegion.TabIndex = 0;
-            // 
-            // idRegionType
-            // 
-            this.idRegionType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idRegionType.DataPropertyName = "idRegionType";
-            this.idRegionType.DataSource = this.regionTypeBindingSource;
-            this.idRegionType.DisplayMember = "RegionTypeSmallName";
-            this.idRegionType.HeaderText = "Регион пребывания";
-            this.idRegionType.Name = "idRegionType";
-            this.idRegionType.ValueMember = "id";
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            this.iDDataGridViewTextBoxColumn.Width = 43;
-            // 
-            // idBusinessTripDataGridViewTextBoxColumn
-            // 
-            this.idBusinessTripDataGridViewTextBoxColumn.DataPropertyName = "idBusinessTrip";
-            this.idBusinessTripDataGridViewTextBoxColumn.HeaderText = "idBusinessTrip";
-            this.idBusinessTripDataGridViewTextBoxColumn.Name = "idBusinessTripDataGridViewTextBoxColumn";
-            this.idBusinessTripDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // regionTypeDataGridViewTextBoxColumn
-            // 
-            this.regionTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.regionTypeDataGridViewTextBoxColumn.DataPropertyName = "RegionType";
-            this.regionTypeDataGridViewTextBoxColumn.HeaderText = "Регион";
-            this.regionTypeDataGridViewTextBoxColumn.Name = "regionTypeDataGridViewTextBoxColumn";
-            this.regionTypeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dateBeginDataGridViewTextBoxColumn
-            // 
-            this.dateBeginDataGridViewTextBoxColumn.DataPropertyName = "DateBegin";
-            this.dateBeginDataGridViewTextBoxColumn.HeaderText = "Дата начала пребывания";
-            this.dateBeginDataGridViewTextBoxColumn.Name = "dateBeginDataGridViewTextBoxColumn";
-            this.dateBeginDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dateBeginDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dateBeginDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // dateEndDataGridViewTextBoxColumn
-            // 
-            this.dateEndDataGridViewTextBoxColumn.DataPropertyName = "DateEnd";
-            this.dateEndDataGridViewTextBoxColumn.FillWeight = 150F;
-            this.dateEndDataGridViewTextBoxColumn.HeaderText = "Дата окончания пребывания";
-            this.dateEndDataGridViewTextBoxColumn.Name = "dateEndDataGridViewTextBoxColumn";
-            this.dateEndDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dateEndDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dateEndDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // businessTripDataGridViewTextBoxColumn
-            // 
-            this.businessTripDataGridViewTextBoxColumn.DataPropertyName = "BusinessTrip";
-            this.businessTripDataGridViewTextBoxColumn.HeaderText = "BusinessTrip";
-            this.businessTripDataGridViewTextBoxColumn.Name = "businessTripDataGridViewTextBoxColumn";
-            this.businessTripDataGridViewTextBoxColumn.Visible = false;
-            this.businessTripDataGridViewTextBoxColumn.Width = 92;
             // 
             // TripRegionsDialog
             // 
