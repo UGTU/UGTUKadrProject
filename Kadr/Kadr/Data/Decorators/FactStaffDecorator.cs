@@ -149,6 +149,23 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.DisplayName("Основной договор")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора")]
+        [System.ComponentModel.Description("Основной договор")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.ContractConvertor))]
+        public Contract MainContract
+        {
+            get
+            {
+                return factStaff.MainContract;
+            }
+            set
+            {
+                factStaff.MainContract = value;
+            }
+        }
+
         [System.ComponentModel.DisplayName("\t\t\t\tНомер договора")]
         [System.ComponentModel.Category("\t\t\tПараметры договора")]
         [System.ComponentModel.Description("Номер договора")]

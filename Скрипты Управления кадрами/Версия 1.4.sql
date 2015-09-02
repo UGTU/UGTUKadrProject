@@ -170,3 +170,18 @@ GO
 go
 update [dbo].[Dep]
 set [idRegionType]=2
+
+
+go
+alter table [dbo].FactStaffHistory
+add idRegionType int null
+go
+alter table [dbo].FactStaffHistory
+add Address varchar(500) null
+GO
+
+ALTER TABLE [dbo].FactStaffHistory  WITH CHECK ADD  CONSTRAINT [FK_FactStaffHistory_RegionType] FOREIGN KEY([idRegionType])
+REFERENCES [dbo].[RegionType] ([id])
+GO
+
+ALTER TABLE [dbo].FactStaffHistory CHECK CONSTRAINT [FK_FactStaffHistory_RegionType]
