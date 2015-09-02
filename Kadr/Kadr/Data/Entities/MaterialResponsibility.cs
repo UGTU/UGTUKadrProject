@@ -9,6 +9,12 @@ namespace Kadr.Data
 {
     public partial class MaterialResponsibility : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
+       /* public MaterialResponsibility(UIX.Commands.ICommandManager commandManager, FactStaff fsStaff)
+            : this()
+        {
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<MaterialResponsibility, FactStaff>(this, "FactStaff", fsStaff, null), this);
+        }*/
+
         public override string ToString()
         {
             return "Запись по материальной ответственности " + FactStaffPrikaz.FactStaff;
@@ -82,6 +88,8 @@ namespace Kadr.Data
                 Prikaz.DatePrikaz = value;
             }
         }
+
+        public FactStaff FactStaff { get; set; }
 
         #endregion
 

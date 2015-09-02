@@ -70,22 +70,58 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата/год рождения")]
+        [System.ComponentModel.DisplayName("Дата рождения")]
         [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Дата/год рождения")]
+        [System.ComponentModel.Description("Дата рождения")]
         [System.ComponentModel.ReadOnly(false)]
-        public string godbirth
+        public DateTime BirthDate
         {
             get
             {
-                return famMember.godbirth;
+                if (famMember.BirthDate == null)
+                    return DateTime.Today;
+                else
+                    return famMember.BirthDate.Value;
             }
             set
             {
-                famMember.godbirth = value;
+                famMember.BirthDate = value;
+                if (value != null)
+                    famMember.BirthYear = value.Year;
             }
         }
 
+        [System.ComponentModel.DisplayName("Год рождения")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Год рождения")]
+        [System.ComponentModel.ReadOnly(false)]
+        public int? BirthYear
+        {
+            get
+            {
+                return famMember.BirthYear;
+            }
+            set
+            {
+                famMember.BirthYear = value;
+            }
+        }
+
+        /*[System.ComponentModel.DisplayName("Год рождения")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Год рождения ")]
+        [System.ComponentModel.ReadOnly(false)]
+        public int? BirthYear
+        {
+            get
+            {
+                return famMember.BirthYear;
+            }
+            set
+            {
+                famMember.BirthYear = value;
+            }
+        }*/
 
     }
 

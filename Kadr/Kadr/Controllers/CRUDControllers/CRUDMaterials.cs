@@ -18,23 +18,31 @@ namespace Kadr.Controllers
             {
                     dlg.InitializeNewObject = (x) =>
                     {
+                        x.FactStaff = fs;
                         var factStaffPrikaz = new FactStaffPrikaz();
+                        var factStaffPrikazEnd = new FactStaffPrikaz();
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikaz, "FactStaff",
                                 fs, null), sender);
+
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikaz, "Prikaz",
                                 NullPrikaz.Instance, null), sender);
+
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateBegin",
                                 DateTime.Today, null), sender);
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateEnd",
                                 null, null), sender);
+                        dlg.CommandManager.Execute(
+                            new GenericPropertyCommand<MaterialResponsibility, decimal?>(x, "Perc",
+                                10, null), sender);
 
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<MaterialResponsibility, FactStaffPrikaz>(x,
                                 "FactStaffPrikaz", factStaffPrikaz, null), sender);
+
                         // var contract = new Data.Contract();
                         dlg.CommandManager.Execute(new GenericPropertyCommand<MaterialResponsibility, Prikaz>(x, "Prikaz", 
                             new Prikaz(dlg.CommandManager, KadrController.Instance.Model.PrikazTypes.FirstOrDefault(y => y.id == Prikaz.MaterialPrikaz)), null), sender);
@@ -61,6 +69,7 @@ namespace Kadr.Controllers
             if (MaterialResponsibilitybindingSource.Current != null)
             {
                 var currMaterial = MaterialResponsibilitybindingSource.Current as MaterialResponsibility;
+                currMaterial.FactStaff = fs;
                 LinqActionsController<MaterialResponsibility>.Instance.EditObject(
                     currMaterial, true);
             }

@@ -96,6 +96,10 @@ where idlaborcontrakt=9439
 delete from dbo.Prikaz
 where id=9439
 
+
+
+
+
 go
 alter table Contract 
 add [idPrikazType] int null
@@ -109,6 +113,11 @@ from [dbo].[Prikaz]
   or
    Prikaz.id in (select idlaborcontrakt from dbo.FactStaffHistory))
   
+
+
+
+
+
 
 
   update dbo.FactStaffHistory
@@ -181,6 +190,64 @@ update [dbo].[Contract]
 set idMainContract=[Contract].id
 --from [dbo].[Contract]
 where [idPrikazType]!=27
+
+
+
+
+--те, у кого только один договор внесен
+select Employee.id, COUNT(distinct [Contract].id)
+
+from dbo.Employee inner join
+dbo.FactStaff on Employee.id=FactStaff.idEmployee
+ inner join
+dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+ inner join
+dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+where [Contract].idPrikazType=27
+group by Employee.id
+having COUNT(distinct [Contract].id)=1
+
+--указываем им в доп соглашени€х договора
+
+
+update dbo.[Contract]
+set [Contract].idMainContract=UniqueContract.idContract
+--select * 
+from
+
+--dbo.Employee inner join
+dbo.FactStaff --on Employee.id=FactStaff.
+ inner join
+dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+ inner join
+dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+--inner join dbo.[Contract] MainContract on [Contract].id=FactStaffHistory.idContract
+inner join
+	(select distinct Empl.id idEmployee, [Contract].id idContract
+	from
+	(select Employee.id--, COUNT(distinct [Contract].id)
+
+	from dbo.Employee inner join
+	dbo.FactStaff on Employee.id=FactStaff.idEmployee
+	 inner join
+	dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+	 inner join
+	dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+	where [Contract].idPrikazType=27
+	group by Employee.id
+	having COUNT(distinct [Contract].id)=1)empl
+	 inner join
+	dbo.FactStaff on empl.id=FactStaff.idEmployee
+	 inner join
+	dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
+	 inner join
+	dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
+	where [Contract].idPrikazType=27)UniqueContract
+	ON FactStaff.idEmployee=UniqueContract.idEmployee
+where [Contract].idPrikazType!=27
+--and  in
+
+
 ---------------------------------¬оенный учет---------------------------------------------------------------------------------------------
 SET ANSI_NULLS ON
 GO
@@ -435,4 +502,21 @@ ALTER TABLE [dbo].[OK_Military]  WITH CHECK ADD  CONSTRAINT [FK_OK_Military_Mili
 REFERENCES [dbo].[MilitaryStructure] ([id])
 GO
 ALTER TABLE [dbo].[OK_Military] CHECK CONSTRAINT [FK_OK_Military_MilitaryStructure]
+GO
+
+----------------------- орректировка мат. ответственности---------------------------------------------------------------------------------------------------------------------
+alter table [dbo].[MaterialResponsibility] add idFactStaffPrikazEnd int null
+alter table [dbo].[MaterialResponsibility] add Perc numeric(4,2)
+
+/****** Object:  Index [IX_MaterialResponsibility_2]    Script Date: 31.08.2015 9:52:19 ******/
+CREATE NONCLUSTERED INDEX [IX_MaterialResponsibility_2] ON [dbo].[MaterialResponsibility]
+(
+	[idFactStaffPrikazEnd] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MaterialResponsibility]  WITH CHECK ADD  CONSTRAINT [FK_MaterialResponsibility_FactStaffPrikaz1] FOREIGN KEY([idFactStaffPrikazEnd])
+REFERENCES [dbo].[FactStaffPrikaz] ([id])
+GO
+ALTER TABLE [dbo].[MaterialResponsibility] CHECK CONSTRAINT [FK_MaterialResponsibility_FactStaffPrikaz1]
 GO

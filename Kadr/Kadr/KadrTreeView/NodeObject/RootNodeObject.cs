@@ -62,13 +62,12 @@ namespace Kadr.KadrTreeView
             decimal CatPlanStaffCount, CatFactStaffCount, CatAllFactStaffCount;
             foreach (Kadr.Data.Category cat in KadrController.Instance.Model.Categories)
             {
-
                 if (Department.PlanStaffs.Where(planSt => (planSt.Post.Category == cat) && (planSt.Prikaz == null)).Count() > 0)
                 {
                     CatPlanStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Post.Category == cat) && (planSt.Prikaz == null)).Sum(planSt => planSt.StaffCount);
                     CatFactStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Post.Category == cat) && (planSt.Prikaz == null)).Sum(planSt => planSt.FactStaffCount);
                     CatAllFactStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Post.Category == cat) && (planSt.Prikaz == null)).Sum(planSt => planSt.AllFactStaffCount);
-                    objectInfo += "   " + cat.CategorySmallName + " " + CatPlanStaffCount.ToString() + "/ " + CatFactStaffCount.ToString() + " /" + CatAllFactStaffCount.ToString();
+                    objectInfo += "   " + cat.CategorySmallName + " " + CatPlanStaffCount.ToString(string.Format("0.00")) + "/ " + CatFactStaffCount.ToString(string.Format("0.00")) + " /" + CatAllFactStaffCount.ToString(string.Format("0.00"));
                 }
             }
             if (Department.PlanStaffs.Where(planSt => (planSt.Prikaz == null)).Count() > 0)
@@ -76,7 +75,7 @@ namespace Kadr.KadrTreeView
                 CatPlanStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Prikaz == null)).Sum(planSt => planSt.StaffCount);
                 CatFactStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Prikaz == null)).Sum(planSt => planSt.FactStaffCount);
                 CatAllFactStaffCount = Department.PlanStaffs.Where(planSt => (planSt.Prikaz == null)).Sum(planSt => planSt.AllFactStaffCount);
-                objectInfo += "   Всего " + CatPlanStaffCount.ToString() + "/ " + CatFactStaffCount.ToString() + " /" + CatAllFactStaffCount.ToString();               
+                objectInfo += "   Всего " + CatPlanStaffCount.ToString(string.Format("0.00")) + "/ " + CatFactStaffCount.ToString(string.Format("0.00")) + " /" + CatAllFactStaffCount.ToString(string.Format("0.00"));               
             }
 
             return objectInfo;

@@ -415,6 +415,7 @@ namespace Kadr.UI.Forms
             kadrTreeView1.CreateRootNodes();
             CreateNodeContextItems();
             Text = "ИС \"Управление кадрами\" (" + DateTime.Today.ToShortDateString() + ")";
+            tscbFindType.SelectedIndex = 0;
         }
 
         // Импортирует файлы, переданные через командную сроку

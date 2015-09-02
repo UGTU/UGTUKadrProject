@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.categoryVPOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryVPONameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryVPOSmallNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryVPOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -84,10 +84,6 @@
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             // 
-            // categoryVPOBindingSource
-            // 
-            this.categoryVPOBindingSource.DataSource = typeof(Kadr.Data.CategoryVPO);
-            // 
             // categoryVPONameDataGridViewTextBoxColumn
             // 
             this.categoryVPONameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -107,6 +103,10 @@
             this.orderByDataGridViewTextBoxColumn.DataPropertyName = "OrderBy";
             this.orderByDataGridViewTextBoxColumn.HeaderText = "Порядок сортировки";
             this.orderByDataGridViewTextBoxColumn.Name = "orderByDataGridViewTextBoxColumn";
+            // 
+            // categoryVPOBindingSource
+            // 
+            this.categoryVPOBindingSource.DataSource = typeof(Kadr.Data.CategoryVPO);
             // 
             // CategoryVPODialog
             // 

@@ -34,7 +34,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Адрес")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\tАдрес")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Адрес")]
         [System.ComponentModel.ReadOnly(false)]
@@ -50,7 +50,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата регистрации")]
+        [System.ComponentModel.DisplayName("\t\t\t\tДата регистрации")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата регистрации")]
         [System.ComponentModel.ReadOnly(false)]
@@ -58,7 +58,7 @@ namespace Kadr.Data
         {
             get
             {
-                return address.DateReg.Value;
+                return Convert.ToDateTime(address.DateReg); 
             }
             set
             {
@@ -66,9 +66,25 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Показатель регистрации")]
+        [System.ComponentModel.DisplayName("\t\t\tДата завершения регистрации")]
         [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Показатель регистрации")]
+        [System.ComponentModel.Description("Дата завершения регистрации")]
+        [System.ComponentModel.ReadOnly(false)]
+        public DateTime DateEnd
+        {
+            get
+            {
+                return Convert.ToDateTime(address.DateEnd); 
+            }
+            set
+            {
+                address.DateEnd = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\tПрописка")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Является ли адрес пропиской")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]
         public bool RegBit

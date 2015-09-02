@@ -268,24 +268,135 @@ namespace Kadr.Data
             }
         }
 
-        /*[System.ComponentModel.DisplayName("Номер договора")]
-        [System.ComponentModel.Category("Параметры договора")]
-        [System.ComponentModel.Description("Номер договора")]
+        /*[System.ComponentModel.DisplayName("Центр затрат")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Центр затрат")]
         [System.ComponentModel.ReadOnly(false)]
-        public string ContractName
+        [System.ComponentModel.Editor(typeof(FundingCenterEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public FundingCenter FundingCenter
         {
             get
             {
-                if (factStaff.Contract != null)
-                    return factStaff.Contract.ContractName;
+                return factStaff;
+            }
+            set
+            {
+                factStaff.FundingCenter = value;
+            }
+        }*/
+
+        [System.ComponentModel.DisplayName("Номер договора")]
+        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Description("Номер договора")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string CurrentContractName
+        {
+            get
+            {
+                if (factStaff.CurrentContract != null)
+                    return factStaff.CurrentContract.ContractName;
                 else
                     return null;
             }
             set
             {
-                factStaff.Contract.ContractName = value;
+                if (value != null)
+                {
+                    if (factStaff.CurrentContract != null)
+                        factStaff.CurrentContract.ContractName = value;
+                    else
+                    {
+                        factStaff.CurrentContract = new Contract(factStaff.CurrentChange, value, DateTime.Today, DateTime.Today, DateTime.Today);
+                        //factStaff.CurrentContract.ContractName = value;
+                    }
+                }
             }
-        }*/
+        }
+
+        [System.ComponentModel.DisplayName("Дата договора")]
+        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Description("Дата составления договора")]
+        [System.ComponentModel.ReadOnly(false)]
+        public DateTime DateContract
+        {
+            get
+            {
+                if (factStaff.CurrentContract != null)
+                    return Convert.ToDateTime(factStaff.CurrentContract.DateContract);
+                else
+                    return DateTime.MinValue;
+            }
+            set
+            {
+                if ((value != null) && (value != DateTime.MinValue))
+                {
+                    if (factStaff.CurrentContract != null)
+                        factStaff.CurrentContract.DateContract = value;
+                    else
+                    {
+                        factStaff.CurrentContract = new Contract(factStaff.CurrentChange, null, value, DateTime.Today, DateTime.Today);
+                        //factStaff.CurrentContract.ContractName = value;
+                    }
+                }
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата начала договора")]
+        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Description("Дата начала действия договора")]
+        [System.ComponentModel.ReadOnly(false)]
+        public DateTime DateBegin
+        {
+            get
+            {
+                if (factStaff.CurrentContract != null)
+                    return Convert.ToDateTime(factStaff.CurrentContract.DateBegin);
+                else
+                    return DateTime.MinValue;
+            }
+            set
+            {
+                if ((value != null) && (value != DateTime.MinValue))
+                {
+                    if (factStaff.CurrentContract != null)
+                        factStaff.CurrentContract.DateBegin = value;
+                    else
+                    {
+                        factStaff.CurrentContract = new Contract(factStaff.CurrentChange, null, DateTime.Today, value, DateTime.Today);
+                        //factStaff.CurrentContract.ContractName = value;
+                    }
+                }
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Дата окончания договора")]
+        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Description("Дата окончания действия договора")]
+        [System.ComponentModel.ReadOnly(false)]
+        public DateTime DateEnd
+        {
+            get
+            {
+                if (factStaff.CurrentContract != null)
+                    return Convert.ToDateTime(factStaff.CurrentContract.DateEnd);
+                else
+                    return DateTime.MinValue;
+            }
+            set
+            {
+                if ((value != null) && (value != DateTime.MinValue))
+                {
+                    if (factStaff.CurrentContract != null)
+                        factStaff.CurrentContract.DateEnd = value;
+                    else
+                    {
+                        factStaff.CurrentContract = new Contract(factStaff.CurrentChange, null, DateTime.Today, DateTime.Today, value);
+                        //factStaff.CurrentContract.ContractName = value;
+                    }
+                }
+            }
+        }
+
     }
 
 }
