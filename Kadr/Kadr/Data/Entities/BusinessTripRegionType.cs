@@ -8,7 +8,7 @@ using UIX.Views;
 
 namespace Kadr.Data
 {
-    public partial class BusinessTripRegionType : INull, IComparable, IDecorable, IValidatable
+    public partial class BusinessTripRegionType : INull, IComparable, IDecorable, IValidatable, IEmployeeExperienceRecord
     {
         #region Properties
 
@@ -87,5 +87,30 @@ namespace Kadr.Data
             return ToString().CompareTo(obj.ToString());
         }
 
+
+        public DateTime StartOfWork
+        {
+            get { return DateBegin; }
+        }
+
+        public DateTime? EndOfWork
+        {
+            get { return DateEnd; }
+        }
+
+        public TerritoryConditions Territory
+        {
+            get { return RegionType.GetTerritoryCondition(); }
+        }
+
+        public KindOfExperience Experience
+        {
+            get { return BusinessTrip.FactStaffPrikaz.FactStaff.Experience; }
+        }
+
+        public Affilations Affilation
+        {
+            get { return Affilations.Organization; }
+        }
     }
 }
