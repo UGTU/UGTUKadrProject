@@ -72,7 +72,6 @@ namespace Kadr.UI.Frames
 
 
         #endregion
-
    
         #region LoadData
 
