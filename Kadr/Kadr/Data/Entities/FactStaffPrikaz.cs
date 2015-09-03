@@ -1,4 +1,5 @@
-﻿using Kadr.Data.Common;
+﻿using System.Data.Linq.Mapping;
+using Kadr.Data.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

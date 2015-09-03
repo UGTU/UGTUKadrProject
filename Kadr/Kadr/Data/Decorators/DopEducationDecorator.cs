@@ -56,10 +56,10 @@ namespace Kadr.Data
             set
             {
                _dop.DopEducType = value;
-                if (value.EducDocumentType != null) _dop.EducDocument.EducDocumentType = value.EducDocumentType;
-
-
-                this.SetPropertyReadOnly(() => EducDocumentType, value.EducDocumentType != null);
+                if (value == null) return;
+                if (value.EducDocumentType != null)
+                    _dop.EducDocument.EducDocumentType = value.EducDocumentType;
+                this.SetPropertyReadOnly(() => _dop.EducDocument.EducDocumentType, value.EducDocumentType != null);
             }
         }
 

@@ -5,24 +5,28 @@ using System.Text;
 using Kadr.Data.Common;
 using Kadr.Controllers;
 using System.Data.Linq;
+using UIX.Commands;
+using UIX.Views;
 
 namespace Kadr.Data
 {
     /// <summary>
     /// Есть рекурсивная ссылка - если заполнена, то это доп соглашение к договору.
     /// </summary>
-    public partial class Contract : UIX.Views.IValidatable
+    public partial class Contract : IValidatable
     {
+        public const int MaterialContract = 18;
 
-        public Contract(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory, string contractName = null, DateTime? dateContract = null, DateTime? dateBegin = null, DateTime? dateEnd = null)
+        public Contract(ICommandManager CommandManager, FactStaffHistory factStaffHistory, string contractName = null, DateTime? dateContract = null, DateTime? dateBegin = null, DateTime? dateEnd = null)
             : this()
         {
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Contract>(factStaffHistory, "Contract", this, null), null);
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, string>(this, "ContractName", contractName, null), null);
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(this, "DateContract", dateContract, null), null); ContractName = contractName;
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(this, "DateBegin", dateBegin, null), null); ContractName = contractName;
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(this, "DateEnd", dateEnd, null), null); ContractName = contractName;
+            CommandManager.Execute(new GenericPropertyCommand<FactStaffHistory, Contract>(factStaffHistory, "Contract", this, null), null);
+            CommandManager.Execute(new GenericPropertyCommand<Contract, string>(this, "ContractName", contractName, null), null);
+            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateContract", dateContract, null), null); ContractName = contractName;
+            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateBegin", dateBegin, null), null); ContractName = contractName;
+            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateEnd", dateEnd, null), null); ContractName = contractName;
         }
+
 
         public override string ToString()
         {
@@ -77,7 +81,7 @@ namespace Kadr.Data
         #region partial Methods
 
 
-        partial void OnValidate(System.Data.Linq.ChangeAction action)
+        partial void OnValidate(ChangeAction action)
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
@@ -103,7 +107,7 @@ namespace Kadr.Data
 
         #region IValidatable Members
 
-        void UIX.Views.IValidatable.Validate()
+        void IValidatable.Validate()
         {
             OnValidate(ChangeAction.Insert);
         }

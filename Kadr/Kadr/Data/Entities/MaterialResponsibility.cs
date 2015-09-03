@@ -9,24 +9,18 @@ namespace Kadr.Data
 {
     public partial class MaterialResponsibility : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
+       /* public MaterialResponsibility(UIX.Commands.ICommandManager commandManager, FactStaff fsStaff)
+            : this()
+        {
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<MaterialResponsibility, FactStaff>(this, "FactStaff", fsStaff, null), this);
+        }*/
+
         public override string ToString()
         {
             return "Запись по материальной ответственности " + FactStaffPrikaz.FactStaff;
         }
 
         #region Properties
-
-        public Kadr.Data.Prikaz FSPrikaz
-        {
-            get
-            {
-                return FactStaffPrikaz.Prikaz;
-            }
-            set
-            {
-                if (value != null) FactStaffPrikaz.Prikaz = value;
-            }
-        }
 
         public DateTime? DateBegin
         {
@@ -53,35 +47,22 @@ namespace Kadr.Data
             }
         }
 
-        public Prikaz Contract
-        {
-            get { return Prikaz; }
-            set { Prikaz = value; }
-        }
-
         public string ContractName
         {
-            get
-            {
-                return Prikaz.PrikazName;
-            }
-            set
-            {
-                Prikaz.PrikazName = value;
-            }
+            get { return Contract.ContractName; }
+            set { Contract.ContractName = value; }
         }
 
-        public DateTime? DateContract
+        public DateTime DateContract
         {
             get
             {
-                return Prikaz.DatePrikaz;
+                return Contract.DateContract != null ? Contract.DateContract.Value : DateTime.MinValue;
             }
-            set
-            {
-                Prikaz.DatePrikaz = value;
-            }
+            set { Contract.DateContract = value; }
         }
+
+        public FactStaff FactStaff { get; set; }
 
         #endregion
 
@@ -96,8 +77,8 @@ namespace Kadr.Data
             if ((action != ChangeAction.Insert) && (action != ChangeAction.Update)) return;
 
             if (FactStaffPrikaz.idPrikaz == 0) throw new ArgumentNullException("Приказ.");
-            if ((ContractName == null) || (ContractName.Trim()=="")) throw new ArgumentNullException("Номер договора.");
-            if (DateContract == null) throw new ArgumentNullException("Дата договора.");
+            if ((Contract.ContractName == null) || (Contract.ContractName.Trim() == "")) throw new ArgumentNullException("Номер договора.");
+            if (Contract.DateContract == null) throw new ArgumentNullException("Дата договора.");
             if (FactStaffPrikaz.DateBegin == null) throw new ArgumentNullException("Дата начала действия.");
             if (FactStaffPrikaz.DateEnd == DateTime.MinValue)
                 FactStaffPrikaz.DateEnd = null;

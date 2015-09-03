@@ -13,14 +13,14 @@ namespace Kadr.Controllers
     {
         public static void Create(Employee e, FactStaff fs, BindingSource DopEducationBindingSource, object sender)
         {
-            using (PropertyGridDialogAdding<OK_DopEducation> dlg =
+            using (var dlg =
                SimpleActionsProvider.NewSimpleObjectAddingDialog<OK_DopEducation>())
             {
 
                 dlg.InitializeNewObject = (x) =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, Employee>(x, "Employee", e, null), sender);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, FactStaff>(x, "FactStaff", fs, null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, FactStaff>(x, "FactStaff", fs, null), sender);   
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, EducDocument>(x, "EducDocument",
                          new EducDocument()), sender);
                     

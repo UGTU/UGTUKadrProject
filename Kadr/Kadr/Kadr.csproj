@@ -1171,7 +1171,9 @@
     <None Include="Properties\DataSources\Kadr.Data.WorkType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.Contract.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibility.datasource" />
-    <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibilityDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibilityDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.Organisation.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EducationType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_Educ.datasource" />

@@ -794,5 +794,34 @@ ALTER TABLE dbo.Award ADD CONSTRAINT
 	
 GO
 COMMIT
+GO
 
+-----------------------Корректировка мат. ответственности---------------------------------------------------------------------------------------------------------------------
+alter table [dbo].[MaterialResponsibility] add idFactStaffPrikazEnd int null
+alter table [dbo].[MaterialResponsibility] add Perc numeric(4,2)
+
+/****** Object:  Index [IX_MaterialResponsibility_2]    Script Date: 31.08.2015 9:52:19 ******/
+CREATE NONCLUSTERED INDEX [IX_MaterialResponsibility_2] ON [dbo].[MaterialResponsibility]
+(
+	[idFactStaffPrikazEnd] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MaterialResponsibility]  WITH CHECK ADD  CONSTRAINT [FK_MaterialResponsibility_FactStaffPrikaz1] FOREIGN KEY([idFactStaffPrikazEnd])
+REFERENCES [dbo].[FactStaffPrikaz] ([id])
+GO
+ALTER TABLE [dbo].[MaterialResponsibility] CHECK CONSTRAINT [FK_MaterialResponsibility_FactStaffPrikaz1]
+GO
+
+/****** Object:  Index [IX_Contract_2]    Script Date: 02.09.2015 21:22:49 ******/
+CREATE NONCLUSTERED INDEX [IX_Contract_2] ON [dbo].[Contract]
+(
+	[idPrikazType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Contract]  WITH CHECK ADD  CONSTRAINT [FK_Contract_PrikazType] FOREIGN KEY([idPrikazType])
+REFERENCES [dbo].[PrikazType] ([id])
+GO
+ALTER TABLE [dbo].[Contract] CHECK CONSTRAINT [FK_Contract_PrikazType]
+GO
 
