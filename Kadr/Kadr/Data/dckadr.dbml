@@ -390,20 +390,6 @@
       <Column Name="FactStaffFullName" Type="System.String" DbType="VarChar(380)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.DepartmentHistory" Member="DepartmentHistories">
-    <Type Name="DepartmentHistory">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idDepartment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idManagerDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentSmallName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Dep_DepartmentHistory" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Dep_DepartmentHistory1" Member="Dep1" ThisKey="idManagerDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
-      <Association Name="Prikaz_DepartmentHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Department" Member="Departments">
     <Type Name="Department">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -452,10 +438,10 @@
       <Column Name="idOKVED" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Dep_DepartmentTimeNorm" Member="DepartmentTimeNorms" ThisKey="id" OtherKey="idDepartment" Type="DepartmentTimeNorm" />
       <Association Name="Dep_DepartmentFund" Member="DepartmentFunds" ThisKey="id" OtherKey="idDepartment" Type="DepartmentFund" />
-      <Association Name="Dep_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idDepartment" Type="DepartmentHistory" />
-      <Association Name="Dep_DepartmentHistory1" Member="DepartmentHistories1" ThisKey="id" OtherKey="idManagerDepartment" Type="DepartmentHistory" />
       <Association Name="Dep_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="idDepartment" Type="PlanStaff" />
       <Association Name="Dep_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idDepartment" Type="FactStaff" />
+      <Association Name="Dep_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idDepartment" Type="DepartmentHistory" />
+      <Association Name="Dep_DepartmentHistory1" Member="DepartmentHistories1" ThisKey="id" OtherKey="idManagerDepartment" Type="DepartmentHistory" />
       <Association Name="DepartmentType_Dep" Member="DepartmentType" ThisKey="idDepartmentType" OtherKey="id" Type="DepartmentType" IsForeignKey="true" />
       <Association Name="FundingCenter_Dep" Member="FundingCenter" ThisKey="idFundingCenter" OtherKey="id" Type="FundingCenter" IsForeignKey="true" />
       <Association Name="OKVED_Dep" Member="OKVED" ThisKey="idOKVED" OtherKey="id" Type="OKVED" IsForeignKey="true" />
@@ -615,10 +601,10 @@
       <Association Name="FactStaffPrikaz_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="OK_DopEducation" />
       <Association Name="FactStaffPrikaz_Award" Member="Awards" ThisKey="id" OtherKey="IDFactStaffPrikaz" Type="Award" />
       <Association Name="FactStaffPrikaz_MaterialResponsibility" Member="MaterialResponsibilities" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="MaterialResponsibility" />
-      <Association Name="FactStaffPrikaz_MaterialResponsibility1" Member="MaterialResponsibilities1" ThisKey="id" OtherKey="idFactStaffPrikazEnd" Type="MaterialResponsibility" DeleteOnNull="true"/>
+      <Association Name="FactStaffPrikaz_MaterialResponsibility1" Member="MaterialResponsibilities1" ThisKey="id" OtherKey="idFactStaffPrikazEnd" Type="MaterialResponsibility" />
       <Association Name="FactStaffPrikaz_FactStaffPrikaz" Member="FactStaffPrikaz1" ThisKey="idMainFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
       <Association Name="FactStaff_FactStaffPrikaz" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
-      <Association Name="Prikaz_FactStaffPrikaz" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" DeleteOnNull="true"/>
+      <Association Name="Prikaz_FactStaffPrikaz" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.StandingType" Member="StandingTypes">
@@ -792,6 +778,8 @@
       <Column Name="RegionTypeSmallName" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Association Name="RegionType_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idRegionType" Type="EmployeeStanding" />
       <Association Name="RegionType_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idRegionType" Type="BusinessTripRegionType" />
+      <Association Name="RegionType_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idRegionType" Type="FactStaffHistory" />
+      <Association Name="RegionType_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idRegionType" Type="DepartmentHistory" />
     </Type>
   </Table>
   <Table Name="dbo.OK_SocialStatus" Member="OK_SocialStatus">
@@ -976,29 +964,6 @@
       <Association Name="OK_Reason_FactStaff" Member="FactStaffs" ThisKey="idreason" OtherKey="idreason" Type="FactStaff" />
     </Type>
   </Table>
-  <Table Name="dbo.FactStaffHistory" Member="FactStaffHistories">
-    <Type Name="FactStaffHistory">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(6,4) NOT NULL" CanBeNull="false" />
-      <Column Name="idTypeWork" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idlaborcontrakt" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="HourCount" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-      <Column Name="HourSalary" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-      <Column Name="idSalaryKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="HourStaffCount" Type="System.Decimal" DbType="Decimal(6,4)" CanBeNull="true" />
-      <Column Name="CalcStaffCount" Type="System.Decimal" DbType="Decimal(6,4) NOT NULL" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="HourFullSalary" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-      <Column Name="idContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="FactStaff_FactStaffHistory" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="SalaryKoeff_FactStaffHistory" Member="SalaryKoeff" ThisKey="idSalaryKoeff" OtherKey="id" Type="SalaryKoeff" IsForeignKey="true" />
-      <Association Name="WorkType_FactStaffHistory" Member="WorkType" ThisKey="idTypeWork" OtherKey="id" Type="WorkType" IsForeignKey="true" />
-      <Association Name="Contract_FactStaffHistory" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
-      <Association Name="Prikaz_FactStaffHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.MilitaryCategory" Member="MilitaryCategories">
     <Type Name="MilitaryCategory">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1145,7 +1110,7 @@
       <Column Name="idFactStaffPrikazEnd" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Perc" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
       <Association Name="FactStaffPrikaz_MaterialResponsibility" Member="FactStaffPrikaz" ThisKey="idFactStaffPrikaz" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
-      <Association Name="FactStaffPrikaz_MaterialResponsibility1" Member="FactStaffPrikaz1" ThisKey="idFactStaffPrikazEnd" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true"/>
+      <Association Name="FactStaffPrikaz_MaterialResponsibility1" Member="FactStaffPrikaz1" ThisKey="idFactStaffPrikazEnd" OtherKey="id" Type="FactStaffPrikaz" IsForeignKey="true" />
       <Association Name="Contract_MaterialResponsibility" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
     </Type>
   </Table>
@@ -1158,9 +1123,9 @@
       <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="idMainContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idPrikazType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Contract_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idContract" Type="FactStaffHistory" />
       <Association Name="Contract_MaterialResponsibility" Member="MaterialResponsibilities" ThisKey="id" OtherKey="idContract" Type="MaterialResponsibility" />
       <Association Name="Contract_Contract" Member="Contracts" ThisKey="id" OtherKey="idMainContract" Type="Contract" />
+      <Association Name="Contract_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idContract" Type="FactStaffHistory" />
       <Association Name="Contract_Contract" Member="Contract1" ThisKey="idMainContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
     </Type>
   </Table>
@@ -1175,18 +1140,61 @@
       <Column Name="resume" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Prikaz_PlanStaffSalary" Member="PlanStaffSalaries" ThisKey="id" OtherKey="idPrikaz" Type="PlanStaffSalary" />
       <Association Name="Prikaz_PKCategorySalary" Member="PKCategorySalaries" ThisKey="id" OtherKey="idPrikaz" Type="PKCategorySalary" />
-      <Association Name="Prikaz_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="DepartmentHistory" />
       <Association Name="Prikaz_Dep" Member="Deps" ThisKey="id" OtherKey="idEndPrikaz" Type="Dep" />
       <Association Name="Prikaz_BonusHistory" Member="BonusHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="BonusHistory" />
       <Association Name="Prikaz_Bonus" Member="Bonus" ThisKey="id" OtherKey="idEndPrikaz" Type="Bonus" />
       <Association Name="Prikaz_Bonus1" Member="Bonus1" ThisKey="id" OtherKey="idIntermediateEndPrikaz" Type="Bonus" />
       <Association Name="Prikaz_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="idEndPrikaz" Type="PlanStaff" />
       <Association Name="Prikaz_PlanStaffHistory" Member="PlanStaffHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="PlanStaffHistory" />
-      <Association Name="Prikaz_FactStaffPrikaz" Member="FactStaffPrikazs" ThisKey="id" OtherKey="idPrikaz" Type="FactStaffPrikaz" DeleteOnNull="true"/>
+      <Association Name="Prikaz_FactStaffPrikaz" Member="FactStaffPrikazs" ThisKey="id" OtherKey="idPrikaz" Type="FactStaffPrikaz" />
       <Association Name="Prikaz_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idOtpuskPrikaz" Type="OK_Otpusk" />
       <Association Name="Prikaz_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idEndPrikaz" Type="FactStaff" />
       <Association Name="Prikaz_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="FactStaffHistory" />
+      <Association Name="Prikaz_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="DepartmentHistory" />
       <Association Name="PrikazType_Prikaz" Member="PrikazType" ThisKey="idPrikazType" OtherKey="id" Type="PrikazType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FactStaffHistory" Member="FactStaffHistories">
+    <Type Name="FactStaffHistory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(6,4) NOT NULL" CanBeNull="false" />
+      <Column Name="idTypeWork" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idlaborcontrakt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HourCount" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="HourSalary" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="idSalaryKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HourStaffCount" Type="System.Decimal" DbType="Decimal(6,4)" CanBeNull="true" />
+      <Column Name="CalcStaffCount" Type="System.Decimal" DbType="Decimal(6,4) NOT NULL" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="HourFullSalary" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="idContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idRegionType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="Contract_FactStaffHistory" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
+      <Association Name="FactStaff_FactStaffHistory" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Prikaz_FactStaffHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+      <Association Name="RegionType_FactStaffHistory" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
+      <Association Name="SalaryKoeff_FactStaffHistory" Member="SalaryKoeff" ThisKey="idSalaryKoeff" OtherKey="id" Type="SalaryKoeff" IsForeignKey="true" />
+      <Association Name="WorkType_FactStaffHistory" Member="WorkType" ThisKey="idTypeWork" OtherKey="id" Type="WorkType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DepartmentHistory" Member="DepartmentHistories">
+    <Type Name="DepartmentHistory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idDepartment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idManagerDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentSmallName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="idRegionType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="Dep_DepartmentHistory" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Dep_DepartmentHistory1" Member="Dep1" ThisKey="idManagerDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
+      <Association Name="Prikaz_DepartmentHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+      <Association Name="RegionType_DepartmentHistory" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

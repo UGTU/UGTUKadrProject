@@ -6,10 +6,10 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class FactStaffHistoryCommonBaseDecorator
+    class FactStaffHistoryBaseDecorator
     {
         protected FactStaffHistory factStaffHistory;
-        public FactStaffHistoryCommonBaseDecorator(FactStaffHistory factStaffHistory)
+        public FactStaffHistoryBaseDecorator(FactStaffHistory factStaffHistory)
         {
             this.factStaffHistory = factStaffHistory;
         }

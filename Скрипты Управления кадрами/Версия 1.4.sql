@@ -99,7 +99,7 @@ go
 
 
 insert into dbo.[Contract]([ContractName],[DateContract],[DateBegin],[DateEnd])
-select '<не указан>', [DatePrikaz],ISNULL([FactStaffHistory].[DateBegin],Prikaz.DateBegin),null
+select '<не внесен номер>', [DatePrikaz],ISNULL([FactStaffHistory].[DateBegin],Prikaz.DateBegin),null
 from [dbo].[FactStaffHistory]
 inner join dbo.Prikaz
 ON [FactStaffHistory].idBeginPrikaz=Prikaz.id
@@ -114,15 +114,19 @@ ON [FactStaffHistory].idBeginPrikaz=Prikaz.id
 inner join dbo.[Contract] 
 	ON (ISNULL([FactStaffHistory].[DateBegin],Prikaz.DateBegin)=[Contract].DateBegin or (Prikaz.DateBegin is null and [Contract].DateBegin is null))
 	AND (Prikaz.DatePrikaz=[Contract].DateContract or (Prikaz.DatePrikaz is null and [Contract].DateContract is null))
-	and [FactStaffHistory].[idContract] is null and [Contract].ContractName='<не указан>'
+	and [FactStaffHistory].[idContract] is null and [Contract].ContractName='<не внесен номер>'
 	and [Contract].id not in (select ISNULL(idContract,0) from [dbo].[FactStaffHistory])
 
 	delete from dbo.[Contract]
-where  [ContractName]='<не указан>'
+where  [ContractName]='<не внесен номер>'
 and 
 id not in (select isnull(idContract,0) from [dbo].[FactStaffHistory])
 
 /*
+
+update dbo.[Contract]
+set [ContractName]='<не внесен номер>'
+where [ContractName]='<не указан>'
 	select [FactStaffHistory].id, [FactStaffHistory].idContract, COUNT(id) from
 	[dbo].[FactStaffHistory]
 where idContract is not null
@@ -151,24 +155,24 @@ where [id] not in (0,2,6)
 
 
 go
-alter table [dbo].[Dep]
+alter table [dbo].[DepartmentHistory]
 add idRegionType int null
 go
-alter table [dbo].[Dep]
+alter table [dbo].[DepartmentHistory]
 add Address varchar(500) null
 
 
 GO
 
-ALTER TABLE [dbo].[Dep]  WITH CHECK ADD  CONSTRAINT [FK_Dep_RegionType] FOREIGN KEY([idRegionType])
+ALTER TABLE [dbo].[DepartmentHistory]  WITH CHECK ADD  CONSTRAINT [FK_DepartmentHistory_RegionType] FOREIGN KEY([idRegionType])
 REFERENCES [dbo].[RegionType] ([id])
 GO
 
-ALTER TABLE [dbo].[Dep] CHECK CONSTRAINT [FK_Dep_RegionType]
+ALTER TABLE [dbo].[DepartmentHistory] CHECK CONSTRAINT [FK_DepartmentHistory_RegionType]
 GO
 
 go
-update [dbo].[Dep]
+update [dbo].DepartmentHistory
 set [idRegionType]=2
 
 

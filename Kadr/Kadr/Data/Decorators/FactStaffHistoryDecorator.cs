@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class FactStaffHistoryDecorator : FactStaffHistoryCommonBaseDecorator
+    class FactStaffHistoryDecorator : FactStaffHistoryMainBaseDecorator
     {
         public FactStaffHistoryDecorator(FactStaffHistory factStaffHistory)
             : base(factStaffHistory)
