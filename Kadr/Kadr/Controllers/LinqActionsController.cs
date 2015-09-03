@@ -90,6 +90,11 @@ namespace Kadr.Controllers
                 dlg.UseInternalCommandManager = true;
                 //dlg.PrikazButtonVisible = false;
                 dlg.SelectedObjects = new object[] { editObject };
+
+                /*dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.FactStaffs;
+                };*/
                 dlg.ShowDialog();
             }
 

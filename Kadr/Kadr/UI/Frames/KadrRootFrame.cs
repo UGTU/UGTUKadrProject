@@ -556,7 +556,7 @@ namespace Kadr.UI.Frames
 
            if ((factStaffBindingSource.Current as FactStaff).Prikaz!=null)
            {
-               MessageBox.Show("Совмещаемый сотрудник уже уволен!", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
+               MessageBox.Show("Замещаемый сотрудник уже уволен!", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
                return;
            }
 

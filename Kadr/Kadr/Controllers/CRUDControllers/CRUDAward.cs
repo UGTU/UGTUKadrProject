@@ -22,6 +22,8 @@ namespace Kadr.Controllers
                     dlg.CommandManager.Execute(new GenericPropertyCommand<Award, EducDocument>(x, "EducDocument",
                         new EducDocument(dlg.CommandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.AwardDocTypeName))), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Award, AwardType>(x, "AwardType", KadrController.Instance.Model.AwardTypes.FirstOrDefault(), null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Award, AwardLevel>(x, "AwardLevel", KadrController.Instance.Model.AwardLevels.FirstOrDefault(), null), sender);
+                
                 });
 
                 dlg.ShowDialog();

@@ -8,43 +8,26 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IComparable
+    public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IComparable, IExperienceProvider
     {
-       /* public string EmployeeName
-        {
-            get
-            {
-                return this.LastName + " " + this.FirstName + " " + this.Otch;
-            }
-        }
+        /* public string EmployeeName
+         {
+             get
+             {
+                 return this.LastName + " " + this.FirstName + " " + this.Otch;
+             }
+         }
 
-        public string EmployeeSmallName
-        {
-            get
-            {
-                if ((FirstName != null) && (Otch != null))
-                    return this.LastName + " " + this.FirstName[0] + "." + this.Otch[0] + ".";
-                else
-                    return LastName;
-            }
-        }*/
-
-        public int? EmployeeYearsOld
-        {
-            get
-            {
-                
-                if (BirthDate != null)
-                {
-                    int YearsDiff = DateTime.Today.Year - BirthDate.Value.Year;
-                    if (DateTime.Today < BirthDate.Value.AddYears(YearsDiff))
-                        return YearsDiff - 1;
-                    else
-                        return YearsDiff;
-                }
-                return null;
-            }
-        }
+         public string EmployeeSmallName
+         {
+             get
+             {
+                 if ((FirstName != null) && (Otch != null))
+                     return this.LastName + " " + this.FirstName[0] + "." + this.Otch[0] + ".";
+                 else
+                     return LastName;
+             }
+         }*/
 
         public EmployeeRank Rank
         {
@@ -69,7 +52,7 @@ namespace Kadr.Data
                 if (this.SexBit)
                     return "Мужской";
                 else
-                    return "Женский"; 
+                    return "Женский";
             }
         }
 
@@ -123,12 +106,12 @@ namespace Kadr.Data
 
         #endregion
 
-    
+
         #region INull Members
 
         bool INull.IsNull()
         {
- 	        return false;
+            return false;
         }
 
         #endregion
@@ -142,6 +125,36 @@ namespace Kadr.Data
         }
 
         #endregion
+
+        #region Члены IEmployeeExperienceRecord
+
+        public IEnumerable<IEmployeeExperienceRecord> EmployeeExperiences
+        {
+            get
+            {
+                // Записи из трудовой книжки, другие организации
+                var standingSet = EmployeeStandings.Cast<IEmployeeExperienceRecord>();
+                // Записи из штатного расписания, эта организация
+                var stuffSet = FactStaffs.Cast<IEmployeeExperienceRecord>();
+                // Записи о пребываниях в различных регионах во время командировок
+                var tripsSet = GetAllRegionTypes().Cast<IEmployeeExperienceRecord>();
+
+                return tripsSet.Concat(standingSet.Concat(stuffSet));
+            }
+        }
+
+        #endregion
+
+        public IEnumerable<BusinessTrip> GetAllTrips()
+        {
+            return FactStaffs.SelectMany(x => x.FactStaffPrikazs).SelectMany(p => p.BusinessTrips);
+        }
+
+        public IEnumerable<BusinessTripRegionType> GetAllRegionTypes()
+        {
+            return GetAllTrips().SelectMany(x => x.BusinessTripRegionTypes);
+        }
+
     }
 
     public class NullEmployee : Employee, INull

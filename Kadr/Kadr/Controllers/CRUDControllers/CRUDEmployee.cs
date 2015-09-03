@@ -13,6 +13,12 @@ namespace Kadr.Controllers
     {
         public static void Create(object sender, PlanStaff planStaff)
         {
+            if (planStaff == null)
+            {
+                MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
+                return;
+            }
+
             using (PropertyGridDialogAdding<Employee> dlg =
                 new PropertyGridDialogAdding<Employee>())
             {
@@ -43,7 +49,7 @@ namespace Kadr.Controllers
                 {
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
-                        CRUDFactStaff.Create(null, planStaff, sender, false, x, dlg.CommandManager,null, WorkType.MainWorkType);
+                        CRUDFactStaff.Create(null, planStaff, sender, false, true, x, dlg.CommandManager,null, WorkType.MainWorkType);
                     }
 
                 };

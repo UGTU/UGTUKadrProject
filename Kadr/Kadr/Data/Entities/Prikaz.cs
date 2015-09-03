@@ -9,8 +9,6 @@ namespace Kadr.Data
 {
     public partial class Prikaz : UIX.Views.IDecorable, INull, UIX.Views.IValidatable,IComparable
     {
-        public const int MaterialPrikaz = 18;
-        
         public Prikaz(UIX.Commands.ICommandManager commandManager, PrikazType type)
             : this()
         {

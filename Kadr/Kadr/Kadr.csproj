@@ -222,10 +222,15 @@
     <Compile Include="Controllers\PropertyGridExtensions.cs" />
     <Compile Include="Controllers\SimpleActionsProvider.cs" />
     <Compile Include="Data\Common\AdvancedBindingList.cs" />
+    <Compile Include="Data\Common\CategoryExtensions.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
+    <Compile Include="Data\Common\EmployeeExperienceExtensions.cs" />
+    <Compile Include="Data\Common\EmployeeExtensions.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
+    <Compile Include="Data\Converters\ContractConvertor.cs" />
+    <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
     <Compile Include="Data\Converters\IEntitySelector.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
@@ -233,6 +238,7 @@
     <Compile Include="Data\Converters\PrikazConverter.cs" />
     <Compile Include="Data\Converters\SimpleToStringConvertor.cs" />
     <Compile Include="Data\Converters\SocialFareTransitConverter.cs" />
+    <Compile Include="Data\Converters\OKVEDConvertor.cs" />
     <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
     <Compile Include="Data\dckadr.designer.cs">
       <AutoGen>True</AutoGen>
@@ -248,6 +254,9 @@
     <Compile Include="Data\Decorators\DopEducationDecorator.cs" />
     <Compile Include="Data\Decorators\EducationDecorator.cs" />
     <Compile Include="Data\Decorators\EmployeeLangDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffBaseDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHourBaseDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffMainBaseDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopEducDecorator.cs" />
     <Compile Include="Data\Decorators\OK_FamDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopInfDecorator.cs" />
@@ -285,6 +294,7 @@
     <Compile Include="Data\Decorators\InkapacityDecorator.cs" />
     <Compile Include="Data\Decorators\ValidationDecorator.cs" />
     <Compile Include="Data\Entities\Award.cs" />
+    <Compile Include="Data\Entities\AwardLevel.cs" />
     <Compile Include="Data\Entities\AwardType.cs" />
     <Compile Include="Data\Entities\Bonus.cs" />
     <Compile Include="Data\Entities\BonusHistory.cs" />
@@ -370,6 +380,8 @@
     <Compile Include="Data\Entities\ValidationDecision.cs" />
     <Compile Include="Data\Entities\WorkShedule.cs" />
     <Compile Include="Data\Entities\WorkType.cs" />
+    <Compile Include="Data\Common\IEmployeeExperienceRecord.cs" />
+    <Compile Include="Data\Common\IExperienceProvider.cs" />
     <Compile Include="Interfaces\IOrderInformer.cs" />
     <Compile Include="KadrTreeView\KadrTreeView.cs">
       <SubType>Component</SubType>
@@ -398,8 +410,8 @@
     <Compile Include="UI\Common\CustomBaseDialog.designer.cs">
       <DependentUpon>CustomBaseDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Common\CustomBooleanConverter.cs" />
-    <Compile Include="UI\Common\CustomPropertiesTypeConverter.cs" />
+    <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
+    <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
     <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1157,7 +1169,9 @@
     <None Include="Properties\DataSources\Kadr.Data.WorkType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.Contract.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibility.datasource" />
-    <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibilityDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.MaterialResponsibilityDecorator.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Kadr.Data.Organisation.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.EducationType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.OK_Educ.datasource" />

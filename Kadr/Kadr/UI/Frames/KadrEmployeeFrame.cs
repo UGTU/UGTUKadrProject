@@ -72,7 +72,6 @@ namespace Kadr.UI.Frames
 
 
         #endregion
-
    
         #region LoadData
 
@@ -311,7 +310,7 @@ namespace Kadr.UI.Frames
                 CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpMaterial)
-                CRUDMaterial.Read((FactStaff)factStaffBindingSource.Current, MaterialResponsibilitybindingSource);
+                CRUDMaterial.Read((FactStaff)factStaffBindingSource.Current, materialResponsibilityDecoratorBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpValidations)
                 CRUDValidation.Read((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
@@ -437,17 +436,17 @@ namespace Kadr.UI.Frames
 
         private void tsbAddMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Create((FactStaff)factStaffBindingSource.Current, MaterialResponsibilitybindingSource, this);
+            CRUDMaterial.Create((FactStaff)factStaffBindingSource.Current, materialResponsibilityDecoratorBindingSource, this);
         }
 
         private void tsbDelMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Delete((FactStaff)factStaffBindingSource.Current, MaterialResponsibilitybindingSource);
+            CRUDMaterial.Delete((FactStaff)factStaffBindingSource.Current, materialResponsibilityDecoratorBindingSource);
         }
 
         private void tsbEditMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, MaterialResponsibilitybindingSource);
+            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, materialResponsibilityDecoratorBindingSource);
         }
 
 
@@ -638,6 +637,14 @@ namespace Kadr.UI.Frames
         private void DeleteDopEducBtn_Click(object sender, EventArgs e)
         {
             CRUDDopEducation.Delete(Employee, DopEducationBindingSource);
+        }
+
+        private void dgvTrips_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+           for (int i = e.RowIndex; i < e.RowIndex+e.RowCount; i++)
+                dgvTrips.Rows[i].Cells["RegionDatesChanged"].Value = (BusinessTripsBindingSource[i] as BusinessTripDecorator).IsRegionDatesChanged; 
+
+
         }
 
     }

@@ -8,39 +8,15 @@ using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
-    class FactStaffDecorator
+    class FactStaffDecorator : FactStaffMainBaseDecorator
     {
-        private FactStaff factStaff;
-        public FactStaffDecorator(FactStaff factStaff)
+        public FactStaffDecorator(FactStaff factStaff): base(factStaff)
         {
-            this.factStaff = factStaff;
+
         }
 
-        public override string ToString()
-        {
-            return "Распределение штатов отдела " + factStaff.Department.ToString().ToLower() + ", " +
-               factStaff.Post.ToString().ToLower();
-        }
-
-        [System.ComponentModel.DisplayName("ID")]
-        [System.ComponentModel.Category("Атрибуты")]
-        [System.ComponentModel.Description("Уникальный код сотрудника в штатном расписании")]
-        [System.ComponentModel.ReadOnly(true)]
-        
-        public int ID
-        {
-            get
-            {
-                return factStaff.id;
-            }
-            set
-            {
-                factStaff.id = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("ФИО сотрудника")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tФИО сотрудника")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("ФИО сотрудника, назначенного на должность")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.EmployeeEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -56,25 +32,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Количество ставок")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Занимаемое сотрудником по факту количество ставок")]
-        [System.ComponentModel.ReadOnly(false)]
-        public decimal StaffCount
-        {
-            get
-            {
-                return factStaff.StaffCount;
-            }
-            set
-            {
-                factStaff.StaffCount = value;
-            }
-        }
-
 
         [System.ComponentModel.DisplayName("Подподкатегория")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
         [System.ComponentModel.ReadOnly(false)]
         public int? SalaryKoeff
@@ -93,7 +53,7 @@ namespace Kadr.Data
 
 
         [System.ComponentModel.DisplayName("Должность в штатном расписании")]
-        [System.ComponentModel.Category("Общие")]
+        [System.ComponentModel.Category("\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("Должность в штатном расписании")]
         [System.ComponentModel.ReadOnly(false)]
         public Kadr.Data.PlanStaff PlanStaff
@@ -104,8 +64,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Название вида работы")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.DisplayName("\t\t\t\tBид работы")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Название вида работы")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
@@ -118,6 +78,23 @@ namespace Kadr.Data
             set
             {
                 factStaff.WorkType = value;
+            }
+        }
+
+
+        [System.ComponentModel.DisplayName("\t\t\t\t\tКоличество ставок")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("Занимаемое сотрудником по факту количество ставок")]
+        [System.ComponentModel.ReadOnly(false)]
+        public decimal StaffCount
+        {
+            get
+            {
+                return factStaff.StaffCount;
+            }
+            set
+            {
+                factStaff.StaffCount = value;
             }
         }
 
@@ -139,10 +116,10 @@ namespace Kadr.Data
         }*/
 
         [System.ComponentModel.DisplayName("ОКВЭД")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Код экономической деятельности")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<OKVED>))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OKVEDConvertor))]
         public OKVED OKVED
         {
             get
@@ -155,8 +132,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Приказ утверждения")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\tПриказ утверждения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Приказ назначения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -172,121 +149,25 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Приказ увольнения")]
-        [System.ComponentModel.Category("Параметры увольнения")]
-        [System.ComponentModel.Description("Приказ увольнения сотрудника")]
+        [System.ComponentModel.DisplayName("Основной договор")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора")]
+        [System.ComponentModel.Description("Основной договор")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public Kadr.Data.Prikaz PrikazEnd
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.ContractConvertor))]
+        public Contract MainContract
         {
             get
             {
-                return factStaff.Prikaz;
+                return factStaff.MainContract;
             }
             set
             {
-                factStaff.Prikaz = value;
+                factStaff.MainContract = value;
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата назначения")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Дата назначения на должность")]
-        [System.ComponentModel.ReadOnly(false)]
-        // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public DateTime DataBegin
-        {
-            get
-            {
-                return Convert.ToDateTime(factStaff.DateBegin);
-            }
-            set
-            {
-                factStaff.DateBegin = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Дата увольнения")]
-        [System.ComponentModel.Category("Параметры увольнения")]
-        [System.ComponentModel.Description("Дата увольнения с должности")]
-        [System.ComponentModel.ReadOnly(false)]
-        // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public DateTime DataEnd
-        {
-            get
-            {
-                return Convert.ToDateTime(factStaff.DateEnd);
-            }
-            set
-            {
-                factStaff.DateEnd = value;
-                //если есть замещения данного сотрудника, то их надо отменить (указать дату окончания)
-                /*if ((value != null) )
-                {
-                    foreach (FactStaffReplacement replacement in FactStaff.FactStaffReplacements)
-                    {
-                        replacement.DateEnd = value;
-                        replacement.FactStaff1.IsReplacement = false;
-                    }
-                }*/
-            }
-
-        }
-
-
-        [System.ComponentModel.DisplayName("Причина увольнения")]
-        [System.ComponentModel.Category("Параметры увольнения")]
-        [System.ComponentModel.Description("Причина увольнения")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<OK_Reason>))]
-        public OK_Reason OK_Reason
-        {
-            get
-            {
-                return factStaff.OK_Reason;
-            }
-            set
-            {
-                factStaff.OK_Reason = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Центр затрат")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Центр затрат")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(FundingCenterEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public FundingCenter FundingCenter
-        {
-            get
-            {
-                return factStaff.FundingCenter;
-            }
-            set
-            {
-                factStaff.FundingCenter = value;
-            }
-        }
-
-        /*[System.ComponentModel.DisplayName("Центр затрат")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Центр затрат")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(FundingCenterEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public FundingCenter FundingCenter
-        {
-            get
-            {
-                return factStaff;
-            }
-            set
-            {
-                factStaff.FundingCenter = value;
-            }
-        }*/
-
-        [System.ComponentModel.DisplayName("Номер договора")]
-        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.DisplayName("\t\t\t\tНомер договора")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора")]
         [System.ComponentModel.Description("Номер договора")]
         [System.ComponentModel.ReadOnly(false)]
         public string CurrentContractName
@@ -304,17 +185,12 @@ namespace Kadr.Data
                 {
                     if (factStaff.CurrentContract != null)
                         factStaff.CurrentContract.ContractName = value;
-                    else
-                    {
-                        factStaff.CurrentContract = new Contract(factStaff.CurrentChange, value, DateTime.Today, DateTime.Today, DateTime.Today);
-                        //factStaff.CurrentContract.ContractName = value;
-                    }
                 }
             }
         }
 
         [System.ComponentModel.DisplayName("Дата договора")]
-        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора")]
         [System.ComponentModel.Description("Дата составления договора")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateContract
@@ -332,17 +208,12 @@ namespace Kadr.Data
                 {
                     if (factStaff.CurrentContract != null)
                         factStaff.CurrentContract.DateContract = value;
-                    else
-                    {
-                        factStaff.CurrentContract = new Contract(factStaff.CurrentChange, null, value, DateTime.Today, DateTime.Today);
-                        //factStaff.CurrentContract.ContractName = value;
-                    }
                 }
             }
         }
 
         [System.ComponentModel.DisplayName("Дата начала договора")]
-        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора")]
         [System.ComponentModel.Description("Дата начала действия договора")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
@@ -360,17 +231,12 @@ namespace Kadr.Data
                 {
                     if (factStaff.CurrentContract != null)
                         factStaff.CurrentContract.DateBegin = value;
-                    else
-                    {
-                        factStaff.CurrentContract = new Contract(factStaff.CurrentChange, null, DateTime.Today, value, DateTime.Today);
-                        //factStaff.CurrentContract.ContractName = value;
-                    }
                 }
             }
         }
 
         [System.ComponentModel.DisplayName("Дата окончания договора")]
-        [System.ComponentModel.Category("Параметры договора")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора")]
         [System.ComponentModel.Description("Дата окончания действия договора")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
@@ -388,11 +254,6 @@ namespace Kadr.Data
                 {
                     if (factStaff.CurrentContract != null)
                         factStaff.CurrentContract.DateEnd = value;
-                    else
-                    {
-                        factStaff.CurrentContract = new Contract(factStaff.CurrentChange, null, DateTime.Today, DateTime.Today, value);
-                        //factStaff.CurrentContract.ContractName = value;
-                    }
                 }
             }
         }

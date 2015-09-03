@@ -21,7 +21,6 @@ namespace Kadr.UI.Common
 
         }
 
-
         protected override void DoApply()
         {
             UIX.Views.IValidatable validatable = (SelectedObjects[0] as UIX.Views.IValidatable);
@@ -82,6 +81,16 @@ namespace Kadr.UI.Common
                 }
 
             }
+        }
+
+        protected override void DoCancel()
+        {
+            base.DoCancel();
+            /*if (SelectedObjects[0] is Kadr.Data.FactStaff)
+            {
+                
+                KadrController.Instance.DeleteModel();
+            }*/
         }
 
 

@@ -5,23 +5,42 @@ using System.Text;
 using Kadr.Data.Common;
 using Kadr.Controllers;
 using System.Data.Linq;
+using UIX.Commands;
+using UIX.Views;
 
 namespace Kadr.Data
 {
     /// <summary>
     /// Есть рекурсивная ссылка - если заполнена, то это доп соглашение к договору.
     /// </summary>
-    public partial class Contract : UIX.Views.IValidatable
+    public partial class Contract : IValidatable
     {
-        public Contract(FactStaffHistory factStaffHistory, string contractName = null, DateTime? dateContract = null, DateTime? dateBegin = null, DateTime? dateEnd = null): this()
+        public const int MaterialContract = 18;
+
+        public Contract(ICommandManager CommandManager, FactStaffHistory factStaffHistory, string contractName = null, DateTime? dateContract = null, DateTime? dateBegin = null, DateTime? dateEnd = null)
+            : this()
         {
-            factStaffHistory.Contract = this;
-            ContractName = contractName;
-            DateContract = dateContract;
-            DateBegin = dateBegin;
-            DateEnd = dateEnd;
+            CommandManager.Execute(new GenericPropertyCommand<FactStaffHistory, Contract>(factStaffHistory, "Contract", this, null), null);
+            CommandManager.Execute(new GenericPropertyCommand<Contract, string>(this, "ContractName", contractName, null), null);
+            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateContract", dateContract, null), null); ContractName = contractName;
+            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateBegin", dateBegin, null), null); ContractName = contractName;
+            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateEnd", dateEnd, null), null); ContractName = contractName;
         }
 
+
+        public override string ToString()
+        {
+            if (MainContract == null)
+                return "Договор " + ContractName;
+            else
+                return "Доп соглашение " + ContractName + " к договору " + MainContract.ToString();
+        }
+
+        #region MainContractData
+
+        /// <summary>
+        /// Основной договор, если есть
+        /// </summary>
         public Contract MainContract
         {
             get
@@ -34,24 +53,41 @@ namespace Kadr.Data
             }
         }
 
+        /// <summary>
+        /// Признак договора - используется при создании объекта
+        /// </summary>
+        private bool? isMainContract = null;
 
-        public override string ToString()
+
+        /// <summary>
+        /// Признак основного договора (не доп соглашения) 
+        /// </summary>
+        public bool IsMainContract
         {
-            if (MainContract == null)
-                return "Договор " +  ContractName;
-            else
-                return "Доп соглашение " + ContractName + " к договору " + MainContract.ToString();
+            get
+            {
+                if (isMainContract == null)
+                    return (MainContract == null);
+                else
+                    return isMainContract.Value;
+            }
+            set
+            {
+                isMainContract = value;
+            }
         }
-
-
+        #endregion
 
         #region partial Methods
 
 
-        partial void OnValidate(System.Data.Linq.ChangeAction action)
+        partial void OnValidate(ChangeAction action)
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
+                if ((ContractName == null) || (ContractName == ""))
+                    throw new ArgumentNullException("Номер договора.");
+                
                 if (DateEnd == DateTime.MinValue)
                     DateEnd = null;
 
@@ -62,18 +98,16 @@ namespace Kadr.Data
                     DateContract = null;
 
                 if ((DateEnd != null) && (DateBegin != null))
-                    if (DateEnd <= DateBegin)
-                        throw new ArgumentOutOfRangeException("Дата окончания договора должна быть позже даты начала.");
+                    if (DateEnd < DateBegin)
+                        throw new ArgumentOutOfRangeException("Дата окончания договора/доп. соглашения должна быть позже даты начала.");
             }
         }
-
-
         #endregion
 
 
         #region IValidatable Members
 
-        void UIX.Views.IValidatable.Validate()
+        void IValidatable.Validate()
         {
             OnValidate(ChangeAction.Insert);
         }

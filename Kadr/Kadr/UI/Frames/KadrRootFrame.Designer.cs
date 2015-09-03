@@ -119,7 +119,7 @@
             this.factStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsbAddEmplFactStaff = new System.Windows.Forms.ToolStripButton();
-            this.AddFactStaffBtn = new System.Windows.Forms.ToolStripButton();
+            this.AddContractFactStaffBtn = new System.Windows.Forms.ToolStripButton();
             this.tsbAddSubContractFactStaff = new System.Windows.Forms.ToolStripButton();
             this.btnChangeFactStaff = new System.Windows.Forms.ToolStripButton();
             this.DelFactStaffBtn = new System.Windows.Forms.ToolStripButton();
@@ -708,7 +708,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer1.Size = new System.Drawing.Size(1032, 399);
-            this.splitContainer1.SplitterDistance = 139;
+            this.splitContainer1.SplitterDistance = 136;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -724,7 +724,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1032, 139);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1032, 136);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -1038,7 +1038,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1032, 256);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1032, 259);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff
@@ -1085,7 +1085,7 @@
             this.dgvFactStaff.RowHeadersVisible = false;
             this.dgvFactStaff.RowHeadersWidth = 4;
             this.dgvFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFactStaff.Size = new System.Drawing.Size(1192, 311);
+            this.dgvFactStaff.Size = new System.Drawing.Size(1192, 315);
             this.dgvFactStaff.TabIndex = 6;
             this.dgvFactStaff.DoubleClick += new System.EventHandler(this.dgvFactStaff_DoubleClick);
             // 
@@ -1192,7 +1192,7 @@
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAddEmplFactStaff,
-            this.AddFactStaffBtn,
+            this.AddContractFactStaffBtn,
             this.tsbAddSubContractFactStaff,
             this.btnChangeFactStaff,
             this.DelFactStaffBtn,
@@ -1220,15 +1220,15 @@
             this.tsbAddEmplFactStaff.ToolTipText = "Добавить нового сотрудника на должность";
             this.tsbAddEmplFactStaff.Click += new System.EventHandler(this.tsbAddEmplFactStaff_Click);
             // 
-            // AddFactStaffBtn
+            // AddContractFactStaffBtn
             // 
-            this.AddFactStaffBtn.Image = global::Kadr.Properties.Resources.NewCardHS;
-            this.AddFactStaffBtn.ImageTransparentColor = System.Drawing.Color.Black;
-            this.AddFactStaffBtn.Name = "AddFactStaffBtn";
-            this.AddFactStaffBtn.Size = new System.Drawing.Size(127, 19);
-            this.AddFactStaffBtn.Text = "Добавить договор";
-            this.AddFactStaffBtn.ToolTipText = "Добавить сотрудника по новому договору";
-            this.AddFactStaffBtn.Click += new System.EventHandler(this.AddFactStaffBtn_Click);
+            this.AddContractFactStaffBtn.Image = global::Kadr.Properties.Resources.NewCardHS;
+            this.AddContractFactStaffBtn.ImageTransparentColor = System.Drawing.Color.Black;
+            this.AddContractFactStaffBtn.Name = "AddContractFactStaffBtn";
+            this.AddContractFactStaffBtn.Size = new System.Drawing.Size(127, 19);
+            this.AddContractFactStaffBtn.Text = "Добавить договор";
+            this.AddContractFactStaffBtn.ToolTipText = "Добавить сотрудника по новому договору";
+            this.AddContractFactStaffBtn.Click += new System.EventHandler(this.AddFactStaffBtn_Click);
             // 
             // tsbAddSubContractFactStaff
             // 
@@ -1589,7 +1589,7 @@
             this.tpHourStaff.Location = new System.Drawing.Point(4, 22);
             this.tpHourStaff.Name = "tpHourStaff";
             this.tpHourStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHourStaff.Size = new System.Drawing.Size(802, 533);
+            this.tpHourStaff.Size = new System.Drawing.Size(1038, 405);
             this.tpHourStaff.TabIndex = 11;
             this.tpHourStaff.Text = "Почасовики";
             this.tpHourStaff.UseVisualStyleBackColor = true;
@@ -1608,7 +1608,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(796, 527);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(1032, 399);
             this.tableLayoutPanel11.TabIndex = 2;
             // 
             // toolStrip12
@@ -1627,7 +1627,7 @@
             this.btnHourStaffToExcel});
             this.toolStrip12.Location = new System.Drawing.Point(0, 0);
             this.toolStrip12.Name = "toolStrip12";
-            this.toolStrip12.Size = new System.Drawing.Size(796, 24);
+            this.toolStrip12.Size = new System.Drawing.Size(1032, 24);
             this.toolStrip12.TabIndex = 8;
             this.toolStrip12.Text = "toolStrip12";
             // 
@@ -1748,9 +1748,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslPPSVacations});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 379);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(796, 20);
+            this.statusStrip1.Size = new System.Drawing.Size(1032, 20);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1832,7 +1832,7 @@
             this.dgvHourFactStaff.RowHeadersVisible = false;
             this.dgvHourFactStaff.RowHeadersWidth = 4;
             this.dgvHourFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHourFactStaff.Size = new System.Drawing.Size(790, 477);
+            this.dgvHourFactStaff.Size = new System.Drawing.Size(1026, 349);
             this.dgvHourFactStaff.TabIndex = 9;
             this.dgvHourFactStaff.DoubleClick += new System.EventHandler(this.dgvHourFactStaff_DoubleClick);
             // 
@@ -3875,7 +3875,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton AddPlanStaffBtn;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton AddFactStaffBtn;
+        private System.Windows.Forms.ToolStripButton AddContractFactStaffBtn;
         private System.Windows.Forms.ToolStripButton DelFactStaffBtn;
         private System.Windows.Forms.ToolStripButton DelPlanStaffBtn;
         private System.Windows.Forms.ToolStripButton TransferFactStaffBtn;

@@ -43,7 +43,7 @@ namespace Kadr.Data
         [System.ComponentModel.Description("Приказ, назначающий мат. ответственность")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public Kadr.Data.Prikaz Prikaz
+        public Kadr.Data.Prikaz PrikazBegin
         {
             get
             {
@@ -140,7 +140,7 @@ namespace Kadr.Data
             }
             set
             {
-                materialResponsibility.ContractName = value;
+                materialResponsibility.Contract.ContractName = value;
             }
         }
         [System.ComponentModel.DisplayName("Дата договора")]
@@ -151,7 +151,7 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.DateContract != null ? materialResponsibility.DateContract.Value : DateTime.MinValue;
+                return materialResponsibility.DateContract;
             }
             set
             {
