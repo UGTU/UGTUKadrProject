@@ -195,7 +195,15 @@ namespace Kadr.UI.Frames
             this.tsbChangeRegionDates = new System.Windows.Forms.ToolStripButton();
             this.tpMaterial = new System.Windows.Forms.TabPage();
             this.dgvMaterial = new System.Windows.Forms.DataGridView();
-            this.materialResponsibilityDecoratorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prikazBeginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateBeginDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateEndDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateContractDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prikazEndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialResponsibilityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsMaterialResp = new System.Windows.Forms.ToolStrip();
             this.tsbAddMaterial = new System.Windows.Forms.ToolStripButton();
             this.tsbEditMaterial = new System.Windows.Forms.ToolStripButton();
@@ -485,14 +493,6 @@ namespace Kadr.UI.Frames
             this.timeSheetDayStateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oKLanguageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn129 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateBeginDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.percentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateContractDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateEndDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prikazEndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -545,7 +545,7 @@ namespace Kadr.UI.Frames
             this.tsBusinessTrips.SuspendLayout();
             this.tpMaterial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialResponsibilityDecoratorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaterialResponsibilityBindingSource)).BeginInit();
             this.tsMaterialResp.SuspendLayout();
             this.tpValidations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvValidations)).BeginInit();
@@ -2076,15 +2076,15 @@ namespace Kadr.UI.Frames
             this.dgvMaterial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaterial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn129,
+            this.prikazBeginDataGridViewTextBoxColumn,
             this.dateBeginDataGridViewTextBoxColumn4,
+            this.dateEndDataGridViewTextBoxColumn5,
             this.sumDataGridViewTextBoxColumn1,
             this.percentDataGridViewTextBoxColumn,
             this.contractNameDataGridViewTextBoxColumn,
             this.dateContractDataGridViewTextBoxColumn,
-            this.dateEndDataGridViewTextBoxColumn5,
             this.prikazEndDataGridViewTextBoxColumn});
-            this.dgvMaterial.DataSource = this.materialResponsibilityDecoratorBindingSource;
+            this.dgvMaterial.DataSource = this.MaterialResponsibilityBindingSource;
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -2104,9 +2104,67 @@ namespace Kadr.UI.Frames
             this.dgvMaterial.TabIndex = 14;
             this.dgvMaterial.DoubleClick += new System.EventHandler(this.tsbEditMaterial_Click);
             // 
-            // materialResponsibilityDecoratorBindingSource
+            // prikazBeginDataGridViewTextBoxColumn
             // 
-            this.materialResponsibilityDecoratorBindingSource.DataSource = typeof(Kadr.Data.MaterialResponsibilityDecorator);
+            this.prikazBeginDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.prikazBeginDataGridViewTextBoxColumn.DataPropertyName = "PrikazBegin";
+            this.prikazBeginDataGridViewTextBoxColumn.HeaderText = "\tПриказ";
+            this.prikazBeginDataGridViewTextBoxColumn.Name = "prikazBeginDataGridViewTextBoxColumn";
+            this.prikazBeginDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateBeginDataGridViewTextBoxColumn4
+            // 
+            this.dateBeginDataGridViewTextBoxColumn4.DataPropertyName = "DateBegin";
+            this.dateBeginDataGridViewTextBoxColumn4.HeaderText = "\t\tДата начала";
+            this.dateBeginDataGridViewTextBoxColumn4.Name = "dateBeginDataGridViewTextBoxColumn4";
+            this.dateBeginDataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dateEndDataGridViewTextBoxColumn5
+            // 
+            this.dateEndDataGridViewTextBoxColumn5.DataPropertyName = "DateEnd";
+            this.dateEndDataGridViewTextBoxColumn5.HeaderText = "Дата окончания";
+            this.dateEndDataGridViewTextBoxColumn5.Name = "dateEndDataGridViewTextBoxColumn5";
+            this.dateEndDataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // sumDataGridViewTextBoxColumn1
+            // 
+            this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
+            this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма выплаты";
+            this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
+            this.sumDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // percentDataGridViewTextBoxColumn
+            // 
+            this.percentDataGridViewTextBoxColumn.DataPropertyName = "Percent";
+            this.percentDataGridViewTextBoxColumn.HeaderText = "Процент выплаты";
+            this.percentDataGridViewTextBoxColumn.Name = "percentDataGridViewTextBoxColumn";
+            this.percentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contractNameDataGridViewTextBoxColumn
+            // 
+            this.contractNameDataGridViewTextBoxColumn.DataPropertyName = "ContractName";
+            this.contractNameDataGridViewTextBoxColumn.HeaderText = "Номер договора";
+            this.contractNameDataGridViewTextBoxColumn.Name = "contractNameDataGridViewTextBoxColumn";
+            this.contractNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateContractDataGridViewTextBoxColumn
+            // 
+            this.dateContractDataGridViewTextBoxColumn.DataPropertyName = "DateContract";
+            this.dateContractDataGridViewTextBoxColumn.HeaderText = "Дата договора";
+            this.dateContractDataGridViewTextBoxColumn.Name = "dateContractDataGridViewTextBoxColumn";
+            this.dateContractDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prikazEndDataGridViewTextBoxColumn
+            // 
+            this.prikazEndDataGridViewTextBoxColumn.DataPropertyName = "PrikazEnd";
+            this.prikazEndDataGridViewTextBoxColumn.HeaderText = "Приказ о прекращении мат. ответственности";
+            this.prikazEndDataGridViewTextBoxColumn.Name = "prikazEndDataGridViewTextBoxColumn";
+            this.prikazEndDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prikazEndDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // MaterialResponsibilityBindingSource
+            // 
+            this.MaterialResponsibilityBindingSource.DataSource = typeof(Kadr.Data.MaterialResponsibilityDecorator);
             // 
             // tsMaterialResp
             // 
@@ -4894,65 +4952,6 @@ namespace Kadr.UI.Frames
             // 
             this.oKLanguageBindingSource.DataSource = typeof(Kadr.Data.OK_Language);
             // 
-            // dataGridViewTextBoxColumn129
-            // 
-            this.dataGridViewTextBoxColumn129.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn129.DataPropertyName = "PrikazBegin";
-            this.dataGridViewTextBoxColumn129.HeaderText = "Приказ";
-            this.dataGridViewTextBoxColumn129.Name = "dataGridViewTextBoxColumn129";
-            this.dataGridViewTextBoxColumn129.ReadOnly = true;
-            // 
-            // dateBeginDataGridViewTextBoxColumn4
-            // 
-            this.dateBeginDataGridViewTextBoxColumn4.DataPropertyName = "DateBegin";
-            this.dateBeginDataGridViewTextBoxColumn4.HeaderText = "\t\tДата начала";
-            this.dateBeginDataGridViewTextBoxColumn4.Name = "dateBeginDataGridViewTextBoxColumn4";
-            this.dateBeginDataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // sumDataGridViewTextBoxColumn1
-            // 
-            this.sumDataGridViewTextBoxColumn1.DataPropertyName = "Sum";
-            this.sumDataGridViewTextBoxColumn1.HeaderText = "Сумма выплаты";
-            this.sumDataGridViewTextBoxColumn1.Name = "sumDataGridViewTextBoxColumn1";
-            this.sumDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // percentDataGridViewTextBoxColumn
-            // 
-            this.percentDataGridViewTextBoxColumn.DataPropertyName = "Percent";
-            this.percentDataGridViewTextBoxColumn.HeaderText = "Процент выплаты";
-            this.percentDataGridViewTextBoxColumn.Name = "percentDataGridViewTextBoxColumn";
-            this.percentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.percentDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // contractNameDataGridViewTextBoxColumn
-            // 
-            this.contractNameDataGridViewTextBoxColumn.DataPropertyName = "ContractName";
-            this.contractNameDataGridViewTextBoxColumn.HeaderText = "Номер договора";
-            this.contractNameDataGridViewTextBoxColumn.Name = "contractNameDataGridViewTextBoxColumn";
-            this.contractNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateContractDataGridViewTextBoxColumn
-            // 
-            this.dateContractDataGridViewTextBoxColumn.DataPropertyName = "DateContract";
-            this.dateContractDataGridViewTextBoxColumn.HeaderText = "Дата договора";
-            this.dateContractDataGridViewTextBoxColumn.Name = "dateContractDataGridViewTextBoxColumn";
-            this.dateContractDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateEndDataGridViewTextBoxColumn5
-            // 
-            this.dateEndDataGridViewTextBoxColumn5.DataPropertyName = "DateEnd";
-            this.dateEndDataGridViewTextBoxColumn5.HeaderText = "Дата окончания";
-            this.dateEndDataGridViewTextBoxColumn5.Name = "dateEndDataGridViewTextBoxColumn5";
-            this.dateEndDataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // prikazEndDataGridViewTextBoxColumn
-            // 
-            this.prikazEndDataGridViewTextBoxColumn.DataPropertyName = "PrikazEnd";
-            this.prikazEndDataGridViewTextBoxColumn.HeaderText = "Приказ о прекращении мат. ответственности";
-            this.prikazEndDataGridViewTextBoxColumn.Name = "prikazEndDataGridViewTextBoxColumn";
-            this.prikazEndDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prikazEndDataGridViewTextBoxColumn.Visible = false;
-            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5026,7 +5025,7 @@ namespace Kadr.UI.Frames
             this.tpMaterial.ResumeLayout(false);
             this.tpMaterial.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialResponsibilityDecoratorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaterialResponsibilityBindingSource)).EndInit();
             this.tsMaterialResp.ResumeLayout(false);
             this.tsMaterialResp.PerformLayout();
             this.tpValidations.ResumeLayout(false);
@@ -5313,7 +5312,6 @@ namespace Kadr.UI.Frames
         private BindingSource oKphoneBindingSource;
         private BindingSource oKAdressBindingSource;
         private UIX.UI.CommandPropertyGrid cpgEmployee;
-        private BindingSource materialResponsibilityDecoratorBindingSource;
         private ToolStripButton tsbChangeRegionDates;
         private TabControl tcEducation;
         private TabPage tpPostGradEduc;
@@ -5558,13 +5556,14 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn DateEnd;
         private DataGridViewCheckBoxColumn SocialFareTransit;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn129;
+        private BindingSource MaterialResponsibilityBindingSource;
+        private DataGridViewTextBoxColumn prikazBeginDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn percentDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn contractNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateContractDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn prikazEndDataGridViewTextBoxColumn;
     }
 }

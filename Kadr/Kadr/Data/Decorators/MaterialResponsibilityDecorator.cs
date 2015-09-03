@@ -47,11 +47,11 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.FactStaffPrikaz.Prikaz;
+                return materialResponsibility.PrikazBegin;
             }
             set
             {
-                if (value != null) materialResponsibility.FactStaffPrikaz.Prikaz = value;
+                materialResponsibility.PrikazBegin = value;
             }
         }
 
@@ -172,16 +172,15 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null)
+                if ((value != null)&&( materialResponsibility.FactStaffPrikaz1 == null))
                 {
-                    if ( materialResponsibility.FactStaffPrikaz1 == null)
                          materialResponsibility.FactStaffPrikaz1 = new FactStaffPrikaz()
                          {
                              FactStaff = materialResponsibility.FactStaff
-                         };
-                    materialResponsibility.FactStaffPrikaz1.Prikaz = value;
+                         }; 
                 }
-                
+                materialResponsibility.FactStaffPrikaz1.Prikaz = value;
+                if (value == null) materialResponsibility.FactStaffPrikaz1 = null;
             }
         }
 

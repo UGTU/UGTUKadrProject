@@ -310,7 +310,7 @@ namespace Kadr.UI.Frames
                 CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpMaterial)
-                CRUDMaterial.Read((FactStaff)factStaffBindingSource.Current, materialResponsibilityDecoratorBindingSource);
+                CRUDMaterial.Read((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpValidations)
                 CRUDValidation.Read((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
@@ -436,17 +436,17 @@ namespace Kadr.UI.Frames
 
         private void tsbAddMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Create((FactStaff)factStaffBindingSource.Current, materialResponsibilityDecoratorBindingSource, this);
+            CRUDMaterial.Create((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource, this);
         }
 
         private void tsbDelMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Delete((FactStaff)factStaffBindingSource.Current, materialResponsibilityDecoratorBindingSource);
+            CRUDMaterial.Delete((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource);
         }
 
         private void tsbEditMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, materialResponsibilityDecoratorBindingSource);
+            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource);
         }
 
 

@@ -42,9 +42,6 @@ namespace Kadr.Data
     partial void InsertPlanStaffSalary(PlanStaffSalary instance);
     partial void UpdatePlanStaffSalary(PlanStaffSalary instance);
     partial void DeletePlanStaffSalary(PlanStaffSalary instance);
-    partial void InsertPrikaz(Prikaz instance);
-    partial void UpdatePrikaz(Prikaz instance);
-    partial void DeletePrikaz(Prikaz instance);
     partial void InsertPrikazType(PrikazType instance);
     partial void UpdatePrikazType(PrikazType instance);
     partial void DeletePrikazType(PrikazType instance);
@@ -312,12 +309,15 @@ namespace Kadr.Data
     partial void InsertOK_Fam(OK_Fam instance);
     partial void UpdateOK_Fam(OK_Fam instance);
     partial void DeleteOK_Fam(OK_Fam instance);
-    partial void InsertContract(Contract instance);
-    partial void UpdateContract(Contract instance);
-    partial void DeleteContract(Contract instance);
     partial void InsertMaterialResponsibility(MaterialResponsibility instance);
     partial void UpdateMaterialResponsibility(MaterialResponsibility instance);
     partial void DeleteMaterialResponsibility(MaterialResponsibility instance);
+    partial void InsertContract(Contract instance);
+    partial void UpdateContract(Contract instance);
+    partial void DeleteContract(Contract instance);
+    partial void InsertPrikaz(Prikaz instance);
+    partial void UpdatePrikaz(Prikaz instance);
+    partial void DeletePrikaz(Prikaz instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -379,14 +379,6 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<PlanStaffSalary>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Prikaz> Prikazs
-		{
-			get
-			{
-				return this.GetTable<Prikaz>();
 			}
 		}
 		
@@ -1118,6 +1110,14 @@ namespace Kadr.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<MaterialResponsibility> MaterialResponsibilities
+		{
+			get
+			{
+				return this.GetTable<MaterialResponsibility>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Contract> Contracts
 		{
 			get
@@ -1126,11 +1126,11 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<MaterialResponsibility> MaterialResponsibilities
+		public System.Data.Linq.Table<Prikaz> Prikazs
 		{
 			get
 			{
-				return this.GetTable<MaterialResponsibility>();
+				return this.GetTable<Prikaz>();
 			}
 		}
 		
@@ -1828,9 +1828,9 @@ namespace Kadr.Data
 		
 		private System.Nullable<int> _idPrikaz;
 		
-		private EntityRef<Prikaz> _Prikaz;
-		
 		private EntityRef<PlanStaff> _PlanStaff;
+		
+		private EntityRef<Prikaz> _Prikaz;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -1852,8 +1852,8 @@ namespace Kadr.Data
 		
 		public PlanStaffSalary()
 		{
-			this._Prikaz = default(EntityRef<Prikaz>);
 			this._PlanStaff = default(EntityRef<PlanStaff>);
+			this._Prikaz = default(EntityRef<Prikaz>);
 			OnCreated();
 		}
 		
@@ -1985,40 +1985,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PlanStaffSalary", Storage="_Prikaz", ThisKey="idPrikaz", OtherKey="id", IsForeignKey=true)]
-		public Prikaz Prikaz
-		{
-			get
-			{
-				return this._Prikaz.Entity;
-			}
-			set
-			{
-				Prikaz previousValue = this._Prikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Prikaz.Entity = null;
-						previousValue.PlanStaffSalaries.Remove(this);
-					}
-					this._Prikaz.Entity = value;
-					if ((value != null))
-					{
-						value.PlanStaffSalaries.Add(this);
-						this._idPrikaz = value.id;
-					}
-					else
-					{
-						this._idPrikaz = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Prikaz");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PlanStaff_PlanStaffSalary", Storage="_PlanStaff", ThisKey="idPlanStaff", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public PlanStaff PlanStaff
 		{
@@ -2053,457 +2019,36 @@ namespace Kadr.Data
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Prikaz")]
-	public partial class Prikaz : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _PrikazName;
-		
-		private System.Nullable<System.DateTime> _DatePrikaz;
-		
-		private System.Nullable<int> _idPrikazType;
-		
-		private System.Nullable<System.DateTime> _DateBegin;
-		
-		private System.Nullable<System.DateTime> _DateEnd;
-		
-		private string _resume;
-		
-		private EntitySet<PlanStaffSalary> _PlanStaffSalaries;
-		
-		private EntitySet<PKCategorySalary> _PKCategorySalaries;
-		
-		private EntitySet<DepartmentHistory> _DepartmentHistories;
-		
-		private EntitySet<Dep> _Deps;
-		
-		private EntitySet<BonusHistory> _BonusHistories;
-		
-		private EntitySet<Bonus> _Bonus;
-		
-		private EntitySet<Bonus> _Bonus1;
-		
-		private EntitySet<PlanStaff> _PlanStaffs;
-		
-		private EntitySet<PlanStaffHistory> _PlanStaffHistories;
-		
-		private EntitySet<FactStaffPrikaz> _FactStaffPrikazs;
-		
-		private EntitySet<OK_Otpusk> _OK_Otpusks;
-		
-		private EntitySet<FactStaff> _FactStaffs;
-		
-		private EntitySet<FactStaffHistory> _FactStaffHistories;
-		
-		private EntityRef<PrikazType> _PrikazType;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnPrikazNameChanging(string value);
-    partial void OnPrikazNameChanged();
-    partial void OnDatePrikazChanging(System.Nullable<System.DateTime> value);
-    partial void OnDatePrikazChanged();
-    partial void OnidPrikazTypeChanging(System.Nullable<int> value);
-    partial void OnidPrikazTypeChanged();
-    partial void OnDateBeginChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateBeginChanged();
-    partial void OnDateEndChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateEndChanged();
-    partial void OnresumeChanging(string value);
-    partial void OnresumeChanged();
-    #endregion
-		
-		public Prikaz()
-		{
-			this._PlanStaffSalaries = new EntitySet<PlanStaffSalary>(new Action<PlanStaffSalary>(this.attach_PlanStaffSalaries), new Action<PlanStaffSalary>(this.detach_PlanStaffSalaries));
-			this._PKCategorySalaries = new EntitySet<PKCategorySalary>(new Action<PKCategorySalary>(this.attach_PKCategorySalaries), new Action<PKCategorySalary>(this.detach_PKCategorySalaries));
-			this._DepartmentHistories = new EntitySet<DepartmentHistory>(new Action<DepartmentHistory>(this.attach_DepartmentHistories), new Action<DepartmentHistory>(this.detach_DepartmentHistories));
-			this._Deps = new EntitySet<Dep>(new Action<Dep>(this.attach_Deps), new Action<Dep>(this.detach_Deps));
-			this._BonusHistories = new EntitySet<BonusHistory>(new Action<BonusHistory>(this.attach_BonusHistories), new Action<BonusHistory>(this.detach_BonusHistories));
-			this._Bonus = new EntitySet<Bonus>(new Action<Bonus>(this.attach_Bonus), new Action<Bonus>(this.detach_Bonus));
-			this._Bonus1 = new EntitySet<Bonus>(new Action<Bonus>(this.attach_Bonus1), new Action<Bonus>(this.detach_Bonus1));
-			this._PlanStaffs = new EntitySet<PlanStaff>(new Action<PlanStaff>(this.attach_PlanStaffs), new Action<PlanStaff>(this.detach_PlanStaffs));
-			this._PlanStaffHistories = new EntitySet<PlanStaffHistory>(new Action<PlanStaffHistory>(this.attach_PlanStaffHistories), new Action<PlanStaffHistory>(this.detach_PlanStaffHistories));
-			this._FactStaffPrikazs = new EntitySet<FactStaffPrikaz>(new Action<FactStaffPrikaz>(this.attach_FactStaffPrikazs), new Action<FactStaffPrikaz>(this.detach_FactStaffPrikazs));
-			this._OK_Otpusks = new EntitySet<OK_Otpusk>(new Action<OK_Otpusk>(this.attach_OK_Otpusks), new Action<OK_Otpusk>(this.detach_OK_Otpusks));
-			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
-			this._FactStaffHistories = new EntitySet<FactStaffHistory>(new Action<FactStaffHistory>(this.attach_FactStaffHistories), new Action<FactStaffHistory>(this.detach_FactStaffHistories));
-			this._PrikazType = default(EntityRef<PrikazType>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PlanStaffSalary", Storage="_Prikaz", ThisKey="idPrikaz", OtherKey="id", IsForeignKey=true)]
+		public Prikaz Prikaz
 		{
 			get
 			{
-				return this._id;
+				return this._Prikaz.Entity;
 			}
 			set
 			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrikazName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string PrikazName
-		{
-			get
-			{
-				return this._PrikazName;
-			}
-			set
-			{
-				if ((this._PrikazName != value))
-				{
-					this.OnPrikazNameChanging(value);
-					this.SendPropertyChanging();
-					this._PrikazName = value;
-					this.SendPropertyChanged("PrikazName");
-					this.OnPrikazNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DatePrikaz", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DatePrikaz
-		{
-			get
-			{
-				return this._DatePrikaz;
-			}
-			set
-			{
-				if ((this._DatePrikaz != value))
-				{
-					this.OnDatePrikazChanging(value);
-					this.SendPropertyChanging();
-					this._DatePrikaz = value;
-					this.SendPropertyChanged("DatePrikaz");
-					this.OnDatePrikazChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPrikazType", DbType="Int")]
-		public System.Nullable<int> idPrikazType
-		{
-			get
-			{
-				return this._idPrikazType;
-			}
-			set
-			{
-				if ((this._idPrikazType != value))
-				{
-					if (this._PrikazType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidPrikazTypeChanging(value);
-					this.SendPropertyChanging();
-					this._idPrikazType = value;
-					this.SendPropertyChanged("idPrikazType");
-					this.OnidPrikazTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateBegin
-		{
-			get
-			{
-				return this._DateBegin;
-			}
-			set
-			{
-				if ((this._DateBegin != value))
-				{
-					this.OnDateBeginChanging(value);
-					this.SendPropertyChanging();
-					this._DateBegin = value;
-					this.SendPropertyChanged("DateBegin");
-					this.OnDateBeginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateEnd
-		{
-			get
-			{
-				return this._DateEnd;
-			}
-			set
-			{
-				if ((this._DateEnd != value))
-				{
-					this.OnDateEndChanging(value);
-					this.SendPropertyChanging();
-					this._DateEnd = value;
-					this.SendPropertyChanged("DateEnd");
-					this.OnDateEndChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_resume", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string resume
-		{
-			get
-			{
-				return this._resume;
-			}
-			set
-			{
-				if ((this._resume != value))
-				{
-					this.OnresumeChanging(value);
-					this.SendPropertyChanging();
-					this._resume = value;
-					this.SendPropertyChanged("resume");
-					this.OnresumeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PlanStaffSalary", Storage="_PlanStaffSalaries", ThisKey="id", OtherKey="idPrikaz")]
-		public EntitySet<PlanStaffSalary> PlanStaffSalaries
-		{
-			get
-			{
-				return this._PlanStaffSalaries;
-			}
-			set
-			{
-				this._PlanStaffSalaries.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PKCategorySalary", Storage="_PKCategorySalaries", ThisKey="id", OtherKey="idPrikaz")]
-		public EntitySet<PKCategorySalary> PKCategorySalaries
-		{
-			get
-			{
-				return this._PKCategorySalaries;
-			}
-			set
-			{
-				this._PKCategorySalaries.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_DepartmentHistory", Storage="_DepartmentHistories", ThisKey="id", OtherKey="idBeginPrikaz")]
-		public EntitySet<DepartmentHistory> DepartmentHistories
-		{
-			get
-			{
-				return this._DepartmentHistories;
-			}
-			set
-			{
-				this._DepartmentHistories.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_Dep", Storage="_Deps", ThisKey="id", OtherKey="idEndPrikaz")]
-		public EntitySet<Dep> Deps
-		{
-			get
-			{
-				return this._Deps;
-			}
-			set
-			{
-				this._Deps.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_BonusHistory", Storage="_BonusHistories", ThisKey="id", OtherKey="idBeginPrikaz")]
-		public EntitySet<BonusHistory> BonusHistories
-		{
-			get
-			{
-				return this._BonusHistories;
-			}
-			set
-			{
-				this._BonusHistories.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_Bonus", Storage="_Bonus", ThisKey="id", OtherKey="idEndPrikaz")]
-		public EntitySet<Bonus> Bonus
-		{
-			get
-			{
-				return this._Bonus;
-			}
-			set
-			{
-				this._Bonus.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_Bonus1", Storage="_Bonus1", ThisKey="id", OtherKey="idIntermediateEndPrikaz")]
-		public EntitySet<Bonus> Bonus1
-		{
-			get
-			{
-				return this._Bonus1;
-			}
-			set
-			{
-				this._Bonus1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PlanStaff", Storage="_PlanStaffs", ThisKey="id", OtherKey="idEndPrikaz")]
-		public EntitySet<PlanStaff> PlanStaffs
-		{
-			get
-			{
-				return this._PlanStaffs;
-			}
-			set
-			{
-				this._PlanStaffs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PlanStaffHistory", Storage="_PlanStaffHistories", ThisKey="id", OtherKey="idBeginPrikaz")]
-		public EntitySet<PlanStaffHistory> PlanStaffHistories
-		{
-			get
-			{
-				return this._PlanStaffHistories;
-			}
-			set
-			{
-				this._PlanStaffHistories.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaffPrikaz", Storage="_FactStaffPrikazs", ThisKey="id", OtherKey="idPrikaz")]
-		public EntitySet<FactStaffPrikaz> FactStaffPrikazs
-		{
-			get
-			{
-				return this._FactStaffPrikazs;
-			}
-			set
-			{
-				this._FactStaffPrikazs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_OK_Otpusk", Storage="_OK_Otpusks", ThisKey="id", OtherKey="idOtpuskPrikaz")]
-		public EntitySet<OK_Otpusk> OK_Otpusks
-		{
-			get
-			{
-				return this._OK_Otpusks;
-			}
-			set
-			{
-				this._OK_Otpusks.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaff", Storage="_FactStaffs", ThisKey="id", OtherKey="idEndPrikaz")]
-		public EntitySet<FactStaff> FactStaffs
-		{
-			get
-			{
-				return this._FactStaffs;
-			}
-			set
-			{
-				this._FactStaffs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaffHistory", Storage="_FactStaffHistories", ThisKey="id", OtherKey="idBeginPrikaz")]
-		public EntitySet<FactStaffHistory> FactStaffHistories
-		{
-			get
-			{
-				return this._FactStaffHistories;
-			}
-			set
-			{
-				this._FactStaffHistories.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrikazType_Prikaz", Storage="_PrikazType", ThisKey="idPrikazType", OtherKey="id", IsForeignKey=true)]
-		public PrikazType PrikazType
-		{
-			get
-			{
-				return this._PrikazType.Entity;
-			}
-			set
-			{
-				PrikazType previousValue = this._PrikazType.Entity;
+				Prikaz previousValue = this._Prikaz.Entity;
 				if (((previousValue != value) 
-							|| (this._PrikazType.HasLoadedOrAssignedValue == false)))
+							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._PrikazType.Entity = null;
-						previousValue.Prikazs.Remove(this);
+						this._Prikaz.Entity = null;
+						previousValue.PlanStaffSalaries.Remove(this);
 					}
-					this._PrikazType.Entity = value;
+					this._Prikaz.Entity = value;
 					if ((value != null))
 					{
-						value.Prikazs.Add(this);
-						this._idPrikazType = value.id;
+						value.PlanStaffSalaries.Add(this);
+						this._idPrikaz = value.id;
 					}
 					else
 					{
-						this._idPrikazType = default(Nullable<int>);
+						this._idPrikaz = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("PrikazType");
+					this.SendPropertyChanged("Prikaz");
 				}
 			}
 		}
@@ -2526,162 +2071,6 @@ namespace Kadr.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_PlanStaffSalaries(PlanStaffSalary entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_PlanStaffSalaries(PlanStaffSalary entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_PKCategorySalaries(PKCategorySalary entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_PKCategorySalaries(PKCategorySalary entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_DepartmentHistories(DepartmentHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_DepartmentHistories(DepartmentHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_Deps(Dep entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_Deps(Dep entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_BonusHistories(BonusHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_BonusHistories(BonusHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_Bonus(Bonus entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_Bonus(Bonus entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_Bonus1(Bonus entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz1 = this;
-		}
-		
-		private void detach_Bonus1(Bonus entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz1 = null;
-		}
-		
-		private void attach_PlanStaffs(PlanStaff entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_PlanStaffs(PlanStaff entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_PlanStaffHistories(PlanStaffHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_PlanStaffHistories(PlanStaffHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_FactStaffPrikazs(FactStaffPrikaz entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_FactStaffPrikazs(FactStaffPrikaz entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_OK_Otpusks(OK_Otpusk entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_OK_Otpusks(OK_Otpusk entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_FactStaffs(FactStaff entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_FactStaffs(FactStaff entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
-		}
-		
-		private void attach_FactStaffHistories(FactStaffHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = this;
-		}
-		
-		private void detach_FactStaffHistories(FactStaffHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Prikaz = null;
 		}
 	}
 	
@@ -3134,9 +2523,9 @@ namespace Kadr.Data
 		
 		private System.Nullable<int> _idPrikaz;
 		
-		private EntityRef<Prikaz> _Prikaz;
-		
 		private EntityRef<PKCategory> _PKCategory;
+		
+		private EntityRef<Prikaz> _Prikaz;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -3158,8 +2547,8 @@ namespace Kadr.Data
 		
 		public PKCategorySalary()
 		{
-			this._Prikaz = default(EntityRef<Prikaz>);
 			this._PKCategory = default(EntityRef<PKCategory>);
+			this._Prikaz = default(EntityRef<Prikaz>);
 			OnCreated();
 		}
 		
@@ -3291,40 +2680,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PKCategorySalary", Storage="_Prikaz", ThisKey="idPrikaz", OtherKey="id", IsForeignKey=true)]
-		public Prikaz Prikaz
-		{
-			get
-			{
-				return this._Prikaz.Entity;
-			}
-			set
-			{
-				Prikaz previousValue = this._Prikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Prikaz.Entity = null;
-						previousValue.PKCategorySalaries.Remove(this);
-					}
-					this._Prikaz.Entity = value;
-					if ((value != null))
-					{
-						value.PKCategorySalaries.Add(this);
-						this._idPrikaz = value.id;
-					}
-					else
-					{
-						this._idPrikaz = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Prikaz");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PKCategory_PKCategorySalary", Storage="_PKCategory", ThisKey="idPKCategory", OtherKey="id", IsForeignKey=true)]
 		public PKCategory PKCategory
 		{
@@ -3355,6 +2710,40 @@ namespace Kadr.Data
 						this._idPKCategory = default(int);
 					}
 					this.SendPropertyChanged("PKCategory");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PKCategorySalary", Storage="_Prikaz", ThisKey="idPrikaz", OtherKey="id", IsForeignKey=true)]
+		public Prikaz Prikaz
+		{
+			get
+			{
+				return this._Prikaz.Entity;
+			}
+			set
+			{
+				Prikaz previousValue = this._Prikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Prikaz.Entity = null;
+						previousValue.PKCategorySalaries.Remove(this);
+					}
+					this._Prikaz.Entity = value;
+					if ((value != null))
+					{
+						value.PKCategorySalaries.Add(this);
+						this._idPrikaz = value.id;
+					}
+					else
+					{
+						this._idPrikaz = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Prikaz");
 				}
 			}
 		}
@@ -9470,11 +8859,11 @@ namespace Kadr.Data
 		
 		private string _DepartmentSmallName;
 		
-		private EntityRef<Prikaz> _Prikaz;
-		
 		private EntityRef<Dep> _Dep;
 		
 		private EntityRef<Dep> _Dep1;
+		
+		private EntityRef<Prikaz> _Prikaz;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -9498,9 +8887,9 @@ namespace Kadr.Data
 		
 		public DepartmentHistory()
 		{
-			this._Prikaz = default(EntityRef<Prikaz>);
 			this._Dep = default(EntityRef<Dep>);
 			this._Dep1 = default(EntityRef<Dep>);
+			this._Prikaz = default(EntityRef<Prikaz>);
 			OnCreated();
 		}
 		
@@ -9656,40 +9045,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_DepartmentHistory", Storage="_Prikaz", ThisKey="idBeginPrikaz", OtherKey="id", IsForeignKey=true)]
-		public Prikaz Prikaz
-		{
-			get
-			{
-				return this._Prikaz.Entity;
-			}
-			set
-			{
-				Prikaz previousValue = this._Prikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Prikaz.Entity = null;
-						previousValue.DepartmentHistories.Remove(this);
-					}
-					this._Prikaz.Entity = value;
-					if ((value != null))
-					{
-						value.DepartmentHistories.Add(this);
-						this._idBeginPrikaz = value.id;
-					}
-					else
-					{
-						this._idBeginPrikaz = default(int);
-					}
-					this.SendPropertyChanged("Prikaz");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dep_DepartmentHistory", Storage="_Dep", ThisKey="idDepartment", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Dep Dep
 		{
@@ -9754,6 +9109,40 @@ namespace Kadr.Data
 						this._idManagerDepartment = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Dep1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_DepartmentHistory", Storage="_Prikaz", ThisKey="idBeginPrikaz", OtherKey="id", IsForeignKey=true)]
+		public Prikaz Prikaz
+		{
+			get
+			{
+				return this._Prikaz.Entity;
+			}
+			set
+			{
+				Prikaz previousValue = this._Prikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Prikaz.Entity = null;
+						previousValue.DepartmentHistories.Remove(this);
+					}
+					this._Prikaz.Entity = value;
+					if ((value != null))
+					{
+						value.DepartmentHistories.Add(this);
+						this._idBeginPrikaz = value.id;
+					}
+					else
+					{
+						this._idBeginPrikaz = default(int);
+					}
+					this.SendPropertyChanged("Prikaz");
 				}
 			}
 		}
@@ -10306,9 +9695,9 @@ namespace Kadr.Data
 		
 		private EntityRef<OKVED> _OKVED;
 		
-		private EntityRef<Prikaz> _Prikaz;
-		
 		private EntityRef<PlanStaff> _PlanStaff;
+		
+		private EntityRef<Prikaz> _Prikaz;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -10355,8 +9744,8 @@ namespace Kadr.Data
 			this._DepartmentType = default(EntityRef<DepartmentType>);
 			this._FundingCenter = default(EntityRef<FundingCenter>);
 			this._OKVED = default(EntityRef<OKVED>);
-			this._Prikaz = default(EntityRef<Prikaz>);
 			this._PlanStaff = default(EntityRef<PlanStaff>);
+			this._Prikaz = default(EntityRef<Prikaz>);
 			OnCreated();
 		}
 		
@@ -10840,40 +10229,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_Dep", Storage="_Prikaz", ThisKey="idEndPrikaz", OtherKey="id", IsForeignKey=true)]
-		public Prikaz Prikaz
-		{
-			get
-			{
-				return this._Prikaz.Entity;
-			}
-			set
-			{
-				Prikaz previousValue = this._Prikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Prikaz.Entity = null;
-						previousValue.Deps.Remove(this);
-					}
-					this._Prikaz.Entity = value;
-					if ((value != null))
-					{
-						value.Deps.Add(this);
-						this._idEndPrikaz = value.id;
-					}
-					else
-					{
-						this._idEndPrikaz = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Prikaz");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PlanStaff_Dep", Storage="_PlanStaff", ThisKey="idManagerPlanStaff", OtherKey="id", IsForeignKey=true)]
 		public PlanStaff PlanStaff
 		{
@@ -10904,6 +10259,40 @@ namespace Kadr.Data
 						this._idManagerPlanStaff = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("PlanStaff");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_Dep", Storage="_Prikaz", ThisKey="idEndPrikaz", OtherKey="id", IsForeignKey=true)]
+		public Prikaz Prikaz
+		{
+			get
+			{
+				return this._Prikaz.Entity;
+			}
+			set
+			{
+				Prikaz previousValue = this._Prikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Prikaz.Entity = null;
+						previousValue.Deps.Remove(this);
+					}
+					this._Prikaz.Entity = value;
+					if ((value != null))
+					{
+						value.Deps.Add(this);
+						this._idEndPrikaz = value.id;
+					}
+					else
+					{
+						this._idEndPrikaz = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Prikaz");
 				}
 			}
 		}
@@ -12722,9 +12111,9 @@ namespace Kadr.Data
 		
 		private EntityRef<FinancingSource> _FinancingSource;
 		
-		private EntityRef<Prikaz> _Prikaz;
-		
 		private EntityRef<Bonus> _Bonus;
+		
+		private EntityRef<Prikaz> _Prikaz;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -12747,8 +12136,8 @@ namespace Kadr.Data
 		public BonusHistory()
 		{
 			this._FinancingSource = default(EntityRef<FinancingSource>);
-			this._Prikaz = default(EntityRef<Prikaz>);
 			this._Bonus = default(EntityRef<Bonus>);
+			this._Prikaz = default(EntityRef<Prikaz>);
 			OnCreated();
 		}
 		
@@ -12918,40 +12307,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_BonusHistory", Storage="_Prikaz", ThisKey="idBeginPrikaz", OtherKey="id", IsForeignKey=true)]
-		public Prikaz Prikaz
-		{
-			get
-			{
-				return this._Prikaz.Entity;
-			}
-			set
-			{
-				Prikaz previousValue = this._Prikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Prikaz.Entity = null;
-						previousValue.BonusHistories.Remove(this);
-					}
-					this._Prikaz.Entity = value;
-					if ((value != null))
-					{
-						value.BonusHistories.Add(this);
-						this._idBeginPrikaz = value.id;
-					}
-					else
-					{
-						this._idBeginPrikaz = default(int);
-					}
-					this.SendPropertyChanged("Prikaz");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bonus_BonusHistory", Storage="_Bonus", ThisKey="idBonus", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Bonus Bonus
 		{
@@ -12982,6 +12337,40 @@ namespace Kadr.Data
 						this._idBonus = default(int);
 					}
 					this.SendPropertyChanged("Bonus");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_BonusHistory", Storage="_Prikaz", ThisKey="idBeginPrikaz", OtherKey="id", IsForeignKey=true)]
+		public Prikaz Prikaz
+		{
+			get
+			{
+				return this._Prikaz.Entity;
+			}
+			set
+			{
+				Prikaz previousValue = this._Prikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Prikaz.Entity = null;
+						previousValue.BonusHistories.Remove(this);
+					}
+					this._Prikaz.Entity = value;
+					if ((value != null))
+					{
+						value.BonusHistories.Add(this);
+						this._idBeginPrikaz = value.id;
+					}
+					else
+					{
+						this._idBeginPrikaz = default(int);
+					}
+					this.SendPropertyChanged("Prikaz");
 				}
 			}
 		}
@@ -13468,9 +12857,9 @@ namespace Kadr.Data
 		
 		private EntityRef<Post> _Post;
 		
-		private EntityRef<Prikaz> _Prikaz;
-		
 		private EntityRef<WorkShedule> _WorkShedule;
+		
+		private EntityRef<Prikaz> _Prikaz;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -13499,8 +12888,8 @@ namespace Kadr.Data
 			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
 			this._Dep = default(EntityRef<Dep>);
 			this._Post = default(EntityRef<Post>);
-			this._Prikaz = default(EntityRef<Prikaz>);
 			this._WorkShedule = default(EntityRef<WorkShedule>);
+			this._Prikaz = default(EntityRef<Prikaz>);
 			OnCreated();
 		}
 		
@@ -13773,40 +13162,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PlanStaff", Storage="_Prikaz", ThisKey="idEndPrikaz", OtherKey="id", IsForeignKey=true)]
-		public Prikaz Prikaz
-		{
-			get
-			{
-				return this._Prikaz.Entity;
-			}
-			set
-			{
-				Prikaz previousValue = this._Prikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Prikaz.Entity = null;
-						previousValue.PlanStaffs.Remove(this);
-					}
-					this._Prikaz.Entity = value;
-					if ((value != null))
-					{
-						value.PlanStaffs.Add(this);
-						this._idEndPrikaz = value.id;
-					}
-					else
-					{
-						this._idEndPrikaz = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Prikaz");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WorkShedule_PlanStaff", Storage="_WorkShedule", ThisKey="IdWorkShedule", OtherKey="id", IsForeignKey=true)]
 		public WorkShedule WorkShedule
 		{
@@ -13837,6 +13192,40 @@ namespace Kadr.Data
 						this._IdWorkShedule = default(int);
 					}
 					this.SendPropertyChanged("WorkShedule");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PlanStaff", Storage="_Prikaz", ThisKey="idEndPrikaz", OtherKey="id", IsForeignKey=true)]
+		public Prikaz Prikaz
+		{
+			get
+			{
+				return this._Prikaz.Entity;
+			}
+			set
+			{
+				Prikaz previousValue = this._Prikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Prikaz.Entity = null;
+						previousValue.PlanStaffs.Remove(this);
+					}
+					this._Prikaz.Entity = value;
+					if ((value != null))
+					{
+						value.PlanStaffs.Add(this);
+						this._idEndPrikaz = value.id;
+					}
+					else
+					{
+						this._idEndPrikaz = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Prikaz");
 				}
 			}
 		}
@@ -14265,9 +13654,9 @@ namespace Kadr.Data
 		
 		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz1;
 		
-		private EntityRef<Prikaz> _Prikaz;
-		
 		private EntityRef<FactStaff> _FactStaff;
+		
+		private EntityRef<Prikaz> _Prikaz;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -14299,8 +13688,8 @@ namespace Kadr.Data
 			this._MaterialResponsibilities = new EntitySet<MaterialResponsibility>(new Action<MaterialResponsibility>(this.attach_MaterialResponsibilities), new Action<MaterialResponsibility>(this.detach_MaterialResponsibilities));
 			this._MaterialResponsibilities1 = new EntitySet<MaterialResponsibility>(new Action<MaterialResponsibility>(this.attach_MaterialResponsibilities1), new Action<MaterialResponsibility>(this.detach_MaterialResponsibilities1));
 			this._FactStaffPrikaz1 = default(EntityRef<FactStaffPrikaz>);
-			this._Prikaz = default(EntityRef<Prikaz>);
 			this._FactStaff = default(EntityRef<FactStaff>);
+			this._Prikaz = default(EntityRef<Prikaz>);
 			OnCreated();
 		}
 		
@@ -14587,40 +13976,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaffPrikaz", Storage="_Prikaz", ThisKey="idPrikaz", OtherKey="id", IsForeignKey=true)]
-		public Prikaz Prikaz
-		{
-			get
-			{
-				return this._Prikaz.Entity;
-			}
-			set
-			{
-				Prikaz previousValue = this._Prikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Prikaz.Entity = null;
-						previousValue.FactStaffPrikazs.Remove(this);
-					}
-					this._Prikaz.Entity = value;
-					if ((value != null))
-					{
-						value.FactStaffPrikazs.Add(this);
-						this._idPrikaz = value.id;
-					}
-					else
-					{
-						this._idPrikaz = default(int);
-					}
-					this.SendPropertyChanged("Prikaz");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_FactStaffPrikaz", Storage="_FactStaff", ThisKey="idFactStaff", OtherKey="id", IsForeignKey=true)]
 		public FactStaff FactStaff
 		{
@@ -14651,6 +14006,40 @@ namespace Kadr.Data
 						this._idFactStaff = default(int);
 					}
 					this.SendPropertyChanged("FactStaff");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaffPrikaz", Storage="_Prikaz", ThisKey="idPrikaz", OtherKey="id", IsForeignKey=true, DeleteOnNull=true)]
+		public Prikaz Prikaz
+		{
+			get
+			{
+				return this._Prikaz.Entity;
+			}
+			set
+			{
+				Prikaz previousValue = this._Prikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Prikaz.Entity = null;
+						previousValue.FactStaffPrikazs.Remove(this);
+					}
+					this._Prikaz.Entity = value;
+					if ((value != null))
+					{
+						value.FactStaffPrikazs.Add(this);
+						this._idPrikaz = value.id;
+					}
+					else
+					{
+						this._idPrikaz = default(int);
+					}
+					this.SendPropertyChanged("Prikaz");
 				}
 			}
 		}
@@ -16901,11 +16290,11 @@ namespace Kadr.Data
 		
 		private EntityRef<OK_Otpuskvid> _OK_Otpuskvid;
 		
-		private EntityRef<Prikaz> _Prikaz;
-		
 		private EntityRef<SocialFareTransit> _SocialFareTransit;
 		
 		private EntityRef<FactStaff> _FactStaff;
+		
+		private EntityRef<Prikaz> _Prikaz;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -16939,9 +16328,9 @@ namespace Kadr.Data
 		{
 			this._FactStaffPrikaz = default(EntityRef<FactStaffPrikaz>);
 			this._OK_Otpuskvid = default(EntityRef<OK_Otpuskvid>);
-			this._Prikaz = default(EntityRef<Prikaz>);
 			this._SocialFareTransit = default(EntityRef<SocialFareTransit>);
 			this._FactStaff = default(EntityRef<FactStaff>);
+			this._Prikaz = default(EntityRef<Prikaz>);
 			OnCreated();
 		}
 		
@@ -17253,40 +16642,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_OK_Otpusk", Storage="_Prikaz", ThisKey="idOtpuskPrikaz", OtherKey="id", IsForeignKey=true)]
-		public Prikaz Prikaz
-		{
-			get
-			{
-				return this._Prikaz.Entity;
-			}
-			set
-			{
-				Prikaz previousValue = this._Prikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Prikaz.Entity = null;
-						previousValue.OK_Otpusks.Remove(this);
-					}
-					this._Prikaz.Entity = value;
-					if ((value != null))
-					{
-						value.OK_Otpusks.Add(this);
-						this._idOtpuskPrikaz = value.id;
-					}
-					else
-					{
-						this._idOtpuskPrikaz = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Prikaz");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocialFareTransit_OK_Otpusk", Storage="_SocialFareTransit", ThisKey="idSocialFareTransit", OtherKey="id", IsForeignKey=true)]
 		public SocialFareTransit SocialFareTransit
 		{
@@ -17351,6 +16706,40 @@ namespace Kadr.Data
 						this._idFactStaff = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("FactStaff");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_OK_Otpusk", Storage="_Prikaz", ThisKey="idOtpuskPrikaz", OtherKey="id", IsForeignKey=true)]
+		public Prikaz Prikaz
+		{
+			get
+			{
+				return this._Prikaz.Entity;
+			}
+			set
+			{
+				Prikaz previousValue = this._Prikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Prikaz.Entity = null;
+						previousValue.OK_Otpusks.Remove(this);
+					}
+					this._Prikaz.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Otpusks.Add(this);
+						this._idOtpuskPrikaz = value.id;
+					}
+					else
+					{
+						this._idOtpuskPrikaz = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Prikaz");
 				}
 			}
 		}
@@ -21543,9 +20932,9 @@ namespace Kadr.Data
 		
 		private EntityRef<PlanStaff> _PlanStaff;
 		
-		private EntityRef<Prikaz> _Prikaz;
-		
 		private EntityRef<OK_Reason> _OK_Reason;
+		
+		private EntityRef<Prikaz> _Prikaz;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -21607,8 +20996,8 @@ namespace Kadr.Data
 			this._FundingCenter = default(EntityRef<FundingCenter>);
 			this._OKVED = default(EntityRef<OKVED>);
 			this._PlanStaff = default(EntityRef<PlanStaff>);
-			this._Prikaz = default(EntityRef<Prikaz>);
 			this._OK_Reason = default(EntityRef<OK_Reason>);
+			this._Prikaz = default(EntityRef<Prikaz>);
 			OnCreated();
 		}
 		
@@ -22379,40 +21768,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaff", Storage="_Prikaz", ThisKey="idEndPrikaz", OtherKey="id", IsForeignKey=true)]
-		public Prikaz Prikaz
-		{
-			get
-			{
-				return this._Prikaz.Entity;
-			}
-			set
-			{
-				Prikaz previousValue = this._Prikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Prikaz.Entity = null;
-						previousValue.FactStaffs.Remove(this);
-					}
-					this._Prikaz.Entity = value;
-					if ((value != null))
-					{
-						value.FactStaffs.Add(this);
-						this._idEndPrikaz = value.id;
-					}
-					else
-					{
-						this._idEndPrikaz = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Prikaz");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_Reason_FactStaff", Storage="_OK_Reason", ThisKey="idreason", OtherKey="idreason", IsForeignKey=true)]
 		public OK_Reason OK_Reason
 		{
@@ -22443,6 +21798,40 @@ namespace Kadr.Data
 						this._idreason = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("OK_Reason");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaff", Storage="_Prikaz", ThisKey="idEndPrikaz", OtherKey="id", IsForeignKey=true)]
+		public Prikaz Prikaz
+		{
+			get
+			{
+				return this._Prikaz.Entity;
+			}
+			set
+			{
+				Prikaz previousValue = this._Prikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Prikaz.Entity = null;
+						previousValue.FactStaffs.Remove(this);
+					}
+					this._Prikaz.Entity = value;
+					if ((value != null))
+					{
+						value.FactStaffs.Add(this);
+						this._idEndPrikaz = value.id;
+					}
+					else
+					{
+						this._idEndPrikaz = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Prikaz");
 				}
 			}
 		}
@@ -22738,13 +22127,13 @@ namespace Kadr.Data
 		
 		private EntityRef<FactStaff> _FactStaff;
 		
-		private EntityRef<Prikaz> _Prikaz;
-		
 		private EntityRef<SalaryKoeff> _SalaryKoeff;
 		
 		private EntityRef<WorkType> _WorkType;
 		
 		private EntityRef<Contract> _Contract;
+		
+		private EntityRef<Prikaz> _Prikaz;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -22783,10 +22172,10 @@ namespace Kadr.Data
 		public FactStaffHistory()
 		{
 			this._FactStaff = default(EntityRef<FactStaff>);
-			this._Prikaz = default(EntityRef<Prikaz>);
 			this._SalaryKoeff = default(EntityRef<SalaryKoeff>);
 			this._WorkType = default(EntityRef<WorkType>);
 			this._Contract = default(EntityRef<Contract>);
+			this._Prikaz = default(EntityRef<Prikaz>);
 			OnCreated();
 		}
 		
@@ -23124,40 +22513,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaffHistory", Storage="_Prikaz", ThisKey="idBeginPrikaz", OtherKey="id", IsForeignKey=true)]
-		public Prikaz Prikaz
-		{
-			get
-			{
-				return this._Prikaz.Entity;
-			}
-			set
-			{
-				Prikaz previousValue = this._Prikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Prikaz.Entity = null;
-						previousValue.FactStaffHistories.Remove(this);
-					}
-					this._Prikaz.Entity = value;
-					if ((value != null))
-					{
-						value.FactStaffHistories.Add(this);
-						this._idBeginPrikaz = value.id;
-					}
-					else
-					{
-						this._idBeginPrikaz = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Prikaz");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryKoeff_FactStaffHistory", Storage="_SalaryKoeff", ThisKey="idSalaryKoeff", OtherKey="id", IsForeignKey=true)]
 		public SalaryKoeff SalaryKoeff
 		{
@@ -23256,6 +22611,40 @@ namespace Kadr.Data
 						this._idContract = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Contract");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaffHistory", Storage="_Prikaz", ThisKey="idBeginPrikaz", OtherKey="id", IsForeignKey=true)]
+		public Prikaz Prikaz
+		{
+			get
+			{
+				return this._Prikaz.Entity;
+			}
+			set
+			{
+				Prikaz previousValue = this._Prikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._Prikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Prikaz.Entity = null;
+						previousValue.FactStaffHistories.Remove(this);
+					}
+					this._Prikaz.Entity = value;
+					if ((value != null))
+					{
+						value.FactStaffHistories.Add(this);
+						this._idBeginPrikaz = value.id;
+					}
+					else
+					{
+						this._idBeginPrikaz = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Prikaz");
 				}
 			}
 		}
@@ -26166,6 +25555,311 @@ namespace Kadr.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MaterialResponsibility")]
+	public partial class MaterialResponsibility : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _idFactStaffPrikaz;
+		
+		private int _idContract;
+		
+		private decimal _Sum;
+		
+		private System.Nullable<int> _idFactStaffPrikazEnd;
+		
+		private System.Nullable<decimal> _Perc;
+		
+		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz;
+		
+		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz1;
+		
+		private EntityRef<Contract> _Contract;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnidFactStaffPrikazChanging(int value);
+    partial void OnidFactStaffPrikazChanged();
+    partial void OnidContractChanging(int value);
+    partial void OnidContractChanged();
+    partial void OnSumChanging(decimal value);
+    partial void OnSumChanged();
+    partial void OnidFactStaffPrikazEndChanging(System.Nullable<int> value);
+    partial void OnidFactStaffPrikazEndChanged();
+    partial void OnPercChanging(System.Nullable<decimal> value);
+    partial void OnPercChanged();
+    #endregion
+		
+		public MaterialResponsibility()
+		{
+			this._FactStaffPrikaz = default(EntityRef<FactStaffPrikaz>);
+			this._FactStaffPrikaz1 = default(EntityRef<FactStaffPrikaz>);
+			this._Contract = default(EntityRef<Contract>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaffPrikaz", DbType="Int NOT NULL")]
+		public int idFactStaffPrikaz
+		{
+			get
+			{
+				return this._idFactStaffPrikaz;
+			}
+			set
+			{
+				if ((this._idFactStaffPrikaz != value))
+				{
+					if (this._FactStaffPrikaz.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidFactStaffPrikazChanging(value);
+					this.SendPropertyChanging();
+					this._idFactStaffPrikaz = value;
+					this.SendPropertyChanged("idFactStaffPrikaz");
+					this.OnidFactStaffPrikazChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idContract", DbType="Int NOT NULL")]
+		public int idContract
+		{
+			get
+			{
+				return this._idContract;
+			}
+			set
+			{
+				if ((this._idContract != value))
+				{
+					if (this._Contract.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidContractChanging(value);
+					this.SendPropertyChanging();
+					this._idContract = value;
+					this.SendPropertyChanged("idContract");
+					this.OnidContractChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sum", DbType="Decimal(8,2) NOT NULL")]
+		public decimal Sum
+		{
+			get
+			{
+				return this._Sum;
+			}
+			set
+			{
+				if ((this._Sum != value))
+				{
+					this.OnSumChanging(value);
+					this.SendPropertyChanging();
+					this._Sum = value;
+					this.SendPropertyChanged("Sum");
+					this.OnSumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaffPrikazEnd", DbType="Int")]
+		public System.Nullable<int> idFactStaffPrikazEnd
+		{
+			get
+			{
+				return this._idFactStaffPrikazEnd;
+			}
+			set
+			{
+				if ((this._idFactStaffPrikazEnd != value))
+				{
+					if (this._FactStaffPrikaz1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidFactStaffPrikazEndChanging(value);
+					this.SendPropertyChanging();
+					this._idFactStaffPrikazEnd = value;
+					this.SendPropertyChanged("idFactStaffPrikazEnd");
+					this.OnidFactStaffPrikazEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Perc", DbType="Decimal(4,2)")]
+		public System.Nullable<decimal> Perc
+		{
+			get
+			{
+				return this._Perc;
+			}
+			set
+			{
+				if ((this._Perc != value))
+				{
+					this.OnPercChanging(value);
+					this.SendPropertyChanging();
+					this._Perc = value;
+					this.SendPropertyChanged("Perc");
+					this.OnPercChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaffPrikaz_MaterialResponsibility", Storage="_FactStaffPrikaz", ThisKey="idFactStaffPrikaz", OtherKey="id", IsForeignKey=true)]
+		public FactStaffPrikaz FactStaffPrikaz
+		{
+			get
+			{
+				return this._FactStaffPrikaz.Entity;
+			}
+			set
+			{
+				FactStaffPrikaz previousValue = this._FactStaffPrikaz.Entity;
+				if (((previousValue != value) 
+							|| (this._FactStaffPrikaz.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FactStaffPrikaz.Entity = null;
+						previousValue.MaterialResponsibilities.Remove(this);
+					}
+					this._FactStaffPrikaz.Entity = value;
+					if ((value != null))
+					{
+						value.MaterialResponsibilities.Add(this);
+						this._idFactStaffPrikaz = value.id;
+					}
+					else
+					{
+						this._idFactStaffPrikaz = default(int);
+					}
+					this.SendPropertyChanged("FactStaffPrikaz");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaffPrikaz_MaterialResponsibility1", Storage="_FactStaffPrikaz1", ThisKey="idFactStaffPrikazEnd", OtherKey="id", IsForeignKey=true)]
+		public FactStaffPrikaz FactStaffPrikaz1
+		{
+			get
+			{
+				return this._FactStaffPrikaz1.Entity;
+			}
+			set
+			{
+				FactStaffPrikaz previousValue = this._FactStaffPrikaz1.Entity;
+				if (((previousValue != value) 
+							|| (this._FactStaffPrikaz1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FactStaffPrikaz1.Entity = null;
+						previousValue.MaterialResponsibilities1.Remove(this);
+					}
+					this._FactStaffPrikaz1.Entity = value;
+					if ((value != null))
+					{
+						value.MaterialResponsibilities1.Add(this);
+						this._idFactStaffPrikazEnd = value.id;
+					}
+					else
+					{
+						this._idFactStaffPrikazEnd = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("FactStaffPrikaz1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_MaterialResponsibility", Storage="_Contract", ThisKey="idContract", OtherKey="id", IsForeignKey=true)]
+		public Contract Contract
+		{
+			get
+			{
+				return this._Contract.Entity;
+			}
+			set
+			{
+				Contract previousValue = this._Contract.Entity;
+				if (((previousValue != value) 
+							|| (this._Contract.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contract.Entity = null;
+						previousValue.MaterialResponsibilities.Remove(this);
+					}
+					this._Contract.Entity = value;
+					if ((value != null))
+					{
+						value.MaterialResponsibilities.Add(this);
+						this._idContract = value.id;
+					}
+					else
+					{
+						this._idContract = default(int);
+					}
+					this.SendPropertyChanged("Contract");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Contract")]
 	public partial class Contract : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -26188,9 +25882,9 @@ namespace Kadr.Data
 		
 		private EntitySet<FactStaffHistory> _FactStaffHistories;
 		
-		private EntitySet<Contract> _Contracts;
-		
 		private EntitySet<MaterialResponsibility> _MaterialResponsibilities;
+		
+		private EntitySet<Contract> _Contracts;
 		
 		private EntityRef<Contract> _Contract1;
 		
@@ -26217,8 +25911,8 @@ namespace Kadr.Data
 		public Contract()
 		{
 			this._FactStaffHistories = new EntitySet<FactStaffHistory>(new Action<FactStaffHistory>(this.attach_FactStaffHistories), new Action<FactStaffHistory>(this.detach_FactStaffHistories));
-			this._Contracts = new EntitySet<Contract>(new Action<Contract>(this.attach_Contracts), new Action<Contract>(this.detach_Contracts));
 			this._MaterialResponsibilities = new EntitySet<MaterialResponsibility>(new Action<MaterialResponsibility>(this.attach_MaterialResponsibilities), new Action<MaterialResponsibility>(this.detach_MaterialResponsibilities));
+			this._Contracts = new EntitySet<Contract>(new Action<Contract>(this.attach_Contracts), new Action<Contract>(this.detach_Contracts));
 			this._Contract1 = default(EntityRef<Contract>);
 			OnCreated();
 		}
@@ -26380,19 +26074,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_Contract", Storage="_Contracts", ThisKey="id", OtherKey="idMainContract")]
-		public EntitySet<Contract> Contracts
-		{
-			get
-			{
-				return this._Contracts;
-			}
-			set
-			{
-				this._Contracts.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_MaterialResponsibility", Storage="_MaterialResponsibilities", ThisKey="id", OtherKey="idContract")]
 		public EntitySet<MaterialResponsibility> MaterialResponsibilities
 		{
@@ -26403,6 +26084,19 @@ namespace Kadr.Data
 			set
 			{
 				this._MaterialResponsibilities.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_Contract", Storage="_Contracts", ThisKey="id", OtherKey="idMainContract")]
+		public EntitySet<Contract> Contracts
+		{
+			get
+			{
+				return this._Contracts;
+			}
+			set
+			{
+				this._Contracts.Assign(value);
 			}
 		}
 		
@@ -26472,18 +26166,6 @@ namespace Kadr.Data
 			entity.Contract = null;
 		}
 		
-		private void attach_Contracts(Contract entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contract1 = this;
-		}
-		
-		private void detach_Contracts(Contract entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contract1 = null;
-		}
-		
 		private void attach_MaterialResponsibilities(MaterialResponsibility entity)
 		{
 			this.SendPropertyChanging();
@@ -26495,31 +26177,67 @@ namespace Kadr.Data
 			this.SendPropertyChanging();
 			entity.Contract = null;
 		}
+		
+		private void attach_Contracts(Contract entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contract1 = this;
+		}
+		
+		private void detach_Contracts(Contract entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contract1 = null;
+		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MaterialResponsibility")]
-	public partial class MaterialResponsibility : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Prikaz")]
+	public partial class Prikaz : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id;
 		
-		private int _idFactStaffPrikaz;
+		private string _PrikazName;
 		
-		private int _idContract;
+		private System.Nullable<System.DateTime> _DatePrikaz;
 		
-		private decimal _Sum;
+		private System.Nullable<int> _idPrikazType;
 		
-		private System.Nullable<int> _idFactStaffPrikazEnd;
+		private System.Nullable<System.DateTime> _DateBegin;
 		
-		private System.Nullable<decimal> _Perc;
+		private System.Nullable<System.DateTime> _DateEnd;
 		
-		private EntityRef<Contract> _Contract;
+		private string _resume;
 		
-		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz;
+		private EntitySet<PlanStaffSalary> _PlanStaffSalaries;
 		
-		private EntityRef<FactStaffPrikaz> _FactStaffPrikaz1;
+		private EntitySet<PKCategorySalary> _PKCategorySalaries;
+		
+		private EntitySet<DepartmentHistory> _DepartmentHistories;
+		
+		private EntitySet<Dep> _Deps;
+		
+		private EntitySet<BonusHistory> _BonusHistories;
+		
+		private EntitySet<Bonus> _Bonus;
+		
+		private EntitySet<Bonus> _Bonus1;
+		
+		private EntitySet<PlanStaff> _PlanStaffs;
+		
+		private EntitySet<PlanStaffHistory> _PlanStaffHistories;
+		
+		private EntitySet<FactStaffPrikaz> _FactStaffPrikazs;
+		
+		private EntitySet<OK_Otpusk> _OK_Otpusks;
+		
+		private EntitySet<FactStaff> _FactStaffs;
+		
+		private EntitySet<FactStaffHistory> _FactStaffHistories;
+		
+		private EntityRef<PrikazType> _PrikazType;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -26527,23 +26245,36 @@ namespace Kadr.Data
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OnidFactStaffPrikazChanging(int value);
-    partial void OnidFactStaffPrikazChanged();
-    partial void OnidContractChanging(int value);
-    partial void OnidContractChanged();
-    partial void OnSumChanging(decimal value);
-    partial void OnSumChanged();
-    partial void OnidFactStaffPrikazEndChanging(System.Nullable<int> value);
-    partial void OnidFactStaffPrikazEndChanged();
-    partial void OnPercChanging(System.Nullable<decimal> value);
-    partial void OnPercChanged();
+    partial void OnPrikazNameChanging(string value);
+    partial void OnPrikazNameChanged();
+    partial void OnDatePrikazChanging(System.Nullable<System.DateTime> value);
+    partial void OnDatePrikazChanged();
+    partial void OnidPrikazTypeChanging(System.Nullable<int> value);
+    partial void OnidPrikazTypeChanged();
+    partial void OnDateBeginChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateBeginChanged();
+    partial void OnDateEndChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateEndChanged();
+    partial void OnresumeChanging(string value);
+    partial void OnresumeChanged();
     #endregion
 		
-		public MaterialResponsibility()
+		public Prikaz()
 		{
-			this._Contract = default(EntityRef<Contract>);
-			this._FactStaffPrikaz = default(EntityRef<FactStaffPrikaz>);
-			this._FactStaffPrikaz1 = default(EntityRef<FactStaffPrikaz>);
+			this._PlanStaffSalaries = new EntitySet<PlanStaffSalary>(new Action<PlanStaffSalary>(this.attach_PlanStaffSalaries), new Action<PlanStaffSalary>(this.detach_PlanStaffSalaries));
+			this._PKCategorySalaries = new EntitySet<PKCategorySalary>(new Action<PKCategorySalary>(this.attach_PKCategorySalaries), new Action<PKCategorySalary>(this.detach_PKCategorySalaries));
+			this._DepartmentHistories = new EntitySet<DepartmentHistory>(new Action<DepartmentHistory>(this.attach_DepartmentHistories), new Action<DepartmentHistory>(this.detach_DepartmentHistories));
+			this._Deps = new EntitySet<Dep>(new Action<Dep>(this.attach_Deps), new Action<Dep>(this.detach_Deps));
+			this._BonusHistories = new EntitySet<BonusHistory>(new Action<BonusHistory>(this.attach_BonusHistories), new Action<BonusHistory>(this.detach_BonusHistories));
+			this._Bonus = new EntitySet<Bonus>(new Action<Bonus>(this.attach_Bonus), new Action<Bonus>(this.detach_Bonus));
+			this._Bonus1 = new EntitySet<Bonus>(new Action<Bonus>(this.attach_Bonus1), new Action<Bonus>(this.detach_Bonus1));
+			this._PlanStaffs = new EntitySet<PlanStaff>(new Action<PlanStaff>(this.attach_PlanStaffs), new Action<PlanStaff>(this.detach_PlanStaffs));
+			this._PlanStaffHistories = new EntitySet<PlanStaffHistory>(new Action<PlanStaffHistory>(this.attach_PlanStaffHistories), new Action<PlanStaffHistory>(this.detach_PlanStaffHistories));
+			this._FactStaffPrikazs = new EntitySet<FactStaffPrikaz>(new Action<FactStaffPrikaz>(this.attach_FactStaffPrikazs), new Action<FactStaffPrikaz>(this.detach_FactStaffPrikazs));
+			this._OK_Otpusks = new EntitySet<OK_Otpusk>(new Action<OK_Otpusk>(this.attach_OK_Otpusks), new Action<OK_Otpusk>(this.detach_OK_Otpusks));
+			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
+			this._FactStaffHistories = new EntitySet<FactStaffHistory>(new Action<FactStaffHistory>(this.attach_FactStaffHistories), new Action<FactStaffHistory>(this.detach_FactStaffHistories));
+			this._PrikazType = default(EntityRef<PrikazType>);
 			OnCreated();
 		}
 		
@@ -26567,216 +26298,329 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaffPrikaz", DbType="Int NOT NULL")]
-		public int idFactStaffPrikaz
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrikazName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PrikazName
 		{
 			get
 			{
-				return this._idFactStaffPrikaz;
+				return this._PrikazName;
 			}
 			set
 			{
-				if ((this._idFactStaffPrikaz != value))
+				if ((this._PrikazName != value))
 				{
-					if (this._FactStaffPrikaz.HasLoadedOrAssignedValue)
+					this.OnPrikazNameChanging(value);
+					this.SendPropertyChanging();
+					this._PrikazName = value;
+					this.SendPropertyChanged("PrikazName");
+					this.OnPrikazNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DatePrikaz", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DatePrikaz
+		{
+			get
+			{
+				return this._DatePrikaz;
+			}
+			set
+			{
+				if ((this._DatePrikaz != value))
+				{
+					this.OnDatePrikazChanging(value);
+					this.SendPropertyChanging();
+					this._DatePrikaz = value;
+					this.SendPropertyChanged("DatePrikaz");
+					this.OnDatePrikazChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPrikazType", DbType="Int")]
+		public System.Nullable<int> idPrikazType
+		{
+			get
+			{
+				return this._idPrikazType;
+			}
+			set
+			{
+				if ((this._idPrikazType != value))
+				{
+					if (this._PrikazType.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnidFactStaffPrikazChanging(value);
+					this.OnidPrikazTypeChanging(value);
 					this.SendPropertyChanging();
-					this._idFactStaffPrikaz = value;
-					this.SendPropertyChanged("idFactStaffPrikaz");
-					this.OnidFactStaffPrikazChanged();
+					this._idPrikazType = value;
+					this.SendPropertyChanged("idPrikazType");
+					this.OnidPrikazTypeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idContract", DbType="Int NOT NULL")]
-		public int idContract
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateBegin
 		{
 			get
 			{
-				return this._idContract;
+				return this._DateBegin;
 			}
 			set
 			{
-				if ((this._idContract != value))
+				if ((this._DateBegin != value))
 				{
-					if (this._Contract.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidContractChanging(value);
+					this.OnDateBeginChanging(value);
 					this.SendPropertyChanging();
-					this._idContract = value;
-					this.SendPropertyChanged("idContract");
-					this.OnidContractChanged();
+					this._DateBegin = value;
+					this.SendPropertyChanged("DateBegin");
+					this.OnDateBeginChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sum", DbType="Decimal(8,2) NOT NULL")]
-		public decimal Sum
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateEnd
 		{
 			get
 			{
-				return this._Sum;
+				return this._DateEnd;
 			}
 			set
 			{
-				if ((this._Sum != value))
+				if ((this._DateEnd != value))
 				{
-					this.OnSumChanging(value);
+					this.OnDateEndChanging(value);
 					this.SendPropertyChanging();
-					this._Sum = value;
-					this.SendPropertyChanged("Sum");
-					this.OnSumChanged();
+					this._DateEnd = value;
+					this.SendPropertyChanged("DateEnd");
+					this.OnDateEndChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaffPrikazEnd", DbType="Int")]
-		public System.Nullable<int> idFactStaffPrikazEnd
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_resume", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string resume
 		{
 			get
 			{
-				return this._idFactStaffPrikazEnd;
+				return this._resume;
 			}
 			set
 			{
-				if ((this._idFactStaffPrikazEnd != value))
+				if ((this._resume != value))
 				{
-					if (this._FactStaffPrikaz1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidFactStaffPrikazEndChanging(value);
+					this.OnresumeChanging(value);
 					this.SendPropertyChanging();
-					this._idFactStaffPrikazEnd = value;
-					this.SendPropertyChanged("idFactStaffPrikazEnd");
-					this.OnidFactStaffPrikazEndChanged();
+					this._resume = value;
+					this.SendPropertyChanged("resume");
+					this.OnresumeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Perc", DbType="Decimal(4,2)")]
-		public System.Nullable<decimal> Perc
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PlanStaffSalary", Storage="_PlanStaffSalaries", ThisKey="id", OtherKey="idPrikaz")]
+		public EntitySet<PlanStaffSalary> PlanStaffSalaries
 		{
 			get
 			{
-				return this._Perc;
+				return this._PlanStaffSalaries;
 			}
 			set
 			{
-				if ((this._Perc != value))
-				{
-					this.OnPercChanging(value);
-					this.SendPropertyChanging();
-					this._Perc = value;
-					this.SendPropertyChanged("Perc");
-					this.OnPercChanged();
-				}
+				this._PlanStaffSalaries.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contract_MaterialResponsibility", Storage="_Contract", ThisKey="idContract", OtherKey="id", IsForeignKey=true)]
-		public Contract Contract
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PKCategorySalary", Storage="_PKCategorySalaries", ThisKey="id", OtherKey="idPrikaz")]
+		public EntitySet<PKCategorySalary> PKCategorySalaries
 		{
 			get
 			{
-				return this._Contract.Entity;
+				return this._PKCategorySalaries;
 			}
 			set
 			{
-				Contract previousValue = this._Contract.Entity;
+				this._PKCategorySalaries.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_DepartmentHistory", Storage="_DepartmentHistories", ThisKey="id", OtherKey="idBeginPrikaz")]
+		public EntitySet<DepartmentHistory> DepartmentHistories
+		{
+			get
+			{
+				return this._DepartmentHistories;
+			}
+			set
+			{
+				this._DepartmentHistories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_Dep", Storage="_Deps", ThisKey="id", OtherKey="idEndPrikaz")]
+		public EntitySet<Dep> Deps
+		{
+			get
+			{
+				return this._Deps;
+			}
+			set
+			{
+				this._Deps.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_BonusHistory", Storage="_BonusHistories", ThisKey="id", OtherKey="idBeginPrikaz")]
+		public EntitySet<BonusHistory> BonusHistories
+		{
+			get
+			{
+				return this._BonusHistories;
+			}
+			set
+			{
+				this._BonusHistories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_Bonus", Storage="_Bonus", ThisKey="id", OtherKey="idEndPrikaz")]
+		public EntitySet<Bonus> Bonus
+		{
+			get
+			{
+				return this._Bonus;
+			}
+			set
+			{
+				this._Bonus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_Bonus1", Storage="_Bonus1", ThisKey="id", OtherKey="idIntermediateEndPrikaz")]
+		public EntitySet<Bonus> Bonus1
+		{
+			get
+			{
+				return this._Bonus1;
+			}
+			set
+			{
+				this._Bonus1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PlanStaff", Storage="_PlanStaffs", ThisKey="id", OtherKey="idEndPrikaz")]
+		public EntitySet<PlanStaff> PlanStaffs
+		{
+			get
+			{
+				return this._PlanStaffs;
+			}
+			set
+			{
+				this._PlanStaffs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_PlanStaffHistory", Storage="_PlanStaffHistories", ThisKey="id", OtherKey="idBeginPrikaz")]
+		public EntitySet<PlanStaffHistory> PlanStaffHistories
+		{
+			get
+			{
+				return this._PlanStaffHistories;
+			}
+			set
+			{
+				this._PlanStaffHistories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaffPrikaz", Storage="_FactStaffPrikazs", ThisKey="id", OtherKey="idPrikaz")]
+		public EntitySet<FactStaffPrikaz> FactStaffPrikazs
+		{
+			get
+			{
+				return this._FactStaffPrikazs;
+			}
+			set
+			{
+				this._FactStaffPrikazs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_OK_Otpusk", Storage="_OK_Otpusks", ThisKey="id", OtherKey="idOtpuskPrikaz")]
+		public EntitySet<OK_Otpusk> OK_Otpusks
+		{
+			get
+			{
+				return this._OK_Otpusks;
+			}
+			set
+			{
+				this._OK_Otpusks.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaff", Storage="_FactStaffs", ThisKey="id", OtherKey="idEndPrikaz")]
+		public EntitySet<FactStaff> FactStaffs
+		{
+			get
+			{
+				return this._FactStaffs;
+			}
+			set
+			{
+				this._FactStaffs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaffHistory", Storage="_FactStaffHistories", ThisKey="id", OtherKey="idBeginPrikaz")]
+		public EntitySet<FactStaffHistory> FactStaffHistories
+		{
+			get
+			{
+				return this._FactStaffHistories;
+			}
+			set
+			{
+				this._FactStaffHistories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrikazType_Prikaz", Storage="_PrikazType", ThisKey="idPrikazType", OtherKey="id", IsForeignKey=true)]
+		public PrikazType PrikazType
+		{
+			get
+			{
+				return this._PrikazType.Entity;
+			}
+			set
+			{
+				PrikazType previousValue = this._PrikazType.Entity;
 				if (((previousValue != value) 
-							|| (this._Contract.HasLoadedOrAssignedValue == false)))
+							|| (this._PrikazType.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Contract.Entity = null;
-						previousValue.MaterialResponsibilities.Remove(this);
+						this._PrikazType.Entity = null;
+						previousValue.Prikazs.Remove(this);
 					}
-					this._Contract.Entity = value;
+					this._PrikazType.Entity = value;
 					if ((value != null))
 					{
-						value.MaterialResponsibilities.Add(this);
-						this._idContract = value.id;
+						value.Prikazs.Add(this);
+						this._idPrikazType = value.id;
 					}
 					else
 					{
-						this._idContract = default(int);
+						this._idPrikazType = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("Contract");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaffPrikaz_MaterialResponsibility", Storage="_FactStaffPrikaz", ThisKey="idFactStaffPrikaz", OtherKey="id", IsForeignKey=true)]
-		public FactStaffPrikaz FactStaffPrikaz
-		{
-			get
-			{
-				return this._FactStaffPrikaz.Entity;
-			}
-			set
-			{
-				FactStaffPrikaz previousValue = this._FactStaffPrikaz.Entity;
-				if (((previousValue != value) 
-							|| (this._FactStaffPrikaz.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._FactStaffPrikaz.Entity = null;
-						previousValue.MaterialResponsibilities.Remove(this);
-					}
-					this._FactStaffPrikaz.Entity = value;
-					if ((value != null))
-					{
-						value.MaterialResponsibilities.Add(this);
-						this._idFactStaffPrikaz = value.id;
-					}
-					else
-					{
-						this._idFactStaffPrikaz = default(int);
-					}
-					this.SendPropertyChanged("FactStaffPrikaz");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaffPrikaz_MaterialResponsibility1", Storage="_FactStaffPrikaz1", ThisKey="idFactStaffPrikazEnd", OtherKey="id", IsForeignKey=true)]
-		public FactStaffPrikaz FactStaffPrikaz1
-		{
-			get
-			{
-				return this._FactStaffPrikaz1.Entity;
-			}
-			set
-			{
-				FactStaffPrikaz previousValue = this._FactStaffPrikaz1.Entity;
-				if (((previousValue != value) 
-							|| (this._FactStaffPrikaz1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._FactStaffPrikaz1.Entity = null;
-						previousValue.MaterialResponsibilities1.Remove(this);
-					}
-					this._FactStaffPrikaz1.Entity = value;
-					if ((value != null))
-					{
-						value.MaterialResponsibilities1.Add(this);
-						this._idFactStaffPrikazEnd = value.id;
-					}
-					else
-					{
-						this._idFactStaffPrikazEnd = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("FactStaffPrikaz1");
+					this.SendPropertyChanged("PrikazType");
 				}
 			}
 		}
@@ -26799,6 +26643,162 @@ namespace Kadr.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_PlanStaffSalaries(PlanStaffSalary entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_PlanStaffSalaries(PlanStaffSalary entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_PKCategorySalaries(PKCategorySalary entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_PKCategorySalaries(PKCategorySalary entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_DepartmentHistories(DepartmentHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_DepartmentHistories(DepartmentHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_Deps(Dep entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_Deps(Dep entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_BonusHistories(BonusHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_BonusHistories(BonusHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_Bonus(Bonus entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_Bonus(Bonus entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_Bonus1(Bonus entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz1 = this;
+		}
+		
+		private void detach_Bonus1(Bonus entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz1 = null;
+		}
+		
+		private void attach_PlanStaffs(PlanStaff entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_PlanStaffs(PlanStaff entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_PlanStaffHistories(PlanStaffHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_PlanStaffHistories(PlanStaffHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_FactStaffPrikazs(FactStaffPrikaz entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_FactStaffPrikazs(FactStaffPrikaz entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_OK_Otpusks(OK_Otpusk entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_OK_Otpusks(OK_Otpusk entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_FactStaffs(FactStaff entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_FactStaffs(FactStaff entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
+		}
+		
+		private void attach_FactStaffHistories(FactStaffHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = this;
+		}
+		
+		private void detach_FactStaffHistories(FactStaffHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Prikaz = null;
 		}
 	}
 	
