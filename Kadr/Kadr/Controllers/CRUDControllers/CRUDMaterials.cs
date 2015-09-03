@@ -18,15 +18,22 @@ namespace Kadr.Controllers
             {
                     dlg.InitializeNewObject = (x) =>
                     {
-                        x.FactStaff = fs;
+                        
                         var factStaffPrikaz = new FactStaffPrikaz();
+                        var factStaffPrikazEnd = new FactStaffPrikaz();
 
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikaz, "FactStaff",
                                 fs, null), sender);
+                        dlg.CommandManager.Execute(
+                            new GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikazEnd, "FactStaff",
+                                fs, null), sender);
 
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikaz, "Prikaz",
+                                NullPrikaz.Instance, null), sender);
+                        dlg.CommandManager.Execute(
+                            new GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikazEnd, "Prikaz",
                                 NullPrikaz.Instance, null), sender);
 
                         dlg.CommandManager.Execute(
@@ -42,6 +49,9 @@ namespace Kadr.Controllers
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<MaterialResponsibility, FactStaffPrikaz>(x,
                                 "FactStaffPrikaz", factStaffPrikaz, null), sender);
+                        dlg.CommandManager.Execute(
+                            new GenericPropertyCommand<MaterialResponsibility, FactStaffPrikaz>(x,
+                                "FactStaffPrikaz1", factStaffPrikazEnd, null), sender);
 
                         // var contract = new Data.Contract();
                         dlg.CommandManager.Execute(new GenericPropertyCommand<MaterialResponsibility, Contract>(x, "Contract",
@@ -50,6 +60,7 @@ namespace Kadr.Controllers
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<Contract, string>(x.Contract, "ContractName", "", null),
                             sender);
+                        //x.FactStaff = fs;
 
                     };
 
@@ -61,15 +72,15 @@ namespace Kadr.Controllers
 
         public static void Read(FactStaff fs, BindingSource MaterialResponsibilitybindingSource)
         {
-            MaterialResponsibilitybindingSource.DataSource = KadrController.Instance.Model.MaterialResponsibilities.Where(t => t.FactStaffPrikaz.FactStaff == fs);
+            MaterialResponsibilitybindingSource.DataSource = KadrController.Instance.Model.MaterialResponsibilities.Where(t => t.FactStaffPrikaz.FactStaff == fs).Select(x => x.GetDecorator()).ToList(); 
         }
 
         public static void Update(FactStaff fs, BindingSource MaterialResponsibilitybindingSource)
         {
             if (MaterialResponsibilitybindingSource.Current != null)
             {
-                var currMaterial = MaterialResponsibilitybindingSource.Current as MaterialResponsibility;
-                currMaterial.FactStaff = fs;
+                var currMaterial = (MaterialResponsibilitybindingSource.Current as MaterialResponsibilityDecorator).GetMaterial();
+               // currMaterial.FactStaff = fs;
                 LinqActionsController<MaterialResponsibility>.Instance.EditObject(
                     currMaterial, true);
             }
