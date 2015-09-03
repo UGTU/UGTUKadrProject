@@ -101,6 +101,8 @@ namespace Kadr.Data
         {
             if (FactStaff.IsReplacement)
                 return new FactStaffHistoryReplacementDecorator(this);
+            if (FactStaff.IsHourStaff)
+                return new FactStaffHistoryHourDecorator(this);
             return new FactStaffHistoryDecorator(this);
         }
 

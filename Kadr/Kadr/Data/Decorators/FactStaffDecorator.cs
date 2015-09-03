@@ -53,7 +53,7 @@ namespace Kadr.Data
 
 
         [System.ComponentModel.DisplayName("Должность в штатном расписании")]
-        [System.ComponentModel.Category("\t\t\t\t\tОбщие")]
+        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("Должность в штатном расписании")]
         [System.ComponentModel.ReadOnly(false)]
         public Kadr.Data.PlanStaff PlanStaff
@@ -64,7 +64,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\tBид работы")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\tBид работы")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Название вида работы")]
         [System.ComponentModel.ReadOnly(false)]
@@ -132,7 +132,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\tПриказ утверждения")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\tПриказ назначения")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Приказ назначения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -149,6 +149,7 @@ namespace Kadr.Data
             }
         }
 
+        #region ContractData
         [System.ComponentModel.DisplayName("Основной договор")]
         [System.ComponentModel.Category("\t\t\tПараметры договора")]
         [System.ComponentModel.Description("Основной договор")]
@@ -257,6 +258,7 @@ namespace Kadr.Data
                 }
             }
         }
+        #endregion
 
     }
 
