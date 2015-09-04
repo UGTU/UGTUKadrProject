@@ -34,7 +34,7 @@
             // 
             // commandProperyGrid1
             // 
-            this.commandProperyGrid1.Size = new System.Drawing.Size(576, 491);
+            this.commandProperyGrid1.Size = new System.Drawing.Size(576, 620);
             // 
             // btnPrikaz
             // 
@@ -43,11 +43,11 @@
             // panel1
             // 
             this.helpProvider1.SetShowHelp(this.panel1, true);
-            this.panel1.Size = new System.Drawing.Size(576, 491);
+            this.panel1.Size = new System.Drawing.Size(576, 620);
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(12, 506);
+            this.panel2.Location = new System.Drawing.Point(12, 635);
             // 
             // ApplyBtn
             // 
@@ -78,7 +78,7 @@
             this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 544);
+            this.ClientSize = new System.Drawing.Size(600, 673);
             this.Name = "PropertyGridDialogAdding";
             this.PrikazButtonVisible = true;
             this.helpProvider1.SetShowHelp(this, true);

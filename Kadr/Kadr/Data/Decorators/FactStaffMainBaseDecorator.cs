@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Kadr.Controllers;
+using Kadr.UI.Editors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
@@ -13,9 +16,95 @@ namespace Kadr.Data
 
         }
 
+
+        [System.ComponentModel.DisplayName("Должность в штатном расписании")]
+        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
+        [System.ComponentModel.Description("Должность в штатном расписании")]
+        [System.ComponentModel.ReadOnly(false)]
+        public Kadr.Data.PlanStaff PlanStaff
+        {
+            get
+            {
+                return factStaff.PlanStaff;
+            }
+        }
+
+
+        [System.ComponentModel.DisplayName("ОКВЭД")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("Код экономической деятельности")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OKVEDConvertor))]
+        public OKVED OKVED
+        {
+            get
+            {
+                return factStaff.OKVED;
+            }
+            set
+            {
+                factStaff.OKVED = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Подподкатегория")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
+        [System.ComponentModel.ReadOnly(false)]
+        public int? SalaryKoeff
+        {
+            get
+            {
+                if (factStaff.SalaryKoeff != null)
+                    return factStaff.SalaryKoeff.PKSubSubCategoryNumber;
+                return null;
+            }
+            set
+            {
+                factStaff.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
+            }
+        }
+
+
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\tBид работы")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("Название вида работы")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
+        public Kadr.Data.WorkType WorkType
+        {
+            get
+            {
+                return factStaff.WorkType;
+            }
+            set
+            {
+                factStaff.WorkType = value;
+            }
+        }
+
+
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\tПриказ назначения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("Приказ назначения сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Kadr.Data.Prikaz PrikazBegin
+        {
+            get
+            {
+                return factStaff.PrikazBegin;
+            }
+            set
+            {
+                factStaff.PrikazBegin = value;
+            }
+        }
+
+ 
         #region ContractData
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tОсновной договор")]
-        [System.ComponentModel.Category("\t\t\tПараметры договора")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
         [System.ComponentModel.Description("Основной договор")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.ContractConvertor))]
@@ -31,9 +120,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\tНомер договора")]
-        [System.ComponentModel.Category("\t\t\tПараметры договора")]
-        [System.ComponentModel.Description("Номер договора")]
+        [System.ComponentModel.DisplayName("\t\t\t\tНомер договора/ доп. соглашения")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
+        [System.ComponentModel.Description("Номер договора/ доп. соглашения")]
         [System.ComponentModel.ReadOnly(false)]
         public string CurrentContractName
         {
@@ -54,9 +143,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата договора")]
-        [System.ComponentModel.Category("\t\t\tПараметры договора")]
-        [System.ComponentModel.Description("Дата составления договора")]
+        [System.ComponentModel.DisplayName("Дата договора/ доп. соглашения")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
+        [System.ComponentModel.Description("Дата составления договора/ доп. соглашения")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateContract
         {
@@ -77,11 +166,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата начала договора")]
-        [System.ComponentModel.Category("\t\t\tПараметры договора")]
-        [System.ComponentModel.Description("Дата начала действия договора")]
+        [System.ComponentModel.DisplayName("Дата начала договора/ доп. соглашения")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
+        [System.ComponentModel.Description("Дата начала действия договора/ доп. соглашения")]
         [System.ComponentModel.ReadOnly(false)]
-        public DateTime DateBegin
+        public DateTime ContractDateBegin
         {
             get
             {
@@ -100,11 +189,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата окончания договора")]
-        [System.ComponentModel.Category("\t\t\tПараметры договора")]
-        [System.ComponentModel.Description("Дата окончания действия договора")]
+        [System.ComponentModel.DisplayName("Дата окончания договора/ доп. соглашения")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
+        [System.ComponentModel.Description("Дата окончания действия договора/ доп. соглашения")]
         [System.ComponentModel.ReadOnly(false)]
-        public DateTime DateEnd
+        public DateTime ContractDateEnd
         {
             get
             {
@@ -125,6 +214,65 @@ namespace Kadr.Data
         #endregion
 
 
-        
+        #region RegionTypeData
+
+        [System.ComponentModel.DisplayName("Адрес рабочего места")]
+        [System.ComponentModel.Category("Территориальные условия")]
+        [System.ComponentModel.Description("Адрес рабочего места сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string Address
+        {
+            get
+            {
+                return factStaff.CurrentChange.Address;
+            }
+            set
+            {
+                factStaff.CurrentChange.Address = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\t\tТерриториальные условия сотрудника")]
+        [System.ComponentModel.Category("Территориальные условия")]
+        [System.ComponentModel.Description("Территориальные условия сотрудника")]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.RegionConverter))]
+        [System.ComponentModel.ReadOnly(false)]
+        public RegionType RegionType
+        {
+            get
+            {
+                return factStaff.CurrentChange.RegionType;
+            }
+            set
+            {
+                factStaff.CurrentChange.RegionType = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\tАдрес отдела")]
+        [System.ComponentModel.Category("Территориальные условия")]
+        [System.ComponentModel.Description("Адрес отдела сотрудника")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string DepAddress
+        {
+            get
+            {
+                return (factStaff.PlanStaff != null) ? factStaff.PlanStaff.Dep.CurrentAddress : null;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\tТерриториальные условия отдела")]
+        [System.ComponentModel.Category("Территориальные условия")]
+        [System.ComponentModel.Description("Территориальные условия сотрудника")]
+        [System.ComponentModel.ReadOnly(true)]
+        public RegionType DepRegionType
+        {
+            get
+            {
+                return (factStaff.PlanStaff != null) ? factStaff.PlanStaff.Dep.CurrentRegionType : null;
+            }
+        }
+
+        #endregion
     }
 }

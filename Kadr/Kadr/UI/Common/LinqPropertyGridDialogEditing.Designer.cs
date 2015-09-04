@@ -34,7 +34,7 @@
             // 
             // commandProperyGrid1
             // 
-            this.commandProperyGrid1.Size = new System.Drawing.Size(576, 474);
+            this.commandProperyGrid1.Size = new System.Drawing.Size(576, 635);
             // 
             // btnPrikaz
             // 
@@ -43,11 +43,11 @@
             // panel1
             // 
             this.helpProvider1.SetShowHelp(this.panel1, true);
-            this.panel1.Size = new System.Drawing.Size(576, 474);
+            this.panel1.Size = new System.Drawing.Size(576, 635);
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(12, 489);
+            this.panel2.Location = new System.Drawing.Point(12, 650);
             // 
             // ApplyBtn
             // 
@@ -79,7 +79,7 @@
             this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 527);
+            this.ClientSize = new System.Drawing.Size(600, 688);
             this.Name = "LinqPropertyGridDialogEditing";
             this.PrikazButtonVisible = true;
             this.helpProvider1.SetShowHelp(this, true);
