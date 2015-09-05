@@ -29,6 +29,22 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tФИО сотрудника")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("ФИО сотрудника, назначенного на должность")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.EmployeeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Kadr.Data.Employee Employee
+        {
+            get
+            {
+                return factStaff.Employee;
+            }
+            set
+            {
+                factStaff.Employee = value;
+            }
+        }
 
         [System.ComponentModel.DisplayName("ОКВЭД")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
@@ -103,6 +119,23 @@ namespace Kadr.Data
 
  
         #region ContractData
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tОсновной договор")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
+        [System.ComponentModel.Description("Основной договор")]
+        [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
+        public Contract CurrentContract
+        {
+            get
+            {
+                return factStaff.CurrentContract;
+            }
+            set
+            {
+                factStaff.CurrentContract = value;
+            }
+        }
+
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tОсновной договор")]
         [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
         [System.ComponentModel.Description("Основной договор")]

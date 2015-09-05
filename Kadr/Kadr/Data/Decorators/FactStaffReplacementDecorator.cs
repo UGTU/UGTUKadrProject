@@ -41,19 +41,15 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("ФИО замещаемого сотрудника")]
+        [System.ComponentModel.DisplayName("Замещаемый сотрудник")]
         [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
-        [System.ComponentModel.Description("ФИО замещаемого сотрудника")]
+        [System.ComponentModel.Description("Замещаемый сотрудник")]
         [System.ComponentModel.ReadOnly(true)]
-        public Kadr.Data.Employee ReplacedEmployee
+        public Kadr.Data.FactStaff ReplacedFactStaff
         {
             get
             {
-                return factStaffReplacement.ReplacedFactStaff.Employee;
-            }
-            set
-            {
-                factStaffReplacement.ReplacedFactStaff.Employee = value;
+                return factStaffReplacement.ReplacedFactStaff;
             }
         }
 
