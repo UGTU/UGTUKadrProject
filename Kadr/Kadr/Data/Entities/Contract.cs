@@ -45,7 +45,10 @@ namespace Kadr.Data
         {
             get
             {
-                return Contract1;
+                if (Contract1 != this)
+                    return Contract1;
+                else
+                    return null;
             }
             set
             {
@@ -53,12 +56,7 @@ namespace Kadr.Data
             }
         }
 
-        /// <summary>
-        /// Признак договора - используется при создании объекта
-        /// </summary>
-        private bool? isMainContract = null;
-
-
+ 
         /// <summary>
         /// Признак основного договора (не доп соглашения) 
         /// </summary>
@@ -66,14 +64,7 @@ namespace Kadr.Data
         {
             get
             {
-                if (isMainContract == null)
-                    return (MainContract == null);
-                else
-                    return isMainContract.Value;
-            }
-            set
-            {
-                isMainContract = value;
+                return Contract1 == null;
             }
         }
         #endregion
