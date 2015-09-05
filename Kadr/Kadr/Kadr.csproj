@@ -606,6 +606,36 @@
     <Compile Include="UI\Dialogs\LanguageLevelDialog.Designer.cs">
       <DependentUpon>LanguageLevelDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dialogs\MilitaryCategoryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\MilitaryCategoryDialog.Designer.cs">
+      <DependentUpon>MilitaryCategoryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\MilitaryFitnessDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\MilitaryFitnessDialog.Designer.cs">
+      <DependentUpon>MilitaryFitnessDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\MilitaryRankDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\MilitaryRankDialog.Designer.cs">
+      <DependentUpon>MilitaryRankDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\MilitaryStructureDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\MilitaryStructureDialog.Designer.cs">
+      <DependentUpon>MilitaryStructureDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\MilitaryTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\MilitaryTypeDialog.Designer.cs">
+      <DependentUpon>MilitaryTypeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\OKVEDDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -958,6 +988,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\LanguageLevelDialog.resx">
       <DependentUpon>LanguageLevelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\MilitaryCategoryDialog.resx">
+      <DependentUpon>MilitaryCategoryDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\MilitaryFitnessDialog.resx">
+      <DependentUpon>MilitaryFitnessDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\MilitaryRankDialog.resx">
+      <DependentUpon>MilitaryRankDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\MilitaryStructureDialog.resx">
+      <DependentUpon>MilitaryStructureDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\MilitaryTypeDialog.resx">
+      <DependentUpon>MilitaryTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\OKVEDDialog.resx">
       <DependentUpon>OKVEDDialog.cs</DependentUpon>
