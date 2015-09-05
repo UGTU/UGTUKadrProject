@@ -119,6 +119,12 @@
             this.типПовышенияКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.языкToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.степеньВладенияЯзыкомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.воинскийУчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.категорииЗапасаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.воинскоеЗваниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.воинскийСоставпрофильToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.категорияГодностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типВоискогоУчетаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отделыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типыОтделовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.организацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -746,6 +752,7 @@
             this.совмещенияToolStripMenuItem,
             this.табельToolStripMenuItem,
             this.образованиеToolStripMenuItem,
+            this.воинскийУчетToolStripMenuItem,
             this.отделыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
@@ -1058,6 +1065,53 @@
             this.степеньВладенияЯзыкомToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.степеньВладенияЯзыкомToolStripMenuItem.Text = "Степень владения языком";
             this.степеньВладенияЯзыкомToolStripMenuItem.Click += new System.EventHandler(this.степеньВладенияЯзыкомToolStripMenuItem_Click);
+            // 
+            // воинскийУчетToolStripMenuItem
+            // 
+            this.воинскийУчетToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.категорииЗапасаToolStripMenuItem,
+            this.воинскоеЗваниеToolStripMenuItem,
+            this.воинскийСоставпрофильToolStripMenuItem,
+            this.категорияГодностиToolStripMenuItem,
+            this.типВоискогоУчетаToolStripMenuItem});
+            this.воинскийУчетToolStripMenuItem.Name = "воинскийУчетToolStripMenuItem";
+            this.воинскийУчетToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.воинскийУчетToolStripMenuItem.Text = "Воинский учет";
+            // 
+            // категорииЗапасаToolStripMenuItem
+            // 
+            this.категорииЗапасаToolStripMenuItem.Name = "категорииЗапасаToolStripMenuItem";
+            this.категорииЗапасаToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.категорииЗапасаToolStripMenuItem.Text = "Категории запаса";
+            this.категорииЗапасаToolStripMenuItem.Click += new System.EventHandler(this.категорииЗапасаToolStripMenuItem_Click);
+            // 
+            // воинскоеЗваниеToolStripMenuItem
+            // 
+            this.воинскоеЗваниеToolStripMenuItem.Name = "воинскоеЗваниеToolStripMenuItem";
+            this.воинскоеЗваниеToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.воинскоеЗваниеToolStripMenuItem.Text = "Воинское звание";
+            this.воинскоеЗваниеToolStripMenuItem.Click += new System.EventHandler(this.воинскоеЗваниеToolStripMenuItem_Click);
+            // 
+            // воинскийСоставпрофильToolStripMenuItem
+            // 
+            this.воинскийСоставпрофильToolStripMenuItem.Name = "воинскийСоставпрофильToolStripMenuItem";
+            this.воинскийСоставпрофильToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.воинскийСоставпрофильToolStripMenuItem.Text = "Состав (профиль)";
+            this.воинскийСоставпрофильToolStripMenuItem.Click += new System.EventHandler(this.воинскийСоставпрофильToolStripMenuItem_Click);
+            // 
+            // категорияГодностиToolStripMenuItem
+            // 
+            this.категорияГодностиToolStripMenuItem.Name = "категорияГодностиToolStripMenuItem";
+            this.категорияГодностиToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.категорияГодностиToolStripMenuItem.Text = "Категория годности";
+            this.категорияГодностиToolStripMenuItem.Click += new System.EventHandler(this.категорияГодностиToolStripMenuItem_Click);
+            // 
+            // типВоискогоУчетаToolStripMenuItem
+            // 
+            this.типВоискогоУчетаToolStripMenuItem.Name = "типВоискогоУчетаToolStripMenuItem";
+            this.типВоискогоУчетаToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.типВоискогоУчетаToolStripMenuItem.Text = "Тип воинского учета";
+            this.типВоискогоУчетаToolStripMenuItem.Click += new System.EventHandler(this.типВоискогоУчетаToolStripMenuItem_Click);
             // 
             // отделыToolStripMenuItem
             // 
@@ -1687,6 +1741,12 @@
         private System.Windows.Forms.ToolStripMenuItem языкToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типыДокументовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типПовышенияКвалификацииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem воинскийУчетToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem категорииЗапасаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem воинскоеЗваниеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem воинскийСоставпрофильToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem категорияГодностиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типВоискогоУчетаToolStripMenuItem;
 
     }
 }

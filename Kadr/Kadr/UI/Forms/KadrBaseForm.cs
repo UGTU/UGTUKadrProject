@@ -1398,6 +1398,46 @@ namespace Kadr.UI.Forms
             }
         }
 
+        private void категорииЗапасаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new MilitaryCategoryDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void воинскоеЗваниеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new MilitaryRankDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void воинскийСоставпрофильToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new MilitaryStructureDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void категорияГодностиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new MilitaryFitnessDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void типВоискогоУчетаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new MilitaryTypeDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
         
 
        

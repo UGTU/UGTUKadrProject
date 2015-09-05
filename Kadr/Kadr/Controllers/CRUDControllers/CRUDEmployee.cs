@@ -45,7 +45,7 @@ namespace Kadr.Controllers
                     }
                 };
 
-                dlg.PostApplyAction = (x) =>
+                dlg.BeforeApplyAction = (x) =>
                 {
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {

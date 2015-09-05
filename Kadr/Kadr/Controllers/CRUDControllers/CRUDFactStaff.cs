@@ -74,7 +74,7 @@ namespace Kadr.Controllers
                     Contract newContract = new Contract(dlg.CommandManager,fcStHistory, "", DateTime.Today.Date, DateTime.Today.Date);
                 };
 
-                dlg.PostApplyAction = (x) =>
+                dlg.BeforeApplyAction = (x) =>
                 {
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {

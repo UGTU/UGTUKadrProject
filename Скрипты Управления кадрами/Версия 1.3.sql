@@ -825,3 +825,4 @@ GO
 ALTER TABLE [dbo].[Contract] CHECK CONSTRAINT [FK_Contract_PrikazType]
 GO
 
+alter table [dbo].[FactStaffPrikaz] add idPrikazEnd int null

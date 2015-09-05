@@ -12,16 +12,16 @@ namespace Kadr.Data
 
     internal class MaterialResponsibilityDecorator
     {
-        private MaterialResponsibility materialResponsibility;
+        private MaterialResponsibility _material;
 
         public MaterialResponsibilityDecorator(MaterialResponsibility materialResponsibility)
         {
-            this.materialResponsibility = materialResponsibility;
+            this._material = materialResponsibility;
         }
 
         public override string ToString()
         {
-            return materialResponsibility.ToString();
+            return _material.ToString();
         }
 
         [System.ComponentModel.DisplayName("ID")]
@@ -34,7 +34,7 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.id;
+                return _material.id;
             }
         }
 
@@ -47,11 +47,11 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.PrikazBegin;
+                return _material.PrikazBegin;
             }
             set
             {
-                materialResponsibility.PrikazBegin = value;
+                _material.PrikazBegin = value;
             }
         }
 
@@ -64,11 +64,11 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.FactStaffPrikaz.DateBegin.Value;
+                return _material.FactStaffPrikaz.DateBegin.Value;
             }
             set
             {
-                materialResponsibility.FactStaffPrikaz.DateBegin = value;
+                _material.FactStaffPrikaz.DateBegin = value;
             }
         }
 
@@ -81,10 +81,10 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(false)]
         public DateTime? DateEnd
         {
-            get { return materialResponsibility.FactStaffPrikaz.DateEnd; }
+            get { return _material.FactStaffPrikaz.DateEnd; }
             set
             {
-                materialResponsibility.FactStaffPrikaz.DateEnd = value;
+                _material.FactStaffPrikaz.DateEnd = value;
             }
         }
 
@@ -97,17 +97,17 @@ namespace Kadr.Data
             get
             {
                 if (Percent != null)
-                    materialResponsibility.Sum =
+                    _material.Sum =
                         Decimal.Round(
                             (decimal)
                                 ((Percent/100)*
-                                 (Convert.ToDecimal(materialResponsibility.FactStaff.PlanStaff.SalarySize)*
-                                  materialResponsibility.FactStaff.LastChange.StaffCount)), 2);
-                return materialResponsibility.Sum;
+                                 (Convert.ToDecimal(_material.FactStaff.PlanStaff.SalarySize)*
+                                  _material.FactStaff.LastChange.StaffCount)), 2);
+                return _material.Sum;
             }
             set
             {
-                  materialResponsibility.Sum = value;
+                  _material.Sum = value;
             }
         }
 
@@ -120,11 +120,11 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.Perc;
+                return _material.Perc;
             }
             set
             {
-                materialResponsibility.Perc = value;
+                _material.Perc = value;
             }
         }
 
@@ -136,11 +136,11 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.ContractName;
+                return _material.ContractName;
             }
             set
             {
-                materialResponsibility.Contract.ContractName = value;
+                _material.Contract.ContractName = value;
             }
         }
         [System.ComponentModel.DisplayName("Дата договора")]
@@ -151,11 +151,11 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.DateContract;
+                return _material.DateContract;
             }
             set
             {
-                materialResponsibility.DateContract = value;
+                _material.DateContract = value;
             }
         }
 
@@ -168,25 +168,17 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.FactStaffPrikaz1 == null ? null : materialResponsibility.FactStaffPrikaz1.Prikaz;
+                return _material.PrikazEnd;
             }
             set
             {
-                if ((value != null)&&( materialResponsibility.FactStaffPrikaz1 == null))
-                {
-                         materialResponsibility.FactStaffPrikaz1 = new FactStaffPrikaz()
-                         {
-                             FactStaff = materialResponsibility.FactStaff
-                         }; 
-                }
-                materialResponsibility.FactStaffPrikaz1.Prikaz = value;
-                if (value == null) materialResponsibility.FactStaffPrikaz1 = null;
+               _material.PrikazEnd = value;
             }
         }
 
         internal MaterialResponsibility GetMaterial()
         {
-            return materialResponsibility;
+            return _material;
         }
     }
 }
