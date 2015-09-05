@@ -1,4 +1,5 @@
-﻿using Kadr.UI.Editors;
+﻿using System.ComponentModel;
+using Kadr.UI.Editors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,7 @@ namespace Kadr.Data
             }
         }
         [System.ComponentModel.DisplayName("Возраст")]
-        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Возраст полных лет сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string Age
@@ -54,7 +55,7 @@ namespace Kadr.Data
             
         }
         [System.ComponentModel.DisplayName("Табельный номер")]
-        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Табельный номер сотрудника в системе отдела кадров")]
         [System.ComponentModel.ReadOnly(false)]
         public string itab_n
@@ -71,7 +72,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\tФамилия")]
-        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Фамилия сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string LastName
@@ -87,7 +88,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\tПол")]
-        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Пол сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.GenderBooleanConverter))]//Kadr.UI.Common.CustomBooleanConverter
@@ -104,7 +105,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tИмя")]
-        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Имя сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string FirstName
@@ -120,7 +121,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\tОтчество")]
-        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Отчество сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string Otch
@@ -150,7 +151,7 @@ namespace Kadr.Data
             }
         }*/
         [System.ComponentModel.DisplayName("\t\t\t\tДата рождения")]
-        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Дата рождения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime BirthDate
@@ -166,7 +167,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\tМесто рождения")]
-        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Место рождения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string BirthPlace
@@ -182,7 +183,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\tГражданство")]
-        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Гражданство сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Grazd>))]
@@ -199,7 +200,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\tСемейное положение")]
-        [System.ComponentModel.Category("\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Семейное положение сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<SemPol>))]
@@ -216,7 +217,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Районный коэффициент")]
-        [System.ComponentModel.Category("Коэффициенты")]
+        [System.ComponentModel.Category("\t\t\t\tКоэффициенты")]
         [System.ComponentModel.Description("Районный коэффициент сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public int RayonKoeff
@@ -232,7 +233,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Северный коэффициент")]
-        [System.ComponentModel.Category("Коэффициенты")]
+        [System.ComponentModel.Category("\t\t\t\tКоэффициенты")]
         [System.ComponentModel.Description("Северный коэффициент сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public int SeverKoeff
@@ -249,7 +250,7 @@ namespace Kadr.Data
 
 
         [System.ComponentModel.DisplayName("Серия")]
-        [System.ComponentModel.Category("Паспорт")]
+        [System.ComponentModel.Category("\t\t\tПаспорт")]
         [System.ComponentModel.Description("Серия паспорта сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string Paspser
@@ -265,7 +266,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Номер")]
-        [System.ComponentModel.Category("Паспорт")]
+        [System.ComponentModel.Category("\t\t\tПаспорт")]
         [System.ComponentModel.Description("Номер паспорта сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string Paspnomer
@@ -281,7 +282,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Кем выдан")]
-        [System.ComponentModel.Category("Паспорт")]
+        [System.ComponentModel.Category("\t\t\tПаспорт")]
         [System.ComponentModel.Description("Кем выдан паспорт сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string Paspkem
@@ -297,7 +298,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата выдачи")]
-        [System.ComponentModel.Category("Паспорт")]
+        [System.ComponentModel.Category("\t\t\tПаспорт")]
         [System.ComponentModel.Description("Дата выдачи паспорта сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime Paspdate
@@ -313,7 +314,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Серия ТК")]
-        [System.ComponentModel.Category("Трудовая книжка")]
+        [System.ComponentModel.Category("\t\tТрудовая книжка")]
         [System.ComponentModel.Description("Серия трудовой книжки сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string EmplHistSer
@@ -329,7 +330,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Номер ТК")]
-        [System.ComponentModel.Category("Трудовая книжка")]
+        [System.ComponentModel.Category("\t\tТрудовая книжка")]
         [System.ComponentModel.Description("Номер трудовой книжки сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string EmplHistNumber
@@ -345,7 +346,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата выдачи ТК")]
-        [System.ComponentModel.Category("Трудовая книжка")]
+        [System.ComponentModel.Category("\t\tТрудовая книжка")]
         [System.ComponentModel.Description("Дата выдачи трудовой книжки сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime EmplHistDate
@@ -360,7 +361,7 @@ namespace Kadr.Data
             }
         }
         [System.ComponentModel.DisplayName("ИНН")]
-        [System.ComponentModel.Category("Документы")]
+        [System.ComponentModel.Category("\t\t\t\t\tДокументы")]
         [System.ComponentModel.Description("ИНН сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string INN
@@ -376,7 +377,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Номер мед полиса")]
-        [System.ComponentModel.Category("Документы")]
+        [System.ComponentModel.Category("\t\t\t\t\tДокументы")]
         [System.ComponentModel.Description("Номер медицинского полиса сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string Medpolis
@@ -392,7 +393,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("СНИЛС")]
-        [System.ComponentModel.Category("Документы")]
+        [System.ComponentModel.Category("\t\t\t\t\tДокументы")]
         [System.ComponentModel.Description("СНИЛС сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public string Ssgps
@@ -407,7 +408,7 @@ namespace Kadr.Data
             }
         }
         [System.ComponentModel.DisplayName("Общий трудовой стаж")]
-        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Category("\tТрудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalExperience
@@ -417,7 +418,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Научно-педагогический трудовой стаж")]
-        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Category("\tТрудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника на научно-педагогических должностях")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalPedagogicalExperience
@@ -428,7 +429,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Северный трудовой стаж")]
-        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Category("\tТрудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах МКС или РКС")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalNorthExperience
@@ -441,7 +442,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Трудовой стаж в организации")]
-        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Category("\tТрудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в этой организации")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalOrganizationExperience
@@ -453,7 +454,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Непрерывный трудовой стаж в организации")]
-        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Category("\tТрудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней непрерывного стажа сотрудника в этой организации")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalOrganizationContiniousExperience
@@ -464,5 +465,156 @@ namespace Kadr.Data
                     .GetExperience()
                     .FormatAsExperience(); }
         }
+
+        //Воинский учет
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tКатегория запаса")]
+        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Description("Категория запаса")]
+        [TypeConverter(typeof(SimpleToStringConvertor<MilitaryCategory>))]
+        [System.ComponentModel.ReadOnly(false)]
+        public MilitaryCategory MilitaryCategory
+        {
+            get
+            {
+                return _employee.MilitaryCategory;
+            }
+            set
+            {
+                _employee.MilitaryCategory = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\tВоинское звание")]
+        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Description("Воинское звание")]
+        [TypeConverter(typeof(SimpleToStringConvertor<MilitaryRank>))]
+        [System.ComponentModel.ReadOnly(false)]
+        public MilitaryRank MilitaryRank
+        {
+            get
+            {
+                return _employee.MilitaryRank;
+            }
+            set
+            {
+                _employee.MilitaryRank = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\tСостав (профиль)")]
+        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Description("Состав (профиль)")]
+        [TypeConverter(typeof(SimpleToStringConvertor<MilitaryStructure>))]
+        [System.ComponentModel.ReadOnly(false)]
+        public MilitaryStructure MilitaryStructure
+        {
+            get
+            {
+                return _employee.MilitaryStructure;
+            }
+            set
+            {
+                _employee.MilitaryStructure = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\t\t\t\tПолное кодовое обозначение ВУС ")]
+        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Description("Полное кодовое обозначение ВУС ")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string VUSCode
+        {
+            get
+            {
+                return _employee.VUSCode;
+            }
+            set
+            {
+                _employee.VUSCode = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\t\t\tКатегория годности к военной службе ")]
+        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Description("Категория годности к военной службе ")]
+        [TypeConverter(typeof(SimpleToStringConvertor<MilitaryFitness>))]
+        [System.ComponentModel.ReadOnly(false)]
+        public MilitaryFitness MilitaryFitness
+        {
+            get
+            {
+                return _employee.MilitaryFitness;
+            }
+            set
+            {
+                _employee.MilitaryFitness = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\t\tВоенный комиссариат")]
+        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Description("Наименование военного комиссариата по месту жительства")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string MilitaryCommissariat
+        {
+            get
+            {
+                return _employee.MilitaryCommissariat;
+            }
+            set
+            {
+                _employee.MilitaryCommissariat = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\tТип воинского учета")]
+        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Description("Тип воинского учета")]
+        [TypeConverter(typeof(SimpleToStringConvertor<MilitaryType>))]
+        [System.ComponentModel.ReadOnly(false)]
+        public MilitaryType MilitaryType
+        {
+            get
+            {
+                return _employee.MilitaryType;
+            }
+            set
+            {
+                _employee.MilitaryType = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Отметка о снятии с воинского учета")]
+        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Description("Отметка о снятии с воинского учета")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string RemovalMilitaryMark
+        {
+            get
+            {
+                return _employee.RemovalMilitaryMark;
+            }
+            set
+            {
+                _employee.RemovalMilitaryMark = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\tНомер команды, партии / Номер спец. учета")]
+        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Description("Номер команды, партии / Номер спец. учета")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string NumberMilitaryType
+        {
+            get
+            {
+                return _employee.NumberMilitaryType;
+            }
+            set
+            {
+                _employee.NumberMilitaryType = value;
+            }
+        }
+
     }
 }

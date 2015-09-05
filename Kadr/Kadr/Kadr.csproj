@@ -341,6 +341,11 @@
     <Compile Include="Data\Entities\Grazd.cs" />
     <Compile Include="Data\Entities\LanguageLevel.cs" />
     <Compile Include="Data\Entities\MaterialResponsibility.cs" />
+    <Compile Include="Data\Entities\MilitaryCategory.cs" />
+    <Compile Include="Data\Entities\MilitaryFitness.cs" />
+    <Compile Include="Data\Entities\MilitaryRank.cs" />
+    <Compile Include="Data\Entities\MilitaryStructure.cs" />
+    <Compile Include="Data\Entities\MilitaryType.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Adress.cs" />
     <Compile Include="Data\Entities\OK_DopEducation.cs" />
@@ -1247,7 +1252,6 @@
     <None Include="Properties\DataSources\Kadr.Data.MilitaryRank.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryStructure.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryType.datasource" />
-    <None Include="Properties\DataSources\Kadr.Data.OK_Military.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryDecorator.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

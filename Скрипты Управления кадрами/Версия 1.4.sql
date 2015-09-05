@@ -227,6 +227,74 @@ FROM
 					DepartmentHistory.DateBegin<GETDATE()),DepartmentHistory.DateBegin)
 
 
+drop table [dbo].[OK_Military]
+
+alter table [dbo].[Employee] add [idCategory] int
+alter table [dbo].[Employee] add [idRank] int
+alter table [dbo].[Employee] add [VUSCode] varchar(50)
+alter table [dbo].[Employee] add [idFitness] int
+alter table [dbo].[Employee] add [MilitaryCommissariat] varchar(900)
+alter table [dbo].[Employee] add [idType] int
+alter table [dbo].[Employee] add [RemovalMark] varchar(900)
+alter table [dbo].[Employee] add [idStructure] int
+alter table [dbo].[Employee] add [NumberForType] varchar(500)
+
+/****** Object:  Index [IX_Employee_MilitaryCategory]    Script Date: 05.09.2015 15:39:43 ******/
+CREATE NONCLUSTERED INDEX [IX_Employee_MilitaryCategory] ON [dbo].[Employee]
+(
+	[idMilitaryCategory] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_Employee_MilitaryFitness]    Script Date: 05.09.2015 15:39:43 ******/
+CREATE NONCLUSTERED INDEX [IX_Employee_MilitaryFitness] ON [dbo].[Employee]
+(
+	[idMilitaryFitness] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_Employee_MilitaryRank]    Script Date: 05.09.2015 15:39:43 ******/
+CREATE NONCLUSTERED INDEX [IX_Employee_MilitaryRank] ON [dbo].[Employee]
+(
+	[idMilitaryRank] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_Employee_MilitaryStructure]    Script Date: 05.09.2015 15:39:43 ******/
+CREATE NONCLUSTERED INDEX [IX_Employee_MilitaryStructure] ON [dbo].[Employee]
+(
+	[idMilitaryStructure] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_Employee_MilitaryType]    Script Date: 05.09.2015 15:39:43 ******/
+CREATE NONCLUSTERED INDEX [IX_Employee_MilitaryType] ON [dbo].[Employee]
+(
+	[idMilitaryType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Employee]  WITH CHECK ADD  CONSTRAINT [FK_Employee_MilitaryCategory] FOREIGN KEY([idMilitaryCategory])
+REFERENCES [dbo].[MilitaryCategory] ([id])
+GO
+ALTER TABLE [dbo].[Employee] CHECK CONSTRAINT [FK_Employee_MilitaryCategory]
+GO
+ALTER TABLE [dbo].[Employee]  WITH CHECK ADD  CONSTRAINT [FK_Employee_MilitaryFitness] FOREIGN KEY([idMilitaryFitness])
+REFERENCES [dbo].[MilitaryFitness] ([id])
+GO
+ALTER TABLE [dbo].[Employee] CHECK CONSTRAINT [FK_Employee_MilitaryFitness]
+GO
+ALTER TABLE [dbo].[Employee]  WITH CHECK ADD  CONSTRAINT [FK_Employee_MilitaryRank] FOREIGN KEY([idMilitaryRank])
+REFERENCES [dbo].[MilitaryRank] ([id])
+GO
+ALTER TABLE [dbo].[Employee] CHECK CONSTRAINT [FK_Employee_MilitaryRank]
+GO
+ALTER TABLE [dbo].[Employee]  WITH CHECK ADD  CONSTRAINT [FK_Employee_MilitaryStructure] FOREIGN KEY([idMilitaryStructure])
+REFERENCES [dbo].[MilitaryStructure] ([id])
+GO
+ALTER TABLE [dbo].[Employee] CHECK CONSTRAINT [FK_Employee_MilitaryStructure]
+GO
+ALTER TABLE [dbo].[Employee]  WITH CHECK ADD  CONSTRAINT [FK_Employee_MilitaryType] FOREIGN KEY([idMilitaryType])
+REFERENCES [dbo].[MilitaryType] ([id])
+GO
+ALTER TABLE [dbo].[Employee] CHECK CONSTRAINT [FK_Employee_MilitaryType]
+GO
 
 
 
