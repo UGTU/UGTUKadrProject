@@ -13,28 +13,20 @@ namespace Kadr.Controllers
     {
         public static void Create(FactStaff fs, BindingSource MaterialResponsibilitybindingSource, object sender)
         {
-            using (PropertyGridDialogAdding<MaterialResponsibility> dlg =
+            using (var dlg =
                SimpleActionsProvider.NewSimpleObjectAddingDialog<MaterialResponsibility>())
             {
                     dlg.InitializeNewObject = (x) =>
                     {
-                        
                         var factStaffPrikaz = new FactStaffPrikaz();
-                      //  var factStaffPrikazEnd = new FactStaffPrikaz();
 
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikaz, "FactStaff",
                                 fs, null), sender);
-                       /* dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikazEnd, "FactStaff",
-                                fs, null), sender);
-                        */
+
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikaz, "Prikaz",
                                 NullPrikaz.Instance, null), sender);
-                    /*    dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikazEnd, "Prikaz",
-                                NullPrikaz.Instance, null), sender);*/
 
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateBegin",
@@ -49,11 +41,7 @@ namespace Kadr.Controllers
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<MaterialResponsibility, FactStaffPrikaz>(x,
                                 "FactStaffPrikaz", factStaffPrikaz, null), sender);
-                       /* dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<MaterialResponsibility, FactStaffPrikaz>(x,
-                                "FactStaffPrikaz1", factStaffPrikazEnd, null), sender);*/
 
-                        // var contract = new Data.Contract();
                         dlg.CommandManager.Execute(new GenericPropertyCommand<MaterialResponsibility, Contract>(x, "Contract",
                             new Contract(), null), sender);
                         dlg.CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(x.Contract, "DateContract", DateTime.Today, null), sender);
@@ -62,8 +50,6 @@ namespace Kadr.Controllers
                             sender);
 
                     };
-
-                    dlg.BeforeApplyAction = BeforeApplyAction();
 
                 dlg.UpdateObjectList = () =>
                     {
@@ -78,19 +64,6 @@ namespace Kadr.Controllers
             Read(fs, MaterialResponsibilitybindingSource);
         }
 
-        private static Action<MaterialResponsibility> BeforeApplyAction()
-        {
-            return x =>
-            {
-                if (x.PrikazTempEnd != null)
-                    x.FactStaffPrikaz1 = new FactStaffPrikaz()
-                    {
-                        FactStaff = x.FactStaff,
-                        Prikaz = x.PrikazTempEnd
-                    };
-            };
-        }
-
         public static void Read(FactStaff fs, BindingSource MaterialResponsibilitybindingSource)
         {
             MaterialResponsibilitybindingSource.DataSource = KadrController.Instance.Model.MaterialResponsibilities.Where(t => t.FactStaffPrikaz.FactStaff == fs).Select(x => x.GetDecorator()).ToList(); 
@@ -100,23 +73,8 @@ namespace Kadr.Controllers
         {
             if (MaterialResponsibilitybindingSource.Current != null)
             {
-                var currMaterial = (MaterialResponsibilitybindingSource.Current as MaterialResponsibilityDecorator).GetMaterial();
-
-                if (currMaterial == null)
-                {
-                    MessageBox.Show("Не выбран редактируемый объект.", "ИС \"Управление кадрами\"");
-                    return;
-                }
-
-                using (var dlg = new LinqPropertyGridDialogEditing<MaterialResponsibility>())
-                {
-                    dlg.UseInternalCommandManager = true;
-                    dlg.SelectedObjects = new object[] { currMaterial };
-
-                    dlg.BeforeApplyAction = BeforeApplyAction();
-                    dlg.ShowDialog();
-                }
-
+                LinqActionsController<MaterialResponsibility>.Instance.EditObject(
+                        (MaterialResponsibilitybindingSource.Current as MaterialResponsibilityDecorator).GetMaterial(), true);
             }
             Read(fs, MaterialResponsibilitybindingSource);
         }
@@ -129,7 +87,7 @@ namespace Kadr.Controllers
                 return;
             }
 
-            var currMaterial = MaterialResponsibilitybindingSource.Current as MaterialResponsibility;
+            var currMaterial = (MaterialResponsibilitybindingSource.Current as MaterialResponsibilityDecorator).GetMaterial();
 
             if (MessageBox.Show("Удалить материальную ответственность?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                 != DialogResult.OK)
