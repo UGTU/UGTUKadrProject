@@ -1,6 +1,6 @@
 ﻿namespace Kadr.UI.Common
 {
-    partial class LinqPropertyGridDialogEditing
+    partial class LinqPropertyGridDialogEditing<T> : PropertyGridDialog where T : class 
     {
         /// <summary>
         /// Required designer variable.

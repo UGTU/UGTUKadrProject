@@ -1398,6 +1398,31 @@ namespace Kadr.UI.Forms
             }
         }
 
+        private void категорииЗапасаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void воинскоеЗваниеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void воинскийСоставпрофильToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void категорияГодностиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void типВоискогоУчетаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
         
 
        

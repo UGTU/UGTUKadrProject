@@ -101,8 +101,22 @@ namespace Kadr.Controllers
             if (MaterialResponsibilitybindingSource.Current != null)
             {
                 var currMaterial = (MaterialResponsibilitybindingSource.Current as MaterialResponsibilityDecorator).GetMaterial();
-                LinqActionsController<MaterialResponsibility>.Instance.EditObject(
-                    currMaterial, true);
+
+                if (currMaterial == null)
+                {
+                    MessageBox.Show("Не выбран редактируемый объект.", "ИС \"Управление кадрами\"");
+                    return;
+                }
+
+                using (var dlg = new LinqPropertyGridDialogEditing<MaterialResponsibility>())
+                {
+                    dlg.UseInternalCommandManager = true;
+                    dlg.SelectedObjects = new object[] { currMaterial };
+
+                    dlg.BeforeApplyAction = BeforeApplyAction();
+                    dlg.ShowDialog();
+                }
+
             }
             Read(fs, MaterialResponsibilitybindingSource);
         }

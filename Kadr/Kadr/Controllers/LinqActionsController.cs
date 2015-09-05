@@ -84,7 +84,7 @@ namespace Kadr.Controllers
                 return;
             }
 
-            using (Kadr.UI.Common.LinqPropertyGridDialogEditing dlg = new Kadr.UI.Common.LinqPropertyGridDialogEditing())
+            using (var dlg = new Kadr.UI.Common.LinqPropertyGridDialogEditing<T>())
             {
                 dlg.UseInternalCommandManager = true;
                 //dlg.PrikazButtonVisible = false;
