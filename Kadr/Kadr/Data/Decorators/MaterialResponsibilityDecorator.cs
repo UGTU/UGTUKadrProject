@@ -168,9 +168,19 @@ namespace Kadr.Data
         {
             get
             {
-                return materialResponsibility.FactStaffPrikaz1 == null ? null : materialResponsibility.FactStaffPrikaz1.Prikaz;
+                return materialResponsibility.FactStaffPrikaz1 != null ? materialResponsibility.FactStaffPrikaz1.Prikaz : (materialResponsibility.PrikazTempEnd ?? null);
             }
             set
+            {
+                if (value == null)
+                {
+                    materialResponsibility.PrikazTempEnd = null;
+                    return;
+                }
+                if (materialResponsibility.FactStaffPrikaz1 == null) materialResponsibility.PrikazTempEnd = value;
+                else materialResponsibility.FactStaffPrikaz1.Prikaz = value;
+            }
+            /* set
             {
                 if ((value != null)&&( materialResponsibility.FactStaffPrikaz1 == null))
                 {
@@ -181,7 +191,7 @@ namespace Kadr.Data
                 }
                 materialResponsibility.FactStaffPrikaz1.Prikaz = value;
                 if (value == null) materialResponsibility.FactStaffPrikaz1 = null;
-            }
+            }*/
         }
 
         internal MaterialResponsibility GetMaterial()

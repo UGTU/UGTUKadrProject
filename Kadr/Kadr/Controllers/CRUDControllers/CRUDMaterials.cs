@@ -20,21 +20,21 @@ namespace Kadr.Controllers
                     {
                         
                         var factStaffPrikaz = new FactStaffPrikaz();
-                        var factStaffPrikazEnd = new FactStaffPrikaz();
+                      //  var factStaffPrikazEnd = new FactStaffPrikaz();
 
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikaz, "FactStaff",
                                 fs, null), sender);
-                        dlg.CommandManager.Execute(
+                       /* dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, FactStaff>(factStaffPrikazEnd, "FactStaff",
                                 fs, null), sender);
-
+                        */
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikaz, "Prikaz",
                                 NullPrikaz.Instance, null), sender);
-                        dlg.CommandManager.Execute(
+                    /*    dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, Prikaz>(factStaffPrikazEnd, "Prikaz",
-                                NullPrikaz.Instance, null), sender);
+                                NullPrikaz.Instance, null), sender);*/
 
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<FactStaffPrikaz, DateTime?>(factStaffPrikaz, "DateBegin",
@@ -49,9 +49,9 @@ namespace Kadr.Controllers
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<MaterialResponsibility, FactStaffPrikaz>(x,
                                 "FactStaffPrikaz", factStaffPrikaz, null), sender);
-                        dlg.CommandManager.Execute(
+                       /* dlg.CommandManager.Execute(
                             new GenericPropertyCommand<MaterialResponsibility, FactStaffPrikaz>(x,
-                                "FactStaffPrikaz1", factStaffPrikazEnd, null), sender);
+                                "FactStaffPrikaz1", factStaffPrikazEnd, null), sender);*/
 
                         // var contract = new Data.Contract();
                         dlg.CommandManager.Execute(new GenericPropertyCommand<MaterialResponsibility, Contract>(x, "Contract",
@@ -60,14 +60,35 @@ namespace Kadr.Controllers
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<Contract, string>(x.Contract, "ContractName", "", null),
                             sender);
-                        //x.FactStaff = fs;
 
                     };
+
+                    dlg.BeforeApplyAction = BeforeApplyAction();
+
+                dlg.UpdateObjectList = () =>
+                    {
+                        dlg.ObjectList = KadrController.Instance.Model.MaterialResponsibilities;
+                    };
+
+                
 
                     dlg.ShowDialog();
                 }
  
             Read(fs, MaterialResponsibilitybindingSource);
+        }
+
+        private static Action<MaterialResponsibility> BeforeApplyAction()
+        {
+            return x =>
+            {
+                if (x.PrikazTempEnd != null)
+                    x.FactStaffPrikaz1 = new FactStaffPrikaz()
+                    {
+                        FactStaff = x.FactStaff,
+                        Prikaz = x.PrikazTempEnd
+                    };
+            };
         }
 
         public static void Read(FactStaff fs, BindingSource MaterialResponsibilitybindingSource)
@@ -80,7 +101,6 @@ namespace Kadr.Controllers
             if (MaterialResponsibilitybindingSource.Current != null)
             {
                 var currMaterial = (MaterialResponsibilitybindingSource.Current as MaterialResponsibilityDecorator).GetMaterial();
-               // currMaterial.FactStaff = fs;
                 LinqActionsController<MaterialResponsibility>.Instance.EditObject(
                     currMaterial, true);
             }

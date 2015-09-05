@@ -15,7 +15,6 @@ namespace Kadr.Controllers
     {
         private static LinqActionsController<T> instance;
 
-
         private LinqActionsController() 
         {
         }

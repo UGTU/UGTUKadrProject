@@ -68,11 +68,23 @@ namespace Kadr.Data
             set { Contract.DateContract = value; }
         }
 
-        public FactStaff FactStaff
+        public Prikaz PrikazEnd
         {
-            get { return FactStaffPrikaz.FactStaff; }
-          //  set { FactStaffPrikaz.FactStaff = value; }
+            get { return FactStaffPrikaz.Prikaz; }
+            set { if (value != null) FactStaffPrikaz.Prikaz = value; }
         }
+
+        public Prikaz PrikazTempEnd
+        {
+            get; //{ return FactStaffPrikaz.Prikaz; }
+            set; //{ if (value != null) FactStaffPrikaz.Prikaz = value; }
+        }
+
+        public FactStaff FactStaff { 
+              get { return FactStaffPrikaz.FactStaff; }
+           //   set { FactStaffPrikaz.FactStaff = value; }
+        }
+
 
         #endregion
 
