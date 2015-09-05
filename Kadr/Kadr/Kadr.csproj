@@ -255,6 +255,9 @@
     <Compile Include="Data\Decorators\EducationDecorator.cs" />
     <Compile Include="Data\Decorators\EmployeeLangDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffBaseDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryBaseDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryHourDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryMainBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHourBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffMainBaseDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopEducDecorator.cs" />
@@ -837,6 +840,8 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="CrystalReport1.mht" />
     <None Include="Data\dckadr.dbml.layout">
       <DependentUpon>dckadr.dbml</DependentUpon>

@@ -1,50 +1,16 @@
-﻿using Kadr.Controllers;
-using Kadr.UI.Editors;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Kadr.Data.Converters;
+using Kadr.Controllers;
 
 namespace Kadr.Data
 {
-    class FactStaffMainBaseDecorator: FactStaffBaseDecorator
+    class FactStaffHistoryMainBaseDecorator: FactStaffHistoryBaseDecorator
     {
-        public FactStaffMainBaseDecorator(FactStaff factStaff)
-            : base(factStaff)
+        public FactStaffHistoryMainBaseDecorator(FactStaffHistory factStaffHistory)
+            : base(factStaffHistory)
         {
-
-        }
-
-
-        [System.ComponentModel.DisplayName("Должность в штатном расписании")]
-        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
-        [System.ComponentModel.Description("Должность в штатном расписании")]
-        [System.ComponentModel.ReadOnly(false)]
-        public Kadr.Data.PlanStaff PlanStaff
-        {
-            get
-            {
-                return factStaff.PlanStaff;
-            }
-        }
-
-
-        [System.ComponentModel.DisplayName("ОКВЭД")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
-        [System.ComponentModel.Description("Код экономической деятельности")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OKVEDConvertor))]
-        public OKVED OKVED
-        {
-            get
-            {
-                return factStaff.OKVED;
-            }
-            set
-            {
-                factStaff.OKVED = value;
-            }
         }
 
         [System.ComponentModel.DisplayName("Подподкатегория")]
@@ -55,53 +21,16 @@ namespace Kadr.Data
         {
             get
             {
-                if (factStaff.SalaryKoeff != null)
-                    return factStaff.SalaryKoeff.PKSubSubCategoryNumber;
+                if (factStaffHistory.SalaryKoeff != null)
+                    return factStaffHistory.SalaryKoeff.PKSubSubCategoryNumber;
                 return null;
             }
             set
             {
-                factStaff.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
+                factStaffHistory.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
             }
         }
 
-
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\tBид работы")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
-        [System.ComponentModel.Description("Название вида работы")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
-        public Kadr.Data.WorkType WorkType
-        {
-            get
-            {
-                return factStaff.WorkType;
-            }
-            set
-            {
-                factStaff.WorkType = value;
-            }
-        }
-
-
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\tПриказ назначения")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
-        [System.ComponentModel.Description("Приказ назначения сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public Kadr.Data.Prikaz PrikazBegin
-        {
-            get
-            {
-                return factStaff.PrikazBegin;
-            }
-            set
-            {
-                factStaff.PrikazBegin = value;
-            }
-        }
-
- 
         #region ContractData
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tОсновной договор")]
         [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
@@ -112,11 +41,14 @@ namespace Kadr.Data
         {
             get
             {
-                return factStaff.MainContract;
+                if (factStaffHistory.Contract != null)
+                    return factStaffHistory.Contract.MainContract;
+                else
+                    return null;
             }
             set
             {
-                factStaff.MainContract = value;
+                factStaffHistory.Contract.MainContract = value;
             }
         }
 
@@ -128,8 +60,8 @@ namespace Kadr.Data
         {
             get
             {
-                if (factStaff.CurrentContract != null)
-                    return factStaff.CurrentContract.ContractName;
+                if (factStaffHistory.Contract != null)
+                    return factStaffHistory.Contract.ContractName;
                 else
                     return null;
             }
@@ -137,8 +69,8 @@ namespace Kadr.Data
             {
                 if (value != null)
                 {
-                    if (factStaff.CurrentContract != null)
-                        factStaff.CurrentContract.ContractName = value;
+                    if (factStaffHistory.Contract != null)
+                        factStaffHistory.Contract.ContractName = value;
                 }
             }
         }
@@ -151,8 +83,8 @@ namespace Kadr.Data
         {
             get
             {
-                if (factStaff.CurrentContract != null)
-                    return Convert.ToDateTime(factStaff.CurrentContract.DateContract);
+                if (factStaffHistory.Contract != null)
+                    return Convert.ToDateTime(factStaffHistory.Contract.DateContract);
                 else
                     return DateTime.MinValue;
             }
@@ -160,8 +92,8 @@ namespace Kadr.Data
             {
                 if ((value != null) && (value != DateTime.MinValue))
                 {
-                    if (factStaff.CurrentContract != null)
-                        factStaff.CurrentContract.DateContract = value;
+                    if (factStaffHistory.Contract != null)
+                        factStaffHistory.Contract.DateContract = value;
                 }
             }
         }
@@ -174,8 +106,8 @@ namespace Kadr.Data
         {
             get
             {
-                if (factStaff.CurrentContract != null)
-                    return Convert.ToDateTime(factStaff.CurrentContract.DateBegin);
+                if (factStaffHistory.Contract != null)
+                    return Convert.ToDateTime(factStaffHistory.Contract.DateBegin);
                 else
                     return DateTime.MinValue;
             }
@@ -183,8 +115,8 @@ namespace Kadr.Data
             {
                 if ((value != null) && (value != DateTime.MinValue))
                 {
-                    if (factStaff.CurrentContract != null)
-                        factStaff.CurrentContract.DateBegin = value;
+                    if (factStaffHistory.Contract != null)
+                        factStaffHistory.Contract.DateBegin = value;
                 }
             }
         }
@@ -197,8 +129,8 @@ namespace Kadr.Data
         {
             get
             {
-                if (factStaff.CurrentContract != null)
-                    return Convert.ToDateTime(factStaff.CurrentContract.DateEnd);
+                if (factStaffHistory.Contract != null)
+                    return Convert.ToDateTime(factStaffHistory.Contract.DateEnd);
                 else
                     return DateTime.MinValue;
             }
@@ -206,13 +138,12 @@ namespace Kadr.Data
             {
                 if ((value != null) && (value != DateTime.MinValue))
                 {
-                    if (factStaff.CurrentContract != null)
-                        factStaff.CurrentContract.DateEnd = value;
+                    if (factStaffHistory.Contract != null)
+                        factStaffHistory.Contract.DateEnd = value;
                 }
             }
         }
         #endregion
-
 
         #region RegionTypeData
 
@@ -224,11 +155,11 @@ namespace Kadr.Data
         {
             get
             {
-                return factStaff.CurrentChange.Address;
+                return factStaffHistory.Address;
             }
             set
             {
-                factStaff.CurrentChange.Address = value;
+                factStaffHistory.Address = value;
             }
         }
 
@@ -241,11 +172,11 @@ namespace Kadr.Data
         {
             get
             {
-                return factStaff.CurrentChange.RegionType;
+                return factStaffHistory.RegionType;
             }
             set
             {
-                factStaff.CurrentChange.RegionType = value;
+                factStaffHistory.RegionType = value;
             }
         }
 
@@ -257,7 +188,7 @@ namespace Kadr.Data
         {
             get
             {
-                return (factStaff.PlanStaff != null) ? factStaff.PlanStaff.Dep.CurrentAddress : null;
+                return (factStaffHistory.FactStaff.PlanStaff != null) ? factStaffHistory.FactStaff.PlanStaff.Dep.CurrentAddress : null;
             }
         }
 
@@ -269,10 +200,11 @@ namespace Kadr.Data
         {
             get
             {
-                return (factStaff.PlanStaff != null) ? factStaff.PlanStaff.Dep.CurrentRegionType : null;
+                return (factStaffHistory.FactStaff.PlanStaff != null) ? factStaffHistory.FactStaff.PlanStaff.Dep.CurrentRegionType : null;
             }
         }
 
         #endregion
+
     }
 }

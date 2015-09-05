@@ -1,0 +1,1816 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Kadr.Data.DocumentTypeToStringConvertor" Collapsed="true">
+    <Position X="0.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Data\Converters\DocumentTypeToStringConvertor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.dckadrDataContext" Collapsed="true">
+    <Position X="43.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>H7r+e/sX///7/3/v7/v///2f+/3/9V5/6v5/u/va5U8=</HashCode>
+      <FileName>Data\dcKadr.dcKadrDataContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.DepartmentType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgAAABAEAQAAAAQCFAAAABjCAAAAAgAEAAgAAQCgA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.DepartmentTimeNorm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAChAAABIAAAAACERAFEggBNjDAKGAIAAAAAABAUMgA=</HashCode>
+      <FileName>Data\Entities\DepartmentTimeNorm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.FinancingSource" Collapsed="true">
+    <Position X="18.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAwAAiJAIQAAEQETAXAiGAZjCAABFAgAkgDQEAQCwg=</HashCode>
+      <FileName>Data\Entities\FinancingSource.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.PlanStaffSalary" Collapsed="true">
+    <Position X="14.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABwCAABAyQAAWAEQJFEgBAJjDQAEAAQAAAAAIEQEoA=</HashCode>
+      <FileName>Data\Entities\PlanStaffSalary.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.PrikazType" Collapsed="true">
+    <Position X="0.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAAABIAwAAAQEQIFAAAABzCAADAAAAAAAAg0QAgA=</HashCode>
+      <FileName>Data\Entities\PrikazType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.PrikazSuperType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAgABABAAAAAEQAFAACADjCAAAAIAAAAAAAAQAgA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.PKGroup" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAAABAAEABAAEUhFBAAABjCAgAAAAFgQAAAAQAoE=</HashCode>
+      <FileName>Data\Entities\PKGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.PKCategorySalary" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBwCAABASAAQEAEQJFEgBAJrDQAEACQACAAAIEQEoA=</HashCode>
+      <FileName>Data\Entities\PKCategorySalary.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.WorkSuperType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAgAAgBBAAAAAIEQAFAACABjTAAACgAAAEACAAQAgA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.EmployeeRank" Collapsed="true">
+    <Position X="15.5" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAxAAgFQACAIAQERAEAAAEpiCELIAAAECBAAEBACgA=</HashCode>
+      <FileName>Data\Entities\EmployeeRank.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.EmployeeDegree" Collapsed="true">
+    <Position X="0.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIwAkQLQCCAIIRFQAEAABg5iCQDoAAAECQAAgDADgg=</HashCode>
+      <FileName>Data\Entities\EmployeeDegree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.SemPol" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAAABAAAAAEEEQAHJAAABjCIAAQAAACAABAAQAiA=</HashCode>
+      <FileName>Data\Entities\SemPol.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.ScienceType" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwIAABAEAAQBAEUAnAAkIBjKAAAQEAAAAgQAAQAgg=</HashCode>
+      <FileName>Data\Entities\ScienceType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.Rank" Collapsed="true">
+    <Position X="13.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAwAAABAAQAAAQEQANAAACJzCIABQABABAAVCAwAiA=</HashCode>
+      <FileName>Data\Entities\Rank.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.Degree" Collapsed="true">
+    <Position X="21.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwIAIBAECABJwFQBHAAAARnCgAQAACAAAAQBIQAgA=</HashCode>
+      <FileName>Data\Entities\Degree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.Grazd" Collapsed="true">
+    <Position X="9.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACwAACBCAAIAEQEQAFJAAABjCIAAQAAQAAABAAQAiA=</HashCode>
+      <FileName>Data\Entities\Grazd.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.FundingCenter" Collapsed="true">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABwCAiBACAQAAAESAFAAGAFjCAAAAAgAEABAAEQCgA=</HashCode>
+      <FileName>Data\Entities\FundingCenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.FactStaffReplacementReason" Collapsed="true">
+    <Position X="18.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQwAAABAIIIAAIEQAFAABABjCACAAwgAAAAABAQAgA=</HashCode>
+      <FileName>Data\Entities\FactStaffReplacementReason.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.BonusPlanStaff" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAgBggRAAfBIwAEEAACBiiAAAAAgAAEAAAAAAQA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.BonusMeasure" Collapsed="true">
+    <Position X="0.5" Y="23.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIwAAgBAAggABAGQAFQCAABrCIABAAAAAAAAAAQAwA=</HashCode>
+      <FileName>Data\Entities\BonusMeasure.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.BonusPost" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAABAAAAAAgIwAGEAAABiiAAAQAgAAEAAAAABAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.BonusFactStaff" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAABAAAAAAEKwAEEAAABimAACAAgAAEAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.Category" Collapsed="true">
+    <Position X="21.5" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BYBwBAABAAAAQAQFRAFAAAADjCAAAEsAQAACQAgxLgA=</HashCode>
+      <FileName>Data\Entities\Category.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.TimeSheet" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMwoCwCVACCIAAVkSgtBACQZjCCAEFkAAAEIAQgQKgA=</HashCode>
+      <FileName>Data\Entities\TimeSheet.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.TimeSheetFSWorkingDay" Collapsed="true">
+    <Position X="1.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iEAwAAABACCAOAkGQAEBAAEZmOAADlAAAAgAAAAgAKA=</HashCode>
+      <FileName>Data\Entities\TimeSheetFSWorkingDay.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.OK_Otpuskvid" Collapsed="true">
+    <Position X="0.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwBAABAEQEIAAEQAEBQAEBmCAAOAAIIhIEABBgAAI=</HashCode>
+      <FileName>Data\Entities\OK_Otpuskvid.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.BonusReport" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>xIAkARABAAKMAAUEQBNAEAEBjCIAAQAAAAgAAoAQA4A=</HashCode>
+      <FileName>Data\Entities\BonusReport.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.BonusReportColumn" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hCAgAADBAAAEAEAAQAFAAQADjSAAEEIQAAAAQAAQAgA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.WorkShedule" Collapsed="true">
+    <Position X="8.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAAABAAAAAMgEQAFAgAAhrCBAAiAAAAAAAAAQAgA=</HashCode>
+      <FileName>Data\Entities\WorkShedule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.TimeSheetDayState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBAgAEARAAACQCAQQIFCAAAhjCAAAABAACAAABAQAhA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.SalaryKoeff" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAABAAAARQClwAFAAAABjCAAACAAFAgAAAAYAqA=</HashCode>
+      <FileName>Data\Entities\SalaryKoeff.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.WorkType" Collapsed="true">
+    <Position X="5.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAACBAAQAgIQlQAFACAEZjGAABQIyAQkgAQAQAig=</HashCode>
+      <FileName>Data\Entities\WorkType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.FactStaffReplacement" Collapsed="true">
+    <Position X="18.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YABwCAABACDABAUGQAMEAAQJiGgACgAAEAAQAQEAAIA=</HashCode>
+      <FileName>Data\Entities\FactStaffReplacement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.PostType" Collapsed="true">
+    <Position X="6.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAAAJAAAEAAAERAFAAAADjCAAAAIQAAAAACAQBgA=</HashCode>
+      <FileName>Data\Entities\PostType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.DepartmentFund" Collapsed="true">
+    <Position X="21.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwBCABASAIAAiERAEEggANiDAAGAAAAFAAABAAEig=</HashCode>
+      <FileName>Data\Entities\DepartmentFund.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.PKCategory" Collapsed="true">
+    <Position X="15.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAwARABAAARRCWGxDFACgALrDggAApEEgAAAABaBgM=</HashCode>
+      <FileName>Data\Entities\PKCategory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.FactStaffMonthHour" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAABAABAIAEGQBVAAAEZjGACCAAAACgQAQgQAoQ=</HashCode>
+      <FileName>Data\Entities\FactStaffMonthHour.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.CategoryVPO" Collapsed="true">
+    <Position X="18.5" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAwEAADAAAAAAAERAFAAQADjCEABEIIAAAAQQIQDgA=</HashCode>
+      <FileName>Data\Entities\CategoryVPO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.CategoryZP" Collapsed="true">
+    <Position X="21.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMAwAAABAAAABAAERgFAAAADjGAAAEIQAgAAQAAQDgA=</HashCode>
+      <FileName>Data\Entities\CategoryZP.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.FactStaffCurrentMainData" Collapsed="true">
+    <Position X="41.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAKAAEAABEABAgAAAgAAAAACAAAAAAAgA=</HashCode>
+      <FileName>Data\Entities\FactStaffCurrentMainData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Department" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkwgAAEYAIAAABCECQLAkEJQEAAAIggQFQAABOAAgiA=</HashCode>
+      <FileName>Data\Entities\Department.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OKVED" Collapsed="true">
+    <Position X="15.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAwAAABAgASAAgESAFAAGABjCAAAAAgAEAAAAAQCgA=</HashCode>
+      <FileName>Data\Entities\OKVED.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.Dep" Collapsed="true">
+    <Position X="21.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>El8wAJNdEYSICHSFTzPKkGPbvLdAI1gUV0JABJAQwqg=</HashCode>
+      <FileName>Data\Entities\Dep.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.BonusType" Collapsed="true">
+    <Position X="22.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JLB0CgABIGKYixREQAFcFwBJjiAUAQAiAABDAAH0AgI=</HashCode>
+      <FileName>Data\Entities\BonusType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.Post" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AbxwKAgFQCdKQ0icTAHS4CiL7nRhJECSALWUkAkQzgU=</HashCode>
+      <FileName>Data\Entities\Post.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.PostGroup" Collapsed="true">
+    <Position X="9.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAwAAABAAAAAAAERhFBAAADjCIAAAIAAAAAABAQBgE=</HashCode>
+      <FileName>Data\Entities\PostGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.BonusSuperType" Collapsed="true">
+    <Position X="15.5" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAgAAoBCAAAAACEQAFACAABjCAQJAAIAAAAAAgQBwA=</HashCode>
+      <FileName>Data\Entities\BonusSuperType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.GlobalPrikaz" Collapsed="true">
+    <Position X="12.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEwAAABAAAAIAQERAFFgAADjDAAEAIAABAgAAAQHwA=</HashCode>
+      <FileName>Data\Entities\GlobalPrikaz.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.BonusHistory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAhBAABCAAAAAAMxBFEgAFJjjgCEAIhABEAAGAUEoA=</HashCode>
+      <FileName>Data\Entities\BonusHistory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.Bonus" Collapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgBySAiFFKRACAAEQBfUAQALnL1AMEgQAACQDIEQAqA=</HashCode>
+      <FileName>Data\Entities\Bonus.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.PlanStaff" Collapsed="true">
+    <Position X="12.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgBwGAABAKIYCUiESBPUAmENjjBQCYAyAGgBZdEUDos=</HashCode>
+      <FileName>Data\Entities\PlanStaff.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.PlanStaffHistory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAhAAABAgQAOWQERBFEgABJjjACEAIBABAAAGAUEoA=</HashCode>
+      <FileName>Data\Entities\PlanStaffHistory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.FactStaffPrikaz" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gArwTCCREDEEYG0PQBFFgRBVnHAQPAACGgABAoFYkoA=</HashCode>
+      <FileName>Data\Entities\FactStaffPrikaz.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.StandingType" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQ4AAABAAgAAAAEQAFAAAABjGAEAAAgAAgAAAAQCgA=</HashCode>
+      <FileName>Data\Entities\StandingType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.EmployeeStanding" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgKgAJYCIgAAAESAFEgAApjjgBOhSAgCBAAAEQVgA=</HashCode>
+      <FileName>Data\Entities\EmployeeStanding.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.Employee" Collapsed="true">
+    <Position X="3.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>u//5esgTGA1GIt29WzvVQGy9nXXzcUozfgS18mw4mr8=</HashCode>
+      <FileName>Data\Entities\Employee.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.AuditKadrVersion" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAgFAQAAAAAAQAEAAAABiCAAEAIgAAAQAgQACAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.BusinessTrip" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAA4AABBQAQAAIQEQAFAEkBJjjCIAAACEAYAAgAUAgA=</HashCode>
+      <FileName>Data\Entities\BusinessTrip.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OK_Otpusk" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAJiCIQFAmEBKZGGQBMEgGiJ2HSAOIAIFAIhAAEBGIg=</HashCode>
+      <FileName>Data\Entities\OK_Otpusk.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.SocialFareTransit" Collapsed="true">
+    <Position X="11.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>VABwCAABQCAEAIAEQAFFgEApnCCBMAAAACIAAAEQEgA=</HashCode>
+      <FileName>Data\Entities\SocialFareTransit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.OK_phone" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAABQAIAAAAEUAFAAAApiDABAAAgACAIAABAghA=</HashCode>
+      <FileName>Data\Entities\OK_phone.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.BusinessTripRegionType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBwKAAJICAAkAwEQAEEgAApjngAMhAAABAAIAEEUAA=</HashCode>
+      <FileName>Data\Entities\BusinessTripRegionType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.AwardType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAABAAAAoAQEQAEEIAQFiCAQQAAAABAAAAAEAAA=</HashCode>
+      <FileName>Data\Entities\AwardType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OK_DopInf" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAgAgABQAAAABAEQAEAAAApiDABAAAQAyAAAAACAgE=</HashCode>
+      <FileName>Data\Entities\OK_DopInf.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.Organisation" Collapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAiAAABAAIAAAQEQAFAIAQBjCAAQAAIBAAQAAAQAgA=</HashCode>
+      <FileName>Data\Entities\Organisation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.RegionType" Collapsed="true">
+    <Position X="12.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYwAQIBEAkACAAlQCFIAAAJjCAIAEQgCAxAAgAQCiA=</HashCode>
+      <FileName>Data\Entities\RegionType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.OK_SocialStatus" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQiAACBAAAAAAAFQAEEBAAFiCAAAAAAAAIAAAAABBI=</HashCode>
+      <FileName>Data\Entities\OK_SocialStatus.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.ValidationDecision" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgiQAABAAAAgAQNQAEEIAQBiCAAQAAAABAAAAAEAAA=</HashCode>
+      <FileName>Data\Entities\ValidationDecision.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.Validation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IACoEBABAAAAgIYEQHEEBAAJiDCEQBAcABAAhAJGCAA=</HashCode>
+      <FileName>Data\Entities\Validation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OK_Language" Collapsed="true">
+    <Position X="6.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAhAAABAAQAIkQESAkAAAABiKAAAAAIIAAAAgAAABA=</HashCode>
+      <FileName>Data\Entities\OK_Language.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.OK_EmployeeLang" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAEkECAFQAAQIA0kSAUAAAApmTADIAADBCAAgIBACkA=</HashCode>
+      <FileName>Data\Entities\OK_EmployeeLang.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OK_Educ" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIgACABQAAQOAQEwAWMAAIpiDEHIQABACAAQEFAykA=</HashCode>
+      <FileName>Data\Entities\OK_Educ.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.EducationType" Collapsed="true">
+    <Position X="9.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAKgAAABEAAABAQEQAFAAAABzCAAAAAKAAAAAAAQAwA=</HashCode>
+      <FileName>Data\Entities\EducationType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.EducDocument" Collapsed="true">
+    <Position X="6.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CSowUARBkAKQKm0NUAnMAAAlnGAQURACCAASEApQChI=</HashCode>
+      <FileName>Data\Entities\EducDocument.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.LanguageLevel" Collapsed="true">
+    <Position X="17.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgCAABAAAAA0QEUAlAIAABzCAAAAAIAEAABAAQAhA=</HashCode>
+      <FileName>Data\Entities\LanguageLevel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.EducDocumentType" Collapsed="true">
+    <Position X="20.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAwAAABAKYACAAEQAlAAAABjCQAQAAABAAQQKAYBgA=</HashCode>
+      <FileName>Data\Entities\EducDocumentType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.DopEducType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BDIhIAABgAECgBoEQBFAAQABnCAAAABICAAAAAAQAgA=</HashCode>
+      <FileName>Data\Entities\DopEducType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OK_DopEducation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cATkCAABQCSQIIQGwAHEgEApjCCHOIADQCIAQIFQHgA=</HashCode>
+      <FileName>Data\Entities\OK_DopEducation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.FactStaff" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgBxm2o1ZuYM3/XtXjfXSmZvnzvLOIYWlSowBZUcWqg=</HashCode>
+      <FileName>Data\Entities\FactStaff.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.OK_Reason" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAAgAEABAAAAEAIESAMBAGABiCAAAAACgAAAAAAEMAI=</HashCode>
+      <FileName>Data\Entities\OK_Reason.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.MilitaryCategory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAFAABAAAAAQAFAAAAJjCAgAQAAEAAAAAAQAgI=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.MilitaryFitness" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAABCAEgQAAAQAFAAAAJzCAgAQAEAAQAAAAQAgA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.MilitaryRank" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAABAIAAAAAAQAFAAgAJjCAhAQAQAAAAAAAQAgA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.MilitaryStructure" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAABAAAAAABAQAFAAAAJjCAggQAAAAAAQAAQAgA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.MilitaryType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQgAAABAAAAgAEAQgFAAAAJjCAgAQAAAAAAAAAQAgA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OK_Military" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BTAhIAgFVWAAAUQCQCVggAAhjCEBAAEGEjHAA4BWAoA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OK_Inkapacity" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABgCAAJQCAAIIQEQAUEgBApiDADNAEIBCQAAAFAGgA=</HashCode>
+      <FileName>Data\Entities\OK_Inkapacity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OK_Social" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IARiCAAJQCAIIAAEQAEEgAAtiDADMAAAACAAEAFAHhA=</HashCode>
+      <FileName>Data\Entities\OK_Social.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.AwardLevel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAyAAABAAAAoBQEQAEEIAQFiCAQQEAAADAAAAAEAAA=</HashCode>
+      <FileName>Data\Entities\AwardLevel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.Award" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>NACqGAAlBAACoIQEQCEEJAQJiDCBwCgAADhAhABECAA=</HashCode>
+      <FileName>Data\Entities\Award.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OK_Adress" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgBgDAABQCAAEIAEQAEAAAApiDohQQBAAKAgSAEAAgA=</HashCode>
+      <FileName>Data\Entities\OK_Adress.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.OK_MembFam" Collapsed="true">
+    <Position X="3.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAAgBASAAgAAEQAFBAAABiDAAgEAAAAAAIABAIAA=</HashCode>
+      <FileName>Data\Entities\OK_MembFam.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.OK_Fam" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>tIAgIACBAQAAAAEEQAcgAAQpiDABohAACAAAcAhAEAA=</HashCode>
+      <FileName>Data\Entities\OK_Fam.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.MaterialResponsibility" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAAgDIABABDADMEEYAFECUAJnCCICACAgAKIBAAYAgQ=</HashCode>
+      <FileName>Data\Entities\MaterialResponsibility.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.Contract" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="41.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gADgWgABASAATAAlRAFEiAABjCCANQgIYEgIAAE0kyI=</HashCode>
+      <FileName>Data\Entities\Contract.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.Prikaz" Collapsed="true">
+    <Position X="3.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GGN4CCIBALCUaGwnSgXFgGEJvjAUMAAkIFhAAEMRGyM=</HashCode>
+      <FileName>Data\Entities\Prikaz.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHistory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAAgKABJBIBgPYGOQDFE1EJZv3GDGhRLgBAIAGQ6EoA=</HashCode>
+      <FileName>Data\Entities\FactStaffHistory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.DepartmentHistory" Collapsed="true">
+    <Position X="12.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEAxIBAJQAQAAACGwRFEgkINnjAAGhATAUAAAHQQEoA=</HashCode>
+      <FileName>Data\Entities\DepartmentHistory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.GetFactStaffForTimeSheetResult" Collapsed="true">
+    <Position X="40" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABCAAAAoAAOAgABAAEBAAhAAAAGAIwACEAADEAAIQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.GetFullSubDepartmentsResult" Collapsed="true">
+    <Position X="41.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEAgAAEAAAAAAAAEBQAAUAAAEEAACQAQAQAAADAACAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.GetStaffErrorsByPeriodResult" Collapsed="true">
+    <Position X="43.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAAgQAAAEQABAEAAAAAIAACCAAAUAIABABBAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.GetSubDepartmentsWithPeriodResult" Collapsed="true">
+    <Position X="26" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEBgAAAUAAAAAAAEAwAAAEAAAAAADQAQCQAAADAAACA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.GetBonusByBonusTypeForProlongResult" Collapsed="true">
+    <Position X="38.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAoDAQAAgQAqAIYEAAEAAABACwBGEAgAUCABREAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.AwardDecorator" Collapsed="true">
+    <Position X="31.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAEAFAAQAAAAQAAABAQAAAAAAIAE=</HashCode>
+      <FileName>Data\Decorators\AwardDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.BonusDecorator" Collapsed="true">
+    <Position X="36.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAEAAAAgAAEABAGAQAAAAgAIAAAAACAAAAEAAA=</HashCode>
+      <FileName>Data\Decorators\BonusDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.BonusHistoryDecorator" Collapsed="true">
+    <Position X="41.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEABAEAQAAEAgAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Data\Decorators\BonusHistoryDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.BonusTypeDecorator" Collapsed="true">
+    <Position X="31.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAYgAAFAAAUAAAAAAAAAQAgAAAAAAAEAAA=</HashCode>
+      <FileName>Data\Decorators\BonusTypeDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.BusinessTripDecorator" Collapsed="true">
+    <Position X="34.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACgAAEAAAgAAEADAEAAEgAAAAAAAABAAABAAAAAA=</HashCode>
+      <FileName>Data\Decorators\BusinessTripDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.BusinessTripRegionTypeDecorator" Collapsed="true">
+    <Position X="38.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAEACAEAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\BusinessTripRegionTypeDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.DepartmentDecorator" Collapsed="true">
+    <Position X="27.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAgBAEBQIAAAAQAAAAAgAAFQAIBAAAACI=</HashCode>
+      <FileName>Data\Decorators\DepartmentDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.DepartmentFundDecorator" Collapsed="true">
+    <Position X="29.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAEBAAAAAAAEAABAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Data\Decorators\DepartmentFundDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.DepartmentHistoryDecorator" Collapsed="true">
+    <Position X="31.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgBAEAQAAAAAAAAAAAAAABQAABABAAAA=</HashCode>
+      <FileName>Data\Decorators\DepartmentHistoryDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.DepartmentTimeNormDecorator" Collapsed="true">
+    <Position X="34.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIIAAgAAEAAAAAAAAEAAAAAAAAAAAAABEAAA=</HashCode>
+      <FileName>Data\Decorators\DepartmentTimeNormDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.DopEducationDecorator" Collapsed="true">
+    <Position X="38.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABACAAAgAACAIAEANAEAAAAABAAAIABAAAAQAAAJgA=</HashCode>
+      <FileName>Data\Decorators\DopEducationDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.EducationDecorator" Collapsed="true">
+    <Position X="43.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAoAAAAAAGAEAAAAAAABECAAABAQAAQAAAIEA=</HashCode>
+      <FileName>Data\Decorators\EducationDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.EmployeeDecorator" Collapsed="true">
+    <Position X="26" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QKAAAEAEAAABgkCEAEAAAAUggAFIAAgQBAAYAAIgBAg=</HashCode>
+      <FileName>Data\Decorators\EmployeeDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.EmployeeDegreeDecorator" Collapsed="true">
+    <Position X="27.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEQIAAAAAgAEAAAAAAgwgAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\EmployeeDegreeDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.EmployeeLangDecorator" Collapsed="true">
+    <Position X="33" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAACAABAAAEAEQAAAAAAAAAAAABAAAAAAAAIAE=</HashCode>
+      <FileName>Data\Decorators\EmployeeLangDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.EmployeeRankDecorator" Collapsed="true">
+    <Position X="34.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAIAAAAAgAEAAAAAAAgAAAAAAAAAAACAAAAABA=</HashCode>
+      <FileName>Data\Decorators\EmployeeRankDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.EmployeeStandingDecorator" Collapsed="true">
+    <Position X="38.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAKAAAAAAAgAEEAAAEAAAACAAACAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\EmployeeStandingDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffBaseDecorator" Collapsed="true">
+    <Position X="3" Y="7.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAgAAEBAAAAAAIgAAAAAAAAAAIAABAAAA=</HashCode>
+      <FileName>Data\Decorators\FactStaffBaseDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffDecorator" Collapsed="true">
+    <Position X="6.5" Y="10.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIQACAAAAAAAAAAACQAAAAAAAAAABAAIAAA=</HashCode>
+      <FileName>Data\Decorators\FactStaffDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHistoryDecorator" Collapsed="true">
+    <Position X="10.75" Y="10.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQACAAAAAAAAAAAAQAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Data\Decorators\FactStaffHistoryDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHistoryHourDecorator" Collapsed="true">
+    <Position X="7.5" Y="8.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAGQCAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Data\Decorators\FactStaffHistoryHourDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHistoryMainBaseDecorator" Collapsed="true">
+    <Position X="10.75" Y="8.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAAAAAAAAAEAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\FactStaffHistoryMainBaseDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHistoryReplacementDecorator" Collapsed="true">
+    <Position X="26" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAACAAEAAAEAAAACUAAAAAAAAAABQQIAAQ=</HashCode>
+      <FileName>Data\Decorators\FactStaffHistoryReplacementDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHourBaseDecorator" Collapsed="true">
+    <Position X="1.75" Y="8.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAEAAAAAAAAGQCAAAAAAAAAAAQEAAA=</HashCode>
+      <FileName>Data\Decorators\FactStaffHourBaseDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHourContractDecorator" Collapsed="true">
+    <Position X="0.5" Y="10.25" Width="3.25" />
+    <InheritanceLine Type="Kadr.Data.FactStaffHourBaseDecorator" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="9.441" />
+        <Point X="2.75" Y="9.875" />
+        <Point X="1.386" Y="9.875" />
+        <Point X="1.386" Y="10.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\FactStaffHourContractDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHourDecorator" Collapsed="true">
+    <Position X="3.75" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Data\Decorators\FactStaffHourDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffMainBaseDecorator" Collapsed="true">
+    <Position X="4.5" Y="8.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACgAAAAAAAAAAAAAECAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Data\Decorators\FactStaffMainBaseDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffMonthHourDecorator" Collapsed="true">
+    <Position X="33" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAACAAAiAAAACAAAQAAAAA=</HashCode>
+      <FileName>Data\Decorators\FactStaffMonthHourDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffReplacementDecorator" Collapsed="true">
+    <Position X="36.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAiAAEAAAAAAIAmUAAAAAAAAAIBQBIAAA=</HashCode>
+      <FileName>Data\Decorators\FactStaffReplacementDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.InkapacityDecorator" Collapsed="true">
+    <Position X="27.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACCAAAAAAAAgAEAEAEAAAAAAAAAAAABAACAAAAAAE=</HashCode>
+      <FileName>Data\Decorators\InkapacityDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.MaterialResponsibilityDecorator" Collapsed="true">
+    <Position X="31.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCEAEAAAACAAEAAAECAAAAAAAAAAAAAAIDAAAAAQ=</HashCode>
+      <FileName>Data\Decorators\MaterialResponsibilityDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.OK_AdressDecorator" Collapsed="true">
+    <Position X="29.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAEAAAAAAAAAAoAAABAAIAACAAAAAA=</HashCode>
+      <FileName>Data\Decorators\OK_AdressDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.DopEducTypeDecorator" Collapsed="true">
+    <Position X="41.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAgAACCAAEAAAAAgAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Data\Decorators\OK_DopEducDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.OK_DopInfDecorator" Collapsed="true">
+    <Position X="34.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAEAAAAAAAAAAAAAAAQAQAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\OK_DopInfDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.OK_FamDecorator" Collapsed="true">
+    <Position X="41.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAEAAIAAAUAAAAAAgAAAAAAAAAAEAA=</HashCode>
+      <FileName>Data\Decorators\OK_FamDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.OK_OtpuskDecorator" Collapsed="true">
+    <Position X="31.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAEAgBAEABAEAAAACAQIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\OK_OtpuskDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.OK_phoneDecorator" Collapsed="true">
+    <Position X="36.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAEAAAAAAAAAEAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\OK_phoneDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.PKCategoryDecorator" Collapsed="true">
+    <Position X="40" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAB4AAEBAAAAgAAAAAAAAAAAAAAAABIAAA=</HashCode>
+      <FileName>Data\Decorators\PKCategoryDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.PKCategorySalaryDecorator" Collapsed="true">
+    <Position X="41.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAgAAEABAEQAAAAAAAAAAQACAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\PKCategorySalaryDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.PKGroupDecorator" Collapsed="true">
+    <Position X="43.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAEAAAAAAAAAAAwAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\PKGroupDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.PlanStaffDecorator" Collapsed="true">
+    <Position X="26" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAiAAEAAAAAAAAmAAAAAAABAAIBABMAAA=</HashCode>
+      <FileName>Data\Decorators\PlanStaffDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.PlanStaffHistoryDecorator" Collapsed="true">
+    <Position X="29.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAEABAEAAAAAAAAAAAAAgAAAAAEAAA=</HashCode>
+      <FileName>Data\Decorators\PlanStaffHistoryDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.PlanStaffSalaryDecorator" Collapsed="true">
+    <Position X="31.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAQAgAAEABAEAAAAAAAAAAAQAAAAAAAACAA=</HashCode>
+      <FileName>Data\Decorators\PlanStaffSalaryDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.PostDecorator" Collapsed="true">
+    <Position X="33" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAEACBAgAAEAAAUAAAAAEQAAEgAACAAgAAACAE=</HashCode>
+      <FileName>Data\Decorators\PostDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.PrikazDecorator" Collapsed="true">
+    <Position X="36.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEAAAAAAAAAgAAEQAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\PrikazDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.SocialDecorator" Collapsed="true">
+    <Position X="27.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAQEAAAAAAAEAEAEAAAAAAAAAAABAAAAAAAEIAE=</HashCode>
+      <FileName>Data\Decorators\SocialDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.SocialFareTransitDecorator" Collapsed="true">
+    <Position X="29.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAABAAAAgAAEAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\SocialFareTransitDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.TimeSheetDecorator" Collapsed="true">
+    <Position X="34.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAECAAAgAAEAAAAAAAAAAAABEAAAAAAAQAAIAA=</HashCode>
+      <FileName>Data\Decorators\TimeSheetDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.TimeSheetFSWorkingDaysDecorator" Collapsed="true">
+    <Position X="36.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAgEAAAAAAAAAIAADEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Decorators\TimeSheetFSWorkingDaysDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.ValidationDecorator" Collapsed="true">
+    <Position X="41.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAgAECHAAAAAAAAAAAQABAAAAAAAAAAE=</HashCode>
+      <FileName>Data\Decorators\ValidationDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.NullBonus" Collapsed="true">
+    <Position X="23.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Bonus.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullBonusMeasure" Collapsed="true">
+    <Position X="0.5" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\BonusMeasure.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullBonusSuperType" Collapsed="true">
+    <Position X="15.5" Y="23.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\BonusSuperType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullBonusType" Collapsed="true">
+    <Position X="22.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\BonusType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullCategory" Collapsed="true">
+    <Position X="21.5" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Category.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullCategoryVPO" Collapsed="true">
+    <Position X="18.5" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\CategoryVPO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullCategoryZP" Collapsed="true">
+    <Position X="21.5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\CategoryZP.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullDegree" Collapsed="true">
+    <Position X="21.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Degree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullDepartment" Collapsed="true">
+    <Position X="21.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Dep.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullDepartmentFund" Collapsed="true">
+    <Position X="21.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\DepartmentFund.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullDepartmentHistory" Collapsed="true">
+    <Position X="12.5" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\DepartmentHistory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullEducationType" Collapsed="true">
+    <Position X="9.5" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\EducationType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullEducDocument" Collapsed="true">
+    <Position X="6.5" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\EducDocument.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullEducDocumentType" Collapsed="true">
+    <Position X="20.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\EducDocumentType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullEmployee" Collapsed="true">
+    <Position X="3.5" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Employee.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullEmployeeDegree" Collapsed="true">
+    <Position X="0.5" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\EmployeeDegree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullEmployeeRank" Collapsed="true">
+    <Position X="15.5" Y="20.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\EmployeeRank.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullFactStaff" Collapsed="true">
+    <Position X="19.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\FactStaff.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.FactStaffBonusProject" Collapsed="true">
+    <Position X="40" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACACAAAAAAAAACQAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\FactStaffBonusProject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHour" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAEAAAAIABAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\FactStaffHour.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHourContract" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAEAAAAIABAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\FactStaffHourContract.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.NullFactStaffReplacement" Collapsed="true">
+    <Position X="18.5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\FactStaffReplacement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullFactStaffReplacementReason" Collapsed="true">
+    <Position X="18.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\FactStaffReplacementReason.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullFinancingSource" Collapsed="true">
+    <Position X="18.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\FinancingSource.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullFundingCenter" Collapsed="true">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\FundingCenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullGlobalPrikaz" Collapsed="true">
+    <Position X="12.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\GlobalPrikaz.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullGrazd" Collapsed="true">
+    <Position X="9.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Grazd.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullLanguageLevel" Collapsed="true">
+    <Position X="17.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\LanguageLevel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullOK_Language" Collapsed="true">
+    <Position X="6.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\OK_Language.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullOK_MembFam" Collapsed="true">
+    <Position X="3.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\OK_MembFam.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullOK_Otpuskvid" Collapsed="true">
+    <Position X="0.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\OK_Otpuskvid.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullOKVED" Collapsed="true">
+    <Position X="15.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\OKVED.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullOrganisation" Collapsed="true">
+    <Position X="16.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Organisation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullPKCategory" Collapsed="true">
+    <Position X="15.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\PKCategory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullPKCategorySalary" Collapsed="true">
+    <Position X="15.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\PKCategorySalary.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullPKGroup" Collapsed="true">
+    <Position X="15.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\PKGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullPlanStaff" Collapsed="true">
+    <Position X="12.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\PlanStaff.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullPlanStaffSalary" Collapsed="true">
+    <Position X="14.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\PlanStaffSalary.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullPost" Collapsed="true">
+    <Position X="12.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Post.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullPostGroup" Collapsed="true">
+    <Position X="9.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\PostGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullPostType" Collapsed="true">
+    <Position X="6.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\PostType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullPrikaz" Collapsed="true">
+    <Position X="3.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Prikaz.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullPrikazType" Collapsed="true">
+    <Position X="0.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\PrikazType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullRank" Collapsed="true">
+    <Position X="15" Y="8.75" Width="1.5" />
+    <InheritanceLine Type="Kadr.Data.Rank" FixedToPoint="true">
+      <Path>
+        <Point X="14.25" Y="8.062" />
+        <Point X="14.25" Y="8.596" />
+        <Point X="16.5" Y="8.596" />
+        <Point X="16.5" Y="8.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Rank.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.RegionTypeExtensions" Collapsed="true">
+    <Position X="41.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Data\Entities\RegionType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.NullRegionType" Collapsed="true">
+    <Position X="12.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\RegionType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullScienceType" Collapsed="true">
+    <Position X="10" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\ScienceType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullSemPol" Collapsed="true">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\SemPol.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullSocialFareTransit" Collapsed="true">
+    <Position X="11.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\SocialFareTransit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.RStandingTypeExtensions" Collapsed="true">
+    <Position X="43.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\StandingType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.NullStandingType" Collapsed="true">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\StandingType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullTimeSheetFSWorkingDay" Collapsed="true">
+    <Position X="0.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\TimeSheetFSWorkingDay.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.TimeSheetRecord" Collapsed="true">
+    <Position X="2.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAICAAACAAAAAAAgAAIEIAACEAAQAAAAEAAAAE=</HashCode>
+      <FileName>Data\Entities\TimeSheetRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.NullWorkShedule" Collapsed="true">
+    <Position X="8.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\WorkShedule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.NullWorkType" Collapsed="true">
+    <Position X="5.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\WorkType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.Common.AdvancedBindingList&lt;T&gt;" Collapsed="true">
+    <Position X="26" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\AdvancedBindingList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Common.CategoryExtensions" Collapsed="true">
+    <Position X="40" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\CategoryExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Common.CompareObject" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\CompareObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kadr.Data.Common.EmployeeExperienceExtensions" Collapsed="true">
+    <Position X="29.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAABAAAAAAkAAAIAAEAAAAAAAAAAEAAAAAAAIQAA=</HashCode>
+      <FileName>Data\Common\EmployeeExperienceExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Common.EmployeeExtensions" Collapsed="true">
+    <Position X="31.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\EmployeeExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Common.NullExtentsions" Collapsed="true">
+    <Position X="41.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\INull.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Common.ObjectStateController" Collapsed="true">
+    <Position X="26" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAABAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\IObjectState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Common.NullObject" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\NullObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kadr.Data.Converters.ContractConvertor" Collapsed="true">
+    <Position X="3" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Data\Converters\ContractConvertor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Converters.FinancingSourceConvertor" Collapsed="true">
+    <Position X="5.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Data\Converters\FinancingSourceConvertor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Converters.OK_MembFamConverter" Collapsed="true">
+    <Position X="26" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAABAAAAAAAAAAAAAAAAACAAAAIAAEAAAAE=</HashCode>
+      <FileName>Data\Converters\OK_MembFamConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Converters.OK_OtpuskvidConverter" Collapsed="true">
+    <Position X="33" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAABAAAAAAAAAAAAAAAAACAAAAIAAEAAAAE=</HashCode>
+      <FileName>Data\Converters\OK_OtpuskvidConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Converters.OKVEDConvertor" Collapsed="true">
+    <Position X="7.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Data\Converters\OKVEDConvertor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Converters.PrikazConverter" Collapsed="true">
+    <Position X="34.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAABAAAAAAAAAAAAAAAAACAAAAIAAEAAAAE=</HashCode>
+      <FileName>Data\Converters\PrikazConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Converters.RegionConverter" Collapsed="true">
+    <Position X="40" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAABAAAAAAAAAAAAAAAAACAAAAIAAEAAAAE=</HashCode>
+      <FileName>Data\Converters\RegionConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Converters.SimpleToStringConvertor&lt;T&gt;" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAABAAAAAAAAAAAAAAAAACAAAAIAAEAAAAE=</HashCode>
+      <FileName>Data\Converters\SimpleToStringConvertor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.Converters.SocialFareTransitConverter" Collapsed="true">
+    <Position X="9.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Data\Converters\SocialFareTransitConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kadr.Data.FactStaffHistoryBaseDecorator" Collapsed="true">
+    <Position X="9.75" Y="7.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAQ=</HashCode>
+      <FileName>Data\Decorators\FactStaffHistoryBaseDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Kadr.Data.Common.IEmployeeExperienceRecord" Collapsed="true">
+    <Position X="26" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAgAAgAIAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Data\Common\IEmployeeExperienceRecord.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Kadr.Data.Common.IExperienceProvider" Collapsed="true">
+    <Position X="29.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\IExperienceProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Kadr.Data.Common.INull" Collapsed="true">
+    <Position X="31.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\INull.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Kadr.Data.Common.IObjectState" Collapsed="true">
+    <Position X="33" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Data\Common\IObjectState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Kadr.Data.Converters.IEntitySelector" Collapsed="true">
+    <Position X="27.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Converters\IEntitySelector.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Kadr.Data.FactStaffState" Collapsed="true">
+    <Position X="27.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAABAAAAAAAAAAAEAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\FactStaff.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Kadr.Data.Common.TerritoryConditions" Collapsed="true">
+    <Position X="33" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAQAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\IEmployeeExperienceRecord.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Kadr.Data.Common.Affilations" Collapsed="true">
+    <Position X="26" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAA=</HashCode>
+      <FileName>Data\Common\IEmployeeExperienceRecord.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Kadr.Data.Common.KindOfExperience" Collapsed="true">
+    <Position X="29.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\IEmployeeExperienceRecord.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Kadr.Data.Common.ObjectState" Collapsed="true">
+    <Position X="31.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Common\IObjectState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

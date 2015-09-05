@@ -15,7 +15,8 @@ namespace Kadr.Data.Converters
             if (context.Instance is FactStaffDecorator)
             {
                 //выбираем только договоры (без доп соглашений)
-                var res = Kadr.Controllers.KadrController.Instance.Model.Contracts.Where(x => x.idMainContract == null).Where(x => x.FactStaffHistories.Count > 0).Where(x =>
+                var res = Kadr.Controllers.KadrController.Instance.Model.Contracts.Where(x => x.idMainContract == null).Where(x => x.FactStaffHistories.Count > 0).Where(x => 
+                    x.FactStaffHistories.FirstOrDefault().FactStaff != null).Where(x =>
                     x.FactStaffHistories.FirstOrDefault().FactStaff.Employee == (context.Instance as FactStaffDecorator).Employee);
                 if (res == null)
                     return null;

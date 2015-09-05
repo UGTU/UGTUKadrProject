@@ -6,125 +6,17 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class FactStaffHistoryReplacementDecorator
+    class FactStaffHistoryReplacementDecorator: FactStaffHistoryMainBaseDecorator
     {
 
-        private FactStaffHistory factStaffHistory;
-        public FactStaffHistoryReplacementDecorator(FactStaffHistory factStaffHistory)
+        public FactStaffHistoryReplacementDecorator(FactStaffHistory factStaffHistory): base(factStaffHistory)
         {
-            this.factStaffHistory = factStaffHistory;
         }
 
-        override public string ToString()
-        {
-            return factStaffHistory.ToString();
-        }
-
-
-        [System.ComponentModel.DisplayName("Дата изменения")]
-        [System.ComponentModel.Category("Основные атрибуты изменения")]
-        [System.ComponentModel.Description("Дата изменения")]
-        [System.ComponentModel.ReadOnly(false)]
-        public DateTime DateBegin
-        {
-            get
-            {
-                return factStaffHistory.DateBegin;
-            }
-            set
-            {
-                factStaffHistory.DateBegin = value;
-
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Приказ изменения")]
-        [System.ComponentModel.Category("Основные атрибуты изменения")]
-        [System.ComponentModel.Description("Приказ изменения записи в штатном расписании")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public Prikaz PrikazBegin
-        {
-            get
-            {
-                return factStaffHistory.Prikaz;
-            }
-            set
-            {
-                factStaffHistory.Prikaz = value;
-            }
-        }
-
-
-        [System.ComponentModel.DisplayName("Новый вид работы")]
-        [System.ComponentModel.Category("Новые значения атрибутов")]
-        [System.ComponentModel.Description("Новый вид работы сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
-        public WorkType WorkType
-        {
-            get
-            {
-                return factStaffHistory.WorkType;
-            }
-            set
-            {
-                factStaffHistory.WorkType = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Количество часов")]
-        [System.ComponentModel.Category("Почасовики")]
-        [System.ComponentModel.Description("Количество часов для почасовиков")]
-        [System.ComponentModel.ReadOnly(false)]
-        public decimal? HourCount
-        {
-            get
-            {
-                return factStaffHistory.HourCount;
-            }
-            set
-            {
-                factStaffHistory.HourCount = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Подподкатегория")]
-        [System.ComponentModel.Category("Новые значения атрибутов")]
-        [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
-        [System.ComponentModel.ReadOnly(false)]
-        public int? SalaryKoeff
-        {
-            get
-            {
-                if (factStaffHistory.SalaryKoeff != null)
-                    return factStaffHistory.SalaryKoeff.PKSubSubCategoryNumber;
-                return null;
-            }
-            set
-            {
-                factStaffHistory.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Оплата за час")]
-        [System.ComponentModel.Category("Почасовики")]
-        [System.ComponentModel.Description("Оплата за час для почасовиков")]
-        [System.ComponentModel.ReadOnly(false)]
-        public decimal? HourSalary
-        {
-            get
-            {
-                return factStaffHistory.HourSalary;
-            }
-            set
-            {
-                factStaffHistory.HourSalary = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("ФИО совмещаемого сотрудника")]
-        [System.ComponentModel.Category("Параметры совмещения")]
+ 
+        
+        [System.ComponentModel.DisplayName("ФИО замещаемого сотрудника")]
+        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("ФИО совмещаемого сотрудника")]
         [System.ComponentModel.ReadOnly(true)]
         public Kadr.Data.Employee ReplacedEmployee
@@ -139,9 +31,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("% совмещения")]
-        [System.ComponentModel.Category("Параметры совмещения")]
-        [System.ComponentModel.Description("% совмещения сотрудника")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t% замещения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("% замещения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public decimal StaffCount
         {
@@ -155,8 +47,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Причина совмещения")]
-        [System.ComponentModel.Category("Параметры совмещения")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tПричина замещения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Причина замещения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<FactStaffReplacementReason>))]
@@ -172,9 +64,9 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата окончания совмещения")]
-        [System.ComponentModel.Category("Параметры совмещения")]
-        [System.ComponentModel.Description("Дата окончания совмещения")]
+        [System.ComponentModel.DisplayName("Дата окончания замещения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("Дата окончания замещения")]
         [System.ComponentModel.ReadOnly(false)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime ReplacementDataEnd
