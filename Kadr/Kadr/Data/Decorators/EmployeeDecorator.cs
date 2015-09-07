@@ -52,7 +52,7 @@ namespace Kadr.Data
                 if (!age.HasValue) return "Не указана дата рождения";
                 return string.Format("{0} {1}", age.Value, age.Value.GetYearStr());
             }
-            
+
         }
         [System.ComponentModel.DisplayName("Табельный номер")]
         [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
@@ -413,8 +413,12 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(true)]
         public string TotalExperience
         {
-            get { return _employee.EmployeeExperiences
-                    .GetExperience().FormatAsExperience(); }            
+            get
+            {
+                return _employee.EmployeeExperiences
+                    .SequenceInterval()
+                    .GetExperience().FormatAsExperience();
+            }
         }
 
         [System.ComponentModel.DisplayName("Научно-педагогический трудовой стаж")]
@@ -423,9 +427,13 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(true)]
         public string TotalPedagogicalExperience
         {
-            get { return _employee.EmployeeExperiences
-                    .Where(x=>x.Experience == KindOfExperience.Pedagogical)
-                    .GetExperience().FormatAsExperience(); }
+            get
+            {
+                return _employee.EmployeeExperiences
+                  .Where(x => x.Experience == KindOfExperience.Pedagogical)
+                  .SequenceInterval()
+                  .GetExperience().FormatAsExperience();
+            }
         }
 
         [System.ComponentModel.DisplayName("Северный трудовой стаж")]
@@ -434,11 +442,48 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(true)]
         public string TotalNorthExperience
         {
-            get { return _employee.EmployeeExperiences
-                    .Where(x => x.Territory == TerritoryConditions.North 
-                    || x.Territory == TerritoryConditions.StrictNorth)
-                    .GetExperience().FormatAsExperience();
+            get
+            {
+                return GetSpecificNorthExperienceStr();
             }
+        }
+
+        [System.ComponentModel.DisplayName("Трудовой стаж МКС")]
+        [System.ComponentModel.Category("\tТрудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах МКС")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string NorthExperience
+        {
+            get
+            {
+                return GetSpecificNorthExperienceStr(TerritoryConditions.North);
+            }
+        }
+        [System.ComponentModel.DisplayName("Трудовой стаж РКС")]
+        [System.ComponentModel.Category("\tТрудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах РКС")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string StrictNorthExperience
+        {
+            get
+            {
+                return GetSpecificNorthExperienceStr(TerritoryConditions.StrictNorth);
+            }
+        }
+
+        private string GetSpecificNorthExperienceStr()
+        {
+            return _employee.EmployeeExperiences.FilterNorthExperience().
+                SequenceInterval()
+                .GetExperience().FormatAsExperience();
+        }
+        private string GetSpecificNorthExperienceStr(TerritoryConditions conditions)
+        {
+            return _employee.EmployeeExperiences
+                .FilterNorthExperience()
+                .Where(x=>x.Territory == conditions)
+                .SequenceInterval()
+                .GetExperience().FormatAsExperience();
         }
 
         [System.ComponentModel.DisplayName("Трудовой стаж в организации")]
@@ -447,10 +492,14 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(true)]
         public string TotalOrganizationExperience
         {
-            get { return _employee.EmployeeExperiences
+            get
+            {
+                return _employee.EmployeeExperiences
                     .Where(x => x.Affilation == Affilations.Organization)
+                    .SequenceInterval()
                     .GetExperience()
-                    .FormatAsExperience(); }
+                    .FormatAsExperience();
+            }
         }
 
         [System.ComponentModel.DisplayName("Непрерывный трудовой стаж в организации")]
@@ -459,11 +508,15 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(true)]
         public string TotalOrganizationContiniousExperience
         {
-            get { return _employee.EmployeeExperiences
-                    .Where(x => x.Affilation == Affilations.Organization)
-                    .Continious()
-                    .GetExperience()
-                    .FormatAsExperience(); }
+            get
+            {
+                return _employee.EmployeeExperiences
+                  .Where(x => x.Affilation == Affilations.Organization)
+                  .SequenceInterval()
+                  .Continious()
+                  .GetExperience()
+                  .FormatAsExperience();
+            }
         }
 
         //Воинский учет

@@ -227,6 +227,51 @@ namespace Kadr.Tests
             var actual = experience.GetExperience();
             Assert.AreEqual(365, actual.Days);
         }
+
+        [TestMethod]
+        public void ContiniousExperienceTest()
+        {
+            var dtStart = DateTime.Parse("01.01.2014");
+            var r1 = new StubIEmployeeExperienceRecord()
+            {
+                StartOfWorkGet = () => dtStart//,
+                //EndOfWorkGet = () => DateTime.Today
+            };
+            var r2 = new StubIEmployeeExperienceRecord()
+            {
+                EndOfWorkGet = () => dtStart.AddDays(-104),
+                StartOfWorkGet = () => dtStart.AddDays(-200)
+            };
+            var r3 = new StubIEmployeeExperienceRecord()
+            {
+                EndOfWorkGet = () => dtStart.AddDays(-1),
+                StartOfWorkGet = () => dtStart.AddDays(-100)
+            };
+            var r4 = new StubIEmployeeExperienceRecord()
+            {
+                EndOfWorkGet = () => dtStart.AddDays(-100),
+                StartOfWorkGet = () => dtStart.AddDays(-102)
+            };
+
+            IExperienceProvider provider = new StubIExperienceProvider
+            {
+
+                EmployeeExperiencesGet = () =>
+                    new List<IEmployeeExperienceRecord>()
+                    {r3, r1, r2, r4}
+            };
+
+            var actual = provider.EmployeeExperiences.Continious().ToList();
+            Assert.AreEqual(3, actual.Count);
+            Assert.AreSame(r1, actual.First());
+            Assert.AreSame(r3, actual.Skip(1).First());
+            Assert.AreSame(r4, actual.Skip(2).First());
+
+            //Только одна запись
+            actual = provider.EmployeeExperiences.Take(1).Continious().ToList();
+            Assert.AreEqual(1, actual.Count);
+        }
+
         [TestMethod]
         public void GetExperienceTest()
         {
