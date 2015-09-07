@@ -739,6 +739,18 @@ namespace Kadr.Data
                 return Affilations.Organization;
             }
         }
+
+        public WorkOrganizationWorkType WorkWorkType
+        {
+            get { return WorkType.GetOrganizationWorkType(); }
+        }
+
+        public DateTime Start { get { return DateBegin; }
+            set { }
+        }
+        public DateTime Stop { get { return DateEnd.HasValue ? DateEnd.Value : DateTime.Today; }
+            set { }
+        }
     }
 
 

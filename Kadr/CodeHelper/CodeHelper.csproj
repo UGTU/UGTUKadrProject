@@ -171,6 +171,8 @@
   <ItemGroup>
     <Compile Include="Actions\ActionManager.cs" />
     <Compile Include="Actions\UIActions.cs" />
+    <Compile Include="Base\ComparableExtensions.cs" />
+    <Compile Include="Base\IRange.cs" />
     <Compile Include="Base\ITransacted.cs" />
     <Compile Include="Base\Numeric.Extensions.cs" />
     <Compile Include="Base\IntervalExtensions.cs" />

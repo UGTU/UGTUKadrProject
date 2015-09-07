@@ -65,6 +65,10 @@
     <Compile Include="StandingTypeExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CodeHelper\CodeHelper.csproj">
+      <Project>{ec01ad24-e555-43e5-93bd-b99f082725d1}</Project>
+      <Name>CodeHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kadr\Kadr.csproj">
       <Project>{474f0d94-c66e-4fe3-9bfe-0b0c587a5015}</Project>
       <Name>Kadr</Name>

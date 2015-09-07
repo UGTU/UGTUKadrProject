@@ -427,18 +427,34 @@ namespace Kadr.Data
                     .GetExperience().FormatAsExperience(); }
         }
 
-        [System.ComponentModel.DisplayName("Северный трудовой стаж")]
+        [System.ComponentModel.DisplayName("Трудовой стаж МКС")]
         [System.ComponentModel.Category("Трудовой стаж")]
-        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах МКС или РКС")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в МКС")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalNorthExperience
         {
-            get { return _employee.EmployeeExperiences
-                    .Where(x => x.Territory == TerritoryConditions.North 
-                    || x.Territory == TerritoryConditions.StrictNorth)
+            get
+            {
+                return _employee.EmployeeExperiences.
+                    FilterNorthExperience().Where(x => x.Territory == TerritoryConditions.North)
                     .GetExperience().FormatAsExperience();
             }
         }
+
+        [System.ComponentModel.DisplayName("Трудовой стаж РКС")]
+        [System.ComponentModel.Category("Трудовой стаж")]
+        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в РКС")]
+        [System.ComponentModel.ReadOnly(true)]
+        public string TotalStrictNorthExperience
+        {
+            get
+            {
+                return _employee.EmployeeExperiences.
+                        FilterNorthExperience().Where(x => x.Territory == TerritoryConditions.StrictNorth)
+                        .GetExperience().FormatAsExperience();
+            }
+        }
+
 
         [System.ComponentModel.DisplayName("Трудовой стаж в организации")]
         [System.ComponentModel.Category("Трудовой стаж")]

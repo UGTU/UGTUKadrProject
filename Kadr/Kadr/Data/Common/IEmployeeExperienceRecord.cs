@@ -1,4 +1,5 @@
 ﻿using System;
+using APG.Base;
 
 namespace Kadr.Data.Common
 {
@@ -51,7 +52,7 @@ namespace Kadr.Data.Common
     /// <summary>
     /// Определяет типы записи стажа работника
     /// </summary>
-    public interface IEmployeeExperienceRecord
+    public interface IEmployeeExperienceRecord : IRange<DateTime>
     {
         /// <summary>
         /// Получает дату начала работы
@@ -69,9 +70,17 @@ namespace Kadr.Data.Common
         /// Получает вид стажа
         /// </summary>
         KindOfExperience Experience { get; }
+        
         /// <summary>
         /// Получает принадлежность стажа организации
         /// </summary>
         Affilations Affilation { get; }
+        
+        /// <summary>
+        /// Получает тип стажа в организации
+        /// </summary>
+        WorkOrganizationWorkType WorkWorkType { get; }
+
+
     }
 }
