@@ -51,7 +51,15 @@ namespace Kadr.Data.Common
             var days = tsExperience.GetExperienceDays();
             return string.Format("{0} {1}, {2} {3}, {4} {5}", years, years.GetYearStr(), monthes, monthes.GetMonthStr(), days, days.GetDayStr());
         }
-    
+
+        public static IEnumerable<IEmployeeExperienceRecord> FilterNorthExperience
+            (this IEnumerable<IEmployeeExperienceRecord> source)
+        {
+            return source.Where(x => (x.Territory == TerritoryConditions.North
+                                     || x.Territory == TerritoryConditions.StrictNorth)
+                                     && (x.Affilation == Affilations.External
+                                         || x.WorkWorkType == WorkOrganizationWorkType.Internal));
+        }
         /// <summary>
         /// Расчитывает и возвращает стаж сотрудника
         /// </summary>

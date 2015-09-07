@@ -9,7 +9,6 @@ namespace Kadr.Data.Converters
 {
     class ContractConvertor : SimpleToStringConvertor<Contract>
     {
-
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
             Employee currentEmployee = null;
