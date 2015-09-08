@@ -234,8 +234,7 @@ namespace Kadr.Tests
             var dtStart = DateTime.Parse("01.01.2014");
             var r1 = new StubIEmployeeExperienceRecord()
             {
-                StartOfWorkGet = () => dtStart//,
-                //EndOfWorkGet = () => DateTime.Today
+                StartOfWorkGet = () => dtStart                
             };
             var r2 = new StubIEmployeeExperienceRecord()
             {
