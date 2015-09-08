@@ -41,8 +41,8 @@ namespace Kadr.Data
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
-                if ((idBusinessTrip == 0)&&(BusinessTrip == null)) throw new ArgumentNullException("Командировка");
-                if ((idRegionType == 0)&&(RegionType == null)) throw new ArgumentNullException("Регион пребывания");
+                if ((idBusinessTrip == 0) && (BusinessTrip == null)) throw new ArgumentNullException("Командировка");
+                if ((idRegionType == 0) && (RegionType == null)) throw new ArgumentNullException("Регион пребывания");
 
                 if (DateBegin > DateEnd) throw new ArgumentOutOfRangeException("Дата начала пребывания в регионе не может быть позже даты окончания!");
                 if ((BusinessTrip.FactStaffPrikaz.DateBegin > DateBegin) || (BusinessTrip.FactStaffPrikaz.DateEnd < DateBegin)) throw new ArgumentOutOfRangeException("Дата начала пребывания выходит за рамки командировки!");
@@ -111,6 +111,19 @@ namespace Kadr.Data
         public Affilations Affilation
         {
             get { return Affilations.Organization; }
+        }
+
+        public WorkOrganizationWorkType WorkWorkType
+        {
+            get { return BusinessTrip.FactStaffPrikaz
+                    .FactStaff.WorkType.GetOrganizationWorkType(); }
+        }
+
+        public DateTime Start { get { return StartOfWork; }
+            set { }
+        }
+        public DateTime Stop { get { return DateEnd; }
+            set { }
         }
     }
 }

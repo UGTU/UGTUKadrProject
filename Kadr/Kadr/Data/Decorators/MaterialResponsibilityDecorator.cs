@@ -111,7 +111,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Процент выплаты")]
+        [System.ComponentModel.DisplayName("Процент (%) выплаты")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Процент выплаты от оклада за мат. ответственность")]
         [RefreshProperties(RefreshProperties.All)]

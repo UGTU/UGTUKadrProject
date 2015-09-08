@@ -51,7 +51,25 @@ namespace Kadr.Data.Common
             var days = tsExperience.GetExperienceDays();
             return string.Format("{0} {1}, {2} {3}, {4} {5}", years, years.GetYearStr(), monthes, monthes.GetMonthStr(), days, days.GetDayStr());
         }
-    
+
+        public static IEnumerable<IEmployeeExperienceRecord> FilterNorthExperience
+            (this IEnumerable<IEmployeeExperienceRecord> source)
+        {
+            return source.Where(x => (x.Territory == TerritoryConditions.North
+                                     || x.Territory == TerritoryConditions.StrictNorth)
+                                     && (x.Affilation == Affilations.External
+                                         || x.WorkWorkType == WorkOrganizationWorkType.Internal));
+        }
+
+        public static IEnumerable<IEmployeeExperienceRecord> SequenceInterval(
+            this IEnumerable<IEmployeeExperienceRecord> source)
+        {
+            if (source == null) throw new ArgumentNullException("source");
+            return source.Sequence<IEmployeeExperienceRecord, DateTime>
+                ((x, s, e) => new ExperienceInterval(x, s, e));
+        }
+
+
         /// <summary>
         /// Расчитывает и возвращает стаж сотрудника
         /// </summary>
@@ -77,23 +95,25 @@ namespace Kadr.Data.Common
         public static IEnumerable<IEmployeeExperienceRecord> Continious(
             this IEnumerable<IEmployeeExperienceRecord> experienceSet)
         {
-            var ordered = experienceSet.OrderByDescending(e => e.EndOfWork, 
+            if (experienceSet == null) throw new ArgumentNullException("experienceSet");
+            var ordered = experienceSet.OrderByDescending(e => e.EndOfWork,
                 new APG.Relays.ComparerRelay<DateTime?>(
                 (x, y) =>
                 {
                     if (x.HasValue && y.HasValue) return x.Value.CompareTo(y.Value);
                     if (!x.HasValue && !y.HasValue) return 0;
-                    return x.HasValue ? 1 : 0;
+                    return x.HasValue ? -1 : 1;
                 }));
-            //IEmployeeExperienceRecord prevRecord = null;
-            //foreach (var record in ordered)
-            //{
-            //    if (prevRecord == null)
-            //        yield return record;
-            //    if (prevRecord.StartOfWork - record.EndOfWork.Get)
-            //    prevRecord = record;
-            //}
-            return ordered;
+            IEmployeeExperienceRecord prevItem = null;
+            foreach (var item in ordered)
+            {
+                if (prevItem == null || !(item.EndOfWork.HasValue)) yield return item;
+                else if (prevItem.StartOfWork - item.EndOfWork.Value <= TimeSpan.FromDays(1))
+                    yield return item;
+                else
+                    yield break;
+                prevItem = item;
+            }
         }
     }
 }

@@ -226,9 +226,11 @@
     <Compile Include="Data\Common\CompareObject.cs" />
     <Compile Include="Data\Common\EmployeeExperienceExtensions.cs" />
     <Compile Include="Data\Common\EmployeeExtensions.cs" />
+    <Compile Include="Data\Common\ExperienceInterval.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
+    <Compile Include="Data\Common\WorkTypeExtensions.cs" />
     <Compile Include="Data\Converters\ContractConvertor.cs" />
     <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
@@ -341,6 +343,11 @@
     <Compile Include="Data\Entities\Grazd.cs" />
     <Compile Include="Data\Entities\LanguageLevel.cs" />
     <Compile Include="Data\Entities\MaterialResponsibility.cs" />
+    <Compile Include="Data\Entities\MilitaryCategory.cs" />
+    <Compile Include="Data\Entities\MilitaryFitness.cs" />
+    <Compile Include="Data\Entities\MilitaryRank.cs" />
+    <Compile Include="Data\Entities\MilitaryStructure.cs" />
+    <Compile Include="Data\Entities\MilitaryType.cs" />
     <Compile Include="Data\Entities\OKVED.cs" />
     <Compile Include="Data\Entities\OK_Adress.cs" />
     <Compile Include="Data\Entities\OK_DopEducation.cs" />
@@ -415,9 +422,7 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1256,7 +1261,6 @@
     <None Include="Properties\DataSources\Kadr.Data.MilitaryRank.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryStructure.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryType.datasource" />
-    <None Include="Properties\DataSources\Kadr.Data.OK_Military.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryDecorator.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
