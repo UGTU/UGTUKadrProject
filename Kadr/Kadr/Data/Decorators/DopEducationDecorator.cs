@@ -125,19 +125,11 @@ namespace Kadr.Data
         {
             get
             {
-                return _dop.FactStaffPrikaz != null ? _dop.FactStaffPrikaz.Prikaz : null;
+                return _dop.Prikaz;
             }
             set
             {
                 _dop.Prikaz = value;
-                /* if (value != null)
-                {
-                    if (_dop.FactStaffPrikaz == null) _dop.FactStaffPrikaz = new FactStaffPrikaz()
-                    {
-                        FactStaff = _dop.FactStaff
-                    };
-                    _dop.FactStaffPrikaz.Prikaz = value;
-                }*/
             }
         }
 
