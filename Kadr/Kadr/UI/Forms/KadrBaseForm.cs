@@ -415,6 +415,7 @@ namespace Kadr.UI.Forms
             kadrTreeView1.CreateRootNodes();
             CreateNodeContextItems();
             Text = "ИС \"Управление кадрами\" (" + DateTime.Today.ToShortDateString() + ")";
+            tscbFindType.SelectedIndex = 0;
         }
 
         // Импортирует файлы, переданные через командную сроку
@@ -1392,6 +1393,46 @@ namespace Kadr.UI.Forms
         private void типПовышенияКвалификацииToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new DopEducTypeDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void категорииЗапасаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new MilitaryCategoryDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void воинскоеЗваниеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new MilitaryRankDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void воинскийСоставпрофильToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new MilitaryStructureDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void категорияГодностиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new MilitaryFitnessDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void типВоискогоУчетаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new MilitaryTypeDialog())
             {
                 dlg.ShowDialog();
             }

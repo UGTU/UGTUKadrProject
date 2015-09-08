@@ -36,11 +36,14 @@ namespace Kadr.UI.Common
         //инициализация нового объекта
         public Action<T> InitializeNewObject;
 
-        //создание связанных объектов
-        public Action<T> PostApplyAction;
+        //создание связанных до Insert объектов
+        public Action<T> BeforeApplyAction;
+
+        //создание связанных после Insert объектов
+        public Action<T> OnApplyAction;
 
 
-        T newObject;    //текущий объект
+        protected T newObject;    //текущий объект
 
         public PropertyGridDialogAdding()
         {
@@ -100,15 +103,40 @@ namespace Kadr.UI.Common
             if (validatable != null)
                 validatable.Validate();
 
-
             //добавляем связанные объекты, если необходимо
-            if (PostApplyAction != null)
-                PostApplyAction(newObject);
+            if (BeforeApplyAction != null)
+                BeforeApplyAction(newObject);
+
+          
 
             //сохраняем прежний объект
             if (objectList != null)
             {
                 objectList.InsertOnSubmit(newObject);
+
+                if (OnApplyAction != null)
+                {
+                    try
+                    {
+                        OnApplyAction(newObject);
+                    }
+                    catch (Exception exp)
+                    {
+
+                        if (exp.Message != "InsertFactStaffCancel.")
+                            throw new Exception(exp.Message);
+                        else
+                        {
+                            OKClicked = false;
+                            IsModified = true;
+                            return;
+                        }
+                    }
+
+                    base.DoApply();
+                    return;
+                }
+
                 if (bindingSource!=null)
                     bindingSource.Add(newObject);
             }
@@ -130,11 +158,6 @@ namespace Kadr.UI.Common
                     bindingSource.Add(factStaff);
                 }
            }
-
-            if (newObject is Kadr.Data.Employee)
-            {
-                return;
-            }
 
             try
             {
@@ -163,8 +186,6 @@ namespace Kadr.UI.Common
                         KadrController.Instance.Model.FactStaffs.DeleteOnSubmit(factStaff);
                     }
                 }
-                
-                throw new Exception(exp.Message);
             }
 
 

@@ -68,11 +68,17 @@ namespace Kadr.Data
             set { Contract.DateContract = value; }
         }
 
+        public Prikaz PrikazEnd
+        {
+            get { return FactStaffPrikaz.PrikazEnd; }
+            set { FactStaffPrikaz.PrikazEnd = value; }
+        }
+
         public FactStaff FactStaff
         {
             get { return FactStaffPrikaz.FactStaff; }
-          //  set { FactStaffPrikaz.FactStaff = value; }
         }
+
 
         #endregion
 
@@ -86,10 +92,12 @@ namespace Kadr.Data
         {
             if ((action != ChangeAction.Insert) && (action != ChangeAction.Update)) return;
 
-            if (FactStaffPrikaz.idPrikaz == 0) throw new ArgumentNullException("Приказ.");
+            if (FactStaffPrikaz.idPrikaz == 0) throw new ArgumentNullException("Приказ назначения ответственности.");
             if ((Contract.ContractName == null) || (Contract.ContractName.Trim() == "")) throw new ArgumentNullException("Номер договора.");
             if (Contract.DateContract == null) throw new ArgumentNullException("Дата договора.");
             if (FactStaffPrikaz.DateBegin == null) throw new ArgumentNullException("Дата начала действия.");
+            if (FactStaffPrikaz.PrikazEnd != null)
+                if (FactStaffPrikaz.DateEnd == null) throw new ArgumentNullException("Дата окончания ответственности.");
             if (FactStaffPrikaz.DateEnd == DateTime.MinValue)
                 FactStaffPrikaz.DateEnd = null;
             if  (FactStaffPrikaz.DateEnd == null) return;

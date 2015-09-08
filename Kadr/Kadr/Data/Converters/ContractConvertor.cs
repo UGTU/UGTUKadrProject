@@ -9,14 +9,23 @@ namespace Kadr.Data.Converters
 {
     class ContractConvertor : SimpleToStringConvertor<Contract>
     {
-
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            if (context.Instance is FactStaffDecorator)
+            Employee currentEmployee = null;
+            Contract currentContract = null;
+            if (context.Instance is FactStaffMainBaseDecorator)
+            {
+                currentEmployee = (context.Instance as FactStaffMainBaseDecorator).Employee;
+                currentContract = (context.Instance as FactStaffMainBaseDecorator).CurrentContract;
+            }
+            //if (context.Instance is FactStaffHistoryMainBaseDecorator)
+                //currentEmployee = (context.Instance as FactStaffHistoryMainBaseDecorator)..Employee;
+            if (currentEmployee != null)
             {
                 //выбираем только договоры (без доп соглашений)
-                var res = Kadr.Controllers.KadrController.Instance.Model.Contracts.Where(x => x.idMainContract == null).Where(x => x.FactStaffHistories.Count > 0).Where(x =>
-                    x.FactStaffHistories.FirstOrDefault().FactStaff.Employee == (context.Instance as FactStaffDecorator).Employee);
+                var res = Kadr.Controllers.KadrController.Instance.Model.Contracts.Where(x => x.idMainContract == null).Where(x => x.FactStaffHistories.Count > 0).Where(x => 
+                    x.FactStaffHistories.FirstOrDefault().FactStaff != null).Where(x =>
+                    x.FactStaffHistories.FirstOrDefault().FactStaff.Employee == currentEmployee).Where(x => x != currentContract);
                 if (res == null)
                     return null;
                 List<Contract> resList = res.ToList();

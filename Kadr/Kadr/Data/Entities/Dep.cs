@@ -162,6 +162,35 @@ namespace Kadr.Data
             }
         }
 
+        /// <summary>
+        /// адрес текущий
+        /// </summary>
+        public string CurrentAddress
+        {
+            get
+            {
+                return (CurrentChange == null) ? null : CurrentChange.Address;
+            }
+            set
+            {
+                if (CurrentChange != null)
+                    CurrentChange.Address = value;
+            }
+        }
+
+        public RegionType CurrentRegionType
+        {
+            get
+            {
+                return (CurrentChange == null) ? null : CurrentChange.RegionType;
+            }
+            set
+            {
+                if (CurrentChange != null)
+                    CurrentChange.RegionType = value;
+            }
+        }
+
         public decimal DepExtraordSum
         {
             get

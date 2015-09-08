@@ -13,86 +13,100 @@ using Kadr.UI.Dialogs;
 
 namespace Kadr.UI.Common
 {
-    public partial class LinqPropertyGridDialogEditing : PropertyGridDialog
+    public partial class LinqPropertyGridDialogEditing<T> : PropertyGridDialog where T : class 
+
+{
+    //создание связанных объектов
+    public Action<T> BeforeApplyAction;
+
+     T editObject;
+
+    public LinqPropertyGridDialogEditing()
     {
-        public LinqPropertyGridDialogEditing()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
+    }
+
+    protected override void DoApply()
+    {
+        UIX.Views.IValidatable validatable = (SelectedObjects[0] as UIX.Views.IValidatable);
+        if (validatable != null)
+            validatable.Validate();
+
+        if (SelectedObjects[0] is Kadr.Data.TimeSheetFSWorkingDay)
+        {
+            (SelectedObjects[0] as Kadr.Data.TimeSheetFSWorkingDay).IsClosed = true;
         }
 
-        protected override void DoApply()
-        {
-            UIX.Views.IValidatable validatable = (SelectedObjects[0] as UIX.Views.IValidatable);
-            if (validatable != null)
-                    validatable.Validate();
+        editObject = (T)SelectedObjects[0];
 
-            if (SelectedObjects[0] is Kadr.Data.TimeSheetFSWorkingDay)
+        //добавляем связанные объекты, если необходимо
+        if (BeforeApplyAction != null)
+            BeforeApplyAction(editObject);
+
+        KadrController.Instance.SubmitChanges();
+        base.DoApply();
+    }
+
+    private void ApplyBtn_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void LinqPropertyGridDialogEditing_Load(object sender, EventArgs e)
+    {
+        ApplyButtonVisible = false;
+
+    }
+
+    private void btnPrikaz_Click(object sender, EventArgs e)
+    {
+        if (UpdateObjectList == null)
+        {
+            MessageBox.Show("Не заданы все необходимые условия для вызова диалога \"Приказы\".",
+                "АИС \"Штатное расписание\"");
+            return;
+        }
+
+        using (PrikazDialog dlg = new PrikazDialog())
+        {
+            //сворачиваем все операции с объектом
+            if (CommandManager.IsInBatchMode)
+                CommandManager.EndBatchCommand();
+
+            try
             {
-                (SelectedObjects[0] as Kadr.Data.TimeSheetFSWorkingDay).IsClosed = true;
-            }
-            KadrController.Instance.SubmitChanges();
-            base.DoApply();
-        }
-
-        private void ApplyBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LinqPropertyGridDialogEditing_Load(object sender, EventArgs e)
-        {
-            ApplyButtonVisible = false;
-
-        }
-
-        private void btnPrikaz_Click(object sender, EventArgs e)
-        {
-            if (UpdateObjectList == null)
-            {
-                MessageBox.Show("Не заданы все необходимые условия для вызова диалога \"Приказы\".", "АИС \"Штатное расписание\"");
-                return;
-            }
-
-            using (PrikazDialog dlg = new PrikazDialog())
-            {
-                //сворачиваем все операции с объектом
-                if (CommandManager.IsInBatchMode)
-                    CommandManager.EndBatchCommand();
-
-                try
+                CommandManager.Unexecute(sender);
+                if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    CommandManager.Unexecute(sender);
-                    if (dlg.ShowDialog() == DialogResult.OK)
-                    {
-                        //заново все операции проводим
-                        CommandManager.Redo(sender);
-                    }
-                    else
-                    {
-                        //обновляем модель (на случай отмены изменений и уничтожения модели)
-                        UpdateObjectList();
-                    }
+                    //заново все операции проводим
+                    CommandManager.Redo(sender);
                 }
-                finally
+                else
                 {
-                    if (!CommandManager.IsInBatchMode)
-                        CommandManager.BeginBatchCommand();
+                    //обновляем модель (на случай отмены изменений и уничтожения модели)
+                    UpdateObjectList();
                 }
-
             }
-        }
+            finally
+            {
+                if (!CommandManager.IsInBatchMode)
+                    CommandManager.BeginBatchCommand();
+            }
 
-        protected override void DoCancel()
-        {
-            base.DoCancel();
-            /*if (SelectedObjects[0] is Kadr.Data.FactStaff)
+        }
+    }
+
+    protected override void DoCancel()
+    {
+        base.DoCancel();
+        /*if (SelectedObjects[0] is Kadr.Data.FactStaff)
             {
                 
                 KadrController.Instance.DeleteModel();
             }*/
-        }
+    }
 
 
-   }
+}
 }

@@ -11,12 +11,12 @@ namespace Kadr.Controllers
 {
     public static class CRUDFactStaff
     {
-        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null,UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null)
+        public static DialogResult Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null,UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null)
         {
             if (planStaffCurrent == null)
             {
                 MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
-                return;
+                return DialogResult.None;
             }
 
             if (workType == null)
@@ -74,7 +74,7 @@ namespace Kadr.Controllers
                     Contract newContract = new Contract(dlg.CommandManager,fcStHistory, "", DateTime.Today.Date, DateTime.Today.Date);
                 };
 
-                dlg.PostApplyAction = (x) =>
+                dlg.BeforeApplyAction = (x) =>
                 {
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
@@ -94,7 +94,7 @@ namespace Kadr.Controllers
                 {
                     dlg.ObjectList = KadrController.Instance.Model.FactStaffs;
                 };
-                dlg.ShowDialog();
+                return dlg.ShowDialog();
             }
         }
     }

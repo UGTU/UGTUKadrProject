@@ -6,10 +6,10 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class FactStaffReplacementDecorator
+    class FactStaffReplacementDecorator: FactStaffMainBaseDecorator
     {
         private FactStaffReplacement factStaffReplacement;
-        public FactStaffReplacementDecorator(FactStaffReplacement factStaffReplacement)
+        public FactStaffReplacementDecorator(FactStaffReplacement factStaffReplacement): base(factStaffReplacement.MainFactStaff)
         {
             this.factStaffReplacement = factStaffReplacement;
         }
@@ -17,117 +17,47 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            string res = "Cовмещение сотрудника ";
+            string res = "Замещение сотрудника ";
 
             if (factStaffReplacement.ReplacedFactStaff!=null)
                 res = res + factStaffReplacement.ReplacedFactStaff.ToString();
             return res;
         }
 
-        [System.ComponentModel.DisplayName("ID")]
-        [System.ComponentModel.Category("Атрибуты")]
-        [System.ComponentModel.Description("Уникальный код сотрудника (совмещающего) в штатном расписании")]
-        [System.ComponentModel.ReadOnly(true)]
-        public int ID
-        {
-            get
-            {
-                return factStaffReplacement.MainFactStaff.id;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("ФИО совмещающего сотрудника")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("ФИО совмещающего сотрудника")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tФИО замещающего сотрудника")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("ФИО сотрудника, назначенного на должность")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.EmployeeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Employee Employee
         {
             get
             {
-                return factStaffReplacement.MainFactStaff.Employee;
+                return factStaff.Employee;
             }
             set
             {
-                factStaffReplacement.MainFactStaff.Employee = value;
+                factStaff.Employee = value;
             }
         }
 
-
-        [System.ComponentModel.DisplayName("Отдел")]
-        [System.ComponentModel.Category("Общие")]
-        [System.ComponentModel.Description("Название отдела")]
+        [System.ComponentModel.DisplayName("Замещаемый сотрудник")]
+        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
+        [System.ComponentModel.Description("Замещаемый сотрудник")]
         [System.ComponentModel.ReadOnly(true)]
-        // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public Kadr.Data.Dep Department
+        public Kadr.Data.FactStaff ReplacedFactStaff
         {
             get
             {
-                return factStaffReplacement.ReplacedFactStaff.PlanStaff.Dep;
-            }
-            set
-            {
-                factStaffReplacement.ReplacedFactStaff.PlanStaff.Dep = value;
+                return factStaffReplacement.ReplacedFactStaff;
             }
         }
 
-        [System.ComponentModel.DisplayName("Должность")]
-        [System.ComponentModel.Category("Общие")]
-        [System.ComponentModel.Description("Название должности в штатном расписании")]
-        [System.ComponentModel.ReadOnly(true)]
-        // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public Kadr.Data.Post Post
-        {
-            get
-            {
-                return factStaffReplacement.ReplacedFactStaff.PlanStaff.Post;
-            }
-            set
-            {
-                factStaffReplacement.ReplacedFactStaff.PlanStaff.Post = value;
-            }
-        }
-
-
-        [System.ComponentModel.DisplayName("Название вида работы")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Название вида работы")]
-        [System.ComponentModel.ReadOnly(false)]
-        //[System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
-        public Kadr.Data.WorkType WorkType
-        {
-            get
-            {
-                return factStaffReplacement.MainFactStaff.WorkType;
-            }
-            set
-            {
-                factStaffReplacement.MainFactStaff.WorkType = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("ФИО совмещаемого сотрудника")]
-        [System.ComponentModel.Category("Общие")]
-        [System.ComponentModel.Description("ФИО совмещаемого сотрудника")]
-        [System.ComponentModel.ReadOnly(true)]
-        public Kadr.Data.Employee ReplacedEmployee
-        {
-            get
-            {
-                return factStaffReplacement.ReplacedFactStaff.Employee;
-            }
-            set
-            {
-                factStaffReplacement.ReplacedFactStaff.Employee = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("% замещения")]
-        [System.ComponentModel.Category("Параметры замещения")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t% замещения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("% замещения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
-        public decimal StaffCount
+        public decimal ReplacedPercent
         {
             get
             {
@@ -139,8 +69,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Причина замещения")]
-        [System.ComponentModel.Category("Параметры замещения")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tПричина замещения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Причина замещения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<NullFactStaffReplacementReason>))]
@@ -157,7 +87,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата окончания замещения")]
-        [System.ComponentModel.Category("Параметры замещения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Дата окончания замещения")]
         [System.ComponentModel.ReadOnly(false)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -179,93 +109,5 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Приказ утверждения")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Приказ назначения сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public Kadr.Data.Prikaz PrikazBegin
-        {
-            get
-            {
-                return factStaffReplacement.MainFactStaff.PrikazBegin;
-            }
-            set
-            {
-                factStaffReplacement.MainFactStaff.PrikazBegin = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Приказ увольнения")]
-        [System.ComponentModel.Category("Параметры увольнения")]
-        [System.ComponentModel.Description("Приказ увольнения сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public Kadr.Data.Prikaz PrikazEnd
-        {
-            get
-            {
-                return factStaffReplacement.MainFactStaff.Prikaz;
-            }
-            set
-            {
-                factStaffReplacement.MainFactStaff.Prikaz = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Дата назначения")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Дата назначения на должность")]
-        [System.ComponentModel.ReadOnly(false)]
-        // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public DateTime DataBegin
-        {
-            get
-            {
-                return Convert.ToDateTime(factStaffReplacement.MainFactStaff.DateBegin);
-            }
-            set
-            {
-                factStaffReplacement.MainFactStaff.DateBegin = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Дата увольнения")]
-        [System.ComponentModel.Category("Параметры увольнения")]
-        [System.ComponentModel.Description("Дата снятия с должности")]
-        [System.ComponentModel.ReadOnly(false)]
-        // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public DateTime DataEnd
-        {
-            get
-            {
-                return Convert.ToDateTime(factStaffReplacement.MainFactStaff.DateEnd);
-            }
-            set
-            {
-                if ((value != null) && ((factStaffReplacement.DateEnd == null)
-                        || (factStaffReplacement.DateEnd == factStaffReplacement.MainFactStaff.DateEnd)))
-                    factStaffReplacement.DateEnd = value;
-                factStaffReplacement.MainFactStaff.DateEnd = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Подподкатегория")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
-        [System.ComponentModel.ReadOnly(false)]
-        public int? SalaryKoeff
-        {
-            get
-            {
-                if (factStaffReplacement.MainFactStaff.SalaryKoeff != null)
-                    return factStaffReplacement.MainFactStaff.SalaryKoeff.PKSubSubCategoryNumber;
-                return null;
-            }
-            set
-            {
-                factStaffReplacement.MainFactStaff.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
-            }
-        }
     }
 }

@@ -6,58 +6,28 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class FactStaffHistoryDecorator
+    class FactStaffHistoryDecorator : FactStaffHistoryMainBaseDecorator
     {
-        private FactStaffHistory factStaffHistory;
         public FactStaffHistoryDecorator(FactStaffHistory factStaffHistory)
+            : base(factStaffHistory)
         {
-            this.factStaffHistory = factStaffHistory;
         }
 
-        override public string ToString()
-        {
-            return factStaffHistory.ToString();
-        }
-
-
-        [System.ComponentModel.DisplayName("Дата изменения")]
-        [System.ComponentModel.Category("Основные атрибуты изменения")]
-        [System.ComponentModel.Description("Дата изменения")]
+        [System.ComponentModel.DisplayName("Должность в штатном расписании")]
+        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
+        [System.ComponentModel.Description("Должность в штатном расписании")]
         [System.ComponentModel.ReadOnly(false)]
-        public DateTime DateBegin
+        public Kadr.Data.PlanStaff PlanStaff
         {
             get
             {
-                return factStaffHistory.DateBegin;
-            }
-            set
-            {
-                factStaffHistory.DateBegin = value;
-
+                return factStaffHistory.FactStaff.PlanStaff;
             }
         }
 
-        [System.ComponentModel.DisplayName("Приказ изменения")]
-        [System.ComponentModel.Category("Основные атрибуты изменения")]
-        [System.ComponentModel.Description("Приказ изменения записи в штатном расписании")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public Prikaz PrikazBegin
-        {
-            get
-            {
-                return factStaffHistory.Prikaz;
-            }
-            set
-            {
-                factStaffHistory.Prikaz = value;
-            }
-        }
-
-
-        [System.ComponentModel.DisplayName("Новый вид работы")]
-        [System.ComponentModel.Category("Новые значения атрибутов")]
-        [System.ComponentModel.Description("Новый вид работы сотрудника")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\tBид работы")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("Bид работы сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<WorkType>))]
         public WorkType WorkType
@@ -74,8 +44,8 @@ namespace Kadr.Data
 
 
         [System.ComponentModel.DisplayName("Количество ставок")]
-        [System.ComponentModel.Category("Новые значения атрибутов")]
-        [System.ComponentModel.Description("Новое количество ставок сотрудника")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("Kоличество ставок сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
         public decimal StaffCount
         {
@@ -94,7 +64,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Количество ставок по нагрузке")]
+        /*[System.ComponentModel.DisplayName("Количество ставок по нагрузке")]
         [System.ComponentModel.Category("Новые значения атрибутов")]
         [System.ComponentModel.Description("Занимаемое сотрудником по факту количество ставок по нагрузке")]
         [System.ComponentModel.ReadOnly(true)]
@@ -125,26 +95,8 @@ namespace Kadr.Data
                 factStaffHistory.HourCount = value;
             }
         }
-
-        [System.ComponentModel.DisplayName("Подподкатегория")]
-        [System.ComponentModel.Category("Новые значения атрибутов")]
-        [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
-        [System.ComponentModel.ReadOnly(false)]
-        public int? SalaryKoeff
-        {
-            get
-            {
-                if (factStaffHistory.SalaryKoeff != null)
-                    return factStaffHistory.SalaryKoeff.PKSubSubCategoryNumber;
-                return null;
-            }
-            set
-            {
-                factStaffHistory.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Оплата за час")]
+         
+         [System.ComponentModel.DisplayName("Оплата за час")]
         [System.ComponentModel.Category("Почасовики")]
         [System.ComponentModel.Description("Оплата за час для почасовиков")]
         [System.ComponentModel.ReadOnly(false)]
@@ -171,7 +123,27 @@ namespace Kadr.Data
             {
                 return factStaffHistory.FactStaff.Department;
             }
+        }*/
+
+        [System.ComponentModel.DisplayName("Подподкатегория")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
+        [System.ComponentModel.ReadOnly(false)]
+        public int? SalaryKoeff
+        {
+            get
+            {
+                if (factStaffHistory.SalaryKoeff != null)
+                    return factStaffHistory.SalaryKoeff.PKSubSubCategoryNumber;
+                return null;
+            }
+            set
+            {
+                factStaffHistory.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
+            }
         }
+
+        
 
     }
 }

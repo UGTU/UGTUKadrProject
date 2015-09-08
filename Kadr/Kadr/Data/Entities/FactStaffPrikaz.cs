@@ -13,6 +13,12 @@ namespace Kadr.Data
     {
         #region Properties
 
+        public Prikaz PrikazEnd
+        {
+            get { return Prikaz1; }
+            set { Prikaz1 = value; }
+        }
+
         #endregion
 
         public FactStaffPrikaz(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff)

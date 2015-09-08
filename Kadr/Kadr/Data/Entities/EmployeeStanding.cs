@@ -9,7 +9,7 @@ namespace Kadr.Data
     {
         public override string ToString()
         {
-            return "Запись трудовой книжки сотрудника " +Employee.EmployeeSmallName;
+            return "Запись трудовой книжки сотрудника " + Employee.EmployeeSmallName;
         }
 
         #region IDecorable Members
@@ -41,7 +41,7 @@ namespace Kadr.Data
             }
         }
 
- 
+
         #endregion
 
 
@@ -54,14 +54,17 @@ namespace Kadr.Data
 
         #endregion
 
-        public DateTime StartOfWork {
+        public DateTime StartOfWork
+        {
             get { return DateBegin; }
         }
-        public DateTime? EndOfWork {
+        public DateTime? EndOfWork
+        {
             get { return DateEnd; }
         }
         public TerritoryConditions Territory { get { return RegionType.GetTerritoryCondition(); } }
-        public KindOfExperience Experience {
+        public KindOfExperience Experience
+        {
             get { return StandingType.GetKindOfExperience(); }
         }
         /// <summary>
@@ -69,8 +72,28 @@ namespace Kadr.Data
         /// по работе в других организациях, работа в этой организации содержится в записях 
         /// штатного расписания
         /// </summary>
-        public Affilations Affilation {
-            get {return Affilations.External; }
+        public Affilations Affilation
+        {
+            get { return Affilations.External; }
+        }
+
+        public WorkOrganizationWorkType WorkWorkType
+        {
+            get
+            {
+                return WorkOrganizationWorkType.Other;
+            }
+        }
+
+        public DateTime Start
+        {
+            get { return DateBegin; }
+            set { }
+        }
+        public DateTime Stop
+        {
+            get { return DateEnd; }
+            set { }
         }
     }
 }

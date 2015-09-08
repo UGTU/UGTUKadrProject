@@ -116,7 +116,7 @@ namespace Kadr.UI.Common
             }
             catch (Exception exp)
             {
-                MessageBox.Show(exp.Message, "АИС \"Штатное расписание\"");
+                MessageBox.Show(exp.Message, "АИС \"Управление кадрами\"");
 
                 return;
             }
@@ -174,7 +174,6 @@ namespace Kadr.UI.Common
                 e.Cancel = true;
                 return;
             }
-
 
             if (IsModified)
             {

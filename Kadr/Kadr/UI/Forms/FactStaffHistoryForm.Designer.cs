@@ -221,37 +221,37 @@
             // 
             this.dateChangeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dateChangeDataGridViewTextBoxColumn.DataPropertyName = "DateBegin";
-            this.dateChangeDataGridViewTextBoxColumn.HeaderText = "Дата изм.";
+            this.dateChangeDataGridViewTextBoxColumn.HeaderText = "Дата назн.";
             this.dateChangeDataGridViewTextBoxColumn.Name = "dateChangeDataGridViewTextBoxColumn";
             this.dateChangeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateChangeDataGridViewTextBoxColumn.Width = 84;
+            this.dateChangeDataGridViewTextBoxColumn.Width = 88;
             // 
             // prikazDataGridViewTextBoxColumn
             // 
             this.prikazDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
-            this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ об изменении";
+            this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ назн.";
             this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
             this.prikazDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // newStaffCountDataGridViewTextBoxColumn
             // 
             this.newStaffCountDataGridViewTextBoxColumn.DataPropertyName = "StaffCount";
-            this.newStaffCountDataGridViewTextBoxColumn.HeaderText = "Новое кол-во ставок";
+            this.newStaffCountDataGridViewTextBoxColumn.HeaderText = "Кол-во ставок";
             this.newStaffCountDataGridViewTextBoxColumn.Name = "newStaffCountDataGridViewTextBoxColumn";
             this.newStaffCountDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // HourStaffCount
             // 
             this.HourStaffCount.DataPropertyName = "HourStaffCount";
-            this.HourStaffCount.HeaderText = "Новое кол-во ставок по нагрузке";
+            this.HourStaffCount.HeaderText = "Кол-во ставок по нагрузке";
             this.HourStaffCount.Name = "HourStaffCount";
             this.HourStaffCount.ReadOnly = true;
             // 
             // workTypeDataGridViewTextBoxColumn
             // 
             this.workTypeDataGridViewTextBoxColumn.DataPropertyName = "WorkType";
-            this.workTypeDataGridViewTextBoxColumn.HeaderText = "Новый вид работы";
+            this.workTypeDataGridViewTextBoxColumn.HeaderText = "Вид работы";
             this.workTypeDataGridViewTextBoxColumn.Name = "workTypeDataGridViewTextBoxColumn";
             this.workTypeDataGridViewTextBoxColumn.ReadOnly = true;
             this.workTypeDataGridViewTextBoxColumn.Width = 65;
