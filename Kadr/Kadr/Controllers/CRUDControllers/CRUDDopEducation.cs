@@ -28,11 +28,11 @@ namespace Kadr.Controllers
 
                 dlg.BeforeApplyAction = BeforeApplyAction();
 
-              /*  dlg.UpdateObjectList = () =>
+                dlg.UpdateObjectList = () =>
                 {
                     dlg.ObjectList = KadrController.Instance.Model.OK_DopEducations;
                 };
-*/
+
                 dlg.ShowDialog();
             }
 
@@ -71,9 +71,12 @@ namespace Kadr.Controllers
                     dlg.UseInternalCommandManager = true;
                     dlg.SelectedObjects = new object[] { ed };
                     dlg.BeforeApplyAction = BeforeApplyAction();
+                    dlg.UpdateObjectList = () =>
+                    {
+                        dlg.ObjectList = KadrController.Instance.Model.OK_DopEducations;
+                    };
                     dlg.ShowDialog();
                 }
-               // LinqActionsController<OK_DopEducation>.Instance.EditObject(ed, false);
             }
 
             Read(e, DopEducationBindingSource);
