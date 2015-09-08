@@ -13,7 +13,13 @@ namespace Kadr.Data
             return this.sempolName;
         }
 
-
+        static public SemPol DefaultSemPol
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.SemPols.Where(semP => semP.id == 1).First();
+            }
+        }
 
         #region INull Members
 

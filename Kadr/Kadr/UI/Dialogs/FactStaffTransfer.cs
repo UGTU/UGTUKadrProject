@@ -119,7 +119,8 @@ namespace Kadr.UI.Dialogs
         private void FactStaffTransfer_Load(object sender, EventArgs e)
         {
 
-            chbWithBonus.Checked = true;
+            chbWithBonus.Checked = false;
+            chbWithBonus.Visible = false;
             prikazBindingSource.DataSource = KadrController.Instance.Model.Prikazs.OrderByDescending(prik => prik.DatePrikaz).ThenByDescending(prik => prik.PrikazName).ToArray();
             if ((! currentPlanStaff.IsNull()) && (currentDepartment != null))
             {
