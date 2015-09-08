@@ -48,3 +48,8 @@ E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\Co
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.csproj.GenerateResource.Cache
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.dll
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.pdb
+E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\CodeHelper.dll.config
+E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\CodeHelper.dll
+E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\CodeHelper.pdb
+E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\ru-RU\CodeHelper.resources.dll
+E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\ru-RU\CodeHelper.resources.dll

@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Kadr.UI.Common;
+using Kadr.Data;
 
 namespace Kadr.UI.Dialogs
 {
-    public partial class FactStaffLinqPropertyGridDialogAdding //: PropertyGridDialogAdding<T>
+    public partial class FactStaffLinqPropertyGridDialogAdding : PropertyGridDialogAdding<FactStaff> 
     {
         public FactStaffLinqPropertyGridDialogAdding()
         {

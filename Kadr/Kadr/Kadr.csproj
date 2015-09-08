@@ -577,7 +577,9 @@
     <Compile Include="UI\Dialogs\CatalogDialogs\FactStaffReplacementReasonDialog.Designer.cs">
       <DependentUpon>FactStaffReplacementReasonDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dialogs\FactStaffLinqPropertyGridDialogAdding.cs" />
+    <Compile Include="UI\Dialogs\FactStaffLinqPropertyGridDialogAdding.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI\Dialogs\FactStaffLinqPropertyGridDialogAdding.Designer.cs">
       <DependentUpon>FactStaffLinqPropertyGridDialogAdding.cs</DependentUpon>
     </Compile>
