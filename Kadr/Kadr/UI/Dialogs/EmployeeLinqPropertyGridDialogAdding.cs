@@ -12,9 +12,9 @@ using Kadr.UI.Common;
 
 namespace Kadr.UI.Dialogs
 {
-    public partial class EmployeeLinkPropertyGridDialogAdding : PropertyGridDialogAdding<Employee>
+    public partial class EmployeeLinqPropertyGridDialogAdding : PropertyGridDialogAdding<Employee>
     {
-        public EmployeeLinkPropertyGridDialogAdding()
+        public EmployeeLinqPropertyGridDialogAdding()
         {
             InitializeComponent();
         }

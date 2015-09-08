@@ -1,6 +1,6 @@
 ﻿namespace Kadr.UI.Dialogs
 {
-    partial class EmployeeLinkPropertyGridDialogAdding
+    partial class FactStaffLinqPropertyGridDialogAdding
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // EmployeeLinkPropertyGridDialogAdding
+            // FactStaffLinqPropertyGridDialogAdding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 808);
-            this.Name = "EmployeeLinkPropertyGridDialogAdding";
-            this.Text = "EmployeeLinkPropertyGridDialogAdding";
+            this.ClientSize = new System.Drawing.Size(794, 779);
+            this.Name = "FactStaffLinqPropertyGridDialogAdding";
+            this.Text = "FactStaffLinqPropertyGridDialogAdding";
             this.ResumeLayout(false);
 
         }

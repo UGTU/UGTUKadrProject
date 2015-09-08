@@ -20,8 +20,8 @@ namespace Kadr.Controllers
                 return;
             }
 
-            using (EmployeeLinkPropertyGridDialogAdding dlg =
-                new EmployeeLinkPropertyGridDialogAdding())
+            using (EmployeeLinqPropertyGridDialogAdding dlg =
+                new EmployeeLinqPropertyGridDialogAdding())
             {
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.Employees;

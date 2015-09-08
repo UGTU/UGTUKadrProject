@@ -422,7 +422,9 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -435,11 +437,11 @@
     <Compile Include="UI\Common\DataGridViewDialog.Designer.cs">
       <DependentUpon>DataGridViewDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dialogs\EmployeeLinkPropertyGridDialogAdding.cs">
+    <Compile Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\EmployeeLinkPropertyGridDialogAdding.Designer.cs">
-      <DependentUpon>EmployeeLinkPropertyGridDialogAdding.cs</DependentUpon>
+    <Compile Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.Designer.cs">
+      <DependentUpon>EmployeeLinqPropertyGridDialogAdding.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Common\GenderBooleanConverter.cs" />
     <Compile Include="UI\Common\LinqDataGridViewDialog.cs">
@@ -574,6 +576,10 @@
     </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\FactStaffReplacementReasonDialog.Designer.cs">
       <DependentUpon>FactStaffReplacementReasonDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\FactStaffLinqPropertyGridDialogAdding.cs" />
+    <Compile Include="UI\Dialogs\FactStaffLinqPropertyGridDialogAdding.Designer.cs">
+      <DependentUpon>FactStaffLinqPropertyGridDialogAdding.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\FactStaffTransfer.cs">
       <SubType>Form</SubType>
@@ -901,8 +907,8 @@
       <DependentUpon>DataGridViewDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\EmployeeLinkPropertyGridDialogAdding.resx">
-      <DependentUpon>EmployeeLinkPropertyGridDialogAdding.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.resx">
+      <DependentUpon>EmployeeLinqPropertyGridDialogAdding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Common\LinqDataGridViewDialog.resx">
       <DependentUpon>LinqDataGridViewDialog.cs</DependentUpon>
@@ -977,6 +983,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\FactStaffReplacementReasonDialog.resx">
       <DependentUpon>FactStaffReplacementReasonDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\FactStaffLinqPropertyGridDialogAdding.resx">
+      <DependentUpon>FactStaffLinqPropertyGridDialogAdding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\FactStaffTransfer.resx">
       <DependentUpon>FactStaffTransfer.cs</DependentUpon>
