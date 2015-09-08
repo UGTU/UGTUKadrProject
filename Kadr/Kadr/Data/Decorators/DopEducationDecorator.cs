@@ -45,7 +45,7 @@ namespace Kadr.Data
         [Category("Основные")]
         [Description("Тип повышения квалификации согласно классификатору")]
         [TypeConverter(typeof(SimpleToStringConvertor<DopEducType>))]
-        [RefreshProperties(RefreshProperties.All)]
+    //    [RefreshProperties(RefreshProperties.All)]
         [ReadOnly(false)]
         public DopEducType DopEducType
         {
@@ -59,7 +59,7 @@ namespace Kadr.Data
                 if (value == null) return;
                 if (value.EducDocumentType != null)
                     _dop.EducDocument.EducDocumentType = value.EducDocumentType;
-                this.SetPropertyReadOnly(() => _dop.EducDocument.EducDocumentType, value.EducDocumentType != null);
+               // this.SetPropertyReadOnly(() => _dop.EducDocument.EducDocumentType, value.EducDocumentType != null);
             }
         }
 
@@ -129,14 +129,15 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null)
+                _dop.Prikaz = value;
+                /* if (value != null)
                 {
                     if (_dop.FactStaffPrikaz == null) _dop.FactStaffPrikaz = new FactStaffPrikaz()
                     {
                         FactStaff = _dop.FactStaff
                     };
                     _dop.FactStaffPrikaz.Prikaz = value;
-                }
+                }*/
             }
         }
 

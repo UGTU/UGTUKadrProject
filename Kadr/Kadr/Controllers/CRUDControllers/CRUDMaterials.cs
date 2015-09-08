@@ -51,6 +51,7 @@ namespace Kadr.Controllers
 
                     };
 
+
                 dlg.UpdateObjectList = () =>
                     {
                         dlg.ObjectList = KadrController.Instance.Model.MaterialResponsibilities;

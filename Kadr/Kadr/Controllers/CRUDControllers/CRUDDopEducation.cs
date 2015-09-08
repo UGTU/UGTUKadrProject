@@ -26,6 +26,24 @@ namespace Kadr.Controllers
                     
                 };
 
+                dlg.BeforeApplyAction = (x) =>
+                {
+                    if (x.TempPrikaz != null)
+                        x.FactStaffPrikaz = new FactStaffPrikaz()
+                        {
+                            FactStaff = x.FactStaff,
+                            Prikaz = x.TempPrikaz
+                        };
+                    if ((x.FactStaffPrikaz == null) || (x.FactStaffPrikaz.Prikaz != null)) return;
+                    KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(x.FactStaffPrikaz);
+                    x.FactStaffPrikaz = null;
+                };
+
+              /*  dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.OK_DopEducations;
+                };
+*/
                 dlg.ShowDialog();
             }
 
