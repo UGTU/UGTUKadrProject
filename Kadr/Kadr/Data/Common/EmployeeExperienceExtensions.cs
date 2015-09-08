@@ -51,7 +51,11 @@ namespace Kadr.Data.Common
             var days = tsExperience.GetExperienceDays();
             return string.Format("{0} {1}, {2} {3}, {4} {5}", years, years.GetYearStr(), monthes, monthes.GetMonthStr(), days, days.GetDayStr());
         }
-
+        /// <summary>
+        /// Получает из заданной коллекции элементы северного стажа.
+        /// </summary>
+        /// <param name="source">Коллекция элементов стажа</param>
+        /// <returns>Коллекция элементов северного стажа</returns>
         public static IEnumerable<IEmployeeExperienceRecord> FilterNorthExperience
             (this IEnumerable<IEmployeeExperienceRecord> source)
         {
@@ -60,7 +64,11 @@ namespace Kadr.Data.Common
                                      && (x.Affilation == Affilations.External
                                          || x.WorkWorkType == WorkOrganizationWorkType.Internal));
         }
-
+        /// <summary>
+        /// Получает коллекцию не пересекающихся интервалов ExperienceInterval по заданной коллекции IEmployeeExperienceRecord 
+        /// </summary>
+        /// <param name="source">Коллекция IEmployeeExperienceRecord</param>
+        /// <returns></returns>
         public static IEnumerable<IEmployeeExperienceRecord> SequenceInterval(
             this IEnumerable<IEmployeeExperienceRecord> source)
         {
@@ -88,10 +96,12 @@ namespace Kadr.Data.Common
         }
 
         /// <summary>
-        /// Возвращает записи стажа, соответствующие непрерывному стажу
+        /// Возвращает записи стажа, соответствующие непрерывному стажу. 
+        /// Непрерывный стаж считается, если время между событиями увольнения 
+        /// с должности и приёма на работу составляют не более одного дня.
         /// </summary>
         /// <param name="experienceSet"></param>
-        /// <returns>Записи, соответствующие непрерывному стажу</returns>
+        /// <returns>Записи, соответствующие непрерывному стажу.</returns>
         public static IEnumerable<IEmployeeExperienceRecord> Continious(
             this IEnumerable<IEmployeeExperienceRecord> experienceSet)
         {
@@ -105,10 +115,12 @@ namespace Kadr.Data.Common
                     return x.HasValue ? -1 : 1;
                 }));
             IEmployeeExperienceRecord prevItem = null;
+            var acceptableHole = TimeSpan.FromDays(1);
+
             foreach (var item in ordered)
             {
                 if (prevItem == null || !(item.EndOfWork.HasValue)) yield return item;
-                else if (prevItem.StartOfWork - item.EndOfWork.Value <= TimeSpan.FromDays(1))
+                else if (prevItem.StartOfWork - item.EndOfWork.Value <= acceptableHole)
                     yield return item;
                 else
                     yield break;
