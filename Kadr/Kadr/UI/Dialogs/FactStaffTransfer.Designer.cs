@@ -93,8 +93,8 @@
             // 
             // cbNewPlanStaff
             // 
-            this.cbNewPlanStaff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbNewPlanStaff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbNewPlanStaff.DataSource = this.planStaffBindingSource;
             this.cbNewPlanStaff.FormattingEnabled = true;
             this.cbNewPlanStaff.Location = new System.Drawing.Point(6, 72);
@@ -146,8 +146,8 @@
             // 
             // cbTransferPrikaz
             // 
-            this.cbTransferPrikaz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTransferPrikaz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbTransferPrikaz.DataSource = this.prikazBindingSource;
             this.cbTransferPrikaz.FormattingEnabled = true;
             this.cbTransferPrikaz.Location = new System.Drawing.Point(164, 123);
@@ -166,8 +166,8 @@
             // 
             // cbDepartment
             // 
-            this.cbDepartment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbDepartment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbDepartment.DataSource = this.departmentBindingSource;
             this.cbDepartment.DisplayMember = "DepartmentName";
             this.cbDepartment.FormattingEnabled = true;
