@@ -11,12 +11,11 @@ namespace Kadr.Controllers
 {
     public static class CRUDFactStaff
     {
-        public static DialogResult Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null,UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null)
+        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null, UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null)
         {
             if (planStaffCurrent == null)
             {
                 MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
-                return DialogResult.None;
             }
 
             if (workType == null)
@@ -54,7 +53,7 @@ namespace Kadr.Controllers
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Prikaz>(x, "PrikazBegin", prev.PrikazBegin, null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, WorkType>(x, "WorkType", prev.WorkType, null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x, "StaffCount", prev.StaffCount, null), sender);
-                        
+
 
                     }
                     else
@@ -71,7 +70,7 @@ namespace Kadr.Controllers
                     //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "SalaryKoeff", 1, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", x, null), sender);
 
-                    Contract newContract = new Contract(dlg.CommandManager,fcStHistory, "", DateTime.Today.Date, DateTime.Today.Date);
+                    Contract newContract = new Contract(dlg.CommandManager, fcStHistory, "", DateTime.Today.Date, DateTime.Today.Date);
                 };
 
                 dlg.BeforeApplyAction = (x) =>
@@ -94,6 +93,60 @@ namespace Kadr.Controllers
                 {
                     dlg.ObjectList = KadrController.Instance.Model.FactStaffs;
                 };
+                dlg.ShowDialog();
+            }
+        }
+
+        public static DialogResult CreateWithEmployee(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null,UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null)
+        {
+            if (planStaffCurrent == null)
+            {
+                MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
+                return DialogResult.None;
+            }
+
+            if (workType == null)
+                workType = NullWorkType.Instance;
+            if (employee == null)
+                employee = NullEmployee.Instance;
+
+            FactStaff x = new FactStaff();
+
+            FactStaffHistory fcStHistory = new FactStaffHistory();
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, PlanStaff>(x, "PlanStaff", planStaffCurrent, null), sender);
+            
+			commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(fcStHistory, "Prikaz", NullPrikaz.Instance, null), sender);
+			commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", workType, null), sender);
+
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(x, "Employee", employee, null), sender);
+			commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "IsReplacement", false, null), sender);
+			commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x, "Dep", department, null), sender);
+			commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x, "FundingCenter", NullFundingCenter.Instance, null), sender);
+			//dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "SalaryKoeff", 1, null), this);
+			commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", x, null), sender);
+
+			Contract newContract = new Contract(commandManager,fcStHistory, "", DateTime.Today.Date, DateTime.Today.Date);
+						commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, string>(x.CurrentChange.Contract, "ContractName", x.CurrentChange.Contract.ContractName, null), sender);
+						commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(x.CurrentChange.Contract, "DateBegin", x.CurrentChange.Contract.DateBegin, null), sender);
+						commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(x.CurrentChange.Contract, "DateEnd", x.CurrentChange.Contract.DateEnd, null), sender);
+						commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(x.CurrentChange.Contract, "DateContract", x.CurrentChange.Contract.DateContract, null), sender);
+
+
+            using (Kadr.UI.Dialogs.FactStaffLinqPropertyGridDialogAdding dlg =
+                 new Kadr.UI.Dialogs.FactStaffLinqPropertyGridDialogAdding())
+            {
+                dlg.SelectedObjects = new object[] { x };
+                dlg.ApplyButtonVisible = false;
+                if (commandManager != null)
+                {
+                    dlg.CommandManager = commandManager;
+                    dlg.UseInternalCommandManager = false;
+                }
+                else
+                    dlg.UseInternalCommandManager = true;
+                dlg.PrikazButtonVisible = true;
+
+
                 return dlg.ShowDialog();
             }
         }

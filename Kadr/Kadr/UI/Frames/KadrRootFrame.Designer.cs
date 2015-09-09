@@ -707,7 +707,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer1.Size = new System.Drawing.Size(796, 527);
-            this.splitContainer1.SplitterDistance = 171;
+            this.splitContainer1.SplitterDistance = 170;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -723,7 +723,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 171);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 170);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -1037,7 +1037,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 352);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 353);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff
@@ -1223,9 +1223,9 @@
             this.AddContractFactStaffBtn.Image = global::Kadr.Properties.Resources.NewCardHS;
             this.AddContractFactStaffBtn.ImageTransparentColor = System.Drawing.Color.Black;
             this.AddContractFactStaffBtn.Name = "AddContractFactStaffBtn";
-            this.AddContractFactStaffBtn.Size = new System.Drawing.Size(127, 19);
-            this.AddContractFactStaffBtn.Text = "Добавить договор";
-            this.AddContractFactStaffBtn.ToolTipText = "Добавить сотрудника по новому договору";
+            this.AddContractFactStaffBtn.Size = new System.Drawing.Size(140, 19);
+            this.AddContractFactStaffBtn.Text = "Принять сотрудника";
+            this.AddContractFactStaffBtn.ToolTipText = "Принять сотрудника на должность";
             this.AddContractFactStaffBtn.Click += new System.EventHandler(this.AddFactStaffBtn_Click);
             // 
             // DelFactStaffBtn
@@ -1248,9 +1248,9 @@
             this.btnChangeFactStaff.Image = global::Kadr.Properties.Resources.SychronizeListHS;
             this.btnChangeFactStaff.ImageTransparentColor = System.Drawing.Color.Black;
             this.btnChangeFactStaff.Name = "btnChangeFactStaff";
-            this.btnChangeFactStaff.Size = new System.Drawing.Size(81, 19);
-            this.btnChangeFactStaff.Text = "Изменить";
-            this.btnChangeFactStaff.ToolTipText = "Добавить изменение по доп соглашению";
+            this.btnChangeFactStaff.Size = new System.Drawing.Size(111, 19);
+            this.btnChangeFactStaff.Text = "Изменить тр. д.";
+            this.btnChangeFactStaff.ToolTipText = "Изменить трудовой договор сотрудника";
             this.btnChangeFactStaff.Click += new System.EventHandler(this.btnChangeFactStaff_Click);
             // 
             // btnHistoryFactStaff
