@@ -631,7 +631,7 @@ namespace Kadr.UI.Frames
 
         private void EditDopEducBtn_Click(object sender, EventArgs e)
         {
-            CRUDDopEducation.Update(Employee, DopEducationBindingSource);
+            CRUDDopEducation.Update(Employee, (this.FrameNodeObject as KadrEmployeeObject).FactStaff, DopEducationBindingSource);
         }
 
         private void DeleteDopEducBtn_Click(object sender, EventArgs e)

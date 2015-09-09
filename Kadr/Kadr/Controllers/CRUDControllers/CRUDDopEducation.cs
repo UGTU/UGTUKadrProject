@@ -26,10 +26,33 @@ namespace Kadr.Controllers
                     
                 };
 
+                dlg.BeforeApplyAction = BeforeApplyAction();
+
+                dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.OK_DopEducations;
+                };
+
                 dlg.ShowDialog();
             }
 
             Read(e, DopEducationBindingSource);
+        }
+
+        private static Action<OK_DopEducation> BeforeApplyAction()
+        {
+            return (x) =>
+            {
+                if (x.TempPrikaz != null)
+                    x.FactStaffPrikaz = new FactStaffPrikaz()
+                    {
+                        FactStaff = x.FactStaff,
+                        Prikaz = x.TempPrikaz
+                    };
+                if ((x.FactStaffPrikaz == null) || (x.FactStaffPrikaz.Prikaz != null)) return;
+                KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(x.FactStaffPrikaz);
+                x.FactStaffPrikaz = null;
+            };
         }
 
         public static void Read(Employee e, BindingSource DopEducationBindingSource)
@@ -37,12 +60,23 @@ namespace Kadr.Controllers
             DopEducationBindingSource.DataSource = KadrController.Instance.Model.OK_DopEducations.Where(educ => educ.Employee == e).Select(x => x.GetDecorator()).ToList();
         }
 
-        public static void Update(Employee e, BindingSource DopEducationBindingSource)
+        public static void Update(Employee e,FactStaff fs, BindingSource DopEducationBindingSource)
         {
             if (DopEducationBindingSource.Current != null)
             {
                 var ed = (DopEducationBindingSource.Current as DopEducationDecorator).GetDopEduc();
-                LinqActionsController<OK_DopEducation>.Instance.EditObject(ed, false);
+                ed.FactStaff = fs;
+                using (var dlg = new Kadr.UI.Common.LinqPropertyGridDialogEditing<OK_DopEducation>())
+                {
+                    dlg.UseInternalCommandManager = true;
+                    dlg.SelectedObjects = new object[] { ed };
+                    dlg.BeforeApplyAction = BeforeApplyAction();
+                    dlg.UpdateObjectList = () =>
+                    {
+                        dlg.ObjectList = KadrController.Instance.Model.OK_DopEducations;
+                    };
+                    dlg.ShowDialog();
+                }
             }
 
             Read(e, DopEducationBindingSource);

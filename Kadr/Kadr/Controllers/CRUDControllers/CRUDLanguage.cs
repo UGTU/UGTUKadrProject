@@ -32,7 +32,7 @@ namespace Kadr.Controllers
 
         public static void Read(Employee e, BindingSource EmplLanguageBindingSource)
         {
-            EmplLanguageBindingSource.DataSource = KadrController.Instance.Model.OK_EmployeeLangs.Where(educLang => educLang.Employee == e).Select(x => new EmployeeLangDecorator(x)).ToList();
+            EmplLanguageBindingSource.DataSource = KadrController.Instance.Model.OK_EmployeeLangs.Where(educLang => educLang.Employee == e).Select(x => x.GetDecorator()).ToList();
         }
 
         public static void Update(Employee e, BindingSource EmplLanguageBindingSource)
