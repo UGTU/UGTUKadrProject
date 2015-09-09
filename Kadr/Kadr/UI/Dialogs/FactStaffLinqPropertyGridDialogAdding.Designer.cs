@@ -34,34 +34,34 @@
             // 
             // commandProperyGrid1
             // 
-            this.commandProperyGrid1.Size = new System.Drawing.Size(610, 558);
+            this.commandProperyGrid1.Size = new System.Drawing.Size(619, 571);
             // 
             // panel1
             // 
             this.helpProvider1.SetShowHelp(this.panel1, true);
-            this.panel1.Size = new System.Drawing.Size(610, 558);
+            this.panel1.Size = new System.Drawing.Size(619, 571);
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(12, 576);
-            this.panel2.Size = new System.Drawing.Size(610, 30);
+            this.panel2.Location = new System.Drawing.Point(12, 589);
+            this.panel2.Size = new System.Drawing.Size(619, 30);
             // 
             // ApplyBtn
             // 
             this.helpProvider1.SetHelpString(this.ApplyBtn, "Вносит изменения в базу данных, не закрывая окно.");
-            this.ApplyBtn.Location = new System.Drawing.Point(420, 0);
+            this.ApplyBtn.Location = new System.Drawing.Point(524, 0);
             this.helpProvider1.SetShowHelp(this.ApplyBtn, true);
             // 
             // CancelBtn
             // 
             this.helpProvider1.SetHelpString(this.CancelBtn, "Отменяет все изменения с момента последноего сохранения и закрывает окно.");
-            this.CancelBtn.Location = new System.Drawing.Point(515, 0);
+            this.CancelBtn.Location = new System.Drawing.Point(429, 0);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
             // 
             // OKBtn
             // 
             this.helpProvider1.SetHelpString(this.OKBtn, "Вносит изменения в базу данных и закрывает окно.");
-            this.OKBtn.Location = new System.Drawing.Point(489, 0);
+            this.OKBtn.Location = new System.Drawing.Point(328, 0);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
             // 
             // HelpBtn
@@ -74,7 +74,7 @@
             this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 618);
+            this.ClientSize = new System.Drawing.Size(638, 631);
             this.Name = "FactStaffLinqPropertyGridDialogAdding";
             this.PrikazButtonVisible = true;
             this.helpProvider1.SetShowHelp(this, true);
