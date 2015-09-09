@@ -34,14 +34,6 @@ namespace Kadr.Data
         {
             return string.Format("Приказ {0}  — сотрудник {1}", Prikaz.PrikazFullName, this.FactStaff.Employee.ToString()); ;
         }
-
-        public FactStaffPrikaz(DateTime? beg, DateTime? end, FactStaff fs):this()
-        {
-            FactStaff = fs;
-            DateBegin = beg;
-            DateEnd = end;
-        }
-
         
         #region partial Methods
 

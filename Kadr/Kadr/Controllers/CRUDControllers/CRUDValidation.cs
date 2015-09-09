@@ -17,7 +17,7 @@ namespace Kadr.Controllers
             {
 
                 dlg.InitializeNewObject = (x =>
-                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(DateTime.Now.Date, null, fs), null), sender)
+                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(dlg.CommandManager, fs), null), sender)
                 );
 
                 dlg.BeforeApplyAction = (x =>

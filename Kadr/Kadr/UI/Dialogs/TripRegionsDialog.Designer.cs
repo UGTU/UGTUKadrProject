@@ -81,7 +81,6 @@
             this.helpProvider1.SetHelpString(this.CancelBtn, "Отменяет все изменения с момента последноего сохранения и закрывает окно.");
             this.CancelBtn.Location = new System.Drawing.Point(385, 4);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // OKBtn
             // 
