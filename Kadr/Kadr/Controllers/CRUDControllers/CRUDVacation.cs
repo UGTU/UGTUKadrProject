@@ -38,8 +38,7 @@ namespace Kadr.Controllers
                 tmp = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.FactStaffPrikaz.FactStaff.Employee == e);
                
                 oKOtpuskBindingSource.DataSource =
-                    tmp.Where(
-                    otp => otp.FactStaffPrikaz.DateBegin >= DateTime.Today.AddYears(-2)).OrderByDescending(otp => otp.FactStaffPrikaz.DateBegin);
+                    tmp.Where(otp => otp.FactStaffPrikaz.DateBegin >= DateTime.Today.AddYears(-2)).OrderByDescending(otp => otp.FactStaffPrikaz.DateBegin);
             
         }
 

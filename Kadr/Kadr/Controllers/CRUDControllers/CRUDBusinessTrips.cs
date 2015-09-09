@@ -17,8 +17,7 @@ namespace Kadr.Controllers
             using (PropertyGridDialogAdding<BusinessTrip> dlg =
                SimpleActionsProvider.NewSimpleObjectAddingDialog<BusinessTrip>())
             {
-
-                    BusinessTripRegionType btrt = new BusinessTripRegionType(DateTime.Now.Date, DateTime.Now.AddDays(7).Date, KadrController.Instance.Model.RegionTypes.First());
+                    BusinessTripRegionType btrt = new BusinessTripRegionType(dlg.CommandManager, DateTime.Now.Date, DateTime.Now.AddDays(7).Date, KadrController.Instance.Model.RegionTypes.First());
 
                     dlg.InitializeNewObject = (x) =>
                     {

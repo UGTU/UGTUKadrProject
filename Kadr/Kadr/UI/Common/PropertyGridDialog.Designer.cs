@@ -82,6 +82,7 @@
             // 
             // commandProperyGrid1
             // 
+            this.commandProperyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.commandProperyGrid1.CommandRegister = null;
             this.commandProperyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.commandProperyGrid1.Location = new System.Drawing.Point(0, 0);
