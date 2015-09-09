@@ -39,9 +39,6 @@ namespace Kadr.UI.Common
         //создание связанных до Insert объектов
         public Action<T> BeforeApplyAction;
 
-        //создание связанных после Insert объектов
-        public Action<T> OnApplyAction;
-
 
         protected T newObject;    //текущий объект
 
@@ -114,28 +111,6 @@ namespace Kadr.UI.Common
             {
                 objectList.InsertOnSubmit(newObject);
 
-                if (OnApplyAction != null)
-                {
-                    try
-                    {
-                        OnApplyAction(newObject);
-                    }
-                    catch (Exception exp)
-                    {
-
-                        if (exp.Message != "InsertFactStaffCancel.")
-                            throw new Exception(exp.Message);
-                        else
-                        {
-                            OKClicked = false;
-                            IsModified = true;
-                            return;
-                        }
-                    }
-
-                    base.DoApply();
-                    return;
-                }
 
                 if (bindingSource!=null)
                     bindingSource.Add(newObject);

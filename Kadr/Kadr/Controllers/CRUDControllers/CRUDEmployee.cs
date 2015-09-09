@@ -30,6 +30,7 @@ namespace Kadr.Controllers
                 //dlg.BindingSource = employeeBindingSource;
                 dlg.InitializeNewObject = (x) =>
                 {
+                    dlg.PlanStaff = planStaff;
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Guid>(x, "GUID", Guid.NewGuid(), null), sender);
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
@@ -52,15 +53,15 @@ namespace Kadr.Controllers
                     }
                 };
 
-                dlg.OnApplyAction = (x) =>
+                /*dlg.OnApplyAction = (x) =>
                 {
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
-                        if (CRUDFactStaff.Create(null, planStaff, sender, false, true, x, dlg.CommandManager, null, WorkType.MainWorkType) != DialogResult.OK)
+                        if (CRUDFactStaff.CreateWithEmployee(null, planStaff, sender, false, true, x, dlg.CommandManager, null, WorkType.MainWorkType) != DialogResult.OK)
                                 throw new ArgumentException("InsertFactStaffCancel.");
                     }
 
-                };
+                };*/
 
                 dlg.ShowDialog();
                 //RefreshFrame();

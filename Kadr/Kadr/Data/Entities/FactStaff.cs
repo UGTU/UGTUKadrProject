@@ -39,6 +39,22 @@ namespace Kadr.Data
             return res;
         }
 
+        #region NewEmployeeFactStaffProperties
+
+        /*public FactStaff(Employee employee)
+        {
+            NewEmployee = employee;
+        }
+
+        public Employee NewEmployee
+        {
+            get;
+            set;
+        }*/
+        
+        #endregion
+
+
         #region MainProperties
         /// <summary>
         /// текущий статус сотрудника
@@ -658,7 +674,9 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
-            return new FactStaffDecorator(this);
+           // if (NewEmployee == null)
+                return new FactStaffDecorator(this);
+            //return new FactStaffEmployeeAddingDecorator(this);
         }
 
 

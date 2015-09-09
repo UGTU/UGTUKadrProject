@@ -14,6 +14,12 @@ namespace Kadr.UI.Dialogs
 {
     public partial class EmployeeLinqPropertyGridDialogAdding : PropertyGridDialogAdding<Employee>
     {
+        public PlanStaff PlanStaff
+        {
+            get;
+            set;
+        }
+        
         public EmployeeLinqPropertyGridDialogAdding()
         {
             InitializeComponent();
@@ -29,35 +35,16 @@ namespace Kadr.UI.Dialogs
             if (BeforeApplyAction != null)
                 BeforeApplyAction(newObject);
 
+            if (CRUDFactStaff.CreateWithEmployee(null, PlanStaff, null, false, true, SelectedObjects[0] as Employee, CommandManager, null, WorkType.MainWorkType) != DialogResult.OK)
+            {
 
+            }
 
             //сохраняем прежний объект
             if (ObjectList != null)
             {
                 ObjectList.InsertOnSubmit(newObject);
 
-                if (OnApplyAction != null)
-                {
-                    try
-                    {
-                        OnApplyAction(newObject);
-                    }
-                    catch (Exception exp)
-                    {
-
-                        if (exp.Message != "InsertFactStaffCancel.")
-                            throw new Exception(exp.Message);
-                        else
-                        {
-                            OKClicked = false;
-                            IsModified = true;
-                            return;
-                        }
-                    }
-
-                    base.DoApply();
-                    return;
-                }
             }
 
             try
