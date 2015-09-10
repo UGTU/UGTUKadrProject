@@ -65,14 +65,14 @@ namespace Kadr.UI.Forms
                 return;
             }
 
-            FactStaffPrikaz CurrentPrikaz = CurrentSF.FactStaffPrikaz;
+            Event CurrentPrikaz = CurrentSF.Event;
 
             if (CurrentPrikaz == null)
                 LinqActionsController<SocialFareTransit>.Instance.DeleteObject(CurrentSF, KadrController.Instance.Model.SocialFareTransits, null);
             else
             {
                 KadrController.Instance.Model.SocialFareTransits.DeleteOnSubmit(CurrentSF);
-                LinqActionsController<FactStaffPrikaz>.Instance.DeleteObject(CurrentPrikaz, KadrController.Instance.Model.FactStaffPrikazs, null);
+                LinqActionsController<Event>.Instance.DeleteObject(CurrentPrikaz, KadrController.Instance.Model.Events, null);
             }
 
             LoadPeriods();

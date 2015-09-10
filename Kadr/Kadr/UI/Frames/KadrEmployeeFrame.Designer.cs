@@ -4146,8 +4146,8 @@ namespace Kadr.UI.Frames
             // 
             // dataGridViewTextBoxColumn30
             // 
-            this.dataGridViewTextBoxColumn30.DataPropertyName = "idFactStaffPrikaz";
-            this.dataGridViewTextBoxColumn30.HeaderText = "idFactStaffPrikaz";
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "idEvent";
+            this.dataGridViewTextBoxColumn30.HeaderText = "idEvent";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
             this.dataGridViewTextBoxColumn30.Visible = false;
@@ -4183,8 +4183,8 @@ namespace Kadr.UI.Frames
             // dataGridViewTextBoxColumn34
             // 
             this.dataGridViewTextBoxColumn34.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn34.DataPropertyName = "FactStaffPrikaz";
-            this.dataGridViewTextBoxColumn34.HeaderText = "FactStaffPrikaz";
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "Event";
+            this.dataGridViewTextBoxColumn34.HeaderText = "Event";
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.ReadOnly = true;
             this.dataGridViewTextBoxColumn34.Visible = false;

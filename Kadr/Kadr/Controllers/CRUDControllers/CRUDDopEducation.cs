@@ -44,14 +44,14 @@ namespace Kadr.Controllers
             return (x) =>
             {
                 if (x.TempPrikaz != null)
-                    x.FactStaffPrikaz = new FactStaffPrikaz()
+                    x.Event = new Event()
                     {
                         FactStaff = x.FactStaff,
                         Prikaz = x.TempPrikaz
                     };
-                if ((x.FactStaffPrikaz == null) || (x.FactStaffPrikaz.Prikaz != null)) return;
-                KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(x.FactStaffPrikaz);
-                x.FactStaffPrikaz = null;
+                if ((x.Event == null) || (x.Event.Prikaz != null)) return;
+                KadrController.Instance.Model.Events.DeleteOnSubmit(x.Event);
+                x.Event = null;
             };
         }
 
@@ -92,8 +92,8 @@ namespace Kadr.Controllers
                     var educ = (DopEducationBindingSource.Current as DopEducationDecorator).GetDopEduc();
                    
                     KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(educ.EducDocument);
-                    if (educ.FactStaffPrikaz != null)
-                        KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(educ.FactStaffPrikaz);
+                    if (educ.Event != null)
+                        KadrController.Instance.Model.Events.DeleteOnSubmit(educ.Event);
                     LinqActionsController<OK_DopEducation>.Instance.DeleteObject(educ, KadrController.Instance.Model.OK_DopEducations, DopEducationBindingSource);
                 }
             Read(e, DopEducationBindingSource);

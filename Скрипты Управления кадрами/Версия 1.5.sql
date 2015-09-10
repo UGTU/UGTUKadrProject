@@ -259,12 +259,136 @@ from dbo.FactStaffHistory
 inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
 inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
 
+
+
+
+go
+EXEC sp_rename 'dbo.Event.idMainFactStaffPrikaz', 'idMainEvent', 'COLUMN'
+
+
+go
+EXEC sp_rename '[dbo].[BusinessTrip].[idFactStaffPrikaz]', 'idEvent', 'COLUMN'
+
+go
+alter table [dbo].[Event]
+drop constraint [FK_FactStaffPrikaz_FactStaff]
+go
+DROP INDEX [IX_FactStaffPrikazidFactStaff] 
+    ON [dbo].[Event]
+
+go
+alter table [dbo].[Event]
+drop column [idFactStaff]
 		
 
+go
+EXEC sp_rename '[dbo].[MaterialResponsibility].[idFactStaffPrikaz]', 'idEvent', 'COLUMN'
+
+
+go
+EXEC sp_rename '[dbo].[Validation].[idFactStaffPrikaz]', 'idEvent', 'COLUMN'
+
+
+
+go
+EXEC sp_rename '[dbo].[OK_DopEducation].[idFactStaffPrikaz]', 'idEvent', 'COLUMN'
 
 
 
 
+go
+EXEC sp_rename '[dbo].[Award].[idFactStaffPrikaz]', 'idEvent', 'COLUMN'
+
+
+
+go
+EXEC sp_rename '[dbo].[SocialFareTransit].[idFactStaffPrikaz]', 'idEvent', 'COLUMN'
+
+
+
+
+go
+EXEC sp_rename '[dbo].[SocialFareTransit].[idFactStaffPrikaz]', 'idEvent', 'COLUMN'
+
+
+go
+alter table [dbo].[OK_DopEducation]
+drop constraint [FK_OK_DopEducEmployee_FactStaffPrikaz]
+
+GO
+
+ALTER TABLE [dbo].[OK_DopEducation]  WITH CHECK ADD  CONSTRAINT [FK_OK_DopEducEmployee_Event] FOREIGN KEY([idEvent])
+REFERENCES [dbo].[Event] ([id])
+GO
+
+ALTER TABLE [dbo].[OK_DopEducation] CHECK CONSTRAINT [FK_OK_DopEducEmployee_Event]
+GO
+
+
+
+GO
+
+ALTER TABLE [dbo].[Award] DROP CONSTRAINT [FK_Award_FactStaffPrikaz]
+GO
+
+GO
+
+ALTER TABLE [dbo].[Award]  WITH CHECK ADD  CONSTRAINT [FK_Award_Event] FOREIGN KEY([idEvent])
+REFERENCES [dbo].[Event] ([id])
+GO
+
+ALTER TABLE [dbo].[Award] CHECK CONSTRAINT [FK_Award_Event]
+GO
+
+
+
+
+GO
+
+ALTER TABLE [dbo].[Validation] DROP CONSTRAINT [FK_Validation_FactStaffPrikaz]
+GO
+
+
+GO
+
+ALTER TABLE [dbo].[Validation]  WITH CHECK ADD  CONSTRAINT [FK_Validation_FactStaffPrikaz] FOREIGN KEY([idEvent])
+REFERENCES [dbo].[Event] ([id])
+GO
+
+ALTER TABLE [dbo].[Validation] CHECK CONSTRAINT [FK_Validation_FactStaffPrikaz]
+GO
+
+
+
+GO
+
+ALTER TABLE [dbo].[OK_Otpusk] DROP CONSTRAINT [FK_OK_Otpusk_FactStaffPrikaz]
+GO
+
+GO
+
+ALTER TABLE [dbo].[OK_Otpusk]  WITH CHECK ADD  CONSTRAINT [FK_OK_Otpusk_FactStaffPrikaz] FOREIGN KEY([idFactStaffPrikaz])
+REFERENCES [dbo].[Event] ([id])
+GO
+
+ALTER TABLE [dbo].[OK_Otpusk] CHECK CONSTRAINT [FK_OK_Otpusk_FactStaffPrikaz]
+GO
+
+
+
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit] DROP CONSTRAINT [FK_SocialFareTransit_FactStaff]
+GO
+
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit]  WITH CHECK ADD  CONSTRAINT [FK_SocialFareTransit_Event] FOREIGN KEY([idEvent])
+REFERENCES [dbo].[Event] ([id])
+GO
+
+ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_SocialFareTransit_Event]
+GO
 
 
 

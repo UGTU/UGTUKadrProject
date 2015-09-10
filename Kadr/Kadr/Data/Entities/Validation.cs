@@ -21,13 +21,13 @@ namespace Kadr.Data
             string res = "Аттестация";
 
 
-            if (FactStaffPrikaz != null)
+            if (Event != null)
             {
-                if (FactStaffPrikaz.FactStaff != null)
-                    res = string.Format(" сотрудника {0}", FactStaffPrikaz.FactStaff.Employee);
+                if (Event.FactStaff != null)
+                    res = string.Format(" сотрудника {0}", Event.FactStaff.Employee);
 
-                if (FactStaffPrikaz.Prikaz != null)
-                    res = string.Format("{0} по приказу: {1}", res, FactStaffPrikaz.Prikaz.ToString());
+                if (Event.Prikaz != null)
+                    res = string.Format("{0} по приказу: {1}", res, Event.Prikaz.ToString());
             }
 
             if (ValidationDecision != null)
@@ -44,16 +44,16 @@ namespace Kadr.Data
        {
            if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
            {
-               if (FactStaffPrikaz == null) throw new ArgumentNullException("Приказ по сотруднику");
+               if (Event == null) throw new ArgumentNullException("Приказ по сотруднику");
 
                if (EducDocument != null) 
                {
                    //if (EducDocument.Organisation == null) throw new ArgumentNullException("Выдавшая организация");
                    if (EducDocument.DocDate> DateTime.Now) throw new ArgumentNullException("Дата выдачи не может находиться в будущем");
-                   if (EducDocument.DocDate < FactStaffPrikaz.DateBegin) throw new ArgumentNullException("Дата выдачи не может быть раньше даты аттестации");
+                   if (EducDocument.DocDate < Event.DateBegin) throw new ArgumentNullException("Дата выдачи не может быть раньше даты аттестации");
                }
-              
-               if (FactStaffPrikaz.Prikaz == null) throw new ArgumentNullException("Приказ");
+
+               if (Event.Prikaz == null) throw new ArgumentNullException("Приказ");
 
            }
        }
