@@ -166,7 +166,8 @@ namespace Kadr.UI.Common
         {
             TerminateBatchCommand();
             IsModified = false;
-            
+
+            KadrController.Instance.DeleteModel();
             ////удаляем объект, если он новый
             //if (isNewObject)
             //{

@@ -33,6 +33,7 @@ namespace Kadr.Data
             {
                 res = res + ", " + this.PlanStaff.Post.ToString();
             }
+
             if (this.WorkType != null)
                 res = res + ", " + this.WorkType.ToString();
             res = res + ", " + StaffCount.ToString() + " ставки";

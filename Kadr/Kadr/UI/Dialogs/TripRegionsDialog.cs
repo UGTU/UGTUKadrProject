@@ -61,10 +61,6 @@ namespace Kadr.UI.Dialogs
             IsModified = true;
         }
 
-        private void CancelBtn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dgvRegionType_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {

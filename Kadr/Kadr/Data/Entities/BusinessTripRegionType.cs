@@ -5,11 +5,15 @@ using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using UIX.Views;
+using UIX.Commands;
 
 namespace Kadr.Data
 {
     public partial class BusinessTripRegionType : INull, IComparable, IDecorable, IValidatable, IEmployeeExperienceRecord
     {
+        private ICommandManager commandManager;
+        private DateTime date1;
+        private DateTime date2;
         #region Properties
 
         //public int ID { get { return idRegionType; } set { idRegionType = value; } }
@@ -21,6 +25,14 @@ namespace Kadr.Data
             DateBegin = beg;
             DateEnd = end;
             RegionType = regiontype;
+        }
+
+        public BusinessTripRegionType(ICommandManager commandManager, DateTime beg, DateTime end, RegionType regionType) : this()
+        {
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, DateTime>(this, "DateBegin", beg, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, DateTime>(this, "DateEnd", end, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, RegionType>(this, "RegionType", regionType, null), null);
+      
         }
 
         public override string ToString()
