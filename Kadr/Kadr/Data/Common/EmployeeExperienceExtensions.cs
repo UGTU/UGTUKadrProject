@@ -88,11 +88,10 @@ namespace Kadr.Data.Common
             // Стаж расчитывается с учётом того, что день увольнения считается рабочим днём
             // Если сотрудник продолжает работать в день расчёта стажа, то считается, что 
             // текущий день вошёл в стаж.
+            var nextDay = DateTime.Today.AddDays(1);
             return TimeSpan.FromDays(
                 experienceSet.Sum(
-                    x => ((x.EndOfWork.HasValue
-                        ? x.EndOfWork.Value.AddDays(1)
-                        : DateTime.Today.AddDays(1)) - x.StartOfWork).Days));
+                    x => ((x.IsEnded ? x.Stop.AddDays(1) : nextDay) - x.Start).Days));
         }
 
         /// <summary>
@@ -106,21 +105,24 @@ namespace Kadr.Data.Common
             this IEnumerable<IEmployeeExperienceRecord> experienceSet)
         {
             if (experienceSet == null) throw new ArgumentNullException("experienceSet");
-            var ordered = experienceSet.OrderByDescending(e => e.EndOfWork,
-                new APG.Relays.ComparerRelay<DateTime?>(
+
+            var comparer = new APG.Relays.ComparerRelay<IEmployeeExperienceRecord>(
                 (x, y) =>
                 {
-                    if (x.HasValue && y.HasValue) return x.Value.CompareTo(y.Value);
-                    if (!x.HasValue && !y.HasValue) return 0;
-                    return x.HasValue ? -1 : 1;
-                }));
+                    var today = DateTime.Today;
+                    var dx = x.IsEnded ? x.Stop : today;
+                    var dy = y.IsEnded ? y.Stop : today;
+                    return dx.CompareTo(dy);
+                });
+            
+            var ordered = experienceSet.OrderByDescending(e => e, comparer).ToList();
             IEmployeeExperienceRecord prevItem = null;
             var acceptableHole = TimeSpan.FromDays(1);
 
             foreach (var item in ordered)
             {
-                if (prevItem == null || !(item.EndOfWork.HasValue)) yield return item;
-                else if (prevItem.StartOfWork - item.EndOfWork.Value <= acceptableHole)
+                if (prevItem == null || (!item.IsEnded)) yield return item;
+                else if (prevItem.Start - item.Stop <= acceptableHole)
                     yield return item;
                 else
                     yield break;

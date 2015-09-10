@@ -88,15 +88,11 @@ namespace Kadr.Data
         }
 
 
-        public DateTime StartOfWork
-        {
-            get { return DateBegin; }
-        }
-
-        public DateTime? EndOfWork
-        {
-            get { return DateEnd; }
-        }
+        
+        /// <summary>
+        /// Признак того, что этот стаж имеет дату завершения
+        /// </summary>
+        public bool IsEnded { get { return true; } }
 
         public TerritoryConditions Territory
         {
@@ -119,7 +115,7 @@ namespace Kadr.Data
                     .FactStaff.WorkType.GetOrganizationWorkType(); }
         }
 
-        public DateTime Start { get { return StartOfWork; }
+        public DateTime Start { get { return DateBegin; }
             set { }
         }
         public DateTime Stop { get { return DateEnd; }

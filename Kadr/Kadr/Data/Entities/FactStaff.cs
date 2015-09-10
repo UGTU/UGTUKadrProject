@@ -710,10 +710,11 @@ namespace Kadr.Data
                 return new FactStaffHour(this);
             }
         }*/
-        public DateTime StartOfWork {
-            get { return DateBegin; }
-        }
-        public DateTime? EndOfWork { get { return DateEnd; } }
+        
+        /// <summary>
+        /// Признак того, что этот стаж имеет дату завершения
+        /// </summary>
+        public bool IsEnded { get { return DateEnd.HasValue; } }
 
         public TerritoryConditions Territory
         {
