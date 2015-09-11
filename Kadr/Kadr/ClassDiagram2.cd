@@ -421,11 +421,11 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Kadr.Data.FactStaffPrikaz" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="Kadr.Data.Event" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="34.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gArwTCCREDEEYG0PQBFFgRBVnHAQPAACGgABAoFYkoA=</HashCode>
-      <FileName>Data\Entities\FactStaffPrikaz.cs</FileName>
+      <FileName>Data\Entities\Event.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
