@@ -62,7 +62,7 @@ namespace Kadr.Data
         public override string ToString()
         {
 
-            return this.DepartmentSmallName + GetDepartmentManager() ;
+            return this.DepartmentName + GetDepartmentManager() ;
         }
 
         public string GetDepartmentManager()
