@@ -9,7 +9,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class FactStaffPrikaz : UIX.Views.IValidatable, INull, IObjectState, IComparable
+    public partial class Event : UIX.Views.IValidatable, INull, IObjectState, IComparable
     {
         #region Properties
 
@@ -19,21 +19,42 @@ namespace Kadr.Data
             set { Prikaz1 = value; }
         }
 
+        public FactStaff FactStaff
+        {
+            get
+            {
+                return FactStaffHistory.FactStaff;
+            }
+            set
+            {
+                value = FactStaffHistory.FactStaff;
+            }
+        }
+
         #endregion
 
-        public FactStaffPrikaz(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff)
+        public Event(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff)
             : this()
         {
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, FactStaff>(this, "FactStaff", factStaff, null), null);
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, Prikaz>(this, "Prikaz", NullPrikaz.Instance, null), null);
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, DateTime?>(this, "DateBegin", DateTime.Today, null), null);
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffPrikaz, DateTime?>(this, "DateEnd", DateTime.Today, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaff>(this, "FactStaff", factStaff, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this, "Prikaz", NullPrikaz.Instance, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateBegin", DateTime.Today, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", DateTime.Today, null), null);
         }
         
         public override string ToString()
         {
             return string.Format("Приказ {0}  — сотрудник {1}", Prikaz.PrikazFullName, this.FactStaff.Employee.ToString()); ;
         }
+
+        public Event(DateTime? beg, DateTime? end, FactStaff fs)
+            : this()
+        {
+            FactStaff = fs;
+            DateBegin = beg;
+            DateEnd = end;
+        }
+
         
         #region partial Methods
 

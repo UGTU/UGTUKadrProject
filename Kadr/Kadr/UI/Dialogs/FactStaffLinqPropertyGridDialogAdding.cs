@@ -22,6 +22,7 @@ namespace Kadr.UI.Dialogs
         protected override void DoApply()
         {
             UIX.Views.IValidatable validatable = (SelectedObjects[0] as UIX.Views.IValidatable);
+
             if (validatable != null)
                 validatable.Validate();
         }

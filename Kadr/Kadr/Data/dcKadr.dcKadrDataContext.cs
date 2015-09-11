@@ -31,6 +31,11 @@ namespace Kadr.Data
             return result;
         }
 
+        public dckadrDataContext() :
+        base(global::Kadr.Properties.Settings.Default.KadrConnectionString1, mappingSource)
+        {
+            OnCreated();
+        }
 
         /*public PlanStaff CreateNewPlanStaff(Department department)
         {

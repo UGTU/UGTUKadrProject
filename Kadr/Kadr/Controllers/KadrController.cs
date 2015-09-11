@@ -42,11 +42,11 @@ namespace Kadr.Controllers
         /// <returns></returns>
         public bool CheckDataBaseVersion()
         {
-            if (Model.AuditKadrVersions.Max(KV => KV.idVersion) != CurrentDBVersion)
+            /*if (Model.AuditKadrVersions.Max(KV => KV.idVersion) != CurrentDBVersion)
             {
                 MessageBox.Show("Текущая версия базы данных не соответсвует приложению.", "ИС \"Учет кадров\"");
                 return false;
-            }
+            }*/
             return true;
         }
 

@@ -154,11 +154,11 @@ namespace Kadr.Data
         {
             get
             {
-                return Validation.FactStaffPrikaz.Prikaz;
+                return Validation.Event.Prikaz;
             }
             set
             {
-                Validation.FactStaffPrikaz.Prikaz = value;
+                Validation.Event.Prikaz = value;
             }
         }
 
@@ -171,11 +171,11 @@ namespace Kadr.Data
         {
             get
             {
-                return Validation.FactStaffPrikaz.DateBegin;
+                return Validation.Event.DateBegin;
             }
             set
             {
-                    Validation.FactStaffPrikaz.DateBegin = value;
+                    Validation.Event.DateBegin = value;
 
             }
         }

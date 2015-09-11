@@ -22,7 +22,7 @@ namespace Kadr.Controllers
                     dlg.InitializeNewObject = (x) =>
                     {
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, BusinessTrip>(btrt, "BusinessTrip", x, null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(dlg.CommandManager, fs), null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, Event>(x, "Event", new Event(DateTime.Now.Date, DateTime.Now.AddDays(7).Date, fs), null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FinancingSource>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.FirstOrDefault(), null), sender);
                         //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.First(), null), this);
@@ -41,7 +41,7 @@ namespace Kadr.Controllers
 
         public static void Read(FactStaff fs, BindingSource BusinessTripsBindingSource)
         {
-            BusinessTripsBindingSource.DataSource = KadrController.Instance.Model.BusinessTrips.Where(t => t.FactStaffPrikaz.FactStaff == fs).Select(x => x.GetDecorator()).ToList();
+            BusinessTripsBindingSource.DataSource = KadrController.Instance.Model.BusinessTrips.Where(t => t.Event.FactStaff == fs).Select(x => x.GetDecorator()).ToList();
         }
 
         public static void Update(FactStaff fs, BindingSource BusinessTripsBindingSource)
@@ -65,7 +65,7 @@ namespace Kadr.Controllers
                     KadrController.Instance.Model.BusinessTripRegionTypes.DeleteOnSubmit(rt);
 
                 KadrController.Instance.Model.BusinessTrips.DeleteOnSubmit(bt);
-                KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(bt.FactStaffPrikaz);
+                KadrController.Instance.Model.Events.DeleteOnSubmit(bt.Event);
                 KadrController.Instance.Model.SubmitChanges();
             }
             Read(fs, BusinessTripsBindingSource);

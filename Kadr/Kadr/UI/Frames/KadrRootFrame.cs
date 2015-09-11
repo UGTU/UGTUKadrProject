@@ -835,7 +835,7 @@ namespace Kadr.UI.Frames
            tcDepartment.TabPages.Remove(tpStaffAverage);
            tcDepartment.TabPages.Remove(tpQrStaffAverage);
            tcDepartment.TabPages.Remove(tpMinFormReport);
-           tcDepartment.TabPages.Remove(tpTimeNorm);
+           //tcDepartment.TabPages.Remove(tpTimeNorm);
            tcDepartment.TabPages.Remove(tpDepartments);
            
            cbYear.Items.Clear();

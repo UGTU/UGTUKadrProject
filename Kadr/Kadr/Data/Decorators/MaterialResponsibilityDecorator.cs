@@ -64,11 +64,11 @@ namespace Kadr.Data
         {
             get
             {
-                return _material.FactStaffPrikaz.DateBegin.Value;
+                return _material.Event.DateBegin.Value;
             }
             set
             {
-                _material.FactStaffPrikaz.DateBegin = value;
+                _material.Event.DateBegin = value;
             }
         }
 
@@ -81,10 +81,10 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(false)]
         public DateTime? DateEnd
         {
-            get { return _material.FactStaffPrikaz.DateEnd; }
+            get { return _material.Event.DateEnd; }
             set
             {
-                _material.FactStaffPrikaz.DateEnd = value;
+                _material.Event.DateEnd = value;
             }
         }
 

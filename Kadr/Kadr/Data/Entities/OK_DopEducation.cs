@@ -19,11 +19,12 @@ namespace Kadr.Data
 
         public Prikaz Prikaz
         {
-            get { return (FactStaffPrikaz != null) ? FactStaffPrikaz.Prikaz : TempPrikaz; }
+            get { return (Event != null) ? Event.Prikaz : TempPrikaz; }
             set
             {
-                if (FactStaffPrikaz != null) FactStaffPrikaz.Prikaz = value;
+                if (Event != null) Event.Prikaz = value;
                 else TempPrikaz = value;
+                
             }
         }
 

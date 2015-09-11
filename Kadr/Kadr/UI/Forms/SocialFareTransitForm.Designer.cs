@@ -51,9 +51,9 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateBeginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateEndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FactStaffPrikaz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Event = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idEmployeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idFactStaffPrikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEventDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlanStaffHistory)).BeginInit();
@@ -79,10 +79,10 @@
             this.idDataGridViewTextBoxColumn,
             this.dateBeginDataGridViewTextBoxColumn,
             this.dateEndDataGridViewTextBoxColumn,
-            this.FactStaffPrikaz,
+            this.Event,
             this.IsUsed,
             this.idEmployeeDataGridViewTextBoxColumn,
-            this.idFactStaffPrikazDataGridViewTextBoxColumn,
+            this.idEventDataGridViewTextBoxColumn,
             this.employeeDataGridViewTextBoxColumn});
             this.dgvPlanStaffHistory.DataSource = this.socialFareTransitBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -207,7 +207,7 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "FactStaffPrikaz";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Event";
             this.dataGridViewTextBoxColumn4.HeaderText = "Приказ об использовании";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -223,8 +223,8 @@
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "idFactStaffPrikaz";
-            this.dataGridViewTextBoxColumn6.HeaderText = "idFactStaffPrikaz";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "idEvent";
+            this.dataGridViewTextBoxColumn6.HeaderText = "idEvent";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Visible = false;
@@ -259,13 +259,13 @@
             this.dateEndDataGridViewTextBoxColumn.Name = "dateEndDataGridViewTextBoxColumn";
             this.dateEndDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // FactStaffPrikaz
+            // Event
             // 
-            this.FactStaffPrikaz.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FactStaffPrikaz.DataPropertyName = "FactStaffPrikaz";
-            this.FactStaffPrikaz.HeaderText = "Приказ об использовании";
-            this.FactStaffPrikaz.Name = "FactStaffPrikaz";
-            this.FactStaffPrikaz.ReadOnly = true;
+            this.Event.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Event.DataPropertyName = "Event";
+            this.Event.HeaderText = "Приказ об использовании";
+            this.Event.Name = "Event";
+            this.Event.ReadOnly = true;
             // 
             // idEmployeeDataGridViewTextBoxColumn
             // 
@@ -275,13 +275,13 @@
             this.idEmployeeDataGridViewTextBoxColumn.ReadOnly = true;
             this.idEmployeeDataGridViewTextBoxColumn.Visible = false;
             // 
-            // idFactStaffPrikazDataGridViewTextBoxColumn
+            // idEventDataGridViewTextBoxColumn
             // 
-            this.idFactStaffPrikazDataGridViewTextBoxColumn.DataPropertyName = "idFactStaffPrikaz";
-            this.idFactStaffPrikazDataGridViewTextBoxColumn.HeaderText = "idFactStaffPrikaz";
-            this.idFactStaffPrikazDataGridViewTextBoxColumn.Name = "idFactStaffPrikazDataGridViewTextBoxColumn";
-            this.idFactStaffPrikazDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idFactStaffPrikazDataGridViewTextBoxColumn.Visible = false;
+            this.idEventDataGridViewTextBoxColumn.DataPropertyName = "idEvent";
+            this.idEventDataGridViewTextBoxColumn.HeaderText = "idEvent";
+            this.idEventDataGridViewTextBoxColumn.Name = "idEventDataGridViewTextBoxColumn";
+            this.idEventDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idEventDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeeDataGridViewTextBoxColumn
             // 
@@ -340,10 +340,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FactStaffPrikaz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Event;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEmployeeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFactStaffPrikazDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEventDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn;
     }
 }
