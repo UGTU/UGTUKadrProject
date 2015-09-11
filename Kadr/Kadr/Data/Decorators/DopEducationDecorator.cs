@@ -85,8 +85,8 @@ namespace Kadr.Data
             set 
             { 
                 _dop.DateBegin = value;
-                if (_dop.FactStaffPrikaz != null)
-                  _dop.FactStaffPrikaz.DateBegin = value;
+                if (_dop.Event != null)
+                  _dop.Event.DateBegin = value;
             }
         }
 
@@ -101,8 +101,8 @@ namespace Kadr.Data
             set
             {
                 _dop.DateEnd = value;
-                if (_dop.FactStaffPrikaz != null)
-                    _dop.FactStaffPrikaz.DateEnd = value;
+                if (_dop.Event != null)
+                    _dop.Event.DateEnd = value;
             }
         }
 

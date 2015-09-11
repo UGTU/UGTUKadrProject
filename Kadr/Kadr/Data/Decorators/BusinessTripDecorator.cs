@@ -13,9 +13,9 @@ namespace Kadr.Data
         public BusinessTripDecorator(BusinessTrip Trip)
         {
             this.Trip = Trip;
-            /*if (Trip.FactStaffPrikaz.Prikaz != null)
-                if (Trip.FactStaffPrikaz.Prikaz.DatePrikaz != null)
-                    PDate = (DateTime)Trip.FactStaffPrikaz.Prikaz.DatePrikaz;*/
+            /*if (Trip.Event.Prikaz != null)
+                if (Trip.Event.Prikaz.DatePrikaz != null)
+                    PDate = (DateTime)Trip.Event.Prikaz.DatePrikaz;*/
         }
 
         public override string ToString()
@@ -67,11 +67,11 @@ namespace Kadr.Data
         {
             get
             {
-                return Trip.FactStaffPrikaz.Prikaz;
+                return Trip.Event.Prikaz;
             }
             set
             {
-                if (value != null) Trip.FactStaffPrikaz.Prikaz = value;
+                if (value != null) Trip.Event.Prikaz = value;
                 // спросить про это:
                 // factStaff.MainFactStaff = KadrController.Instance.Model.FactStaffs.Where(fcSt => fcSt.id == value.id).SingleOrDefault();
             }
@@ -87,14 +87,14 @@ namespace Kadr.Data
             get
             {
 
-                return (DateTime)Trip.FactStaffPrikaz.DateBegin;
+                return (DateTime)Trip.Event.DateBegin;
             }
             set
             {
                 if (value != null)
                 {
                     if (Trip.BusinessTripRegionTypes.First().DateBegin == DateBegin) Trip.BusinessTripRegionTypes.First().DateBegin = value;
-                    Trip.FactStaffPrikaz.DateBegin = value;
+                    Trip.Event.DateBegin = value;
                 }
 
             }
@@ -109,7 +109,7 @@ namespace Kadr.Data
             get
             {
 
-                return (DateTime)Trip.FactStaffPrikaz.DateEnd;
+                return (DateTime)Trip.Event.DateEnd;
             }
             set
             {
@@ -117,7 +117,7 @@ namespace Kadr.Data
                 if (value != null)
                 {
                     if (Trip.BusinessTripRegionTypes.First().DateEnd == DateEnd) Trip.BusinessTripRegionTypes.First().DateEnd = value;
-                    Trip.FactStaffPrikaz.DateEnd = value;
+                    Trip.Event.DateEnd = value;
                 }
 
             }

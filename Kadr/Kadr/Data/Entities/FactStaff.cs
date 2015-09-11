@@ -33,6 +33,7 @@ namespace Kadr.Data
             {
                 res = res + ", " + this.PlanStaff.Post.ToString();
             }
+
             if (this.WorkType != null)
                 res = res + ", " + this.WorkType.ToString();
             res = res + ", " + StaffCount.ToString() + " ставки";
@@ -64,7 +65,7 @@ namespace Kadr.Data
             get
             {
 
-                var trips = FactStaffPrikazs.SelectMany(x => x.BusinessTrips).Where(t => (t.FactStaffPrikaz.DateBegin < DateTime.Now) && (t.FactStaffPrikaz.DateEnd > DateTime.Now));
+                var trips = CurrentChange.Events.SelectMany(x => x.BusinessTrips).Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
                 if (trips.Any()) return FactStaffState.OnTrip;
 
 

@@ -328,6 +328,7 @@
     <Compile Include="Data\Entities\EmployeeDegree.cs" />
     <Compile Include="Data\Entities\EmployeeRank.cs" />
     <Compile Include="Data\Entities\EmployeeStanding.cs" />
+    <Compile Include="Data\Entities\Event.cs" />
     <Compile Include="Data\Entities\FactStaff.cs" />
     <Compile Include="Data\Entities\FactStaffBonusProject.cs" />
     <Compile Include="Data\Entities\FactStaffCurrentMainData.cs" />
@@ -335,7 +336,6 @@
     <Compile Include="Data\Entities\FactStaffHour.cs" />
     <Compile Include="Data\Entities\FactStaffHourContract.cs" />
     <Compile Include="Data\Entities\FactStaffMonthHour.cs" />
-    <Compile Include="Data\Entities\FactStaffPrikaz.cs" />
     <Compile Include="Data\Entities\FactStaffReplacement.cs" />
     <Compile Include="Data\Entities\FactStaffReplacementReason.cs" />
     <Compile Include="Data\Entities\FinancingSource.cs" />

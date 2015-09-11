@@ -18,11 +18,11 @@ namespace Kadr.Data
         {
             get
             {
-                return FactStaffPrikaz.Prikaz;
+                return Event.Prikaz;
             }
             set
             {
-                FactStaffPrikaz.Prikaz = value;
+                Event.Prikaz = value;
             }
         }
 
@@ -30,11 +30,11 @@ namespace Kadr.Data
         {
             get
             {
-                return FactStaffPrikaz.FactStaff;
+                return Event.FactStaff;
             }
             set
             {
-                FactStaffPrikaz.FactStaff = value;
+                Event.FactStaff = value;
             }
         }
 
@@ -42,11 +42,11 @@ namespace Kadr.Data
         {
             get
             {
-                return FactStaffPrikaz.DateBegin;
+                return Event.DateBegin;
             }
             set
             {
-                FactStaffPrikaz.DateBegin = value;
+                Event.DateBegin = value;
             }
         }
 
@@ -54,11 +54,11 @@ namespace Kadr.Data
         {
             get
             {
-                return FactStaffPrikaz.DateEnd;
+                return Event.DateEnd;
             }
             set
             {
-                FactStaffPrikaz.DateEnd = value;
+                Event.DateEnd = value;
             }
         }
 
@@ -91,7 +91,7 @@ namespace Kadr.Data
                 if (SocialFareTransit != null)
                     if (SocialFareTransit.IsNull())
                         SocialFareTransit = null;
-                if (FactStaffPrikaz.IsNull() || FactStaffPrikaz == null) throw new ArgumentNullException("Приказ.");
+                if (Event.IsNull() || Event == null) throw new ArgumentNullException("Приказ.");
                 if ((OK_Otpuskvid == null) || (OK_Otpuskvid.IsNull())) throw new ArgumentNullException("Вид отпуска.");
                 if (RealDateEnd != null)
                     if (RealDateEnd < RealDateBegin)

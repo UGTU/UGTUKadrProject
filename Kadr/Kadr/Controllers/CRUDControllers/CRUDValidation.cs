@@ -17,7 +17,7 @@ namespace Kadr.Controllers
             {
 
                 dlg.InitializeNewObject = (x =>
-                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, FactStaffPrikaz>(x, "FactStaffPrikaz", new FactStaffPrikaz(DateTime.Now.Date, null, fs), null), sender)
+                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, Event>(x, "Event", new Event(DateTime.Now.Date, null, fs), null), sender)
                 );
 
                 dlg.BeforeApplyAction = (x =>
@@ -38,7 +38,7 @@ namespace Kadr.Controllers
 
         public static void Read(FactStaff fs, BindingSource ValidationDecoratorBS)
         {
-            ValidationDecoratorBS.DataSource = KadrController.Instance.Model.Validations.Where(t => t.FactStaffPrikaz.FactStaff == fs)
+            ValidationDecoratorBS.DataSource = KadrController.Instance.Model.Validations.Where(t => t.Event.FactStaff == fs)
                 .Select(x => x.GetDecorator()).ToList();
         }
 
@@ -62,8 +62,8 @@ namespace Kadr.Controllers
                     if (v.EducDocument != null)
                         KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(v.EducDocument);
 
-                    if (v.FactStaffPrikaz != null)
-                        KadrController.Instance.Model.FactStaffPrikazs.DeleteOnSubmit(v.FactStaffPrikaz);
+                    if (v.Event != null)
+                        KadrController.Instance.Model.Events.DeleteOnSubmit(v.Event);
 
                     LinqActionsController<Validation>.Instance.DeleteObject(v, KadrController.Instance.Model.Validations, null);
 
