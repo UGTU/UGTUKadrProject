@@ -143,6 +143,7 @@ namespace Kadr.UI.Common
                 if (objectList != null)
                 {
                     objectList.DeleteOnSubmit(newObject);
+                    throw exp;
                 }
                 else
                 {
@@ -160,6 +161,7 @@ namespace Kadr.UI.Common
                     {
                         KadrController.Instance.Model.FactStaffs.DeleteOnSubmit(factStaff);
                     }
+                    throw exp;
                 }
             }
 
