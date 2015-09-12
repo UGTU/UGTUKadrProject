@@ -18,7 +18,8 @@ namespace Kadr.Properties {
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
         public static Settings Default {
-            get {
+            get
+            {
                 return defaultInstance;
             }
         }
@@ -44,16 +45,6 @@ namespace Kadr.Properties {
             }
             set {
                 this["AwardDocTypeName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=Kadr;Integrated Security=True")]
-        public string kadrConnectionString {
-            get {
-                return ((string)(this["kadrConnectionString"]));
             }
         }
         
@@ -112,6 +103,17 @@ namespace Kadr.Properties {
         public string KadrRealTestConnectionString {
             get {
                 return ((string)(this["KadrRealTestConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" +
+            "")]
+        public string kadrConnectionString {
+            get {
+                return ((string)(this["kadrConnectionString"]));
             }
         }
     }

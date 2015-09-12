@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -96,7 +96,7 @@ namespace Kadr.UI.Common
             }
             catch (Exception exp)
             {
-                MessageBox.Show(exp.Message, "ИС \"Управление кадрами\"");
+                MessageBox.Show(exp.Message, "РРЎ \"РЈРїСЂР°РІР»РµРЅРёРµ РєР°РґСЂР°РјРё\"");
 
                 return;
             }
@@ -116,7 +116,7 @@ namespace Kadr.UI.Common
             }
             catch (Exception exp)
             {
-                MessageBox.Show(exp.Message, "АИС \"Управление кадрами\"");
+                MessageBox.Show(exp.Message, "РђРРЎ \"РЈРїСЂР°РІР»РµРЅРёРµ РєР°РґСЂР°РјРё\"");
 
                 return;
             }
@@ -130,7 +130,7 @@ namespace Kadr.UI.Common
             }
             catch(ArgumentException)
             {
-                MessageBox.Show("Справка приложения недоступна.", "Спрaвка", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("РЎРїСЂР°РІРєР° РїСЂРёР»РѕР¶РµРЅРёСЏ РЅРµРґРѕСЃС‚СѓРїРЅР°.", "РЎРїСЂaРІРєР°", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -167,7 +167,7 @@ namespace Kadr.UI.Common
 
         private void ISGBBaseDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //если был выбран OK, но изменения не сохранены (т.е. произошла ошибка), не закрываем диалог
+            //РµСЃР»Рё Р±С‹Р» РІС‹Р±СЂР°РЅ OK, РЅРѕ РёР·РјРµРЅРµРЅРёСЏ РЅРµ СЃРѕС…СЂР°РЅРµРЅС‹ (С‚.Рµ. РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°), РЅРµ Р·Р°РєСЂС‹РІР°РµРј РґРёР°Р»РѕРі
             if ((isModified) && (OKclicked))
             {
                 OKclicked = false;
@@ -177,8 +177,8 @@ namespace Kadr.UI.Common
 
             if (IsModified)
             {
-                DialogResult result = MessageBox.Show("Данные в окне были изменены. Сохранить сделанные изменения в базе данных?", 
-                    "Сохранение изменений", MessageBoxButtons.YesNoCancel, 
+                DialogResult result = MessageBox.Show("Р”Р°РЅРЅС‹Рµ РІ РѕРєРЅРµ Р±С‹Р»Рё РёР·РјРµРЅРµРЅС‹. РЎРѕС…СЂР°РЅРёС‚СЊ СЃРґРµР»Р°РЅРЅС‹Рµ РёР·РјРµРЅРµРЅРёСЏ РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С…?", 
+                    "РЎРѕС…СЂР°РЅРµРЅРёРµ РёР·РјРµРЅРµРЅРёР№", MessageBoxButtons.YesNoCancel, 
                     MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
 
                 switch (result)
@@ -222,7 +222,7 @@ namespace Kadr.UI.Common
         }
 
         /// <summary>
-        /// Видимость кнопки "Добавить" ("Применить")
+        /// Р’РёРґРёРјРѕСЃС‚СЊ РєРЅРѕРїРєРё "Р”РѕР±Р°РІРёС‚СЊ" ("РџСЂРёРјРµРЅРёС‚СЊ")
         /// </summary>
         public bool ApplyButtonVisible
         {

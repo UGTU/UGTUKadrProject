@@ -33,10 +33,10 @@ namespace Kadr.Data
 
         #endregion
 
-        public Event(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff)
+        public Event(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory)
             : this()
         {
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaff>(this, "FactStaff", factStaff, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaffHistory>(this, "FactStaff", factStaffHistory, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this, "Prikaz", NullPrikaz.Instance, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateBegin", DateTime.Today, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", DateTime.Today, null), null);

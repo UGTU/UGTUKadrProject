@@ -64,23 +64,27 @@ namespace Kadr.UI.Common
             this.helpProvider1.SetHelpString(this.ApplyBtn, "Вносит изменения в базу данных, не закрывая окно.");
             this.ApplyBtn.Location = new System.Drawing.Point(459, 2);
             this.helpProvider1.SetShowHelp(this.ApplyBtn, true);
+            this.ApplyBtn.Text = "Применить";
             // 
             // CancelBtn
             // 
             this.helpProvider1.SetHelpString(this.CancelBtn, "Отменяет все изменения с момента последноего сохранения и закрывает окно.");
             this.CancelBtn.Location = new System.Drawing.Point(367, 2);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
+            this.CancelBtn.Text = "Отмена";
             // 
             // OKBtn
             // 
             this.helpProvider1.SetHelpString(this.OKBtn, "Вносит изменения в базу данных и закрывает окно.");
             this.OKBtn.Location = new System.Drawing.Point(275, 2);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
+            this.OKBtn.Text = "ОК";
             // 
             // HelpBtn
             // 
             this.helpProvider1.SetHelpString(this.HelpBtn, "Вызов справки по диалоговому окну");
             this.helpProvider1.SetShowHelp(this.HelpBtn, true);
+            this.HelpBtn.Text = "Помощь";
             // 
             // bindingNavigator1
             // 
@@ -118,13 +122,13 @@ namespace Kadr.UI.Common
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(77, 22);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(79, 22);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(36, 22);
             this.bindingNavigatorCountItem.Text = "из {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Общее число записей";
             // 
