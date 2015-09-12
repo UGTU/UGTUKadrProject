@@ -270,7 +270,7 @@
     <Compile Include="Data\Decorators\OK_AdressDecorator.cs" />
     <Compile Include="Data\Decorators\OK_phoneDecorator.cs" />
     <Compile Include="Data\Decorators\SocialDecorator.cs" />
-    <Compile Include="Data\Decorators\SocialFareTransitDecorator.cs" />
+    <Compile Include="Data\Entities\SocialFareTransitDecorator.cs" />
     <Compile Include="Data\Decorators\OK_OtpuskDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHourContractDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHourDecorator.cs" />
