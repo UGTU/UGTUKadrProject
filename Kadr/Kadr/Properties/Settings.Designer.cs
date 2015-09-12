@@ -23,100 +23,118 @@ namespace Kadr.Properties {
                 return defaultInstance;
             }
         }
-        
+
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Больничный")]
-        public string InkapacityDocTypeName {
-            get {
+        public string InkapacityDocTypeName
+        {
+            get
+            {
                 return ((string)(this["InkapacityDocTypeName"]));
             }
-            set {
+            set
+            {
                 this["InkapacityDocTypeName"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Награда")]
-        public string AwardDocTypeName {
-            get {
+        public string AwardDocTypeName
+        {
+            get
+            {
                 return ((string)(this["AwardDocTypeName"]));
             }
-            set {
+            set
+            {
                 this["AwardDocTypeName"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Социальный статус")]
-        public string SocialDocType {
-            get {
+        public string SocialDocType
+        {
+            get
+            {
                 return ((string)(this["SocialDocType"]));
             }
-            set {
+            set
+            {
                 this["SocialDocType"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Свидетельство прохождения аттестации")]
-        public string ValidationDocType {
-            get {
+        public string ValidationDocType
+        {
+            get
+            {
                 return ((string)(this["ValidationDocType"]));
             }
-            set {
+            set
+            {
                 this["ValidationDocType"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int SexImagesInterval {
-            get {
+        public int SexImagesInterval
+        {
+            get
+            {
                 return ((int)(this["SexImagesInterval"]));
             }
-            set {
+            set
+            {
                 this["SexImagesInterval"] = value;
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" +
-            "")]
-        public string KadrRealTestConnectionString {
-            get {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True")]
+        public string KadrRealTestConnectionString
+        {
+            get
+            {
                 return ((string)(this["KadrRealTestConnectionString"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" +
-            "")]
-        public string kadrConnectionString {
-            get {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True")]
+        public string kadrConnectionString
+        {
+            get
+            {
                 return ((string)(this["kadrConnectionString"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" +
-            "")]
-        public string KadrConnectionString1 {
-            get {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True")]
+        public string KadrConnectionString1
+        {
+            get
+            {
                 return ((string)(this["KadrConnectionString1"]));
             }
         }
-        
 
     }
 }
