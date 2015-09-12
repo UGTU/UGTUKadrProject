@@ -394,4 +394,16 @@ GO
 
 
 
+set identity_insert [dbo].[EventKind] ON
+insert into [dbo].[EventKind]([id],[EventKindName])
+values(1,'Прием сотрудника')
+
+insert into [dbo].[EventKind]([id],[EventKindName])
+values(2,'Изменение условий трудового договора')
+
+
+set identity_insert [dbo].[EventKind] OFF
+
+
+
 

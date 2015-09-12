@@ -186,6 +186,14 @@ namespace Kadr.Data
         /// <summary>
         /// Первоначальное назначение (изменение)
         /// </summary>
+        public FactStaffHistory GetHistoryForDate(DateTime Date)
+        {
+            return FactStaffHistories.Where(fcStHist => fcStHist.DateBegin <= Date).OrderBy(fcStHist => fcStHist.DateBegin).LastOrDefault();
+        }
+
+        /// <summary>
+        /// Первоначальное назначение (изменение)
+        /// </summary>
         public FactStaffHistory FirstDesignate
         {
             get
