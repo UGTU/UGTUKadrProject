@@ -18,7 +18,8 @@ namespace Kadr.Properties {
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
         public static Settings Default {
-            get {
+            get
+            {
                 return defaultInstance;
             }
         }
@@ -115,5 +116,7 @@ namespace Kadr.Properties {
                 return ((string)(this["KadrConnectionString1"]));
             }
         }
+        
+
     }
 }

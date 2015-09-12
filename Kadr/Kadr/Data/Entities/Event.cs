@@ -24,14 +24,14 @@ namespace Kadr.Data
             get
             {
                 if (FactStaffHistory != null)
-                    return FactStaffHistory.FactStaff;
+                return FactStaffHistory.FactStaff;
                 else
                     return null;
             }
             set
             {
                 if (FactStaffHistory != null)
-                    value = FactStaffHistory.FactStaff;
+                value = FactStaffHistory.FactStaff;
             }
         }
 

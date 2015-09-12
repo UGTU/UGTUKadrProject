@@ -38,7 +38,7 @@ namespace Kadr.Controllers
 
         public static void Read(FactStaff fs, BindingSource ValidationDecoratorBS)
         {
-            ValidationDecoratorBS.DataSource = KadrController.Instance.Model.Validations.Where(t => t.Event.FactStaff == fs)
+            ValidationDecoratorBS.DataSource = KadrController.Instance.Model.Validations.Where(t => t.Event.FactStaffHistory.FactStaff == fs)
                 .Select(x => x.GetDecorator()).ToList();
         }
 
