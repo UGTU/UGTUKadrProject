@@ -37,7 +37,7 @@ namespace Kadr.Data
 
         #endregion
 
-        public Event(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory)
+        public Event(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff)
             : this()
         {
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaffHistory>(this, "FactStaffHistory", factStaff.CurrentChange, null), null);
