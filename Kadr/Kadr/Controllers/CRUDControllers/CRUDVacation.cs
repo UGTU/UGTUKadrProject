@@ -33,7 +33,7 @@ namespace Kadr.Controllers
            IEnumerable<OK_Otpusk> tmp;
 
             if (fs != null )
-                tmp = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory == fsh);
+                tmp = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory == fs);
             else
                 tmp = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory.FactStaff.Employee == e);
                
