@@ -407,3 +407,10 @@ set identity_insert [dbo].[EventKind] OFF
 
 
 
+
+go
+ALTER TABLE [dbo].[Event]
+ALTER COLUMN [idPrikaz] INT NULL
+
+
+
