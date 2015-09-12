@@ -1357,6 +1357,7 @@
   <ItemGroup>
     <Content Include="CONSTRUC.ICO" />
     <Content Include="Kadr.ico" />
+    <Content Include="Resources\Kadr.ico" />
     <Content Include="Resources\TreeIcons\briefcase.png" />
     <Content Include="Resources\TreeIcons\palmtree.png" />
     <Content Include="Resources\TreeIcons\thermometer.png" />
