@@ -1,10 +1,11 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 
@@ -12,12 +13,12 @@ namespace APG.CodeHelper.ExceptionHandler
 {
     public class ExceptionHandler
     {
-        private const string NotAllowedExceptionMessage = " Эта ошибка не должна проявляться в системе. Следует отправить отчёт об ошибке разработчику.";
+        private const string NotAllowedExceptionMessage = " Р­С‚Р° РѕС€РёР±РєР° РЅРµ РґРѕР»Р¶РЅР° РїСЂРѕСЏРІР»СЏС‚СЊСЃСЏ РІ СЃРёСЃС‚РµРјРµ. РЎР»РµРґСѓРµС‚ РѕС‚РїСЂР°РІРёС‚СЊ РѕС‚С‡С‘С‚ РѕР± РѕС€РёР±РєРµ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєСѓ.";
 
         /// <summary>
-        /// Обработчик исключительных ситуаций
+        /// РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РёС‚РµР»СЊРЅС‹С… СЃРёС‚СѓР°С†РёР№
         /// </summary>
-        /// <param name="e">Исключение</param>
+        /// <param name="e">РСЃРєР»СЋС‡РµРЅРёРµ</param>
         public static void HandleApplicationException(object sender, Exception e)
         {
 
@@ -154,44 +155,45 @@ namespace APG.CodeHelper.ExceptionHandler
                 HandleApplicationException(e as ApplicationException);
             }
 
-            // Обработка неизвестных исключений
+            // РћР±СЂР°Р±РѕС‚РєР° РЅРµРёР·РІРµСЃС‚РЅС‹С… РёСЃРєР»СЋС‡РµРЅРёР№
             HandleUnhandledException(e);
    
         }
 
         private static void HandleApplicationException(ApplicationException e)
         {
-            ShowExceptionDialog(e, "Эта исключительная ситуация предусмотрена приложением и требует ваших действий по корректировке описанной выше проблемы.", "Запланированное исключение", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(e, "Р­С‚Р° РёСЃРєР»СЋС‡РёС‚РµР»СЊРЅР°СЏ СЃРёС‚СѓР°С†РёСЏ РїСЂРµРґСѓСЃРјРѕС‚СЂРµРЅР° РїСЂРёР»РѕР¶РµРЅРёРµРј Рё С‚СЂРµР±СѓРµС‚ РІР°С€РёС… РґРµР№СЃС‚РІРёР№ РїРѕ РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєРµ РѕРїРёСЃР°РЅРЅРѕР№ РІС‹С€Рµ РїСЂРѕР±Р»РµРјС‹.", "Р—Р°РїР»Р°РЅРёСЂРѕРІР°РЅРЅРѕРµ РёСЃРєР»СЋС‡РµРЅРёРµ", MessageBoxIcon.Information, true);
         }
 
         private static void HandleUnhandledException(Exception e)
         {
-            ShowExceptionDialog(e, "В системе произошла необработанная исключительная ситуация. Если эта ошибка часто повторяется обратитесь к разработчику.", "Необработанное исключение", MessageBoxIcon.Warning, true);
+            ShowExceptionDialog(e, "Р’ СЃРёСЃС‚РµРјРµ РїСЂРѕРёР·РѕС€Р»Р° РЅРµРѕР±СЂР°Р±РѕС‚Р°РЅРЅР°СЏ РёСЃРєР»СЋС‡РёС‚РµР»СЊРЅР°СЏ СЃРёС‚СѓР°С†РёСЏ. Р•СЃР»Рё СЌС‚Р° РѕС€РёР±РєР° С‡Р°СЃС‚Рѕ РїРѕРІС‚РѕСЂСЏРµС‚СЃСЏ РѕР±СЂР°С‚РёС‚РµСЃСЊ Рє СЂР°Р·СЂР°Р±РѕС‚С‡РёРєСѓ.", "РќРµРѕР±СЂР°Р±РѕС‚Р°РЅРЅРѕРµ РёСЃРєР»СЋС‡РµРЅРёРµ", MessageBoxIcon.Warning, true);
         }
 
         private static void HandleWin32Exception(Win32Exception win32Exception)
         {
-            ShowExceptionDialog(win32Exception, "Ошибка при доступе к однму из сервисов подсистемы Win32. Проверьте запущены ли все необходимые службы и повторите попытку.", "Ошибка Win32", MessageBoxIcon.Exclamation, true);
+            ShowExceptionDialog(win32Exception, "РћС€РёР±РєР° РїСЂРё РґРѕСЃС‚СѓРїРµ Рє РѕРґРЅРјСѓ РёР· СЃРµСЂРІРёСЃРѕРІ РїРѕРґСЃРёСЃС‚РµРјС‹ Win32. РџСЂРѕРІРµСЂСЊС‚Рµ Р·Р°РїСѓС‰РµРЅС‹ Р»Рё РІСЃРµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ СЃР»СѓР¶Р±С‹ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ.", "РћС€РёР±РєР° Win32", MessageBoxIcon.Exclamation, true);
         }
 
         private static void HandleNullReferenceException(NullReferenceException nullReferenceException)
         {
-            ShowExceptionDialog(nullReferenceException, "Попытка доступа к неинициализированному (null) объекту. " + NotAllowedExceptionMessage, "Неопознанная ошибка", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(nullReferenceException, "РџРѕРїС‹С‚РєР° РґРѕСЃС‚СѓРїР° Рє РЅРµРёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅРѕРјСѓ (null) РѕР±СЉРµРєС‚Сѓ. " + NotAllowedExceptionMessage, "РќРµРѕРїРѕР·РЅР°РЅРЅР°СЏ РѕС€РёР±РєР°", MessageBoxIcon.Information, true);
     
         }
 
         private static void HandlArgumentNullException(ArgumentNullException argumentNullException)
         {
-            ShowExceptionDialog(argumentNullException, "Недопустимо использовать нулевое (null) значение аргумента метода класса. " + NotAllowedExceptionMessage, "Неопознання ошибка", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(argumentNullException, "РќРµРґРѕРїСѓСЃС‚РёРјРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅСѓР»РµРІРѕРµ (null) Р·РЅР°С‡РµРЅРёРµ Р°СЂРіСѓРјРµРЅС‚Р° РјРµС‚РѕРґР° РєР»Р°СЃСЃР°. " + NotAllowedExceptionMessage, "РќРµРѕРїРѕР·РЅР°РЅРЅСЏ РѕС€РёР±РєР°", MessageBoxIcon.Information, true);
         }
 
         private static void HandleArgumentException(ArgumentException argumentException)
         {
-            ShowExceptionDialog(argumentException, "Ошибка в одном или нескольких параметрах метода класса. " + NotAllowedExceptionMessage, "Неопознання ошибка", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(argumentException, "РћС€РёР±РєР° РІ РѕРґРЅРѕРј РёР»Рё РЅРµСЃРєРѕР»СЊРєРёС… РїР°СЂР°РјРµС‚СЂР°С… РјРµС‚РѕРґР° РєР»Р°СЃСЃР°. " + NotAllowedExceptionMessage, "РќРµРѕРїРѕР·РЅР°РЅРЅСЏ РѕС€РёР±РєР°", MessageBoxIcon.Information, true);
         }
 
         private static void ShowExceptionDialog(Exception exception, string exceptionMessage, string aboutMessage, MessageBoxIcon messageBoxIcon, bool bShowSendButton, System.Type detailDialogType)
         {
+            
             ExceptionDialog exceptionDialog = new ExceptionDialog(exception);
             exceptionDialog.DetailDialogType = detailDialogType;
             exceptionDialog.ExceptionMessage = exceptionMessage;
@@ -199,7 +201,7 @@ namespace APG.CodeHelper.ExceptionHandler
             exceptionDialog.MessageIcon = messageBoxIcon;
             exceptionDialog.Text = Application.ProductName;
             exceptionDialog.BtnRaport.Visible = bShowSendButton;
-
+            
             exceptionDialog.ShowDialog();
         }
 
@@ -210,7 +212,7 @@ namespace APG.CodeHelper.ExceptionHandler
         }
 
         /// <summary>
-        /// Обработчик исключений от SQL Server 2005
+        /// РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёР№ РѕС‚ SQL Server 2005
         /// </summary>
         /// <param name="e"></param>
         private static void HandleSqlClientException(object sender, System.Data.SqlClient.SqlException e)
@@ -230,143 +232,143 @@ namespace APG.CodeHelper.ExceptionHandler
             const int MSSQL_PERMISSION_DENIED = 229;
             const int MSSQL_CLR_DISABLED = 6263;
 
-            string errorMessage = "Дополнительная информация об ошибке отсутствует.";
+            string errorMessage = "Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕС€РёР±РєРµ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚.";
             
             switch (e.Number)
             {
                 case MSSQL_CONNECTION_ERROR:
-                    errorMessage = "Ошибка подключения к службе SQL Server. Убедитесь, что вы правильно указали имя сервера и что сервер принимает подключения. Обратитесь за помощью к администратору баз данных."; break;
+                    errorMessage = "РћС€РёР±РєР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ Рє СЃР»СѓР¶Р±Рµ SQL Server. РЈР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ РІС‹ РїСЂР°РІРёР»СЊРЅРѕ СѓРєР°Р·Р°Р»Рё РёРјСЏ СЃРµСЂРІРµСЂР° Рё С‡С‚Рѕ СЃРµСЂРІРµСЂ РїСЂРёРЅРёРјР°РµС‚ РїРѕРґРєР»СЋС‡РµРЅРёСЏ. РћР±СЂР°С‚РёС‚РµСЃСЊ Р·Р° РїРѕРјРѕС‰СЊСЋ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ Р±Р°Р· РґР°РЅРЅС‹С…."; break;
                 case MSSQL_SERVICE_STOPED: 
-                    errorMessage = "Служба Microsoft SQL Server остановлена или указано неверное имя сервера. Убедитесь, что служба запущена и указано верное имя сервера. Обратитесь за помощью к администратору базы данных."; break;
+                    errorMessage = "РЎР»СѓР¶Р±Р° Microsoft SQL Server РѕСЃС‚Р°РЅРѕРІР»РµРЅР° РёР»Рё СѓРєР°Р·Р°РЅРѕ РЅРµРІРµСЂРЅРѕРµ РёРјСЏ СЃРµСЂРІРµСЂР°. РЈР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ СЃР»СѓР¶Р±Р° Р·Р°РїСѓС‰РµРЅР° Рё СѓРєР°Р·Р°РЅРѕ РІРµСЂРЅРѕРµ РёРјСЏ СЃРµСЂРІРµСЂР°. РћР±СЂР°С‚РёС‚РµСЃСЊ Р·Р° РїРѕРјРѕС‰СЊСЋ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ Р±Р°Р·С‹ РґР°РЅРЅС‹С…."; break;
                 case MSSQL_SERVICE_PAUSED:
-                    errorMessage = "Служба Microsoft SQL Server приостановлена или переведена в режим offline. Запустите службу и повторите попытку. Обратитесь за помощью к администратору баз данных."; break;
+                    errorMessage = "РЎР»СѓР¶Р±Р° Microsoft SQL Server РїСЂРёРѕСЃС‚Р°РЅРѕРІР»РµРЅР° РёР»Рё РїРµСЂРµРІРµРґРµРЅР° РІ СЂРµР¶РёРј offline. Р—Р°РїСѓСЃС‚РёС‚Рµ СЃР»СѓР¶Р±Сѓ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ. РћР±СЂР°С‚РёС‚РµСЃСЊ Р·Р° РїРѕРјРѕС‰СЊСЋ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ Р±Р°Р· РґР°РЅРЅС‹С…."; break;
                 case MSSQL_CONSTRAINT_VIOLATED:
-                    errorMessage = "Выполнение опрации было отменено в результате срабатывания ограничений. Если вы проводите операцию добавления или изменения данных, то убедитесь, что вы заполнили все необходимые поля, данные имеют правильный формат и попадают в допустимый диапазон значений. Операция удаления могла быть отменена в результате наличия зависимости по данным. Удалите все зависимые данные и повторите попытку удаления."; break;
+                    errorMessage = "Р’С‹РїРѕР»РЅРµРЅРёРµ РѕРїСЂР°С†РёРё Р±С‹Р»Рѕ РѕС‚РјРµРЅРµРЅРѕ РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ РѕРіСЂР°РЅРёС‡РµРЅРёР№. Р•СЃР»Рё РІС‹ РїСЂРѕРІРѕРґРёС‚Рµ РѕРїРµСЂР°С†РёСЋ РґРѕР±Р°РІР»РµРЅРёСЏ РёР»Рё РёР·РјРµРЅРµРЅРёСЏ РґР°РЅРЅС‹С…, С‚Рѕ СѓР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ РІС‹ Р·Р°РїРѕР»РЅРёР»Рё РІСЃРµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РїРѕР»СЏ, РґР°РЅРЅС‹Рµ РёРјРµСЋС‚ РїСЂР°РІРёР»СЊРЅС‹Р№ С„РѕСЂРјР°С‚ Рё РїРѕРїР°РґР°СЋС‚ РІ РґРѕРїСѓСЃС‚РёРјС‹Р№ РґРёР°РїР°Р·РѕРЅ Р·РЅР°С‡РµРЅРёР№. РћРїРµСЂР°С†РёСЏ СѓРґР°Р»РµРЅРёСЏ РјРѕРіР»Р° Р±С‹С‚СЊ РѕС‚РјРµРЅРµРЅР° РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ РЅР°Р»РёС‡РёСЏ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РїРѕ РґР°РЅРЅС‹Рј. РЈРґР°Р»РёС‚Рµ РІСЃРµ Р·Р°РІРёСЃРёРјС‹Рµ РґР°РЅРЅС‹Рµ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ СѓРґР°Р»РµРЅРёСЏ."; break;
                 case MSSQL_NULL_NOT_ALLOWED:
-                    errorMessage = "Выполнение операции было отменено, так как не заданы значения в одном или нескольких необходимых к заполнению полях. Заполните необходимые поля и повторите операцию."; break;
+                    errorMessage = "Р’С‹РїРѕР»РЅРµРЅРёРµ РѕРїРµСЂР°С†РёРё Р±С‹Р»Рѕ РѕС‚РјРµРЅРµРЅРѕ, С‚Р°Рє РєР°Рє РЅРµ Р·Р°РґР°РЅС‹ Р·РЅР°С‡РµРЅРёСЏ РІ РѕРґРЅРѕРј РёР»Рё РЅРµСЃРєРѕР»СЊРєРёС… РЅРµРѕР±С…РѕРґРёРјС‹С… Рє Р·Р°РїРѕР»РЅРµРЅРёСЋ РїРѕР»СЏС…. Р—Р°РїРѕР»РЅРёС‚Рµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РїРѕР»СЏ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РѕРїРµСЂР°С†РёСЋ."; break;
                 case MSSQL_MSDTC_NOT_RUNNING:
-                    errorMessage = "Служба координатора распределённых транзакций не запущена. Воспользуйтесь оснасткой администрирования \"Службы\" (Панель управления -> Администрирование -> Службы) для запуска."; break;
+                    errorMessage = "РЎР»СѓР¶Р±Р° РєРѕРѕСЂРґРёРЅР°С‚РѕСЂР° СЂР°СЃРїСЂРµРґРµР»С‘РЅРЅС‹С… С‚СЂР°РЅР·Р°РєС†РёР№ РЅРµ Р·Р°РїСѓС‰РµРЅР°. Р’РѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ РѕСЃРЅР°СЃС‚РєРѕР№ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ \"РЎР»СѓР¶Р±С‹\" (РџР°РЅРµР»СЊ СѓРїСЂР°РІР»РµРЅРёСЏ -> РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ -> РЎР»СѓР¶Р±С‹) РґР»СЏ Р·Р°РїСѓСЃРєР°."; break;
                 case MSSQL_UNIQUE_VIOLATED:
-                    errorMessage = "Выполнение операции было отменено в результате срабатывания ограничения на уникальность. Эта ошибка возникает, если вы пытаетесь добавить в систему объект, информация о котором уже присутствует в базе данных. Проверьте корректность значений и повторите попытку."; break;
+                    errorMessage = "Р’С‹РїРѕР»РЅРµРЅРёРµ РѕРїРµСЂР°С†РёРё Р±С‹Р»Рѕ РѕС‚РјРµРЅРµРЅРѕ РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ РѕРіСЂР°РЅРёС‡РµРЅРёСЏ РЅР° СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚СЊ. Р­С‚Р° РѕС€РёР±РєР° РІРѕР·РЅРёРєР°РµС‚, РµСЃР»Рё РІС‹ РїС‹С‚Р°РµС‚РµСЃСЊ РґРѕР±Р°РІРёС‚СЊ РІ СЃРёСЃС‚РµРјСѓ РѕР±СЉРµРєС‚, РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РєРѕС‚РѕСЂРѕРј СѓР¶Рµ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С…. РџСЂРѕРІРµСЂСЊС‚Рµ РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ Р·РЅР°С‡РµРЅРёР№ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ."; break;
                 case MSSQL_LOGIN_FAILED:
-                    errorMessage = "Соединение с сервером установлено, но база данных на сервере отсутствует. Возможно, что файлы баз данных были отсоеденены от сервера. Для устранения этой ошибки обратитесь к администратору."; break;
+                    errorMessage = "РЎРѕРµРґРёРЅРµРЅРёРµ СЃ СЃРµСЂРІРµСЂРѕРј СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ, РЅРѕ Р±Р°Р·Р° РґР°РЅРЅС‹С… РЅР° СЃРµСЂРІРµСЂРµ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚. Р’РѕР·РјРѕР¶РЅРѕ, С‡С‚Рѕ С„Р°Р№Р»С‹ Р±Р°Р· РґР°РЅРЅС‹С… Р±С‹Р»Рё РѕС‚СЃРѕРµРґРµРЅРµРЅС‹ РѕС‚ СЃРµСЂРІРµСЂР°. Р”Р»СЏ СѓСЃС‚СЂР°РЅРµРЅРёСЏ СЌС‚РѕР№ РѕС€РёР±РєРё РѕР±СЂР°С‚РёС‚РµСЃСЊ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ."; break;
                 case MSSQL_FILE_ACCESS_DENIED:
-                    errorMessage = "Доступ к файлам баз базы данных запрещён. Возможно файлы открыты в другой программе или для них выставлен атрибут \"Только для чтения\". Если используется файловая система NTFS проверьте также наличие соответствующих прав для доступа к файлам. Обратитесь к администратору за помощью."; break;
+                    errorMessage = "Р”РѕСЃС‚СѓРї Рє С„Р°Р№Р»Р°Рј Р±Р°Р· Р±Р°Р·С‹ РґР°РЅРЅС‹С… Р·Р°РїСЂРµС‰С‘РЅ. Р’РѕР·РјРѕР¶РЅРѕ С„Р°Р№Р»С‹ РѕС‚РєСЂС‹С‚С‹ РІ РґСЂСѓРіРѕР№ РїСЂРѕРіСЂР°РјРјРµ РёР»Рё РґР»СЏ РЅРёС… РІС‹СЃС‚Р°РІР»РµРЅ Р°С‚СЂРёР±СѓС‚ \"РўРѕР»СЊРєРѕ РґР»СЏ С‡С‚РµРЅРёСЏ\". Р•СЃР»Рё РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ С„Р°Р№Р»РѕРІР°СЏ СЃРёСЃС‚РµРјР° NTFS РїСЂРѕРІРµСЂСЊС‚Рµ С‚Р°РєР¶Рµ РЅР°Р»РёС‡РёРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёС… РїСЂР°РІ РґР»СЏ РґРѕСЃС‚СѓРїР° Рє С„Р°Р№Р»Р°Рј. РћР±СЂР°С‚РёС‚РµСЃСЊ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ Р·Р° РїРѕРјРѕС‰СЊСЋ."; break;
                 case MSSQL_LOGIN_DENIED:
-                    errorMessage = "Вам отказано в доступе к данным под указанным именем. Вероятно, системный администратор не внёс Вас в список пользователей сервера баз данных или ограничил доступ. Для решения проблемы обратитесь к администратору."; break;
+                    errorMessage = "Р’Р°Рј РѕС‚РєР°Р·Р°РЅРѕ РІ РґРѕСЃС‚СѓРїРµ Рє РґР°РЅРЅС‹Рј РїРѕРґ СѓРєР°Р·Р°РЅРЅС‹Рј РёРјРµРЅРµРј. Р’РµСЂРѕСЏС‚РЅРѕ, СЃРёСЃС‚РµРјРЅС‹Р№ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ РЅРµ РІРЅС‘СЃ Р’Р°СЃ РІ СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ СЃРµСЂРІРµСЂР° Р±Р°Р· РґР°РЅРЅС‹С… РёР»Рё РѕРіСЂР°РЅРёС‡РёР» РґРѕСЃС‚СѓРї. Р”Р»СЏ СЂРµС€РµРЅРёСЏ РїСЂРѕР±Р»РµРјС‹ РѕР±СЂР°С‚РёС‚РµСЃСЊ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ."; break;
                 case MSSQL_CONNECTION_FAILED:
-                    errorMessage = "Не удаётся установить связь с сервером баз данных SQL Server. Убедитесь, что вы правильно указали имя сервера и что сервер принимает подключения. Обратитесь за помощью к администратору баз данных."; break;
+                    errorMessage = "РќРµ СѓРґР°С‘С‚СЃСЏ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРІСЏР·СЊ СЃ СЃРµСЂРІРµСЂРѕРј Р±Р°Р· РґР°РЅРЅС‹С… SQL Server. РЈР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ РІС‹ РїСЂР°РІРёР»СЊРЅРѕ СѓРєР°Р·Р°Р»Рё РёРјСЏ СЃРµСЂРІРµСЂР° Рё С‡С‚Рѕ СЃРµСЂРІРµСЂ РїСЂРёРЅРёРјР°РµС‚ РїРѕРґРєР»СЋС‡РµРЅРёСЏ. РћР±СЂР°С‚РёС‚РµСЃСЊ Р·Р° РїРѕРјРѕС‰СЊСЋ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ Р±Р°Р· РґР°РЅРЅС‹С…."; break;
                 case MSSQL_EXECUTE_TIMEOUT:
-                    errorMessage = "Операция заняла много времени и сервер прервал её выполнение. Эта ошибка может проявляться при высокой загрузке сервера или выполнения операций над большим количеством объектов базы данных. Попробуйте разбить одну длинную операцию на несколько. Подождите снижения нагрузки на систему и повторите попытку.";
+                    errorMessage = "РћРїРµСЂР°С†РёСЏ Р·Р°РЅСЏР»Р° РјРЅРѕРіРѕ РІСЂРµРјРµРЅРё Рё СЃРµСЂРІРµСЂ РїСЂРµСЂРІР°Р» РµС‘ РІС‹РїРѕР»РЅРµРЅРёРµ. Р­С‚Р° РѕС€РёР±РєР° РјРѕР¶РµС‚ РїСЂРѕСЏРІР»СЏС‚СЊСЃСЏ РїСЂРё РІС‹СЃРѕРєРѕР№ Р·Р°РіСЂСѓР·РєРµ СЃРµСЂРІРµСЂР° РёР»Рё РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёР№ РЅР°Рґ Р±РѕР»СЊС€РёРј РєРѕР»РёС‡РµСЃС‚РІРѕРј РѕР±СЉРµРєС‚РѕРІ Р±Р°Р·С‹ РґР°РЅРЅС‹С…. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЂР°Р·Р±РёС‚СЊ РѕРґРЅСѓ РґР»РёРЅРЅСѓСЋ РѕРїРµСЂР°С†РёСЋ РЅР° РЅРµСЃРєРѕР»СЊРєРѕ. РџРѕРґРѕР¶РґРёС‚Рµ СЃРЅРёР¶РµРЅРёСЏ РЅР°РіСЂСѓР·РєРё РЅР° СЃРёСЃС‚РµРјСѓ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ.";
                     break;
                 case MSSQL_PERMISSION_DENIED:
-                    errorMessage ="Вам отказано в доступе к одному из объектов базы данных. Для решения проблемы обратитесь к системному администратору.";
+                    errorMessage ="Р’Р°Рј РѕС‚РєР°Р·Р°РЅРѕ РІ РґРѕСЃС‚СѓРїРµ Рє РѕРґРЅРѕРјСѓ РёР· РѕР±СЉРµРєС‚РѕРІ Р±Р°Р·С‹ РґР°РЅРЅС‹С…. Р”Р»СЏ СЂРµС€РµРЅРёСЏ РїСЂРѕР±Р»РµРјС‹ РѕР±СЂР°С‚РёС‚РµСЃСЊ Рє СЃРёСЃС‚РµРјРЅРѕРјСѓ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ.";
                     break;
                 case MSSQL_CLR_DISABLED:
-                    errorMessage = "Для текущей базы данных запрещно использование CLR. Для включения поддержки CLR используйте опцию 'clr enable' процедуры sp_configure. Пример использования:\nsp_configure 'clr enabled', 1\nGO\nRECONFIGURE\nGO\nОбратитесь за помощью к администратору.";
+                    errorMessage = "Р”Р»СЏ С‚РµРєСѓС‰РµР№ Р±Р°Р·С‹ РґР°РЅРЅС‹С… Р·Р°РїСЂРµС‰РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ CLR. Р”Р»СЏ РІРєР»СЋС‡РµРЅРёСЏ РїРѕРґРґРµСЂР¶РєРё CLR РёСЃРїРѕР»СЊР·СѓР№С‚Рµ РѕРїС†РёСЋ 'clr enable' РїСЂРѕС†РµРґСѓСЂС‹ sp_configure. РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ:\nsp_configure 'clr enabled', 1\nGO\nRECONFIGURE\nGO\nРћР±СЂР°С‚РёС‚РµСЃСЊ Р·Р° РїРѕРјРѕС‰СЊСЋ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ.";
                     break;
             }
            
             ShowExceptionDialog(e, errorMessage, "Microsoft SQL Server", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения ошибки доступа к удалённой версии набора данных
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РѕС€РёР±РєРё РґРѕСЃС‚СѓРїР° Рє СѓРґР°Р»С‘РЅРЅРѕР№ РІРµСЂСЃРёРё РЅР°Р±РѕСЂР° РґР°РЅРЅС‹С…
         private static void HandleVersionNotFoundException(VersionNotFoundException versionNotFoundException)
         {
-            ShowExceptionDialog(versionNotFoundException, NotAllowedExceptionMessage, "Неопознання ошибка", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(versionNotFoundException, NotAllowedExceptionMessage, "РќРµРѕРїРѕР·РЅР°РЅРЅСЏ РѕС€РёР±РєР°", MessageBoxIcon.Information, true);
         }
 
         
-        // Обработчик исключения конфликта имён в строго-типизированном наборе данных
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РєРѕРЅС„Р»РёРєС‚Р° РёРјС‘РЅ РІ СЃС‚СЂРѕРіРѕ-С‚РёРїРёР·РёСЂРѕРІР°РЅРЅРѕРј РЅР°Р±РѕСЂРµ РґР°РЅРЅС‹С…
         private static void HandleTypedDataSetGeneratorException(TypedDataSetGeneratorException typedDataSetGeneratorException)
         {
-            ShowExceptionDialog(typedDataSetGeneratorException, "Конфликт имён объектов в строго-типизированном наборе данных. " + NotAllowedExceptionMessage, "Неопознання ошибка", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(typedDataSetGeneratorException, "РљРѕРЅС„Р»РёРєС‚ РёРјС‘РЅ РѕР±СЉРµРєС‚РѕРІ РІ СЃС‚СЂРѕРіРѕ-С‚РёРїРёР·РёСЂРѕРІР°РЅРЅРѕРј РЅР°Р±РѕСЂРµ РґР°РЅРЅС‹С…. " + NotAllowedExceptionMessage, "РќРµРѕРїРѕР·РЅР°РЅРЅСЏ РѕС€РёР±РєР°", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения синтаксической ошибки в вычисляемом выражении
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ СЃРёРЅС‚Р°РєСЃРёС‡РµСЃРєРѕР№ РѕС€РёР±РєРё РІ РІС‹С‡РёСЃР»СЏРµРјРѕРј РІС‹СЂР°Р¶РµРЅРёРё
         private static void HandleSyntaxErrorException(SyntaxErrorException syntaxErrorException)
         {
-            ShowExceptionDialog(syntaxErrorException, "Синтаксическая ошибка в вычисляемом поле набора данных. " + NotAllowedExceptionMessage, "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(syntaxErrorException, "РЎРёРЅС‚Р°РєСЃРёС‡РµСЃРєР°СЏ РѕС€РёР±РєР° РІ РІС‹С‡РёСЃР»СЏРµРјРѕРј РїРѕР»Рµ РЅР°Р±РѕСЂР° РґР°РЅРЅС‹С…. " + NotAllowedExceptionMessage, "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        //Обработчик исключения строго-типизированного набора данных при попытке доступа к DBNull
+        //РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ СЃС‚СЂРѕРіРѕ-С‚РёРїРёР·РёСЂРѕРІР°РЅРЅРѕРіРѕ РЅР°Р±РѕСЂР° РґР°РЅРЅС‹С… РїСЂРё РїРѕРїС‹С‚РєРµ РґРѕСЃС‚СѓРїР° Рє DBNull
         private static void HandleStrongTypingException(StrongTypingException strongTypingException)
         {
-            ShowExceptionDialog(strongTypingException, "Ошибка в строго-типизированном наборе данных. " + NotAllowedExceptionMessage, "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(strongTypingException, "РћС€РёР±РєР° РІ СЃС‚СЂРѕРіРѕ-С‚РёРїРёР·РёСЂРѕРІР°РЅРЅРѕРј РЅР°Р±РѕСЂРµ РґР°РЅРЅС‹С…. " + NotAllowedExceptionMessage, "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения доступа к строке, отсутствующей в наборе данных
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РґРѕСЃС‚СѓРїР° Рє СЃС‚СЂРѕРєРµ, РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‰РµР№ РІ РЅР°Р±РѕСЂРµ РґР°РЅРЅС‹С…
         private static void HandleRowNotInTableException(RowNotInTableException rowNotInTableException)
         {
-            ShowExceptionDialog(rowNotInTableException, "Была попытка доступа к строке данных в таблице, которая ей не принадлежит. " + NotAllowedExceptionMessage, "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(rowNotInTableException, "Р‘С‹Р»Р° РїРѕРїС‹С‚РєР° РґРѕСЃС‚СѓРїР° Рє СЃС‚СЂРѕРєРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Рµ, РєРѕС‚РѕСЂР°СЏ РµР№ РЅРµ РїСЂРёРЅР°РґР»РµР¶РёС‚. " + NotAllowedExceptionMessage, "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения модификации столбца только для чтения
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РјРѕРґРёС„РёРєР°С†РёРё СЃС‚РѕР»Р±С†Р° С‚РѕР»СЊРєРѕ РґР»СЏ С‡С‚РµРЅРёСЏ
         private static void HandleReadOnlyException(ReadOnlyException readOnlyException)
         {
-            ShowExceptionDialog(readOnlyException, "Попытка модификации поля, не предназначенного для изменения была отменена. " + NotAllowedExceptionMessage, "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(readOnlyException, "РџРѕРїС‹С‚РєР° РјРѕРґРёС„РёРєР°С†РёРё РїРѕР»СЏ, РЅРµ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅРѕРіРѕ РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ Р±С‹Р»Р° РѕС‚РјРµРЅРµРЅР°. " + NotAllowedExceptionMessage, "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        //Обработчик исключения отмены операции
+        //РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РѕС‚РјРµРЅС‹ РѕРїРµСЂР°С†РёРё
         private static void HandleOperationAbortedException(OperationAbortedException operationAbortedException)
         {
-            ShowExceptionDialog(operationAbortedException, "Операция была отменена.", "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(operationAbortedException, "РћРїРµСЂР°С†РёСЏ Р±С‹Р»Р° РѕС‚РјРµРЅРµРЅР°.", "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения недопустимости вставки NULL
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РЅРµРґРѕРїСѓСЃС‚РёРјРѕСЃС‚Рё РІСЃС‚Р°РІРєРё NULL
         private static void HandleNoNullAllowedException(NoNullAllowedException noNullAllowedException)
         {
-            ShowExceptionDialog(noNullAllowedException, "Выполнение операции было отменено, так как не заданы значения в одном или нескольких необходимых к заполнению полях. Заполните необходимые поля и повторите операцию.", "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(noNullAllowedException, "Р’С‹РїРѕР»РЅРµРЅРёРµ РѕРїРµСЂР°С†РёРё Р±С‹Р»Рѕ РѕС‚РјРµРЅРµРЅРѕ, С‚Р°Рє РєР°Рє РЅРµ Р·Р°РґР°РЅС‹ Р·РЅР°С‡РµРЅРёСЏ РІ РѕРґРЅРѕРј РёР»Рё РЅРµСЃРєРѕР»СЊРєРёС… РЅРµРѕР±С…РѕРґРёРјС‹С… Рє Р·Р°РїРѕР»РЅРµРЅРёСЋ РїРѕР»СЏС…. Р—Р°РїРѕР»РЅРёС‚Рµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РїРѕР»СЏ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РѕРїРµСЂР°С†РёСЋ.", "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения доступа к таблице без первичного ключа
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РґРѕСЃС‚СѓРїР° Рє С‚Р°Р±Р»РёС†Рµ Р±РµР· РїРµСЂРІРёС‡РЅРѕРіРѕ РєР»СЋС‡Р°
         private static void HandleMissingPrimaryKeyException(MissingPrimaryKeyException missingPrimaryKeyException)
         {
-            ShowExceptionDialog(missingPrimaryKeyException, "В наборе данных отсутствует первичный ключ. " + NotAllowedExceptionMessage, "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(missingPrimaryKeyException, "Р’ РЅР°Р±РѕСЂРµ РґР°РЅРЅС‹С… РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РїРµСЂРІРёС‡РЅС‹Р№ РєР»СЋС‡. " + NotAllowedExceptionMessage, "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения неправильного сосздания или использования ограничения
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РЅРµРїСЂР°РІРёР»СЊРЅРѕРіРѕ СЃРѕСЃР·РґР°РЅРёСЏ РёР»Рё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РѕРіСЂР°РЅРёС‡РµРЅРёСЏ
         private static void HandleInvalidConstraintException(InvalidConstraintException invalidConstraintException)
         {
-            ShowExceptionDialog(invalidConstraintException, "Ошибка при назначении или использовании ограничений в наборе данных. " + NotAllowedExceptionMessage, "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(invalidConstraintException, "РћС€РёР±РєР° РїСЂРё РЅР°Р·РЅР°С‡РµРЅРёРё РёР»Рё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё РѕРіСЂР°РЅРёС‡РµРЅРёР№ РІ РЅР°Р±РѕСЂРµ РґР°РЅРЅС‹С…. " + NotAllowedExceptionMessage, "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения вызова метода EndEdit
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РІС‹Р·РѕРІР° РјРµС‚РѕРґР° EndEdit
         private static void HandleInRowChangingEventException(InRowChangingEventException inRowChangingEventException)
         {
-            ShowExceptionDialog(inRowChangingEventException, "Произошла ошибка при вызове метода EndEdit(). " + NotAllowedExceptionMessage, "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(inRowChangingEventException, "РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё РІС‹Р·РѕРІРµ РјРµС‚РѕРґР° EndEdit(). " + NotAllowedExceptionMessage, "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
 
-        // Обработчик исключения ошибки вычисления выражения в вычисляемом поле набора данных
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РѕС€РёР±РєРё РІС‹С‡РёСЃР»РµРЅРёСЏ РІС‹СЂР°Р¶РµРЅРёСЏ РІ РІС‹С‡РёСЃР»СЏРµРјРѕРј РїРѕР»Рµ РЅР°Р±РѕСЂР° РґР°РЅРЅС‹С…
         private static void HandleEvaluateException(EvaluateException evaluateException)
         {
-            ShowExceptionDialog(evaluateException, "Ошибка вычисления выражения в поле таблицы набора данных. " + NotAllowedExceptionMessage, "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(evaluateException, "РћС€РёР±РєР° РІС‹С‡РёСЃР»РµРЅРёСЏ РІС‹СЂР°Р¶РµРЅРёСЏ РІ РїРѕР»Рµ С‚Р°Р±Р»РёС†С‹ РЅР°Р±РѕСЂР° РґР°РЅРЅС‹С…. " + NotAllowedExceptionMessage, "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения дублирующихся имён в наборе данных
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РґСѓР±Р»РёСЂСѓСЋС‰РёС…СЃСЏ РёРјС‘РЅ РІ РЅР°Р±РѕСЂРµ РґР°РЅРЅС‹С…
         private static void HandleDuplicateNameException(DuplicateNameException duplicateNameException)
         {
-            ShowExceptionDialog(duplicateNameException, "Ошибка вызвана наличием дублирующихся имён объектов в наборе данных. " + NotAllowedExceptionMessage, "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(duplicateNameException, "РћС€РёР±РєР° РІС‹Р·РІР°РЅР° РЅР°Р»РёС‡РёРµРј РґСѓР±Р»РёСЂСѓСЋС‰РёС…СЃСЏ РёРјС‘РЅ РѕР±СЉРµРєС‚РѕРІ РІ РЅР°Р±РѕСЂРµ РґР°РЅРЅС‹С…. " + NotAllowedExceptionMessage, "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
 
-        //Обработчик исключения доступа к удалённой строке данных (DataRow)
+        //РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ РґРѕСЃС‚СѓРїР° Рє СѓРґР°Р»С‘РЅРЅРѕР№ СЃС‚СЂРѕРєРµ РґР°РЅРЅС‹С… (DataRow)
         private static void HandleDeletedRowInaccessibleException(DeletedRowInaccessibleException deletedRowInaccessibleException)
         {
-            ShowExceptionDialog(deletedRowInaccessibleException, "Ошибка доступа к строке данных таблицы, которая была из неё исключена. " + NotAllowedExceptionMessage, "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(deletedRowInaccessibleException, "РћС€РёР±РєР° РґРѕСЃС‚СѓРїР° Рє СЃС‚СЂРѕРєРµ РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹, РєРѕС‚РѕСЂР°СЏ Р±С‹Р»Р° РёР· РЅРµС‘ РёСЃРєР»СЋС‡РµРЅР°. " + NotAllowedExceptionMessage, "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения адаптера, если операции Insert, Update, Delete вернули 0 обработанных строк
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ Р°РґР°РїС‚РµСЂР°, РµСЃР»Рё РѕРїРµСЂР°С†РёРё Insert, Update, Delete РІРµСЂРЅСѓР»Рё 0 РѕР±СЂР°Р±РѕС‚Р°РЅРЅС‹С… СЃС‚СЂРѕРє
         private static void HandleDBConcurrencyException(DBConcurrencyException dBConcurrencyException)
         {
-            ShowExceptionDialog(dBConcurrencyException, "Сохранение изменений отменено так как эти данные были модифицированы сразу несколькими пользователями. Обновите содержимое окна для загрузки последней версии данных и повторите попытку модификации.", "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(dBConcurrencyException, "РЎРѕС…СЂР°РЅРµРЅРёРµ РёР·РјРµРЅРµРЅРёР№ РѕС‚РјРµРЅРµРЅРѕ С‚Р°Рє РєР°Рє СЌС‚Рё РґР°РЅРЅС‹Рµ Р±С‹Р»Рё РјРѕРґРёС„РёС†РёСЂРѕРІР°РЅС‹ СЃСЂР°Р·Сѓ РЅРµСЃРєРѕР»СЊРєРёРјРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё. РћР±РЅРѕРІРёС‚Рµ СЃРѕРґРµСЂР¶РёРјРѕРµ РѕРєРЅР° РґР»СЏ Р·Р°РіСЂСѓР·РєРё РїРѕСЃР»РµРґРЅРµР№ РІРµСЂСЃРёРё РґР°РЅРЅС‹С… Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ РјРѕРґРёС„РёРєР°С†РёРё.", "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
-        // Обработчик исключения ADO.NET
+        // РћР±СЂР°Р±РѕС‚С‡РёРє РёСЃРєР»СЋС‡РµРЅРёСЏ ADO.NET
         private static void HandleDataException(DataException dataException)
         {
-            ShowExceptionDialog(dataException, "Эта ошибка проявляется, если пользователь заполнил не все нужные поля формы, либо ввёл недопустимое для поля значение. Проверьте правильность значений и повторите попытку ввода данных.", "Модификация базы данных отменена", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(dataException, "Р­С‚Р° РѕС€РёР±РєР° РїСЂРѕСЏРІР»СЏРµС‚СЃСЏ, РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р·Р°РїРѕР»РЅРёР» РЅРµ РІСЃРµ РЅСѓР¶РЅС‹Рµ РїРѕР»СЏ С„РѕСЂРјС‹, Р»РёР±Рѕ РІРІС‘Р» РЅРµРґРѕРїСѓСЃС‚РёРјРѕРµ РґР»СЏ РїРѕР»СЏ Р·РЅР°С‡РµРЅРёРµ. РџСЂРѕРІРµСЂСЊС‚Рµ РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ Р·РЅР°С‡РµРЅРёР№ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ РІРІРѕРґР° РґР°РЅРЅС‹С….", "РњРѕРґРёС„РёРєР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕС‚РјРµРЅРµРЅР°", MessageBoxIcon.Information, true);
         }
 
     }
