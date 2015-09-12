@@ -16,7 +16,7 @@ namespace Kadr.Data
 
         }
 
-
+        #region MainData
         [System.ComponentModel.DisplayName("Должность в штатном расписании")]
         [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("Должность в штатном расписании")]
@@ -50,6 +50,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Код экономической деятельности")]
         [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.Browsable(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OKVEDConvertor))]
         public OKVED OKVED
         {
@@ -67,6 +68,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
         [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.Browsable(false)]
         public int? SalaryKoeff
         {
             get
@@ -116,8 +118,8 @@ namespace Kadr.Data
                 factStaff.PrikazBegin = value;
             }
         }
+        #endregion
 
- 
         #region ContractData
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tОсновной договор")]
         [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
