@@ -70,7 +70,7 @@ namespace Kadr.Controllers
                     //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "SalaryKoeff", 1, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", x, null), sender);
 
-                    Contract newContract = new Contract(dlg.CommandManager, fcStHistory, "", DateTime.Today.Date, DateTime.Today.Date);
+                    Contract newContract = new Contract(dlg.CommandManager, fcStHistory);
                 };
 
                 dlg.BeforeApplyAction = (x) =>
