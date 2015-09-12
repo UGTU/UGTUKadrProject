@@ -23,10 +23,14 @@ namespace Kadr.Data
         {
             get
             {
+                if (FactStaffHistory != null)
                 return FactStaffHistory.FactStaff;
+                else
+                    return null;
             }
             set
             {
+                if (FactStaffHistory != null)
                 value = FactStaffHistory.FactStaff;
             }
         }
@@ -36,7 +40,7 @@ namespace Kadr.Data
         public Event(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory)
             : this()
         {
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaffHistory>(this, "FactStaff", factStaffHistory, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaffHistory>(this, "FactStaffHistory", factStaff.CurrentChange, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this, "Prikaz", NullPrikaz.Instance, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateBegin", DateTime.Today, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", DateTime.Today, null), null);
@@ -69,13 +73,14 @@ namespace Kadr.Data
             {
 
                 if (FactStaff == null || (FactStaff.IsNull())) throw new ArgumentNullException("Сотрудник.");
-                if (Prikaz == null || (Prikaz.IsNull())) throw new ArgumentNullException("Приказ.");
+                //if (Prikaz == null || (Prikaz.IsNull())) throw new ArgumentNullException("Приказ.");
                 if ((DateEnd != null) && (DateBegin != null))
                     if (DateEnd < DateBegin)
                         throw new ArgumentOutOfRangeException("Дата окончания действия должна быть позже даты начала.");
                     else
                         DateEnd = DateEnd.Value.Date;
 
+                FactStaffHistory = FactStaff.GetHistoryForDate(DateBegin);
                 
             }
         }
