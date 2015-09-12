@@ -13,7 +13,7 @@ using Kadr.UI.Dialogs;
 
 namespace Kadr.UI.Common
 {
-    public partial class LinqPropertyGridDialogEditing<T> : PropertyGridDialog where T : class 
+    public partial class LinqPropertyGridDialogEditing<T> where T : class 
 
 {
     //создание связанных объектов

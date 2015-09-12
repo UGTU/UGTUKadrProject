@@ -32,7 +32,7 @@ namespace Kadr.Data
         }
 
         public dckadrDataContext() :
-        base(global::Kadr.Properties.Settings.Default.KadrConnectionString1, mappingSource)
+        base(global::Kadr.Properties.Settings.Default.kadrConnectionString, mappingSource)
         {
             OnCreated();
         }

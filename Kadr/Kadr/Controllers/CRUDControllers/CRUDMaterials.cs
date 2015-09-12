@@ -67,7 +67,7 @@ namespace Kadr.Controllers
 
         public static void Read(FactStaff fs, BindingSource MaterialResponsibilitybindingSource)
         {
-            MaterialResponsibilitybindingSource.DataSource = KadrController.Instance.Model.MaterialResponsibilities.Where(t => t.Event.FactStaff == fs).Select(x => x.GetDecorator()).ToList(); 
+            MaterialResponsibilitybindingSource.DataSource = KadrController.Instance.Model.MaterialResponsibilities.Where(t => t.Event.FactStaffHistory.FactStaff == fs).Select(x => x.GetDecorator()).ToList(); 
         }
 
         public static void Update(FactStaff fs, BindingSource MaterialResponsibilitybindingSource)

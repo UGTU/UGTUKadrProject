@@ -24,20 +24,20 @@ namespace Kadr.Data
             get
             {
                 if (FactStaffHistory != null)
-                    return FactStaffHistory.FactStaff;
+                return FactStaffHistory.FactStaff;
                 else
                     return null;
             }
             set
             {
                 if (FactStaffHistory != null)
-                    value = FactStaffHistory.FactStaff;
+                value = FactStaffHistory.FactStaff;
             }
         }
 
         #endregion
 
-        public Event(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff)
+        public Event(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory)
             : this()
         {
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaffHistory>(this, "FactStaffHistory", factStaff.CurrentChange, null), null);

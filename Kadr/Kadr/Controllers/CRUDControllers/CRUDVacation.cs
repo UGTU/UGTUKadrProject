@@ -10,7 +10,7 @@ namespace Kadr.Controllers
 {
     public static class CRUDVacation
     {
-        public static void Create(FactStaff fs, Employee e,BindingSource oKOtpuskBindingSource, object sender)
+        public static void Create(FactStaffHistory fsh, Employee e,BindingSource oKOtpuskBindingSource, object sender)
         {
             using (PropertyGridDialogAdding<OK_Otpusk> dlg =
                SimpleActionsProvider.NewSimpleObjectAddingDialog<OK_Otpusk>())
@@ -19,7 +19,7 @@ namespace Kadr.Controllers
                 dlg.InitializeNewObject = (x) =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, Event>(x, "Event",
-                        new Event(dlg.CommandManager, fs as FactStaff), null), sender);
+                        new Event(dlg.CommandManager, fsh as FactStaffHistory), null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, OK_Otpuskvid>(x, "OK_Otpuskvid", NullOK_Otpuskvid.Instance, null), sender);
                 };
 
@@ -28,12 +28,12 @@ namespace Kadr.Controllers
             Read(fs, e, oKOtpuskBindingSource);
         }
 
-        public static void Read(FactStaff fs, Employee e, BindingSource oKOtpuskBindingSource)
+        public static void Read(FactStaffHistory fs, Employee e, BindingSource oKOtpuskBindingSource)
         {
            IEnumerable<OK_Otpusk> tmp;
 
             if (fs != null )
-                tmp = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory.FactStaff == fs);
+                tmp = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory == fsh);
             else
                 tmp = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory.FactStaff.Employee == e);
                
