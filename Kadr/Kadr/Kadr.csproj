@@ -20,7 +20,7 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
-    <ApplicationIcon>Kadr.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Kadr.ico</ApplicationIcon>
     <TargetZone>LocalIntranet</TargetZone>
     <GenerateManifests>true</GenerateManifests>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
@@ -423,9 +423,7 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1356,7 +1354,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CONSTRUC.ICO" />
-    <Content Include="Kadr.ico" />
     <Content Include="Resources\Kadr.ico" />
     <Content Include="Resources\TreeIcons\briefcase.png" />
     <Content Include="Resources\TreeIcons\palmtree.png" />
