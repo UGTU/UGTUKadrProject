@@ -38,7 +38,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Решение комиссии")]
+        [System.ComponentModel.DisplayName("\tРешение комиссии")]
         [System.ComponentModel.Category("Результат")]
         [System.ComponentModel.Description("Решение, принятое комиссией в результате аттестации")]
         [System.ComponentModel.ReadOnly(false)]
@@ -74,7 +74,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\tСерия подтверждающего документа")]
+        [System.ComponentModel.DisplayName("\t\t\tСерия подтверждающего документа")]
         [System.ComponentModel.Category("Результат")]
         [System.ComponentModel.Description("Серия документа, подтверждающего факт награждения")]
         [System.ComponentModel.ReadOnly(false)]
@@ -96,7 +96,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\tНомер подтверждающего документа")]
+        [System.ComponentModel.DisplayName("\t\tНомер подтверждающего документа")]
         [System.ComponentModel.Category("Результат")]
         [System.ComponentModel.Description("Номер документа, подтверждающего факт награждения")]
         [System.ComponentModel.ReadOnly(false)]
@@ -119,7 +119,7 @@ namespace Kadr.Data
         }
 
 
-        [System.ComponentModel.DisplayName("Дата выдачи подтверждающего документа")]
+        [System.ComponentModel.DisplayName("\tДата выдачи подтверждающего документа")]
         [System.ComponentModel.Category("Результат")]
         [System.ComponentModel.Description("Дата выдачи подтверждающего документа")]
         [System.ComponentModel.ReadOnly(false)]
