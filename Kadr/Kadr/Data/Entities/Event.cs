@@ -37,13 +37,17 @@ namespace Kadr.Data
 
         #endregion
 
-        public Event(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff)
+        public Event(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, EventKind eventKind = null, bool WithContract = false)
             : this()
         {
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaffHistory>(this, "FactStaffHistory", factStaff.CurrentChange, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this, "Prikaz", NullPrikaz.Instance, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, EventKind>(this, "EventKind", eventKind, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateBegin", DateTime.Today, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", DateTime.Today, null), null);
+
+            if (WithContract)
+                new Contract(CommandManager, this);
         }
         
         public override string ToString()
@@ -73,6 +77,11 @@ namespace Kadr.Data
                         DateEnd = DateEnd.Value.Date;
 
                 FactStaffHistory = FactStaff.GetHistoryForDate(DateBegin);
+
+                if (Contract != null)
+                {
+                    (Contract as UIX.Views.IValidatable).Validate();
+                }
                 
             }
         }

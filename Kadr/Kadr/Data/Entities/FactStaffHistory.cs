@@ -23,15 +23,6 @@ namespace Kadr.Data
             return "Изменение " + FactStaff.ToString();
         }
 
-        /// <summary>
-        /// новый контракт - используется при создании контракта
-        /// </summary>
-        public Contract NewContract
-        {
-            get;
-            set;
-        }
-
 
 
         public bool IsLatest
@@ -42,6 +33,30 @@ namespace Kadr.Data
                     return true;
                 else
                     return false;
+            }
+        }
+
+        public Event MainEvent
+        {
+            get
+            {
+                return Events.Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
+            }
+        }
+
+        public Contract Contract
+        {
+            get
+            {
+                if (MainEvent != null)
+                    return MainEvent.Contract;
+                return null;
+            }
+            set
+            {
+                if (MainEvent != null)
+                    MainEvent.Contract = value;
+
             }
         }
 
@@ -86,17 +101,14 @@ namespace Kadr.Data
                     throw new ArgumentNullException("Дата изменения.");
 
 
-                if (Contract != null)
-                {
-                    (Contract as UIX.Views.IValidatable).Validate();
-                }
+                
 
-                if (NewContract != null)
+                /*if (NewContract != null)
                 {
                     (NewContract as UIX.Views.IValidatable).Validate();
                     Contract = NewContract;
                     Kadr.Controllers.KadrController.Instance.Model.Contracts.InsertOnSubmit(Contract);
-                }
+                }*/
 
 
                 //проверка на переполнение штатов на начало периода

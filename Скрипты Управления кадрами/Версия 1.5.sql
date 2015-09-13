@@ -453,3 +453,192 @@ GO
 
 
 
+
+go
+select *
+from dbo.FactStaffHistory
+where idContract is null
+
+go
+--вносим приемы на работу
+insert into dbo.Event([idPrikaz],[DateBegin], DateEnd, [idFactStaffHistory],[idEventKind],[idContract])
+select  [idBeginPrikaz],FactStaffHistory.[DateBegin], [Contract].DateEnd,FactStaffHistory.[id],1,FactStaffHistory.idContract
+from dbo.FactStaffHistory
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
+where Prikaz.idPrikazType=10  
+
+
+
+go
+set identity_insert [dbo].[EventKind] ON
+insert into [dbo].[EventKind]([id],[EventKindName])
+values(3,'Перевод сотрудника')
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind])
+values(4,'Смена источника финанасирования',2)
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind])
+values(5,'Установление должностного оклада',2)
+
+insert into [dbo].[EventKind]([id],[EventKindName])
+values(6,'Ввод/вывод ставок')
+
+insert into [dbo].[EventKind]([id],[EventKindName])
+values(14,'Прием почасовика по договору')
+set identity_insert [dbo].[EventKind] OFF
+
+go
+--вносим переводы
+insert into dbo.Event([idPrikaz],[DateBegin], DateEnd, [idFactStaffHistory],[idEventKind],[idContract])
+select  *--[idBeginPrikaz],FactStaffHistory.[DateBegin], [Contract].DateEnd,FactStaffHistory.[id],3,FactStaffHistory.idContract
+from dbo.FactStaffHistory
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
+where Prikaz.idPrikazType=6
+
+go
+--вносим ввод/вывод ставок
+insert into dbo.Event([idPrikaz],[DateBegin], DateEnd, [idFactStaffHistory],[idEventKind],[idContract])
+select  [idBeginPrikaz],FactStaffHistory.[DateBegin], [Contract].DateEnd,FactStaffHistory.[id],6,FactStaffHistory.idContract
+from dbo.FactStaffHistory
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
+where Prikaz.idPrikazType=7
+
+go
+--смена ист фин
+insert into dbo.Event([idPrikaz],[DateBegin], DateEnd, [idFactStaffHistory],[idEventKind],[idContract])
+select  [idBeginPrikaz],FactStaffHistory.[DateBegin], [Contract].DateEnd,FactStaffHistory.[id],4,FactStaffHistory.idContract
+from dbo.FactStaffHistory
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
+where Prikaz.idPrikazType =13
+
+go
+--вносим изменения оклада
+insert into dbo.Event([idPrikaz],[DateBegin], DateEnd, [idFactStaffHistory],[idEventKind],[idContract])
+select  [idBeginPrikaz],FactStaffHistory.[DateBegin], [Contract].DateEnd,FactStaffHistory.[id],5,FactStaffHistory.idContract
+from dbo.FactStaffHistory
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
+where (Prikaz.idPrikazType between 33 and 37 ) 
+go
+--вносим изменения условий труда
+insert into dbo.Event([idPrikaz],[DateBegin], DateEnd, [idFactStaffHistory],[idEventKind],[idContract])
+select  [idBeginPrikaz],FactStaffHistory.[DateBegin], [Contract].DateEnd,FactStaffHistory.[id],2,FactStaffHistory.idContract
+from dbo.FactStaffHistory
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
+where (Prikaz.idPrikazType not between 33 and 37 ) and Prikaz.idPrikazType not in (10,13,6,7)
+
+go
+
+--вносим почасовиков-договорников
+select *
+from [dbo].[FactStaffHistory]
+where [id] not in (select [idFactStaffHistory] from [dbo].[Event])
+
+insert into dbo.Event([idPrikaz],[DateBegin], DateEnd, [idFactStaffHistory],[idEventKind],[idContract])
+select  [idBeginPrikaz],FactStaffHistory.[DateBegin], FactStaff.DateEnd,FactStaffHistory.[id],14,FactStaffHistory.idContract
+from dbo.FactStaffHistory
+inner join dbo.FactStaff on FactStaffHistory.idFactStaff=FactStaff.id
+where FactStaffHistory.[id] not in (select [idFactStaffHistory] from [dbo].[Event])
+
+go
+alter table [dbo].EventKind
+add ForFactStaff BIT NULL
+
+
+go
+update [dbo].[EventKind]
+set [ForFactStaff]=1
+where [id]<15
+go
+update [dbo].[EventKind]
+set [ForFactStaff]=0
+where [id]>=15
+
+go
+alter table [dbo].[EventKind]
+alter column ForFactStaff bit not null
+
+GO
+
+ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_FactStaffHistoryEvent_FactStaffHistory]
+GO
+GO
+
+/****** Object:  Index [IX_Event_idFactStaffHistory]    Script Date: 13.09.2015 11:48:36 ******/
+DROP INDEX [IX_Event_idFactStaffHistory] ON [dbo].[Event]
+
+go
+alter table [dbo].[Event]
+alter column [idFactStaffHistory] int not null
+GO
+GO
+
+/****** Object:  Index [IX_Event_idFactStaffHistory]    Script Date: 13.09.2015 11:48:44 ******/
+CREATE NONCLUSTERED INDEX [IX_Event_idFactStaffHistory] ON [dbo].[Event]
+(
+	[idFactStaffHistory] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Event]  WITH CHECK ADD  CONSTRAINT [FK_FactStaffHistoryEvent_FactStaffHistory] FOREIGN KEY([idFactStaffHistory])
+REFERENCES [dbo].[FactStaffHistory] ([id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[Event] CHECK CONSTRAINT [FK_FactStaffHistoryEvent_FactStaffHistory]
+GO
+
+ALTER TABLE [dbo].[FactStaffHistory] DROP CONSTRAINT [FK_FactStaffHistory_Contract]
+GO
+alter table dbo.FactStaffHistory
+drop column idContract
+
+
+
+
+GO
+
+ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_Event_Contract]
+GO
+
+ALTER TABLE [dbo].[Event]  WITH CHECK ADD  CONSTRAINT [FK_Event_Contract] FOREIGN KEY([idContract])
+REFERENCES [dbo].[Contract] ([id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[Event] CHECK CONSTRAINT [FK_Event_Contract]
+GO
+GO
+/*
+ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_Event_EventKind]
+GO
+
+GO
+
+/****** Object:  Index [IX_Event_idEventKind]    Script Date: 13.09.2015 11:50:31 ******/
+DROP INDEX [IX_Event_idEventKind] ON [dbo].[Event]
+GO
+
+alter table [dbo].[Event]
+alter column [idEventKind] int not null
+go
+
+/****** Object:  Index [IX_Event_idEventKind]    Script Date: 13.09.2015 11:50:31 ******/
+CREATE NONCLUSTERED INDEX [IX_Event_idEventKind] ON [dbo].[Event]
+(
+	[idEventKind] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+GO
+
+ALTER TABLE [dbo].[Event]  WITH CHECK ADD  CONSTRAINT [FK_Event_EventKind] FOREIGN KEY([idEventKind])
+REFERENCES [dbo].[EventKind] ([id])
+GO
+
+ALTER TABLE [dbo].[Event] CHECK CONSTRAINT [FK_Event_EventKind]
+GO*/

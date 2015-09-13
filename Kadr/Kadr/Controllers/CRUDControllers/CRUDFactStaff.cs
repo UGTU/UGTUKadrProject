@@ -55,7 +55,9 @@ namespace Kadr.Controllers
 
                     SetProperties(dlg.CommandManager, x, planStaffCurrent, employee);
 
-                    Contract newContract = new Contract(dlg.CommandManager, fcStHistory);
+                    Event curEvent = new Event(dlg.CommandManager, x, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), true);
+
+                    
                 };
 
 
@@ -84,7 +86,7 @@ namespace Kadr.Controllers
             SetProperties(commandManager, x, planStaffCurrent, employee);
             FactStaffHistory fcStHistory = new FactStaffHistory(commandManager, x, workType, NullPrikaz.Instance, DateTime.Today);
 
-			Contract newContract = new Contract(commandManager,fcStHistory);
+            Event curEvent = new Event(commandManager, x, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), true);
 
 
             using (Kadr.UI.Dialogs.FactStaffLinqPropertyGridDialogAdding dlg =
