@@ -9,13 +9,15 @@ namespace Kadr.Data
     partial class FactStaffHistory : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
 
-        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin)
+        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind)
             : this()
         {
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(this, "Prikaz", prikaz, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(this, "WorkType", workType, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
+
+            Event curEvent = new Event(CommandManager, this, eventKind, true, prikaz);
         }
         
         public override string ToString()
@@ -101,7 +103,8 @@ namespace Kadr.Data
                     throw new ArgumentNullException("Дата изменения.");
 
 
-                
+                if (MainEvent != null)
+                    (MainEvent as UIX.Views.IValidatable).Validate();
 
                 /*if (NewContract != null)
                 {

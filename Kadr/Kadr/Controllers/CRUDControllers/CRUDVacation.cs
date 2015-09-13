@@ -19,7 +19,7 @@ namespace Kadr.Controllers
                 dlg.InitializeNewObject = (x) =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, Event>(x, "Event",
-                        new Event(dlg.CommandManager, fs), null), sender);
+                        new Event(dlg.CommandManager, fs.CurrentChange), null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, OK_Otpuskvid>(x, "OK_Otpuskvid", NullOK_Otpuskvid.Instance, null), sender);
                 };
 

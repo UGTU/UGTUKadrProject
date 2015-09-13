@@ -190,7 +190,7 @@ namespace Kadr.Data
         {
             if ((Date == null) || (Date == DateTime.MinValue))
                 return CurrentChange;
-            return FactStaffHistories.Where(fcStHist => fcStHist.DateBegin <= Date).OrderBy(fcStHist => fcStHist.DateBegin).LastOrDefault();
+            return FactStaffHistories.Where(fcStHist => fcStHist.DateBegin <= Date).OrderBy(fcStHist => fcStHist.DateBegin).LastOrDefault()?? CurrentChange;
         }
 
         /// <summary>

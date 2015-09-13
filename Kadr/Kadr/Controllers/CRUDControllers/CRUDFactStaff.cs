@@ -45,19 +45,16 @@ namespace Kadr.Controllers
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
                         FactStaff prev = dlg.SelectedObjects[0] as FactStaff;
-                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin);
+                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault());
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x, "StaffCount", prev.StaffCount, null), sender);
                     }
                     else
                     {
-                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, NullWorkType.Instance, NullPrikaz.Instance, DateTime.Today);
+                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, NullWorkType.Instance, NullPrikaz.Instance, DateTime.Today, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault());
                     }
 
                     SetProperties(dlg.CommandManager, x, planStaffCurrent, employee);
 
-                    Event curEvent = new Event(dlg.CommandManager, x, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), true);
-
-                    
                 };
 
 
@@ -84,9 +81,7 @@ namespace Kadr.Controllers
 
             FactStaff x = new FactStaff();
             SetProperties(commandManager, x, planStaffCurrent, employee);
-            FactStaffHistory fcStHistory = new FactStaffHistory(commandManager, x, workType, NullPrikaz.Instance, DateTime.Today);
-
-            Event curEvent = new Event(commandManager, x, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), true);
+            FactStaffHistory fcStHistory = new FactStaffHistory(commandManager, x, workType, NullPrikaz.Instance, DateTime.Today, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault());
 
 
             using (Kadr.UI.Dialogs.FactStaffLinqPropertyGridDialogAdding dlg =

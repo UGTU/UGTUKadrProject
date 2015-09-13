@@ -37,11 +37,11 @@ namespace Kadr.Data
 
         #endregion
 
-        public Event(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, EventKind eventKind = null, bool WithContract = false)
+        public Event(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory, EventKind eventKind = null, bool WithContract = false, Prikaz prikaz = null)
             : this()
         {
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaffHistory>(this, "FactStaffHistory", factStaff.CurrentChange, null), null);
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this, "Prikaz", NullPrikaz.Instance, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaffHistory>(this, "FactStaffHistory", factStaffHistory, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this, "Prikaz", prikaz?? NullPrikaz.Instance, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, EventKind>(this, "EventKind", eventKind, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateBegin", DateTime.Today, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", DateTime.Today, null), null);
@@ -68,7 +68,9 @@ namespace Kadr.Data
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
 
-                if (FactStaff == null || (FactStaff.IsNull())) throw new ArgumentNullException("Сотрудник.");
+                if (FactStaffHistory == null ) throw new ArgumentNullException("Сотрудник.");
+                if (EventKind == null)
+                    throw new ArgumentNullException("Тип события.");
                 //if (Prikaz == null || (Prikaz.IsNull())) throw new ArgumentNullException("Приказ.");
                 if ((DateEnd != null) && (DateBegin != null))
                     if (DateEnd < DateBegin)
@@ -81,6 +83,14 @@ namespace Kadr.Data
                 if (Contract != null)
                 {
                     (Contract as UIX.Views.IValidatable).Validate();
+                }
+
+                
+                if (EventKind.ForFactStaff)
+                {
+                    DateBegin = FactStaffHistory.DateBegin;
+                    Prikaz = FactStaffHistory.Prikaz;
+
                 }
                 
             }
