@@ -450,9 +450,13 @@ GO
 ALTER TABLE [dbo].[Event_MaterialResponsibility] CHECK CONSTRAINT [FK_Event_MaterialResponsibility_MaterialResponsibility]
 GO
 
-
-
-
+delete from MaterialResponsibility
+DROP INDEX MaterialResponsibility.IX_MaterialResponsibility_1
+ALTER TABLE MaterialResponsibility DROP CONSTRAINT FK_MaterialResponsibility_FactStaffPrikaz
+alter table MaterialResponsibility drop column [idEvent]
+DROP INDEX MaterialResponsibility.IX_MaterialResponsibility
+ALTER TABLE MaterialResponsibility DROP CONSTRAINT FK_MaterialResponsibility_Contract
+alter table MaterialResponsibility drop column idContract
 
 go
 select *

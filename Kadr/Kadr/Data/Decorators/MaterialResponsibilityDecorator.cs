@@ -64,11 +64,11 @@ namespace Kadr.Data
         {
             get
             {
-                return _material.Event.DateBegin.Value;
+                return _material.Event_MaterialResponsibilities.FirstOrDefault().Event.DateBegin.Value;
             }
             set
             {
-                _material.Event.DateBegin = value;
+                _material.Event_MaterialResponsibilities.FirstOrDefault().Event.DateBegin = value;
             }
         }
 
@@ -81,10 +81,10 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(false)]
         public DateTime? DateEnd
         {
-            get { return _material.Event.DateEnd; }
+            get { return _material.Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd; }
             set
             {
-                _material.Event.DateEnd = value;
+                _material.Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd = value;
             }
         }
 
@@ -140,7 +140,7 @@ namespace Kadr.Data
             }
             set
             {
-                _material.Contract.ContractName = value;
+                _material.Event_MaterialResponsibilities.FirstOrDefault().Event.Contract.ContractName = value;
             }
         }
         [System.ComponentModel.DisplayName("Дата договора")]

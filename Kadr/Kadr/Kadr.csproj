@@ -1279,6 +1279,7 @@
     <None Include="Properties\DataSources\Kadr.Data.MilitaryStructure.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.Event_MaterialResponsibility.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1025,7 +1025,6 @@
       <Column Name="idMainContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idPrikazType" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Contract_Contract" Member="Contracts" ThisKey="id" OtherKey="idMainContract" Type="Contract" />
-      <Association Name="Contract_MaterialResponsibility" Member="MaterialResponsibilities" ThisKey="id" OtherKey="idContract" Type="MaterialResponsibility" />
       <Association Name="Contract_Event" Member="Events" ThisKey="id" OtherKey="idContract" Type="Event" />
       <Association Name="Contract_Contract" Member="Contract1" ThisKey="idMainContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
     </Type>
@@ -1044,17 +1043,6 @@
       <Association Name="EducDocument_Award" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
       <Association Name="Employee_Award" Member="Employee" ThisKey="IDEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
       <Association Name="Event_Award" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.MaterialResponsibility" Member="MaterialResponsibilities">
-    <Type Name="MaterialResponsibility">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEvent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idContract" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Sum" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
-      <Column Name="Perc" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
-      <Association Name="Contract_MaterialResponsibility" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
-      <Association Name="Event_MaterialResponsibility" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DopEducType" Member="DopEducTypes">
@@ -1196,13 +1184,13 @@
       <Column Name="idEventType" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Event_Award" Member="Awards" ThisKey="id" OtherKey="idEvent" Type="Award" />
-      <Association Name="Event_MaterialResponsibility" Member="MaterialResponsibilities" ThisKey="id" OtherKey="idEvent" Type="MaterialResponsibility" />
       <Association Name="Event_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idEvent" Type="OK_DopEducation" />
       <Association Name="Event_Validation" Member="Validations" ThisKey="id" OtherKey="idEvent" Type="Validation" />
       <Association Name="Event_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="OK_Otpusk" />
       <Association Name="Event_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idEvent" Type="SocialFareTransit" />
       <Association Name="Event_BusinessTrip" Member="BusinessTrips" ThisKey="id" OtherKey="idEvent" Type="BusinessTrip" />
       <Association Name="Event_Event" Member="Events" ThisKey="id" OtherKey="idMainEvent" Type="Event" />
+      <Association Name="Event_Event_MaterialResponsibility" Member="Event_MaterialResponsibility" ThisKey="id" OtherKey="idEvent" Type="Event_MaterialResponsibility" Cardinality="One" />
       <Association Name="Contract_Event" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="EventKind_Event" Member="EventKind" ThisKey="idEventKind" OtherKey="id" Type="EventKind" IsForeignKey="true" />
       <Association Name="EventType_Event" Member="EventType" ThisKey="idEventType" OtherKey="id" Type="EventType" IsForeignKey="true" />
@@ -1210,6 +1198,22 @@
       <Association Name="Event_Event" Member="Event1" ThisKey="idMainEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
       <Association Name="Prikaz_Event" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
       <Association Name="Prikaz_Event1" Member="Prikaz1" ThisKey="idPrikazEnd" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Event_MaterialResponsibility" Member="Event_MaterialResponsibilities">
+    <Type Name="Event_MaterialResponsibility">
+      <Column Name="idEvent" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idMaterialResponsibility" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Event_Event_MaterialResponsibility" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="MaterialResponsibility_Event_MaterialResponsibility" Member="MaterialResponsibility" ThisKey="idMaterialResponsibility" OtherKey="id" Type="MaterialResponsibility" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MaterialResponsibility" Member="MaterialResponsibilities">
+    <Type Name="MaterialResponsibility">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sum" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Perc" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Association Name="MaterialResponsibility_Event_MaterialResponsibility" Member="Event_MaterialResponsibilities" ThisKey="id" OtherKey="idMaterialResponsibility" Type="Event_MaterialResponsibility" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">
