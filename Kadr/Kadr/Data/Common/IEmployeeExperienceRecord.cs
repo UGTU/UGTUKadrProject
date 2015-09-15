@@ -19,8 +19,9 @@ namespace Kadr.Data.Common
         /// <summary>
         /// МКС
         /// </summary>
-        North =2
+        North = 2
     }
+
     /// <summary>
     /// Принадлежность стажа организации
     /// </summary>
@@ -35,6 +36,7 @@ namespace Kadr.Data.Common
         /// </summary>
         External
     }
+    
     /// <summary>
     /// Виды стажа
     /// </summary>
@@ -49,6 +51,7 @@ namespace Kadr.Data.Common
         /// </summary>
         Other = 1       
     }
+    
     /// <summary>
     /// Определяет типы записи стажа работника
     /// </summary>
