@@ -11,11 +11,12 @@ namespace Kadr.Controllers
 {
     public static class CRUDFactStaff
     {
-        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, Employee employee = null,  Dep department = null, WorkType workType = null)
+        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, Employee employee = null, Dep department = null, WorkType workType = null, bool isReplacement = false)
         {
-            if (planStaffCurrent == null)
+            if ((planStaffCurrent == null) && (department == null))
             {
                 MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
+                return;
             }
 
             if (workType == null)
@@ -46,7 +47,7 @@ namespace Kadr.Controllers
                         fcStHistory = new FactStaffHistory(dlg.CommandManager, x, NullWorkType.Instance, NullPrikaz.Instance, DateTime.Today, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault());
                     }
 
-                    SetProperties(dlg.CommandManager, x, planStaffCurrent, employee);
+                    SetProperties(dlg.CommandManager, x, planStaffCurrent, employee, isReplacement, department);
 
                 };
 
@@ -59,7 +60,7 @@ namespace Kadr.Controllers
             }
         }
 
-        public static DialogResult CreateWithEmployee(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null,UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null)
+        public static DialogResult CreateWithEmployee(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null, UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null, bool isReplacement = false)
         {
             if (planStaffCurrent == null)
             {

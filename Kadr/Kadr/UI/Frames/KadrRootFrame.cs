@@ -1357,7 +1357,7 @@ namespace Kadr.UI.Frames
                
                dlg.ShowDialog();
            }*/
-           CRUDFactStaff.Create(null, null, this, null, Department, null);
+            CRUDFactStaff.Create(null, null, this, null, Department, null);
             LoadHourFactStaff();
             //tcDepartment_SelectedIndexChanged(null, null);
        }

@@ -121,9 +121,9 @@ namespace Kadr.Data
         #endregion
 
         #region ContractData
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tОсновной договор")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tТекущий договор/ доп. соглашение")]
         [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
-        [System.ComponentModel.Description("Основной договор")]
+        [System.ComponentModel.Description("Договор")]
         [System.ComponentModel.ReadOnly(true)]
         [System.ComponentModel.Browsable(false)]
         public Contract CurrentContract
@@ -174,6 +174,11 @@ namespace Kadr.Data
                 {
                     if (factStaff.CurrentContract != null)
                         factStaff.CurrentContract.ContractName = value;
+
+                    if ((DateContract == DateTime.MinValue) || (DateContract == null))
+                        DateContract = factStaff.DateBegin;
+                    if ((ContractDateBegin == DateTime.MinValue) || (ContractDateBegin == null))
+                        ContractDateBegin = factStaff.DateBegin;
                 }
             }
         }
@@ -247,7 +252,6 @@ namespace Kadr.Data
             }
         }
         #endregion
-
 
         #region RegionTypeData
 
