@@ -41,9 +41,9 @@ namespace Kadr.UI.Common
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.helpProvider1.SetShowHelp(this.panel1, true);
@@ -52,8 +52,8 @@ namespace Kadr.UI.Common
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.HelpBtn);
             this.panel2.Controls.Add(this.ApplyBtn);
             this.panel2.Controls.Add(this.CancelBtn);
@@ -135,6 +135,8 @@ namespace Kadr.UI.Common
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Common Dialog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ISGBBaseDialog_FormClosing);
+            this.Load += new System.EventHandler(this.CustomBaseDialog_Load);
+            this.SizeChanged += new System.EventHandler(this.CustomBaseDialog_SizeChanged);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

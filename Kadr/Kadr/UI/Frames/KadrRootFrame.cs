@@ -184,7 +184,6 @@ namespace Kadr.UI.Frames
         {
             if ((planStaffBindingSource.Current as Kadr.Data.PlanStaff) != null)
             {
-
                 //фильтруем элементы 
                 IEnumerable<FactStaff> factStaff =
                     KadrController.Instance.Model.FactStaffs.Where(
@@ -1316,10 +1315,8 @@ namespace Kadr.UI.Frames
 
        private void AddHourFactStaffBtn_Click(object sender, EventArgs e)
        {
-            /*KadrController.Instance.AddFactStaff(hourFactStaffBindingSource, null, Department,
-                           Kadr.Data.WorkType.hourWorkType);*/
 
-           using (Common.PropertyGridDialogAdding<FactStaffHour> dlg =
+           /*using (Common.PropertyGridDialogAdding<FactStaffHour> dlg =
                 new Common.PropertyGridDialogAdding<FactStaffHour>())
            {
                dlg.ObjectList = null;
@@ -1334,10 +1331,6 @@ namespace Kadr.UI.Frames
                    if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                    {
                        FactStaff prev = (dlg.SelectedObjects[0] as FactStaffHour).FactStaff;
-                       //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime?>(fcStHistory, "DateBegin", prev.LastChange.DateBegin, null), this);
-                       //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(fcStHistory, "Prikaz", prev.PrikazBegin, null), this);
-                       //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", prev.WorkType, null), this);
-                       //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "StaffCount", prev.StaffCount, null), this);
                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, DateTime?>(x.FactStaff, "DateBegin", prev.DateBegin, null), this);
                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Prikaz>(x.FactStaff, "PrikazBegin", prev.PrikazBegin, null), this);
                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x.FactStaff, "StaffCount", prev.StaffCount, null), this);
@@ -1361,12 +1354,10 @@ namespace Kadr.UI.Frames
 
                };
 
-               /*dlg.UpdateObjectList = () =>
-               {
-                   dlg.ObjectList = KadrController.Instance.Model.FactStaffs;
-               };*/
+               
                dlg.ShowDialog();
-           }
+           }*/
+           CRUDFactStaff.Create(null, null, this, null, Department, null);
             LoadHourFactStaff();
             //tcDepartment_SelectedIndexChanged(null, null);
        }

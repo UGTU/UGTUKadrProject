@@ -61,13 +61,12 @@ namespace Kadr.UI.Dialogs
             }
 
 
-            base.DoApply();
-            if (!OKClicked)
+            /*if (!OKClicked)
             {
                 this.CommandManager.BeginBatchCommand();
                 //создаем новый объект
                 CreateNewObject();
-            }
+            }*/
         }
     }
 }

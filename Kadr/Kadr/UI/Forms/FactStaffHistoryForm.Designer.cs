@@ -54,6 +54,7 @@
             this.SalaryKoeff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HourCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HourSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventKind = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactStaffHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStaffHistoryBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -81,7 +82,8 @@
             this.workTypeDataGridViewTextBoxColumn,
             this.SalaryKoeff,
             this.HourCount,
-            this.HourSalary});
+            this.HourSalary,
+            this.EventKind});
             this.dgvFactStaffHistory.DataSource = this.factStaffHistoryBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -228,11 +230,11 @@
             // 
             // prikazDataGridViewTextBoxColumn
             // 
-            this.prikazDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
             this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ назн.";
             this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
             this.prikazDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prikazDataGridViewTextBoxColumn.Width = 93;
             // 
             // newStaffCountDataGridViewTextBoxColumn
             // 
@@ -280,6 +282,14 @@
             this.HourSalary.ReadOnly = true;
             this.HourSalary.Width = 55;
             // 
+            // EventKind
+            // 
+            this.EventKind.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EventKind.DataPropertyName = "EventKind";
+            this.EventKind.HeaderText = "Вид события";
+            this.EventKind.Name = "EventKind";
+            this.EventKind.ReadOnly = true;
+            // 
             // FactStaffHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,5 +334,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SalaryKoeff;
         private System.Windows.Forms.DataGridViewTextBoxColumn HourCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn HourSalary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EventKind;
     }
 }

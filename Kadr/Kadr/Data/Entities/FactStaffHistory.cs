@@ -38,6 +38,11 @@ namespace Kadr.Data
             }
         }
 
+        #region EventData 
+
+        /// <summary>
+        /// Событие назначения этого изменения
+        /// </summary>
         public Event MainEvent
         {
             get
@@ -46,6 +51,9 @@ namespace Kadr.Data
             }
         }
 
+        /// <summary>
+        /// Связанный договор
+        /// </summary>
         public Contract Contract
         {
             get
@@ -61,6 +69,25 @@ namespace Kadr.Data
 
             }
         }
+
+        /// <summary>
+        /// Тип события
+        /// </summary>
+        public EventKind EventKind
+        {
+            get
+            {
+                if (MainEvent != null)
+                    return MainEvent.EventKind;
+                return null;
+            }
+            set
+            {
+                if (MainEvent != null)
+                    MainEvent.EventKind = value;
+            }
+        }
+        #endregion
 
         #region partial Methods
         partial void OnCreated()

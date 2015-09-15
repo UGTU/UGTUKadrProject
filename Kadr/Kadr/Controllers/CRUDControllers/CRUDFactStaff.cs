@@ -11,7 +11,7 @@ namespace Kadr.Controllers
 {
     public static class CRUDFactStaff
     {
-        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null, UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null)
+        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, Employee employee = null,  Dep department = null, WorkType workType = null)
         {
             if (planStaffCurrent == null)
             {
@@ -28,15 +28,8 @@ namespace Kadr.Controllers
             {
                 dlg.ObjectList = KadrController.Instance.Model.FactStaffs;
                 dlg.BindingSource = factStaffBindingSource;
-                if (commandManager != null)
-                {
-                    dlg.CommandManager = commandManager;
-                    dlg.UseInternalCommandManager = false;
-                }
-                else
-                    dlg.UseInternalCommandManager = true;
+                dlg.UseInternalCommandManager = true;
                 dlg.PrikazButtonVisible = true;
-                dlg.oneObjectCreated = !applyButtonVisible;
 
                 dlg.InitializeNewObject = (x) =>
                 {
@@ -103,11 +96,11 @@ namespace Kadr.Controllers
             }
         }
 
-        public static void SetProperties(UIX.Commands.ICommandManager commandManager, FactStaff x, PlanStaff planStaff, Employee employee, bool IsReplacement = false, Dep department = null)
+        public static void SetProperties(UIX.Commands.ICommandManager commandManager, FactStaff x, PlanStaff planStaff, Employee employee, bool isReplacement = false, Dep department = null)
         {
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, PlanStaff>(x, "PlanStaff", planStaff, null), null);
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(x, "Employee", employee, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "IsReplacement", false, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "IsReplacement", isReplacement, null), null);
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x, "Dep", department, null), null);
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x, "FundingCenter", NullFundingCenter.Instance, null), null);
         }

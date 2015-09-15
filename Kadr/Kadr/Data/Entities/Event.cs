@@ -44,7 +44,7 @@ namespace Kadr.Data
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this, "Prikaz", prikaz?? NullPrikaz.Instance, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, EventKind>(this, "EventKind", eventKind, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateBegin", DateTime.Today, null), null);
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", DateTime.Today, null), null);
+            //CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", DateTime.Today, null), null);
 
             if (WithContract)
                 new Contract(CommandManager, this);
@@ -90,7 +90,6 @@ namespace Kadr.Data
                 {
                     DateBegin = FactStaffHistory.DateBegin;
                     Prikaz = FactStaffHistory.Prikaz;
-
                 }
                 
             }

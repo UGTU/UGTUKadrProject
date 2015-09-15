@@ -26,5 +26,10 @@ namespace Kadr.UI.Dialogs
             if (validatable != null)
                 validatable.Validate();
         }
+
+        protected override void DoCancel()
+        {
+            TerminateBatchCommand();
+        }
     }
 }

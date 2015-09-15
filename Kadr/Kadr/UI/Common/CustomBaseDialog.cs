@@ -200,25 +200,7 @@ namespace Kadr.UI.Common
 
         protected void SetupButtonsVisible()
         {
-            if (OKBtn.Visible)
-            {
-                if (ApplyBtn.Visible)
-                {
-                    ApplyBtn.Left = panel2.Width - ApplyBtn.Width - 3;
-                    CancelBtn.Left = ApplyBtn.Left - CancelBtn.Width - 3;
-                }
-                else
-                    CancelBtn.Left = panel2.Width - CancelBtn.Width - 3;
-
-                OKBtn.Left = CancelBtn.Left - OKBtn.Width - 3;
-            }
-            else
-            {
-                CancelBtn.Left = panel2.Width - CancelBtn.Width - 3;
-                ApplyBtn.Left = CancelBtn.Left - ApplyBtn.Width - 3;
-            }
-            
-
+            SetButtonsLocation();
         }
 
         /// <summary>
@@ -238,8 +220,37 @@ namespace Kadr.UI.Common
             }
         }
 
+        private void CustomBaseDialog_SizeChanged(object sender, EventArgs e)
+        {
+            SetButtonsLocation();
+        }
 
 
+        private void SetButtonsLocation()
+        {
+            if (OKBtn.Visible)
+            {
+                if (ApplyBtn.Visible)
+                {
+                    ApplyBtn.Left = panel2.Width - ApplyBtn.Width - 3;
+                    CancelBtn.Left = ApplyBtn.Left - CancelBtn.Width - 3;
+                }
+                else
+                    CancelBtn.Left = panel2.Width - CancelBtn.Width - 3;
+
+                OKBtn.Left = CancelBtn.Left - OKBtn.Width - 3;
+            }
+            else
+            {
+                CancelBtn.Left = panel2.Width - CancelBtn.Width - 3;
+                ApplyBtn.Left = CancelBtn.Left - ApplyBtn.Width - 3;
+            }
+        }
+
+        private void CustomBaseDialog_Load(object sender, EventArgs e)
+        {
+            SetButtonsLocation();
+        }
 
        
 
