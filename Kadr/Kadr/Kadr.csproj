@@ -195,6 +195,7 @@
   <ItemGroup>
     <Compile Include="Command\CreatePlanStaffCommand.cs" />
     <Compile Include="Controllers\BonusController.cs" />
+    <Compile Include="Controllers\BonusProvider.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDDopEducation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDEducation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDEmployee.cs" />
@@ -221,7 +222,10 @@
     <Compile Include="Controllers\MonthController.cs" />
     <Compile Include="Controllers\PropertyGridExtensions.cs" />
     <Compile Include="Controllers\SimpleActionsProvider.cs" />
+    <Compile Include="Controllers\UGTU2015BonusProvider.cs" />
     <Compile Include="Data\Common\AdvancedBindingList.cs" />
+    <Compile Include="Data\Common\BonusRules\SimpleLadderBonusRule.cs" />
+    <Compile Include="Data\Common\BonusRules\YoungLadderNorthBonusRule.cs" />
     <Compile Include="Data\Common\CategoryExtensions.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
     <Compile Include="Data\Common\EmployeeExperienceExtensions.cs" />
@@ -231,6 +235,7 @@
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
     <Compile Include="Data\Common\WorkTypeExtensions.cs" />
+    <Compile Include="Data\Common\BonusRules\YoungLadderStrictNorthBonusRule.cs" />
     <Compile Include="Data\Converters\ContractConvertor.cs" />
     <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
@@ -394,6 +399,8 @@
     <Compile Include="Data\Entities\WorkType.cs" />
     <Compile Include="Data\Common\IEmployeeExperienceRecord.cs" />
     <Compile Include="Data\Common\IExperienceProvider.cs" />
+    <Compile Include="Interfaces\IBonused.cs" />
+    <Compile Include="Interfaces\IBonusRule.cs" />
     <Compile Include="Interfaces\IOrderInformer.cs" />
     <Compile Include="KadrTreeView\KadrTreeView.cs">
       <SubType>Component</SubType>
