@@ -42,6 +42,15 @@ namespace Kadr.Data
 
         #region NewEmployeeFactStaffProperties
 
+        /// <summary>
+        /// Признак того, что запись создана одновременно с новым сотрудником
+        /// </summary>
+        public bool WithNewEmployee
+        {
+            get;
+            set;
+        }
+
         /*public FactStaff(Employee employee)
         {
             NewEmployee = employee;
@@ -682,6 +691,8 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
+            if (WithNewEmployee)
+                return new FactStaffEmployeeAddingDecorator(this);
             if (IsHourStaff)
                 return new FactStaffHourDecorator(this);
             return new FactStaffDecorator(this);

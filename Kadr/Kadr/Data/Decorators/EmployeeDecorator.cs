@@ -408,7 +408,7 @@ namespace Kadr.Data
             }
         }
         [System.ComponentModel.DisplayName("Общий трудовой стаж")]
-        [System.ComponentModel.Category("\tТрудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalExperience
@@ -422,7 +422,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Научно-педагогический трудовой стаж")]
-        [System.ComponentModel.Category("\tТрудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника на научно-педагогических должностях")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalPedagogicalExperience
@@ -437,7 +437,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Северный трудовой стаж")]
-        [System.ComponentModel.Category("\tТрудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах МКС или РКС")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalNorthExperience
@@ -449,7 +449,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Трудовой стаж МКС")]
-        [System.ComponentModel.Category("\tТрудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах МКС")]
         [System.ComponentModel.ReadOnly(true)]
         public string NorthExperience
@@ -460,7 +460,7 @@ namespace Kadr.Data
             }
         }
         [System.ComponentModel.DisplayName("Трудовой стаж РКС")]
-        [System.ComponentModel.Category("\tТрудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах РКС")]
         [System.ComponentModel.ReadOnly(true)]
         public string StrictNorthExperience
@@ -487,7 +487,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Трудовой стаж в организации")]
-        [System.ComponentModel.Category("\tТрудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в этой организации")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalOrganizationExperience
@@ -503,7 +503,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Непрерывный трудовой стаж в организации")]
-        [System.ComponentModel.Category("\tТрудовой стаж")]
+        [System.ComponentModel.Category("Трудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней непрерывного стажа сотрудника в этой организации")]
         [System.ComponentModel.ReadOnly(true)]
         public string TotalOrganizationContiniousExperience
@@ -521,7 +521,7 @@ namespace Kadr.Data
 
         //Воинский учет
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tКатегория запаса")]
-        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Category("\tВоинский учет")]
         [System.ComponentModel.Description("Категория запаса")]
         [TypeConverter(typeof(SimpleToStringConvertor<MilitaryCategory>))]
         [System.ComponentModel.ReadOnly(false)]
@@ -538,7 +538,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\tВоинское звание")]
-        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Category("\tВоинский учет")]
         [System.ComponentModel.Description("Воинское звание")]
         [TypeConverter(typeof(SimpleToStringConvertor<MilitaryRank>))]
         [System.ComponentModel.ReadOnly(false)]
@@ -555,7 +555,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\tСостав (профиль)")]
-        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Category("\tВоинский учет")]
         [System.ComponentModel.Description("Состав (профиль)")]
         [TypeConverter(typeof(SimpleToStringConvertor<MilitaryStructure>))]
         [System.ComponentModel.ReadOnly(false)]
@@ -572,7 +572,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\tПолное кодовое обозначение ВУС ")]
-        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Category("\tВоинский учет")]
         [System.ComponentModel.Description("Полное кодовое обозначение ВУС ")]
         [System.ComponentModel.ReadOnly(false)]
         public string VUSCode
@@ -588,7 +588,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\tКатегория годности к военной службе ")]
-        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Category("\tВоинский учет")]
         [System.ComponentModel.Description("Категория годности к военной службе ")]
         [TypeConverter(typeof(SimpleToStringConvertor<MilitaryFitness>))]
         [System.ComponentModel.ReadOnly(false)]
@@ -605,7 +605,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\t\tВоенный комиссариат")]
-        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Category("\tВоинский учет")]
         [System.ComponentModel.Description("Наименование военного комиссариата по месту жительства")]
         [System.ComponentModel.ReadOnly(false)]
         public string MilitaryCommissariat
@@ -621,7 +621,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\tТип воинского учета")]
-        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Category("\tВоинский учет")]
         [System.ComponentModel.Description("Тип воинского учета")]
         [TypeConverter(typeof(SimpleToStringConvertor<MilitaryType>))]
         [System.ComponentModel.ReadOnly(false)]
@@ -638,7 +638,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Отметка о снятии с воинского учета")]
-        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Category("\tВоинский учет")]
         [System.ComponentModel.Description("Отметка о снятии с воинского учета")]
         [System.ComponentModel.ReadOnly(false)]
         public string RemovalMilitaryMark
@@ -654,7 +654,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\tНомер команды, партии / Номер спец. учета")]
-        [System.ComponentModel.Category("Воинский учет")]
+        [System.ComponentModel.Category("\tВоинский учет")]
         [System.ComponentModel.Description("Номер команды, партии / Номер спец. учета")]
         [System.ComponentModel.ReadOnly(false)]
         public string NumberMilitaryType

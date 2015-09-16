@@ -9,7 +9,7 @@ namespace Kadr.Data
     partial class FactStaffHistory : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
 
-        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind)
+        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, bool withContract = false)
             : this()
         {
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(this, "Prikaz", prikaz, null), null);
@@ -17,7 +17,7 @@ namespace Kadr.Data
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
 
-            Event curEvent = new Event(CommandManager, this, eventKind, true, prikaz);
+            Event curEvent = new Event(CommandManager, this, eventKind, withContract, prikaz);
         }
         
         public override string ToString()
@@ -67,6 +67,22 @@ namespace Kadr.Data
                 if (MainEvent != null)
                     MainEvent.Contract = value;
 
+            }
+        }
+
+        /// <summary>
+        /// устанавливает даты начала контрактов
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetContractDates(DateTime value)
+        {
+            if (Contract != null)
+            {
+                if ((Contract.DateContract == null) || (Contract.DateContract == DateTime.MinValue))
+                {
+                    Contract.DateBegin = value;
+                    Contract.DateContract = value;
+                }
             }
         }
 

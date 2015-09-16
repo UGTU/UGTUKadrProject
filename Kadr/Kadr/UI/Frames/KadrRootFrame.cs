@@ -1315,51 +1315,8 @@ namespace Kadr.UI.Frames
 
        private void AddHourFactStaffBtn_Click(object sender, EventArgs e)
        {
-
-           /*using (Common.PropertyGridDialogAdding<FactStaffHour> dlg =
-                new Common.PropertyGridDialogAdding<FactStaffHour>())
-           {
-               dlg.ObjectList = null;
-               dlg.BindingSource = hourFactStaffBindingSource;
-               dlg.UseInternalCommandManager = true;
-               dlg.PrikazButtonVisible = true;
-               dlg.InitializeNewObject = (x) =>
-               {
-                   
-                   FactStaffHistory fcStHistory = new FactStaffHistory();
-                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x, "Dep", (planStaffBindingSource.Current as PlanStaff).Dep, null), this);
-                   if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
-                   {
-                       FactStaff prev = (dlg.SelectedObjects[0] as FactStaffHour).FactStaff;
-                       dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, DateTime?>(x.FactStaff, "DateBegin", prev.DateBegin, null), this);
-                       dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Prikaz>(x.FactStaff, "PrikazBegin", prev.PrikazBegin, null), this);
-                       dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x.FactStaff, "StaffCount", prev.StaffCount, null), this);
-
-
-                   }
-                   else
-                   {
-                       dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(fcStHistory, "Prikaz", NullPrikaz.Instance, null), this);
-                       //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Prikaz>(x, "PrikazBegin", NullPrikaz.Instance, null), this);
-                       //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, WorkType>(x, "WorkType", NullWorkType.Instance, null), this);
-                    }
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x.FactStaff, "IsReplacement", false, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(x.FactStaff, "Employee", NullEmployee.Instance, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", Kadr.Data.WorkType.hourWorkType, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x.FactStaff, "Dep", Department, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x.FactStaff, "FundingCenter", NullFundingCenter.Instance, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x.FactStaff, "FinancingSource", Kadr.Data.FinancingSource.budgetFinancingSource, null), this);
-                   //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "SalaryKoeff", 1, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", x.FactStaff, null), this);
-
-               };
-
-               
-               dlg.ShowDialog();
-           }*/
-            CRUDFactStaff.Create(null, null, this, null, Department, null);
-            LoadHourFactStaff();
-            //tcDepartment_SelectedIndexChanged(null, null);
+           CRUDFactStaff.Create(null, null, this, Department);
+           LoadHourFactStaff();
        }
 
        private void DelHourFactStaffBtn_Click(object sender, EventArgs e)
