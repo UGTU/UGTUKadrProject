@@ -13,7 +13,7 @@ using Kadr.UI.Dialogs;
 
 namespace Kadr.UI.Common
 {
-    public partial class LinqPropertyGridDialogEditing<T> : PropertyGridDialog where T : class 
+    public partial class LinqPropertyGridDialogEditing<T> where T : class 
 
 {
     //создание связанных объектов
@@ -59,12 +59,27 @@ namespace Kadr.UI.Common
 
     }
 
+    //список объектов (записей), в которые производится добавление объектов
+    private System.Data.Linq.Table<T> objectList;
+
+    public System.Data.Linq.Table<T> ObjectList
+    {
+        get
+        {
+            return objectList;
+        }
+        set
+        {
+            objectList = value;
+        }
+    }
+
     private void btnPrikaz_Click(object sender, EventArgs e)
     {
         if (UpdateObjectList == null)
         {
             MessageBox.Show("Не заданы все необходимые условия для вызова диалога \"Приказы\".",
-                "АИС \"Штатное расписание\"");
+                "ИС \"Управление кадрами\"");
             return;
         }
 

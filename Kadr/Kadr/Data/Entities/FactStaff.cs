@@ -33,11 +33,37 @@ namespace Kadr.Data
             {
                 res = res + ", " + this.PlanStaff.Post.ToString();
             }
+
             if (this.WorkType != null)
                 res = res + ", " + this.WorkType.ToString();
             res = res + ", " + StaffCount.ToString() + " ставки";
             return res;
         }
+
+        #region NewEmployeeFactStaffProperties
+
+        /// <summary>
+        /// Признак того, что запись создана одновременно с новым сотрудником
+        /// </summary>
+        public bool WithNewEmployee
+        {
+            get;
+            set;
+        }
+
+        /*public FactStaff(Employee employee)
+        {
+            NewEmployee = employee;
+        }
+
+        public Employee NewEmployee
+        {
+            get;
+            set;
+        }*/
+        
+        #endregion
+
 
         #region MainProperties
         /// <summary>
@@ -48,7 +74,7 @@ namespace Kadr.Data
             get
             {
 
-                var trips = FactStaffPrikazs.SelectMany(x => x.BusinessTrips).Where(t => (t.FactStaffPrikaz.DateBegin < DateTime.Now) && (t.FactStaffPrikaz.DateEnd > DateTime.Now));
+                var trips = CurrentChange.Events.SelectMany(x => x.BusinessTrips).Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
                 if (trips.Any()) return FactStaffState.OnTrip;
 
 
@@ -169,6 +195,16 @@ namespace Kadr.Data
         /// <summary>
         /// Первоначальное назначение (изменение)
         /// </summary>
+        public FactStaffHistory GetHistoryForDate(DateTime? Date)
+        {
+            if ((Date == null) || (Date == DateTime.MinValue))
+                return CurrentChange;
+            return FactStaffHistories.Where(fcStHist => fcStHist.DateBegin <= Date).OrderBy(fcStHist => fcStHist.DateBegin).LastOrDefault()?? CurrentChange;
+        }
+
+        /// <summary>
+        /// Первоначальное назначение (изменение)
+        /// </summary>
         public FactStaffHistory FirstDesignate
         {
             get
@@ -184,7 +220,8 @@ namespace Kadr.Data
         {
             get
             {
-                return FactStaffHistories.Where(fcStHist => fcStHist.DateBegin <= DateTime.Today.Date).OrderBy(fcStHist => fcStHist.DateBegin).LastOrDefault();
+                return FactStaffHistories.Where(fcStHist => fcStHist.DateBegin <= DateTime.Today.Date).OrderBy(fcStHist => fcStHist.DateBegin).LastOrDefault()??
+                    FactStaffHistories.FirstOrDefault();
             }
         }
 
@@ -650,14 +687,14 @@ namespace Kadr.Data
 
         #endregion
 
-
-
-
-
         #region IDecorable Members
 
         public object GetDecorator()
         {
+            if (WithNewEmployee)
+                return new FactStaffEmployeeAddingDecorator(this);
+            if (IsHourStaff)
+                return new FactStaffHourDecorator(this);
             return new FactStaffDecorator(this);
         }
 
@@ -691,7 +728,7 @@ namespace Kadr.Data
 
         ObjectState IObjectState.State()
         {
-            if ((((Prikaz == null) && (DateEnd == null)) || (DateEnd > DateTime.Today))&& (FactStaffHistories.Where(fcSt => fcSt.DateBegin <= DateTime.Today).Count()>0))
+            if ((((Prikaz == null) && (DateEnd == null)) || (DateEnd > DateTime.Today))/*&& (FactStaffHistories.Where(fcSt => fcSt.DateBegin <= DateTime.Today).Count()>0)*/)
                 return ObjectState.Current;
             return ObjectState.Canceled;
         }

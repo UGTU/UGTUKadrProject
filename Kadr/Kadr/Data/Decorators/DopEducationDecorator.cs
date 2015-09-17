@@ -45,7 +45,7 @@ namespace Kadr.Data
         [Category("Основные")]
         [Description("Тип повышения квалификации согласно классификатору")]
         [TypeConverter(typeof(SimpleToStringConvertor<DopEducType>))]
-        [RefreshProperties(RefreshProperties.All)]
+    //    [RefreshProperties(RefreshProperties.All)]
         [ReadOnly(false)]
         public DopEducType DopEducType
         {
@@ -59,7 +59,7 @@ namespace Kadr.Data
                 if (value == null) return;
                 if (value.EducDocumentType != null)
                     _dop.EducDocument.EducDocumentType = value.EducDocumentType;
-                this.SetPropertyReadOnly(() => _dop.EducDocument.EducDocumentType, value.EducDocumentType != null);
+               // this.SetPropertyReadOnly(() => _dop.EducDocument.EducDocumentType, value.EducDocumentType != null);
             }
         }
 
@@ -85,8 +85,8 @@ namespace Kadr.Data
             set 
             { 
                 _dop.DateBegin = value;
-                if (_dop.FactStaffPrikaz != null)
-                  _dop.FactStaffPrikaz.DateBegin = value;
+                if (_dop.Event != null)
+                  _dop.Event.DateBegin = value;
             }
         }
 
@@ -101,8 +101,8 @@ namespace Kadr.Data
             set
             {
                 _dop.DateEnd = value;
-                if (_dop.FactStaffPrikaz != null)
-                    _dop.FactStaffPrikaz.DateEnd = value;
+                if (_dop.Event != null)
+                    _dop.Event.DateEnd = value;
             }
         }
 
@@ -125,18 +125,11 @@ namespace Kadr.Data
         {
             get
             {
-                return _dop.FactStaffPrikaz != null ? _dop.FactStaffPrikaz.Prikaz : null;
+                return _dop.Prikaz;
             }
             set
             {
-                if (value != null)
-                {
-                    if (_dop.FactStaffPrikaz == null) _dop.FactStaffPrikaz = new FactStaffPrikaz()
-                    {
-                        FactStaff = _dop.FactStaff
-                    };
-                    _dop.FactStaffPrikaz.Prikaz = value;
-                }
+                _dop.Prikaz = value;
             }
         }
 

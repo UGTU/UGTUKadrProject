@@ -17,16 +17,15 @@ namespace Kadr.Data
     {
         public const int MaterialContract = 18;
 
-        public Contract(ICommandManager CommandManager, FactStaffHistory factStaffHistory, string contractName = null, DateTime? dateContract = null, DateTime? dateBegin = null, DateTime? dateEnd = null)
+        public Contract(ICommandManager CommandManager, Event curEvent, string contractName = "", DateTime? dateContract = null, DateTime? dateBegin = null, DateTime? dateEnd = null)
             : this()
         {
-            CommandManager.Execute(new GenericPropertyCommand<FactStaffHistory, Contract>(factStaffHistory, "Contract", this, null), null);
             CommandManager.Execute(new GenericPropertyCommand<Contract, string>(this, "ContractName", contractName, null), null);
-            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateContract", dateContract, null), null); ContractName = contractName;
-            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateBegin", dateBegin, null), null); ContractName = contractName;
-            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateEnd", dateEnd, null), null); ContractName = contractName;
+            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateContract", dateContract, null), null); 
+            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateBegin", dateBegin, null), null); 
+            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateEnd", dateEnd, null), null); 
+            CommandManager.Execute(new GenericPropertyCommand<Event, Contract>(curEvent, "Contract", this, null), null);
         }
-
 
         public override string ToString()
         {

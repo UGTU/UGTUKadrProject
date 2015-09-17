@@ -71,6 +71,7 @@ namespace Kadr.Data
                 {
                     if (factStaffHistory.Contract != null)
                         factStaffHistory.Contract.ContractName = value;
+
                 }
             }
         }

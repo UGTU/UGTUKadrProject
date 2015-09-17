@@ -16,7 +16,7 @@ namespace Kadr.Data
 
         }
 
-
+        #region MainData
         [System.ComponentModel.DisplayName("Должность в штатном расписании")]
         [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("Должность в штатном расписании")]
@@ -33,16 +33,12 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("ФИО сотрудника, назначенного на должность")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.EmployeeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.Browsable(true)]
         public Kadr.Data.Employee Employee
         {
             get
             {
                 return factStaff.Employee;
-            }
-            set
-            {
-                factStaff.Employee = value;
             }
         }
 
@@ -50,6 +46,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Код экономической деятельности")]
         [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.Browsable(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OKVEDConvertor))]
         public OKVED OKVED
         {
@@ -67,6 +64,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
         [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.Browsable(false)]
         public int? SalaryKoeff
         {
             get
@@ -116,12 +114,12 @@ namespace Kadr.Data
                 factStaff.PrikazBegin = value;
             }
         }
+        #endregion
 
- 
         #region ContractData
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tОсновной договор")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tТекущий договор/ доп. соглашение")]
         [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
-        [System.ComponentModel.Description("Основной договор")]
+        [System.ComponentModel.Description("Договор")]
         [System.ComponentModel.ReadOnly(true)]
         [System.ComponentModel.Browsable(false)]
         public Contract CurrentContract
@@ -172,6 +170,11 @@ namespace Kadr.Data
                 {
                     if (factStaff.CurrentContract != null)
                         factStaff.CurrentContract.ContractName = value;
+
+                    if ((DateContract == DateTime.MinValue) || (DateContract == null))
+                        DateContract = factStaff.DateBegin;
+                    if ((ContractDateBegin == DateTime.MinValue) || (ContractDateBegin == null))
+                        ContractDateBegin = factStaff.DateBegin;
                 }
             }
         }
@@ -245,7 +248,6 @@ namespace Kadr.Data
             }
         }
         #endregion
-
 
         #region RegionTypeData
 

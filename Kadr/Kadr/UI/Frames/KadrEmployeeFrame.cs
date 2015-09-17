@@ -183,6 +183,7 @@ namespace Kadr.UI.Frames
             }
             KadrController.Instance.SubmitChanges();
             commandManager.BeginBatchCommand();
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -304,7 +305,7 @@ namespace Kadr.UI.Frames
         private void tcEmplPostInf_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
-                CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource);
+                CRUDVacation.Read(((FactStaff)factStaffBindingSource.Current).CurrentChange, Employee, oKOtpuskBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpBusTrip)
                 CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
@@ -631,7 +632,7 @@ namespace Kadr.UI.Frames
 
         private void EditDopEducBtn_Click(object sender, EventArgs e)
         {
-            CRUDDopEducation.Update(Employee, DopEducationBindingSource);
+            CRUDDopEducation.Update(Employee, (this.FrameNodeObject as KadrEmployeeObject).FactStaff, DopEducationBindingSource);
         }
 
         private void DeleteDopEducBtn_Click(object sender, EventArgs e)

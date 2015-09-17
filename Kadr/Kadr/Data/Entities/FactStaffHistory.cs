@@ -9,18 +9,20 @@ namespace Kadr.Data
     partial class FactStaffHistory : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
 
+        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, bool withContract = false)
+            : this()
+        {
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(this, "Prikaz", prikaz, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(this, "WorkType", workType, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
+
+            Event curEvent = new Event(CommandManager, this, eventKind, withContract, prikaz);
+        }
+        
         public override string ToString()
         {
             return "Изменение " + FactStaff.ToString();
-        }
-
-        /// <summary>
-        /// новый контракт - используется при создании контракта
-        /// </summary>
-        public Contract NewContract
-        {
-            get;
-            set;
         }
 
 
@@ -35,6 +37,73 @@ namespace Kadr.Data
                     return false;
             }
         }
+
+        #region EventData 
+
+        /// <summary>
+        /// Событие назначения этого изменения
+        /// </summary>
+        public Event MainEvent
+        {
+            get
+            {
+                return Events.Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
+            }
+        }
+
+        /// <summary>
+        /// Связанный договор
+        /// </summary>
+        public Contract Contract
+        {
+            get
+            {
+                if (MainEvent != null)
+                    return MainEvent.Contract;
+                return null;
+            }
+            set
+            {
+                if (MainEvent != null)
+                    MainEvent.Contract = value;
+
+            }
+        }
+
+        /// <summary>
+        /// устанавливает даты начала контрактов
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetContractDates(DateTime value)
+        {
+            if (Contract != null)
+            {
+                if ((Contract.DateContract == null) || (Contract.DateContract == DateTime.MinValue))
+                {
+                    Contract.DateBegin = value;
+                    Contract.DateContract = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Тип события
+        /// </summary>
+        public EventKind EventKind
+        {
+            get
+            {
+                if (MainEvent != null)
+                    return MainEvent.EventKind;
+                return null;
+            }
+            set
+            {
+                if (MainEvent != null)
+                    MainEvent.EventKind = value;
+            }
+        }
+        #endregion
 
         #region partial Methods
         partial void OnCreated()
@@ -77,17 +146,15 @@ namespace Kadr.Data
                     throw new ArgumentNullException("Дата изменения.");
 
 
-                if (Contract != null)
-                {
-                    (Contract as UIX.Views.IValidatable).Validate();
-                }
+                if (MainEvent != null)
+                    (MainEvent as UIX.Views.IValidatable).Validate();
 
-                if (NewContract != null)
+                /*if (NewContract != null)
                 {
                     (NewContract as UIX.Views.IValidatable).Validate();
                     Contract = NewContract;
                     Kadr.Controllers.KadrController.Instance.Model.Contracts.InsertOnSubmit(Contract);
-                }
+                }*/
 
 
                 //проверка на переполнение штатов на начало периода

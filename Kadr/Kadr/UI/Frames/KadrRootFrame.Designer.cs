@@ -50,9 +50,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpDepBonusReport = new System.Windows.Forms.TabPage();
             this.cbBonRepWithSubDeps = new System.Windows.Forms.CheckBox();
             this.btnBonusRepLoad = new System.Windows.Forms.Button();
@@ -212,6 +214,18 @@
             this.planStaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hourFactStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tpTimeNorm = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvTimeNorm = new System.Windows.Forms.DataGridView();
+            this.financingSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.normHoursCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateBeginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentTimeNormBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip8 = new System.Windows.Forms.ToolStrip();
+            this.btnAddTimeNorm = new System.Windows.Forms.ToolStripButton();
+            this.btnEditTimeNorm = new System.Windows.Forms.ToolStripButton();
+            this.btnDelTimeNorm = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.tpDepEmplReport = new System.Windows.Forms.TabPage();
             this.cbDepStaffReportWithSubDeps = new System.Windows.Forms.CheckBox();
             this.btnDepStaffReportLoad = new System.Windows.Forms.Button();
@@ -305,18 +319,6 @@
             this.factStaffChangesFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
             this.tpPostStaffChangesReport = new System.Windows.Forms.TabPage();
             this.postStaffChangesFrame1 = new Reports.Frames.ReportBaseFrameForPeriod();
-            this.tpTimeNorm = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvTimeNorm = new System.Windows.Forms.DataGridView();
-            this.financingSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.normHoursCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateBeginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentTimeNormBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStrip8 = new System.Windows.Forms.ToolStrip();
-            this.btnAddTimeNorm = new System.Windows.Forms.ToolStripButton();
-            this.btnEditTimeNorm = new System.Windows.Forms.ToolStripButton();
-            this.btnDelTimeNorm = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.tpFactStaffErrors = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvStaffErrors = new System.Windows.Forms.DataGridView();
@@ -390,6 +392,11 @@
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHourFactStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hourFactStaffBindingSource)).BeginInit();
+            this.tpTimeNorm.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTimeNorm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentTimeNormBindingSource)).BeginInit();
+            this.toolStrip8.SuspendLayout();
             this.tpDepEmplReport.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.toolStrip11.SuspendLayout();
@@ -429,11 +436,6 @@
             this.tcStaffChangesReport.SuspendLayout();
             this.tpFactStaffChangesReport.SuspendLayout();
             this.tpPostStaffChangesReport.SuspendLayout();
-            this.tpTimeNorm.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTimeNorm)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentTimeNormBindingSource)).BeginInit();
-            this.toolStrip8.SuspendLayout();
             this.tpFactStaffErrors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffErrors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getStaffErrorsByPeriodBindingSource)).BeginInit();
@@ -707,7 +709,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer1.Size = new System.Drawing.Size(796, 527);
-            this.splitContainer1.SplitterDistance = 173;
+            this.splitContainer1.SplitterDistance = 162;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -723,7 +725,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 173);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 162);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -1006,7 +1008,6 @@
             this.tspPlanStaffFilter.Size = new System.Drawing.Size(80, 19);
             this.tspPlanStaffFilter.Text = "Фильтр";
             this.tspPlanStaffFilter.ToolTipText = "Задать фильтр записей";
-            this.tspPlanStaffFilter.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tspPlanStaffFilter_DropDownItemClicked);
             // 
             // текущиеToolStripMenuItem
             // 
@@ -1037,7 +1038,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 350);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 361);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff
@@ -1084,7 +1085,7 @@
             this.dgvFactStaff.RowHeadersVisible = false;
             this.dgvFactStaff.RowHeadersWidth = 4;
             this.dgvFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFactStaff.Size = new System.Drawing.Size(1192, 321);
+            this.dgvFactStaff.Size = new System.Drawing.Size(1192, 332);
             this.dgvFactStaff.TabIndex = 6;
             this.dgvFactStaff.DoubleClick += new System.EventHandler(this.dgvFactStaff_DoubleClick);
             // 
@@ -1223,9 +1224,9 @@
             this.AddContractFactStaffBtn.Image = global::Kadr.Properties.Resources.NewCardHS;
             this.AddContractFactStaffBtn.ImageTransparentColor = System.Drawing.Color.Black;
             this.AddContractFactStaffBtn.Name = "AddContractFactStaffBtn";
-            this.AddContractFactStaffBtn.Size = new System.Drawing.Size(127, 19);
-            this.AddContractFactStaffBtn.Text = "Добавить договор";
-            this.AddContractFactStaffBtn.ToolTipText = "Добавить сотрудника по новому договору";
+            this.AddContractFactStaffBtn.Size = new System.Drawing.Size(140, 19);
+            this.AddContractFactStaffBtn.Text = "Принять сотрудника";
+            this.AddContractFactStaffBtn.ToolTipText = "Принять сотрудника на должность";
             this.AddContractFactStaffBtn.Click += new System.EventHandler(this.AddFactStaffBtn_Click);
             // 
             // DelFactStaffBtn
@@ -1248,9 +1249,9 @@
             this.btnChangeFactStaff.Image = global::Kadr.Properties.Resources.SychronizeListHS;
             this.btnChangeFactStaff.ImageTransparentColor = System.Drawing.Color.Black;
             this.btnChangeFactStaff.Name = "btnChangeFactStaff";
-            this.btnChangeFactStaff.Size = new System.Drawing.Size(81, 19);
-            this.btnChangeFactStaff.Text = "Изменить";
-            this.btnChangeFactStaff.ToolTipText = "Добавить изменение по доп соглашению";
+            this.btnChangeFactStaff.Size = new System.Drawing.Size(111, 19);
+            this.btnChangeFactStaff.Text = "Изменить тр. д.";
+            this.btnChangeFactStaff.ToolTipText = "Изменить трудовой договор сотрудника";
             this.btnChangeFactStaff.Click += new System.EventHandler(this.btnChangeFactStaff_Click);
             // 
             // btnHistoryFactStaff
@@ -1557,6 +1558,7 @@
             this.tcDepartment.Controls.Add(this.tpDepartments);
             this.tcDepartment.Controls.Add(this.tpStaff);
             this.tcDepartment.Controls.Add(this.tpHourStaff);
+            this.tcDepartment.Controls.Add(this.tpTimeNorm);
             this.tcDepartment.Controls.Add(this.tpDepEmplReport);
             this.tcDepartment.Controls.Add(this.tpDepBonusReport);
             this.tcDepartment.Controls.Add(this.tpTimeSheet);
@@ -1564,7 +1566,6 @@
             this.tcDepartment.Controls.Add(this.tpQrStaffAverage);
             this.tcDepartment.Controls.Add(this.tpMinFormReport);
             this.tcDepartment.Controls.Add(this.tpFactStaffChanges);
-            this.tcDepartment.Controls.Add(this.tpTimeNorm);
             this.tcDepartment.Controls.Add(this.tpFactStaffErrors);
             this.tcDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcDepartment.Location = new System.Drawing.Point(3, 16);
@@ -1580,7 +1581,7 @@
             this.tpHourStaff.Location = new System.Drawing.Point(4, 22);
             this.tpHourStaff.Name = "tpHourStaff";
             this.tpHourStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHourStaff.Size = new System.Drawing.Size(802, 533);
+            this.tpHourStaff.Size = new System.Drawing.Size(1038, 405);
             this.tpHourStaff.TabIndex = 11;
             this.tpHourStaff.Text = "Почасовики";
             this.tpHourStaff.UseVisualStyleBackColor = true;
@@ -1599,7 +1600,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(796, 527);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(1032, 399);
             this.tableLayoutPanel11.TabIndex = 2;
             // 
             // toolStrip12
@@ -1618,7 +1619,7 @@
             this.btnHourStaffToExcel});
             this.toolStrip12.Location = new System.Drawing.Point(0, 0);
             this.toolStrip12.Name = "toolStrip12";
-            this.toolStrip12.Size = new System.Drawing.Size(796, 24);
+            this.toolStrip12.Size = new System.Drawing.Size(1032, 24);
             this.toolStrip12.TabIndex = 8;
             this.toolStrip12.Text = "toolStrip12";
             // 
@@ -1740,9 +1741,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslPPSVacations});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 379);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(796, 20);
+            this.statusStrip1.Size = new System.Drawing.Size(1032, 20);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1824,7 +1825,7 @@
             this.dgvHourFactStaff.RowHeadersVisible = false;
             this.dgvHourFactStaff.RowHeadersWidth = 4;
             this.dgvHourFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHourFactStaff.Size = new System.Drawing.Size(790, 477);
+            this.dgvHourFactStaff.Size = new System.Drawing.Size(1026, 349);
             this.dgvHourFactStaff.TabIndex = 9;
             this.dgvHourFactStaff.DoubleClick += new System.EventHandler(this.dgvHourFactStaff_DoubleClick);
             // 
@@ -2145,6 +2146,155 @@
             // 
             this.hourFactStaffBindingSource.DataSource = typeof(Kadr.Data.FactStaff);
             // 
+            // tpTimeNorm
+            // 
+            this.tpTimeNorm.Controls.Add(this.tableLayoutPanel3);
+            this.tpTimeNorm.Location = new System.Drawing.Point(4, 22);
+            this.tpTimeNorm.Name = "tpTimeNorm";
+            this.tpTimeNorm.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTimeNorm.Size = new System.Drawing.Size(802, 533);
+            this.tpTimeNorm.TabIndex = 9;
+            this.tpTimeNorm.Text = "Нормы времени";
+            this.tpTimeNorm.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.Controls.Add(this.dgvTimeNorm, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.toolStrip8, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(796, 527);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // dgvTimeNorm
+            // 
+            this.dgvTimeNorm.AllowUserToAddRows = false;
+            this.dgvTimeNorm.AllowUserToDeleteRows = false;
+            this.dgvTimeNorm.AutoGenerateColumns = false;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTimeNorm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvTimeNorm.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.financingSourceDataGridViewTextBoxColumn,
+            this.normHoursCountDataGridViewTextBoxColumn,
+            this.dateBeginDataGridViewTextBoxColumn});
+            this.dgvTimeNorm.DataSource = this.departmentTimeNormBindingSource;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTimeNorm.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvTimeNorm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTimeNorm.Location = new System.Drawing.Point(3, 25);
+            this.dgvTimeNorm.MultiSelect = false;
+            this.dgvTimeNorm.Name = "dgvTimeNorm";
+            this.dgvTimeNorm.ReadOnly = true;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTimeNorm.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvTimeNorm.RowHeadersVisible = false;
+            this.dgvTimeNorm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTimeNorm.Size = new System.Drawing.Size(1026, 499);
+            this.dgvTimeNorm.TabIndex = 1;
+            this.dgvTimeNorm.DoubleClick += new System.EventHandler(this.btnEditTimeNorm_Click);
+            // 
+            // financingSourceDataGridViewTextBoxColumn
+            // 
+            this.financingSourceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.financingSourceDataGridViewTextBoxColumn.DataPropertyName = "FinancingSource";
+            this.financingSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
+            this.financingSourceDataGridViewTextBoxColumn.Name = "financingSourceDataGridViewTextBoxColumn";
+            this.financingSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // normHoursCountDataGridViewTextBoxColumn
+            // 
+            this.normHoursCountDataGridViewTextBoxColumn.DataPropertyName = "NormHoursCount";
+            this.normHoursCountDataGridViewTextBoxColumn.HeaderText = "Норма времени на ставку";
+            this.normHoursCountDataGridViewTextBoxColumn.Name = "normHoursCountDataGridViewTextBoxColumn";
+            this.normHoursCountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.normHoursCountDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // dateBeginDataGridViewTextBoxColumn
+            // 
+            this.dateBeginDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dateBeginDataGridViewTextBoxColumn.DataPropertyName = "DateBegin";
+            this.dateBeginDataGridViewTextBoxColumn.HeaderText = "Дата назначения";
+            this.dateBeginDataGridViewTextBoxColumn.Name = "dateBeginDataGridViewTextBoxColumn";
+            this.dateBeginDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateBeginDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // departmentTimeNormBindingSource
+            // 
+            this.departmentTimeNormBindingSource.DataSource = typeof(Kadr.Data.DepartmentTimeNorm);
+            // 
+            // toolStrip8
+            // 
+            this.toolStrip8.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddTimeNorm,
+            this.btnEditTimeNorm,
+            this.btnDelTimeNorm,
+            this.toolStripSeparator12});
+            this.toolStrip8.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip8.Name = "toolStrip8";
+            this.toolStrip8.Size = new System.Drawing.Size(1032, 22);
+            this.toolStrip8.TabIndex = 2;
+            this.toolStrip8.Text = "toolStrip8";
+            // 
+            // btnAddTimeNorm
+            // 
+            this.btnAddTimeNorm.Image = global::Kadr.Properties.Resources.NewDocumentHS;
+            this.btnAddTimeNorm.ImageTransparentColor = System.Drawing.Color.Black;
+            this.btnAddTimeNorm.Name = "btnAddTimeNorm";
+            this.btnAddTimeNorm.Size = new System.Drawing.Size(79, 19);
+            this.btnAddTimeNorm.Text = "Добавить";
+            this.btnAddTimeNorm.ToolTipText = "Добавить норму времени";
+            this.btnAddTimeNorm.Click += new System.EventHandler(this.btnAddTimeNorm_Click);
+            // 
+            // btnEditTimeNorm
+            // 
+            this.btnEditTimeNorm.Image = global::Kadr.Properties.Resources.Open;
+            this.btnEditTimeNorm.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditTimeNorm.Name = "btnEditTimeNorm";
+            this.btnEditTimeNorm.Size = new System.Drawing.Size(110, 19);
+            this.btnEditTimeNorm.Text = "Редактировать ";
+            this.btnEditTimeNorm.ToolTipText = "Редактировать норму";
+            this.btnEditTimeNorm.Click += new System.EventHandler(this.btnEditTimeNorm_Click);
+            // 
+            // btnDelTimeNorm
+            // 
+            this.btnDelTimeNorm.Image = global::Kadr.Properties.Resources.DeleteHS;
+            this.btnDelTimeNorm.ImageTransparentColor = System.Drawing.Color.Black;
+            this.btnDelTimeNorm.Name = "btnDelTimeNorm";
+            this.btnDelTimeNorm.Size = new System.Drawing.Size(71, 19);
+            this.btnDelTimeNorm.Text = "Удалить";
+            this.btnDelTimeNorm.ToolTipText = "Удалить норму";
+            this.btnDelTimeNorm.Click += new System.EventHandler(this.btnDelTimeNorm_Click);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 22);
+            // 
             // tpDepEmplReport
             // 
             this.tpDepEmplReport.Controls.Add(this.cbDepStaffReportWithSubDeps);
@@ -2315,14 +2465,14 @@
             this.dgvTimeSheetFS.AllowUserToDeleteRows = false;
             this.dgvTimeSheetFS.AllowUserToOrderColumns = true;
             this.dgvTimeSheetFS.AutoGenerateColumns = false;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTimeSheetFS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTimeSheetFS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvTimeSheetFS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTimeSheetFS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.isClosedDataGridViewCheckBoxColumn,
@@ -2330,14 +2480,14 @@
             this.StaffCount,
             this.workingDaysCountDataGridViewTextBoxColumn});
             this.dgvTimeSheetFS.DataSource = this.timeSheetFSWorkingDaysBindingSource;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTimeSheetFS.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTimeSheetFS.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgvTimeSheetFS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTimeSheetFS.Location = new System.Drawing.Point(3, 27);
             this.dgvTimeSheetFS.Name = "dgvTimeSheetFS";
@@ -3204,155 +3354,6 @@
             this.postStaffChangesFrame1.TabIndex = 0;
             this.postStaffChangesFrame1.WithSubReports = true;
             // 
-            // tpTimeNorm
-            // 
-            this.tpTimeNorm.Controls.Add(this.tableLayoutPanel3);
-            this.tpTimeNorm.Location = new System.Drawing.Point(4, 22);
-            this.tpTimeNorm.Name = "tpTimeNorm";
-            this.tpTimeNorm.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTimeNorm.Size = new System.Drawing.Size(802, 533);
-            this.tpTimeNorm.TabIndex = 9;
-            this.tpTimeNorm.Text = "Нормы времени";
-            this.tpTimeNorm.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.Controls.Add(this.dgvTimeNorm, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.toolStrip8, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(796, 527);
-            this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // dgvTimeNorm
-            // 
-            this.dgvTimeNorm.AllowUserToAddRows = false;
-            this.dgvTimeNorm.AllowUserToDeleteRows = false;
-            this.dgvTimeNorm.AutoGenerateColumns = false;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTimeNorm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.dgvTimeNorm.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.financingSourceDataGridViewTextBoxColumn,
-            this.normHoursCountDataGridViewTextBoxColumn,
-            this.dateBeginDataGridViewTextBoxColumn});
-            this.dgvTimeNorm.DataSource = this.departmentTimeNormBindingSource;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTimeNorm.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dgvTimeNorm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTimeNorm.Location = new System.Drawing.Point(3, 25);
-            this.dgvTimeNorm.MultiSelect = false;
-            this.dgvTimeNorm.Name = "dgvTimeNorm";
-            this.dgvTimeNorm.ReadOnly = true;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTimeNorm.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.dgvTimeNorm.RowHeadersVisible = false;
-            this.dgvTimeNorm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTimeNorm.Size = new System.Drawing.Size(936, 499);
-            this.dgvTimeNorm.TabIndex = 1;
-            this.dgvTimeNorm.DoubleClick += new System.EventHandler(this.btnEditTimeNorm_Click);
-            // 
-            // financingSourceDataGridViewTextBoxColumn
-            // 
-            this.financingSourceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.financingSourceDataGridViewTextBoxColumn.DataPropertyName = "FinancingSource";
-            this.financingSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
-            this.financingSourceDataGridViewTextBoxColumn.Name = "financingSourceDataGridViewTextBoxColumn";
-            this.financingSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // normHoursCountDataGridViewTextBoxColumn
-            // 
-            this.normHoursCountDataGridViewTextBoxColumn.DataPropertyName = "NormHoursCount";
-            this.normHoursCountDataGridViewTextBoxColumn.HeaderText = "Норма времени на ставку";
-            this.normHoursCountDataGridViewTextBoxColumn.Name = "normHoursCountDataGridViewTextBoxColumn";
-            this.normHoursCountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.normHoursCountDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // dateBeginDataGridViewTextBoxColumn
-            // 
-            this.dateBeginDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dateBeginDataGridViewTextBoxColumn.DataPropertyName = "DateBegin";
-            this.dateBeginDataGridViewTextBoxColumn.HeaderText = "Дата назначения";
-            this.dateBeginDataGridViewTextBoxColumn.Name = "dateBeginDataGridViewTextBoxColumn";
-            this.dateBeginDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateBeginDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // departmentTimeNormBindingSource
-            // 
-            this.departmentTimeNormBindingSource.DataSource = typeof(Kadr.Data.DepartmentTimeNorm);
-            // 
-            // toolStrip8
-            // 
-            this.toolStrip8.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddTimeNorm,
-            this.btnEditTimeNorm,
-            this.btnDelTimeNorm,
-            this.toolStripSeparator12});
-            this.toolStrip8.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip8.Name = "toolStrip8";
-            this.toolStrip8.Size = new System.Drawing.Size(942, 22);
-            this.toolStrip8.TabIndex = 2;
-            this.toolStrip8.Text = "toolStrip8";
-            // 
-            // btnAddTimeNorm
-            // 
-            this.btnAddTimeNorm.Image = global::Kadr.Properties.Resources.NewDocumentHS;
-            this.btnAddTimeNorm.ImageTransparentColor = System.Drawing.Color.Black;
-            this.btnAddTimeNorm.Name = "btnAddTimeNorm";
-            this.btnAddTimeNorm.Size = new System.Drawing.Size(79, 19);
-            this.btnAddTimeNorm.Text = "Добавить";
-            this.btnAddTimeNorm.ToolTipText = "Добавить норму времени";
-            this.btnAddTimeNorm.Click += new System.EventHandler(this.btnAddTimeNorm_Click);
-            // 
-            // btnEditTimeNorm
-            // 
-            this.btnEditTimeNorm.Image = global::Kadr.Properties.Resources.Open;
-            this.btnEditTimeNorm.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditTimeNorm.Name = "btnEditTimeNorm";
-            this.btnEditTimeNorm.Size = new System.Drawing.Size(110, 19);
-            this.btnEditTimeNorm.Text = "Редактировать ";
-            this.btnEditTimeNorm.ToolTipText = "Редактировать норму";
-            this.btnEditTimeNorm.Click += new System.EventHandler(this.btnEditTimeNorm_Click);
-            // 
-            // btnDelTimeNorm
-            // 
-            this.btnDelTimeNorm.Image = global::Kadr.Properties.Resources.DeleteHS;
-            this.btnDelTimeNorm.ImageTransparentColor = System.Drawing.Color.Black;
-            this.btnDelTimeNorm.Name = "btnDelTimeNorm";
-            this.btnDelTimeNorm.Size = new System.Drawing.Size(71, 19);
-            this.btnDelTimeNorm.Text = "Удалить";
-            this.btnDelTimeNorm.ToolTipText = "Удалить норму";
-            this.btnDelTimeNorm.Click += new System.EventHandler(this.btnDelTimeNorm_Click);
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 22);
-            // 
             // tpFactStaffErrors
             // 
             this.tpFactStaffErrors.Controls.Add(this.button1);
@@ -3388,6 +3389,14 @@
             this.dgvStaffErrors.AllowUserToAddRows = false;
             this.dgvStaffErrors.AllowUserToDeleteRows = false;
             this.dgvStaffErrors.AutoGenerateColumns = false;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStaffErrors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvStaffErrors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStaffErrors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.departmentNameDataGridViewTextBoxColumn1,
@@ -3398,6 +3407,14 @@
             this.endPlanStaffCountDataGridViewTextBoxColumn,
             this.endFactStaffCountDataGridViewTextBoxColumn});
             this.dgvStaffErrors.DataSource = this.getStaffErrorsByPeriodBindingSource;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStaffErrors.DefaultCellStyle = dataGridViewCellStyle25;
             this.dgvStaffErrors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStaffErrors.Location = new System.Drawing.Point(3, 28);
             this.dgvStaffErrors.Name = "dgvStaffErrors";
@@ -3434,9 +3451,9 @@
             // beginPlanStaffCountDataGridViewTextBoxColumn
             // 
             this.beginPlanStaffCountDataGridViewTextBoxColumn.DataPropertyName = "BeginPlanStaffCount";
-            dataGridViewCellStyle20.Format = "N2";
-            dataGridViewCellStyle20.NullValue = null;
-            this.beginPlanStaffCountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle21.Format = "N2";
+            dataGridViewCellStyle21.NullValue = null;
+            this.beginPlanStaffCountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
             this.beginPlanStaffCountDataGridViewTextBoxColumn.HeaderText = "Кол-во ставок по плану (начало)";
             this.beginPlanStaffCountDataGridViewTextBoxColumn.Name = "beginPlanStaffCountDataGridViewTextBoxColumn";
             this.beginPlanStaffCountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -3445,9 +3462,9 @@
             // beginFactStaffCountDataGridViewTextBoxColumn
             // 
             this.beginFactStaffCountDataGridViewTextBoxColumn.DataPropertyName = "BeginFactStaffCount";
-            dataGridViewCellStyle21.Format = "N2";
-            dataGridViewCellStyle21.NullValue = null;
-            this.beginFactStaffCountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle22.Format = "N2";
+            dataGridViewCellStyle22.NullValue = null;
+            this.beginFactStaffCountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
             this.beginFactStaffCountDataGridViewTextBoxColumn.HeaderText = "Кол-во ставок по факту (начало)";
             this.beginFactStaffCountDataGridViewTextBoxColumn.Name = "beginFactStaffCountDataGridViewTextBoxColumn";
             this.beginFactStaffCountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -3456,9 +3473,9 @@
             // endPlanStaffCountDataGridViewTextBoxColumn
             // 
             this.endPlanStaffCountDataGridViewTextBoxColumn.DataPropertyName = "EndPlanStaffCount";
-            dataGridViewCellStyle22.Format = "N2";
-            dataGridViewCellStyle22.NullValue = null;
-            this.endPlanStaffCountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle23.Format = "N2";
+            dataGridViewCellStyle23.NullValue = null;
+            this.endPlanStaffCountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
             this.endPlanStaffCountDataGridViewTextBoxColumn.HeaderText = "Кол-во ставок по плану (конец)";
             this.endPlanStaffCountDataGridViewTextBoxColumn.Name = "endPlanStaffCountDataGridViewTextBoxColumn";
             this.endPlanStaffCountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -3467,9 +3484,9 @@
             // endFactStaffCountDataGridViewTextBoxColumn
             // 
             this.endFactStaffCountDataGridViewTextBoxColumn.DataPropertyName = "EndFactStaffCount";
-            dataGridViewCellStyle23.Format = "N2";
-            dataGridViewCellStyle23.NullValue = null;
-            this.endFactStaffCountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle24.Format = "N2";
+            dataGridViewCellStyle24.NullValue = null;
+            this.endFactStaffCountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle24;
             this.endFactStaffCountDataGridViewTextBoxColumn.HeaderText = "Кол-во ставок по факту (конец)";
             this.endFactStaffCountDataGridViewTextBoxColumn.Name = "endFactStaffCountDataGridViewTextBoxColumn";
             this.endFactStaffCountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -3776,6 +3793,13 @@
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHourFactStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hourFactStaffBindingSource)).EndInit();
+            this.tpTimeNorm.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTimeNorm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentTimeNormBindingSource)).EndInit();
+            this.toolStrip8.ResumeLayout(false);
+            this.toolStrip8.PerformLayout();
             this.tpDepEmplReport.ResumeLayout(false);
             this.tpDepEmplReport.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
@@ -3832,13 +3856,6 @@
             this.tcStaffChangesReport.ResumeLayout(false);
             this.tpFactStaffChangesReport.ResumeLayout(false);
             this.tpPostStaffChangesReport.ResumeLayout(false);
-            this.tpTimeNorm.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTimeNorm)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentTimeNormBindingSource)).EndInit();
-            this.toolStrip8.ResumeLayout(false);
-            this.toolStrip8.PerformLayout();
             this.tpFactStaffErrors.ResumeLayout(false);
             this.tpFactStaffErrors.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffErrors)).EndInit();

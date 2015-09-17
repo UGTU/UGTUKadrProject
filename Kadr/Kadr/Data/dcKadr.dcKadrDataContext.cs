@@ -31,7 +31,6 @@ namespace Kadr.Data
             return result;
         }
 
-
         /*public PlanStaff CreateNewPlanStaff(Department department)
         {
             PlanStaff result = new PlanStaff();

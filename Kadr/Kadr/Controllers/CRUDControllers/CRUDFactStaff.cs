@@ -11,12 +11,69 @@ namespace Kadr.Controllers
 {
     public static class CRUDFactStaff
     {
-        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null,UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null)
+        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, Dep department = null, bool isReplacement = false)
+        {
+            if ((planStaffCurrent == null) && (department == null))
+            {
+                MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
+                return;
+            }
+
+            Employee employee = NullEmployee.Instance;
+            WorkType workType = NullWorkType.Instance;
+            bool withContract = true;
+            FinancingSource financingSource = NullFinancingSource.Instance;
+
+            //если создается почасовик, то для него другие параметры задаем
+            if ((department != null) && (planStaffCurrent == null))
+            {
+                workType = WorkType.hourWorkType;
+                financingSource = FinancingSource.budgetFinancingSource;
+                withContract = false;
+            }
+
+            using (Kadr.UI.Common.PropertyGridDialogAdding<FactStaff> dlg =
+                 new Kadr.UI.Common.PropertyGridDialogAdding<FactStaff>())
+            {
+                dlg.ObjectList = KadrController.Instance.Model.FactStaffs;
+                dlg.BindingSource = factStaffBindingSource;
+                dlg.UseInternalCommandManager = true;
+                dlg.PrikazButtonVisible = true;
+
+                dlg.InitializeNewObject = (x) =>
+                {
+                    x.WithNewEmployee = false;
+                    FactStaffHistory fcStHistory;
+                    if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
+                    {
+                        FactStaff prev = dlg.SelectedObjects[0] as FactStaff;
+                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), withContract);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x, "StaffCount", prev.StaffCount, null), sender);
+                    }
+                    else
+                    {
+                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), withContract);
+                    }
+
+                    SetProperties(dlg.CommandManager, x, planStaffCurrent, employee, isReplacement, department, financingSource);
+
+                };
+
+
+                dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.FactStaffs;
+                };
+                dlg.ShowDialog();
+            }
+        }
+
+        public static DialogResult CreateWithEmployee(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, bool applyButtonVisible = true, bool isMainContract = true, Employee employee = null, UIX.Commands.ICommandManager commandManager = null, Dep department = null, WorkType workType = null, FinancingSource financingSource = null, bool withContract = false, bool isReplacement = false)
         {
             if (planStaffCurrent == null)
             {
                 MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
-                return;
+                return DialogResult.None;
             }
 
             if (workType == null)
@@ -24,11 +81,17 @@ namespace Kadr.Controllers
             if (employee == null)
                 employee = NullEmployee.Instance;
 
-            using (Kadr.UI.Common.PropertyGridDialogAdding<FactStaff> dlg =
-                 new Kadr.UI.Common.PropertyGridDialogAdding<FactStaff>())
+            FactStaff x = new FactStaff();
+            x.WithNewEmployee = true;
+            SetProperties(commandManager, x, planStaffCurrent, employee, isReplacement, department, financingSource);
+            FactStaffHistory fcStHistory = new FactStaffHistory(commandManager, x, workType, NullPrikaz.Instance, DateTime.Today, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), withContract);
+
+
+            using (Kadr.UI.Dialogs.FactStaffLinqPropertyGridDialogAdding dlg =
+                 new Kadr.UI.Dialogs.FactStaffLinqPropertyGridDialogAdding())
             {
-                dlg.ObjectList = KadrController.Instance.Model.FactStaffs;
-                dlg.BindingSource = factStaffBindingSource;
+                dlg.SelectedObjects = new object[] { x };
+                dlg.ApplyButtonVisible = false;
                 if (commandManager != null)
                 {
                     dlg.CommandManager = commandManager;
@@ -37,65 +100,20 @@ namespace Kadr.Controllers
                 else
                     dlg.UseInternalCommandManager = true;
                 dlg.PrikazButtonVisible = true;
-                dlg.oneObjectCreated = !applyButtonVisible;
-                dlg.InitializeNewObject = (x) =>
-                {
-                    FactStaffHistory fcStHistory = new FactStaffHistory();
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, PlanStaff>(x, "PlanStaff", planStaffCurrent, null), sender);
-                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x, "Dep", (planStaffBindingSource.Current as PlanStaff).Dep, null), this);
-                    if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
-                    {
-                        FactStaff prev = dlg.SelectedObjects[0] as FactStaff;
-                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime?>(fcStHistory, "DateBegin", prev.LastChange.DateBegin, null), this);
-                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(fcStHistory, "Prikaz", prev.PrikazBegin, null), this);
-                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", prev.WorkType, null), this);
-                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "StaffCount", prev.StaffCount, null), this);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, DateTime?>(x, "DateBegin", prev.DateBegin, null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Prikaz>(x, "PrikazBegin", prev.PrikazBegin, null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, WorkType>(x, "WorkType", prev.WorkType, null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x, "StaffCount", prev.StaffCount, null), sender);
-                        
 
-                    }
-                    else
-                    {
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(fcStHistory, "Prikaz", NullPrikaz.Instance, null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", workType, null), sender);
-                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Prikaz>(x, "PrikazBegin", NullPrikaz.Instance, null), this);
-                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, WorkType>(x, "WorkType", NullWorkType.Instance, null), this);
-                    }
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(x, "Employee", employee, null), sender);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "IsReplacement", false, null), sender);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x, "Dep", department, null), sender);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x, "FundingCenter", NullFundingCenter.Instance, null), sender);
-                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "SalaryKoeff", 1, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", x, null), sender);
 
-                    Contract newContract = new Contract(dlg.CommandManager,fcStHistory, "", DateTime.Today.Date, DateTime.Today.Date);
-                };
-
-                dlg.BeforeApplyAction = (x) =>
-                {
-                    if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
-                    {
-                        if (x.CurrentChange != null)
-                            if (x.CurrentChange.Contract != null)
-                            {
-                                dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, string>(x.CurrentChange.Contract, "ContractName", x.CurrentChange.Contract.ContractName, null), sender);
-                                dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(x.CurrentChange.Contract, "DateBegin", x.CurrentChange.Contract.DateBegin, null), sender);
-                                dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(x.CurrentChange.Contract, "DateEnd", x.CurrentChange.Contract.DateEnd, null), sender);
-                                dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Contract, DateTime?>(x.CurrentChange.Contract, "DateContract", x.CurrentChange.Contract.DateContract, null), sender);
-                            }
-                    }
-
-                };
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.FactStaffs;
-                };
-                dlg.ShowDialog();
+                return dlg.ShowDialog();
             }
+        }
+
+        public static void SetProperties(UIX.Commands.ICommandManager commandManager, FactStaff x, PlanStaff planStaff, Employee employee, bool isReplacement = false, Dep department = null, FinancingSource financingSource = null)
+        {
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, PlanStaff>(x, "PlanStaff", planStaff, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(x, "Employee", employee, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "IsReplacement", isReplacement, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x, "Dep", department, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x, "FundingCenter", NullFundingCenter.Instance, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x, "FinancingSource", financingSource, null), null);
         }
     }
 }

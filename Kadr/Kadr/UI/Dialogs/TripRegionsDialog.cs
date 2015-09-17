@@ -61,17 +61,13 @@ namespace Kadr.UI.Dialogs
             IsModified = true;
         }
 
-        private void CancelBtn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dgvRegionType_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             if ((businessTripRegionTypeBindingSource[e.RowIndex] as BusinessTripRegionType).DateBegin == DateTime.MinValue) 
             {
-                (businessTripRegionTypeBindingSource[e.RowIndex] as BusinessTripRegionType).DateBegin = (DateTime)bt.FactStaffPrikaz.DateBegin;
-                (businessTripRegionTypeBindingSource[e.RowIndex] as BusinessTripRegionType).DateEnd = (DateTime)bt.FactStaffPrikaz.DateEnd;
+                (businessTripRegionTypeBindingSource[e.RowIndex] as BusinessTripRegionType).DateBegin = (DateTime)bt.Event.DateBegin;
+                (businessTripRegionTypeBindingSource[e.RowIndex] as BusinessTripRegionType).DateEnd = (DateTime)bt.Event.DateEnd;
             }
         }
 

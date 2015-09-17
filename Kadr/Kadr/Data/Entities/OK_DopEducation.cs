@@ -17,6 +17,19 @@ namespace Kadr.Data
 
         public FactStaff FactStaff { get; set; }
 
+        public Prikaz Prikaz
+        {
+            get { return (Event != null) ? Event.Prikaz : TempPrikaz; }
+            set
+            {
+                if (Event != null) Event.Prikaz = value;
+                else TempPrikaz = value;
+                
+            }
+        }
+
+        public Prikaz TempPrikaz { get; set; }
+
         /// <summary>
         /// Проверка всех параметров перед сохранением
         /// </summary>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using UIX.Commands;
+using Kadr.UI.Dialogs;
 
 namespace Kadr.Controllers
 {
@@ -19,8 +20,8 @@ namespace Kadr.Controllers
                 return;
             }
 
-            using (PropertyGridDialogAdding<Employee> dlg =
-                new PropertyGridDialogAdding<Employee>())
+            using (EmployeeLinqPropertyGridDialogAdding dlg =
+                new EmployeeLinqPropertyGridDialogAdding())
             {
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.Employees;
@@ -29,6 +30,7 @@ namespace Kadr.Controllers
                 //dlg.BindingSource = employeeBindingSource;
                 dlg.InitializeNewObject = (x) =>
                 {
+                    dlg.PlanStaff = planStaff;
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Guid>(x, "GUID", Guid.NewGuid(), null), sender);
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
@@ -39,20 +41,32 @@ namespace Kadr.Controllers
                     }
                     else
                     {
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, SemPol>(x, "SemPol", NullSemPol.Instance, null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, DateTime?>(x, "BirthDate",DateTime.Today.AddYears(-25), null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "FirstName", "True", null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "LastName", "True", null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "Otch", "True", null), sender);
+
+                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, DateTime?>(x, "BirthDate", DateTime.Today, null), sender);
+                        /*dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "FirstName", "", null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "LastName", "", null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "Otch", "", null), sender);*/
+
+
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, SemPol>(x, "SemPol", SemPol.DefaultSemPol, null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Grazd>(x, "Grazd", Grazd.DefaultGrazd, null), sender);
 
                     }
                 };
 
-                dlg.BeforeApplyAction = (x) =>
+                /*dlg.OnApplyAction = (x) =>
                 {
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
-                        CRUDFactStaff.Create(null, planStaff, sender, false, true, x, dlg.CommandManager,null, WorkType.MainWorkType);
+                        if (CRUDFactStaff.CreateWithEmployee(null, planStaff, sender, false, true, x, dlg.CommandManager, null, WorkType.MainWorkType) != DialogResult.OK)
+                                throw new ArgumentException("InsertFactStaffCancel.");
                     }
 
-                };
+                };*/
 
                 dlg.ShowDialog();
                 //RefreshFrame();

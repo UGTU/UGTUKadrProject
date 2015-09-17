@@ -16,7 +16,6 @@ namespace Kadr.UI.Common
         {
             InitializeComponent();
         }
-
         
         protected override void DoApply()
         {
@@ -30,7 +29,6 @@ namespace Kadr.UI.Common
             }
             catch (Exception e)
             {
-                
                 KadrController.Instance.DeleteModel();
                 MessageBox.Show(e.Message, "АИС \"Штатное расписание\"");
 

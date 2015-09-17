@@ -15,9 +15,10 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            if (FactStaffPrikaz.FactStaff!=null)
-            if (FactStaffPrikaz.FactStaff.Employee!=null)
-            return string.Format("Командировка в {0} — сотрудник: {1}", TripTargetPlace, FactStaffPrikaz.FactStaff.Employee.ToString()); 
+
+            if (Event.FactStaff!=null)
+                if (Event.FactStaff.Employee != null)
+                    return string.Format("Командировка в {0} — сотрудник: {1}", TripTargetPlace, Event.FactStaff.Employee.ToString()); 
             return string.Format("Командировка в {0}", TripTargetPlace);
 
         }
@@ -33,9 +34,9 @@ namespace Kadr.Data
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
-                if (FactStaffPrikaz == null) throw new ArgumentNullException("Приказ");
+                if (Event == null) throw new ArgumentNullException("Приказ");
 
-                if (FactStaffPrikaz.Prikaz == null) throw new ArgumentNullException("Приказ");
+                if (Event.Prikaz == null) throw new ArgumentNullException("Приказ");
 
                 if (BusinessTripRegionTypes.Count()==0) throw new ArgumentNullException("Регион пребывания");
 
@@ -44,13 +45,13 @@ namespace Kadr.Data
                 if (TripTargetPlace == null) throw new ArgumentNullException("Место назначения");
                 if (TripTargetPlace == "") throw new ArgumentNullException("Место назначения");
 
-                if (FactStaffPrikaz.DateBegin == null) throw new ArgumentNullException("Срок начала командировки");
-                if (FactStaffPrikaz.DateEnd == null) throw new ArgumentNullException("Срок окончания командировки");
+                if (Event.DateBegin == null) throw new ArgumentNullException("Срок начала командировки");
+                if (Event.DateEnd == null) throw new ArgumentNullException("Срок окончания командировки");
 
                 if (BusinessTripRegionTypes.First().DateBegin == null) throw new ArgumentNullException("Срок начала пребывания в регионе");
                 if (BusinessTripRegionTypes.First().DateEnd == null) throw new ArgumentNullException("Срок окончания пребывания в регионе");
 
-                if (FactStaffPrikaz.DateEnd < FactStaffPrikaz.DateBegin)
+                if (Event.DateEnd < Event.DateBegin)
                         throw new ArgumentOutOfRangeException("Дата окончания командировки должна быть не раньше даты начала командировки");
 
                 foreach (BusinessTripRegionType btr in BusinessTripRegionTypes)
@@ -58,10 +59,10 @@ namespace Kadr.Data
                     if (btr.DateBegin > btr.DateEnd)
                         throw new ArgumentOutOfRangeException("Дата начала пребывания в регионе не может быть больше даты окончания пребывания в регионе");
 
-                    if (btr.DateBegin < FactStaffPrikaz.DateBegin)
+                    if (btr.DateBegin < Event.DateBegin)
                         throw new ArgumentOutOfRangeException("Дата начала пребывания в регионе не может быть раньше даты начала командировки");
 
-                    if (btr.DateEnd > FactStaffPrikaz.DateEnd)
+                    if (btr.DateEnd > Event.DateEnd)
                         throw new ArgumentOutOfRangeException("Дата окончания пребывания в регионе не может быть позже даты окончания командировки");
                 }
 

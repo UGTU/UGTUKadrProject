@@ -36,11 +36,11 @@ namespace Kadr.UI.Common
         //инициализация нового объекта
         public Action<T> InitializeNewObject;
 
-        //создание связанных объектов
+        //создание связанных до Insert объектов
         public Action<T> BeforeApplyAction;
 
 
-        T newObject;    //текущий объект
+        protected T newObject;    //текущий объект
 
         public PropertyGridDialogAdding()
         {
@@ -100,15 +100,18 @@ namespace Kadr.UI.Common
             if (validatable != null)
                 validatable.Validate();
 
-
             //добавляем связанные объекты, если необходимо
             if (BeforeApplyAction != null)
                 BeforeApplyAction(newObject);
+
+          
 
             //сохраняем прежний объект
             if (objectList != null)
             {
                 objectList.InsertOnSubmit(newObject);
+
+
                 if (bindingSource!=null)
                     bindingSource.Add(newObject);
             }
@@ -131,11 +134,6 @@ namespace Kadr.UI.Common
                 }
            }
 
-            if (newObject is Kadr.Data.Employee)
-            {
-                return;
-            }
-
             try
             {
                 KadrController.Instance.SubmitChanges();
@@ -145,6 +143,7 @@ namespace Kadr.UI.Common
                 if (objectList != null)
                 {
                     objectList.DeleteOnSubmit(newObject);
+                    throw exp;
                 }
                 else
                 {
@@ -162,9 +161,8 @@ namespace Kadr.UI.Common
                     {
                         KadrController.Instance.Model.FactStaffs.DeleteOnSubmit(factStaff);
                     }
+                    throw exp;
                 }
-                
-                throw new Exception(exp.Message);
             }
 
 

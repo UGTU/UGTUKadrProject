@@ -74,6 +74,8 @@ namespace Kadr.Data
             set
             {
                 factStaff.DateBegin = value;
+
+                factStaff.CurrentChange.SetContractDates(value);
             }
         }
 

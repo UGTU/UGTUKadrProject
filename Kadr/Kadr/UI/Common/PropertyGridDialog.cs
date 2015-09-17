@@ -119,7 +119,7 @@ namespace Kadr.UI.Common
                 Text += ", " + commandProperyGrid1.SelectedObjects[i].ToString();
         }
 
-        private void TerminateBatchCommand()
+        protected void TerminateBatchCommand()
         {
             if (commandManager != null)
             {
@@ -166,7 +166,8 @@ namespace Kadr.UI.Common
         {
             TerminateBatchCommand();
             IsModified = false;
-            
+
+            KadrController.Instance.DeleteModel();
             ////удаляем объект, если он новый
             //if (isNewObject)
             //{
@@ -207,6 +208,5 @@ namespace Kadr.UI.Common
 
             }
         }
-
     }
 }
