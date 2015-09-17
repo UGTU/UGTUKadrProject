@@ -59,7 +59,9 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            return this.LastName + " " + this.FirstName + " " + this.Otch;
+            if (BirthDate != null)
+                return this.EmployeeName + " ("+BirthDate.Value.ToShortDateString()+")";
+            return this.EmployeeName;
         }
 
 
