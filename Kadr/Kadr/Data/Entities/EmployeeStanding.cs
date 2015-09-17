@@ -54,14 +54,11 @@ namespace Kadr.Data
 
         #endregion
 
-        public DateTime StartOfWork
-        {
-            get { return DateBegin; }
-        }
-        public DateTime? EndOfWork
-        {
-            get { return DateEnd; }
-        }
+       
+        /// <summary>
+        /// Признак того, что этот стаж имеет дату завершения
+        /// </summary>
+        public bool IsEnded { get { return true; } }
         public TerritoryConditions Territory { get { return RegionType.GetTerritoryCondition(); } }
         public KindOfExperience Experience
         {

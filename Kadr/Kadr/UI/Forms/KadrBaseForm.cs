@@ -13,8 +13,10 @@ using Kadr.Data.Common;
 using Kadr.Controllers;
 using Reports.Forms;
 using System.Linq;
+using APG.CodeHelper.UI;
 using Kadr.Data;
- 
+using Kadr.UI.Common;
+
 
 namespace Kadr.UI.Forms
 {
@@ -112,10 +114,10 @@ namespace Kadr.UI.Forms
 
         private void ShowApplicationAbout()
         {
-            //using (System.Windows.Forms.Form dlg = new ISGBAbout())
-            //{
-            //    dlg.ShowDialog();
-            //}
+            using (var dlg = new ApplicationAboutDialog())
+            {
+                dlg.ShowDialog();
+            }
         }
 
         private void ApplicationAboutStripMenuItem_Click(object sender, EventArgs e)
@@ -414,10 +416,34 @@ namespace Kadr.UI.Forms
             //ImportDailyReportFiles();
             kadrTreeView1.CreateRootNodes();
             CreateNodeContextItems();
-            Text = "ИС \"Управление кадрами\" (" + DateTime.Today.ToShortDateString() + ")";
+            SetupFormTitle();
             tscbFindType.SelectedIndex = 0;
 
             kadrTreeView1.FindAndSelectDepartment(Kadr.Controllers.KadrController.Instance.Model.Departments.Where(x => x.id ==63 ).FirstOrDefault());
+        }
+
+        private void SetupFormTitle()
+        {
+            var conn = KadrController.Instance.Model.Connection;
+            var purpose = string.Empty;
+            if (conn!=null)
+                switch (conn.GetDbPurpose())
+                {
+                    case DbConnectionPurpose.Release:
+                        break;
+                    case DbConnectionPurpose.LocalDebug:
+                        purpose = " - Для отладки";
+                        break;
+                    case DbConnectionPurpose.PublicTest:
+                        purpose = " - Для тестов";
+                        break;
+                    case DbConnectionPurpose.Unknown:
+                        purpose = " - Назначение не известно";
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            Text = string.Format("{0} ({1}) {2}", "ИС \"Кадры\" УГТУ", DateTime.Today.ToShortDateString(), purpose);
         }
 
         // Импортирует файлы, переданные через командную сроку
@@ -432,10 +458,10 @@ namespace Kadr.UI.Forms
         //        }
         //        ISGB.Controllers.ISGBDailyReportImportExportController.Instance.ImportDocuments(args);
         //    }
-                          
+
         //}
 
-        void frame_FrameDataChangedEvent(object sender, Kadr.UI.Frames.FrameDataChangedArgs e)
+        private void frame_FrameDataChangedEvent(object sender, Kadr.UI.Frames.FrameDataChangedArgs e)
         {
             if ((SelectedObject != null))
             {
@@ -443,22 +469,20 @@ namespace Kadr.UI.Forms
             }
         }
 
-
         #endregion
-              
+
         #region Protected Methods
 
         protected Kadr.UI.Frames.KadrBaseFrame CreateFrame(System.Type frameType, System.Windows.Forms.Control parent)
         {
-            return CreateFrame(frameType, parent, null);   
+            return CreateFrame(frameType, parent, null);
         }
-        
+
         /// <summary>
         /// Пул фреймов различных типов для повторного использования
         /// </summary>
         //private IDictionary<string, ISGBBaseFrame> framePool = 
         //    new Dictionary<string, ISGBBaseFrame>(10);
-
         /// <summary>
         ///  Создаёт новый объект фрейма по его типу, размещает его на панели просмотра и обновляет его содержание через
         ///  задание свойства FrameObject и метод RefreshFrame().
@@ -470,7 +494,6 @@ namespace Kadr.UI.Forms
         /// <returns>Объект типа ISGB.Frames.ISGBBaseFrame</returns>
         protected Kadr.UI.Frames.KadrBaseFrame CreateFrame(System.Type frameType, System.Windows.Forms.Control parent, object AObject)
         {
-
             Kadr.UI.Frames.KadrBaseFrame frame = null;
 
             try
@@ -482,13 +505,13 @@ namespace Kadr.UI.Forms
                 //else
                 //{
                 // Если фрейм уже создан, то извелечь его из пула
-                    // Объект такого типа фрейма ещё не создавался
+                // Объект такого типа фрейма ещё не создавался
 
-                    frame = Activator.CreateInstance(frameType, AObject) as Kadr.UI.Frames.KadrBaseFrame;
-                    frame.FrameDataChangedEvent += new Kadr.UI.Frames.FrameDataChangedDelegate(frame_FrameDataChangedEvent);
+                frame = Activator.CreateInstance(frameType, AObject) as Kadr.UI.Frames.KadrBaseFrame;
+                frame.FrameDataChangedEvent += new Kadr.UI.Frames.FrameDataChangedDelegate(frame_FrameDataChangedEvent);
                 //    framePool.Add(frameType.FullName, frame);
-               // }
-                frame.FrameObject = AObject;                                     
+                // }
+                frame.FrameObject = AObject;
                 frame.FrameGuiObject = kadrTreeView1.SelectedNode;
                 frame.FrameNodeObject = kadrTreeView1.SelectedObject;
                 frame.Parent = parent;
@@ -513,12 +536,12 @@ namespace Kadr.UI.Forms
                     (frame as KadrRootFrame).DepFilterSetting = ObjectStateController.Instance.GetObjectStatesForFilter(tsbDepartmentFilter, null);
                     (frame as KadrRootFrame).StaffFilterSetting = ObjectStateController.Instance.GetObjectStatesForFilter(tsbEmployeeFilter, null);
                 }
-                
+
                 frame.RefreshFrame();
 
                 frame.Show();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 if (frame != null)
                 {
@@ -527,7 +550,7 @@ namespace Kadr.UI.Forms
                 }
                 throw;
             }
-                  
+
             return frame;
         }
 
@@ -546,24 +569,19 @@ namespace Kadr.UI.Forms
                 //kadrBaseFrame.RestoreFrameState(SelectedObject.Store);
             }
         }
-        
+
         #endregion
 
         #region Public properties
+
         public APG.CodeHelper.Actions.ActionManager Commands
         {
-            get
-            {
-                return actionManager;
-            }
+            get { return actionManager; }
         }
 
         public Kadr.UI.Frames.KadrBaseFrame ActiveFrame
         {
-            get
-            {
-                return activeFrame;
-            }
+            get { return activeFrame; }
         }
 
         public System.Type Frame
@@ -571,16 +589,15 @@ namespace Kadr.UI.Forms
             set
             {
                 if (DisposeActiveFrame())
-                   if (value != null)
-                   {
-                       activeFrame = CreateFrame(value, splitContainer1.Panel2, kadrTreeView1.SelectedObject);
+                    if (value != null)
+                    {
+                        activeFrame = CreateFrame(value, splitContainer1.Panel2, kadrTreeView1.SelectedObject);
 
-                       activeFrame.Caption = kadrTreeView1.SelectedNode.FullPath; 
-  
-                   }
-              }
-         }
-    
+                        activeFrame.Caption = kadrTreeView1.SelectedNode.FullPath;
+                    }
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -593,14 +610,12 @@ namespace Kadr.UI.Forms
             {
                 if (activeFrame.IsModified)
                 {
-                    switch (
-                        MessageBox.Show(string.Format("Данные кадра \"{0}\" были изменены.\nСледует сохранить изменения в базе данных?", activeFrame.FrameName),
-                        "Сохранение данных",
-                        MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
+                    switch (MessageBox.Show(string.Format("Данные кадра \"{0}\" были изменены.\nСледует сохранить изменения в базе данных?", activeFrame.FrameName), "Сохранение данных", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
                     {
                         case DialogResult.Yes:
                             activeFrame.Apply();
-                            DisposeActiveFrameInternal(); break;
+                            DisposeActiveFrameInternal();
+                            break;
                         case DialogResult.No:
                             activeFrame.Cancel();
                             DisposeActiveFrameInternal();
@@ -609,12 +624,11 @@ namespace Kadr.UI.Forms
                             result = false;
                             break;
                     }
-
                 }
                 else
                     DisposeActiveFrameInternal();
-           }
-           return result;
+            }
+            return result;
         }
 
         private void DisposeActiveFrameInternal()
@@ -630,27 +644,20 @@ namespace Kadr.UI.Forms
 
         public APG.CodeHelper.DBTreeView.DBTreeNodeObject SelectedObject
         {
-            get
-            {
-                return kadrTreeView1.SelectedObject;
-            }
+            get { return kadrTreeView1.SelectedObject; }
         }
 
         public APG.CodeHelper.DBTreeView.DBTreeNodeAction SelectedActions
         {
-            get 
-            {
-                return kadrTreeView1.SelectedActions;
-            }
+            get { return kadrTreeView1.SelectedActions; }
         }
 
         #endregion
-        
-        #region Public Methods
-        
-        public KadrBaseForm() 
-        {
 
+        #region Public Methods
+
+        public KadrBaseForm()
+        {
             InitializeComponent();
 
             LeaveSearchComboBox(this.tscbTextSearch);
@@ -660,7 +667,6 @@ namespace Kadr.UI.Forms
 
             //KadrController.Instance.AddView(kadrTreeView1);
         }
-
 
         #endregion
 
@@ -691,8 +697,7 @@ namespace Kadr.UI.Forms
             {
                 (sender as ToolStripItem).Text = string.Format("Обновить: {0}", SelectedObject.Node.Text);
             }
-                
-        }        
+        }
 
         private void KadrBaseForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -738,7 +743,6 @@ namespace Kadr.UI.Forms
 
         private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
         {
-            
         }
 
 
@@ -746,7 +750,6 @@ namespace Kadr.UI.Forms
         {
             //ImportDictionaries();
         }
-
 
 
         private void tsbNew_DropDownOpening(object sender, EventArgs e)
@@ -768,7 +771,6 @@ namespace Kadr.UI.Forms
             ToolStripItem[] items = new ToolStripItem[ActionButtonDropDownMenuBuilder.ToolStripItemCollection.Count];
             ActionButtonDropDownMenuBuilder.ToolStripItemCollection.CopyTo(items, 0);
             tsmiActions.DropDown.Items.AddRange(items);
-            
         }
 
         private void KadrBaseForm_DragEnter(object sender, DragEventArgs e)
@@ -785,11 +787,11 @@ namespace Kadr.UI.Forms
             //    System.Diagnostics.Debug.WriteLine(f);
             //}
         }
+
         private delegate void ImportDocsDelegate();
 
         private void KadrBaseForm_DragDrop(object sender, DragEventArgs e)
         {
-            
             //string[] files = (string[])e.Data.GetData("FileDrop");
             //if (files != null)
             //{
@@ -803,20 +805,19 @@ namespace Kadr.UI.Forms
             //}
         }
 
- 
+
         private void справочникиToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
         }
 
         private void kadrTreeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
-            
             //SelectedObject.Node
             //if ((ActiveFrame != null) && (SelectedObject != null))
             //    ActiveFrame.SaveFrameState(SelectedObject.Store);
         }
 
-        
+
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
         {
             //ExportDictionaries(true);
@@ -837,7 +838,6 @@ namespace Kadr.UI.Forms
 
                 dlg.ShowDialog();
             }
-
         }
 
         /// <summary>
@@ -851,7 +851,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
 
@@ -866,7 +865,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         /// <summary>
@@ -880,7 +878,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         /// <summary>
@@ -894,7 +891,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void семейноеПоложениеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -903,7 +899,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         /// <summary>
@@ -917,12 +912,10 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void должностьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void категорииПерсоналаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -931,7 +924,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void tsbEmployeeFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -939,9 +931,8 @@ namespace Kadr.UI.Forms
             if (activeFrame is KadrRootFrame)
             {
                 (activeFrame.FrameNodeObject as RootNodeObject).ObjectFilters = ObjectStateController.Instance.GetObjectStatesForFilter(tsbEmployeeFilter, e);
-                (ActiveFrame as KadrRootFrame).StaffFilterSetting = ObjectStateController.Instance.GetObjectStatesForFilter(tsbEmployeeFilter, e);//tspHourFactStaffFilter
+                (ActiveFrame as KadrRootFrame).StaffFilterSetting = ObjectStateController.Instance.GetObjectStatesForFilter(tsbEmployeeFilter, e); //tspHourFactStaffFilter
             }
-
         }
 
         private void tsbDepartmentFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -954,7 +945,6 @@ namespace Kadr.UI.Forms
                 (activeFrame.FrameNodeObject as RootNodeObject).DepartmentFilters = ObjectStateController.Instance.GetObjectStatesForFilter(tsbDepartmentFilter, e);
                 (ActiveFrame as KadrRootFrame).DepFilterSetting = ObjectStateController.Instance.GetObjectStatesForFilter(tsbDepartmentFilter, e);
             }
-
         }
 
         private void типыПриказовToolStripMenuItem_Click(object sender, EventArgs e)
@@ -971,7 +961,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void источникФинансированияToolStripMenuItem_Click(object sender, EventArgs e)
@@ -980,7 +969,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void базовыеОкладыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -989,7 +977,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void приказыМинистерстваToolStripMenuItem_Click(object sender, EventArgs e)
@@ -998,7 +985,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void единицыИзмеренияToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1007,7 +993,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void причинаСовмещенияToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1016,14 +1001,13 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void графикБуренияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
-                repForm.LoadData(typeof(Reports.GetBonusByBonusTypeResult));
+                repForm.LoadData(typeof (Reports.GetBonusByBonusTypeResult));
                 //repForm.Show();
                 repForm.ShowDialog();
             }
@@ -1031,19 +1015,16 @@ namespace Kadr.UI.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-
         }
 
         private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void tscbFindType_SelectedIndexChanged(object sender, EventArgs e)
         {
             tscbTextSearch.Items.Clear();
-            if (tscbFindType.SelectedIndex == 1)//по отделу
+            if (tscbFindType.SelectedIndex == 1) //по отделу
             {
                 foreach (Department dep in KadrController.Instance.Model.Departments.OrderBy(dep => dep.DepartmentSmallName))
                 {
@@ -1051,47 +1032,38 @@ namespace Kadr.UI.Forms
                 }
             }
 
-            if (tscbFindType.SelectedIndex == 0)//по cотруднику
+            if (tscbFindType.SelectedIndex == 0) //по cотруднику
             {
-                foreach (Employee empl in KadrController.Instance.Model.Employees.Where(empl => empl.FactStaffs.Count() > 0).OrderBy(empl => 
-                    empl.LastName).ThenBy(empl => empl.FirstName).ThenBy(empl => empl.Otch))
+                foreach (Employee empl in KadrController.Instance.Model.Employees.Where(empl => empl.FactStaffs.Count() > 0).OrderBy(empl => empl.LastName).ThenBy(empl => empl.FirstName).ThenBy(empl => empl.Otch))
                 {
                     tscbTextSearch.Items.Add(empl);
                 }
             }
-
         }
 
         private void tscbTextSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tscbFindType.SelectedIndex == 1)//по отделу
+            if (tscbFindType.SelectedIndex == 1) //по отделу
             {
-                kadrTreeView1.FindAndSelectDepartment(
-                    tscbTextSearch.SelectedItem as Department);
+                kadrTreeView1.FindAndSelectDepartment(tscbTextSearch.SelectedItem as Department);
             }
-            if (tscbFindType.SelectedIndex == 0)//по сотрудникам
+            if (tscbFindType.SelectedIndex == 0) //по сотрудникам
             {
-                kadrTreeView1.FindAndSelectEmployee(
-                    tscbTextSearch.SelectedItem as Employee);
+                kadrTreeView1.FindAndSelectEmployee(tscbTextSearch.SelectedItem as Employee);
             }
-           
         }
 
         private void kadrTreeView1_AfterExpand(object sender, TreeViewEventArgs e)
         {
-
         }
 
         private void надбавкиПоОтделамToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (Reports.Forms.BaseReportForm repForm = new Reports.Forms.BaseReportForm())
             {
-                repForm.LoadData(typeof(Reports.GetDepartmentBonusWithSettingsResult),3);
+                repForm.LoadData(typeof (Reports.GetDepartmentBonusWithSettingsResult), 3);
                 //repForm.ShowDialog();
-
- 
             }
-
         }
 
         private void статусДняToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1100,7 +1072,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void графикиРаботыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1139,7 +1110,7 @@ namespace Kadr.UI.Forms
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
-                repForm.LoadData(typeof(Reports.GetDepartmentBonusWithSettingsResult));
+                repForm.LoadData(typeof (Reports.GetDepartmentBonusWithSettingsResult));
                 //repForm.Show();
                 repForm.ShowDialog();
             }
@@ -1153,13 +1124,12 @@ namespace Kadr.UI.Forms
                 //устанавливаем фильтр на фрейме
                 CopyFilter(tsbBonusFilter, frame.tsbBonusFilter);
                 int clickedItemNumber = tsbBonusFilter.DropDownItems.IndexOf(e.ClickedItem);
-                (frame.tsbBonusFilter.DropDownItems[clickedItemNumber] as ToolStripMenuItem).Checked =
-                    !(tsbBonusFilter.DropDownItems[clickedItemNumber] as ToolStripMenuItem).Checked;
+                (frame.tsbBonusFilter.DropDownItems[clickedItemNumber] as ToolStripMenuItem).Checked = !(tsbBonusFilter.DropDownItems[clickedItemNumber] as ToolStripMenuItem).Checked;
                 frame.RefreshBonusFilter();
-           }
+            }
             if (ActiveFrame is KadrRootFrame)
             {
-                (ActiveFrame as KadrRootFrame).BonusFilterSetting = ObjectStateController.Instance.GetObjectStatesForFilter(tsbBonusFilter,e);
+                (ActiveFrame as KadrRootFrame).BonusFilterSetting = ObjectStateController.Instance.GetObjectStatesForFilter(tsbBonusFilter, e);
             }
         }
 
@@ -1168,8 +1138,7 @@ namespace Kadr.UI.Forms
         {
             for (int i = 0; i < Filter.DropDownItems.Count; i++)
             {
-                (TargetFilter.DropDownItems[i] as ToolStripMenuItem).Checked =
-                    (Filter.DropDownItems[i] as ToolStripMenuItem).Checked;
+                (TargetFilter.DropDownItems[i] as ToolStripMenuItem).Checked = (Filter.DropDownItems[i] as ToolStripMenuItem).Checked;
             }
         }
 
@@ -1201,7 +1170,7 @@ namespace Kadr.UI.Forms
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
-                repForm.LoadData(typeof(Reports.GetDepartmentBonusWithSettingsResult), 1);
+                repForm.LoadData(typeof (Reports.GetDepartmentBonusWithSettingsResult), 1);
                 //repForm.Show();
                 repForm.ShowDialog();
             }
@@ -1211,7 +1180,7 @@ namespace Kadr.UI.Forms
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
-                repForm.LoadData(typeof(Reports.GetPPSDepartmentBonusForT3Result));
+                repForm.LoadData(typeof (Reports.GetPPSDepartmentBonusForT3Result));
                 repForm.ShowDialog();
             }
         }
@@ -1220,7 +1189,7 @@ namespace Kadr.UI.Forms
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
-                repForm.LoadData(typeof(Reports.GetDepartmentBonusWithSettingsResult), 2);
+                repForm.LoadData(typeof (Reports.GetDepartmentBonusWithSettingsResult), 2);
                 //repForm.Show();
                 repForm.ShowDialog();
             }
@@ -1230,7 +1199,7 @@ namespace Kadr.UI.Forms
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
-                repForm.LoadData(typeof(Reports.GetPPSDepartmentBonusForT3Result),1);
+                repForm.LoadData(typeof (Reports.GetPPSDepartmentBonusForT3Result), 1);
                 repForm.ShowDialog();
             }
         }
@@ -1239,7 +1208,7 @@ namespace Kadr.UI.Forms
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
-                repForm.LoadData(typeof(Reports.GetDepartmentBonusWithSettingsResult), 5);
+                repForm.LoadData(typeof (Reports.GetDepartmentBonusWithSettingsResult), 5);
                 repForm.ShowDialog();
             }
         }
@@ -1264,7 +1233,7 @@ namespace Kadr.UI.Forms
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
-                repForm.LoadData(typeof(Reports.GetAllPostsResult));
+                repForm.LoadData(typeof (Reports.GetAllPostsResult));
                 repForm.ShowDialog();
             }
         }
@@ -1273,7 +1242,7 @@ namespace Kadr.UI.Forms
         {
             using (BaseReportForm repForm = new BaseReportForm())
             {
-                repForm.LoadData(typeof(Reports.GetDepartmentBonusWithSettingsResult), 6);
+                repForm.LoadData(typeof (Reports.GetDepartmentBonusWithSettingsResult), 6);
                 //repForm.Show();
                 repForm.ShowDialog();
             }
@@ -1301,7 +1270,6 @@ namespace Kadr.UI.Forms
             {
                 dlg.ShowDialog();
             }
-
         }
 
         private void оКВЭДToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1439,14 +1407,5 @@ namespace Kadr.UI.Forms
                 dlg.ShowDialog();
             }
         }
-
-        
-
-       
-
-       
-        
-
-
     }
 }

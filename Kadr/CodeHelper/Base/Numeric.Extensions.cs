@@ -1,4 +1,6 @@
-﻿namespace APG.Base
+﻿using System;
+
+namespace APG.Base
 {
     /// <summary>
     /// Расширяет использование числовых типов
@@ -60,6 +62,13 @@
         public static string GetDayStr(this int days)
         {
             return days.FormatIntToRusString("день", "дней", "дня");
+        }
+
+        public static string FormatDateDifference(int years, int monthes, int days)
+        {
+            return string.Format("{0} {1}, {2} {3}, {4} {5}",
+                years, years.GetYearStr(), monthes, monthes.GetMonthStr(),
+                days, days.GetDayStr());
         }
     }
 }

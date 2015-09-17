@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -33,5 +34,6 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 [assembly: AssemblyVersion("1.1.*")]
 [assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: NeutralResourcesLanguage("ru-RU")]
 
 //[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("ISGBTESTS")]

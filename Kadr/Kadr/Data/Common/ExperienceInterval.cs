@@ -10,9 +10,9 @@ namespace Kadr.Data.Common
     {
         private readonly IEmployeeExperienceRecord _sourceRecord;
         private readonly DateTime _begin;
-        private readonly DateTime? _end;
+        private readonly DateTime _end;
 
-        public ExperienceInterval(IEmployeeExperienceRecord sourceRecord, DateTime begin, DateTime? end)
+        public ExperienceInterval(IEmployeeExperienceRecord sourceRecord, DateTime begin, DateTime end)
         {
             if (sourceRecord == null) throw new ArgumentNullException("sourceRecord");
             _sourceRecord = sourceRecord;
@@ -21,20 +21,9 @@ namespace Kadr.Data.Common
         }
 
         /// <summary>
-        /// Получает дату начала работы
+        /// Признак того, что этот стаж имеет дату завершения
         /// </summary>
-        public DateTime StartOfWork { get { return _begin; } }
-
-        /// <summary>
-        /// Получает дату окончания работы. Если дата не задана, то стаж является текущим
-        /// </summary>
-        public DateTime? EndOfWork
-        {
-            get
-            {
-                return _end;
-            }
-        }
+        public bool IsEnded { get { return _sourceRecord.IsEnded; } }
 
         /// <summary>
         /// Получает территориальные условия работы
@@ -56,11 +45,11 @@ namespace Kadr.Data.Common
         /// </summary>
         public WorkOrganizationWorkType WorkWorkType { get { return _sourceRecord.WorkWorkType; } }
 
-        public DateTime Start { get { return StartOfWork; }
+        public DateTime Start { get { return _sourceRecord.Start; }
             set { }
         }
 
-        public DateTime Stop { get { return EndOfWork.HasValue ? EndOfWork.Value : DateTime.Today; }
+        public DateTime Stop { get { return _sourceRecord.Stop; }
             set { }
         }
     }
