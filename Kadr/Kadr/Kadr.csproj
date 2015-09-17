@@ -200,6 +200,7 @@
     <Compile Include="Controllers\CRUDControllers\CRUDEducation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDEmployee.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDFactStaff.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDFactStaffHistory.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDLanguage.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDSocial.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDAward.cs" />

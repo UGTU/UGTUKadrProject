@@ -956,7 +956,7 @@ namespace Kadr.UI.Frames
                return;
            }
 
-           KadrController.Instance.AddFactStaffHistory(currentFactStaff);
+           CRUDFactStaffHistory.Create(currentFactStaff);
            LoadPlanStaff();
        }
 
@@ -1378,7 +1378,7 @@ namespace Kadr.UI.Frames
            }
 
 
-           KadrController.Instance.AddFactStaffHistory(currentFactStaff);
+           CRUDFactStaffHistory.Create(currentFactStaff);
            //LoadHourFactStaff();
            tcDepartment_SelectedIndexChanged(null, null);
            
