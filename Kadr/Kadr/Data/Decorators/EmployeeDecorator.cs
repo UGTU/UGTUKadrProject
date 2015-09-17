@@ -49,8 +49,9 @@ namespace Kadr.Data
             get
             {
                 var age = _employee.GetAge();
-                if (!age.HasValue) return "Не указана дата рождения";
-                return string.Format("{0} {1}", age.Value, age.Value.GetYearStr());
+                if (age==null) return "Не указана дата рождения";
+                //return string.Format("{0} {1}", age.Value, age.Value.GetYearStr());
+                return age.ToString();
             }
 
         }

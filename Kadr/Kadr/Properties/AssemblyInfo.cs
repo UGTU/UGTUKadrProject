@@ -6,12 +6,12 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Kadr")]
+[assembly: AssemblyTitle("Клиент ИС Кадры УГТУ")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("UGTU")]
-[assembly: AssemblyProduct("Kadr")]
-[assembly: AssemblyCopyright("Copyright © UGTU 2008")]
+[assembly: AssemblyCompany("ФГБОУ ВПО УГТУ")]
+[assembly: AssemblyProduct("ИС Кадры УГТУ")]
+[assembly: AssemblyCopyright("Copyright © УГТУ, 2008-2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
