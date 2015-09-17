@@ -123,7 +123,7 @@ namespace Kadr.Tests
         /// даты получения стажа перекрываться во времени
         /// </summary>
         [TestMethod]
-        public void NorthExperienceWhenOverlappedMustBeTheSameValuesTest()
+        public void NorthExperienceWhenOverlappedDependsOnSequenceOrderTest()
         {
             var dtStart = DateTime.Parse("01.01.2015");
             IExperienceProvider provider = new StubIExperienceProvider()
@@ -147,6 +147,14 @@ namespace Kadr.Tests
                                 IsEndedGet = ()=>true,
                                 TerritoryGet = () => TerritoryConditions.StrictNorth,
                                 AffilationGet = () => Affilations.External
+                            },
+                             new StubIEmployeeExperienceRecord()
+                            {
+                                StartGet = () => dtStart.AddDays(21),
+                                StopGet = () => dtStart.AddDays(22),
+                                IsEndedGet = ()=>true,
+                                TerritoryGet = () => TerritoryConditions.StrictNorth,
+                                AffilationGet = () => Affilations.External
                             }
                         }
             };
@@ -160,11 +168,18 @@ namespace Kadr.Tests
             var totalIntervaledPost = expSet.SequenceInterval().FilterNorthExperience();
             Assert.IsTrue(totalIntervaledPost.GetExperience() == totalIntervaledPre.GetExperience());
 
-            Assert.AreNotEqual(totalNorth.SequenceInterval().GetExperience(), expSet.FilterNorthExperience().SequenceInterval().Where(x=>x.Territory == TerritoryConditions.North).GetExperience()
-                + expSet.FilterNorthExperience().Where(x => x.Territory == TerritoryConditions.StrictNorth).SequenceInterval().GetExperience());
+            Assert.AreNotEqual(totalNorth.SequenceInterval().GetExperience(), 
+                expSet.FilterNorthExperience().SequenceInterval()
+                .Where(x=>x.Territory == TerritoryConditions.North).GetExperience()
+                + expSet.FilterNorthExperience()
+                .Where(x => x.Territory == TerritoryConditions.StrictNorth)
+                .SequenceInterval().GetExperience());
 
-            Assert.AreEqual(totalNorth.SequenceInterval().GetExperience(), expSet.FilterNorthExperience().SequenceInterval().Where(x => x.Territory == TerritoryConditions.North).GetExperience()
-                + expSet.FilterNorthExperience().SequenceInterval().Where(x => x.Territory == TerritoryConditions.StrictNorth).GetExperience());
+            Assert.AreEqual(totalNorth.SequenceInterval().GetExperience(), 
+                expSet.FilterNorthExperience().SequenceInterval()
+                .Where(x => x.Territory == TerritoryConditions.North).GetExperience()
+                + expSet.FilterNorthExperience().SequenceInterval()
+                .Where(x => x.Territory == TerritoryConditions.StrictNorth).GetExperience());
 
         }
         [TestMethod]
@@ -177,6 +192,40 @@ namespace Kadr.Tests
             Assert.AreEqual(TimeSpan.FromDays(0), provider.EmployeeExperiences.GetExperience());
         }
 
+        /// <summary>
+        /// Если дата окончания предыдущего стажа совпадает с датой начала следующего стажа, то эта дата должна считаться стажем однократно (1 день)
+        /// </summary>
+        [TestMethod]
+        public void GetExperienceWhenContainsEqualStopAndNextStartDatesTest()
+        {
+            var dtStart = DateTime.Parse("01.01.2015");
+            IExperienceProvider provider = new StubIExperienceProvider()
+            {
+                
+                EmployeeExperiencesGet = () => new List<IEmployeeExperienceRecord>()
+                {
+                    new StubIEmployeeExperienceRecord()
+                    {
+                        StartGet = ()=>dtStart,
+                        StopGet = ()=>dtStart.AddDays(1),
+                        IsEndedGet = ()=>true
+                    },
+                    new StubIEmployeeExperienceRecord()
+                    {
+                        StartGet = ()=>dtStart.AddDays(1),
+                        StopGet = ()=>dtStart.AddDays(2),
+                        IsEndedGet = ()=>true
+                    },
+                    new StubIEmployeeExperienceRecord()
+                    {
+                        StartGet = ()=>dtStart.AddDays(2),
+                        StopGet = ()=>dtStart.AddDays(3),
+                        IsEndedGet = ()=>true
+                    }
+                }
+            };
+            Assert.AreEqual(TimeSpan.FromDays(4), provider.EmployeeExperiences.GetExperience());
+        }
         [TestMethod]
         public void NorthExperienceTest()
         {

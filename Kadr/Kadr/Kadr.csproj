@@ -467,6 +467,7 @@
       <DependentUpon>LinqPropertyGridDialogEditing.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Converters\RegionConverter.cs" />
+    <Compile Include="UI\Common\UIExtensions.cs" />
     <Compile Include="UI\Dialogs\BonusMeasureDialog.cs">
       <SubType>Form</SubType>
     </Compile>
