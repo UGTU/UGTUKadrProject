@@ -21,6 +21,14 @@ namespace Kadr.Data
     }
     public  partial class RegionType: INull
     {
+        public static RegionType UsualConditionRegionType
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.RegionTypes.Where(RT => RT.id == 1).FirstOrDefault();
+            }
+        }
+        
         public override string ToString()
         {
             return RegionTypeSmallName;
