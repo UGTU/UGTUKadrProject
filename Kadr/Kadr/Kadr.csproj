@@ -201,6 +201,7 @@
     <Compile Include="Controllers\CRUDControllers\CRUDEmployee.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDFactStaff.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDLanguage.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDPrikaz.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDSocial.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDAward.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDIncapacity.cs" />
@@ -276,6 +277,7 @@
     <Compile Include="Data\Decorators\OK_phoneDecorator.cs" />
     <Compile Include="Data\Decorators\SocialDecorator.cs" />
     <Compile Include="Data\Entities\EventKind.cs" />
+    <Compile Include="Data\Entities\PrikazSuperType.cs" />
     <Compile Include="Data\Entities\SocialFareTransitDecorator.cs" />
     <Compile Include="Data\Decorators\OK_OtpuskDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHourContractDecorator.cs" />
@@ -431,9 +433,7 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -772,6 +772,12 @@
     <Compile Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.Designer.cs">
       <DependentUpon>TimeSheetSheduleTypeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dialogs\PrikazSelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\PrikazSelectionDialog.Designer.cs">
+      <DependentUpon>PrikazSelectionDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\TripRegionsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1101,6 +1107,9 @@
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx">
       <DependentUpon>TimeSheetSheduleTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\PrikazSelectionDialog.resx">
+      <DependentUpon>PrikazSelectionDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\TripRegionsDialog.resx">
       <DependentUpon>TripRegionsDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -1365,6 +1374,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CONSTRUC.ICO" />
+    <None Include="Resources\add-icon.png" />
     <Content Include="Resources\Kadr.ico" />
     <Content Include="Resources\TreeIcons\briefcase.png" />
     <Content Include="Resources\TreeIcons\palmtree.png" />

@@ -37,14 +37,14 @@ namespace Kadr.Data
 
         #endregion
 
-        public Event(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory, EventKind eventKind = null, bool WithContract = false, Prikaz prikaz = null)
+        public Event(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory, EventKind eventKind = null, bool WithContract = false, Prikaz prikaz = null, DateTime? dateEnd = null)
             : this()
         {
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaffHistory>(this, "FactStaffHistory", factStaffHistory, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this, "Prikaz", prikaz?? NullPrikaz.Instance, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, EventKind>(this, "EventKind", eventKind, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateBegin", DateTime.Today, null), null);
-            //CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", DateTime.Today, null), null);
+           CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", dateEnd, null), null);
 
             if (WithContract)
                 new Contract(CommandManager, this);

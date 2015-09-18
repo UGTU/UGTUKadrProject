@@ -35,7 +35,7 @@ namespace Kadr.UI.Common
         }
 
 
-        private object dialogObject;
+        protected object dialogObject;
 
         public object DialogObject
         {
