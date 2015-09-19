@@ -275,7 +275,6 @@
     <Compile Include="Data\Decorators\SocialDecorator.cs" />
     <Compile Include="Data\Entities\EventType.cs" />
     <Compile Include="Data\Entities\Event_MaterialResponsibility.cs" />
-    <Compile Include="Data\Entities\SocialFareTransitDecorator.cs" />
     <Compile Include="Data\Decorators\OK_OtpuskDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffHourContractDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffHourDecorator.cs" />
