@@ -18,15 +18,25 @@ namespace Kadr.Controllers
             {
                     dlg.InitializeNewObject = (x) =>
                     {
-                        var Event = new Event();
-
+                        var EventMat = new Event_MaterialResponsibility(dlg.CommandManager,fs);
                         dlg.CommandManager.Execute(
+                            new GenericPropertyCommand<Event_MaterialResponsibility, MaterialResponsibility>(EventMat, "MaterialResponsibility",
+                                x, null), sender);
+
+                        /*dlg.CommandManager.Execute(
                             new GenericPropertyCommand<Event, FactStaff>(Event, "FactStaff",
                                 fs, null), sender);
-
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<Event, Prikaz>(Event, "Prikaz",
                                 NullPrikaz.Instance, null), sender);
+                        
+                        //Договор
+                        dlg.CommandManager.Execute(new GenericPropertyCommand<Event, Contract>(Event, "Contract",
+                            new Contract(), null), sender);
+                        dlg.CommandManager.Execute(
+                            new GenericPropertyCommand<Contract, string>(Event.Contract, "ContractName", "", null),
+                            sender);
+                        dlg.CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(Event.Contract, "DateContract", DateTime.Today, null), sender);
 
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<Event, DateTime?>(Event, "DateBegin",
@@ -35,19 +45,21 @@ namespace Kadr.Controllers
                             new GenericPropertyCommand<Event, DateTime?>(Event, "DateEnd",
                                 null, null), sender);
                         dlg.CommandManager.Execute(
+                            new GenericPropertyCommand<Event, EventKind>(Event, "EventKind", 
+                               MagicNumberController.MatResponsibilityKind(), null), sender);
+                        dlg.CommandManager.Execute(
+                            new GenericPropertyCommand<Event, EventType>(Event, "EventType",
+                               MagicNumberController.BeginEventType(), null), sender);
+
+                        
+                        
+                        dlg.CommandManager.Execute(
                             new GenericPropertyCommand<MaterialResponsibility, decimal?>(x, "Perc",
                                 10, null), sender);
 
                         dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<MaterialResponsibility, Event>(x,
-                                "Event", Event, null), sender);
-
-                        dlg.CommandManager.Execute(new GenericPropertyCommand<MaterialResponsibility, Contract>(x, "Contract",
-                            new Contract(), null), sender);
-                        dlg.CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(Event.Contract, "DateContract", DateTime.Today, null), sender);
-                        dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<Contract, string>(Event.Contract, "ContractName", "", null),
-                            sender);
+                            new GenericPropertyCommand<Event, Event_MaterialResponsibility>(Event,
+                                "Event_MaterialResponsibility", new Event_MaterialResponsibility(), null), sender);*/
 
                     };
 

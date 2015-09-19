@@ -215,6 +215,7 @@
     <Compile Include="Controllers\CRUDControllers\CRUDStandings.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDVacation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDValidation.cs" />
+    <Compile Include="Controllers\CRUDControllers\MagicNumberController.cs" />
     <Compile Include="Controllers\ExcelExportController.cs" />
     <Compile Include="Controllers\KadrController.cs" />
     <Compile Include="Controllers\LinqActionsController.cs" />
@@ -270,6 +271,8 @@
     <Compile Include="Data\Decorators\OK_AdressDecorator.cs" />
     <Compile Include="Data\Decorators\OK_phoneDecorator.cs" />
     <Compile Include="Data\Decorators\SocialDecorator.cs" />
+    <Compile Include="Data\Entities\EventType.cs" />
+    <Compile Include="Data\Entities\Event_MaterialResponsibility.cs" />
     <Compile Include="Data\Entities\SocialFareTransitDecorator.cs" />
     <Compile Include="Data\Decorators\OK_OtpuskDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHourContractDecorator.cs" />
