@@ -27,6 +27,14 @@ namespace Kadr.Data
             return StandingTypeName;
         }
 
+        public static StandingType DefaultStadingType
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.StandingTypes.Where(StT => StT.id == 1).FirstOrDefault();
+            }
+        }
+
         #region Члены INull
 
         bool INull.IsNull()

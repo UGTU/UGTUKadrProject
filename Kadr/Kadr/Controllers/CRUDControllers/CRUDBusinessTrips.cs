@@ -22,7 +22,7 @@ namespace Kadr.Controllers
                     dlg.InitializeNewObject = (x) =>
                     {
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, BusinessTrip>(btrt, "BusinessTrip", x, null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, Event>(x, "Event", new Event(dlg.CommandManager, fs.CurrentChange, null, false,  null, DateTime.Today), null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, Event>(x, "Event", new Event(dlg.CommandManager, fs.CurrentChange, EventKind.BusinessTripKind, false,  null, DateTime.Today), null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FinancingSource>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.FirstOrDefault(), null), sender);
                         //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.First(), null), this);

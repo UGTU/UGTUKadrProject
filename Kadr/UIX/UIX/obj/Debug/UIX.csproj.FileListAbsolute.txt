@@ -26,3 +26,8 @@ C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.pdb
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.pdb
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb

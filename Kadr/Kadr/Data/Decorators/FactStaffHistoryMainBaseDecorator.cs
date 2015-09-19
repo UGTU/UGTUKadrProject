@@ -72,10 +72,6 @@ namespace Kadr.Data
                     if (factStaffHistory.Contract != null)
                         factStaffHistory.Contract.ContractName = value;
 
-                    if ((DateContract == DateTime.MinValue) || (DateContract == null))
-                        DateContract = factStaffHistory.DateBegin;
-                    if ((ContractDateBegin == DateTime.MinValue) || (ContractDateBegin == null))
-                        ContractDateBegin = factStaffHistory.DateBegin;
                 }
             }
         }

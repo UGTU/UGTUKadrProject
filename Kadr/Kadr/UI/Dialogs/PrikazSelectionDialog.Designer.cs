@@ -62,11 +62,11 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbSuperType);
             this.helpProvider1.SetShowHelp(this.panel1, true);
-            this.panel1.Size = new System.Drawing.Size(488, 208);
+            this.panel1.Size = new System.Drawing.Size(488, 103);
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(12, 223);
+            this.panel2.Location = new System.Drawing.Point(12, 118);
             this.panel2.Size = new System.Drawing.Size(488, 30);
             // 
             // ApplyBtn
@@ -280,7 +280,7 @@
             this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 267);
+            this.ClientSize = new System.Drawing.Size(512, 162);
             this.Name = "PrikazSelectionDialog";
             this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Выбор приказа";

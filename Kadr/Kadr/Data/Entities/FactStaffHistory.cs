@@ -9,15 +9,32 @@ namespace Kadr.Data
     partial class FactStaffHistory : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
 
-        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind)
+        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, bool withContract = false)
             : this()
         {
+
+            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin);
+
+            Event curEvent = new Event(CommandManager, this, eventKind, withContract, prikaz);
+        }
+
+        public void SetProperties(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin)
+        {
+            //если уже есть изменение, то берем львинную долю свойств оттуда
+            if (factStaff.CurrentChange != null)
+            {
+                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(this, "StaffCount", factStaff.StaffCount, null), this);
+                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal?>(this, "HourCount", factStaff.HourCount, null), this);
+                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal?>(this, "HourSalary", factStaff.HourSalary, null), this);
+                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, SalaryKoeff>(this, "SalaryKoeff", factStaff.SalaryKoeff, null), this);
+            }
+
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(this, "Prikaz", prikaz, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(this, "WorkType", workType, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
 
-            Event curEvent = new Event(CommandManager, this, eventKind, true, prikaz);
+
         }
         
         public override string ToString()
@@ -67,6 +84,22 @@ namespace Kadr.Data
                 if (MainEvent != null)
                     MainEvent.Contract = value;
 
+            }
+        }
+
+        /// <summary>
+        /// устанавливает даты начала контрактов
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetContractDates(DateTime value)
+        {
+            if (Contract != null)
+            {
+                if ((Contract.DateContract == null) || (Contract.DateContract == DateTime.MinValue))
+                {
+                    Contract.DateBegin = value;
+                    Contract.DateContract = value;
+                }
             }
         }
 

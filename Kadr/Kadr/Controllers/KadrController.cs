@@ -241,36 +241,7 @@ namespace Kadr.Controllers
             }
         }*/
 
-        public void AddFactStaffHistory(FactStaff currentFactStaff)
-        {
-            using (Kadr.UI.Common.PropertyGridDialogAdding<FactStaffHistory> dlg =
-                new Kadr.UI.Common.PropertyGridDialogAdding<FactStaffHistory>())
-            {
-                dlg.UseInternalCommandManager = true;
-                dlg.ObjectList = KadrController.Instance.Model.FactStaffHistories;
-                //dlg.BindingSource = planStaffBindingSource;
-                dlg.PrikazButtonVisible = true;
-                dlg.oneObjectCreated = true;
-                dlg.InitializeNewObject = (x) =>
-                {
-                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaffHistory>(x, "FactStaffHistory1", currentFactStaff., null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(x, "StaffCount", currentFactStaff.StaffCount, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(x, "WorkType", currentFactStaff.WorkType, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(x, "Prikaz", NullPrikaz.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal?>(x, "HourCount", currentFactStaff.HourCount, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal?>(x, "HourSalary", currentFactStaff.HourSalary, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, SalaryKoeff>(x, "SalaryKoeff", currentFactStaff.SalaryKoeff, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(x, "FactStaff", currentFactStaff, null), this);
-                };
-
-                dlg.UpdateObjectList = () =>
-                {
-                    dlg.ObjectList = KadrController.Instance.Model.FactStaffHistories;
-                };
-
-                dlg.ShowDialog();
-            }
-        }
+        
 
         public void AddFactStaffMonthHour(FactStaff currentFactStaff)
         {

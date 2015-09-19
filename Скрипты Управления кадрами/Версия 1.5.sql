@@ -685,3 +685,11 @@ delete
 from dbo.Employee
 where id not in (select ISNULL(idEmployee,0) from dbo.FactStaff)
 and itab_n is null
+
+
+
+
+go
+update [dbo].[RegionType]
+set [RegionTypeName]='Без особых условий', [RegionTypeSmallName]='БОУ'
+where id=1

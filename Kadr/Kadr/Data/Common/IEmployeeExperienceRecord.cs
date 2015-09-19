@@ -19,9 +19,8 @@ namespace Kadr.Data.Common
         /// <summary>
         /// МКС
         /// </summary>
-        North = 2
+        North =2
     }
-
     /// <summary>
     /// Принадлежность стажа организации
     /// </summary>
@@ -36,7 +35,6 @@ namespace Kadr.Data.Common
         /// </summary>
         External
     }
-    
     /// <summary>
     /// Виды стажа
     /// </summary>
@@ -51,20 +49,15 @@ namespace Kadr.Data.Common
         /// </summary>
         Other = 1       
     }
-    
     /// <summary>
     /// Определяет типы записи стажа работника
     /// </summary>
     public interface IEmployeeExperienceRecord : IRange<DateTime>
     {
         /// <summary>
-        /// Получает дату начала работы
+        /// Признак того, что этот стаж имеет дату завершения
         /// </summary>
-        DateTime StartOfWork { get; }
-        /// <summary>
-        /// Получает дату окончания работы. Если дата не задана, то стаж является текущим
-        /// </summary>
-        DateTime? EndOfWork { get; }
+        bool IsEnded { get; }
         /// <summary>
         /// Получает территориальные условия работы
         /// </summary>

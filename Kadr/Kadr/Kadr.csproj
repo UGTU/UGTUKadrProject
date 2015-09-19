@@ -20,7 +20,7 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
-    <ApplicationIcon>Resources\Kadr.ico</ApplicationIcon>
+    <ApplicationIcon>CONSTRUC.ICO</ApplicationIcon>
     <TargetZone>LocalIntranet</TargetZone>
     <GenerateManifests>true</GenerateManifests>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
@@ -30,9 +30,6 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <CodeContractsAssemblyMode>0</CodeContractsAssemblyMode>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -47,6 +44,9 @@
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <CodeContractsAssemblyMode>0</CodeContractsAssemblyMode>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -195,11 +195,11 @@
   <ItemGroup>
     <Compile Include="Command\CreatePlanStaffCommand.cs" />
     <Compile Include="Controllers\BonusController.cs" />
-    <Compile Include="Controllers\BonusProvider.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDDopEducation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDEducation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDEmployee.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDFactStaff.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDFactStaffHistory.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDLanguage.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDPrikaz.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDSocial.cs" />
@@ -223,10 +223,7 @@
     <Compile Include="Controllers\MonthController.cs" />
     <Compile Include="Controllers\PropertyGridExtensions.cs" />
     <Compile Include="Controllers\SimpleActionsProvider.cs" />
-    <Compile Include="Controllers\UGTU2015BonusProvider.cs" />
     <Compile Include="Data\Common\AdvancedBindingList.cs" />
-    <Compile Include="Data\Common\BonusRules\SimpleLadderBonusRule.cs" />
-    <Compile Include="Data\Common\BonusRules\YoungLadderNorthBonusRule.cs" />
     <Compile Include="Data\Common\CategoryExtensions.cs" />
     <Compile Include="Data\Common\CompareObject.cs" />
     <Compile Include="Data\Common\EmployeeExperienceExtensions.cs" />
@@ -236,7 +233,6 @@
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
     <Compile Include="Data\Common\WorkTypeExtensions.cs" />
-    <Compile Include="Data\Common\BonusRules\YoungLadderStrictNorthBonusRule.cs" />
     <Compile Include="Data\Converters\ContractConvertor.cs" />
     <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
@@ -276,9 +272,7 @@
     <Compile Include="Data\Decorators\OK_AdressDecorator.cs" />
     <Compile Include="Data\Decorators\OK_phoneDecorator.cs" />
     <Compile Include="Data\Decorators\SocialDecorator.cs" />
-    <Compile Include="Data\Entities\EventKind.cs" />
     <Compile Include="Data\Entities\PrikazSuperType.cs" />
-    <Compile Include="Data\Entities\SocialFareTransitDecorator.cs" />
     <Compile Include="Data\Decorators\OK_OtpuskDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHourContractDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHourDecorator.cs" />
@@ -288,6 +282,7 @@
     <Compile Include="Data\Decorators\FactStaffHistoryReplacementDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator.cs" />
     <Compile Include="Data\Decorators\PlanStaffHistoryDecorator.cs" />
+    <Compile Include="Data\Decorators\SocialFareTransitDecorator.cs" />
     <Compile Include="Data\Decorators\TimeSheetFSWorkingDaysDecorator.cs" />
     <Compile Include="Data\Decorators\TimeSheetDecorator.cs" />
     <Compile Include="Data\Decorators\EmployeeStandingDecorator.cs" />
@@ -336,6 +331,8 @@
     <Compile Include="Data\Entities\EmployeeDegree.cs" />
     <Compile Include="Data\Entities\EmployeeRank.cs" />
     <Compile Include="Data\Entities\EmployeeStanding.cs" />
+    <Compile Include="Data\Entities\Event.cs" />
+    <Compile Include="Data\Entities\EventKind.cs" />
     <Compile Include="Data\Entities\FactStaff.cs" />
     <Compile Include="Data\Entities\FactStaffBonusProject.cs" />
     <Compile Include="Data\Entities\FactStaffCurrentMainData.cs" />
@@ -343,7 +340,6 @@
     <Compile Include="Data\Entities\FactStaffHour.cs" />
     <Compile Include="Data\Entities\FactStaffHourContract.cs" />
     <Compile Include="Data\Entities\FactStaffMonthHour.cs" />
-    <Compile Include="Data\Entities\Event.cs" />
     <Compile Include="Data\Entities\FactStaffReplacement.cs" />
     <Compile Include="Data\Entities\FactStaffReplacementReason.cs" />
     <Compile Include="Data\Entities\FinancingSource.cs" />
@@ -401,8 +397,6 @@
     <Compile Include="Data\Entities\WorkType.cs" />
     <Compile Include="Data\Common\IEmployeeExperienceRecord.cs" />
     <Compile Include="Data\Common\IExperienceProvider.cs" />
-    <Compile Include="Interfaces\IBonused.cs" />
-    <Compile Include="Interfaces\IBonusRule.cs" />
     <Compile Include="Interfaces\IOrderInformer.cs" />
     <Compile Include="KadrTreeView\KadrTreeView.cs">
       <SubType>Component</SubType>
@@ -446,12 +440,6 @@
     <Compile Include="UI\Common\DataGridViewDialog.Designer.cs">
       <DependentUpon>DataGridViewDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.Designer.cs">
-      <DependentUpon>EmployeeLinqPropertyGridDialogAdding.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Common\GenderBooleanConverter.cs" />
     <Compile Include="UI\Common\LinqDataGridViewDialog.cs">
       <SubType>Form</SubType>
@@ -484,12 +472,7 @@
       <DependentUpon>LinqPropertyGridDialogEditing.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Converters\RegionConverter.cs" />
-    <Compile Include="UI\Dialogs\CatalogDialogs\BonusMeasureDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\BonusMeasureDialog.Designer.cs">
-      <DependentUpon>BonusMeasureDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Common\UIExtensions.cs" />
     <Compile Include="UI\Dialogs\BonusProlongDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -502,71 +485,171 @@
     <Compile Include="UI\Dialogs\BonusProlongFullDialog.Designer.cs">
       <DependentUpon>BonusProlongFullDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\BonusMeasureDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\BonusMeasureDialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\BonusReportColumnsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\BonusReportColumnsDialog.Designer.cs">
-      <DependentUpon>BonusReportColumnsDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\BonusReportColumnsDialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\BonusReportDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\BonusReportDialog.Designer.cs">
-      <DependentUpon>BonusReportDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\BonusReportDialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\BonusSuperTypeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\BonusSuperTypeDialog.Designer.cs">
-      <DependentUpon>BonusSuperTypeDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\BonusSuperTypeDialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\BonusTypeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\BonusTypeDialog.Designer.cs">
-      <DependentUpon>BonusTypeDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\BonusTypeDialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\CategoryDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\CategoryDialog.Designer.cs">
-      <DependentUpon>CategoryDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\CategoryDialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\CategoryVPODialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\CategoryVPODialog.Designer.cs">
-      <DependentUpon>CategoryVPODialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\CategoryVPODialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\CategoryZPDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\CategoryZPDialog.Designer.cs">
-      <DependentUpon>CategoryZPDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\CategoryZPDialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\DepartmentTypeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\DepartmentTypeDialog.Designer.cs">
-      <DependentUpon>DepartmentTypeDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\DepartmentTypeDialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\DocumentTypeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\DocumentTypeDialog.Designer.cs">
-      <DependentUpon>DocumentTypeDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\DocumentTypeDialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\DopEducTypeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\DopEducTypeDialog.Designer.cs">
-      <DependentUpon>DopEducTypeDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\DopEducTypeDialog.Designer.cs" />
     <Compile Include="UI\Dialogs\CatalogDialogs\EducationTypeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\EducationTypeDialog.Designer.cs">
-      <DependentUpon>EducationTypeDialog.cs</DependentUpon>
+    <Compile Include="UI\Dialogs\CatalogDialogs\EducationTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\FactStaffReplacementReasonDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\FactStaffReplacementReasonDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\FinancingSourceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\FinancingSourceDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\FundingCenterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\FundingCenterDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\GlobalPrikazDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\GlobalPrikazDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\GrazdDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\GrazdDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\LanguageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\LanguageDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\LanguageLevelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\LanguageLevelDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryCategoryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryCategoryDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryFitnessDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryFitnessDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryRankDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryRankDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryStructureDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryStructureDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\OKVEDDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\OKVEDDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\OrganisationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\OrganisationDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\PKCategoryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\PKCategoryDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\PKGroupDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\PKGroupDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\PostGroupDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\PostGroupDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\PostTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\PostTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\PrikazSuperTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\PrikazSuperTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\PrikazTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\PrikazTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\RegionTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\RegionTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\SalaryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\SalaryDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\SalaryKoeffDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\SalaryKoeffDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\SemPolDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\SemPolDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\StandingTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\StandingTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.Designer.cs">
+      <DependentUpon>EmployeeLinqPropertyGridDialogAdding.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\FactStaffBonusDialog.cs">
       <SubType>Form</SubType>
@@ -580,12 +663,6 @@
     <Compile Include="UI\Dialogs\FactStaffHourDialog.Designer.cs">
       <DependentUpon>FactStaffHourDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\FactStaffReplacementReasonDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\FactStaffReplacementReasonDialog.Designer.cs">
-      <DependentUpon>FactStaffReplacementReasonDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Dialogs\FactStaffLinqPropertyGridDialogAdding.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -598,179 +675,17 @@
     <Compile Include="UI\Dialogs\FactStaffTransfer.Designer.cs">
       <DependentUpon>FactStaffTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\FinancingSourceDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\FinancingSourceDialog.Designer.cs">
-      <DependentUpon>FinancingSourceDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\FundingCenterDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\FundingCenterDialog.Designer.cs">
-      <DependentUpon>FundingCenterDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\GlobalPrikazDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\GlobalPrikazDialog.Designer.cs">
-      <DependentUpon>GlobalPrikazDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\GrazdDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\GrazdDialog.Designer.cs">
-      <DependentUpon>GrazdDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\LanguageDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\LanguageDialog.Designer.cs">
-      <DependentUpon>LanguageDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\LanguageLevelDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\LanguageLevelDialog.Designer.cs">
-      <DependentUpon>LanguageLevelDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryCategoryDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryCategoryDialog.Designer.cs">
-      <DependentUpon>MilitaryCategoryDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryFitnessDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryFitnessDialog.Designer.cs">
-      <DependentUpon>MilitaryFitnessDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryRankDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryRankDialog.Designer.cs">
-      <DependentUpon>MilitaryRankDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryStructureDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryStructureDialog.Designer.cs">
-      <DependentUpon>MilitaryStructureDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryTypeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryTypeDialog.Designer.cs">
-      <DependentUpon>MilitaryTypeDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\OKVEDDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\OKVEDDialog.Designer.cs">
-      <DependentUpon>OKVEDDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\OrganisationDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\OrganisationDialog.Designer.cs">
-      <DependentUpon>OrganisationDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PKCategoryDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PKCategoryDialog.Designer.cs">
-      <DependentUpon>PKCategoryDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PKGroupDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PKGroupDialog.Designer.cs">
-      <DependentUpon>PKGroupDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Dialogs\PlanStaffSelectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\PlanStaffSelectDialog.Designer.cs">
       <DependentUpon>PlanStaffSelectDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PostGroupDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PostGroupDialog.Designer.cs">
-      <DependentUpon>PostGroupDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PostTypeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PostTypeDialog.Designer.cs">
-      <DependentUpon>PostTypeDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Dialogs\PrikazDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\PrikazDialog.Designer.cs">
       <DependentUpon>PrikazDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PrikazSuperTypeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PrikazSuperTypeDialog.Designer.cs">
-      <DependentUpon>PrikazSuperTypeDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PrikazTypeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\PrikazTypeDialog.Designer.cs">
-      <DependentUpon>PrikazTypeDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\RegionTypeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\RegionTypeDialog.Designer.cs">
-      <DependentUpon>RegionTypeDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\SalaryDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\SalaryDialog.Designer.cs">
-      <DependentUpon>SalaryDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\SalaryKoeffDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\SalaryKoeffDialog.Designer.cs">
-      <DependentUpon>SalaryKoeffDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\SemPolDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\SemPolDialog.Designer.cs">
-      <DependentUpon>SemPolDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\StandingTypeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\StandingTypeDialog.Designer.cs">
-      <DependentUpon>StandingTypeDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.Designer.cs">
-      <DependentUpon>TimeSheetDayStateDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.Designer.cs">
-      <DependentUpon>TimeSheetSheduleTypeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\PrikazSelectionDialog.cs">
       <SubType>Form</SubType>
@@ -783,12 +698,6 @@
     </Compile>
     <Compile Include="UI\Dialogs\TripRegionsDialog.Designer.cs">
       <DependentUpon>TripRegionsDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.Designer.cs">
-      <DependentUpon>WorkTypeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Editors\AllFinancingSourceEditor.cs" />
     <Compile Include="UI\Editors\BonusMeasureEditor.cs" />
@@ -912,6 +821,7 @@
     </None>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="CrystalReport1.mht" />
     <None Include="Data\dckadr.dbml.layout">
       <DependentUpon>dckadr.dbml</DependentUpon>
@@ -928,9 +838,6 @@
     <EmbeddedResource Include="UI\Common\DataGridViewDialog.resx">
       <DependentUpon>DataGridViewDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.resx">
-      <DependentUpon>EmployeeLinqPropertyGridDialogAdding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Common\LinqDataGridViewDialog.resx">
       <DependentUpon>LinqDataGridViewDialog.cs</DependentUpon>
@@ -952,59 +859,60 @@
       <DependentUpon>LinqPropertyGridDialogAdding.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusMeasureDialog.resx">
-      <DependentUpon>BonusMeasureDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\BonusProlongDialog.resx">
       <DependentUpon>BonusProlongDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\BonusProlongFullDialog.resx">
       <DependentUpon>BonusProlongFullDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusReportColumnsDialog.resx">
-      <DependentUpon>BonusReportColumnsDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusReportDialog.resx">
-      <DependentUpon>BonusReportDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusSuperTypeDialog.resx">
-      <DependentUpon>BonusSuperTypeDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusTypeDialog.resx">
-      <DependentUpon>BonusTypeDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\CategoryDialog.resx">
-      <DependentUpon>CategoryDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\CategoryVPODialog.resx">
-      <DependentUpon>CategoryVPODialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\CategoryZPDialog.resx">
-      <DependentUpon>CategoryZPDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\DepartmentTypeDialog.resx">
-      <DependentUpon>DepartmentTypeDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\DocumentTypeDialog.resx">
-      <DependentUpon>DocumentTypeDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\DopEducTypeDialog.resx">
-      <DependentUpon>DopEducTypeDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\EducationTypeDialog.resx">
-      <DependentUpon>EducationTypeDialog.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusMeasureDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusReportColumnsDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusReportDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusSuperTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\CategoryDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\CategoryVPODialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\CategoryZPDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\DepartmentTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\DocumentTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\DopEducTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\EducationTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\FactStaffReplacementReasonDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\FinancingSourceDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\FundingCenterDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\GlobalPrikazDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\GrazdDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\LanguageDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\LanguageLevelDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryCategoryDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryFitnessDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryRankDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryStructureDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\OKVEDDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\OrganisationDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\PKCategoryDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\PKGroupDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\PostGroupDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\PostTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\PrikazSuperTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\PrikazTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\RegionTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\SalaryDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\SalaryKoeffDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\SemPolDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\StandingTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.resx">
+      <DependentUpon>EmployeeLinqPropertyGridDialogAdding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\FactStaffBonusDialog.resx">
       <DependentUpon>FactStaffBonusDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\FactStaffHourDialog.resx">
       <DependentUpon>FactStaffHourDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\FactStaffReplacementReasonDialog.resx">
-      <DependentUpon>FactStaffReplacementReasonDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\FactStaffLinqPropertyGridDialogAdding.resx">
       <DependentUpon>FactStaffLinqPropertyGridDialogAdding.cs</DependentUpon>
@@ -1013,64 +921,8 @@
       <DependentUpon>FactStaffTransfer.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\FinancingSourceDialog.resx">
-      <DependentUpon>FinancingSourceDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\FundingCenterDialog.resx">
-      <DependentUpon>FundingCenterDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\GlobalPrikazDialog.resx">
-      <DependentUpon>GlobalPrikazDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\GrazdDialog.resx">
-      <DependentUpon>GrazdDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\LanguageDialog.resx">
-      <DependentUpon>LanguageDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\LanguageLevelDialog.resx">
-      <DependentUpon>LanguageLevelDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryCategoryDialog.resx">
-      <DependentUpon>MilitaryCategoryDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryFitnessDialog.resx">
-      <DependentUpon>MilitaryFitnessDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryRankDialog.resx">
-      <DependentUpon>MilitaryRankDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryStructureDialog.resx">
-      <DependentUpon>MilitaryStructureDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryTypeDialog.resx">
-      <DependentUpon>MilitaryTypeDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\OKVEDDialog.resx">
-      <DependentUpon>OKVEDDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\OrganisationDialog.resx">
-      <DependentUpon>OrganisationDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\PKCategoryDialog.resx">
-      <DependentUpon>PKCategoryDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\PKGroupDialog.resx">
-      <DependentUpon>PKGroupDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\PlanStaffSelectDialog.resx">
       <DependentUpon>PlanStaffSelectDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\PostGroupDialog.resx">
-      <DependentUpon>PostGroupDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\PostTypeDialog.resx">
-      <DependentUpon>PostTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\PrikazDialog.resx">
       <DependentUpon>PrikazDialog.cs</DependentUpon>
@@ -1296,7 +1148,6 @@
     <None Include="Properties\DataSources\Kadr.Data.MilitaryStructure.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryDecorator.datasource" />
-    <None Include="Properties\DataSources\Kadr.Data.Event_MaterialResponsibility.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1387,7 +1238,7 @@
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
-      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">

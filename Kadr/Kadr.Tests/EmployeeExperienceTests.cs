@@ -90,8 +90,9 @@ namespace Kadr.Tests
                         {
                             new StubIEmployeeExperienceRecord()
                             {
-                                StartOfWorkGet = () => DateTime.Today,
-                                EndOfWorkGet = () => DateTime.Today
+                                StartGet = () => DateTime.Today,
+                                StopGet = () => DateTime.Today,
+                                IsEndedGet = ()=>true
                             }
                         }
             };
@@ -108,13 +109,79 @@ namespace Kadr.Tests
                         {
                             new StubIEmployeeExperienceRecord()
                             {
-                                StartOfWorkGet = () => DateTime.Today
+                                StartGet = () => DateTime.Today,
+                                IsEndedGet = ()=>false,
                             }
                         }
             };
             Assert.AreEqual(TimeSpan.FromDays(1), provider.EmployeeExperiences.GetExperience());
         }
 
+        /// <summary>
+        /// Проверка не выполнения(!!!) инварианта, что сумма северного стажа всегда равна сумме стажа в РКС и МКС
+        /// и зависит от последовательности вызова метода SequenceInterval(), 
+        /// даты получения стажа перекрываться во времени
+        /// </summary>
+        [TestMethod]
+        public void NorthExperienceWhenOverlappedDependsOnSequenceOrderTest()
+        {
+            var dtStart = DateTime.Parse("01.01.2015");
+            IExperienceProvider provider = new StubIExperienceProvider()
+            {
+                EmployeeExperiencesGet =
+                    () =>
+                        new List<IEmployeeExperienceRecord>()
+                        {
+                            new StubIEmployeeExperienceRecord()
+                            {
+                                StartGet = () => dtStart,
+                                StopGet = () => dtStart.AddDays(30),
+                                IsEndedGet = ()=>true,
+                                TerritoryGet = () => TerritoryConditions.North,
+                                AffilationGet = () => Affilations.External
+                            },
+                            new StubIEmployeeExperienceRecord()
+                            {
+                                StartGet = () => dtStart.AddDays(10),
+                                StopGet = () => dtStart.AddDays(20),
+                                IsEndedGet = ()=>true,
+                                TerritoryGet = () => TerritoryConditions.StrictNorth,
+                                AffilationGet = () => Affilations.External
+                            },
+                             new StubIEmployeeExperienceRecord()
+                            {
+                                StartGet = () => dtStart.AddDays(21),
+                                StopGet = () => dtStart.AddDays(22),
+                                IsEndedGet = ()=>true,
+                                TerritoryGet = () => TerritoryConditions.StrictNorth,
+                                AffilationGet = () => Affilations.External
+                            }
+                        }
+            };
+            var expSet = provider.EmployeeExperiences.ToList();
+            var totalNorth = expSet.FilterNorthExperience().ToList();
+            var north = totalNorth.Where(x => x.Territory == TerritoryConditions.North);
+            var strictNorth = totalNorth.Where(x => x.Territory == TerritoryConditions.StrictNorth);
+            Assert.AreEqual(totalNorth.GetExperience(), north.GetExperience()+strictNorth.GetExperience());
+
+            var totalIntervaledPre = totalNorth.SequenceInterval();
+            var totalIntervaledPost = expSet.SequenceInterval().FilterNorthExperience();
+            Assert.IsTrue(totalIntervaledPost.GetExperience() == totalIntervaledPre.GetExperience());
+
+            Assert.AreNotEqual(totalNorth.SequenceInterval().GetExperience(), 
+                expSet.FilterNorthExperience().SequenceInterval()
+                .Where(x=>x.Territory == TerritoryConditions.North).GetExperience()
+                + expSet.FilterNorthExperience()
+                .Where(x => x.Territory == TerritoryConditions.StrictNorth)
+                .SequenceInterval().GetExperience());
+
+            Assert.AreEqual(totalNorth.SequenceInterval().GetExperience(), 
+                expSet.FilterNorthExperience().SequenceInterval()
+                .Where(x => x.Territory == TerritoryConditions.North).GetExperience()
+                + expSet.FilterNorthExperience().SequenceInterval()
+                .Where(x => x.Territory == TerritoryConditions.StrictNorth).GetExperience());
+
+        }
         [TestMethod]
         public void GetExperienceEmptySetTest()
         {
@@ -125,6 +192,40 @@ namespace Kadr.Tests
             Assert.AreEqual(TimeSpan.FromDays(0), provider.EmployeeExperiences.GetExperience());
         }
 
+        /// <summary>
+        /// Если дата окончания предыдущего стажа совпадает с датой начала следующего стажа, то эта дата должна считаться стажем однократно (1 день)
+        /// </summary>
+        [TestMethod]
+        public void GetExperienceWhenContainsEqualStopAndNextStartDatesTest()
+        {
+            var dtStart = DateTime.Parse("01.01.2015");
+            IExperienceProvider provider = new StubIExperienceProvider()
+            {
+                
+                EmployeeExperiencesGet = () => new List<IEmployeeExperienceRecord>()
+                {
+                    new StubIEmployeeExperienceRecord()
+                    {
+                        StartGet = ()=>dtStart,
+                        StopGet = ()=>dtStart.AddDays(1),
+                        IsEndedGet = ()=>true
+                    },
+                    new StubIEmployeeExperienceRecord()
+                    {
+                        StartGet = ()=>dtStart.AddDays(1),
+                        StopGet = ()=>dtStart.AddDays(2),
+                        IsEndedGet = ()=>true
+                    },
+                    new StubIEmployeeExperienceRecord()
+                    {
+                        StartGet = ()=>dtStart.AddDays(2),
+                        StopGet = ()=>dtStart.AddDays(3),
+                        IsEndedGet = ()=>true
+                    }
+                }
+            };
+            Assert.AreEqual(TimeSpan.FromDays(4), provider.EmployeeExperiences.GetExperience());
+        }
         [TestMethod]
         public void NorthExperienceTest()
         {
@@ -136,16 +237,18 @@ namespace Kadr.Tests
                     //ТК - Северный
                     new StubIEmployeeExperienceRecord()
                     {
-                        StartOfWorkGet = () => start,
-                        EndOfWorkGet = () => start.AddDays(1),
+                        StartGet = () => start,
+                        StopGet = () => start.AddDays(1),
+                        IsEndedGet = ()=>true,
                         AffilationGet = () => Affilations.External,
                         TerritoryGet = () => TerritoryConditions.North
                     },
                     // ТК - Не северный
                     new StubIEmployeeExperienceRecord()
                     {
-                        StartOfWorkGet = () => start.AddDays(2),
-                        EndOfWorkGet = () => start.AddDays(4),
+                        StartGet = () => start.AddDays(2),
+                        StopGet = () => start.AddDays(4),
+                        IsEndedGet = ()=>true,
                         AffilationGet = () => Affilations.External,
                         TerritoryGet = () => TerritoryConditions.Default
                     },
@@ -153,8 +256,9 @@ namespace Kadr.Tests
                     // Организация (основаня) - Северный
                     new StubIEmployeeExperienceRecord()
                     {
-                        StartOfWorkGet = () => start.AddDays(5),
-                        EndOfWorkGet = () => start.AddDays(10),
+                        StartGet = () => start.AddDays(5),
+                        StopGet = () => start.AddDays(10),
+                        IsEndedGet = ()=>true,
                         AffilationGet = () => Affilations.Organization,
                         TerritoryGet = () => TerritoryConditions.North,
                         WorkWorkTypeGet = () => WorkOrganizationWorkType.Internal
@@ -163,8 +267,9 @@ namespace Kadr.Tests
                     // Организация (совмещение) - Северный
                     new StubIEmployeeExperienceRecord()
                     {
-                        StartOfWorkGet = () => start.AddDays(6),
-                        EndOfWorkGet = () => start.AddDays(10),
+                        StartGet = () => start.AddDays(6),
+                        StopGet = () => start.AddDays(10),
+                        IsEndedGet = ()=>true,
                         AffilationGet = () => Affilations.Organization,
                         TerritoryGet = () => TerritoryConditions.StrictNorth,
                         WorkWorkTypeGet = () => WorkOrganizationWorkType.Combined
@@ -173,8 +278,9 @@ namespace Kadr.Tests
                     // Организация (совмещение) - Северный
                     new StubIEmployeeExperienceRecord()
                     {
-                        StartOfWorkGet = () => start.AddDays(6),
-                        EndOfWorkGet = () => start.AddDays(10),
+                        StartGet = () => start.AddDays(6),
+                        StopGet = () => start.AddDays(10),
+                        IsEndedGet = ()=>true,
                         AffilationGet = () => Affilations.Organization,
                         TerritoryGet = () => TerritoryConditions.North,
                         WorkWorkTypeGet = () => WorkOrganizationWorkType.Combined
@@ -204,6 +310,7 @@ namespace Kadr.Tests
                         {
                             StartGet = () => dtStart,
                             StopGet = () => DateTime.Parse("31.12.2014"),
+                            IsEndedGet = ()=>true,
                             AffilationGet = () => Affilations.Organization,
                             TerritoryGet = () => TerritoryConditions.Default,
                             ExperienceGet = () => KindOfExperience.Pedagogical,
@@ -214,6 +321,7 @@ namespace Kadr.Tests
                         {
                             StartGet = () => dtStart,
                             StopGet = () => DateTime.Parse("31.12.2014"),
+                            IsEndedGet = ()=>true,
                             AffilationGet = () => Affilations.Organization,
                             TerritoryGet = () => TerritoryConditions.Default,
                             ExperienceGet = () => KindOfExperience.Pedagogical,
@@ -234,23 +342,32 @@ namespace Kadr.Tests
             var dtStart = DateTime.Parse("01.01.2014");
             var r1 = new StubIEmployeeExperienceRecord()
             {
-                StartOfWorkGet = () => dtStart                
+                StartGet = () => dtStart,
+                IsEndedGet = () => false
             };
-            var r2 = new StubIEmployeeExperienceRecord()
-            {
-                EndOfWorkGet = () => dtStart.AddDays(-104),
-                StartOfWorkGet = () => dtStart.AddDays(-200)
-            };
+
             var r3 = new StubIEmployeeExperienceRecord()
             {
-                EndOfWorkGet = () => dtStart.AddDays(-1),
-                StartOfWorkGet = () => dtStart.AddDays(-100)
+                StopGet = () => dtStart.AddDays(-1),
+                StartGet = () => dtStart.AddDays(-100),
+                IsEndedGet = () => true
             };
+
             var r4 = new StubIEmployeeExperienceRecord()
             {
-                EndOfWorkGet = () => dtStart.AddDays(-100),
-                StartOfWorkGet = () => dtStart.AddDays(-102)
+                StopGet = () => dtStart.AddDays(-100),
+                StartGet = () => dtStart.AddDays(-102),
+                IsEndedGet = () => true
             };
+
+            var r2 = new StubIEmployeeExperienceRecord()
+            {
+                StopGet = () => dtStart.AddDays(-104),
+                StartGet = () => dtStart.AddDays(-200),
+                IsEndedGet = () => true
+            };
+            
+            
 
             IExperienceProvider provider = new StubIExperienceProvider
             {
@@ -288,8 +405,9 @@ namespace Kadr.Tests
                         // Работа в другой организации, не приравненой к РКС или МКС
                         new StubIEmployeeExperienceRecord()
                         {
-                            StartOfWorkGet = () => dtStart,
-                            EndOfWorkGet = () => DateTime.Parse("31.12.2014"),
+                            StartGet = () => dtStart,
+                            StopGet = () => DateTime.Parse("31.12.2014"),
+                            IsEndedGet = () => true,
                             AffilationGet = () => Affilations.External,
                             TerritoryGet = () => TerritoryConditions.Default,
                             ExperienceGet = () => KindOfExperience.Pedagogical
@@ -299,8 +417,9 @@ namespace Kadr.Tests
                         // работал в течение двух месяцев
                         new StubIEmployeeExperienceRecord()
                         {
-                            StartOfWorkGet = () => dtOrgStart,
-                            EndOfWorkGet = () => dtOrgStart.AddDays(60),
+                            StartGet = () => dtOrgStart,
+                            StopGet = () => dtOrgStart.AddDays(60),
+                            IsEndedGet = ()=>true,
                             AffilationGet = () => Affilations.Organization,
                             TerritoryGet = () => TerritoryConditions.North,
                             ExperienceGet = () => KindOfExperience.Other
@@ -310,7 +429,8 @@ namespace Kadr.Tests
                         // работает до сих пор 
                         new StubIEmployeeExperienceRecord()
                         {
-                            StartOfWorkGet = () => dtOrgStart.AddDays(61),
+                            StartGet = () => dtOrgStart.AddDays(61),
+                            IsEndedGet = ()=>false,
                             AffilationGet = () => Affilations.Organization,
                             TerritoryGet = () => TerritoryConditions.North,
                             ExperienceGet = () => KindOfExperience.Other

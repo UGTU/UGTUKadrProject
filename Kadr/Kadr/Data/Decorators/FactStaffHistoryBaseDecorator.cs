@@ -33,15 +33,8 @@ namespace Kadr.Data
             set
             {
                 factStaffHistory.DateBegin = value;
-
-                if (factStaffHistory.Contract != null)
-                {
-                    if ((factStaffHistory.Contract.DateContract == null) || (factStaffHistory.Contract.DateContract == DateTime.MinValue))
-                    {
-                        factStaffHistory.Contract.DateBegin = value;
-                        factStaffHistory.Contract.DateContract = value;
-                    }
-                }
+                factStaffHistory.SetContractDates(value);
+               
             }
         }
 

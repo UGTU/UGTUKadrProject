@@ -56,6 +56,7 @@
     <Compile Include="NumericExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RangeTests.cs" />
+    <Compile Include="DateDifferenceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodeHelper\CodeHelper.csproj">

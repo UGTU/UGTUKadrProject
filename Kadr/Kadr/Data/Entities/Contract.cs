@@ -27,7 +27,6 @@ namespace Kadr.Data
             CommandManager.Execute(new GenericPropertyCommand<Event, Contract>(curEvent, "Contract", this, null), null);
         }
 
-
         public override string ToString()
         {
             if (MainContract == null)
