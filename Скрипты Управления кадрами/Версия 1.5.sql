@@ -693,3 +693,10 @@ go
 update [dbo].[RegionType]
 set [RegionTypeName]='Без особых условий', [RegionTypeSmallName]='БОУ'
 where id=1
+
+
+
+
+go
+alter table [dbo].[EventKind]
+add DecoratorName VARCHAR(500) NULL

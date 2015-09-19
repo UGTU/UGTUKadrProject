@@ -13,17 +13,6 @@ namespace Kadr.Data
         {
         }
 
-        [System.ComponentModel.DisplayName("Должность в штатном расписании")]
-        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
-        [System.ComponentModel.Description("Должность в штатном расписании")]
-        [System.ComponentModel.ReadOnly(false)]
-        public Kadr.Data.PlanStaff PlanStaff
-        {
-            get
-            {
-                return factStaffHistory.FactStaff.PlanStaff;
-            }
-        }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\tBид работы")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
@@ -64,66 +53,6 @@ namespace Kadr.Data
             }
         }
 
-        /*[System.ComponentModel.DisplayName("Количество ставок по нагрузке")]
-        [System.ComponentModel.Category("Новые значения атрибутов")]
-        [System.ComponentModel.Description("Занимаемое сотрудником по факту количество ставок по нагрузке")]
-        [System.ComponentModel.ReadOnly(true)]
-        public decimal? HourStaffCount
-        {
-            get
-            {
-                return factStaffHistory.HourStaffCount;
-            }
-            set
-            {
-                factStaffHistory.HourStaffCount = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("Количество часов")]
-        [System.ComponentModel.Category("Почасовики")]
-        [System.ComponentModel.Description("Количество часов для почасовиков")]
-        [System.ComponentModel.ReadOnly(false)]
-        public decimal? HourCount
-        {
-            get
-            {
-                return factStaffHistory.HourCount;
-            }
-            set
-            {
-                factStaffHistory.HourCount = value;
-            }
-        }
-         
-         [System.ComponentModel.DisplayName("Оплата за час")]
-        [System.ComponentModel.Category("Почасовики")]
-        [System.ComponentModel.Description("Оплата за час для почасовиков")]
-        [System.ComponentModel.ReadOnly(false)]
-        public decimal? HourSalary
-        {
-            get
-            {
-                return factStaffHistory.HourSalary;
-            }
-            set
-            {
-                factStaffHistory.HourSalary = value;
-            }
-        }
-
-
-        [System.ComponentModel.DisplayName("Отдел")]
-        [System.ComponentModel.Category("Общие")]
-        [System.ComponentModel.Description("Название отдела")]
-        [System.ComponentModel.ReadOnly(true)]
-        public Kadr.Data.Dep Department
-        {
-            get
-            {
-                return factStaffHistory.FactStaff.Department;
-            }
-        }*/
 
         [System.ComponentModel.DisplayName("Подподкатегория")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]

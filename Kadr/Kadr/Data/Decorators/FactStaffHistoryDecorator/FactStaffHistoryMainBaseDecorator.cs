@@ -13,6 +13,18 @@ namespace Kadr.Data
         {
         }
 
+        [System.ComponentModel.DisplayName("Должность в штатном расписании")]
+        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
+        [System.ComponentModel.Description("Должность в штатном расписании")]
+        [System.ComponentModel.ReadOnly(true)]
+        public Kadr.Data.PlanStaff PlanStaff
+        {
+            get
+            {
+                return factStaffHistory.FactStaff.PlanStaff;
+            }
+        }
+
         [System.ComponentModel.DisplayName("Подподкатегория")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
