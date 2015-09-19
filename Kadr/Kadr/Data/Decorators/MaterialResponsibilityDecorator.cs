@@ -16,7 +16,7 @@ namespace Kadr.Data
 
         public MaterialResponsibilityDecorator(MaterialResponsibility materialResponsibility)
         {
-            this._material = materialResponsibility;
+            _material = materialResponsibility;
         }
 
         public override string ToString()
@@ -42,7 +42,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ, назначающий мат. ответственность")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.Editor(typeof(UI.Editors.PrikazEditor), typeof(UITypeEditor))]
         public Kadr.Data.Prikaz PrikazBegin
         {
             get
@@ -64,11 +64,11 @@ namespace Kadr.Data
         {
             get
             {
-                return _material.Event_MaterialResponsibilities.FirstOrDefault().Event.DateBegin.Value;
+                return _material.DateBegin;
             }
             set
             {
-                _material.Event_MaterialResponsibilities.FirstOrDefault().Event.DateBegin = value;
+                _material.DateBegin = value;
             }
         }
 
@@ -81,10 +81,10 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(false)]
         public DateTime? DateEnd
         {
-            get { return _material.Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd; }
+            get { return _material.DateEnd; }
             set
             {
-                _material.Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd = value;
+                _material.DateEnd = value;
             }
         }
 
@@ -94,20 +94,12 @@ namespace Kadr.Data
         [System.ComponentModel.ReadOnly(false)]
         public decimal Sum
         {
-            get
-            {
-                if (Percent != null)
-                    _material.Sum =
-                        Decimal.Round(
-                            (decimal)
-                                ((Percent/100)*
-                                 (Convert.ToDecimal(_material.FactStaff.PlanStaff.SalarySize)*
-                                  _material.FactStaff.LastChange.StaffCount)), 2);
-                return _material.Sum;
-            }
+            get{
+                return _material.SumMoney;
+                }
             set
             {
-                  _material.Sum = value;
+                _material.SumMoney = value;
             }
         }
 
@@ -140,7 +132,7 @@ namespace Kadr.Data
             }
             set
             {
-                _material.Event_MaterialResponsibilities.FirstOrDefault().Event.Contract.ContractName = value;
+                _material.ContractName = value;
             }
         }
         [System.ComponentModel.DisplayName("Дата договора")]

@@ -1,86 +1,124 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Linq;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
+using Kadr.Controllers;
 
 
 namespace Kadr.Data
 {
     public partial class MaterialResponsibility : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
-       /* public MaterialResponsibility(UIX.Commands.ICommandManager commandManager, FactStaff fsStaff)
+        public MaterialResponsibility(UIX.Commands.ICommandManager commandManager, FactStaff fsStaff)
             : this()
         {
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<MaterialResponsibility, FactStaff>(this, "FactStaff", fsStaff, null), this);
-        }*/
+
+        }
 
         public override string ToString()
         {
-            return "Запись по материальной ответственности " + Event_MaterialResponsibilities.FirstOrDefault().Event.FactStaff;
+            return "Запись по материальной ответственности " + MainEvent.FactStaff;
         }
 
         #region Properties
 
-        public DateTime? DateBegin
+        public Event MainEvent
         {
             get
             {
-                return Event_MaterialResponsibilities.FirstOrDefault().Event.DateBegin; 
+                return (Event_MaterialResponsibilities != null)
+                    ? Event_MaterialResponsibilities.Single(
+                        x => x.Event.EventType == MagicNumberController.BeginEventType()).Event
+                    : null;
             }
-            set
+        }
+
+        public Event EndEvent
+        {
+            get
             {
-                Event_MaterialResponsibilities.FirstOrDefault().Event.DateBegin = value;
+                return (Event_MaterialResponsibilities != null)
+                    ? Event_MaterialResponsibilities.Single(
+                        x => x.Event.EventType == MagicNumberController.EndEventType()).Event
+                    : null;
             }
+        }
+
+        public DateTime DateBegin
+        {
+            get { return (DateTime) MainEvent.DateBegin; }
+            set { MainEvent.DateBegin = value; }
         }
 
         public DateTime? DateEnd
         {
-            get
-            {
-                return Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd;
-            }
+            get { return (EndEvent != null) ? EndEvent.DateBegin : MainEvent.DateEnd; }
             set
             {
-                Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd = value;
-         
+                if (EndEvent != null) EndEvent.DateBegin = value;
+                else MainEvent.DateEnd = value;
             }
         }
 
         public Prikaz PrikazBegin
         {
-            get { return Event_MaterialResponsibilities.FirstOrDefault().Event.Prikaz; }
-            set { if (value != null) Event_MaterialResponsibilities.FirstOrDefault().Event.Prikaz = value; }
+            get { return MainEvent.Prikaz; }
+            set { MainEvent.Prikaz = value; }
         }
 
         public string ContractName
         {
-            get { return Event_MaterialResponsibilities.FirstOrDefault().Event.Contract.ContractName; }
-            set { Event_MaterialResponsibilities.FirstOrDefault().Event.Contract.ContractName = value; }
+            get { return MainEvent.Contract.ContractName; }
+            set { MainEvent.Contract.ContractName = value; }
         }
 
         public DateTime DateContract
         {
-            get
-            {
-                return Event_MaterialResponsibilities.FirstOrDefault().Event.Contract.DateContract != null ? Event_MaterialResponsibilities.FirstOrDefault().Event.Contract.DateContract.Value : DateTime.MinValue;
-            }
-            set { Event_MaterialResponsibilities.FirstOrDefault().Event.Contract.DateContract = value; }
+            get { return MainEvent.Contract.DateContract ?? DateTime.MinValue; }
+            set { MainEvent.Contract.DateContract = value; }
         }
+
+        public Prikaz TempPrikazEnd { get; set; }
 
         public Prikaz PrikazEnd
         {
-            get { return Event_MaterialResponsibilities.FirstOrDefault().Event.PrikazEnd; }
-            set { Event_MaterialResponsibilities.FirstOrDefault().Event.PrikazEnd = value; }
+            get { return (EndEvent != null) ? EndEvent.Prikaz : TempPrikazEnd; }
+            set
+            {
+                if (EndEvent != null) EndEvent.Prikaz = null;
+                else TempPrikazEnd = value;
+            }
         }
 
         public FactStaff FactStaff
         {
-            get { return Event_MaterialResponsibilities.FirstOrDefault().Event.FactStaff; }
+            get { return MainEvent.FactStaff; }
+        }
+
+        public decimal SumMoney
+        {
+            get
+            {
+                if (Perc != null)
+                    Sum =
+                        Decimal.Round(
+                            (decimal)
+                                ((Perc / 100) *
+                                 (Convert.ToDecimal(FactStaff.PlanStaff.SalarySize) *
+                                  FactStaff.LastChange.StaffCount)), 2);
+                return Sum;
+            }
+            set
+            {
+                Sum = value;
+            }
         }
 
 
-        #endregion
+    #endregion
 
         #region partial Methods
 
@@ -92,16 +130,13 @@ namespace Kadr.Data
         {
             if ((action != ChangeAction.Insert) && (action != ChangeAction.Update)) return;
 
-            if (Event_MaterialResponsibilities.FirstOrDefault().Event.idPrikaz == 0) throw new ArgumentNullException("Приказ назначения ответственности.");
-            if ((Event_MaterialResponsibilities.FirstOrDefault().Event.Contract.ContractName == null) || (Event_MaterialResponsibilities.FirstOrDefault().Event.Contract.ContractName.Trim() == "")) throw new ArgumentNullException("Номер договора.");
-            if (Event_MaterialResponsibilities.FirstOrDefault().Event.Contract.DateContract == null) throw new ArgumentNullException("Дата договора.");
-            if (Event_MaterialResponsibilities.FirstOrDefault().Event.DateBegin == null) throw new ArgumentNullException("Дата начала действия.");
-            if (Event_MaterialResponsibilities.FirstOrDefault().Event.PrikazEnd != null)
-                if (Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd == null) throw new ArgumentNullException("Дата окончания ответственности.");
-            if (Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd == DateTime.MinValue)
-                Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd = null;
-            if (Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd == null) return;
-            if (Event_MaterialResponsibilities.FirstOrDefault().Event.DateEnd <= Event_MaterialResponsibilities.FirstOrDefault().Event.DateBegin)
+            if (MainEvent.idPrikaz == 0) throw new ArgumentNullException("Приказ назначения ответственности.");
+            if ((MainEvent.Contract.ContractName == null) || (MainEvent.Contract.ContractName.Trim() == "")) throw new ArgumentNullException("Номер договора.");
+            if (MainEvent.Contract.DateContract == null) throw new ArgumentNullException("Дата договора.");
+            if (MainEvent.DateBegin == null) throw new ArgumentNullException("Дата начала действия.");
+            if (PrikazEnd != null)
+                if (DateEnd == null) throw new ArgumentNullException("Дата окончания ответственности.");
+            if (DateEnd <= DateBegin)
                 throw new ArgumentOutOfRangeException("Дата окончания ответственности должна быть позже даты начала.");
         }
 
