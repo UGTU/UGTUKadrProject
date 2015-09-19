@@ -47,12 +47,12 @@ namespace Kadr.Controllers
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
                         FactStaff prev = dlg.SelectedObjects[0] as FactStaff;
-                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), withContract);
+                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, MagicNumberController.FactStaffCreateEventKind, withContract);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x, "StaffCount", prev.StaffCount, null), sender);
                     }
                     else
                     {
-                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), withContract);
+                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind, withContract);
                     }
 
                     SetProperties(dlg.CommandManager, x, planStaffCurrent, employee, isReplacement, department, financingSource);
@@ -84,7 +84,7 @@ namespace Kadr.Controllers
             FactStaff x = new FactStaff();
             x.WithNewEmployee = true;
             SetProperties(commandManager, x, planStaffCurrent, employee, isReplacement, department, financingSource);
-            FactStaffHistory fcStHistory = new FactStaffHistory(commandManager, x, workType, NullPrikaz.Instance, DateTime.Today, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), withContract);
+            FactStaffHistory fcStHistory = new FactStaffHistory(commandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind, withContract);
 
 
             using (Kadr.UI.Dialogs.FactStaffLinqPropertyGridDialogAdding dlg =

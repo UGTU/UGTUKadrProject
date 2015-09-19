@@ -47,7 +47,7 @@ namespace Kadr.Data
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", dateEnd, null), null);
 
             if (WithContract)
-                new Contract(CommandManager, this);
+                new Contract(CommandManager, this, factStaffHistory.MainContract);
         }
         
         public override string ToString()

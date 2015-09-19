@@ -17,13 +17,14 @@ namespace Kadr.Data
     {
         public const int MaterialContract = 18;
 
-        public Contract(ICommandManager CommandManager, Event curEvent, string contractName = "", DateTime? dateContract = null, DateTime? dateBegin = null, DateTime? dateEnd = null)
+        public Contract(ICommandManager CommandManager, Event curEvent, Contract mainContract = null, string contractName = "", DateTime? dateContract = null, DateTime? dateBegin = null, DateTime? dateEnd = null)
             : this()
         {
             CommandManager.Execute(new GenericPropertyCommand<Contract, string>(this, "ContractName", contractName, null), null);
             CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateContract", dateContract, null), null); 
             CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateBegin", dateBegin, null), null); 
-            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateEnd", dateEnd, null), null); 
+            CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(this, "DateEnd", dateEnd, null), null);
+            CommandManager.Execute(new GenericPropertyCommand<Contract, Contract>(this, "Contract1", mainContract, null), null);
             CommandManager.Execute(new GenericPropertyCommand<Event, Contract>(curEvent, "Contract", this, null), null);
         }
 

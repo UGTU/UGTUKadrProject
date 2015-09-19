@@ -8,7 +8,7 @@ namespace Kadr.Controllers
 {
     public static class CRUDFactStaffHistory
     {
-        public static void Create(FactStaff currentFactStaff)
+        public static void Create(FactStaff currentFactStaff, EventKind eventKind, bool withContract = false)
         {
             using (Kadr.UI.Common.PropertyGridDialogAdding<FactStaffHistory> dlg =
                 new Kadr.UI.Common.PropertyGridDialogAdding<FactStaffHistory>())
@@ -20,7 +20,7 @@ namespace Kadr.Controllers
                 dlg.oneObjectCreated = true;
                 dlg.InitializeNewObject = (x) =>
                 {
-                    x.SetProperties(dlg.CommandManager, currentFactStaff, currentFactStaff.WorkType, NullPrikaz.Instance, DateTime.Today.Date);
+                    x.SetProperties(dlg.CommandManager, currentFactStaff, currentFactStaff.WorkType, NullPrikaz.Instance, DateTime.Today.Date, eventKind, withContract);
                 };
 
                 dlg.UpdateObjectList = () =>

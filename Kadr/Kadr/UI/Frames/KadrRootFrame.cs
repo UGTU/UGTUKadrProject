@@ -956,7 +956,7 @@ namespace Kadr.UI.Frames
                return;
            }
 
-           CRUDFactStaffHistory.Create(currentFactStaff);
+           CRUDFactStaffHistory.Create(currentFactStaff, KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(), true);
            LoadPlanStaff();
        }
 
@@ -1378,7 +1378,7 @@ namespace Kadr.UI.Frames
            }
 
 
-           CRUDFactStaffHistory.Create(currentFactStaff);
+           CRUDFactStaffHistory.Create(currentFactStaff, KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(),false);
            //LoadHourFactStaff();
            tcDepartment_SelectedIndexChanged(null, null);
            
