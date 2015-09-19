@@ -646,3 +646,57 @@ GO
 
 ALTER TABLE [dbo].[Event] CHECK CONSTRAINT [FK_Event_EventKind]
 GO*/
+
+
+
+
+
+GO
+
+ALTER TABLE [dbo].[EmployeeRank] DROP CONSTRAINT [FK_EmployeeZvanye_Employee]
+GO
+
+ALTER TABLE [dbo].[EmployeeRank]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeRank_Employee] FOREIGN KEY([idEmployee])
+REFERENCES [dbo].[Employee] ([id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[EmployeeRank] CHECK CONSTRAINT [FK_EmployeeRank_Employee]
+GO
+
+
+GO
+
+ALTER TABLE [dbo].[EmployeeDegree] DROP CONSTRAINT [FK_EmployeeDegree_Employee]
+GO
+
+ALTER TABLE [dbo].[EmployeeDegree]  WITH CHECK ADD  CONSTRAINT [FK_EmployeeDegree_Employee] FOREIGN KEY([idEmployee])
+REFERENCES [dbo].[Employee] ([id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[EmployeeDegree] CHECK CONSTRAINT [FK_EmployeeDegree_Employee]
+GO
+
+
+
+delete
+--select *
+from dbo.Employee
+where id not in (select ISNULL(idEmployee,0) from dbo.FactStaff)
+and itab_n is null
+
+
+
+
+go
+update [dbo].[RegionType]
+set [RegionTypeName]='Без особых условий', [RegionTypeSmallName]='БОУ'
+where id=1
+
+
+
+
+go
+alter table [dbo].[EventKind]
+add DecoratorName VARCHAR(500) NULL

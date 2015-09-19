@@ -33,6 +33,8 @@ namespace Kadr.Data
             set
             {
                 factStaffHistory.DateBegin = value;
+                factStaffHistory.SetContractDates(value);
+               
             }
         }
 

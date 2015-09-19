@@ -183,6 +183,7 @@ namespace Kadr.UI.Frames
             }
             KadrController.Instance.SubmitChanges();
             commandManager.BeginBatchCommand();
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

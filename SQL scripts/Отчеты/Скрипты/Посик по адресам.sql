@@ -32,7 +32,7 @@ or
 (OK_Adress.Adress like '%Ухта%лЧибьюский%' 
 	and (OK_Adress.Adress like '%3%к%' or OK_Adress.Adress like '%5%к%' or OK_Adress.Adress like '%7%к%'))
 
-
+*/
 
 (OK_Adress.Adress like '%Ухта%Ленина%' 
 	and (OK_Adress.Adress like '%3%к%' or OK_Adress.Adress like '%5%к%' or OK_Adress.Adress like '%9%к%'))
@@ -57,23 +57,10 @@ or(OK_Adress.Adress like '%Ухта%Володарского%' )
 or
 (OK_Adress.Adress like '%Ухта%Загородная%' )
 or
-(OK_Adress.Adress like '%Ухта%Семяшкина%' ))*/
-
-
-
+(OK_Adress.Adress like '%Ухта%Семяшкина%' ))
 	
 GROUP BY empl.EmplFullName,OK_Adress.Adress 
 ORDER BY OK_Adress.Adress , dep, post
-
-
-
-Округ №7
-Улицы: Вокзальная; Горького; Губкина; Железнодорожная; Заречная; Косолапкина; Кремса; Мира; Октябрьская, дома №№ 1, 2, 3, 4, 5, 6, 10, 15, 17, 20, 22; 
-Первомайская дома №№ 2/6, 4, 4а, 5, 5а, 6, 6а, 6б, 7, 8, 10, 12, 14, 15, 16/12, 28; 
-Пушкина; 
-пст Седъю с подчиненной ему территорией (пст Изъюр); пст Кэмдин с подчиненной ему территорией (дер. Лайково, Изваиль, Гажаяг).
-
-
 
 ул.Севастопольская: д.11а, 13, 13а; 
 ул.Сенюкова: д. 1, 3, 7, 9, 11, 25/52;

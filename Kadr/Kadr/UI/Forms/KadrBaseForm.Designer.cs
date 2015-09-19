@@ -42,8 +42,8 @@
             this.RollbackMenuItem = new System.Windows.Forms.ToolStripSplitButton();
             this.RedoMenuItem = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.tscbFindType = new System.Windows.Forms.ToolStripComboBox();
             this.tscbTextSearch = new System.Windows.Forms.ToolStripComboBox();
+            this.tscbFindType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.расширенныйПоискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
@@ -228,8 +228,8 @@
             this.RollbackMenuItem,
             this.RedoMenuItem,
             this.toolStripSeparator5,
-            this.tscbFindType,
             this.tscbTextSearch,
+            this.tscbFindType,
             this.toolStripSplitButton1,
             this.toolStripSeparator11,
             this.tsbEmployeeFilter,
@@ -364,6 +364,12 @@
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             this.toolStripSeparator5.Visible = false;
             // 
+            // tscbTextSearch
+            // 
+            this.tscbTextSearch.Name = "tscbTextSearch";
+            this.tscbTextSearch.Size = new System.Drawing.Size(270, 25);
+            this.tscbTextSearch.SelectedIndexChanged += new System.EventHandler(this.tscbTextSearch_SelectedIndexChanged);
+            // 
             // tscbFindType
             // 
             this.tscbFindType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -375,12 +381,6 @@
             this.tscbFindType.Size = new System.Drawing.Size(160, 25);
             this.tscbFindType.SelectedIndexChanged += new System.EventHandler(this.tscbFindType_SelectedIndexChanged);
             // 
-            // tscbTextSearch
-            // 
-            this.tscbTextSearch.Name = "tscbTextSearch";
-            this.tscbTextSearch.Size = new System.Drawing.Size(270, 25);
-            this.tscbTextSearch.SelectedIndexChanged += new System.EventHandler(this.tscbTextSearch_SelectedIndexChanged);
-            // 
             // toolStripSplitButton1
             // 
             this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -389,7 +389,7 @@
             this.toolStripSplitButton1.Image = global::Kadr.Properties.Resources.PlayHS;
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Black;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             this.toolStripSplitButton1.Visible = false;
             this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
@@ -413,7 +413,7 @@
             this.tsbEmployeeFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbEmployeeFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbEmployeeFilter.Name = "tsbEmployeeFilter";
-            this.tsbEmployeeFilter.Size = new System.Drawing.Size(105, 20);
+            this.tsbEmployeeFilter.Size = new System.Drawing.Size(105, 22);
             this.tsbEmployeeFilter.Tag = "";
             this.tsbEmployeeFilter.Text = "Сотрудники";
             this.tsbEmployeeFilter.ToolTipText = "Настройки фильтра по сотрудникам";

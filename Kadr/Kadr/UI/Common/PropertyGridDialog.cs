@@ -119,7 +119,7 @@ namespace Kadr.UI.Common
                 Text += ", " + commandProperyGrid1.SelectedObjects[i].ToString();
         }
 
-        private void TerminateBatchCommand()
+        protected void TerminateBatchCommand()
         {
             if (commandManager != null)
             {

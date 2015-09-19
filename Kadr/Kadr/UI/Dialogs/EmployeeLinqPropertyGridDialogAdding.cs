@@ -35,7 +35,7 @@ namespace Kadr.UI.Dialogs
             if (BeforeApplyAction != null)
                 BeforeApplyAction(newObject);
 
-            if (CRUDFactStaff.CreateWithEmployee(null, PlanStaff, null, false, true, SelectedObjects[0] as Employee, CommandManager, null, WorkType.MainWorkType) != DialogResult.OK)
+            if (CRUDFactStaff.CreateWithEmployee(null, PlanStaff, null, false, true, SelectedObjects[0] as Employee, CommandManager, null, WorkType.MainWorkType,null,true) != DialogResult.OK)
             {
 
             }
@@ -61,13 +61,12 @@ namespace Kadr.UI.Dialogs
             }
 
 
-            base.DoApply();
-            if (!OKClicked)
+            /*if (!OKClicked)
             {
                 this.CommandManager.BeginBatchCommand();
                 //создаем новый объект
                 CreateNewObject();
-            }
+            }*/
         }
     }
 }

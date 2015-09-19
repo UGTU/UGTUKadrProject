@@ -42,6 +42,15 @@ namespace Kadr.Data
 
         #region NewEmployeeFactStaffProperties
 
+        /// <summary>
+        /// Признак того, что запись создана одновременно с новым сотрудником
+        /// </summary>
+        public bool WithNewEmployee
+        {
+            get;
+            set;
+        }
+
         /*public FactStaff(Employee employee)
         {
             NewEmployee = employee;
@@ -678,17 +687,15 @@ namespace Kadr.Data
 
         #endregion
 
-
-
-
-
         #region IDecorable Members
 
         public object GetDecorator()
         {
-           // if (NewEmployee == null)
-                return new FactStaffDecorator(this);
-            //return new FactStaffEmployeeAddingDecorator(this);
+            if (WithNewEmployee)
+                return new FactStaffEmployeeAddingDecorator(this);
+            if (IsHourStaff)
+                return new FactStaffHourDecorator(this);
+            return new FactStaffDecorator(this);
         }
 
 
@@ -721,7 +728,7 @@ namespace Kadr.Data
 
         ObjectState IObjectState.State()
         {
-            if ((((Prikaz == null) && (DateEnd == null)) || (DateEnd > DateTime.Today))&& (FactStaffHistories.Where(fcSt => fcSt.DateBegin <= DateTime.Today).Count()>0))
+            if ((((Prikaz == null) && (DateEnd == null)) || (DateEnd > DateTime.Today))/*&& (FactStaffHistories.Where(fcSt => fcSt.DateBegin <= DateTime.Today).Count()>0)*/)
                 return ObjectState.Current;
             return ObjectState.Canceled;
         }
@@ -740,10 +747,11 @@ namespace Kadr.Data
                 return new FactStaffHour(this);
             }
         }*/
-        public DateTime StartOfWork {
-            get { return DateBegin; }
-        }
-        public DateTime? EndOfWork { get { return DateEnd; } }
+        
+        /// <summary>
+        /// Признак того, что этот стаж имеет дату завершения
+        /// </summary>
+        public bool IsEnded { get { return DateEnd.HasValue; } }
 
         public TerritoryConditions Territory
         {

@@ -42,6 +42,10 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.4.0.0.0.Fakes">
+      <HintPath>FakesAssemblies\System.Data.4.0.0.0.Fakes.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Linq" />
   </ItemGroup>
   <Choose>
@@ -63,6 +67,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegionTypeExtensionsTests.cs" />
     <Compile Include="StandingTypeExtensionsTests.cs" />
+    <Compile Include="UiPurposeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodeHelper\CodeHelper.csproj">
@@ -80,6 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <Fakes Include="Fakes\Kadr.fakes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Fakes Include="Fakes\System.Data.fakes" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

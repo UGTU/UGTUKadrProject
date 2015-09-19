@@ -155,23 +155,3 @@ E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\Co
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll.config
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csprojResolveAssemblyReference.cache
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\MultiSelectTreeView.MiltiSelectTreeView.resources
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.ExceptionHandler.Res.resources
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.Properties.Resources.resources
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.CrystalReportVeiwerRus.resources
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.ApplicationAboutDialog.resources
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.UI.MessageForm.resources
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.resources
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.UI.UserLoginDialog.ru-RU.resources
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csproj.GenerateResource.Cache
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
-E:\Projects\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csprojResolveAssemblyReference.cache

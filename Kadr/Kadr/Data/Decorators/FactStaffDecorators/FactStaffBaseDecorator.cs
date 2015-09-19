@@ -74,14 +74,8 @@ namespace Kadr.Data
             set
             {
                 factStaff.DateBegin = value;
-                if (factStaff.CurrentContract != null)
-                {
-                    if ((factStaff.CurrentContract.DateContract == null) || (factStaff.CurrentContract.DateContract == DateTime.MinValue))
-                    {
-                        factStaff.CurrentContract.DateBegin = value;
-                        factStaff.CurrentContract.DateContract = value;
-                    }
-                }
+
+                factStaff.CurrentChange.SetContractDates(value);
             }
         }
 
