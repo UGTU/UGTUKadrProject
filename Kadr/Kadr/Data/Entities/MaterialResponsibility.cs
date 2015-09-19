@@ -31,7 +31,7 @@ namespace Kadr.Data
             {
                 return (Event_MaterialResponsibilities != null)
                     ? Event_MaterialResponsibilities.Single(
-                        x => x.Event.EventType == MagicNumberController.BeginEventType()).Event
+                        x => x.Event.EventType == MagicNumberController.BeginEventType).Event
                     : null;
             }
         }
@@ -42,7 +42,7 @@ namespace Kadr.Data
             {
                 return (Event_MaterialResponsibilities != null)
                     ? Event_MaterialResponsibilities.Single(
-                        x => x.Event.EventType == MagicNumberController.EndEventType()).Event
+                        x => x.Event.EventType == MagicNumberController.EndEventType).Event
                     : null;
             }
         }
