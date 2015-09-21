@@ -22,8 +22,8 @@ namespace Kadr.Controllers
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, DateTime>(x, "DateBegin", DateTime.Today, null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, DateTime>(x, "DateEnd", DateTime.Today, null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, Employee>(x, "Employee", e, null), sender);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, RegionType>(x, "RegionType", NullRegionType.Instance, null), sender);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, StandingType>(x, "StandingType", NullStandingType.Instance, null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, RegionType>(x, "RegionType", MagicNumberController.DefaultRegionType, null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EmployeeStanding, StandingType>(x, "StandingType", MagicNumberController.DefaultStandingType, null), sender);
                 };
 
 

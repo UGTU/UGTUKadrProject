@@ -11,5 +11,7 @@ namespace Kadr.Data
         {
             return EventKindName;
         }
+
+        
     }
 }

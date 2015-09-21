@@ -90,7 +90,7 @@ namespace Kadr.UI.Forms
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, Employee>(x, "Employee", Employee, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, DateTime>(x, "DateBegin", DateTime.Today, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, DateTime>(x, "DateEnd", DateTime.Today.AddYears(2), null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, DateTime>(x, "DateEnd", DateTime.Today.AddYears(SocialFareTransit.SocialFareLength), null), this);
                 };
 
                 dlg.UpdateObjectList = () =>
