@@ -8,6 +8,7 @@ namespace Kadr.Controllers
 {
     class MagicNumberController
     {
+        #region EventKinds
         public static EventKind MatResponsibilityKind
         {
             get
@@ -15,6 +16,16 @@ namespace Kadr.Controllers
                 return KadrController.Instance.Model.EventKinds.Single(x => x.id == 16);
             }
         }
+
+        public static EventKind FactStaffCreateEventKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.Single(x => x.id == 1);
+            }
+        }
+
+        #endregion
 
         public static EventType BeginEventType
         {
@@ -31,6 +42,8 @@ namespace Kadr.Controllers
                 return KadrController.Instance.Model.EventTypes.Single(x => x.id == 2);
             }
         }
+
+        
 
         static public EventKind BusinessTripKind
         {

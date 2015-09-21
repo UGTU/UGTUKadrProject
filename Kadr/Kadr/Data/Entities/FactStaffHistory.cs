@@ -12,13 +12,11 @@ namespace Kadr.Data
         public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, bool withContract = false)
             : this()
         {
-
-            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin);
-
-            Event curEvent = new Event(CommandManager, this, eventKind, withContract, prikaz);
+            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind, withContract);
         }
 
-        public void SetProperties(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin)
+
+        public void SetProperties(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, bool withContract = false)
         {
             //если уже есть изменение, то берем львинную долю свойств оттуда
             if (factStaff.CurrentChange != null)
@@ -34,7 +32,7 @@ namespace Kadr.Data
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
 
-
+            Event curEvent = new Event(CommandManager, this, eventKind, withContract, prikaz);
         }
         
         public override string ToString()
@@ -55,7 +53,18 @@ namespace Kadr.Data
             }
         }
 
-        #region EventData 
+        #region EventContractData 
+
+        public Contract MainContract
+        {
+            get
+            {
+                /*if (FactStaff != null)
+                    if (FactStaff.CurrentChange != null) */
+                return null;
+            }
+        }
+
 
         /// <summary>
         /// Событие назначения этого изменения
