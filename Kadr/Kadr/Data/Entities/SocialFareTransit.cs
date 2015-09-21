@@ -8,11 +8,15 @@ namespace Kadr.Data
 {
     partial class SocialFareTransit : UIX.Views.IDecorable, INull
     {
+        /// <summary>
+        /// продолжительность периода льготного проезда
+        /// </summary>
+        public const int SocialFareLength = 2;
+
         public override string ToString()
         {
             return "Льготный проезд " + Employee.EmployeeSmallName + " c " + DateBegin.ToShortDateString() + " по " + DateEnd.ToShortDateString();
         }
-
 
         public bool IsUsed
         {
