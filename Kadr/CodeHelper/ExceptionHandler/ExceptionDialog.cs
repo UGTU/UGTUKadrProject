@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -137,18 +137,18 @@ namespace APG.CodeHelper.ExceptionHandler
 
         private void Morebtn_Click(object sender, EventArgs e)
         {
-            // У формы должен быть конструктор с одним параметром типа Exception
+            // РЈ С„РѕСЂРјС‹ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РѕРґРЅРёРј РїР°СЂР°РјРµС‚СЂРѕРј С‚РёРїР° Exception
             System.Windows.Forms.Form moreExceptionDialog = Activator.CreateInstance(DetailDialogType, E) as System.Windows.Forms.Form;
             moreExceptionDialog.ShowDialog();
         }
 
-        // Отправка отчёта об ошибке через почтового клиента
+        // РћС‚РїСЂР°РІРєР° РѕС‚С‡С‘С‚Р° РѕР± РѕС€РёР±РєРµ С‡РµСЂРµР· РїРѕС‡С‚РѕРІРѕРіРѕ РєР»РёРµРЅС‚Р°
         private void Raportbtn_Click(object sender, EventArgs e)
         {
             LogException.SendFileToEmail(LogFileName);
         }
 
-        // Сохранение иформации об исключении в файл
+        // РЎРѕС…СЂР°РЅРµРЅРёРµ РёС„РѕСЂРјР°С†РёРё РѕР± РёСЃРєР»СЋС‡РµРЅРёРё РІ С„Р°Р№Р»
         private void ISGBExceptionDialog_Load(object sender, EventArgs e)
         {
 #if !DEBUG

@@ -22,6 +22,9 @@ namespace Kadr.Controllers
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<Event_MaterialResponsibility, MaterialResponsibility>(EventMat, "MaterialResponsibility",
                                 x, null), sender);
+                        dlg.CommandManager.Execute(
+                            new GenericPropertyCommand<MaterialResponsibility, decimal?>(x, "Perc",
+                                10, null), sender);
 
                         /*dlg.CommandManager.Execute(
                             new GenericPropertyCommand<Event, FactStaff>(Event, "FactStaff",
