@@ -1,4 +1,5 @@
 ﻿using Kadr.Data.Common;
+using Kadr.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;

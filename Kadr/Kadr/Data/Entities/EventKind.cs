@@ -7,8 +7,6 @@ namespace Kadr.Data
 {
     public partial class EventKind
     {
-
-
         public override string ToString()
         {
             return EventKindName;
