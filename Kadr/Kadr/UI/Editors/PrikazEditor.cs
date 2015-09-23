@@ -5,6 +5,8 @@ using System.Text;
 using System.Drawing.Design;
 using System.ComponentModel;
 using Kadr.UI.Dialogs;
+using Kadr.Data;
+using Kadr.Interfaces;
 
 namespace Kadr.UI.Editors
 {
@@ -13,7 +15,11 @@ namespace Kadr.UI.Editors
     {
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
-            using (PrikazSelectionDialog dlg = new PrikazSelectionDialog())
+            PrikazType pt = null;
+            if (context.Instance is IPrikazTypeProvider)
+                pt = (context.Instance as IPrikazTypeProvider).PrikazType;
+
+            using (PrikazSelectionDialog dlg = new PrikazSelectionDialog(pt))
             {
                 dlg.Text = "Приказ";
                 //dlg.QueryText    = "Выберите приказ";

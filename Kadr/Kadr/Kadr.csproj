@@ -402,6 +402,7 @@
     <Compile Include="Data\Common\IEmployeeExperienceRecord.cs" />
     <Compile Include="Data\Common\IExperienceProvider.cs" />
     <Compile Include="Interfaces\IOrderInformer.cs" />
+    <Compile Include="Interfaces\IPrikazTypeProvider.cs" />
     <Compile Include="KadrTreeView\KadrTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -431,9 +432,7 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>

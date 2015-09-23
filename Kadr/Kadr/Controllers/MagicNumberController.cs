@@ -57,7 +57,30 @@ namespace Kadr.Controllers
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.Where(x => x.id == 17).SingleOrDefault();
+                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 17);
+            }
+        }
+
+        public static EventKind ValidationKind
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 18);
+            }
+        }
+        public static EventKind VacationKind
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 15);
+            }
+        }
+
+        public static PrikazType BusinessTripPrikazType
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 42);
             }
         }
 

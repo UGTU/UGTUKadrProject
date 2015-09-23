@@ -1,4 +1,6 @@
-﻿using Kadr.Data.Converters;
+﻿using Kadr.Controllers;
+using Kadr.Data.Converters;
+using Kadr.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +8,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class BusinessTripDecorator
+    class BusinessTripDecorator: IPrikazTypeProvider
     {
         private BusinessTrip Trip;
 
@@ -197,6 +199,13 @@ namespace Kadr.Data
             }
         }
 
+        public PrikazType PrikazType
+        {
+            get
+            {
+                return MagicNumberController.BusinessTripPrikazType;
+            }
+        }
 
         internal BusinessTrip GetTrip()
         {
