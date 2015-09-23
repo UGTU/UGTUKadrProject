@@ -25,6 +25,14 @@ namespace Kadr.Controllers
             }
         }
 
+        public static EventKind VacationEventKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.Single(x => x.id == 15);
+            }
+        }
+
         #endregion
 
         public static EventType BeginEventType

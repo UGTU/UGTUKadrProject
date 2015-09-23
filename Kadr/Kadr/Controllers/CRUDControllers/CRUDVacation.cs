@@ -19,8 +19,10 @@ namespace Kadr.Controllers
                 dlg.InitializeNewObject = (x) =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, Event>(x, "Event",
-                        new Event(dlg.CommandManager, fs.CurrentChange), null), sender);
+                        new Event(dlg.CommandManager, fs.CurrentChange, MagicNumberController.VacationEventKind, false, NullPrikaz.Instance, DateTime.Today.Date), null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, OK_Otpuskvid>(x, "OK_Otpuskvid", NullOK_Otpuskvid.Instance, null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, DateTime?>(x, "DateBegin", DateTime.Today.Date, null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, DateTime?>(x, "DateEnd", DateTime.Today.Date, null), sender);
                 };
 
                 dlg.ShowDialog();

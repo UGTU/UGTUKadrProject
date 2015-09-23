@@ -91,7 +91,9 @@ namespace Kadr.Data
                     DateBegin = FactStaffHistory.DateBegin;
                     Prikaz = FactStaffHistory.Prikaz;
                 }
-                
+
+                if (Prikaz.IsNull())
+                    Prikaz = null;
             }
         }
 
