@@ -447,7 +447,7 @@ namespace Kadr.UI.Frames
 
         private void tsbEditMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource);
+            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource,this);
         }
 
 
