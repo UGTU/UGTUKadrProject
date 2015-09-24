@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Linq;
+using Kadr.Controllers;
 
 namespace Kadr.Data
 {
     partial class FactStaffHistory : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
 
-        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, bool withContract = false)
+        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false)
             : this()
         {
-            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind, withContract);
+            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind,eventType, withContract);
         }
 
 
-        public void SetProperties(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, bool withContract = false)
+        public void SetProperties(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false)
         {
             //если уже есть изменение, то берем львинную долю свойств оттуда
             if (factStaff.CurrentChange != null)
@@ -32,7 +33,7 @@ namespace Kadr.Data
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
 
-            Event curEvent = new Event(CommandManager, this, eventKind, withContract, prikaz);
+            Event curEvent = new Event(CommandManager, this, eventKind, eventType, withContract, prikaz);
         }
         
         public override string ToString()

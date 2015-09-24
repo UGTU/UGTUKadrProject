@@ -13,10 +13,8 @@ namespace Kadr.Data
         {
             var withContract = (prEnd == null);
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event_MaterialResponsibility, Event>(this, "Event",
-                new Event(commandManager, fsStaff.CurrentChange, MagicNumberController.MatResponsibilityKind, withContract, null, null), null), this);
-            commandManager.Execute(
-                            new UIX.Commands.GenericPropertyCommand<Event, EventType>(this.Event, "EventType",
-                               eType, null), this);
+                new Event(commandManager, fsStaff.CurrentChange, MagicNumberController.MatResponsibilityKind, eType, withContract, null, null), null), this);
+            
 
             if (prEnd == null) return;
             commandManager.Execute(

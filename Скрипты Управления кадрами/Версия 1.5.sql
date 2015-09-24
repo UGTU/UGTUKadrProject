@@ -713,12 +713,17 @@ update [dbo].[RegionType]
 set [RegionTypeName]='Бех особых условий', [RegionTypeSmallName]='БОУ'
 where id=1
 
---каскадное удаление событий
+--каскадное удаление событий по мат. ответственности
 ALTER TABLE [dbo].[Event_MaterialResponsibility] DROP CONSTRAINT [FK_Event_MaterialResponsibility_Event]
 GO
-
 ALTER TABLE [dbo].[Event_MaterialResponsibility] WITH CHECK
 ADD CONSTRAINT [FK_Event_MaterialResponsibility_Event] FOREIGN KEY([IdEvent])
 REFERENCES [dbo].[Event] ([id])
 ON DELETE CASCADE
 GO
+
+--доп. образование
+set identity_insert [dbo].[EventKind] ON
+  insert into [dbo].[EventKind](id,[EventKindName],[ForFactStaff]) values(16,'Материальная ответственность',0)
+  insert into [dbo].[EventKind](id,[EventKindName],[ForFactStaff]) values(19,'Повышение квалификации',0)
+set identity_insert [dbo].[EventKind] OFF
