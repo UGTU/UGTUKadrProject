@@ -25,6 +25,14 @@ namespace Kadr.Controllers
             }
         }
 
+        public static EventKind VacationEventKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.Single(x => x.id == 15);
+            }
+        }
+
         #endregion
 
         public static EventType BeginEventType
@@ -49,7 +57,47 @@ namespace Kadr.Controllers
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.Where(x => x.id == 17).SingleOrDefault();
+                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 17);
+            }
+        }
+
+        public static EventKind ValidationKind
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 18);
+            }
+        }
+        public static EventKind VacationKind
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 15);
+            }
+        }
+
+        public static PrikazType BusinessTripPrikazType
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 42);
+            }
+        }
+
+        static public StandingType DefaultStandingType
+        {
+            get
+            {
+                return KadrController.Instance.Model.StandingTypes.Single(x => x.id == 1);
+            }
+
+        }
+
+        static public RegionType DefaultRegionType
+        {
+            get
+            {
+                return KadrController.Instance.Model.RegionTypes.Single(x => x.id == 1);
             }
         }
     }

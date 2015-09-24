@@ -40,6 +40,21 @@ namespace Kadr.Data
             return res;
         }
 
+        public FactStaff(UIX.Commands.ICommandManager commandManager, PlanStaff planStaff, Employee employee, bool isReplacement = false, Dep department = null, FinancingSource financingSource = null): this()
+        {
+            SetProperties(commandManager, planStaff, employee, isReplacement, department, financingSource);
+        }
+
+        public void SetProperties(UIX.Commands.ICommandManager commandManager, PlanStaff planStaff, Employee employee, bool isReplacement = false, Dep department = null, FinancingSource financingSource = null)
+        {
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, PlanStaff>(this, "PlanStaff", planStaff, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(this, "Employee", employee, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(this, "IsReplacement", isReplacement, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(this, "Dep", department, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(this, "FundingCenter", NullFundingCenter.Instance, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(this, "FinancingSource", financingSource, null), null);
+        }
+
         #region NewEmployeeFactStaffProperties
 
         /// <summary>
@@ -51,17 +66,7 @@ namespace Kadr.Data
             set;
         }
 
-        /*public FactStaff(Employee employee)
-        {
-            NewEmployee = employee;
-        }
-
-        public Employee NewEmployee
-        {
-            get;
-            set;
-        }*/
-        
+       
         #endregion
 
 

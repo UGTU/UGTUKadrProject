@@ -55,7 +55,7 @@ namespace Kadr.Controllers
                         fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind, withContract);
                     }
 
-                    SetProperties(dlg.CommandManager, x, planStaffCurrent, employee, isReplacement, department, financingSource);
+                    x.SetProperties(dlg.CommandManager, planStaffCurrent, employee, isReplacement, department, financingSource);
 
                 };
 
@@ -81,9 +81,8 @@ namespace Kadr.Controllers
             if (employee == null)
                 employee = NullEmployee.Instance;
 
-            FactStaff x = new FactStaff();
-            x.WithNewEmployee = true;
-            SetProperties(commandManager, x, planStaffCurrent, employee, isReplacement, department, financingSource);
+            FactStaff x = new FactStaff(commandManager, planStaffCurrent, employee, isReplacement, department, financingSource);
+            x.WithNewEmployee = true;            
             FactStaffHistory fcStHistory = new FactStaffHistory(commandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind, withContract);
 
 
@@ -106,14 +105,6 @@ namespace Kadr.Controllers
             }
         }
 
-        public static void SetProperties(UIX.Commands.ICommandManager commandManager, FactStaff x, PlanStaff planStaff, Employee employee, bool isReplacement = false, Dep department = null, FinancingSource financingSource = null)
-        {
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, PlanStaff>(x, "PlanStaff", planStaff, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(x, "Employee", employee, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "IsReplacement", isReplacement, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x, "Dep", department, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x, "FundingCenter", NullFundingCenter.Instance, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x, "FinancingSource", financingSource, null), null);
-        }
+        
     }
 }

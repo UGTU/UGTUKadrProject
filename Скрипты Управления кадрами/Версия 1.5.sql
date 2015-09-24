@@ -687,6 +687,11 @@ where id not in (select ISNULL(idEmployee,0) from dbo.FactStaff)
 and itab_n is null
 
 
+select *
+from dbo.Employee
+where [LastName] like '%true%'
+
+
 
 
 go
@@ -700,3 +705,20 @@ where id=1
 go
 alter table [dbo].[EventKind]
 add DecoratorName VARCHAR(500) NULL
+
+
+
+go
+update [dbo].[RegionType]
+set [RegionTypeName]='Бех особых условий', [RegionTypeSmallName]='БОУ'
+where id=1
+
+--каскадное удаление событий
+ALTER TABLE [dbo].[Event_MaterialResponsibility] DROP CONSTRAINT [FK_Event_MaterialResponsibility_Event]
+GO
+
+ALTER TABLE [dbo].[Event_MaterialResponsibility] WITH CHECK
+ADD CONSTRAINT [FK_Event_MaterialResponsibility_Event] FOREIGN KEY([IdEvent])
+REFERENCES [dbo].[Event] ([id])
+ON DELETE CASCADE
+GO

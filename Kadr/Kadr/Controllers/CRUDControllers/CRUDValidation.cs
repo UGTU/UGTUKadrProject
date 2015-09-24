@@ -17,7 +17,7 @@ namespace Kadr.Controllers
             {
 
                 dlg.InitializeNewObject = (x =>
-                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, Event>(x, "Event", new Event(dlg.CommandManager, fs.CurrentChange), null), sender)
+                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, Event>(x, "Event", new Event(dlg.CommandManager, fs.CurrentChange,MagicNumberController.ValidationKind), null), sender)
                 );
 
                 dlg.BeforeApplyAction = (x =>

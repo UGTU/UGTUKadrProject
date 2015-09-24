@@ -93,9 +93,14 @@ namespace Kadr.Data
                         SocialFareTransit = null;
                 if (Event.IsNull() || Event == null) throw new ArgumentNullException("Приказ.");
                 if ((OK_Otpuskvid == null) || (OK_Otpuskvid.IsNull())) throw new ArgumentNullException("Вид отпуска.");
+                if ((OK_Otpuskvid == null) || (OK_Otpuskvid.IsNull())) throw new ArgumentNullException("Вид отпуска.");
+                if ((RealDateBegin == null) || (RealDateBegin == DateTime.MinValue)) throw new ArgumentNullException("Дата начала отпуска.");
+                if ((RealDateEnd == null) || (RealDateEnd == DateTime.MinValue)) throw new ArgumentNullException("Дата окончания отпуска.");
                 if (RealDateEnd != null)
                     if (RealDateEnd < RealDateBegin)
                         throw new ArgumentOutOfRangeException("Дата окончания отпуска должна быть позже даты его начала.");
+                DateBegin = RealDateBegin;
+                DateEnd = RealDateEnd;
             }
         }
 

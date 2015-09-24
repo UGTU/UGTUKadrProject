@@ -98,15 +98,10 @@ namespace Kadr.Controllers
             var currContract = currMaterial.MainEvent.Contract;
             foreach (var evMat in currMaterial.Event_MaterialResponsibilities)
             {
-              //  LinqActionsController<Event>.Instance.DeleteObject(evMat.Event, KadrController.Instance.Model.Events, null);
                 KadrController.Instance.Model.Events.DeleteOnSubmit(evMat.Event);
             }
 
-            //var currentPrikaz = currMaterial.Event_MaterialResponsibilities.FirstOrDefault().Event;
-            
-
-            KadrController.Instance.Model.MaterialResponsibilities.DeleteOnSubmit(currMaterial);
-          //  LinqActionsController<Event>.Instance.DeleteObject(currentPrikaz, KadrController.Instance.Model.Events, null);
+            LinqActionsController<MaterialResponsibility>.Instance.DeleteObject(currMaterial, KadrController.Instance.Model.MaterialResponsibilities, null);
             LinqActionsController<Contract>.Instance.DeleteObject(currContract, KadrController.Instance.Model.Contracts, null);
 
             Read(fs, MaterialResponsibilitybindingSource);

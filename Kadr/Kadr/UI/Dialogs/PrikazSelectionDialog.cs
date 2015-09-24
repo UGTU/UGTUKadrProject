@@ -15,12 +15,19 @@ namespace Kadr.UI.Dialogs
 {
     public partial class PrikazSelectionDialog : CustomBaseDialog
     {
-        public PrikazSelectionDialog()
+        public PrikazSelectionDialog(PrikazType pt)
         {
             InitializeComponent();
             ApplyButtonVisible = false;
 
             cbSuperType.DataSource = KadrController.Instance.Model.PrikazSuperTypes;
+
+            if (pt!= null)
+            {
+                cbSuperType.SelectedItem = KadrController.Instance.Model.PrikazSuperTypes.FirstOrDefault(x=>x.PrikazTypes.FirstOrDefault(p=>p==pt)!=null);
+                cbType.SelectedItem = pt;
+            }
+            else
             cbSuperType.SelectedItem = KadrController.Instance.Model.PrikazSuperTypes.FirstOrDefault();
         }
 
