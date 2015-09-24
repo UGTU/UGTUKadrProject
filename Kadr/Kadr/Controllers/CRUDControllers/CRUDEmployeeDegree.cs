@@ -11,7 +11,7 @@ namespace Kadr.Controllers
 {
     public static class CRUDEmployeeDegree
     {
-        public static void Create(Employee e, object sender)
+        public static void Create(Employee e, object sender, BindingSource employeeDegreeBindingSource)
         {
             using (PropertyGridDialogAdding<EmployeeDegree> dlg =
                SimpleActionsProvider.NewSimpleObjectAddingDialog<EmployeeDegree>())
@@ -32,7 +32,7 @@ namespace Kadr.Controllers
 
                     dlg.ShowDialog();
              }
-            //Read(fs, MaterialResponsibilitybindingSource);
+            Read(e, employeeDegreeBindingSource);
         }
 
         public static void Read(Employee e, BindingSource employeeDegreeBindingSource)

@@ -344,7 +344,7 @@ namespace Kadr.UI.Frames
 
         private void AddDegreeBtn_Click(object sender, EventArgs e)
         {
-            CRUDEmployeeDegree.Create(Employee, this);
+            CRUDEmployeeDegree.Create(Employee, this,employeeDegreeBindingSource);
 
         }
 
@@ -355,7 +355,7 @@ namespace Kadr.UI.Frames
 
         private void AddRankBtn_Click(object sender, EventArgs e)
         {
-            CRUDEmployeeRank.Create(Employee, this);
+            CRUDEmployeeRank.Create(Employee, this, employeeRankBindingSource);
         }
 
         private void EditRankBtn_Click(object sender, EventArgs e)
