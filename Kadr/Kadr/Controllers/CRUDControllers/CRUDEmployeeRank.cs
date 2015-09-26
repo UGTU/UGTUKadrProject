@@ -10,7 +10,7 @@ namespace Kadr.Controllers
 {
     public static class CRUDEmployeeRank
     {
-        public static void Create(Employee e, object sender)
+        public static void Create(Employee e, object sender, BindingSource employeeRankBindingSource)
         {
             using (PropertyGridDialogAdding<EmployeeRank> dlg =
                SimpleActionsProvider.NewSimpleObjectAddingDialog<EmployeeRank>())
@@ -30,7 +30,7 @@ namespace Kadr.Controllers
 
                     dlg.ShowDialog();
             }
-
+            Read(e, employeeRankBindingSource);
         }
 
         public static void Read(Employee e, BindingSource employeeRankBindingSource)

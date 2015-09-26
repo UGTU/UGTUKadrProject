@@ -14,7 +14,9 @@ namespace Kadr.Data
         public MaterialResponsibility(UIX.Commands.ICommandManager commandManager, FactStaff fsStaff)
             : this()
         {
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<MaterialResponsibility, FactStaff>(this, "FactStaff", fsStaff, null), this);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<MaterialResponsibility, FactStaff>(this, 
+                "FactStaff", fsStaff, null), this);
+
 
         }
 
@@ -40,10 +42,10 @@ namespace Kadr.Data
         {
             get
             {
-                return (Event_MaterialResponsibilities != null)
-                    ? Event_MaterialResponsibilities.Single(
-                        x => x.Event.EventType == MagicNumberController.EndEventType).Event
-                    : null;
+                return (Event_MaterialResponsibilities.Any(
+                        x => x.Event.EventType == MagicNumberController.EndEventType)?
+                        Event_MaterialResponsibilities.FirstOrDefault(x => x.Event.EventType == MagicNumberController.EndEventType).Event
+                    : null);
             }
         }
 

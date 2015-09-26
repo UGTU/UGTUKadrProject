@@ -18,58 +18,21 @@ namespace Kadr.Controllers
             {
                     dlg.InitializeNewObject = (x) =>
                     {
-                        var EventMat = new Event_MaterialResponsibility(dlg.CommandManager,fs);
+                        var EventMat = new Event_MaterialResponsibility(dlg.CommandManager,fs, MagicNumberController.BeginEventType);
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<Event_MaterialResponsibility, MaterialResponsibility>(EventMat, "MaterialResponsibility",
                                 x, null), sender);
-
-                        /*dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<Event, FactStaff>(Event, "FactStaff",
-                                fs, null), sender);
-                        dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<Event, Prikaz>(Event, "Prikaz",
-                                NullPrikaz.Instance, null), sender);
-                        
-                        //Договор
-                        dlg.CommandManager.Execute(new GenericPropertyCommand<Event, Contract>(Event, "Contract",
-                            new Contract(), null), sender);
-                        dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<Contract, string>(Event.Contract, "ContractName", "", null),
-                            sender);
-                        dlg.CommandManager.Execute(new GenericPropertyCommand<Contract, DateTime?>(Event.Contract, "DateContract", DateTime.Today, null), sender);
-
-                        dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<Event, DateTime?>(Event, "DateBegin",
-                                DateTime.Today, null), sender);
-                        dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<Event, DateTime?>(Event, "DateEnd",
-                                null, null), sender);
-                        dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<Event, EventKind>(Event, "EventKind", 
-                               MagicNumberController.MatResponsibilityKind(), null), sender);
-                        dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<Event, EventType>(Event, "EventType",
-                               MagicNumberController.BeginEventType(), null), sender);
-
-                        
-                        
                         dlg.CommandManager.Execute(
                             new GenericPropertyCommand<MaterialResponsibility, decimal?>(x, "Perc",
                                 10, null), sender);
-
-                        dlg.CommandManager.Execute(
-                            new GenericPropertyCommand<Event, Event_MaterialResponsibility>(Event,
-                                "Event_MaterialResponsibility", new Event_MaterialResponsibility(), null), sender);*/
-
                     };
 
+                    dlg.BeforeApplyAction = BeforeApplyAction(dlg.CommandManager, sender);
 
-                dlg.UpdateObjectList = () =>
+                    dlg.UpdateObjectList = () =>
                     {
                         dlg.ObjectList = KadrController.Instance.Model.MaterialResponsibilities;
                     };
-
-                
 
                     dlg.ShowDialog();
                 }
@@ -77,17 +40,41 @@ namespace Kadr.Controllers
             Read(fs, MaterialResponsibilitybindingSource);
         }
 
+        private static Action<MaterialResponsibility> BeforeApplyAction(ICommandManager commandManager, object sender)
+        {
+            return (x) =>
+            {
+                if (x.TempPrikazEnd == null) return;
+                var eventMat = new Event_MaterialResponsibility(commandManager,x.FactStaff, MagicNumberController.EndEventType,x, 
+                    x.TempPrikazEnd, x.DateEnd);
+
+                commandManager.Execute(
+                    new GenericPropertyCommand<Event_MaterialResponsibility, MaterialResponsibility>(eventMat,
+                        "MaterialResponsibility", x, null), sender);
+            };
+        }
+
         public static void Read(FactStaff fs, BindingSource MaterialResponsibilitybindingSource)
         {
             MaterialResponsibilitybindingSource.DataSource = KadrController.Instance.Model.MaterialResponsibilities.Where(t => t.Event_MaterialResponsibilities.FirstOrDefault().Event.FactStaffHistory.FactStaff == fs).Select(x => x.GetDecorator()).ToList(); 
         }
 
-        public static void Update(FactStaff fs, BindingSource MaterialResponsibilitybindingSource)
+        public static void Update(FactStaff fs, BindingSource MaterialResponsibilitybindingSource, object sender)
         {
             if (MaterialResponsibilitybindingSource.Current != null)
             {
-                LinqActionsController<MaterialResponsibility>.Instance.EditObject(
-                        (MaterialResponsibilitybindingSource.Current as MaterialResponsibilityDecorator).GetMaterial(), true);
+                var ed = (MaterialResponsibilitybindingSource.Current as MaterialResponsibilityDecorator).GetMaterial();
+                using (var dlg = new LinqPropertyGridDialogEditing<MaterialResponsibility>())
+                {
+                    dlg.UseInternalCommandManager = true;
+                    dlg.SelectedObjects = new object[] { ed };
+                    dlg.BeforeApplyAction = BeforeApplyAction(dlg.CommandManager, sender);
+                    dlg.UpdateObjectList = () =>
+                    {
+                        dlg.ObjectList = KadrController.Instance.Model.MaterialResponsibilities;
+                    };
+                    dlg.ShowDialog();
+                }
             }
             Read(fs, MaterialResponsibilitybindingSource);
         }
@@ -107,11 +94,14 @@ namespace Kadr.Controllers
             {
                 return;
             }
-            var currentPrikaz = currMaterial.Event_MaterialResponsibilities.FirstOrDefault().Event;
-            var currContract = currMaterial.Event_MaterialResponsibilities.FirstOrDefault().Event.Contract;
 
-            KadrController.Instance.Model.MaterialResponsibilities.DeleteOnSubmit(currMaterial);
-            LinqActionsController<Event>.Instance.DeleteObject(currentPrikaz, KadrController.Instance.Model.Events, null);
+            var currContract = currMaterial.MainEvent.Contract;
+            foreach (var evMat in currMaterial.Event_MaterialResponsibilities)
+            {
+                KadrController.Instance.Model.Events.DeleteOnSubmit(evMat.Event);
+            }
+
+            LinqActionsController<MaterialResponsibility>.Instance.DeleteObject(currMaterial, KadrController.Instance.Model.MaterialResponsibilities, null);
             LinqActionsController<Contract>.Instance.DeleteObject(currContract, KadrController.Instance.Model.Contracts, null);
 
             Read(fs, MaterialResponsibilitybindingSource);

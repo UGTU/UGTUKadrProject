@@ -17,6 +17,14 @@ namespace Kadr.Controllers
             }
         }
 
+        public static EventKind DopEducKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.Single(x => x.id == 19);
+            }
+        }
+
         public static EventKind FactStaffCreateEventKind
         {
             get
