@@ -24,8 +24,9 @@ namespace Kadr.Data.Converters
             {
                 //выбираем только договоры (без доп соглашений)
                 var res = Kadr.Controllers.KadrController.Instance.Model.Contracts.Where(x => x != currentContract).Where(x 
-                    => x.idMainContract == null).Where(x => x.Events.Select(y => y.FactStaffHistory.FactStaff.Employee) == currentEmployee).Where(x 
-                        => x.Events.Select(y => y.EventKind).Where(z => z.ForFactStaff).Count() > 0);
+                    => x.idMainContract == null).Where(x
+                        => x.Events.Select(y => y.EventKind).Where(z => z.ForFactStaff).Count() > 0).Where(x 
+                            => x.Events.Select(y => y.FactStaffHistory.FactStaff.Employee) == currentEmployee);
                 if (res == null)
                     return null;
                 List<Contract> resList = res.ToList();
