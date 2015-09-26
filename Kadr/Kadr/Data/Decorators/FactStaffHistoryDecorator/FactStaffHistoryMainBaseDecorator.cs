@@ -17,6 +17,19 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("Должность в штатном расписании")]
         [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
+        public Kadr.Data.FactStaff FactStaff
+        {
+            get
+            {
+                return factStaffHistory.FactStaff;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("Должность в штатном расписании")]
+        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
+        [System.ComponentModel.Description("Должность в штатном расписании")]
+        [System.ComponentModel.ReadOnly(true)]
         public Kadr.Data.PlanStaff PlanStaff
         {
             get
@@ -44,6 +57,23 @@ namespace Kadr.Data
         }
 
         #region ContractData
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tТекущий договор/ доп. соглашение")]
+        [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
+        [System.ComponentModel.Description("Договор")]
+        [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
+        public Contract CurrentContract
+        {
+            get
+            {
+                return factStaffHistory.Contract;
+            }
+            set
+            {
+                factStaffHistory.Contract = value;
+            }
+        }
+
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tОсновной договор")]
         [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
         [System.ComponentModel.Description("Основной договор")]
