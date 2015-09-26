@@ -182,12 +182,12 @@ namespace APG.CodeHelper.ExceptionHandler
 
         private static void HandlArgumentNullException(ArgumentNullException argumentNullException)
         {
-            ShowExceptionDialog(argumentNullException, "Недопустимо использовать нулевое (null) значение аргумента метода класса. " + NotAllowedExceptionMessage, "Неопознання ошибка", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(argumentNullException, "Недопустимо использовать нулевое (null) значение аргумента метода класса. " + NotAllowedExceptionMessage, "Неопознанная ошибка", MessageBoxIcon.Information, true);
         }
 
         private static void HandleArgumentException(ArgumentException argumentException)
         {
-            ShowExceptionDialog(argumentException, "Ошибка в одном или нескольких параметрах метода класса. " + NotAllowedExceptionMessage, "Неопознання ошибка", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(argumentException, "Ошибка в одном или нескольких параметрах метода класса. " + NotAllowedExceptionMessage, "Неопознанная ошибка", MessageBoxIcon.Information, true);
         }
 
         private static void ShowExceptionDialog(Exception exception, string exceptionMessage, string aboutMessage, MessageBoxIcon messageBoxIcon, bool bShowSendButton, System.Type detailDialogType)
@@ -273,14 +273,14 @@ namespace APG.CodeHelper.ExceptionHandler
         // Обработчик исключения ошибки доступа к удалённой версии набора данных
         private static void HandleVersionNotFoundException(VersionNotFoundException versionNotFoundException)
         {
-            ShowExceptionDialog(versionNotFoundException, NotAllowedExceptionMessage, "Неопознання ошибка", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(versionNotFoundException, NotAllowedExceptionMessage, "Неопознанная ошибка", MessageBoxIcon.Information, true);
         }
 
         
         // Обработчик исключения конфликта имён в строго-типизированном наборе данных
         private static void HandleTypedDataSetGeneratorException(TypedDataSetGeneratorException typedDataSetGeneratorException)
         {
-            ShowExceptionDialog(typedDataSetGeneratorException, "Конфликт имён объектов в строго-типизированном наборе данных. " + NotAllowedExceptionMessage, "Неопознання ошибка", MessageBoxIcon.Information, true);
+            ShowExceptionDialog(typedDataSetGeneratorException, "Конфликт имён объектов в строго-типизированном наборе данных. " + NotAllowedExceptionMessage, "Неопознанная ошибка", MessageBoxIcon.Information, true);
         }
 
         // Обработчик исключения синтаксической ошибки в вычисляемом выражении

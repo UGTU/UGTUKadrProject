@@ -365,7 +365,7 @@ namespace Kadr.UI.Frames
 
         private void DelRankBtn_Click(object sender, EventArgs e)
         {
-            CRUDEmployeeRank.Delete(employeeDegreeBindingSource);
+            CRUDEmployeeRank.Delete(Employee, employeeRankBindingSource);
         }
 
         private void tsbAddEmplStanding_Click(object sender, EventArgs e)

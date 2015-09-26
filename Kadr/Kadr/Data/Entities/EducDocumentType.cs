@@ -13,6 +13,7 @@ namespace Kadr.Data
     {
         public static int EducationDoc = 12;
         public static int DefualtDopEducationDoc = 13;
+        public static int RankDoc = 2;
 
 
         public override string ToString()
