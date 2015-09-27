@@ -1407,5 +1407,53 @@ namespace Kadr.UI.Forms
                 dlg.ShowDialog();
             }
         }
+
+        private void видБольничногоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new InkapacityTypeDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void социальныеЛоготыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new SocialStatusDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void видНаградToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new AwardTypeDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void уровеньНаградToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new AwardLevelDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void ведомстваВыдавшиеНаградуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new GovDepartmentDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
+
+        private void причиныУвольненийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new LeaveReasonDialog())
+            {
+                dlg.ShowDialog();
+            }
+        }
     }
 }

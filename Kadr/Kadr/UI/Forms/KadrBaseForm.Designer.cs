@@ -109,8 +109,11 @@
             this.базовыеОкладыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.совмещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.причинаСовмещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.причиныУвольненийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типыРегионовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видыСтажаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.видБольничногоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.социальныеЛоготыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.табельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.статусДняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.графикиРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,6 +122,10 @@
             this.типПовышенияКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.языкToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.степеньВладенияЯзыкомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.наградыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.видНаградToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровеньНаградToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ведомстваВыдавшиеНаградуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.воинскийУчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.категорииЗапасаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.воинскоеЗваниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -752,6 +759,7 @@
             this.совмещенияToolStripMenuItem,
             this.табельToolStripMenuItem,
             this.образованиеToolStripMenuItem,
+            this.наградыToolStripMenuItem,
             this.воинскийУчетToolStripMenuItem,
             this.отделыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
@@ -976,8 +984,11 @@
             // 
             this.совмещенияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.причинаСовмещенияToolStripMenuItem,
+            this.причиныУвольненийToolStripMenuItem,
             this.типыРегионовToolStripMenuItem,
-            this.видыСтажаToolStripMenuItem});
+            this.видыСтажаToolStripMenuItem,
+            this.видБольничногоToolStripMenuItem,
+            this.социальныеЛоготыToolStripMenuItem});
             this.совмещенияToolStripMenuItem.Name = "совмещенияToolStripMenuItem";
             this.совмещенияToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.совмещенияToolStripMenuItem.Text = "Трудовая деятельность";
@@ -985,23 +996,44 @@
             // причинаСовмещенияToolStripMenuItem
             // 
             this.причинаСовмещенияToolStripMenuItem.Name = "причинаСовмещенияToolStripMenuItem";
-            this.причинаСовмещенияToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.причинаСовмещенияToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.причинаСовмещенияToolStripMenuItem.Text = "Причины замещений";
             this.причинаСовмещенияToolStripMenuItem.Click += new System.EventHandler(this.причинаСовмещенияToolStripMenuItem_Click);
+            // 
+            // причиныУвольненийToolStripMenuItem
+            // 
+            this.причиныУвольненийToolStripMenuItem.Name = "причиныУвольненийToolStripMenuItem";
+            this.причиныУвольненийToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.причиныУвольненийToolStripMenuItem.Text = "Причины увольнений";
+            this.причиныУвольненийToolStripMenuItem.Click += new System.EventHandler(this.причиныУвольненийToolStripMenuItem_Click);
             // 
             // типыРегионовToolStripMenuItem
             // 
             this.типыРегионовToolStripMenuItem.Name = "типыРегионовToolStripMenuItem";
-            this.типыРегионовToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.типыРегионовToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.типыРегионовToolStripMenuItem.Text = "Типы регионов";
             this.типыРегионовToolStripMenuItem.Click += new System.EventHandler(this.типыРегионовToolStripMenuItem_Click);
             // 
             // видыСтажаToolStripMenuItem
             // 
             this.видыСтажаToolStripMenuItem.Name = "видыСтажаToolStripMenuItem";
-            this.видыСтажаToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.видыСтажаToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.видыСтажаToolStripMenuItem.Text = "Виды стажа";
             this.видыСтажаToolStripMenuItem.Click += new System.EventHandler(this.видыСтажаToolStripMenuItem_Click);
+            // 
+            // видБольничногоToolStripMenuItem
+            // 
+            this.видБольничногоToolStripMenuItem.Name = "видБольничногоToolStripMenuItem";
+            this.видБольничногоToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.видБольничногоToolStripMenuItem.Text = "Вид больничного";
+            this.видБольничногоToolStripMenuItem.Click += new System.EventHandler(this.видБольничногоToolStripMenuItem_Click);
+            // 
+            // социальныеЛоготыToolStripMenuItem
+            // 
+            this.социальныеЛоготыToolStripMenuItem.Name = "социальныеЛоготыToolStripMenuItem";
+            this.социальныеЛоготыToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.социальныеЛоготыToolStripMenuItem.Text = "Социальные логоты";
+            this.социальныеЛоготыToolStripMenuItem.Click += new System.EventHandler(this.социальныеЛоготыToolStripMenuItem_Click);
             // 
             // табельToolStripMenuItem
             // 
@@ -1065,6 +1097,37 @@
             this.степеньВладенияЯзыкомToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.степеньВладенияЯзыкомToolStripMenuItem.Text = "Степень владения языком";
             this.степеньВладенияЯзыкомToolStripMenuItem.Click += new System.EventHandler(this.степеньВладенияЯзыкомToolStripMenuItem_Click);
+            // 
+            // наградыToolStripMenuItem
+            // 
+            this.наградыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.видНаградToolStripMenuItem,
+            this.уровеньНаградToolStripMenuItem,
+            this.ведомстваВыдавшиеНаградуToolStripMenuItem});
+            this.наградыToolStripMenuItem.Name = "наградыToolStripMenuItem";
+            this.наградыToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.наградыToolStripMenuItem.Text = "Награды";
+            // 
+            // видНаградToolStripMenuItem
+            // 
+            this.видНаградToolStripMenuItem.Name = "видНаградToolStripMenuItem";
+            this.видНаградToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.видНаградToolStripMenuItem.Text = "Вид наград";
+            this.видНаградToolStripMenuItem.Click += new System.EventHandler(this.видНаградToolStripMenuItem_Click);
+            // 
+            // уровеньНаградToolStripMenuItem
+            // 
+            this.уровеньНаградToolStripMenuItem.Name = "уровеньНаградToolStripMenuItem";
+            this.уровеньНаградToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.уровеньНаградToolStripMenuItem.Text = "Уровень наград";
+            this.уровеньНаградToolStripMenuItem.Click += new System.EventHandler(this.уровеньНаградToolStripMenuItem_Click);
+            // 
+            // ведомстваВыдавшиеНаградуToolStripMenuItem
+            // 
+            this.ведомстваВыдавшиеНаградуToolStripMenuItem.Name = "ведомстваВыдавшиеНаградуToolStripMenuItem";
+            this.ведомстваВыдавшиеНаградуToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.ведомстваВыдавшиеНаградуToolStripMenuItem.Text = "Ведомства, выдавшие награду";
+            this.ведомстваВыдавшиеНаградуToolStripMenuItem.Click += new System.EventHandler(this.ведомстваВыдавшиеНаградуToolStripMenuItem_Click);
             // 
             // воинскийУчетToolStripMenuItem
             // 
@@ -1747,6 +1810,13 @@
         private System.Windows.Forms.ToolStripMenuItem воинскийСоставпрофильToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem категорияГодностиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типВоискогоУчетаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem видБольничногоToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem социальныеЛоготыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem наградыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem видНаградToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровеньНаградToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ведомстваВыдавшиеНаградуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem причиныУвольненийToolStripMenuItem;
 
     }
 }

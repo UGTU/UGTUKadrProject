@@ -195,9 +195,6 @@ namespace Kadr.Data
     partial void InsertBusinessTripRegionType(BusinessTripRegionType instance);
     partial void UpdateBusinessTripRegionType(BusinessTripRegionType instance);
     partial void DeleteBusinessTripRegionType(BusinessTripRegionType instance);
-    partial void InsertAwardType(AwardType instance);
-    partial void UpdateAwardType(AwardType instance);
-    partial void DeleteAwardType(AwardType instance);
     partial void InsertOK_DopInf(OK_DopInf instance);
     partial void UpdateOK_DopInf(OK_DopInf instance);
     partial void DeleteOK_DopInf(OK_DopInf instance);
@@ -207,9 +204,6 @@ namespace Kadr.Data
     partial void InsertRegionType(RegionType instance);
     partial void UpdateRegionType(RegionType instance);
     partial void DeleteRegionType(RegionType instance);
-    partial void InsertOK_SocialStatus(OK_SocialStatus instance);
-    partial void UpdateOK_SocialStatus(OK_SocialStatus instance);
-    partial void DeleteOK_SocialStatus(OK_SocialStatus instance);
     partial void InsertValidationDecision(ValidationDecision instance);
     partial void UpdateValidationDecision(ValidationDecision instance);
     partial void DeleteValidationDecision(ValidationDecision instance);
@@ -237,9 +231,6 @@ namespace Kadr.Data
     partial void InsertFactStaff(FactStaff instance);
     partial void UpdateFactStaff(FactStaff instance);
     partial void DeleteFactStaff(FactStaff instance);
-    partial void InsertOK_Reason(OK_Reason instance);
-    partial void UpdateOK_Reason(OK_Reason instance);
-    partial void DeleteOK_Reason(OK_Reason instance);
     partial void InsertMilitaryCategory(MilitaryCategory instance);
     partial void UpdateMilitaryCategory(MilitaryCategory instance);
     partial void DeleteMilitaryCategory(MilitaryCategory instance);
@@ -255,9 +246,6 @@ namespace Kadr.Data
     partial void InsertMilitaryType(MilitaryType instance);
     partial void UpdateMilitaryType(MilitaryType instance);
     partial void DeleteMilitaryType(MilitaryType instance);
-    partial void InsertOK_Inkapacity(OK_Inkapacity instance);
-    partial void UpdateOK_Inkapacity(OK_Inkapacity instance);
-    partial void DeleteOK_Inkapacity(OK_Inkapacity instance);
     partial void InsertOK_Social(OK_Social instance);
     partial void UpdateOK_Social(OK_Social instance);
     partial void DeleteOK_Social(OK_Social instance);
@@ -324,6 +312,24 @@ namespace Kadr.Data
     partial void InsertMaterialResponsibility(MaterialResponsibility instance);
     partial void UpdateMaterialResponsibility(MaterialResponsibility instance);
     partial void DeleteMaterialResponsibility(MaterialResponsibility instance);
+    partial void InsertOK_Inkapacity(OK_Inkapacity instance);
+    partial void UpdateOK_Inkapacity(OK_Inkapacity instance);
+    partial void DeleteOK_Inkapacity(OK_Inkapacity instance);
+    partial void InsertInkapacityType(InkapacityType instance);
+    partial void UpdateInkapacityType(InkapacityType instance);
+    partial void DeleteInkapacityType(InkapacityType instance);
+    partial void InsertOK_SocialStatus(OK_SocialStatus instance);
+    partial void UpdateOK_SocialStatus(OK_SocialStatus instance);
+    partial void DeleteOK_SocialStatus(OK_SocialStatus instance);
+    partial void InsertGovDepartment(GovDepartment instance);
+    partial void UpdateGovDepartment(GovDepartment instance);
+    partial void DeleteGovDepartment(GovDepartment instance);
+    partial void InsertOK_Reason(OK_Reason instance);
+    partial void UpdateOK_Reason(OK_Reason instance);
+    partial void DeleteOK_Reason(OK_Reason instance);
+    partial void InsertAwardType(AwardType instance);
+    partial void UpdateAwardType(AwardType instance);
+    partial void DeleteAwardType(AwardType instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -812,14 +818,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<AwardType> AwardTypes
-		{
-			get
-			{
-				return this.GetTable<AwardType>();
-			}
-		}
-		
 		public System.Data.Linq.Table<OK_DopInf> OK_DopInfs
 		{
 			get
@@ -841,14 +839,6 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<RegionType>();
-			}
-		}
-		
-		public System.Data.Linq.Table<OK_SocialStatus> OK_SocialStatus
-		{
-			get
-			{
-				return this.GetTable<OK_SocialStatus>();
 			}
 		}
 		
@@ -924,14 +914,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<OK_Reason> OK_Reasons
-		{
-			get
-			{
-				return this.GetTable<OK_Reason>();
-			}
-		}
-		
 		public System.Data.Linq.Table<MilitaryCategory> MilitaryCategories
 		{
 			get
@@ -969,14 +951,6 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<MilitaryType>();
-			}
-		}
-		
-		public System.Data.Linq.Table<OK_Inkapacity> OK_Inkapacities
-		{
-			get
-			{
-				return this.GetTable<OK_Inkapacity>();
 			}
 		}
 		
@@ -1153,6 +1127,54 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<MaterialResponsibility>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_Inkapacity> OK_Inkapacities
+		{
+			get
+			{
+				return this.GetTable<OK_Inkapacity>();
+			}
+		}
+		
+		public System.Data.Linq.Table<InkapacityType> InkapacityTypes
+		{
+			get
+			{
+				return this.GetTable<InkapacityType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_SocialStatus> OK_SocialStatus
+		{
+			get
+			{
+				return this.GetTable<OK_SocialStatus>();
+			}
+		}
+		
+		public System.Data.Linq.Table<GovDepartment> GovDepartments
+		{
+			get
+			{
+				return this.GetTable<GovDepartment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_Reason> OK_Reasons
+		{
+			get
+			{
+				return this.GetTable<OK_Reason>();
+			}
+		}
+		
+		public System.Data.Linq.Table<AwardType> AwardTypes
+		{
+			get
+			{
+				return this.GetTable<AwardType>();
 			}
 		}
 		
@@ -14277,120 +14299,6 @@ namespace Kadr.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AwardType")]
-	public partial class AwardType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Name;
-		
-		private EntitySet<Award> _Awards;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    #endregion
-		
-		public AwardType()
-		{
-			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AwardType_Award", Storage="_Awards", ThisKey="ID", OtherKey="IDAwardType")]
-		public EntitySet<Award> Awards
-		{
-			get
-			{
-				return this._Awards;
-			}
-			set
-			{
-				this._Awards.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Awards(Award entity)
-		{
-			this.SendPropertyChanging();
-			entity.AwardType = this;
-		}
-		
-		private void detach_Awards(Award entity)
-		{
-			this.SendPropertyChanging();
-			entity.AwardType = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_DopInf")]
 	public partial class OK_DopInf : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -14875,120 +14783,6 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.RegionType = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_SocialStatus")]
-	public partial class OK_SocialStatus : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idSocialStatus;
-		
-		private string _SocialStatusName;
-		
-		private EntitySet<OK_Social> _OK_Socials;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidSocialStatusChanging(int value);
-    partial void OnidSocialStatusChanged();
-    partial void OnSocialStatusNameChanging(string value);
-    partial void OnSocialStatusNameChanged();
-    #endregion
-		
-		public OK_SocialStatus()
-		{
-			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idSocialStatus", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idSocialStatus
-		{
-			get
-			{
-				return this._idSocialStatus;
-			}
-			set
-			{
-				if ((this._idSocialStatus != value))
-				{
-					this.OnidSocialStatusChanging(value);
-					this.SendPropertyChanging();
-					this._idSocialStatus = value;
-					this.SendPropertyChanged("idSocialStatus");
-					this.OnidSocialStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SocialStatusName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string SocialStatusName
-		{
-			get
-			{
-				return this._SocialStatusName;
-			}
-			set
-			{
-				if ((this._SocialStatusName != value))
-				{
-					this.OnSocialStatusNameChanging(value);
-					this.SendPropertyChanging();
-					this._SocialStatusName = value;
-					this.SendPropertyChanged("SocialStatusName");
-					this.OnSocialStatusNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_SocialStatus_OK_Social", Storage="_OK_Socials", ThisKey="idSocialStatus", OtherKey="idSocialStatus")]
-		public EntitySet<OK_Social> OK_Socials
-		{
-			get
-			{
-				return this._OK_Socials;
-			}
-			set
-			{
-				this._OK_Socials.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_OK_Socials(OK_Social entity)
-		{
-			this.SendPropertyChanging();
-			entity.OK_SocialStatus = this;
-		}
-		
-		private void detach_OK_Socials(OK_Social entity)
-		{
-			this.SendPropertyChanging();
-			entity.OK_SocialStatus = null;
 		}
 	}
 	
@@ -16035,8 +15829,6 @@ namespace Kadr.Data
 		
 		private EntityRef<OK_Educ> _OK_Educ;
 		
-		private EntitySet<OK_Inkapacity> _OK_Inkapacities;
-		
 		private EntitySet<OK_Social> _OK_Socials;
 		
 		private EntitySet<Award> _Awards;
@@ -16044,6 +15836,8 @@ namespace Kadr.Data
 		private EntitySet<OK_DopEducation> _OK_DopEducations;
 		
 		private EntitySet<Validation> _Validations;
+		
+		private EntitySet<OK_Inkapacity> _OK_Inkapacities;
 		
 		private EntityRef<Organisation> _Organisation;
 		
@@ -16073,11 +15867,11 @@ namespace Kadr.Data
 			this._EmployeeDegree = default(EntityRef<EmployeeDegree>);
 			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
 			this._OK_Educ = default(EntityRef<OK_Educ>);
-			this._OK_Inkapacities = new EntitySet<OK_Inkapacity>(new Action<OK_Inkapacity>(this.attach_OK_Inkapacities), new Action<OK_Inkapacity>(this.detach_OK_Inkapacities));
 			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
 			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
 			this._OK_DopEducations = new EntitySet<OK_DopEducation>(new Action<OK_DopEducation>(this.attach_OK_DopEducations), new Action<OK_DopEducation>(this.detach_OK_DopEducations));
 			this._Validations = new EntitySet<Validation>(new Action<Validation>(this.attach_Validations), new Action<Validation>(this.detach_Validations));
+			this._OK_Inkapacities = new EntitySet<OK_Inkapacity>(new Action<OK_Inkapacity>(this.attach_OK_Inkapacities), new Action<OK_Inkapacity>(this.detach_OK_Inkapacities));
 			this._Organisation = default(EntityRef<Organisation>);
 			this._EducDocumentType = default(EntityRef<EducDocumentType>);
 			OnCreated();
@@ -16311,19 +16105,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Inkapacity", Storage="_OK_Inkapacities", ThisKey="id", OtherKey="idEducDocument")]
-		public EntitySet<OK_Inkapacity> OK_Inkapacities
-		{
-			get
-			{
-				return this._OK_Inkapacities;
-			}
-			set
-			{
-				this._OK_Inkapacities.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Social", Storage="_OK_Socials", ThisKey="id", OtherKey="idEducDocument")]
 		public EntitySet<OK_Social> OK_Socials
 		{
@@ -16373,6 +16154,19 @@ namespace Kadr.Data
 			set
 			{
 				this._Validations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Inkapacity", Storage="_OK_Inkapacities", ThisKey="id", OtherKey="idEducDocument")]
+		public EntitySet<OK_Inkapacity> OK_Inkapacities
+		{
+			get
+			{
+				return this._OK_Inkapacities;
+			}
+			set
+			{
+				this._OK_Inkapacities.Assign(value);
 			}
 		}
 		
@@ -16476,18 +16270,6 @@ namespace Kadr.Data
 			entity.EducDocument = null;
 		}
 		
-		private void attach_OK_Inkapacities(OK_Inkapacity entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = this;
-		}
-		
-		private void detach_OK_Inkapacities(OK_Inkapacity entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = null;
-		}
-		
 		private void attach_OK_Socials(OK_Social entity)
 		{
 			this.SendPropertyChanging();
@@ -16531,6 +16313,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_Validations(Validation entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = null;
+		}
+		
+		private void attach_OK_Inkapacities(OK_Inkapacity entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = this;
+		}
+		
+		private void detach_OK_Inkapacities(OK_Inkapacity entity)
 		{
 			this.SendPropertyChanging();
 			entity.EducDocument = null;
@@ -16911,11 +16705,11 @@ namespace Kadr.Data
 		
 		private EntityRef<PlanStaff> _PlanStaff;
 		
-		private EntityRef<OK_Reason> _OK_Reason;
-		
 		private EntityRef<Prikaz> _Prikaz;
 		
 		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<OK_Reason> _OK_Reason;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -16975,9 +16769,9 @@ namespace Kadr.Data
 			this._FundingCenter = default(EntityRef<FundingCenter>);
 			this._OKVED = default(EntityRef<OKVED>);
 			this._PlanStaff = default(EntityRef<PlanStaff>);
-			this._OK_Reason = default(EntityRef<OK_Reason>);
 			this._Prikaz = default(EntityRef<Prikaz>);
 			this._Employee = default(EntityRef<Employee>);
+			this._OK_Reason = default(EntityRef<OK_Reason>);
 			OnCreated();
 		}
 		
@@ -17701,40 +17495,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_Reason_FactStaff", Storage="_OK_Reason", ThisKey="idreason", OtherKey="idreason", IsForeignKey=true)]
-		public OK_Reason OK_Reason
-		{
-			get
-			{
-				return this._OK_Reason.Entity;
-			}
-			set
-			{
-				OK_Reason previousValue = this._OK_Reason.Entity;
-				if (((previousValue != value) 
-							|| (this._OK_Reason.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._OK_Reason.Entity = null;
-						previousValue.FactStaffs.Remove(this);
-					}
-					this._OK_Reason.Entity = value;
-					if ((value != null))
-					{
-						value.FactStaffs.Add(this);
-						this._idreason = value.idreason;
-					}
-					else
-					{
-						this._idreason = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("OK_Reason");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_FactStaff", Storage="_Prikaz", ThisKey="idEndPrikaz", OtherKey="id", IsForeignKey=true)]
 		public Prikaz Prikaz
 		{
@@ -17799,6 +17559,40 @@ namespace Kadr.Data
 						this._idEmployee = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_Reason_FactStaff", Storage="_OK_Reason", ThisKey="idreason", OtherKey="idreason", IsForeignKey=true)]
+		public OK_Reason OK_Reason
+		{
+			get
+			{
+				return this._OK_Reason.Entity;
+			}
+			set
+			{
+				OK_Reason previousValue = this._OK_Reason.Entity;
+				if (((previousValue != value) 
+							|| (this._OK_Reason.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OK_Reason.Entity = null;
+						previousValue.FactStaffs.Remove(this);
+					}
+					this._OK_Reason.Entity = value;
+					if ((value != null))
+					{
+						value.FactStaffs.Add(this);
+						this._idreason = value.idreason;
+					}
+					else
+					{
+						this._idreason = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("OK_Reason");
 				}
 			}
 		}
@@ -17905,144 +17699,6 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.FactStaff = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Reason")]
-	public partial class OK_Reason : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idreason;
-		
-		private string _reasonname;
-		
-		private bool _isUvoln;
-		
-		private EntitySet<FactStaff> _FactStaffs;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidreasonChanging(int value);
-    partial void OnidreasonChanged();
-    partial void OnreasonnameChanging(string value);
-    partial void OnreasonnameChanged();
-    partial void OnisUvolnChanging(bool value);
-    partial void OnisUvolnChanged();
-    #endregion
-		
-		public OK_Reason()
-		{
-			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idreason", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idreason
-		{
-			get
-			{
-				return this._idreason;
-			}
-			set
-			{
-				if ((this._idreason != value))
-				{
-					this.OnidreasonChanging(value);
-					this.SendPropertyChanging();
-					this._idreason = value;
-					this.SendPropertyChanged("idreason");
-					this.OnidreasonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_reasonname", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string reasonname
-		{
-			get
-			{
-				return this._reasonname;
-			}
-			set
-			{
-				if ((this._reasonname != value))
-				{
-					this.OnreasonnameChanging(value);
-					this.SendPropertyChanging();
-					this._reasonname = value;
-					this.SendPropertyChanged("reasonname");
-					this.OnreasonnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isUvoln", DbType="Bit NOT NULL")]
-		public bool isUvoln
-		{
-			get
-			{
-				return this._isUvoln;
-			}
-			set
-			{
-				if ((this._isUvoln != value))
-				{
-					this.OnisUvolnChanging(value);
-					this.SendPropertyChanging();
-					this._isUvoln = value;
-					this.SendPropertyChanged("isUvoln");
-					this.OnisUvolnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_Reason_FactStaff", Storage="_FactStaffs", ThisKey="idreason", OtherKey="idreason")]
-		public EntitySet<FactStaff> FactStaffs
-		{
-			get
-			{
-				return this._FactStaffs;
-			}
-			set
-			{
-				this._FactStaffs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_FactStaffs(FactStaff entity)
-		{
-			this.SendPropertyChanging();
-			entity.OK_Reason = this;
-		}
-		
-		private void detach_FactStaffs(FactStaff entity)
-		{
-			this.SendPropertyChanging();
-			entity.OK_Reason = null;
 		}
 	}
 	
@@ -18640,294 +18296,6 @@ namespace Kadr.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Inkapacity")]
-	public partial class OK_Inkapacity : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idInkapacity;
-		
-		private string _NInkapacity;
-		
-		private System.DateTime _DateBegin;
-		
-		private System.Nullable<System.DateTime> _DateEnd;
-		
-		private System.Nullable<int> _idEmployee;
-		
-		private System.Nullable<int> _idEducDocument;
-		
-		private bool _IsFinished;
-		
-		private EntityRef<EducDocument> _EducDocument;
-		
-		private EntityRef<Employee> _Employee;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidInkapacityChanging(int value);
-    partial void OnidInkapacityChanged();
-    partial void OnNInkapacityChanging(string value);
-    partial void OnNInkapacityChanged();
-    partial void OnDateBeginChanging(System.DateTime value);
-    partial void OnDateBeginChanged();
-    partial void OnDateEndChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateEndChanged();
-    partial void OnidEmployeeChanging(System.Nullable<int> value);
-    partial void OnidEmployeeChanged();
-    partial void OnidEducDocumentChanging(System.Nullable<int> value);
-    partial void OnidEducDocumentChanged();
-    partial void OnIsFinishedChanging(bool value);
-    partial void OnIsFinishedChanged();
-    #endregion
-		
-		public OK_Inkapacity()
-		{
-			this._EducDocument = default(EntityRef<EducDocument>);
-			this._Employee = default(EntityRef<Employee>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idInkapacity", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idInkapacity
-		{
-			get
-			{
-				return this._idInkapacity;
-			}
-			set
-			{
-				if ((this._idInkapacity != value))
-				{
-					this.OnidInkapacityChanging(value);
-					this.SendPropertyChanging();
-					this._idInkapacity = value;
-					this.SendPropertyChanged("idInkapacity");
-					this.OnidInkapacityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NInkapacity", DbType="VarChar(50)")]
-		public string NInkapacity
-		{
-			get
-			{
-				return this._NInkapacity;
-			}
-			set
-			{
-				if ((this._NInkapacity != value))
-				{
-					this.OnNInkapacityChanging(value);
-					this.SendPropertyChanging();
-					this._NInkapacity = value;
-					this.SendPropertyChanged("NInkapacity");
-					this.OnNInkapacityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="DateTime NOT NULL")]
-		public System.DateTime DateBegin
-		{
-			get
-			{
-				return this._DateBegin;
-			}
-			set
-			{
-				if ((this._DateBegin != value))
-				{
-					this.OnDateBeginChanging(value);
-					this.SendPropertyChanging();
-					this._DateBegin = value;
-					this.SendPropertyChanged("DateBegin");
-					this.OnDateBeginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateEnd
-		{
-			get
-			{
-				return this._DateEnd;
-			}
-			set
-			{
-				if ((this._DateEnd != value))
-				{
-					this.OnDateEndChanging(value);
-					this.SendPropertyChanging();
-					this._DateEnd = value;
-					this.SendPropertyChanged("DateEnd");
-					this.OnDateEndChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int")]
-		public System.Nullable<int> idEmployee
-		{
-			get
-			{
-				return this._idEmployee;
-			}
-			set
-			{
-				if ((this._idEmployee != value))
-				{
-					if (this._Employee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidEmployeeChanging(value);
-					this.SendPropertyChanging();
-					this._idEmployee = value;
-					this.SendPropertyChanged("idEmployee");
-					this.OnidEmployeeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEducDocument", DbType="Int")]
-		public System.Nullable<int> idEducDocument
-		{
-			get
-			{
-				return this._idEducDocument;
-			}
-			set
-			{
-				if ((this._idEducDocument != value))
-				{
-					if (this._EducDocument.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidEducDocumentChanging(value);
-					this.SendPropertyChanging();
-					this._idEducDocument = value;
-					this.SendPropertyChanged("idEducDocument");
-					this.OnidEducDocumentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsFinished", DbType="Bit")]
-		public bool IsFinished
-		{
-			get
-			{
-				return this._IsFinished;
-			}
-			set
-			{
-				if ((this._IsFinished != value))
-				{
-					this.OnIsFinishedChanging(value);
-					this.SendPropertyChanging();
-					this._IsFinished = value;
-					this.SendPropertyChanged("IsFinished");
-					this.OnIsFinishedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Inkapacity", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
-		public EducDocument EducDocument
-		{
-			get
-			{
-				return this._EducDocument.Entity;
-			}
-			set
-			{
-				EducDocument previousValue = this._EducDocument.Entity;
-				if (((previousValue != value) 
-							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EducDocument.Entity = null;
-						previousValue.OK_Inkapacities.Remove(this);
-					}
-					this._EducDocument.Entity = value;
-					if ((value != null))
-					{
-						value.OK_Inkapacities.Add(this);
-						this._idEducDocument = value.id;
-					}
-					else
-					{
-						this._idEducDocument = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("EducDocument");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Inkapacity", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.OK_Inkapacities.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.OK_Inkapacities.Add(this);
-						this._idEmployee = value.id;
-					}
-					else
-					{
-						this._idEmployee = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Social")]
 	public partial class OK_Social : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -18948,9 +18316,9 @@ namespace Kadr.Data
 		
 		private EntityRef<EducDocument> _EducDocument;
 		
-		private EntityRef<OK_SocialStatus> _OK_SocialStatus;
-		
 		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<OK_SocialStatus> _OK_SocialStatus;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -18973,8 +18341,8 @@ namespace Kadr.Data
 		public OK_Social()
 		{
 			this._EducDocument = default(EntityRef<EducDocument>);
-			this._OK_SocialStatus = default(EntityRef<OK_SocialStatus>);
 			this._Employee = default(EntityRef<Employee>);
+			this._OK_SocialStatus = default(EntityRef<OK_SocialStatus>);
 			OnCreated();
 		}
 		
@@ -19144,40 +18512,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_SocialStatus_OK_Social", Storage="_OK_SocialStatus", ThisKey="idSocialStatus", OtherKey="idSocialStatus", IsForeignKey=true)]
-		public OK_SocialStatus OK_SocialStatus
-		{
-			get
-			{
-				return this._OK_SocialStatus.Entity;
-			}
-			set
-			{
-				OK_SocialStatus previousValue = this._OK_SocialStatus.Entity;
-				if (((previousValue != value) 
-							|| (this._OK_SocialStatus.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._OK_SocialStatus.Entity = null;
-						previousValue.OK_Socials.Remove(this);
-					}
-					this._OK_SocialStatus.Entity = value;
-					if ((value != null))
-					{
-						value.OK_Socials.Add(this);
-						this._idSocialStatus = value.idSocialStatus;
-					}
-					else
-					{
-						this._idSocialStatus = default(int);
-					}
-					this.SendPropertyChanged("OK_SocialStatus");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Social", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Employee Employee
 		{
@@ -19208,6 +18542,40 @@ namespace Kadr.Data
 						this._idEmployee = default(int);
 					}
 					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_SocialStatus_OK_Social", Storage="_OK_SocialStatus", ThisKey="idSocialStatus", OtherKey="idSocialStatus", IsForeignKey=true)]
+		public OK_SocialStatus OK_SocialStatus
+		{
+			get
+			{
+				return this._OK_SocialStatus.Entity;
+			}
+			set
+			{
+				OK_SocialStatus previousValue = this._OK_SocialStatus.Entity;
+				if (((previousValue != value) 
+							|| (this._OK_SocialStatus.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OK_SocialStatus.Entity = null;
+						previousValue.OK_Socials.Remove(this);
+					}
+					this._OK_SocialStatus.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Socials.Add(this);
+						this._idSocialStatus = value.idSocialStatus;
+					}
+					else
+					{
+						this._idSocialStatus = default(int);
+					}
+					this.SendPropertyChanged("OK_SocialStatus");
 				}
 			}
 		}
@@ -21151,8 +20519,6 @@ namespace Kadr.Data
 		
 		private EntitySet<FactStaff> _FactStaffs;
 		
-		private EntitySet<OK_Inkapacity> _OK_Inkapacities;
-		
 		private EntitySet<OK_Social> _OK_Socials;
 		
 		private EntitySet<OK_Adress> _OK_Adresses;
@@ -21164,6 +20530,8 @@ namespace Kadr.Data
 		private EntitySet<OK_DopEducation> _OK_DopEducations;
 		
 		private EntitySet<SocialFareTransit> _SocialFareTransits;
+		
+		private EntitySet<OK_Inkapacity> _OK_Inkapacities;
 		
 		private EntityRef<Grazd> _Grazd;
 		
@@ -21271,13 +20639,13 @@ namespace Kadr.Data
 			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
 			this._OK_Educs = new EntitySet<OK_Educ>(new Action<OK_Educ>(this.attach_OK_Educs), new Action<OK_Educ>(this.detach_OK_Educs));
 			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
-			this._OK_Inkapacities = new EntitySet<OK_Inkapacity>(new Action<OK_Inkapacity>(this.attach_OK_Inkapacities), new Action<OK_Inkapacity>(this.detach_OK_Inkapacities));
 			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
 			this._OK_Adresses = new EntitySet<OK_Adress>(new Action<OK_Adress>(this.attach_OK_Adresses), new Action<OK_Adress>(this.detach_OK_Adresses));
 			this._OK_Fams = new EntitySet<OK_Fam>(new Action<OK_Fam>(this.attach_OK_Fams), new Action<OK_Fam>(this.detach_OK_Fams));
 			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
 			this._OK_DopEducations = new EntitySet<OK_DopEducation>(new Action<OK_DopEducation>(this.attach_OK_DopEducations), new Action<OK_DopEducation>(this.detach_OK_DopEducations));
 			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
+			this._OK_Inkapacities = new EntitySet<OK_Inkapacity>(new Action<OK_Inkapacity>(this.attach_OK_Inkapacities), new Action<OK_Inkapacity>(this.detach_OK_Inkapacities));
 			this._Grazd = default(EntityRef<Grazd>);
 			this._MilitaryCategory = default(EntityRef<MilitaryCategory>);
 			this._MilitaryFitness = default(EntityRef<MilitaryFitness>);
@@ -22180,19 +21548,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Inkapacity", Storage="_OK_Inkapacities", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<OK_Inkapacity> OK_Inkapacities
-		{
-			get
-			{
-				return this._OK_Inkapacities;
-			}
-			set
-			{
-				this._OK_Inkapacities.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Social", Storage="_OK_Socials", ThisKey="id", OtherKey="idEmployee")]
 		public EntitySet<OK_Social> OK_Socials
 		{
@@ -22268,6 +21623,19 @@ namespace Kadr.Data
 			set
 			{
 				this._SocialFareTransits.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Inkapacity", Storage="_OK_Inkapacities", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_Inkapacity> OK_Inkapacities
+		{
+			get
+			{
+				return this._OK_Inkapacities;
+			}
+			set
+			{
+				this._OK_Inkapacities.Assign(value);
 			}
 		}
 		
@@ -22625,18 +21993,6 @@ namespace Kadr.Data
 			entity.Employee = null;
 		}
 		
-		private void attach_OK_Inkapacities(OK_Inkapacity entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_OK_Inkapacities(OK_Inkapacity entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
 		private void attach_OK_Socials(OK_Social entity)
 		{
 			this.SendPropertyChanging();
@@ -22704,6 +22060,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_SocialFareTransits(SocialFareTransit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_Inkapacities(OK_Inkapacity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_Inkapacities(OK_Inkapacity entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
@@ -23035,13 +22403,13 @@ namespace Kadr.Data
 		
 		private EntityRef<AwardLevel> _AwardLevel;
 		
-		private EntityRef<AwardType> _AwardType;
-		
 		private EntityRef<EducDocument> _EducDocument;
 		
 		private EntityRef<Employee> _Employee;
 		
 		private EntityRef<Event> _Event;
+		
+		private EntityRef<AwardType> _AwardType;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -23066,10 +22434,10 @@ namespace Kadr.Data
 		public Award()
 		{
 			this._AwardLevel = default(EntityRef<AwardLevel>);
-			this._AwardType = default(EntityRef<AwardType>);
 			this._EducDocument = default(EntityRef<EducDocument>);
 			this._Employee = default(EntityRef<Employee>);
 			this._Event = default(EntityRef<Event>);
+			this._AwardType = default(EntityRef<AwardType>);
 			OnCreated();
 		}
 		
@@ -23267,40 +22635,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AwardType_Award", Storage="_AwardType", ThisKey="IDAwardType", OtherKey="ID", IsForeignKey=true)]
-		public AwardType AwardType
-		{
-			get
-			{
-				return this._AwardType.Entity;
-			}
-			set
-			{
-				AwardType previousValue = this._AwardType.Entity;
-				if (((previousValue != value) 
-							|| (this._AwardType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._AwardType.Entity = null;
-						previousValue.Awards.Remove(this);
-					}
-					this._AwardType.Entity = value;
-					if ((value != null))
-					{
-						value.Awards.Add(this);
-						this._IDAwardType = value.ID;
-					}
-					else
-					{
-						this._IDAwardType = default(int);
-					}
-					this.SendPropertyChanged("AwardType");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Award", Storage="_EducDocument", ThisKey="IDEducDocument", OtherKey="id", IsForeignKey=true)]
 		public EducDocument EducDocument
 		{
@@ -23399,6 +22733,40 @@ namespace Kadr.Data
 						this._idEvent = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Event");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AwardType_Award", Storage="_AwardType", ThisKey="IDAwardType", OtherKey="ID", IsForeignKey=true)]
+		public AwardType AwardType
+		{
+			get
+			{
+				return this._AwardType.Entity;
+			}
+			set
+			{
+				AwardType previousValue = this._AwardType.Entity;
+				if (((previousValue != value) 
+							|| (this._AwardType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._AwardType.Entity = null;
+						previousValue.Awards.Remove(this);
+					}
+					this._AwardType.Entity = value;
+					if ((value != null))
+					{
+						value.Awards.Add(this);
+						this._IDAwardType = value.ID;
+					}
+					else
+					{
+						this._IDAwardType = default(int);
+					}
+					this.SendPropertyChanged("AwardType");
 				}
 			}
 		}
@@ -27441,6 +26809,973 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.MaterialResponsibility = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Inkapacity")]
+	public partial class OK_Inkapacity : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idInkapacity;
+		
+		private string _NInkapacity;
+		
+		private System.DateTime _DateBegin;
+		
+		private System.Nullable<System.DateTime> _DateEnd;
+		
+		private System.Nullable<int> _idEmployee;
+		
+		private System.Nullable<int> _idEducDocument;
+		
+		private bool _IsFinished;
+		
+		private System.Nullable<int> _idInkapacityType;
+		
+		private EntityRef<EducDocument> _EducDocument;
+		
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<InkapacityType> _InkapacityType;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidInkapacityChanging(int value);
+    partial void OnidInkapacityChanged();
+    partial void OnNInkapacityChanging(string value);
+    partial void OnNInkapacityChanged();
+    partial void OnDateBeginChanging(System.DateTime value);
+    partial void OnDateBeginChanged();
+    partial void OnDateEndChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateEndChanged();
+    partial void OnidEmployeeChanging(System.Nullable<int> value);
+    partial void OnidEmployeeChanged();
+    partial void OnidEducDocumentChanging(System.Nullable<int> value);
+    partial void OnidEducDocumentChanged();
+    partial void OnIsFinishedChanging(bool value);
+    partial void OnIsFinishedChanged();
+    partial void OnidInkapacityTypeChanging(System.Nullable<int> value);
+    partial void OnidInkapacityTypeChanged();
+    #endregion
+		
+		public OK_Inkapacity()
+		{
+			this._EducDocument = default(EntityRef<EducDocument>);
+			this._Employee = default(EntityRef<Employee>);
+			this._InkapacityType = default(EntityRef<InkapacityType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idInkapacity", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idInkapacity
+		{
+			get
+			{
+				return this._idInkapacity;
+			}
+			set
+			{
+				if ((this._idInkapacity != value))
+				{
+					this.OnidInkapacityChanging(value);
+					this.SendPropertyChanging();
+					this._idInkapacity = value;
+					this.SendPropertyChanged("idInkapacity");
+					this.OnidInkapacityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NInkapacity", DbType="VarChar(50)")]
+		public string NInkapacity
+		{
+			get
+			{
+				return this._NInkapacity;
+			}
+			set
+			{
+				if ((this._NInkapacity != value))
+				{
+					this.OnNInkapacityChanging(value);
+					this.SendPropertyChanging();
+					this._NInkapacity = value;
+					this.SendPropertyChanged("NInkapacity");
+					this.OnNInkapacityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="DateTime NOT NULL")]
+		public System.DateTime DateBegin
+		{
+			get
+			{
+				return this._DateBegin;
+			}
+			set
+			{
+				if ((this._DateBegin != value))
+				{
+					this.OnDateBeginChanging(value);
+					this.SendPropertyChanging();
+					this._DateBegin = value;
+					this.SendPropertyChanged("DateBegin");
+					this.OnDateBeginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateEnd
+		{
+			get
+			{
+				return this._DateEnd;
+			}
+			set
+			{
+				if ((this._DateEnd != value))
+				{
+					this.OnDateEndChanging(value);
+					this.SendPropertyChanging();
+					this._DateEnd = value;
+					this.SendPropertyChanged("DateEnd");
+					this.OnDateEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int")]
+		public System.Nullable<int> idEmployee
+		{
+			get
+			{
+				return this._idEmployee;
+			}
+			set
+			{
+				if ((this._idEmployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idEmployee = value;
+					this.SendPropertyChanged("idEmployee");
+					this.OnidEmployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEducDocument", DbType="Int")]
+		public System.Nullable<int> idEducDocument
+		{
+			get
+			{
+				return this._idEducDocument;
+			}
+			set
+			{
+				if ((this._idEducDocument != value))
+				{
+					if (this._EducDocument.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEducDocumentChanging(value);
+					this.SendPropertyChanging();
+					this._idEducDocument = value;
+					this.SendPropertyChanged("idEducDocument");
+					this.OnidEducDocumentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsFinished", DbType="Bit NOT NULL")]
+		public bool IsFinished
+		{
+			get
+			{
+				return this._IsFinished;
+			}
+			set
+			{
+				if ((this._IsFinished != value))
+				{
+					this.OnIsFinishedChanging(value);
+					this.SendPropertyChanging();
+					this._IsFinished = value;
+					this.SendPropertyChanged("IsFinished");
+					this.OnIsFinishedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idInkapacityType", DbType="Int")]
+		public System.Nullable<int> idInkapacityType
+		{
+			get
+			{
+				return this._idInkapacityType;
+			}
+			set
+			{
+				if ((this._idInkapacityType != value))
+				{
+					if (this._InkapacityType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidInkapacityTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idInkapacityType = value;
+					this.SendPropertyChanged("idInkapacityType");
+					this.OnidInkapacityTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Inkapacity", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
+		public EducDocument EducDocument
+		{
+			get
+			{
+				return this._EducDocument.Entity;
+			}
+			set
+			{
+				EducDocument previousValue = this._EducDocument.Entity;
+				if (((previousValue != value) 
+							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducDocument.Entity = null;
+						previousValue.OK_Inkapacities.Remove(this);
+					}
+					this._EducDocument.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Inkapacities.Add(this);
+						this._idEducDocument = value.id;
+					}
+					else
+					{
+						this._idEducDocument = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EducDocument");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Inkapacity", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.OK_Inkapacities.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Inkapacities.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InkapacityType_OK_Inkapacity", Storage="_InkapacityType", ThisKey="idInkapacityType", OtherKey="id", IsForeignKey=true)]
+		public InkapacityType InkapacityType
+		{
+			get
+			{
+				return this._InkapacityType.Entity;
+			}
+			set
+			{
+				InkapacityType previousValue = this._InkapacityType.Entity;
+				if (((previousValue != value) 
+							|| (this._InkapacityType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._InkapacityType.Entity = null;
+						previousValue.OK_Inkapacities.Remove(this);
+					}
+					this._InkapacityType.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Inkapacities.Add(this);
+						this._idInkapacityType = value.id;
+					}
+					else
+					{
+						this._idInkapacityType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("InkapacityType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InkapacityType")]
+	public partial class InkapacityType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _NameInkapacityType;
+		
+		private EntitySet<OK_Inkapacity> _OK_Inkapacities;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnNameInkapacityTypeChanging(string value);
+    partial void OnNameInkapacityTypeChanged();
+    #endregion
+		
+		public InkapacityType()
+		{
+			this._OK_Inkapacities = new EntitySet<OK_Inkapacity>(new Action<OK_Inkapacity>(this.attach_OK_Inkapacities), new Action<OK_Inkapacity>(this.detach_OK_Inkapacities));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameInkapacityType", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string NameInkapacityType
+		{
+			get
+			{
+				return this._NameInkapacityType;
+			}
+			set
+			{
+				if ((this._NameInkapacityType != value))
+				{
+					this.OnNameInkapacityTypeChanging(value);
+					this.SendPropertyChanging();
+					this._NameInkapacityType = value;
+					this.SendPropertyChanged("NameInkapacityType");
+					this.OnNameInkapacityTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InkapacityType_OK_Inkapacity", Storage="_OK_Inkapacities", ThisKey="id", OtherKey="idInkapacityType")]
+		public EntitySet<OK_Inkapacity> OK_Inkapacities
+		{
+			get
+			{
+				return this._OK_Inkapacities;
+			}
+			set
+			{
+				this._OK_Inkapacities.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OK_Inkapacities(OK_Inkapacity entity)
+		{
+			this.SendPropertyChanging();
+			entity.InkapacityType = this;
+		}
+		
+		private void detach_OK_Inkapacities(OK_Inkapacity entity)
+		{
+			this.SendPropertyChanging();
+			entity.InkapacityType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_SocialStatus")]
+	public partial class OK_SocialStatus : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idSocialStatus;
+		
+		private string _SocialStatusName;
+		
+		private System.Nullable<bool> _is_old;
+		
+		private EntitySet<OK_Social> _OK_Socials;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidSocialStatusChanging(int value);
+    partial void OnidSocialStatusChanged();
+    partial void OnSocialStatusNameChanging(string value);
+    partial void OnSocialStatusNameChanged();
+    partial void Onis_oldChanging(System.Nullable<bool> value);
+    partial void Onis_oldChanged();
+    #endregion
+		
+		public OK_SocialStatus()
+		{
+			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idSocialStatus", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idSocialStatus
+		{
+			get
+			{
+				return this._idSocialStatus;
+			}
+			set
+			{
+				if ((this._idSocialStatus != value))
+				{
+					this.OnidSocialStatusChanging(value);
+					this.SendPropertyChanging();
+					this._idSocialStatus = value;
+					this.SendPropertyChanged("idSocialStatus");
+					this.OnidSocialStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SocialStatusName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string SocialStatusName
+		{
+			get
+			{
+				return this._SocialStatusName;
+			}
+			set
+			{
+				if ((this._SocialStatusName != value))
+				{
+					this.OnSocialStatusNameChanging(value);
+					this.SendPropertyChanging();
+					this._SocialStatusName = value;
+					this.SendPropertyChanged("SocialStatusName");
+					this.OnSocialStatusNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_old", DbType="Bit")]
+		public System.Nullable<bool> is_old
+		{
+			get
+			{
+				return this._is_old;
+			}
+			set
+			{
+				if ((this._is_old != value))
+				{
+					this.Onis_oldChanging(value);
+					this.SendPropertyChanging();
+					this._is_old = value;
+					this.SendPropertyChanged("is_old");
+					this.Onis_oldChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_SocialStatus_OK_Social", Storage="_OK_Socials", ThisKey="idSocialStatus", OtherKey="idSocialStatus")]
+		public EntitySet<OK_Social> OK_Socials
+		{
+			get
+			{
+				return this._OK_Socials;
+			}
+			set
+			{
+				this._OK_Socials.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OK_Socials(OK_Social entity)
+		{
+			this.SendPropertyChanging();
+			entity.OK_SocialStatus = this;
+		}
+		
+		private void detach_OK_Socials(OK_Social entity)
+		{
+			this.SendPropertyChanging();
+			entity.OK_SocialStatus = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GovDepartment")]
+	public partial class GovDepartment : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _Name;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public GovDepartment()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Reason")]
+	public partial class OK_Reason : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idreason;
+		
+		private string _reasonname;
+		
+		private bool _isUvoln;
+		
+		private System.Nullable<bool> _is_old;
+		
+		private EntitySet<FactStaff> _FactStaffs;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidreasonChanging(int value);
+    partial void OnidreasonChanged();
+    partial void OnreasonnameChanging(string value);
+    partial void OnreasonnameChanged();
+    partial void OnisUvolnChanging(bool value);
+    partial void OnisUvolnChanged();
+    partial void Onis_oldChanging(System.Nullable<bool> value);
+    partial void Onis_oldChanged();
+    #endregion
+		
+		public OK_Reason()
+		{
+			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idreason", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idreason
+		{
+			get
+			{
+				return this._idreason;
+			}
+			set
+			{
+				if ((this._idreason != value))
+				{
+					this.OnidreasonChanging(value);
+					this.SendPropertyChanging();
+					this._idreason = value;
+					this.SendPropertyChanged("idreason");
+					this.OnidreasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_reasonname", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string reasonname
+		{
+			get
+			{
+				return this._reasonname;
+			}
+			set
+			{
+				if ((this._reasonname != value))
+				{
+					this.OnreasonnameChanging(value);
+					this.SendPropertyChanging();
+					this._reasonname = value;
+					this.SendPropertyChanged("reasonname");
+					this.OnreasonnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isUvoln", DbType="Bit NOT NULL")]
+		public bool isUvoln
+		{
+			get
+			{
+				return this._isUvoln;
+			}
+			set
+			{
+				if ((this._isUvoln != value))
+				{
+					this.OnisUvolnChanging(value);
+					this.SendPropertyChanging();
+					this._isUvoln = value;
+					this.SendPropertyChanged("isUvoln");
+					this.OnisUvolnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_old", DbType="Bit")]
+		public System.Nullable<bool> is_old
+		{
+			get
+			{
+				return this._is_old;
+			}
+			set
+			{
+				if ((this._is_old != value))
+				{
+					this.Onis_oldChanging(value);
+					this.SendPropertyChanging();
+					this._is_old = value;
+					this.SendPropertyChanged("is_old");
+					this.Onis_oldChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_Reason_FactStaff", Storage="_FactStaffs", ThisKey="idreason", OtherKey="idreason")]
+		public EntitySet<FactStaff> FactStaffs
+		{
+			get
+			{
+				return this._FactStaffs;
+			}
+			set
+			{
+				this._FactStaffs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_FactStaffs(FactStaff entity)
+		{
+			this.SendPropertyChanging();
+			entity.OK_Reason = this;
+		}
+		
+		private void detach_FactStaffs(FactStaff entity)
+		{
+			this.SendPropertyChanging();
+			entity.OK_Reason = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AwardType")]
+	public partial class AwardType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private EntitySet<Award> _Awards;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public AwardType()
+		{
+			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AwardType_Award", Storage="_Awards", ThisKey="ID", OtherKey="IDAwardType")]
+		public EntitySet<Award> Awards
+		{
+			get
+			{
+				return this._Awards;
+			}
+			set
+			{
+				this._Awards.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Awards(Award entity)
+		{
+			this.SendPropertyChanging();
+			entity.AwardType = this;
+		}
+		
+		private void detach_Awards(Award entity)
+		{
+			this.SendPropertyChanging();
+			entity.AwardType = null;
 		}
 	}
 	
