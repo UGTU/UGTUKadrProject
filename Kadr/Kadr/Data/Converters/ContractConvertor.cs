@@ -18,19 +18,22 @@ namespace Kadr.Data.Converters
                 currentEmployee = (context.Instance as FactStaffMainBaseDecorator).Employee;
                 currentContract = (context.Instance as FactStaffMainBaseDecorator).CurrentContract;
             }
-            //if (context.Instance is FactStaffHistoryMainBaseDecorator)
-                //currentEmployee = (context.Instance as FactStaffHistoryMainBaseDecorator)..Employee;
+
+            if (context.Instance is FactStaffHistoryMainBaseDecorator)
+            {
+                currentEmployee = (context.Instance as FactStaffHistoryMainBaseDecorator).FactStaff.Employee;
+                currentContract = (context.Instance as FactStaffHistoryMainBaseDecorator).CurrentContract;
+            }
+
             if (currentEmployee != null)
             {
                 //выбираем только договоры (без доп соглашений)
-                var res = Kadr.Controllers.KadrController.Instance.Model.Contracts.Where(x => x != currentContract).Where(x 
-                    => x.idMainContract == null).Where(x
-                        => x.Events.Select(y => y.EventKind).Where(z => z.ForFactStaff).Count() > 0).Where(x 
-                            => x.Events.Select(y => y.FactStaffHistory.FactStaff.Employee) == currentEmployee);
+                var res = currentEmployee.FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(y => y.Events).Where(x
+                        => x.EventKind.ForFactStaff).Select(z => z.Contract).Where(m => m.idMainContract == null).Where(x => x != currentContract);
+
                 if (res == null)
                     return null;
                 List<Contract> resList = res.ToList();
-                //resList.Add(Kadr.Data.NullSocialFareTransit.Instance);
                 return resList;
             }
             else

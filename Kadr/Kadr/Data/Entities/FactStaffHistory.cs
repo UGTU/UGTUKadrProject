@@ -60,8 +60,9 @@ namespace Kadr.Data
         {
             get
             {
-                /*if (FactStaff != null)
-                    if (FactStaff.CurrentChange != null) */
+                if (FactStaff != null)
+                    if (FactStaff.FirstDesignate != null)
+                        return FactStaff.FirstDesignate.Contract;
                 return null;
             }
         }
@@ -74,7 +75,7 @@ namespace Kadr.Data
         {
             get
             {
-                return Events.Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
+                return Events.Single(x => x.EventKind.ForFactStaff);
             }
         }
 
