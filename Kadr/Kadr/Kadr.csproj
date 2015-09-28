@@ -492,6 +492,18 @@
     <Compile Include="UI\Dialogs\BonusProlongFullDialog.Designer.cs">
       <DependentUpon>BonusProlongFullDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\AwardLevelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\AwardLevelDialog.Designer.cs">
+      <DependentUpon>AwardLevelDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\AwardTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\AwardTypeDialog.Designer.cs">
+      <DependentUpon>AwardTypeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\BonusMeasureDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -556,10 +568,22 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\GlobalPrikazDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\GovDepartmentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\GovDepartmentDialog.Designer.cs">
+      <DependentUpon>GovDepartmentDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\GrazdDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\GrazdDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\InkapacityTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\InkapacityTypeDialog.Designer.cs">
+      <DependentUpon>InkapacityTypeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\LanguageDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -568,6 +592,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\LanguageLevelDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\LeaveReasonDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\LeaveReasonDialog.Designer.cs">
+      <DependentUpon>LeaveReasonDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\MilitaryCategoryDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -636,6 +666,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\SemPolDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\CatalogDialogs\SocialStatusDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\CatalogDialogs\SocialStatusDialog.Designer.cs">
+      <DependentUpon>SocialStatusDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\StandingTypeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -872,6 +908,12 @@
     <EmbeddedResource Include="UI\Dialogs\BonusProlongFullDialog.resx">
       <DependentUpon>BonusProlongFullDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\AwardLevelDialog.resx">
+      <DependentUpon>AwardLevelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\AwardTypeDialog.resx">
+      <DependentUpon>AwardTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusMeasureDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusReportColumnsDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\BonusReportDialog.resx" />
@@ -888,9 +930,18 @@
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\FinancingSourceDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\FundingCenterDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\GlobalPrikazDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\GovDepartmentDialog.resx">
+      <DependentUpon>GovDepartmentDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\GrazdDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\InkapacityTypeDialog.resx">
+      <DependentUpon>InkapacityTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\LanguageDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\LanguageLevelDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\LeaveReasonDialog.resx">
+      <DependentUpon>LeaveReasonDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryCategoryDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryFitnessDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\MilitaryRankDialog.resx" />
@@ -908,6 +959,9 @@
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\SalaryDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\SalaryKoeffDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\SemPolDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\SocialStatusDialog.resx">
+      <DependentUpon>SocialStatusDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\StandingTypeDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx" />
@@ -1155,6 +1209,12 @@
     <None Include="Properties\DataSources\Kadr.Data.MilitaryStructure.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryType.datasource" />
     <None Include="Properties\DataSources\Kadr.Data.MilitaryDecorator.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.InkapacityType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_SocialStatus.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.AwardType.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.AwardLevel.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.GovDepartment.datasource" />
+    <None Include="Properties\DataSources\Kadr.Data.OK_Reason.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
