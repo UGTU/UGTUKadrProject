@@ -75,7 +75,7 @@ namespace Kadr.Data
         {
             get
             {
-                return Events.Single(x => x.EventKind.ForFactStaff);
+                return Events.Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
             }
         }
 
