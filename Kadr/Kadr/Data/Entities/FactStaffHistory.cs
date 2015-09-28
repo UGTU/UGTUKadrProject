@@ -56,7 +56,7 @@ namespace Kadr.Data
 
         #region EventContractData 
 
-        public Contract MainContract
+        public Contract FirstContract
         {
             get
             {
@@ -106,7 +106,7 @@ namespace Kadr.Data
         {
             if (Contract != null)
             {
-                if ((Contract.DateContract == null) || (Contract.DateContract == DateTime.MinValue))
+                if ((Contract.DateContract == null) || (Contract.DateContract == DateTime.MinValue) || (Contract.DateContract.Value.Date == DateTime.Today.Date))
                 {
                     Contract.DateBegin = value;
                     Contract.DateContract = value;
@@ -177,12 +177,6 @@ namespace Kadr.Data
                 if (MainEvent != null)
                     (MainEvent as UIX.Views.IValidatable).Validate();
 
-                /*if (NewContract != null)
-                {
-                    (NewContract as UIX.Views.IValidatable).Validate();
-                    Contract = NewContract;
-                    Kadr.Controllers.KadrController.Instance.Model.Contracts.InsertOnSubmit(Contract);
-                }*/
 
 
                 //проверка на переполнение штатов на начало периода
