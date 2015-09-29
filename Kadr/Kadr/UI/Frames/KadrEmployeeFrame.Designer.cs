@@ -168,6 +168,11 @@ namespace Kadr.UI.Frames
             this.tpEmpOtpusk = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn129 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrikazLgot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oKOtpuskBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.tsbAddOtp = new System.Windows.Forms.ToolStripButton();
@@ -490,11 +495,6 @@ namespace Kadr.UI.Frames
             this.timeSheetDayStateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oKLanguageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn129 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrikazLgot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -1803,6 +1803,45 @@ namespace Kadr.UI.Frames
             this.dataGridView5.Size = new System.Drawing.Size(843, 244);
             this.dataGridView5.TabIndex = 2;
             this.dataGridView5.DoubleClick += new System.EventHandler(this.tsbEditOtp_Click);
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "OK_Otpuskvid";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Вид отпуска";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "RealDateBegin";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Дата начала";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 120;
+            // 
+            // DateEnd
+            // 
+            this.DateEnd.DataPropertyName = "RealDateEnd";
+            this.DateEnd.HeaderText = "Дата окончания";
+            this.DateEnd.Name = "DateEnd";
+            this.DateEnd.ReadOnly = true;
+            this.DateEnd.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn129
+            // 
+            this.dataGridViewTextBoxColumn129.DataPropertyName = "Prikaz";
+            this.dataGridViewTextBoxColumn129.HeaderText = "Приказ";
+            this.dataGridViewTextBoxColumn129.Name = "dataGridViewTextBoxColumn129";
+            this.dataGridViewTextBoxColumn129.ReadOnly = true;
+            // 
+            // PrikazLgot
+            // 
+            this.PrikazLgot.DataPropertyName = "PrikazLgot";
+            this.PrikazLgot.HeaderText = "Приказ льготного проезда";
+            this.PrikazLgot.Name = "PrikazLgot";
+            this.PrikazLgot.ReadOnly = true;
+            this.PrikazLgot.Width = 200;
             // 
             // oKOtpuskBindingSource
             // 
@@ -4931,45 +4970,6 @@ namespace Kadr.UI.Frames
             // oKLanguageBindingSource
             // 
             this.oKLanguageBindingSource.DataSource = typeof(Kadr.Data.OK_Language);
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "OK_Otpuskvid";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Вид отпуска";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "RealDateBegin";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Дата начала";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 120;
-            // 
-            // DateEnd
-            // 
-            this.DateEnd.DataPropertyName = "RealDateEnd";
-            this.DateEnd.HeaderText = "Дата окончания";
-            this.DateEnd.Name = "DateEnd";
-            this.DateEnd.ReadOnly = true;
-            this.DateEnd.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn129
-            // 
-            this.dataGridViewTextBoxColumn129.DataPropertyName = "Prikaz";
-            this.dataGridViewTextBoxColumn129.HeaderText = "Приказ";
-            this.dataGridViewTextBoxColumn129.Name = "dataGridViewTextBoxColumn129";
-            this.dataGridViewTextBoxColumn129.ReadOnly = true;
-            // 
-            // PrikazLgot
-            // 
-            this.PrikazLgot.DataPropertyName = "PrikazLgot";
-            this.PrikazLgot.HeaderText = "Приказ льготного проезда";
-            this.PrikazLgot.Name = "PrikazLgot";
-            this.PrikazLgot.ReadOnly = true;
-            this.PrikazLgot.Width = 200;
             // 
             // KadrEmployeeFrame
             // 

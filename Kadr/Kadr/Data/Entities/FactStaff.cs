@@ -79,7 +79,9 @@ namespace Kadr.Data
             get
             {
 
-                var trips = CurrentChange.Events.SelectMany(x => x.BusinessTrips).Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
+                IEnumerable<Event_BusinessTrip> tripevents = CurrentChange.Events.Select(x => x.Event_BusinessTrip).Where(t=>t!=null);
+                IEnumerable<BusinessTrip> trips = tripevents.Select(x=>x.BusinessTrip).Distinct().Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
+
                 if (trips.Any()) return FactStaffState.OnTrip;
 
 

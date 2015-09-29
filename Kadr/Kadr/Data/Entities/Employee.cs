@@ -150,7 +150,7 @@ namespace Kadr.Data
 
         public IEnumerable<BusinessTrip> GetAllTrips()
         {
-            return  FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(x => x.Events).SelectMany(p => p.BusinessTrips);
+            return  FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(x => x.Events).Select(p => p.Event_BusinessTrip).Where(p=>p!=null).Select(x=>x.BusinessTrip).Distinct();
         }
 
         public IEnumerable<BusinessTripRegionType> GetAllRegionTypes()

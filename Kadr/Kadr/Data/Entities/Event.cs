@@ -50,7 +50,7 @@ namespace Kadr.Data
 
             if (WithContract)
             {
-                new Contract(CommandManager, this, eventKind.ForFactStaff ? factStaffHistory.MainContract : null);
+                new Contract(CommandManager, this, eventKind.ForFactStaff ? factStaffHistory.FirstContract : null, "", DateTime.Today.Date, DateTime.Today.Date);
             }
         }
         
