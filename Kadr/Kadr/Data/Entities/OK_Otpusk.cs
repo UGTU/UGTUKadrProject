@@ -72,7 +72,10 @@ namespace Kadr.Data
 
         public Prikaz PrikazLgot
         {
-            get { return (SocialFareTransit.Event != null) ? SocialFareTransit.Event.Prikaz : null; }
+            get
+            {
+                return ((SocialFareTransit != null) && (SocialFareTransit.Event != null)) ? SocialFareTransit.Event.Prikaz : null;
+            }
         }
 
         #region IDecorable Members
