@@ -69,7 +69,12 @@ namespace Kadr.Data
                 return SocialFareTransit != null;
             }
         }
-        
+
+        public Prikaz PrikazLgot
+        {
+            get { return (SocialFareTransit.Event != null) ? SocialFareTransit.Event.Prikaz : null; }
+        }
+
         #region IDecorable Members
 
         public object GetDecorator()

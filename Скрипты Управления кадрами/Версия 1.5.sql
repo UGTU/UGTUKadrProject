@@ -772,3 +772,5 @@ REFERENCES [dbo].[InkapacityType] ([id])
 GO
 ALTER TABLE [dbo].[OK_Inkapacity] CHECK CONSTRAINT [FK_OK_Inkapacity_InkapacityType]
 GO
+
+set identity_insert [dbo].AwardType ON
