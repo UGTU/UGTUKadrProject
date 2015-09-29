@@ -12,10 +12,8 @@ namespace Kadr.Data
     {
         protected FactStaff factStaff;
 
-        /*public FactStaffBaseDecorator()
-        {
-        }*/
 
+        
         public FactStaffBaseDecorator(FactStaff factStaff)
         {
             this.factStaff = factStaff;

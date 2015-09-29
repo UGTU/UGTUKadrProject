@@ -38,7 +38,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Подподкатегория")]
+        /*[System.ComponentModel.DisplayName("Подподкатегория")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Подподкатегория (определяет коэффициент к окладу сотрудника)")]
         [System.ComponentModel.ReadOnly(false)]
@@ -54,7 +54,7 @@ namespace Kadr.Data
             {
                 factStaffHistory.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
             }
-        }
+        }*/
 
         #region ContractData
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tТекущий договор/ доп. соглашение")]

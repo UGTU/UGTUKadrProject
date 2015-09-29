@@ -29,7 +29,7 @@ namespace Kadr.Data.Converters
             {
                 //выбираем только договоры (без доп соглашений)
                 var res = currentEmployee.FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(y => y.Events).Where(x
-                        => x.EventKind.ForFactStaff).Select(z => z.Contract).Where(m => m.idMainContract == null).Where(x => x != currentContract);
+                        => x.EventKind.ForFactStaff).Where(x => x.Contract != null).Select(z => z.Contract).Where(m => m.idMainContract == null).Where(x => x != currentContract);
 
                 if (res == null)
                     return null;

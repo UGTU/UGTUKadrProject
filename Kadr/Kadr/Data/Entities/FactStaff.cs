@@ -681,6 +681,11 @@ namespace Kadr.Data
                     throw new ArgumentNullException("Дата увольнения, так как указан приказ об увольнении.");
                 if ((Prikaz == null) && (DateEnd != null) && !IsHourStaff) //для почасовиков приказ необязателен
                     throw new ArgumentNullException("Приказ об увольнении, так как указана дата увольнения.");
+
+                if (FinancingSource != null)
+                    if (FinancingSource.IsNull())
+                        FinancingSource = null;
+
                 if (FundingCenter != null)
                     if (FundingCenter.IsNull())
                         FundingCenter = null;

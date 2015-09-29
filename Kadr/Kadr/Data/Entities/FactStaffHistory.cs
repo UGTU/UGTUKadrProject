@@ -13,6 +13,7 @@ namespace Kadr.Data
         public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false)
             : this()
         {
+            //x.SetProperties(dlg.CommandManager, currentFactStaff, currentFactStaff.WorkType, NullPrikaz.Instance, DateTime.Today.Date, eventKind, eventType, withContract);
             SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind,eventType, withContract);
         }
 
@@ -32,6 +33,7 @@ namespace Kadr.Data
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(this, "WorkType", workType, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
+            
 
             Event curEvent = new Event(CommandManager, this, eventKind, eventType, withContract, prikaz);
         }
@@ -168,6 +170,7 @@ namespace Kadr.Data
                     if ((Prikaz as Kadr.Data.Common.INull).IsNull()  && !FactStaff.IsHourStaff)
                         throw new ArgumentNullException("Приказ изменения.");
                 }
+
                 if ((StaffCount <= 0) || (StaffCount == null)) 
                     throw new ArgumentOutOfRangeException("Количество ставок.");
                 if (DateBegin == null) 
@@ -177,7 +180,8 @@ namespace Kadr.Data
                 if (MainEvent != null)
                     (MainEvent as UIX.Views.IValidatable).Validate();
 
-
+                SalaryKoeff = null;
+                
 
                 //проверка на переполнение штатов на начало периода
                 /*decimal factStaffCount = Kadr.Controllers.KadrController.Instance.Model.GetFactStaffByPeriod(DateBegin, DateBegin).Where(fcSt => fcSt.idPlanStaff == FactStaff.idPlanStaff).Sum(fcSt => fcSt.StaffCount);
