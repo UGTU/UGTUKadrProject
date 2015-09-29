@@ -42,22 +42,29 @@ namespace Kadr.Controllers
 
                 dlg.InitializeNewObject = (x) =>
                 {
-                    x.WithNewEmployee = false;
-                    FactStaffHistory fcStHistory;
+                    //x.WithNewEmployee = false;
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "WithNewEmployee", false, null), sender);
+                    FactStaffHistory fcStHistory = new FactStaffHistory();
+                    x.SetProperties(dlg.CommandManager, planStaffCurrent, employee, isReplacement, department, financingSource);
+
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
                         FactStaff prev = dlg.SelectedObjects[0] as FactStaff;
-                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, MagicNumberController.FactStaffCreateEventKind,
-                            MagicNumberController.BeginEventType,withContract);
+                        fcStHistory.SetProperties(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, MagicNumberController.FactStaffCreateEventKind,
+                            MagicNumberController.BeginEventType, withContract);
+                        //fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, MagicNumberController.FactStaffCreateEventKind,
+                            //MagicNumberController.BeginEventType,withContract);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x, "StaffCount", prev.StaffCount, null), sender);
                     }
                     else
                     {
-                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind,
+                        fcStHistory.SetProperties(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today.Date, MagicNumberController.FactStaffCreateEventKind,
                             MagicNumberController.BeginEventType, withContract);
+                        //fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind,
+                            //MagicNumberController.BeginEventType, withContract);
                     }
 
-                    x.SetProperties(dlg.CommandManager, planStaffCurrent, employee, isReplacement, department, financingSource);
+                    
 
                 };
 

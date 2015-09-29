@@ -16,7 +16,7 @@ namespace Kadr.Controllers
                 dlg.UseInternalCommandManager = true;
                 dlg.ObjectList = KadrController.Instance.Model.FactStaffHistories;
                 //dlg.BindingSource = planStaffBindingSource; 
-                dlg.PrikazButtonVisible = true;
+                dlg.PrikazButtonVisible = false;
                 dlg.oneObjectCreated = true;
                 dlg.InitializeNewObject = (x) =>
                 {

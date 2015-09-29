@@ -1,177 +1,101 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KadrRealTest" Class="dckadrDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="kadrConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.DepartmentType" Member="DepartmentTypes">
-    <Type Name="DepartmentType">
+  <Table Name="dbo.Award" Member="Awards">
+    <Type Name="Award">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IDEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDEducDocument" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDAwardType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDAwardLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Organization" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IDGovDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="AwardLevel_Award" Member="AwardLevel" ThisKey="IDAwardLevel" OtherKey="ID" Type="AwardLevel" IsForeignKey="true" />
+      <Association Name="AwardType_Award" Member="AwardType" ThisKey="IDAwardType" OtherKey="ID" Type="AwardType" IsForeignKey="true" />
+      <Association Name="EducDocument_Award" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Employee_Award" Member="Employee" ThisKey="IDEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="Event_Award" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="GovDepartment_Award" Member="GovDepartment" ThisKey="IDGovDepartment" OtherKey="id" Type="GovDepartment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AwardLevel" Member="AwardLevels">
+    <Type Name="AwardLevel">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AwardLevel" Member="AwardLevel1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="AwardLevel_Award" Member="Awards" ThisKey="ID" OtherKey="IDAwardLevel" Type="Award" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AwardType" Member="AwardTypes">
+    <Type Name="AwardType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="AwardType_Award" Member="Awards" ThisKey="ID" OtherKey="IDAwardType" Type="Award" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bonus" Member="Bonus">
+    <Type Name="Bonus">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DepartmentTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="DepartmentType_Dep" Member="Deps" ThisKey="id" OtherKey="idDepartmentType" Type="Dep" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DepartmentTimeNorm" Member="DepartmentTimeNorms">
-    <Type Name="DepartmentTimeNorm">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idDepartment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idFinancingSource" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NormHoursCount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="FinancingSource_DepartmentTimeNorm" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
-      <Association Name="Dep_DepartmentTimeNorm" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.FinancingSource" Member="FinancingSources">
-    <Type Name="FinancingSource">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FinancingSourceName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="OrderBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="FinancingSource_DepartmentTimeNorm" Member="DepartmentTimeNorms" ThisKey="id" OtherKey="idFinancingSource" Type="DepartmentTimeNorm" />
-      <Association Name="FinancingSource_BonusType" Member="BonusTypes" ThisKey="id" OtherKey="idDefaultFinancingSource" Type="BonusType" />
-      <Association Name="FinancingSource_BonusHistory" Member="BonusHistories" ThisKey="id" OtherKey="idFinancingSource" Type="BonusHistory" />
-      <Association Name="FinancingSource_PlanStaffHistory" Member="PlanStaffHistories" ThisKey="id" OtherKey="idFinancingSource" Type="PlanStaffHistory" />
-      <Association Name="FinancingSource_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idFinancingSource" Type="FactStaff" />
-      <Association Name="FinancingSource_BusinessTrip" Member="BusinessTrips" ThisKey="id" OtherKey="idFinanceSource" Type="BusinessTrip" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PlanStaffSalary" Member="PlanStaffSalaries">
-    <Type Name="PlanStaffSalary">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SalarySize" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="PlanStaff_PlanStaffSalary" Member="PlanStaff" ThisKey="idPlanStaff" OtherKey="id" Type="PlanStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Prikaz_PlanStaffSalary" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PrikazType" Member="PrikazTypes">
-    <Type Name="PrikazType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PrikazTypeName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="idPrikazSuperType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="PrikazType_Prikaz" Member="Prikazs" ThisKey="id" OtherKey="idPrikazType" Type="Prikaz" />
-      <Association Name="PrikazSuperType_PrikazType" Member="PrikazSuperType" ThisKey="idPrikazSuperType" OtherKey="id" Type="PrikazSuperType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PrikazSuperType" Member="PrikazSuperTypes">
-    <Type Name="PrikazSuperType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PrikazSuperTypeName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Association Name="PrikazSuperType_PrikazType" Member="PrikazTypes" ThisKey="id" OtherKey="idPrikazSuperType" Type="PrikazType" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PKGroup" Member="PKGroups">
-    <Type Name="PKGroup">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="GroupNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="GroupName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="PKGroup_PKCategory" Member="PKCategories" ThisKey="id" OtherKey="idPKGroup" Type="PKCategory" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PKCategorySalary" Member="PKCategorySalaries">
-    <Type Name="PKCategorySalary">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SalarySize" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="idPKCategory" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="PKCategory_PKCategorySalary" Member="PKCategory" ThisKey="idPKCategory" OtherKey="id" Type="PKCategory" IsForeignKey="true" />
-      <Association Name="Prikaz_PKCategorySalary" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.WorkSuperType" Member="WorkSuperTypes">
-    <Type Name="WorkSuperType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="WorkSuperTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="WorkSuperTypeShortName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="WorkSuperType_WorkType" Member="WorkTypes" ThisKey="id" OtherKey="idWorkSuperType" Type="WorkType" />
-    </Type>
-  </Table>
-  <Table Name="dbo.EmployeeRank" Member="EmployeeRanks">
-    <Type Name="EmployeeRank">
-      <Column Name="idEducDocument" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idRank" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="rankWhere" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Association Name="Rank_EmployeeRank" Member="Rank" ThisKey="idRank" OtherKey="id" Type="Rank" IsForeignKey="true" />
-      <Association Name="EducDocument_EmployeeRank" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
-      <Association Name="Employee_EmployeeRank" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.EmployeeDegree" Member="EmployeeDegrees">
-    <Type Name="EmployeeDegree">
-      <Column Name="idEducDocument" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="degreeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DissertCouncil" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="diplWhere" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="idDegree" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idScienceType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="ScienceType_EmployeeDegree" Member="ScienceType" ThisKey="idScienceType" OtherKey="id" Type="ScienceType" IsForeignKey="true" />
-      <Association Name="Degree_EmployeeDegree" Member="Degree" ThisKey="idDegree" OtherKey="id" Type="Degree" IsForeignKey="true" />
-      <Association Name="EducDocument_EmployeeDegree" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
-      <Association Name="Employee_EmployeeDegree" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SemPol" Member="SemPols">
-    <Type Name="SemPol">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="sempolName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="SemPol_Employee" Member="Employees" ThisKey="id" OtherKey="idSemPol" Type="Employee" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ScienceType" Member="ScienceTypes">
-    <Type Name="ScienceType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ScienceTypeName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="ScienceTypeAbbrev" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ScienceTypeShortName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="ScienceType_EmployeeDegree" Member="EmployeeDegrees" ThisKey="id" OtherKey="idScienceType" Type="EmployeeDegree" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Rank" Member="Ranks">
-    <Type Name="Rank">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="RankName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RankOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Rank_EmployeeRank" Member="EmployeeRanks" ThisKey="id" OtherKey="idRank" Type="EmployeeRank" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Degree" Member="Degrees">
-    <Type Name="Degree">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DegreeName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="DegreeShortName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DegreeAbbrev" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DegreeOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Degree_EmployeeDegree" Member="EmployeeDegrees" ThisKey="id" OtherKey="idDegree" Type="EmployeeDegree" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Grazd" Member="Grazds">
-    <Type Name="Grazd">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="grazdName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Grazd_Employee" Member="Employees" ThisKey="id" OtherKey="idGrazd" Type="Employee" />
-    </Type>
-  </Table>
-  <Table Name="dbo.FundingCenter" Member="FundingCenters">
-    <Type Name="FundingCenter">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FundingCenterName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="FundingCenter_Dep" Member="Deps" ThisKey="id" OtherKey="idFundingCenter" Type="Dep" />
-      <Association Name="FundingCenter_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idFundingCenter" Type="FactStaff" />
+      <Column Name="idBonusType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="idIntermediateEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Bonus_BonusEmployee" Member="BonusEmployee" ThisKey="id" OtherKey="idBonus" Type="BonusEmployee" Cardinality="One" />
+      <Association Name="Bonus_BonusFactStaff" Member="BonusFactStaff" ThisKey="id" OtherKey="idBonus" Type="BonusFactStaff" Cardinality="One" />
+      <Association Name="Bonus_BonusHistory" Member="BonusHistories" ThisKey="id" OtherKey="idBonus" Type="BonusHistory" />
+      <Association Name="Bonus_BonusPlanStaff" Member="BonusPlanStaff" ThisKey="id" OtherKey="idBonus" Type="BonusPlanStaff" Cardinality="One" />
+      <Association Name="Bonus_BonusPost" Member="BonusPost" ThisKey="id" OtherKey="idBonus" Type="BonusPost" Cardinality="One" />
+      <Association Name="BonusType_Bonus" Member="BonusType" ThisKey="idBonusType" OtherKey="id" Type="BonusType" IsForeignKey="true" />
+      <Association Name="Prikaz_Bonus" Member="Prikaz" ThisKey="idEndPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+      <Association Name="Prikaz_Bonus1" Member="Prikaz1" ThisKey="idIntermediateEndPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.FactStaffReplacementReason" Member="FactStaffReplacementReasons">
-    <Type Name="FactStaffReplacementReason">
+  <Table Name="dbo.BonusEmployee" Member="BonusEmployees">
+    <Type Name="BonusEmployee">
+      <Column Name="idBonus" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Bonus_BonusEmployee" Member="Bonus" ThisKey="idBonus" OtherKey="id" Type="Bonus" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Employee_BonusEmployee" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BonusFactStaff" Member="BonusFactStaffs">
+    <Type Name="BonusFactStaff">
+      <Column Name="idBonus" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Bonus_BonusFactStaff" Member="Bonus" ThisKey="idBonus" OtherKey="id" Type="Bonus" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="FactStaff_BonusFactStaff" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BonusHistory" Member="BonusHistories">
+    <Type Name="BonusHistory">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ReplacementReasonName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ReplacementReasonShortName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="FactStaffReplacementReason_FactStaffReplacement" Member="FactStaffReplacements" ThisKey="id" OtherKey="idReplacementReason" Type="FactStaffReplacement" />
+      <Column Name="idBonus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BonusCount" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="idFinancingSource" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Bonus_BonusHistory" Member="Bonus" ThisKey="idBonus" OtherKey="id" Type="Bonus" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="FinancingSource_BonusHistory" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
+      <Association Name="Prikaz_BonusHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BonusKoeffs" Member="BonusKoeffs">
+    <Type Name="BonusKoeff">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SeverKoeff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RayonKoeff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NDFLKoeff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BonusMeasure" Member="BonusMeasures">
+    <Type Name="BonusMeasure">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MeasureName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sign" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="BonusMeasure_BonusType" Member="BonusTypes" ThisKey="id" OtherKey="idBonusMeasure" Type="BonusType" />
     </Type>
   </Table>
   <Table Name="dbo.BonusPlanStaff" Member="BonusPlanStaffs">
@@ -184,72 +108,12 @@
       <Association Name="PlanStaff_BonusPlanStaff" Member="PlanStaff" ThisKey="idPlanStaff" OtherKey="id" Type="PlanStaff" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.BonusMeasure" Member="BonusMeasures">
-    <Type Name="BonusMeasure">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MeasureName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Sign" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="BonusMeasure_BonusType" Member="BonusTypes" ThisKey="id" OtherKey="idBonusMeasure" Type="BonusType" />
-    </Type>
-  </Table>
   <Table Name="dbo.BonusPost" Member="BonusPosts">
     <Type Name="BonusPost">
       <Column Name="idPost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idBonus" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Post_BonusPost" Member="Post" ThisKey="idPost" OtherKey="id" Type="Post" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Bonus_BonusPost" Member="Bonus" ThisKey="idBonus" OtherKey="id" Type="Bonus" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.BonusFactStaff" Member="BonusFactStaffs">
-    <Type Name="BonusFactStaff">
-      <Column Name="idBonus" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Bonus_BonusFactStaff" Member="Bonus" ThisKey="idBonus" OtherKey="id" Type="Bonus" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="FactStaff_BonusFactStaff" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Category" Member="Categories">
-    <Type Name="Category">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CategoryName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CategorySmallName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="OrderBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IsPPS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Category_Post" Member="Posts" ThisKey="id" OtherKey="idCategory" Type="Post" />
-      <Association Name="Category_Post1" Member="Posts1" ThisKey="id" OtherKey="idNewCategory" Type="Post" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TimeSheet" Member="TimeSheets">
-    <Type Name="TimeSheet">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TimeSheetMonth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TimeSheetYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TimeSheetWorkingDayCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IsClosed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IsFilled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="TimeSheetWorkingHourCount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="TimeSheet_TimeSheetFSWorkingDay" Member="TimeSheetFSWorkingDays" ThisKey="id" OtherKey="idTimeSheet" Type="TimeSheetFSWorkingDay" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TimeSheetFSWorkingDays" Member="TimeSheetFSWorkingDays">
-    <Type Name="TimeSheetFSWorkingDay">
-      <Column Name="idTimeSheet" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="WorkingDaysCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IsClosed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(3,2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="TimeSheet_TimeSheetFSWorkingDay" Member="TimeSheet" ThisKey="idTimeSheet" OtherKey="id" Type="TimeSheet" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="FactStaff_TimeSheetFSWorkingDay" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_Otpuskvid" Member="OK_Otpuskvids">
-    <Type Name="OK_Otpuskvid">
-      <Column Name="idotpuskvid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="otpuskvidname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="idDayStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="isMaternity" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="otpTypeShortName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="OK_Otpuskvid_OK_Otpusk" Member="OK_Otpusks" ThisKey="idotpuskvid" OtherKey="idOtpuskVid" Type="OK_Otpusk" />
+      <Association Name="Post_BonusPost" Member="Post" ThisKey="idPost" OtherKey="id" Type="Post" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.BonusReport" Member="BonusReports">
@@ -260,6 +124,7 @@
       <Column Name="SalaryFirst" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="DefaultBonusOrder" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="WithReplacements" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SalaryFromCalcStaff" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="BonusReport_BonusReportColumn" Member="BonusReportColumns" ThisKey="id" OtherKey="idBonusReport" Type="BonusReportColumn" />
     </Type>
   </Table>
@@ -269,98 +134,70 @@
       <Column Name="idBonusReport" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idBonusType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="BonusOrderNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OnlyExtrabudgetary" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="BonusReport_BonusReportColumn" Member="BonusReport" ThisKey="idBonusReport" OtherKey="id" Type="BonusReport" IsForeignKey="true" />
       <Association Name="BonusType_BonusReportColumn" Member="BonusType" ThisKey="idBonusType" OtherKey="id" Type="BonusType" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="ShemaTabel.WorkShedule" Member="WorkShedules">
-    <Type Name="WorkShedule">
+  <Table Name="dbo.BonusSuperType" Member="BonusSuperTypes">
+    <Type Name="BonusSuperType">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NameShedule" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="WorkShedule_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="IdWorkShedule" Type="PlanStaff" />
+      <Column Name="BonusSuperTypeName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BonusSuperType_BonusType" Member="BonusTypes" ThisKey="id" OtherKey="idBonusSuperType" Type="BonusType" />
     </Type>
   </Table>
-  <Table Name="dbo.TimeSheetDayState" Member="TimeSheetDayStates">
-    <Type Name="TimeSheetDayState">
+  <Table Name="dbo.BonusType" Member="BonusTypes">
+    <Type Name="BonusType">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DayStateName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="DayStateShortName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsWorking" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BonusTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BonusTypeShortName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="idBonusSuperType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idBonusMeasure" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HasEnvironmentBonus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsStaffRateable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idDefaultFinancingSource" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsCalcStaffRateable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="BonusType_Bonus" Member="Bonus" ThisKey="id" OtherKey="idBonusType" Type="Bonus" />
+      <Association Name="BonusType_BonusReportColumn" Member="BonusReportColumns" ThisKey="id" OtherKey="idBonusType" Type="BonusReportColumn" />
+      <Association Name="BonusMeasure_BonusType" Member="BonusMeasure" ThisKey="idBonusMeasure" OtherKey="id" Type="BonusMeasure" IsForeignKey="true" />
+      <Association Name="BonusSuperType_BonusType" Member="BonusSuperType" ThisKey="idBonusSuperType" OtherKey="id" Type="BonusSuperType" IsForeignKey="true" />
+      <Association Name="FinancingSource_BonusType" Member="FinancingSource" ThisKey="idDefaultFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SalaryKoeff" Member="SalaryKoeffs">
-    <Type Name="SalaryKoeff">
+  <Table Name="dbo.BusinessTrip" Member="BusinessTrips">
+    <Type Name="BusinessTrip">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PKSubSubCategoryNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SalaryKoeffc" Type="System.Decimal" DbType="Decimal(6,2) NOT NULL" CanBeNull="false" />
-      <Association Name="SalaryKoeff_PKCategory" Member="PKCategories" ThisKey="id" OtherKey="idSalaryKoeff" Type="PKCategory" />
-      <Association Name="SalaryKoeff_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idSalaryKoeff" Type="FactStaffHistory" />
+      <Column Name="idEvent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TripTargetPlace" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="idFinanceSource" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idBusinessTrip" Type="BusinessTripRegionType" />
+      <Association Name="Event_BusinessTrip" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="FinancingSource_BusinessTrip" Member="FinancingSource" ThisKey="idFinanceSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.WorkType" Member="WorkTypes">
-    <Type Name="WorkType">
+  <Table Name="dbo.BusinessTripRegionType" Member="BusinessTripRegionTypes">
+    <Type Name="BusinessTripRegionType">
+      <Column Name="idRegionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idBusinessTrip" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTrip" ThisKey="idBusinessTrip" OtherKey="id" Type="BusinessTrip" IsForeignKey="true" />
+      <Association Name="RegionType_BusinessTripRegionType" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TypeWorkName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TypeWorkShortName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="IsReplacement" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="IsMain" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="idWorkSuperType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="WorkType_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idTypeWork" Type="FactStaffHistory" />
-      <Association Name="WorkSuperType_WorkType" Member="WorkSuperType" ThisKey="idWorkSuperType" OtherKey="id" Type="WorkSuperType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.FactStaffReplacement" Member="FactStaffReplacements">
-    <Type Name="FactStaffReplacement">
-      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idReplacedFactStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idReplacementReason" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="FactStaffReplacementReason_FactStaffReplacement" Member="FactStaffReplacementReason" ThisKey="idReplacementReason" OtherKey="id" Type="FactStaffReplacementReason" IsForeignKey="true" />
-      <Association Name="FactStaff_FactStaffReplacement" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="FactStaff_FactStaffReplacement1" Member="FactStaff1" ThisKey="idReplacedFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PostType" Member="PostTypes">
-    <Type Name="PostType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PostTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="PostType_Post" Member="Posts" ThisKey="id" OtherKey="idPostType" Type="Post" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DepartmentFund" Member="DepartmentFunds">
-    <Type Name="DepartmentFund">
-      <Column Name="idDepartment" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PlanFundSum" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="FactFundSum" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="ExtraordSum" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Association Name="Dep_DepartmentFund" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PKCategory" Member="PKCategories">
-    <Type Name="PKCategory">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idPKGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PKCategoryNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PKSubCategoryNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PKComment" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="PKSubSubCategoryNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idSalaryKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="PKCategory_PKCategorySalary" Member="PKCategorySalaries" ThisKey="id" OtherKey="idPKCategory" Type="PKCategorySalary" />
-      <Association Name="PKCategory_Post" Member="Posts" ThisKey="id" OtherKey="idPKCategory" Type="Post" />
-      <Association Name="PKGroup_PKCategory" Member="PKGroup" ThisKey="idPKGroup" OtherKey="id" Type="PKGroup" IsForeignKey="true" />
-      <Association Name="SalaryKoeff_PKCategory" Member="SalaryKoeff" ThisKey="idSalaryKoeff" OtherKey="id" Type="SalaryKoeff" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.FactStaffMonthHour" Member="FactStaffMonthHours">
-    <Type Name="FactStaffMonthHour">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MonthNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="HourCount" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="YearNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="FactStaff_FactStaffMonthHour" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
+      <Column Name="CategoryName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CategorySmallName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsPPS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsNP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Category_Post" Member="Posts" ThisKey="id" OtherKey="idCategory" Type="Post" />
+      <Association Name="Category_Post1" Member="Posts1" ThisKey="id" OtherKey="idNewCategory" Type="Post" />
     </Type>
   </Table>
   <Table Name="dbo.CategoryVPO" Member="CategoryVPOs">
@@ -381,43 +218,29 @@
       <Association Name="CategoryZP_Post" Member="Posts" ThisKey="id" OtherKey="idCategoryZP" Type="Post" />
     </Type>
   </Table>
-  <Table Name="dbo.FactStaffCurrentMainData" Member="FactStaffCurrentMainDatas">
-    <Type Name="FactStaffCurrentMainData">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(6,4) NOT NULL" CanBeNull="false" />
-      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FactStaffFullName" Type="System.String" DbType="VarChar(380)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Department" Member="Departments">
-    <Type Name="Department">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentSmallName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="idDepartmentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idManagerDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="dateCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="dateExit" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="idManagerPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SeverKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RayonKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DepartmentGUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="idFundingCenter" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DepartmentIndex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="DepPhoneNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="HasTimeSheet" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OKVED" Member="OKVEDs">
-    <Type Name="OKVED">
+  <Table Name="dbo.Contract" Member="Contracts">
+    <Type Name="Contract">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="OKVEDName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="OKVED_Dep" Member="Deps" ThisKey="id" OtherKey="idOKVED" Type="Dep" />
-      <Association Name="OKVED_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idOKVED" Type="FactStaff" />
+      <Column Name="ContractName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateContract" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="idMainContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idPrikazType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Contract_Contract" Member="Contracts" ThisKey="id" OtherKey="idMainContract" Type="Contract" />
+      <Association Name="Contract_Event" Member="Events" ThisKey="id" OtherKey="idContract" Type="Event" />
+      <Association Name="Contract_Contract" Member="Contract1" ThisKey="idMainContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Degree" Member="Degrees">
+    <Type Name="Degree">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DegreeName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DegreeShortName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DegreeAbbrev" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DegreeOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Degree_EmployeeDegree" Member="EmployeeDegrees" ThisKey="id" OtherKey="idDegree" Type="EmployeeDegree" />
+      <Association Name="Degree_OKBufferEmployeeDegree" Member="OKBufferEmployeeDegrees" ThisKey="id" OtherKey="idDegree" Type="OKBufferEmployeeDegree" />
     </Type>
   </Table>
   <Table Name="dbo.Dep" Member="Deps">
@@ -436,12 +259,12 @@
       <Column Name="DepPhoneNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="HasTimeSheet" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="idOKVED" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Dep_DepartmentTimeNorm" Member="DepartmentTimeNorms" ThisKey="id" OtherKey="idDepartment" Type="DepartmentTimeNorm" />
       <Association Name="Dep_DepartmentFund" Member="DepartmentFunds" ThisKey="id" OtherKey="idDepartment" Type="DepartmentFund" />
-      <Association Name="Dep_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="idDepartment" Type="PlanStaff" />
-      <Association Name="Dep_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idDepartment" Type="FactStaff" />
       <Association Name="Dep_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idDepartment" Type="DepartmentHistory" />
       <Association Name="Dep_DepartmentHistory1" Member="DepartmentHistories1" ThisKey="id" OtherKey="idManagerDepartment" Type="DepartmentHistory" />
+      <Association Name="Dep_DepartmentTimeNorm" Member="DepartmentTimeNorms" ThisKey="id" OtherKey="idDepartment" Type="DepartmentTimeNorm" />
+      <Association Name="Dep_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idDepartment" Type="FactStaff" />
+      <Association Name="Dep_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="idDepartment" Type="PlanStaff" />
       <Association Name="DepartmentType_Dep" Member="DepartmentType" ThisKey="idDepartmentType" OtherKey="id" Type="DepartmentType" IsForeignKey="true" />
       <Association Name="FundingCenter_Dep" Member="FundingCenter" ThisKey="idFundingCenter" OtherKey="id" Type="FundingCenter" IsForeignKey="true" />
       <Association Name="OKVED_Dep" Member="OKVED" ThisKey="idOKVED" OtherKey="id" Type="OKVED" IsForeignKey="true" />
@@ -449,454 +272,14 @@
       <Association Name="Prikaz_Dep" Member="Prikaz" ThisKey="idEndPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.BonusType" Member="BonusTypes">
-    <Type Name="BonusType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BonusTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BonusTypeShortName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="idBonusSuperType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idBonusMeasure" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="HasEnvironmentBonus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="IsStaffRateable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="idDefaultFinancingSource" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IsCalcStaffRateable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="BonusType_BonusReportColumn" Member="BonusReportColumns" ThisKey="id" OtherKey="idBonusType" Type="BonusReportColumn" />
-      <Association Name="BonusType_Bonus" Member="Bonus" ThisKey="id" OtherKey="idBonusType" Type="Bonus" />
-      <Association Name="BonusMeasure_BonusType" Member="BonusMeasure" ThisKey="idBonusMeasure" OtherKey="id" Type="BonusMeasure" IsForeignKey="true" />
-      <Association Name="FinancingSource_BonusType" Member="FinancingSource" ThisKey="idDefaultFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
-      <Association Name="BonusSuperType_BonusType" Member="BonusSuperType" ThisKey="idBonusSuperType" OtherKey="id" Type="BonusSuperType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Post" Member="Posts">
-    <Type Name="Post">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PostName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="ManagerBit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="idGlobalPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idPKCategory" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PostGUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Comment" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="PostCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="idPostType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PostShortName" Type="System.String" DbType="VarChar(150) NOT NULL" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="idCategoryVPO" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idCategoryZP" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idNewCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idPostGroup" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Post_BonusPost" Member="BonusPosts" ThisKey="id" OtherKey="idPost" Type="BonusPost" />
-      <Association Name="Post_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="idPost" Type="PlanStaff" />
-      <Association Name="Category_Post" Member="Category" ThisKey="idCategory" OtherKey="id" Type="Category" IsForeignKey="true" />
-      <Association Name="Category_Post1" Member="Category1" ThisKey="idNewCategory" OtherKey="id" Type="Category" IsForeignKey="true" />
-      <Association Name="CategoryVPO_Post" Member="CategoryVPO" ThisKey="idCategoryVPO" OtherKey="id" Type="CategoryVPO" IsForeignKey="true" />
-      <Association Name="CategoryZP_Post" Member="CategoryZP" ThisKey="idCategoryZP" OtherKey="id" Type="CategoryZP" IsForeignKey="true" />
-      <Association Name="PKCategory_Post" Member="PKCategory" ThisKey="idPKCategory" OtherKey="id" Type="PKCategory" IsForeignKey="true" />
-      <Association Name="PostType_Post" Member="PostType" ThisKey="idPostType" OtherKey="id" Type="PostType" IsForeignKey="true" />
-      <Association Name="PostGroup_Post" Member="PostGroup" ThisKey="idPostGroup" OtherKey="id" Type="PostGroup" IsForeignKey="true" />
-      <Association Name="GlobalPrikaz_Post" Member="GlobalPrikaz" ThisKey="idGlobalPrikaz" OtherKey="id" Type="GlobalPrikaz" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PostGroup" Member="PostGroups">
-    <Type Name="PostGroup">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="GroupName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="GroupSmallName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="PostGroup_Post" Member="Posts" ThisKey="id" OtherKey="idPostGroup" Type="Post" />
-    </Type>
-  </Table>
-  <Table Name="dbo.BonusSuperType" Member="BonusSuperTypes">
-    <Type Name="BonusSuperType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BonusSuperTypeName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="OrderNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="BonusSuperType_BonusType" Member="BonusTypes" ThisKey="id" OtherKey="idBonusSuperType" Type="BonusType" />
-    </Type>
-  </Table>
-  <Table Name="dbo.GlobalPrikaz" Member="GlobalPrikazs">
-    <Type Name="GlobalPrikaz">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PrikazName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="PrikazNumber" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="GlobalPrikaz_Post" Member="Posts" ThisKey="id" OtherKey="idGlobalPrikaz" Type="Post" />
-    </Type>
-  </Table>
-  <Table Name="dbo.BonusHistory" Member="BonusHistories">
-    <Type Name="BonusHistory">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idBonus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="BonusCount" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="idFinancingSource" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="FinancingSource_BonusHistory" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
-      <Association Name="Bonus_BonusHistory" Member="Bonus" ThisKey="idBonus" OtherKey="id" Type="Bonus" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Prikaz_BonusHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Bonus" Member="Bonus">
-    <Type Name="Bonus">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="idBonusType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Comment" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="idIntermediateEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Bonus_BonusPlanStaff" Member="BonusPlanStaff" ThisKey="id" OtherKey="idBonus" Type="BonusPlanStaff" Cardinality="One" />
-      <Association Name="Bonus_BonusPost" Member="BonusPost" ThisKey="id" OtherKey="idBonus" Type="BonusPost" Cardinality="One" />
-      <Association Name="Bonus_BonusFactStaff" Member="BonusFactStaff" ThisKey="id" OtherKey="idBonus" Type="BonusFactStaff" Cardinality="One" />
-      <Association Name="Bonus_BonusHistory" Member="BonusHistories" ThisKey="id" OtherKey="idBonus" Type="BonusHistory" />
-      <Association Name="BonusType_Bonus" Member="BonusType" ThisKey="idBonusType" OtherKey="id" Type="BonusType" IsForeignKey="true" />
-      <Association Name="Prikaz_Bonus" Member="Prikaz" ThisKey="idEndPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-      <Association Name="Prikaz_Bonus1" Member="Prikaz1" ThisKey="idIntermediateEndPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PlanStaff" Member="PlanStaffs">
-    <Type Name="PlanStaff">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idDepartment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idPost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IdWorkShedule" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="PlanStaff_PlanStaffSalary" Member="PlanStaffSalaries" ThisKey="id" OtherKey="idPlanStaff" Type="PlanStaffSalary" />
-      <Association Name="PlanStaff_BonusPlanStaff" Member="BonusPlanStaffs" ThisKey="id" OtherKey="idPlanStaff" Type="BonusPlanStaff" />
-      <Association Name="PlanStaff_Dep" Member="Deps" ThisKey="id" OtherKey="idManagerPlanStaff" Type="Dep" />
-      <Association Name="PlanStaff_PlanStaffHistory" Member="PlanStaffHistories" ThisKey="id" OtherKey="idPlanStaff" Type="PlanStaffHistory" />
-      <Association Name="PlanStaff_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idPlanStaff" Type="FactStaff" />
-      <Association Name="Dep_PlanStaff" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
-      <Association Name="Post_PlanStaff" Member="Post" ThisKey="idPost" OtherKey="id" Type="Post" IsForeignKey="true" />
-      <Association Name="WorkShedule_PlanStaff" Member="WorkShedule" ThisKey="IdWorkShedule" OtherKey="id" Type="WorkShedule" IsForeignKey="true" />
-      <Association Name="Prikaz_PlanStaff" Member="Prikaz" ThisKey="idEndPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PlanStaffHistory" Member="PlanStaffHistories">
-    <Type Name="PlanStaffHistory">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
-      <Column Name="idFinancingSource" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="FinancingSource_PlanStaffHistory" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
-      <Association Name="PlanStaff_PlanStaffHistory" Member="PlanStaff" ThisKey="idPlanStaff" OtherKey="id" Type="PlanStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Prikaz_PlanStaffHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.StandingType" Member="StandingTypes">
-    <Type Name="StandingType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="StandingTypeName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
-      <Association Name="StandingType_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idStandingType" Type="EmployeeStanding" />
-    </Type>
-  </Table>
-  <Table Name="dbo.EmployeeStanding" Member="EmployeeStandings">
-    <Type Name="EmployeeStanding">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="WorkPlace" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Post" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="idRegionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idStandingType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="StandingType_EmployeeStanding" Member="StandingType" ThisKey="idStandingType" OtherKey="id" Type="StandingType" IsForeignKey="true" />
-      <Association Name="RegionType_EmployeeStanding" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
-      <Association Name="Employee_EmployeeStanding" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.AuditKadrVersion" Member="AuditKadrVersions">
-    <Type Name="AuditKadrVersion">
-      <Column Name="idVersion" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="VersionDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Comment" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_phone" Member="OK_phones">
-    <Type Name="OK_phone">
-      <Column Name="idphone" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="phone" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="Employee_OK_phone" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.BusinessTripRegionType" Member="BusinessTripRegionTypes">
-    <Type Name="BusinessTripRegionType">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idRegionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idBusinessTrip" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="RegionType_BusinessTripRegionType" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTrip" ThisKey="idBusinessTrip" OtherKey="id" Type="BusinessTrip" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_DopInf" Member="OK_DopInfs">
-    <Type Name="OK_DopInf">
-      <Column Name="idDopInf" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DopInf" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="Employee_OK_DopInf" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Organisation" Member="Organisations">
-    <Type Name="Organisation">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(900) NOT NULL" CanBeNull="false" />
-      <Association Name="Organisation_EducDocument" Member="EducDocuments" ThisKey="id" OtherKey="IdOrganisation" Type="EducDocument" />
-    </Type>
-  </Table>
-  <Table Name="dbo.RegionType" Member="RegionTypes">
-    <Type Name="RegionType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="RegionTypeName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="RegionTypeSmallName" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Association Name="RegionType_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idRegionType" Type="EmployeeStanding" />
-      <Association Name="RegionType_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idRegionType" Type="BusinessTripRegionType" />
-      <Association Name="RegionType_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idRegionType" Type="DepartmentHistory" />
-      <Association Name="RegionType_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idRegionType" Type="FactStaffHistory" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ValidationDecision" Member="ValidationDecisions">
-    <Type Name="ValidationDecision">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Association Name="ValidationDecision_Validation" Member="Validations" ThisKey="ID" OtherKey="IDValidDecision" Type="Validation" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_Language" Member="OK_Languages">
-    <Type Name="OK_Language">
-      <Column Name="idlanguage" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="languagename" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="OK_Language_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="idlanguage" OtherKey="idLanguage" Type="OK_EmployeeLang" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_EmployeeLang" Member="OK_EmployeeLangs">
-    <Type Name="OK_EmployeeLang">
-      <Column Name="idEmployeeLang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idLanguage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="goodlevelbit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="idLanguageLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="OK_Language_OK_EmployeeLang" Member="OK_Language" ThisKey="idLanguage" OtherKey="idlanguage" Type="OK_Language" IsForeignKey="true" />
-      <Association Name="EducDocument_OK_EmployeeLang" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
-      <Association Name="LanguageLevel_OK_EmployeeLang" Member="LanguageLevel" ThisKey="idLanguageLevel" OtherKey="id" Type="LanguageLevel" IsForeignKey="true" />
-      <Association Name="Employee_OK_EmployeeLang" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_Educ" Member="OK_Educs">
-    <Type Name="OK_Educ">
-      <Column Name="idEducDocument" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EducWhere" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="EducWhen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Spec" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Kvalif" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="idEducationType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="EducationType_OK_Educ" Member="EducationType" ThisKey="idEducationType" OtherKey="id" Type="EducationType" IsForeignKey="true" />
-      <Association Name="EducDocument_OK_Educ" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Employee_OK_Educ" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.EducationType" Member="EducationTypes">
-    <Type Name="EducationType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EduTypeName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="EducationType_OK_Educ" Member="OK_Educs" ThisKey="id" OtherKey="idEducationType" Type="OK_Educ" />
-    </Type>
-  </Table>
-  <Table Name="dbo.EducDocument" Member="EducDocuments">
-    <Type Name="EducDocument">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEducDocType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DocSeries" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="DocNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="DocDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IdOrganisation" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="EducDocument_EmployeeRank" Member="EmployeeRank" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeRank" Cardinality="One" />
-      <Association Name="EducDocument_EmployeeDegree" Member="EmployeeDegree" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeDegree" Cardinality="One" />
-      <Association Name="EducDocument_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="id" OtherKey="idEducDocument" Type="OK_EmployeeLang" />
-      <Association Name="EducDocument_OK_Educ" Member="OK_Educ" ThisKey="id" OtherKey="idEducDocument" Type="OK_Educ" Cardinality="One" />
-      <Association Name="EducDocument_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEducDocument" Type="OK_Social" />
-      <Association Name="EducDocument_Award" Member="Awards" ThisKey="id" OtherKey="IDEducDocument" Type="Award" />
-      <Association Name="EducDocument_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idEducDocument" Type="OK_DopEducation" />
-      <Association Name="EducDocument_Validation" Member="Validations" ThisKey="id" OtherKey="IDEducDocument" Type="Validation" />
-      <Association Name="EducDocument_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEducDocument" Type="OK_Inkapacity" />
-      <Association Name="Organisation_EducDocument" Member="Organisation" ThisKey="IdOrganisation" OtherKey="id" Type="Organisation" IsForeignKey="true" />
-      <Association Name="EducDocumentType_EducDocument" Member="EducDocumentType" ThisKey="idEducDocType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.LanguageLevel" Member="LanguageLevels">
-    <Type Name="LanguageLevel">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="LevelName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="GoodBit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="LanguageLevel_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="id" OtherKey="idLanguageLevel" Type="OK_EmployeeLang" />
-    </Type>
-  </Table>
-  <Table Name="dbo.EducDocumentType" Member="EducDocumentTypes">
-    <Type Name="EducDocumentType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DocTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="isOld" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="EducDocumentType_EducDocument" Member="EducDocuments" ThisKey="id" OtherKey="idEducDocType" Type="EducDocument" />
-      <Association Name="EducDocumentType_DopEducType" Member="DopEducTypes" ThisKey="id" OtherKey="idEducDocumentType" Type="DopEducType" />
-    </Type>
-  </Table>
-  <Table Name="dbo.FactStaff" Member="FactStaffs">
-    <Type Name="FactStaff">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IsReplacement" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="IDShedule" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idlaborcontrakt" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idreason" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idFundingDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idTimeSheetSheduleType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idFundingCenter" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idFinancingSource" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Comment" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="idMainFactStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idOKVED" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="FactStaff_BonusFactStaff" Member="BonusFactStaffs" ThisKey="id" OtherKey="idFactStaff" Type="BonusFactStaff" />
-      <Association Name="FactStaff_TimeSheetFSWorkingDay" Member="TimeSheetFSWorkingDays" ThisKey="id" OtherKey="idFactStaff" Type="TimeSheetFSWorkingDay" />
-      <Association Name="FactStaff_FactStaffReplacement" Member="FactStaffReplacement" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffReplacement" Cardinality="One" />
-      <Association Name="FactStaff_FactStaffReplacement1" Member="FactStaffReplacements" ThisKey="id" OtherKey="idReplacedFactStaff" Type="FactStaffReplacement" />
-      <Association Name="FactStaff_FactStaffMonthHour" Member="FactStaffMonthHours" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffMonthHour" />
-      <Association Name="FactStaff_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idMainFactStaff" Type="FactStaff" />
-      <Association Name="FactStaff_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaff" Type="OK_Otpusk" />
-      <Association Name="FactStaff_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffHistory" />
-      <Association Name="Dep_FactStaff" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
-      <Association Name="FactStaff_FactStaff" Member="FactStaff1" ThisKey="idMainFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
-      <Association Name="FinancingSource_FactStaff" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
-      <Association Name="FundingCenter_FactStaff" Member="FundingCenter" ThisKey="idFundingCenter" OtherKey="id" Type="FundingCenter" IsForeignKey="true" />
-      <Association Name="OKVED_FactStaff" Member="OKVED" ThisKey="idOKVED" OtherKey="id" Type="OKVED" IsForeignKey="true" />
-      <Association Name="PlanStaff_FactStaff" Member="PlanStaff" ThisKey="idPlanStaff" OtherKey="id" Type="PlanStaff" IsForeignKey="true" />
-      <Association Name="Prikaz_FactStaff" Member="Prikaz" ThisKey="idEndPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-      <Association Name="Employee_FactStaff" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
-      <Association Name="OK_Reason_FactStaff" Member="OK_Reason" ThisKey="idreason" OtherKey="idreason" Type="OK_Reason" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.MilitaryCategory" Member="MilitaryCategories">
-    <Type Name="MilitaryCategory">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MilitaryCategoryName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="MilitaryCategory_Employee" Member="Employees" ThisKey="id" OtherKey="idMilitaryCategory" Type="Employee" />
-    </Type>
-  </Table>
-  <Table Name="dbo.MilitaryFitness" Member="MilitaryFitnesses">
-    <Type Name="MilitaryFitness">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Letter" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="MilitaryFitness_Employee" Member="Employees" ThisKey="id" OtherKey="idMilitaryFitness" Type="Employee" />
-    </Type>
-  </Table>
-  <Table Name="dbo.MilitaryRank" Member="MilitaryRanks">
-    <Type Name="MilitaryRank">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MilitaryRankName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="MilitaryRank_Employee" Member="Employees" ThisKey="id" OtherKey="idMilitaryRank" Type="Employee" />
-    </Type>
-  </Table>
-  <Table Name="dbo.MilitaryStructure" Member="MilitaryStructures">
-    <Type Name="MilitaryStructure">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MilitaryStructureName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="MilitaryStructure_Employee" Member="Employees" ThisKey="id" OtherKey="idMilitaryStructure" Type="Employee" />
-    </Type>
-  </Table>
-  <Table Name="dbo.MilitaryType" Member="MilitaryTypes">
-    <Type Name="MilitaryType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MilitaryTypeName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="MilitaryType_Employee" Member="Employees" ThisKey="id" OtherKey="idMilitaryType" Type="Employee" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_Social" Member="OK_Socials">
-    <Type Name="OK_Social">
-      <Column Name="idSocial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idSocialStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="EducDocument_OK_Social" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
-      <Association Name="Employee_OK_Social" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="OK_SocialStatus_OK_Social" Member="OK_SocialStatus" ThisKey="idSocialStatus" OtherKey="idSocialStatus" Type="OK_SocialStatus" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.AwardLevel" Member="AwardLevels">
-    <Type Name="AwardLevel">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="AwardLevel" Member="AwardLevel1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="AwardLevel_Award" Member="Awards" ThisKey="ID" OtherKey="IDAwardLevel" Type="Award" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_Adress" Member="OK_Adresses">
-    <Type Name="OK_Adress">
-      <Column Name="idAdress" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Adress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="DateReg" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="RegBit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Employee_OK_Adress" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_MembFam" Member="OK_MembFams">
-    <Type Name="OK_MembFam">
-      <Column Name="idmembfam" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="membfamname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="OK_MembFam_OK_Fam" Member="OK_Fams" ThisKey="idmembfam" OtherKey="idmembfam" Type="OK_Fam" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_Fam" Member="OK_Fams">
-    <Type Name="OK_Fam">
-      <Column Name="idfam" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idmembfam" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idemployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="fiomembfam" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="godbirth" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="BirthDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="BirthYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="OK_MembFam_OK_Fam" Member="OK_MembFam" ThisKey="idmembfam" OtherKey="idmembfam" Type="OK_MembFam" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Employee_OK_Fam" Member="Employee" ThisKey="idemployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Prikaz" Member="Prikazs">
-    <Type Name="Prikaz">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PrikazName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DatePrikaz" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="idPrikazType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="resume" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Prikaz_PlanStaffSalary" Member="PlanStaffSalaries" ThisKey="id" OtherKey="idPrikaz" Type="PlanStaffSalary" />
-      <Association Name="Prikaz_PKCategorySalary" Member="PKCategorySalaries" ThisKey="id" OtherKey="idPrikaz" Type="PKCategorySalary" />
-      <Association Name="Prikaz_Dep" Member="Deps" ThisKey="id" OtherKey="idEndPrikaz" Type="Dep" />
-      <Association Name="Prikaz_BonusHistory" Member="BonusHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="BonusHistory" />
-      <Association Name="Prikaz_Bonus" Member="Bonus" ThisKey="id" OtherKey="idEndPrikaz" Type="Bonus" />
-      <Association Name="Prikaz_Bonus1" Member="Bonus1" ThisKey="id" OtherKey="idIntermediateEndPrikaz" Type="Bonus" />
-      <Association Name="Prikaz_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="idEndPrikaz" Type="PlanStaff" />
-      <Association Name="Prikaz_PlanStaffHistory" Member="PlanStaffHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="PlanStaffHistory" />
-      <Association Name="Prikaz_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idEndPrikaz" Type="FactStaff" />
-      <Association Name="Prikaz_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="DepartmentHistory" />
-      <Association Name="Prikaz_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idOtpuskPrikaz" Type="OK_Otpusk" />
-      <Association Name="Prikaz_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="FactStaffHistory" />
-      <Association Name="Prikaz_Event" Member="Events" ThisKey="id" OtherKey="idPrikaz" Type="Event" />
-      <Association Name="Prikaz_Event1" Member="Events1" ThisKey="id" OtherKey="idPrikazEnd" Type="Event" />
-      <Association Name="PrikazType_Prikaz" Member="PrikazType" ThisKey="idPrikazType" OtherKey="id" Type="PrikazType" IsForeignKey="true" />
+  <Table Name="dbo.DepartmentFund" Member="DepartmentFunds">
+    <Type Name="DepartmentFund">
+      <Column Name="idDepartment" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PlanFundSum" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="FactFundSum" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ExtraordSum" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Dep_DepartmentFund" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DepartmentHistory" Member="DepartmentHistories">
@@ -914,6 +297,71 @@
       <Association Name="Dep_DepartmentHistory1" Member="Dep1" ThisKey="idManagerDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
       <Association Name="Prikaz_DepartmentHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
       <Association Name="RegionType_DepartmentHistory" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DepartmentTimeNorm" Member="DepartmentTimeNorms">
+    <Type Name="DepartmentTimeNorm">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idDepartment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idFinancingSource" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NormHoursCount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Dep_DepartmentTimeNorm" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
+      <Association Name="FinancingSource_DepartmentTimeNorm" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DepartmentType" Member="DepartmentTypes">
+    <Type Name="DepartmentType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="DepartmentType_Dep" Member="Deps" ThisKey="id" OtherKey="idDepartmentType" Type="Dep" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DopEducType" Member="DopEducTypes">
+    <Type Name="DopEducType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DopEducName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Duration" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idEducDocumentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DopEducType_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idDopEducType" Type="OK_DopEducation" />
+      <Association Name="EducDocumentType_DopEducType" Member="EducDocumentType" ThisKey="idEducDocumentType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EducationType" Member="EducationTypes">
+    <Type Name="EducationType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EduTypeName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="EducationType_OK_Educ" Member="OK_Educs" ThisKey="id" OtherKey="idEducationType" Type="OK_Educ" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EducDocument" Member="EducDocuments">
+    <Type Name="EducDocument">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEducDocType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocSeries" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DocNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DocDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdOrganisation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EducDocument_Award" Member="Awards" ThisKey="id" OtherKey="IDEducDocument" Type="Award" />
+      <Association Name="EducDocument_EmployeeDegree" Member="EmployeeDegree" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeDegree" Cardinality="One" />
+      <Association Name="EducDocument_EmployeeRank" Member="EmployeeRank" ThisKey="id" OtherKey="idEducDocument" Type="EmployeeRank" Cardinality="One" />
+      <Association Name="EducDocument_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idEducDocument" Type="OK_DopEducation" />
+      <Association Name="EducDocument_OK_Educ" Member="OK_Educ" ThisKey="id" OtherKey="idEducDocument" Type="OK_Educ" Cardinality="One" />
+      <Association Name="EducDocument_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="id" OtherKey="idEducDocument" Type="OK_EmployeeLang" />
+      <Association Name="EducDocument_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEducDocument" Type="OK_Inkapacity" />
+      <Association Name="EducDocument_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEducDocument" Type="OK_Social" />
+      <Association Name="EducDocument_Validation" Member="Validations" ThisKey="id" OtherKey="IDEducDocument" Type="Validation" />
+      <Association Name="EducDocumentType_EducDocument" Member="EducDocumentType" ThisKey="idEducDocType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
+      <Association Name="Organisation_EducDocument" Member="Organisation" ThisKey="IdOrganisation" OtherKey="id" Type="Organisation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EducDocumentType" Member="EducDocumentTypes">
+    <Type Name="EducDocumentType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DocTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="isOld" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="EducDocumentType_DopEducType" Member="DopEducTypes" ThisKey="id" OtherKey="idEducDocumentType" Type="DopEducType" />
+      <Association Name="EducDocumentType_EducDocument" Member="EducDocuments" ThisKey="id" OtherKey="idEducDocType" Type="EducDocument" />
     </Type>
   </Table>
   <Table Name="dbo.Employee" Member="Employees">
@@ -956,21 +404,23 @@
       <Column Name="RemovalMilitaryMark" Type="System.String" DbType="VarChar(900)" CanBeNull="true" />
       <Column Name="idMilitaryStructure" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NumberMilitaryType" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Association Name="Employee_EmployeeRank" Member="EmployeeRanks" ThisKey="id" OtherKey="idEmployee" Type="EmployeeRank" />
-      <Association Name="Employee_EmployeeDegree" Member="EmployeeDegrees" ThisKey="id" OtherKey="idEmployee" Type="EmployeeDegree" />
-      <Association Name="Employee_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idEmployee" Type="EmployeeStanding" />
-      <Association Name="Employee_OK_phone" Member="OK_phones" ThisKey="id" OtherKey="idEmployee" Type="OK_phone" />
-      <Association Name="Employee_OK_DopInf" Member="OK_DopInfs" ThisKey="id" OtherKey="idEmployee" Type="OK_DopInf" />
-      <Association Name="Employee_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="id" OtherKey="idEmployee" Type="OK_EmployeeLang" />
-      <Association Name="Employee_OK_Educ" Member="OK_Educs" ThisKey="id" OtherKey="idEmployee" Type="OK_Educ" />
-      <Association Name="Employee_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idEmployee" Type="FactStaff" />
-      <Association Name="Employee_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEmployee" Type="OK_Social" />
-      <Association Name="Employee_OK_Adress" Member="OK_Adresses" ThisKey="id" OtherKey="idEmployee" Type="OK_Adress" />
-      <Association Name="Employee_OK_Fam" Member="OK_Fams" ThisKey="id" OtherKey="idemployee" Type="OK_Fam" />
       <Association Name="Employee_Award" Member="Awards" ThisKey="id" OtherKey="IDEmployee" Type="Award" />
+      <Association Name="Employee_BonusEmployee" Member="BonusEmployees" ThisKey="id" OtherKey="idEmployee" Type="BonusEmployee" />
+      <Association Name="Employee_EmployeeDegree" Member="EmployeeDegrees" ThisKey="id" OtherKey="idEmployee" Type="EmployeeDegree" />
+      <Association Name="Employee_EmployeeRank" Member="EmployeeRanks" ThisKey="id" OtherKey="idEmployee" Type="EmployeeRank" />
+      <Association Name="Employee_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idEmployee" Type="EmployeeStanding" />
+      <Association Name="Employee_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idEmployee" Type="FactStaff" />
+      <Association Name="Employee_OK_Adress" Member="OK_Adresses" ThisKey="id" OtherKey="idEmployee" Type="OK_Adress" />
+      <Association Name="Employee_OK_DataChange" Member="OK_DataChanges" ThisKey="id" OtherKey="idEmployee" Type="OK_DataChange" />
       <Association Name="Employee_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idEmployee" Type="OK_DopEducation" />
-      <Association Name="Employee_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idEmployee" Type="SocialFareTransit" />
+      <Association Name="Employee_OK_DopInf" Member="OK_DopInfs" ThisKey="id" OtherKey="idEmployee" Type="OK_DopInf" />
+      <Association Name="Employee_OK_Educ" Member="OK_Educs" ThisKey="id" OtherKey="idEmployee" Type="OK_Educ" />
+      <Association Name="Employee_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="id" OtherKey="idEmployee" Type="OK_EmployeeLang" />
+      <Association Name="Employee_OK_Fam" Member="OK_Fams" ThisKey="id" OtherKey="idemployee" Type="OK_Fam" />
       <Association Name="Employee_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEmployee" Type="OK_Inkapacity" />
+      <Association Name="Employee_OK_phone" Member="OK_phones" ThisKey="id" OtherKey="idEmployee" Type="OK_phone" />
+      <Association Name="Employee_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEmployee" Type="OK_Social" />
+      <Association Name="Employee_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idEmployee" Type="SocialFareTransit" />
       <Association Name="Grazd_Employee" Member="Grazd" ThisKey="idGrazd" OtherKey="id" Type="Grazd" IsForeignKey="true" />
       <Association Name="MilitaryCategory_Employee" Member="MilitaryCategory" ThisKey="idMilitaryCategory" OtherKey="id" Type="MilitaryCategory" IsForeignKey="true" />
       <Association Name="MilitaryFitness_Employee" Member="MilitaryFitness" ThisKey="idMilitaryFitness" OtherKey="id" Type="MilitaryFitness" IsForeignKey="true" />
@@ -980,94 +430,94 @@
       <Association Name="SemPol_Employee" Member="SemPol" ThisKey="idSemPol" OtherKey="id" Type="SemPol" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Contract" Member="Contracts">
-    <Type Name="Contract">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ContractName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DateContract" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="idMainContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idPrikazType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Contract_Contract" Member="Contracts" ThisKey="id" OtherKey="idMainContract" Type="Contract" />
-      <Association Name="Contract_Event" Member="Events" ThisKey="id" OtherKey="idContract" Type="Event" />
-      <Association Name="Contract_Contract" Member="Contract1" ThisKey="idMainContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Award" Member="Awards">
-    <Type Name="Award">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IDEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IDEducDocument" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IDAwardType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IDAwardLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="AwardLevel_Award" Member="AwardLevel" ThisKey="IDAwardLevel" OtherKey="ID" Type="AwardLevel" IsForeignKey="true" />
-      <Association Name="EducDocument_Award" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
-      <Association Name="Employee_Award" Member="Employee" ThisKey="IDEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
-      <Association Name="Event_Award" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
-      <Association Name="AwardType_Award" Member="AwardType" ThisKey="IDAwardType" OtherKey="ID" Type="AwardType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DopEducType" Member="DopEducTypes">
-    <Type Name="DopEducType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DopEducName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="Duration" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="idEducDocumentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="DopEducType_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idDopEducType" Type="OK_DopEducation" />
-      <Association Name="EducDocumentType_DopEducType" Member="EducDocumentType" ThisKey="idEducDocumentType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OK_DopEducation" Member="OK_DopEducations">
-    <Type Name="OK_DopEducation">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idDopEducType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="idEducDocument" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+  <Table Name="dbo.EmployeeDegree" Member="EmployeeDegrees">
+    <Type Name="EmployeeDegree">
+      <Column Name="idEducDocument" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="degreeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DissertCouncil" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="diplWhere" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="idDegree" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idScienceType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Spec" Type="System.String" DbType="VarChar(900)" CanBeNull="true" />
-      <Column Name="Kvalif" Type="System.String" DbType="VarChar(900)" CanBeNull="true" />
-      <Column Name="AuditHour" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Employee_OK_DopEducation" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
-      <Association Name="EducDocument_OK_DopEducation" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
-      <Association Name="DopEducType_OK_DopEducation" Member="DopEducType" ThisKey="idDopEducType" OtherKey="id" Type="DopEducType" IsForeignKey="true" />
-      <Association Name="Event_OK_DopEducation" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="Degree_EmployeeDegree" Member="Degree" ThisKey="idDegree" OtherKey="id" Type="Degree" IsForeignKey="true" />
+      <Association Name="EducDocument_EmployeeDegree" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Employee_EmployeeDegree" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="ScienceType_EmployeeDegree" Member="ScienceType" ThisKey="idScienceType" OtherKey="id" Type="ScienceType" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Validation" Member="Validations">
-    <Type Name="Validation">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IDEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idEvent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IDValidDecision" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Commentary" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="EducDocument_Validation" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
-      <Association Name="ValidationDecision_Validation" Member="ValidationDecision" ThisKey="IDValidDecision" OtherKey="ID" Type="ValidationDecision" IsForeignKey="true" />
-      <Association Name="Event_Validation" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+  <Table Name="dbo.EmployeeRank" Member="EmployeeRanks">
+    <Type Name="EmployeeRank">
+      <Column Name="idEducDocument" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idRank" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rankWhere" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="EducDocument_EmployeeRank" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Employee_EmployeeRank" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Rank_EmployeeRank" Member="Rank" ThisKey="idRank" OtherKey="id" Type="Rank" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.OK_Otpusk" Member="OK_Otpusks">
-    <Type Name="OK_Otpusk">
-      <Column Name="idOtpusk" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idFactStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idOtpuskVid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idOtpuskPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CountDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CountDayFND" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="OtpPeriodWork" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="idFactStaffPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idSocialFareTransit" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="FactStaff_OK_Otpusk" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="OK_Otpuskvid_OK_Otpusk" Member="OK_Otpuskvid" ThisKey="idOtpuskVid" OtherKey="idotpuskvid" Type="OK_Otpuskvid" IsForeignKey="true" />
-      <Association Name="Prikaz_OK_Otpusk" Member="Prikaz" ThisKey="idOtpuskPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-      <Association Name="SocialFareTransit_OK_Otpusk" Member="SocialFareTransit" ThisKey="idSocialFareTransit" OtherKey="id" Type="SocialFareTransit" IsForeignKey="true" />
-      <Association Name="Event_OK_Otpusk" Member="Event" ThisKey="idFactStaffPrikaz" OtherKey="id" Type="Event" IsForeignKey="true" />
+  <Table Name="dbo.EmployeeStanding" Member="EmployeeStandings">
+    <Type Name="EmployeeStanding">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="WorkPlace" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Post" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="idRegionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idStandingType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_EmployeeStanding" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="RegionType_EmployeeStanding" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
+      <Association Name="StandingType_EmployeeStanding" Member="StandingType" ThisKey="idStandingType" OtherKey="id" Type="StandingType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="idMainEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idPrikazEnd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idFactStaffHistory" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEventKind" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEventType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Event_Award" Member="Awards" ThisKey="id" OtherKey="idEvent" Type="Award" />
+      <Association Name="Event_BusinessTrip" Member="BusinessTrips" ThisKey="id" OtherKey="idEvent" Type="BusinessTrip" />
+      <Association Name="Event_Event" Member="Events" ThisKey="id" OtherKey="idMainEvent" Type="Event" />
+      <Association Name="Event_Event_MaterialResponsibility" Member="Event_MaterialResponsibility" ThisKey="id" OtherKey="idEvent" Type="Event_MaterialResponsibility" Cardinality="One" />
+      <Association Name="Event_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idEvent" Type="OK_DopEducation" />
+      <Association Name="Event_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="OK_Otpusk" />
+      <Association Name="Event_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idEvent" Type="SocialFareTransit" />
+      <Association Name="Event_Validation" Member="Validations" ThisKey="id" OtherKey="idEvent" Type="Validation" />
+      <Association Name="Contract_Event" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Event_Event" Member="Event1" ThisKey="idMainEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="EventKind_Event" Member="EventKind" ThisKey="idEventKind" OtherKey="id" Type="EventKind" IsForeignKey="true" />
+      <Association Name="EventType_Event" Member="EventType" ThisKey="idEventType" OtherKey="id" Type="EventType" IsForeignKey="true" />
+      <Association Name="FactStaffHistory_Event" Member="FactStaffHistory" ThisKey="idFactStaffHistory" OtherKey="id" Type="FactStaffHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Prikaz_Event" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+      <Association Name="Prikaz_Event1" Member="Prikaz1" ThisKey="idPrikazEnd" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Event_MaterialResponsibility" Member="Event_MaterialResponsibilities">
+    <Type Name="Event_MaterialResponsibility">
+      <Column Name="idEvent" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idMaterialResponsibility" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Event_Event_MaterialResponsibility" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="MaterialResponsibility_Event_MaterialResponsibility" Member="MaterialResponsibility" ThisKey="idMaterialResponsibility" OtherKey="id" Type="MaterialResponsibility" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventKind" Member="EventKinds">
+    <Type Name="EventKind">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventKindName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="idMainEventKind" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ForFactStaff" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DecoratorName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="EventKind_Event" Member="Events" ThisKey="id" OtherKey="idEventKind" Type="Event" />
+      <Association Name="EventKind_EventKind" Member="EventKinds" ThisKey="id" OtherKey="idMainEventKind" Type="EventKind" />
+      <Association Name="EventKind_EventKind" Member="EventKind1" ThisKey="idMainEventKind" OtherKey="id" Type="EventKind" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.EventType" Member="EventTypes">
@@ -1077,27 +527,45 @@
       <Association Name="EventType_Event" Member="Events" ThisKey="id" OtherKey="idEventType" Type="Event" />
     </Type>
   </Table>
-  <Table Name="dbo.SocialFareTransit" Member="SocialFareTransits">
-    <Type Name="SocialFareTransit">
+  <Table Name="dbo.FactStaff" Member="FactStaffs">
+    <Type Name="FactStaff">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="DateEnd" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="SocialFareTransit_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idSocialFareTransit" Type="OK_Otpusk" />
-      <Association Name="Employee_SocialFareTransit" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
-      <Association Name="Event_SocialFareTransit" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.BusinessTrip" Member="BusinessTrips">
-    <Type Name="BusinessTrip">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEvent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TripTargetPlace" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="idFinanceSource" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="BusinessTrip_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idBusinessTrip" Type="BusinessTripRegionType" />
-      <Association Name="FinancingSource_BusinessTrip" Member="FinancingSource" ThisKey="idFinanceSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
-      <Association Name="Event_BusinessTrip" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsReplacement" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IDShedule" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idlaborcontrakt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idreason" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idFundingDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idTimeSheetSheduleType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idFundingCenter" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idFinancingSource" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="idMainFactStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idOKVED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="FactStaff_BonusFactStaff" Member="BonusFactStaffs" ThisKey="id" OtherKey="idFactStaff" Type="BonusFactStaff" />
+      <Association Name="FactStaff_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idMainFactStaff" Type="FactStaff" />
+      <Association Name="FactStaff_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffHistory" />
+      <Association Name="FactStaff_FactStaffMonthHour" Member="FactStaffMonthHours" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffMonthHour" />
+      <Association Name="FactStaff_FactStaffReplacement" Member="FactStaffReplacement" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffReplacement" Cardinality="One" />
+      <Association Name="FactStaff_FactStaffReplacement1" Member="FactStaffReplacements" ThisKey="id" OtherKey="idReplacedFactStaff" Type="FactStaffReplacement" />
+      <Association Name="FactStaff_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaff" Type="OK_Otpusk" />
+      <Association Name="FactStaff_OK_OtpuskDopInfo" Member="OK_OtpuskDopInfo" ThisKey="id" OtherKey="idFactStaff" Type="OK_OtpuskDopInfo" Cardinality="One" />
+      <Association Name="FactStaff_OK_OtpuskPlan" Member="OK_OtpuskPlans" ThisKey="id" OtherKey="idFactStaff" Type="OK_OtpuskPlan" />
+      <Association Name="FactStaff_TimeSheetFSWorkingDay" Member="TimeSheetFSWorkingDays" ThisKey="id" OtherKey="idFactStaff" Type="TimeSheetFSWorkingDay" />
+      <Association Name="Dep_FactStaff" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
+      <Association Name="Employee_FactStaff" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="FactStaff_FactStaff" Member="FactStaff1" ThisKey="idMainFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
+      <Association Name="FinancingSource_FactStaff" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
+      <Association Name="FundingCenter_FactStaff" Member="FundingCenter" ThisKey="idFundingCenter" OtherKey="id" Type="FundingCenter" IsForeignKey="true" />
+      <Association Name="OK_Reason_FactStaff" Member="OK_Reason" ThisKey="idreason" OtherKey="idreason" Type="OK_Reason" IsForeignKey="true" />
+      <Association Name="OKVED_FactStaff" Member="OKVED" ThisKey="idOKVED" OtherKey="id" Type="OKVED" IsForeignKey="true" />
+      <Association Name="PlanStaff_FactStaff" Member="PlanStaff" ThisKey="idPlanStaff" OtherKey="id" Type="PlanStaff" IsForeignKey="true" />
+      <Association Name="Prikaz_FactStaff" Member="Prikaz" ThisKey="idEndPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.FactStaffHistory" Member="FactStaffHistories">
@@ -1125,52 +593,94 @@
       <Association Name="WorkType_FactStaffHistory" Member="WorkType" ThisKey="idTypeWork" OtherKey="id" Type="WorkType" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.EventKind" Member="EventKinds">
-    <Type Name="EventKind">
+  <Table Name="dbo.FactStaffMonthHour" Member="FactStaffMonthHours">
+    <Type Name="FactStaffMonthHour">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EventKindName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="idMainEventKind" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ForFactStaff" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="EventKind_EventKind" Member="EventKinds" ThisKey="id" OtherKey="idMainEventKind" Type="EventKind" />
-      <Association Name="EventKind_Event" Member="Events" ThisKey="id" OtherKey="idEventKind" Type="Event" />
-      <Association Name="EventKind_EventKind" Member="EventKind1" ThisKey="idMainEventKind" OtherKey="id" Type="EventKind" IsForeignKey="true" />
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MonthNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HourCount" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="YearNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="FactStaff_FactStaffMonthHour" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Event" Member="Events">
-    <Type Name="Event">
+  <Table Name="dbo.FactStaffReplacement" Member="FactStaffReplacements">
+    <Type Name="FactStaffReplacement">
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idReplacedFactStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idReplacementReason" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="FactStaff_FactStaffReplacement" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="FactStaff_FactStaffReplacement1" Member="FactStaff1" ThisKey="idReplacedFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
+      <Association Name="FactStaffReplacementReason_FactStaffReplacement" Member="FactStaffReplacementReason" ThisKey="idReplacementReason" OtherKey="id" Type="FactStaffReplacementReason" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FactStaffReplacementReason" Member="FactStaffReplacementReasons">
+    <Type Name="FactStaffReplacementReason">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateBegin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ReplacementReasonName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ReplacementReasonShortName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="FactStaffReplacementReason_FactStaffReplacement" Member="FactStaffReplacements" ThisKey="id" OtherKey="idReplacementReason" Type="FactStaffReplacement" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinancingSource" Member="FinancingSources">
+    <Type Name="FinancingSource">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FinancingSourceName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="FinancingSource_BonusHistory" Member="BonusHistories" ThisKey="id" OtherKey="idFinancingSource" Type="BonusHistory" />
+      <Association Name="FinancingSource_BonusType" Member="BonusTypes" ThisKey="id" OtherKey="idDefaultFinancingSource" Type="BonusType" />
+      <Association Name="FinancingSource_BusinessTrip" Member="BusinessTrips" ThisKey="id" OtherKey="idFinanceSource" Type="BusinessTrip" />
+      <Association Name="FinancingSource_DepartmentTimeNorm" Member="DepartmentTimeNorms" ThisKey="id" OtherKey="idFinancingSource" Type="DepartmentTimeNorm" />
+      <Association Name="FinancingSource_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idFinancingSource" Type="FactStaff" />
+      <Association Name="FinancingSource_PlanStaffHistory" Member="PlanStaffHistories" ThisKey="id" OtherKey="idFinancingSource" Type="PlanStaffHistory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FundingCenter" Member="FundingCenters">
+    <Type Name="FundingCenter">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FundingCenterName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="idMainEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idPrikazEnd" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idFactStaffHistory" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEventKind" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idEventType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Event_Award" Member="Awards" ThisKey="id" OtherKey="idEvent" Type="Award" />
-      <Association Name="Event_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idEvent" Type="OK_DopEducation" />
-      <Association Name="Event_Validation" Member="Validations" ThisKey="id" OtherKey="idEvent" Type="Validation" />
-      <Association Name="Event_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="OK_Otpusk" />
-      <Association Name="Event_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idEvent" Type="SocialFareTransit" />
-      <Association Name="Event_BusinessTrip" Member="BusinessTrips" ThisKey="id" OtherKey="idEvent" Type="BusinessTrip" />
-      <Association Name="Event_Event" Member="Events" ThisKey="id" OtherKey="idMainEvent" Type="Event" />
-      <Association Name="Event_Event_MaterialResponsibility" Member="Event_MaterialResponsibility" ThisKey="id" OtherKey="idEvent" Type="Event_MaterialResponsibility" Cardinality="One" />
-      <Association Name="Contract_Event" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="EventKind_Event" Member="EventKind" ThisKey="idEventKind" OtherKey="id" Type="EventKind" IsForeignKey="true" />
-      <Association Name="EventType_Event" Member="EventType" ThisKey="idEventType" OtherKey="id" Type="EventType" IsForeignKey="true" />
-      <Association Name="FactStaffHistory_Event" Member="FactStaffHistory" ThisKey="idFactStaffHistory" OtherKey="id" Type="FactStaffHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Event_Event" Member="Event1" ThisKey="idMainEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
-      <Association Name="Prikaz_Event" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
-      <Association Name="Prikaz_Event1" Member="Prikaz1" ThisKey="idPrikazEnd" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+      <Association Name="FundingCenter_Dep" Member="Deps" ThisKey="id" OtherKey="idFundingCenter" Type="Dep" />
+      <Association Name="FundingCenter_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idFundingCenter" Type="FactStaff" />
     </Type>
   </Table>
-  <Table Name="dbo.Event_MaterialResponsibility" Member="Event_MaterialResponsibilities">
-    <Type Name="Event_MaterialResponsibility">
-      <Column Name="idEvent" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idMaterialResponsibility" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Event_Event_MaterialResponsibility" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
-      <Association Name="MaterialResponsibility_Event_MaterialResponsibility" Member="MaterialResponsibility" ThisKey="idMaterialResponsibility" OtherKey="id" Type="MaterialResponsibility" IsForeignKey="true" />
+  <Table Name="dbo.GlobalPrikaz" Member="GlobalPrikazs">
+    <Type Name="GlobalPrikaz">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrikazName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PrikazNumber" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="GlobalPrikaz_Post" Member="Posts" ThisKey="id" OtherKey="idGlobalPrikaz" Type="Post" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GovDepartment" Member="GovDepartments">
+    <Type Name="GovDepartment">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="GovDepartment_Award" Member="Awards" ThisKey="id" OtherKey="IDGovDepartment" Type="Award" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Grazd" Member="Grazds">
+    <Type Name="Grazd">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="grazdName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Grazd_Employee" Member="Employees" ThisKey="id" OtherKey="idGrazd" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InkapacityType" Member="InkapacityTypes">
+    <Type Name="InkapacityType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameInkapacityType" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="InkapacityType_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idInkapacityType" Type="OK_Inkapacity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LanguageLevel" Member="LanguageLevels">
+    <Type Name="LanguageLevel">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LevelName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="GoodBit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="LanguageLevel_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="id" OtherKey="idLanguageLevel" Type="OK_EmployeeLang" />
     </Type>
   </Table>
   <Table Name="dbo.MaterialResponsibility" Member="MaterialResponsibilities">
@@ -1179,6 +689,146 @@
       <Column Name="Sum" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
       <Column Name="Perc" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
       <Association Name="MaterialResponsibility_Event_MaterialResponsibility" Member="Event_MaterialResponsibilities" ThisKey="id" OtherKey="idMaterialResponsibility" Type="Event_MaterialResponsibility" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MilitaryCategory" Member="MilitaryCategories">
+    <Type Name="MilitaryCategory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MilitaryCategoryName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="MilitaryCategory_Employee" Member="Employees" ThisKey="id" OtherKey="idMilitaryCategory" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MilitaryFitness" Member="MilitaryFitnesses">
+    <Type Name="MilitaryFitness">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Letter" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="MilitaryFitness_Employee" Member="Employees" ThisKey="id" OtherKey="idMilitaryFitness" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MilitaryRank" Member="MilitaryRanks">
+    <Type Name="MilitaryRank">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MilitaryRankName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="MilitaryRank_Employee" Member="Employees" ThisKey="id" OtherKey="idMilitaryRank" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MilitaryStructure" Member="MilitaryStructures">
+    <Type Name="MilitaryStructure">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MilitaryStructureName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="MilitaryStructure_Employee" Member="Employees" ThisKey="id" OtherKey="idMilitaryStructure" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MilitaryType" Member="MilitaryTypes">
+    <Type Name="MilitaryType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MilitaryTypeName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="MilitaryType_Employee" Member="Employees" ThisKey="id" OtherKey="idMilitaryType" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Adress" Member="OK_Adresses">
+    <Type Name="OK_Adress">
+      <Column Name="idAdress" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Adress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="DateReg" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RegBit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Employee_OK_Adress" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_DataChange" Member="OK_DataChanges">
+    <Type Name="OK_DataChange">
+      <Column Name="idDataChange" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DataName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="OldValue" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="DateChange" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_OK_DataChange" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_DopEducation" Member="OK_DopEducations">
+    <Type Name="OK_DopEducation">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idDopEducType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="idEducDocument" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Spec" Type="System.String" DbType="VarChar(900)" CanBeNull="true" />
+      <Column Name="Kvalif" Type="System.String" DbType="VarChar(900)" CanBeNull="true" />
+      <Column Name="AuditHour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Employee_OK_DopEducation" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="EducDocument_OK_DopEducation" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Event_OK_DopEducation" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="DopEducType_OK_DopEducation" Member="DopEducType" ThisKey="idDopEducType" OtherKey="id" Type="DopEducType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_DopInf" Member="OK_DopInfs">
+    <Type Name="OK_DopInf">
+      <Column Name="idDopInf" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DopInf" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_OK_DopInf" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Educ" Member="OK_Educs">
+    <Type Name="OK_Educ">
+      <Column Name="idEducDocument" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EducWhere" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EducWhen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Spec" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Kvalif" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="idEducationType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EducationType_OK_Educ" Member="EducationType" ThisKey="idEducationType" OtherKey="id" Type="EducationType" IsForeignKey="true" />
+      <Association Name="EducDocument_OK_Educ" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Employee_OK_Educ" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_EmployeeLang" Member="OK_EmployeeLangs">
+    <Type Name="OK_EmployeeLang">
+      <Column Name="idEmployeeLang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idLanguage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="goodlevelbit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idLanguageLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EducDocument_OK_EmployeeLang" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Employee_OK_EmployeeLang" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="LanguageLevel_OK_EmployeeLang" Member="LanguageLevel" ThisKey="idLanguageLevel" OtherKey="id" Type="LanguageLevel" IsForeignKey="true" />
+      <Association Name="OK_Language_OK_EmployeeLang" Member="OK_Language" ThisKey="idLanguage" OtherKey="idlanguage" Type="OK_Language" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Fam" Member="OK_Fams">
+    <Type Name="OK_Fam">
+      <Column Name="idfam" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idmembfam" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idemployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fiomembfam" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="godbirth" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="BirthYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Employee_OK_Fam" Member="Employee" ThisKey="idemployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="OK_MembFam_OK_Fam" Member="OK_MembFam" ThisKey="idmembfam" OtherKey="idmembfam" Type="OK_MembFam" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_HolyDate" Member="OK_HolyDates">
+    <Type Name="OK_HolyDate">
+      <Column Name="idholydate" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idholyday" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="holydate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="lawname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="OK_Holyday_OK_HolyDate" Member="OK_Holyday" ThisKey="idholyday" OtherKey="idholyday" Type="OK_Holyday" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Holyday" Member="OK_Holydays">
+    <Type Name="OK_Holyday">
+      <Column Name="idholyday" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="holydayname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="OK_Holyday_OK_HolyDate" Member="OK_HolyDates" ThisKey="idholyday" OtherKey="idholyday" Type="OK_HolyDate" />
     </Type>
   </Table>
   <Table Name="dbo.OK_Inkapacity" Member="OK_Inkapacities">
@@ -1196,25 +846,86 @@
       <Association Name="InkapacityType_OK_Inkapacity" Member="InkapacityType" ThisKey="idInkapacityType" OtherKey="id" Type="InkapacityType" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.InkapacityType" Member="InkapacityTypes">
-    <Type Name="InkapacityType">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NameInkapacityType" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="InkapacityType_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idInkapacityType" Type="OK_Inkapacity" />
+  <Table Name="dbo.OK_Language" Member="OK_Languages">
+    <Type Name="OK_Language">
+      <Column Name="idlanguage" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="languagename" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="OK_Language_OK_EmployeeLang" Member="OK_EmployeeLangs" ThisKey="idlanguage" OtherKey="idLanguage" Type="OK_EmployeeLang" />
     </Type>
   </Table>
-  <Table Name="dbo.OK_SocialStatus" Member="OK_SocialStatus">
-    <Type Name="OK_SocialStatus">
-      <Column Name="idSocialStatus" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SocialStatusName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="is_old" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="OK_SocialStatus_OK_Social" Member="OK_Socials" ThisKey="idSocialStatus" OtherKey="idSocialStatus" Type="OK_Social" />
+  <Table Name="dbo.OK_MembFam" Member="OK_MembFams">
+    <Type Name="OK_MembFam">
+      <Column Name="idmembfam" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="membfamname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="OK_MembFam_OK_Fam" Member="OK_Fams" ThisKey="idmembfam" OtherKey="idmembfam" Type="OK_Fam" />
     </Type>
   </Table>
-  <Table Name="dbo.GovDepartment" Member="GovDepartments">
-    <Type Name="GovDepartment">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.OK_Otpusk" Member="OK_Otpusks">
+    <Type Name="OK_Otpusk">
+      <Column Name="idOtpusk" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idOtpuskVid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idOtpuskPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CountDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CountDayFND" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OtpPeriodWork" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="idFactStaffPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idSocialFareTransit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="FactStaff_OK_Otpusk" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Event_OK_Otpusk" Member="Event" ThisKey="idFactStaffPrikaz" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="OK_Otpuskvid_OK_Otpusk" Member="OK_Otpuskvid" ThisKey="idOtpuskVid" OtherKey="idotpuskvid" Type="OK_Otpuskvid" IsForeignKey="true" />
+      <Association Name="Prikaz_OK_Otpusk" Member="Prikaz" ThisKey="idOtpuskPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+      <Association Name="SocialFareTransit_OK_Otpusk" Member="SocialFareTransit" ThisKey="idSocialFareTransit" OtherKey="id" Type="SocialFareTransit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_OtpuskDopInfo" Member="OK_OtpuskDopInfos">
+    <Type Name="OK_OtpuskDopInfo">
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idOtpuskPlanDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OtpOstBaseDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OtpOstFNDDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OtpPeriodWorkDateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="FactStaff_OK_OtpuskDopInfo" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="OK_OtpuskPlanDay_OK_OtpuskDopInfo" Member="OK_OtpuskPlanDay" ThisKey="idOtpuskPlanDay" OtherKey="idotpuskplanday" Type="OK_OtpuskPlanDay" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_OtpuskPlan" Member="OK_OtpuskPlans">
+    <Type Name="OK_OtpuskPlan">
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OtpuskYear" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CountDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="FactStaff_OK_OtpuskPlan" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_OtpuskPlanDay" Member="OK_OtpuskPlanDays">
+    <Type Name="OK_OtpuskPlanDay">
+      <Column Name="idotpuskplanday" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="otpuskplandaykateg" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="planday" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="OK_OtpuskPlanDay_OK_OtpuskDopInfo" Member="OK_OtpuskDopInfos" ThisKey="idotpuskplanday" OtherKey="idOtpuskPlanDay" Type="OK_OtpuskDopInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_Otpuskvid" Member="OK_Otpuskvids">
+    <Type Name="OK_Otpuskvid">
+      <Column Name="idotpuskvid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="otpuskvidname" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="idDayStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isMaternity" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="otpTypeShortName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="isBase" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="OK_Otpuskvid_OK_Otpusk" Member="OK_Otpusks" ThisKey="idotpuskvid" OtherKey="idOtpuskVid" Type="OK_Otpusk" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_phone" Member="OK_phones">
+    <Type Name="OK_phone">
+      <Column Name="idphone" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_OK_phone" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.OK_Reason" Member="OK_Reasons">
@@ -1226,11 +937,445 @@
       <Association Name="OK_Reason_FactStaff" Member="FactStaffs" ThisKey="idreason" OtherKey="idreason" Type="FactStaff" />
     </Type>
   </Table>
-  <Table Name="dbo.AwardType" Member="AwardTypes">
-    <Type Name="AwardType">
+  <Table Name="dbo.OK_Social" Member="OK_Socials">
+    <Type Name="OK_Social">
+      <Column Name="idSocial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idSocialStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="EducDocument_OK_Social" Member="EducDocument" ThisKey="idEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Employee_OK_Social" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="OK_SocialStatus_OK_Social" Member="OK_SocialStatus" ThisKey="idSocialStatus" OtherKey="idSocialStatus" Type="OK_SocialStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_SocialStatus" Member="OK_SocialStatus">
+    <Type Name="OK_SocialStatus">
+      <Column Name="idSocialStatus" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SocialStatusName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="is_old" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="OK_SocialStatus_OK_Social" Member="OK_Socials" ThisKey="idSocialStatus" OtherKey="idSocialStatus" Type="OK_Social" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OKBufferEmployeeDegree" Member="OKBufferEmployeeDegrees">
+    <Type Name="OKBufferEmployeeDegree">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="itab_n" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="degreeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DissertCouncil" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="dokSer" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="dokNum" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="diplDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="diplWhere" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="idDegree" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idScienceType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Degree_OKBufferEmployeeDegree" Member="Degree" ThisKey="idDegree" OtherKey="id" Type="Degree" IsForeignKey="true" />
+      <Association Name="ScienceType_OKBufferEmployeeDegree" Member="ScienceType" ThisKey="idScienceType" OtherKey="id" Type="ScienceType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OKBufferEmployeeRank" Member="OKBufferEmployeeRanks">
+    <Type Name="OKBufferEmployeeRank">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idRank" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dokSer" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="dokNum" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="rankDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="rankWhere" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="itab_n" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OKBuffergeneral" Member="OKBuffergenerals">
+    <Type Name="OKBuffergeneral">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="arc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="itab_n" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="clastname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cfirstname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cotch" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fio" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="csex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="birth_d" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="birth_cplace" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ik_grazd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pasp_ser" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="pasp_nom" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="pasp_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="pasp_kem" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="cphone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ik_sempol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ik_uvoln" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="uvoln_d" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="uvoln_npr" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="uvoln_dpr" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="profosn" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="profan" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ik_harakter" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nstr" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="inn" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="d_zapoln" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="perw_db" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OKVED" Member="OKVEDs">
+    <Type Name="OKVED">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OKVEDName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="OKVED_Dep" Member="Deps" ThisKey="id" OtherKey="idOKVED" Type="Dep" />
+      <Association Name="OKVED_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idOKVED" Type="FactStaff" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Organisation" Member="Organisations">
+    <Type Name="Organisation">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(900) NOT NULL" CanBeNull="false" />
+      <Association Name="Organisation_EducDocument" Member="EducDocuments" ThisKey="id" OtherKey="IdOrganisation" Type="EducDocument" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PKCategory" Member="PKCategories">
+    <Type Name="PKCategory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idPKGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PKCategoryNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PKSubCategoryNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PKComment" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PKSubSubCategoryNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idSalaryKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PKCategory_PKCategorySalary" Member="PKCategorySalaries" ThisKey="id" OtherKey="idPKCategory" Type="PKCategorySalary" />
+      <Association Name="PKCategory_Post" Member="Posts" ThisKey="id" OtherKey="idPKCategory" Type="Post" />
+      <Association Name="PKGroup_PKCategory" Member="PKGroup" ThisKey="idPKGroup" OtherKey="id" Type="PKGroup" IsForeignKey="true" />
+      <Association Name="SalaryKoeff_PKCategory" Member="SalaryKoeff" ThisKey="idSalaryKoeff" OtherKey="id" Type="SalaryKoeff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PKCategorySalary" Member="PKCategorySalaries">
+    <Type Name="PKCategorySalary">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SalarySize" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idPKCategory" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PKCategory_PKCategorySalary" Member="PKCategory" ThisKey="idPKCategory" OtherKey="id" Type="PKCategory" IsForeignKey="true" />
+      <Association Name="Prikaz_PKCategorySalary" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PKGroup" Member="PKGroups">
+    <Type Name="PKGroup">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="PKGroup_PKCategory" Member="PKCategories" ThisKey="id" OtherKey="idPKGroup" Type="PKCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlanStaff" Member="PlanStaffs">
+    <Type Name="PlanStaff">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idDepartment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdWorkShedule" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="PlanStaff_BonusPlanStaff" Member="BonusPlanStaffs" ThisKey="id" OtherKey="idPlanStaff" Type="BonusPlanStaff" />
+      <Association Name="PlanStaff_Dep" Member="Deps" ThisKey="id" OtherKey="idManagerPlanStaff" Type="Dep" />
+      <Association Name="PlanStaff_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idPlanStaff" Type="FactStaff" />
+      <Association Name="PlanStaff_PlanStaffHistory" Member="PlanStaffHistories" ThisKey="id" OtherKey="idPlanStaff" Type="PlanStaffHistory" />
+      <Association Name="PlanStaff_PlanStaffSalary" Member="PlanStaffSalaries" ThisKey="id" OtherKey="idPlanStaff" Type="PlanStaffSalary" />
+      <Association Name="Dep_PlanStaff" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
+      <Association Name="Post_PlanStaff" Member="Post" ThisKey="idPost" OtherKey="id" Type="Post" IsForeignKey="true" />
+      <Association Name="Prikaz_PlanStaff" Member="Prikaz" ThisKey="idEndPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+      <Association Name="WorkShedule_PlanStaff" Member="WorkShedule" ThisKey="IdWorkShedule" OtherKey="id" Type="WorkShedule" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlanStaffHistory" Member="PlanStaffHistories">
+    <Type Name="PlanStaffHistory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="idFinancingSource" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="FinancingSource_PlanStaffHistory" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
+      <Association Name="PlanStaff_PlanStaffHistory" Member="PlanStaff" ThisKey="idPlanStaff" OtherKey="id" Type="PlanStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Prikaz_PlanStaffHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlanStaffSalary" Member="PlanStaffSalaries">
+    <Type Name="PlanStaffSalary">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SalarySize" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PlanStaff_PlanStaffSalary" Member="PlanStaff" ThisKey="idPlanStaff" OtherKey="id" Type="PlanStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Prikaz_PlanStaffSalary" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Post" Member="Posts">
+    <Type Name="Post">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PostName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="ManagerBit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idGlobalPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPKCategory" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PostGUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idPostType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PostShortName" Type="System.String" DbType="VarChar(150) NOT NULL" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="idCategoryVPO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idCategoryZP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idNewCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idPostGroup" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Post_BonusPost" Member="BonusPosts" ThisKey="id" OtherKey="idPost" Type="BonusPost" />
+      <Association Name="Post_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="idPost" Type="PlanStaff" />
+      <Association Name="Category_Post" Member="Category" ThisKey="idCategory" OtherKey="id" Type="Category" IsForeignKey="true" />
+      <Association Name="Category_Post1" Member="Category1" ThisKey="idNewCategory" OtherKey="id" Type="Category" IsForeignKey="true" />
+      <Association Name="CategoryVPO_Post" Member="CategoryVPO" ThisKey="idCategoryVPO" OtherKey="id" Type="CategoryVPO" IsForeignKey="true" />
+      <Association Name="CategoryZP_Post" Member="CategoryZP" ThisKey="idCategoryZP" OtherKey="id" Type="CategoryZP" IsForeignKey="true" />
+      <Association Name="GlobalPrikaz_Post" Member="GlobalPrikaz" ThisKey="idGlobalPrikaz" OtherKey="id" Type="GlobalPrikaz" IsForeignKey="true" />
+      <Association Name="PKCategory_Post" Member="PKCategory" ThisKey="idPKCategory" OtherKey="id" Type="PKCategory" IsForeignKey="true" />
+      <Association Name="PostGroup_Post" Member="PostGroup" ThisKey="idPostGroup" OtherKey="id" Type="PostGroup" IsForeignKey="true" />
+      <Association Name="PostType_Post" Member="PostType" ThisKey="idPostType" OtherKey="id" Type="PostType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PostGroup" Member="PostGroups">
+    <Type Name="PostGroup">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupSmallName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PostGroup_Post" Member="Posts" ThisKey="id" OtherKey="idPostGroup" Type="Post" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PostType" Member="PostTypes">
+    <Type Name="PostType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PostTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PostType_Post" Member="Posts" ThisKey="id" OtherKey="idPostType" Type="Post" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Prikaz" Member="Prikazs">
+    <Type Name="Prikaz">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrikazName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DatePrikaz" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idPrikazType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="resume" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Prikaz_Bonus" Member="Bonus" ThisKey="id" OtherKey="idEndPrikaz" Type="Bonus" />
+      <Association Name="Prikaz_Bonus1" Member="Bonus1" ThisKey="id" OtherKey="idIntermediateEndPrikaz" Type="Bonus" />
+      <Association Name="Prikaz_BonusHistory" Member="BonusHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="BonusHistory" />
+      <Association Name="Prikaz_Dep" Member="Deps" ThisKey="id" OtherKey="idEndPrikaz" Type="Dep" />
+      <Association Name="Prikaz_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="DepartmentHistory" />
+      <Association Name="Prikaz_Event" Member="Events" ThisKey="id" OtherKey="idPrikaz" Type="Event" />
+      <Association Name="Prikaz_Event1" Member="Events1" ThisKey="id" OtherKey="idPrikazEnd" Type="Event" />
+      <Association Name="Prikaz_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idEndPrikaz" Type="FactStaff" />
+      <Association Name="Prikaz_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="FactStaffHistory" />
+      <Association Name="Prikaz_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idOtpuskPrikaz" Type="OK_Otpusk" />
+      <Association Name="Prikaz_PKCategorySalary" Member="PKCategorySalaries" ThisKey="id" OtherKey="idPrikaz" Type="PKCategorySalary" />
+      <Association Name="Prikaz_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="idEndPrikaz" Type="PlanStaff" />
+      <Association Name="Prikaz_PlanStaffHistory" Member="PlanStaffHistories" ThisKey="id" OtherKey="idBeginPrikaz" Type="PlanStaffHistory" />
+      <Association Name="Prikaz_PlanStaffSalary" Member="PlanStaffSalaries" ThisKey="id" OtherKey="idPrikaz" Type="PlanStaffSalary" />
+      <Association Name="PrikazType_Prikaz" Member="PrikazType" ThisKey="idPrikazType" OtherKey="id" Type="PrikazType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrikazSuperType" Member="PrikazSuperTypes">
+    <Type Name="PrikazSuperType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrikazSuperTypeName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="PrikazSuperType_PrikazType" Member="PrikazTypes" ThisKey="id" OtherKey="idPrikazSuperType" Type="PrikazType" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrikazType" Member="PrikazTypes">
+    <Type Name="PrikazType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrikazTypeName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="idPrikazSuperType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="PrikazType_Prikaz" Member="Prikazs" ThisKey="id" OtherKey="idPrikazType" Type="Prikaz" />
+      <Association Name="PrikazSuperType_PrikazType" Member="PrikazSuperType" ThisKey="idPrikazSuperType" OtherKey="id" Type="PrikazSuperType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rank" Member="Ranks">
+    <Type Name="Rank">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RankName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RankOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Rank_EmployeeRank" Member="EmployeeRanks" ThisKey="id" OtherKey="idRank" Type="EmployeeRank" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegionType" Member="RegionTypes">
+    <Type Name="RegionType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegionTypeName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="RegionTypeSmallName" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Association Name="RegionType_BusinessTripRegionType" Member="BusinessTripRegionTypes" ThisKey="id" OtherKey="idRegionType" Type="BusinessTripRegionType" />
+      <Association Name="RegionType_DepartmentHistory" Member="DepartmentHistories" ThisKey="id" OtherKey="idRegionType" Type="DepartmentHistory" />
+      <Association Name="RegionType_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idRegionType" Type="EmployeeStanding" />
+      <Association Name="RegionType_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idRegionType" Type="FactStaffHistory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SalaryKoeff" Member="SalaryKoeffs">
+    <Type Name="SalaryKoeff">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PKSubSubCategoryNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SalaryKoeffc" Type="System.Decimal" DbType="Decimal(6,2) NOT NULL" CanBeNull="false" />
+      <Association Name="SalaryKoeff_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idSalaryKoeff" Type="FactStaffHistory" />
+      <Association Name="SalaryKoeff_PKCategory" Member="PKCategories" ThisKey="id" OtherKey="idSalaryKoeff" Type="PKCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScienceType" Member="ScienceTypes">
+    <Type Name="ScienceType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ScienceTypeName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ScienceTypeAbbrev" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ScienceTypeShortName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ScienceType_EmployeeDegree" Member="EmployeeDegrees" ThisKey="id" OtherKey="idScienceType" Type="EmployeeDegree" />
+      <Association Name="ScienceType_OKBufferEmployeeDegree" Member="OKBufferEmployeeDegrees" ThisKey="id" OtherKey="idScienceType" Type="OKBufferEmployeeDegree" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SemPol" Member="SemPols">
+    <Type Name="SemPol">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sempolName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SemPol_Employee" Member="Employees" ThisKey="id" OtherKey="idSemPol" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SocialFareTransit" Member="SocialFareTransits">
+    <Type Name="SocialFareTransit">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SocialFareTransit_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idSocialFareTransit" Type="OK_Otpusk" />
+      <Association Name="Employee_SocialFareTransit" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="Event_SocialFareTransit" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StandingType" Member="StandingTypes">
+    <Type Name="StandingType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StandingTypeName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Association Name="StandingType_EmployeeStanding" Member="EmployeeStandings" ThisKey="id" OtherKey="idStandingType" Type="EmployeeStanding" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TimeSheet" Member="TimeSheets">
+    <Type Name="TimeSheet">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TimeSheetMonth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeSheetYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeSheetWorkingDayCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsClosed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsFilled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TimeSheetWorkingHourCount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="TimeSheet_TimeSheetFSWorkingDay" Member="TimeSheetFSWorkingDays" ThisKey="id" OtherKey="idTimeSheet" Type="TimeSheetFSWorkingDay" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TimeSheetDayState" Member="TimeSheetDayStates">
+    <Type Name="TimeSheetDayState">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DayStateName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DayStateShortName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsWorking" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TimeSheetFSWorkingDays" Member="TimeSheetFSWorkingDays">
+    <Type Name="TimeSheetFSWorkingDay">
+      <Column Name="idTimeSheet" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkingDaysCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsClosed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(3,2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="FactStaff_TimeSheetFSWorkingDay" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="TimeSheet_TimeSheetFSWorkingDay" Member="TimeSheet" ThisKey="idTimeSheet" OtherKey="id" Type="TimeSheet" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Validation" Member="Validations">
+    <Type Name="Validation">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Association Name="AwardType_Award" Member="Awards" ThisKey="ID" OtherKey="IDAwardType" Type="Award" />
+      <Column Name="IDEducDocument" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEvent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDValidDecision" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Commentary" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="EducDocument_Validation" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Event_Validation" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="ValidationDecision_Validation" Member="ValidationDecision" ThisKey="IDValidDecision" OtherKey="ID" Type="ValidationDecision" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ValidationDecision" Member="ValidationDecisions">
+    <Type Name="ValidationDecision">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="ValidationDecision_Validation" Member="Validations" ThisKey="ID" OtherKey="IDValidDecision" Type="Validation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkSuperType" Member="WorkSuperTypes">
+    <Type Name="WorkSuperType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WorkSuperTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkSuperTypeShortName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="WorkSuperType_WorkType" Member="WorkTypes" ThisKey="id" OtherKey="idWorkSuperType" Type="WorkType" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkType" Member="WorkTypes">
+    <Type Name="WorkType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeWorkName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TypeWorkShortName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsReplacement" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsMain" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idWorkSuperType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="WorkType_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idTypeWork" Type="FactStaffHistory" />
+      <Association Name="WorkSuperType_WorkType" Member="WorkSuperType" ThisKey="idWorkSuperType" OtherKey="id" Type="WorkSuperType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Department" Member="Departments">
+    <Type Name="Department">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentSmallName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="idDepartmentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idManagerDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dateCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dateExit" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idManagerPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeverKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RayonKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentGUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="idFundingCenter" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentIndex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DepPhoneNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HasTimeSheet" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idOKVED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="idRegionType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FactStaffCurrentMainData" Member="FactStaffCurrentMainDatas">
+    <Type Name="FactStaffCurrentMainData">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(6,4) NOT NULL" CanBeNull="false" />
+      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FactStaffFullName" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="idOKVED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="ShemaTabel.WorkShedule" Member="WorkShedules">
+    <Type Name="WorkShedule">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameShedule" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="WorkShedule_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="IdWorkShedule" Type="PlanStaff" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

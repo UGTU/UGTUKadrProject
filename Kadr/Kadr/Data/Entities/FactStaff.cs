@@ -80,7 +80,7 @@ namespace Kadr.Data
             {
 
                 var trips = CurrentChange.Events.SelectMany(x => x.BusinessTrips).Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
-                if (trips.Any()) return FactStaffState.OnTrip;
+               // if (trips.Any()) return FactStaffState.OnTrip;
 
 
                 var incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
@@ -679,9 +679,15 @@ namespace Kadr.Data
                     throw new ArgumentNullException("Дата увольнения, так как указан приказ об увольнении.");
                 if ((Prikaz == null) && (DateEnd != null) && !IsHourStaff) //для почасовиков приказ необязателен
                     throw new ArgumentNullException("Приказ об увольнении, так как указана дата увольнения.");
+
                 if (FundingCenter != null)
                     if (FundingCenter.IsNull())
                         FundingCenter = null;
+
+                if (FinancingSource != null)
+                    if (FinancingSource.IsNull())
+                        FinancingSource = null;
+
                 if (OKVED != null)
                     if (OKVED.IsNull())
                         OKVED = null;
