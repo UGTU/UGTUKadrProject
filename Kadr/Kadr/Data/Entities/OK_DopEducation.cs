@@ -38,7 +38,7 @@ namespace Kadr.Data
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
-                if (DopEducType == null) throw new ArgumentNullException("Вид обучения");
+                if (DopEducType == null) throw new ArgumentNullException("Тип повыщения квалификации");
                 if (EducDocument != null)
                 {
                     if (EducDocument.DocDate > DateTime.Now) throw new ArgumentNullException("Дата выдачи не должна превышать текущую дату");

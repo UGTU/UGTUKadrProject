@@ -61,6 +61,10 @@ namespace Kadr.UI.Dialogs
             
         }
 
-        
+        protected override void DoCancel()
+        {
+            //KadrController.Instance.DeleteModel();
+            IsModified = false;
+        }
     }
 }

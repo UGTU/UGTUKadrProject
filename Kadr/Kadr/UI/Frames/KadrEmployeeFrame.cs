@@ -344,7 +344,7 @@ namespace Kadr.UI.Frames
 
         private void AddDegreeBtn_Click(object sender, EventArgs e)
         {
-            CRUDEmployeeDegree.Create(Employee, this);
+            CRUDEmployeeDegree.Create(Employee, this,employeeDegreeBindingSource);
 
         }
 
@@ -355,7 +355,7 @@ namespace Kadr.UI.Frames
 
         private void AddRankBtn_Click(object sender, EventArgs e)
         {
-            CRUDEmployeeRank.Create(Employee, this);
+            CRUDEmployeeRank.Create(Employee, this, employeeRankBindingSource);
         }
 
         private void EditRankBtn_Click(object sender, EventArgs e)
@@ -365,7 +365,7 @@ namespace Kadr.UI.Frames
 
         private void DelRankBtn_Click(object sender, EventArgs e)
         {
-            CRUDEmployeeRank.Delete(employeeDegreeBindingSource);
+            CRUDEmployeeRank.Delete(Employee, employeeRankBindingSource);
         }
 
         private void tsbAddEmplStanding_Click(object sender, EventArgs e)
@@ -447,7 +447,7 @@ namespace Kadr.UI.Frames
 
         private void tsbEditMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource);
+            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource,this);
         }
 
 

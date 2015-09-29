@@ -31,7 +31,11 @@ namespace Kadr.Data
         public override string ToString()
         {
             if (MainContract == null)
-                return "Договор " + ContractName+ "  от "+DateContract.Value.ToShortDateString();
+            {
+                if (DateContract == null)
+                    return "Договор " + ContractName;
+                return "Договор " + ContractName + "  от " + DateContract.Value.ToShortDateString();
+            }
             else
                 return "Доп соглашение " + ContractName + " к договору " + MainContract.ToString();
         }

@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Linq;
+using Kadr.Controllers;
 
 namespace Kadr.Data
 {
     partial class FactStaffHistory : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
 
-        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, bool withContract = false)
+        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false)
             : this()
         {
-            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind, withContract);
+            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind,eventType, withContract);
         }
 
 
-        public void SetProperties(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, bool withContract = false)
+        public void SetProperties(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false)
         {
             //если уже есть изменение, то берем львинную долю свойств оттуда
             if (factStaff.CurrentChange != null)
@@ -32,7 +33,7 @@ namespace Kadr.Data
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
 
-            Event curEvent = new Event(CommandManager, this, eventKind, withContract, prikaz);
+            Event curEvent = new Event(CommandManager, this, eventKind, eventType, withContract, prikaz);
         }
         
         public override string ToString()
@@ -55,12 +56,13 @@ namespace Kadr.Data
 
         #region EventContractData 
 
-        public Contract MainContract
+        public Contract FirstContract
         {
             get
             {
-                /*if (FactStaff != null)
-                    if (FactStaff.CurrentChange != null) */
+                if (FactStaff != null)
+                    if (FactStaff.FirstDesignate != null)
+                        return FactStaff.FirstDesignate.Contract;
                 return null;
             }
         }
@@ -104,7 +106,7 @@ namespace Kadr.Data
         {
             if (Contract != null)
             {
-                if ((Contract.DateContract == null) || (Contract.DateContract == DateTime.MinValue))
+                if ((Contract.DateContract == null) || (Contract.DateContract == DateTime.MinValue) || (Contract.DateContract.Value.Date == DateTime.Today.Date))
                 {
                     Contract.DateBegin = value;
                     Contract.DateContract = value;
@@ -175,12 +177,6 @@ namespace Kadr.Data
                 if (MainEvent != null)
                     (MainEvent as UIX.Views.IValidatable).Validate();
 
-                /*if (NewContract != null)
-                {
-                    (NewContract as UIX.Views.IValidatable).Validate();
-                    Contract = NewContract;
-                    Kadr.Controllers.KadrController.Instance.Model.Contracts.InsertOnSubmit(Contract);
-                }*/
 
 
                 //проверка на переполнение штатов на начало периода

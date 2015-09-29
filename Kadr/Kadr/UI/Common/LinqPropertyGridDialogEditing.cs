@@ -76,14 +76,14 @@ namespace Kadr.UI.Common
 
     private void btnPrikaz_Click(object sender, EventArgs e)
     {
-        if (UpdateObjectList == null)
+      /*  if (UpdateObjectList == null)
         {
             MessageBox.Show("Не заданы все необходимые условия для вызова диалога \"Приказы\".",
                 "ИС \"Управление кадрами\"");
             return;
-        }
+        }*/
 
-        using (PrikazDialog dlg = new PrikazDialog())
+        using (var dlg = new PrikazDialog())
         {
             //сворачиваем все операции с объектом
             if (CommandManager.IsInBatchMode)
@@ -97,11 +97,11 @@ namespace Kadr.UI.Common
                     //заново все операции проводим
                     CommandManager.Redo(sender);
                 }
-                else
+              /*  else
                 {
                     //обновляем модель (на случай отмены изменений и уничтожения модели)
                     UpdateObjectList();
-                }
+                }*/
             }
             finally
             {
