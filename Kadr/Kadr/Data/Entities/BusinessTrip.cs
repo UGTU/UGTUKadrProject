@@ -1,4 +1,5 @@
-﻿using Kadr.Data.Common;
+﻿using Kadr.Controllers;
+using Kadr.Data.Common;
 using Kadr.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,30 @@ namespace Kadr.Data
         #region Properties
 
         #endregion
+
+        public Event Event
+        {
+            get
+            {
+                return Event_BusinessTrips.Select(x=>x.Event).SingleOrDefault(x=>x.EventType == MagicNumberController.BeginEventType);
+            }
+        }
+
+        public Event ChangeTermsEvent
+        {
+            get
+            {
+                return Event_BusinessTrips.Select(x => x.Event).SingleOrDefault(x => x.EventType == MagicNumberController.ChangeTermsEventType);
+            }
+        }
+
+        public Event CancelEvent
+        {
+            get
+            {
+                return Event_BusinessTrips.Select(x => x.Event).SingleOrDefault(x => x.EventType == MagicNumberController.BeginEventType);
+            }
+        }
 
         public override string ToString()
         {

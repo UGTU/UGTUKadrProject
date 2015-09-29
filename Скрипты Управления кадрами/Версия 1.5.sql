@@ -913,64 +913,75 @@ ALTER TABLE dbo.Award SET (LOCK_ESCALATION = TABLE)
 GO
 COMMIT
 
-
-
---каскадное удаление событий по мат. ответственности
-ALTER TABLE [dbo].[Event_MaterialResponsibility] DROP CONSTRAINT [FK_Event_MaterialResponsibility_Event]
-GO
-ALTER TABLE [dbo].[Event_MaterialResponsibility] WITH CHECK
-ADD CONSTRAINT [FK_Event_MaterialResponsibility_Event] FOREIGN KEY([IdEvent])
-REFERENCES [dbo].[Event] ([id])
-ON DELETE CASCADE
-GO
-
---доп. образование
-set identity_insert [dbo].[EventKind] ON
-  insert into [dbo].[EventKind](id,[EventKindName],[ForFactStaff]) values(16,'Материальная ответственность',0)
-  insert into [dbo].[EventKind](id,[EventKindName],[ForFactStaff]) values(19,'Повышение квалификации',0)
-set identity_insert [dbo].[EventKind] OFF
-
---чистка справочников
-alter table [dbo].[OK_Reason] add is_old bit null
-alter table OK_SocialStatus add is_old bit null
-
---Тип больничного
-alter table OK_Inkapacity add idInkapacityType int null
-
-CREATE TABLE [dbo].[InkapacityType](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[NameInkapacityType] [varchar](500) NOT NULL,
- CONSTRAINT [PK_InkapacityType] PRIMARY KEY CLUSTERED 
+=========================================
+Слабая сущность "Событие командировки"
+=========================================
+CREATE TABLE [dbo].[Event_BusinessTrip](
+	[idEvent] [int] NOT NULL,
+	[idBusinessTrip] [int] NOT NULL,
+ CONSTRAINT [PK_Event_BusinessTrip] PRIMARY KEY CLUSTERED 
 (
-	[id] ASC
+	[idEvent] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[OK_Inkapacity]    Script Date: 26.09.2015 15:52:47 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
 
-CREATE UNIQUE NONCLUSTERED INDEX [IX_Table_Name] ON [dbo].[InkapacityType]
-(
-	[NameInkapacityType] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_OK_Inkapacity_Type]    Script Date: 26.09.2015 15:52:47 ******/
-CREATE NONCLUSTERED INDEX [IX_OK_Inkapacity_Type] ON [dbo].[OK_Inkapacity]
-(
-	[idInkapacityType] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
+========================================
+Изменяем "Командировку" для связи со слабой сущностью, также добавляем "Дни в дороге"
+========================================
 
-ALTER TABLE [dbo].[OK_Inkapacity]  WITH CHECK ADD  CONSTRAINT [FK_OK_Inkapacity_InkapacityType] FOREIGN KEY([idInkapacityType])
-REFERENCES [dbo].[InkapacityType] ([id])
+BEGIN TRANSACTION
 GO
-ALTER TABLE [dbo].[OK_Inkapacity] CHECK CONSTRAINT [FK_OK_Inkapacity_InkapacityType]
+ALTER TABLE dbo.BusinessTrip
+	DROP CONSTRAINT FK_BusinessTrip_FactStaffPrikaz
 GO
+ALTER TABLE dbo.Event SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.BusinessTrip ADD
+	DaysInRoad int NULL
+GO
+ALTER TABLE dbo.BusinessTrip
+	DROP CONSTRAINT IX_BusinessTrip_idFactStaffPrikaz
+GO
+ALTER TABLE dbo.BusinessTrip
+	DROP COLUMN idEvent
+GO
+ALTER TABLE dbo.BusinessTrip SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+
+=======================================
+Связи для слабой сущности "Событие командировки"
+=======================================
+
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Event_BusinessTrip ADD CONSTRAINT
+	FK_Event_BusinessTrip_Event FOREIGN KEY
+	(
+	idEvent
+	) REFERENCES dbo.Event
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Event_BusinessTrip ADD CONSTRAINT
+	FK_Event_BusinessTrip_BusinessTrip FOREIGN KEY
+	(
+	idBusinessTrip
+	) REFERENCES dbo.BusinessTrip
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Event_BusinessTrip SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT

@@ -108,5 +108,12 @@ namespace Kadr.Controllers
                 return KadrController.Instance.Model.RegionTypes.Single(x => x.id == 1);
             }
         }
+
+        public static EventType ChangeTermsEventType { 
+            get
+            {
+                return KadrController.Instance.Model.EventTypes.Single(x => x.id == 3);
+            }
+        }
     }
 }

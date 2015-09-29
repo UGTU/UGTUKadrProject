@@ -197,7 +197,6 @@ namespace Kadr.Data
                 {
                     Award.GovDepartment = value;
                 }
-
             }
         }
 

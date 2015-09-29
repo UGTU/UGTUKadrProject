@@ -50,8 +50,7 @@ namespace Kadr.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" +
-            "")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb;Initial Catalog=KadrRealTest;Integrated Security=True")]
         public string kadrConnectionString {
             get {
                 return ((string)(this["kadrConnectionString"]));
