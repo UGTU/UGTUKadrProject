@@ -19,7 +19,7 @@ namespace Kadr.Data
 
             if (prEnd == null) return;
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this.Event, "PrikazEnd",prEnd, null), this);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this.Event, "DateEnd", endTime, null), this);
+
         }
     }
 }

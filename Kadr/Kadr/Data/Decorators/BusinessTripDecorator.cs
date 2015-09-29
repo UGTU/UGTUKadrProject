@@ -161,6 +161,7 @@ namespace Kadr.Data
         }
 
 
+
         [System.ComponentModel.DisplayName("Финансирование")]
         [System.ComponentModel.Category("Дополнительно")]
         [System.ComponentModel.Description("За счет каких средств осуществляется командировка")]
@@ -234,6 +235,17 @@ namespace Kadr.Data
         internal BusinessTripRegionType GetRegionType()
         {
             return Trip.BusinessTripRegionTypes.FirstOrDefault();
+        }
+
+        internal void CancelTrip(Prikaz p)
+        {
+            Trip.Event.PrikazEnd = p;
+        }
+
+        internal void ChangeDates(DateTime beg, DateTime end)
+        {
+            Trip.Event.DateBegin = beg;
+            Trip.Event.DateEnd = end;
         }
     }
 

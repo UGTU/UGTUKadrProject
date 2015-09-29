@@ -182,12 +182,22 @@ namespace Kadr.UI.Frames
             this.tsbSocialFareTransit = new System.Windows.Forms.ToolStripButton();
             this.tpBusTrip = new System.Windows.Forms.TabPage();
             this.dgvTrips = new System.Windows.Forms.DataGridView();
+            this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateBeginDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateEndDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.targetPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DaysInRoad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegionDatesChanged = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsBusinessTrips = new System.Windows.Forms.ToolStrip();
             this.tsbAddEmplTrip = new System.Windows.Forms.ToolStripButton();
             this.tsbEditEmplTrip = new System.Windows.Forms.ToolStripButton();
             this.tsbDelEmplTrip = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbChangeRegionDates = new System.Windows.Forms.ToolStripButton();
+            this.tsbChangeTripDates = new System.Windows.Forms.ToolStripButton();
+            this.tsbCancelTrip = new System.Windows.Forms.ToolStripButton();
             this.tpMaterial = new System.Windows.Forms.TabPage();
             this.dgvMaterial = new System.Windows.Forms.DataGridView();
             this.prikazBeginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -489,13 +499,6 @@ namespace Kadr.UI.Frames
             this.timeSheetDayStateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oKLanguageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateBeginDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateEndDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.targetPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DaysInRoad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegionDatesChanged = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -1962,6 +1965,60 @@ namespace Kadr.UI.Frames
             this.dgvTrips.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrips_CellDoubleClick);
             this.dgvTrips.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvTrips_RowsAdded);
             // 
+            // prikazDataGridViewTextBoxColumn
+            // 
+            this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
+            this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
+            this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
+            this.prikazDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prikazDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // dateBeginDataGridViewTextBoxColumn1
+            // 
+            this.dateBeginDataGridViewTextBoxColumn1.DataPropertyName = "DateBegin";
+            this.dateBeginDataGridViewTextBoxColumn1.HeaderText = "Дата начала";
+            this.dateBeginDataGridViewTextBoxColumn1.Name = "dateBeginDataGridViewTextBoxColumn1";
+            this.dateBeginDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dateEndDataGridViewTextBoxColumn2
+            // 
+            this.dateEndDataGridViewTextBoxColumn2.DataPropertyName = "DateEnd";
+            this.dateEndDataGridViewTextBoxColumn2.HeaderText = "Дата окончания";
+            this.dateEndDataGridViewTextBoxColumn2.Name = "dateEndDataGridViewTextBoxColumn2";
+            this.dateEndDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dateEndDataGridViewTextBoxColumn2.Width = 120;
+            // 
+            // targetPlaceDataGridViewTextBoxColumn
+            // 
+            this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
+            this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
+            this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
+            this.targetPlaceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.targetPlaceDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // DaysInRoad
+            // 
+            this.DaysInRoad.DataPropertyName = "DaysInRoad";
+            this.DaysInRoad.HeaderText = "Дней в дороге";
+            this.DaysInRoad.Name = "DaysInRoad";
+            this.DaysInRoad.ReadOnly = true;
+            // 
+            // finSourceDataGridViewTextBoxColumn
+            // 
+            this.finSourceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.finSourceDataGridViewTextBoxColumn.DataPropertyName = "FinSource";
+            this.finSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
+            this.finSourceDataGridViewTextBoxColumn.MinimumWidth = 100;
+            this.finSourceDataGridViewTextBoxColumn.Name = "finSourceDataGridViewTextBoxColumn";
+            this.finSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // RegionDatesChanged
+            // 
+            this.RegionDatesChanged.HeaderText = "Уточнены сроки пребывания в регионах ";
+            this.RegionDatesChanged.Name = "RegionDatesChanged";
+            this.RegionDatesChanged.ReadOnly = true;
+            this.RegionDatesChanged.Width = 150;
+            // 
             // BusinessTripsBindingSource
             // 
             this.BusinessTripsBindingSource.DataSource = typeof(Kadr.Data.BusinessTripDecorator);
@@ -1972,7 +2029,10 @@ namespace Kadr.UI.Frames
             this.tsbAddEmplTrip,
             this.tsbEditEmplTrip,
             this.tsbDelEmplTrip,
-            this.tsbChangeRegionDates});
+            this.toolStripSeparator2,
+            this.tsbChangeRegionDates,
+            this.tsbChangeTripDates,
+            this.tsbCancelTrip});
             this.tsBusinessTrips.Location = new System.Drawing.Point(3, 3);
             this.tsBusinessTrips.Name = "tsBusinessTrips";
             this.tsBusinessTrips.Size = new System.Drawing.Size(849, 25);
@@ -2008,14 +2068,38 @@ namespace Kadr.UI.Frames
             this.tsbDelEmplTrip.ToolTipText = "Удалить командировку";
             this.tsbDelEmplTrip.Click += new System.EventHandler(this.tsbDelEmplTrip_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // tsbChangeRegionDates
             // 
-            this.tsbChangeRegionDates.Image = global::Kadr.Properties.Resources.TableHS;
+            this.tsbChangeRegionDates.Image = global::Kadr.Properties.Resources.MonthlyViewHS;
             this.tsbChangeRegionDates.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbChangeRegionDates.Name = "tsbChangeRegionDates";
             this.tsbChangeRegionDates.Size = new System.Drawing.Size(247, 22);
             this.tsbChangeRegionDates.Text = "Уточнить сроки пребывания в регионах";
             this.tsbChangeRegionDates.Click += new System.EventHandler(this.tsbChangeRegionDates_Click);
+            // 
+            // tsbChangeTripDates
+            // 
+            this.tsbChangeTripDates.Image = global::Kadr.Properties.Resources.compareversionsHS;
+            this.tsbChangeTripDates.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbChangeTripDates.Name = "tsbChangeTripDates";
+            this.tsbChangeTripDates.Size = new System.Drawing.Size(258, 20);
+            this.tsbChangeTripDates.Text = "Изменить сроки командировки приказом";
+            this.tsbChangeTripDates.Click += new System.EventHandler(this.tsbChangeTripDates_Click);
+            // 
+            // tsbCancelTrip
+            // 
+            this.tsbCancelTrip.BackColor = System.Drawing.Color.Transparent;
+            this.tsbCancelTrip.Image = global::Kadr.Properties.Resources.RightsRestrictedHS;
+            this.tsbCancelTrip.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbCancelTrip.Name = "tsbCancelTrip";
+            this.tsbCancelTrip.Size = new System.Drawing.Size(221, 20);
+            this.tsbCancelTrip.Text = "Отменить командировку приказом";
+            this.tsbCancelTrip.Click += new System.EventHandler(this.tsbCancelTrip_Click);
             // 
             // tpMaterial
             // 
@@ -4929,60 +5013,6 @@ namespace Kadr.UI.Frames
             // 
             this.oKLanguageBindingSource.DataSource = typeof(Kadr.Data.OK_Language);
             // 
-            // prikazDataGridViewTextBoxColumn
-            // 
-            this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
-            this.prikazDataGridViewTextBoxColumn.HeaderText = "Приказ";
-            this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
-            this.prikazDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prikazDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // dateBeginDataGridViewTextBoxColumn1
-            // 
-            this.dateBeginDataGridViewTextBoxColumn1.DataPropertyName = "DateBegin";
-            this.dateBeginDataGridViewTextBoxColumn1.HeaderText = "Дата начала";
-            this.dateBeginDataGridViewTextBoxColumn1.Name = "dateBeginDataGridViewTextBoxColumn1";
-            this.dateBeginDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dateEndDataGridViewTextBoxColumn2
-            // 
-            this.dateEndDataGridViewTextBoxColumn2.DataPropertyName = "DateEnd";
-            this.dateEndDataGridViewTextBoxColumn2.HeaderText = "Дата окончания";
-            this.dateEndDataGridViewTextBoxColumn2.Name = "dateEndDataGridViewTextBoxColumn2";
-            this.dateEndDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dateEndDataGridViewTextBoxColumn2.Width = 120;
-            // 
-            // targetPlaceDataGridViewTextBoxColumn
-            // 
-            this.targetPlaceDataGridViewTextBoxColumn.DataPropertyName = "TargetPlace";
-            this.targetPlaceDataGridViewTextBoxColumn.HeaderText = "Место назначения";
-            this.targetPlaceDataGridViewTextBoxColumn.Name = "targetPlaceDataGridViewTextBoxColumn";
-            this.targetPlaceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.targetPlaceDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // DaysInRoad
-            // 
-            this.DaysInRoad.DataPropertyName = "DaysInRoad";
-            this.DaysInRoad.HeaderText = "Дней в дороге";
-            this.DaysInRoad.Name = "DaysInRoad";
-            this.DaysInRoad.ReadOnly = true;
-            // 
-            // finSourceDataGridViewTextBoxColumn
-            // 
-            this.finSourceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.finSourceDataGridViewTextBoxColumn.DataPropertyName = "FinSource";
-            this.finSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
-            this.finSourceDataGridViewTextBoxColumn.MinimumWidth = 100;
-            this.finSourceDataGridViewTextBoxColumn.Name = "finSourceDataGridViewTextBoxColumn";
-            this.finSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // RegionDatesChanged
-            // 
-            this.RegionDatesChanged.HeaderText = "Уточнены сроки пребывания в регионах ";
-            this.RegionDatesChanged.Name = "RegionDatesChanged";
-            this.RegionDatesChanged.ReadOnly = true;
-            this.RegionDatesChanged.Width = 150;
-            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5599,5 +5629,8 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn DaysInRoad;
         private DataGridViewTextBoxColumn finSourceDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn RegionDatesChanged;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripButton tsbChangeTripDates;
+        private ToolStripButton tsbCancelTrip;
     }
 }
