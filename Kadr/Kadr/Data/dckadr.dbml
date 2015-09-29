@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KadrRealTest" Class="dckadrDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=KadrRealTest;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="kadrConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb;Initial Catalog=KadrRealTest;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="KadrRealTestConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DepartmentType" Member="DepartmentTypes">
     <Type Name="DepartmentType">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -736,9 +736,9 @@
       <Association Name="EducDocument_OK_Educ" Member="OK_Educ" ThisKey="id" OtherKey="idEducDocument" Type="OK_Educ" Cardinality="One" />
       <Association Name="EducDocument_OK_Inkapacity" Member="OK_Inkapacities" ThisKey="id" OtherKey="idEducDocument" Type="OK_Inkapacity" />
       <Association Name="EducDocument_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEducDocument" Type="OK_Social" />
-      <Association Name="EducDocument_Award" Member="Awards" ThisKey="id" OtherKey="IDEducDocument" Type="Award" />
       <Association Name="EducDocument_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idEducDocument" Type="OK_DopEducation" />
       <Association Name="EducDocument_Validation" Member="Validations" ThisKey="id" OtherKey="IDEducDocument" Type="Validation" />
+      <Association Name="EducDocument_Award" Member="Awards" ThisKey="id" OtherKey="IDEducDocument" Type="Award" />
       <Association Name="Organisation_EducDocument" Member="Organisation" ThisKey="IdOrganisation" OtherKey="id" Type="Organisation" IsForeignKey="true" />
       <Association Name="EducDocumentType_EducDocument" Member="EducDocumentType" ThisKey="idEducDocType" OtherKey="id" Type="EducDocumentType" IsForeignKey="true" />
     </Type>
@@ -1003,9 +1003,9 @@
       <Association Name="Employee_OK_Social" Member="OK_Socials" ThisKey="id" OtherKey="idEmployee" Type="OK_Social" />
       <Association Name="Employee_OK_Adress" Member="OK_Adresses" ThisKey="id" OtherKey="idEmployee" Type="OK_Adress" />
       <Association Name="Employee_OK_Fam" Member="OK_Fams" ThisKey="id" OtherKey="idemployee" Type="OK_Fam" />
-      <Association Name="Employee_Award" Member="Awards" ThisKey="id" OtherKey="IDEmployee" Type="Award" />
       <Association Name="Employee_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idEmployee" Type="OK_DopEducation" />
       <Association Name="Employee_SocialFareTransit" Member="SocialFareTransits" ThisKey="id" OtherKey="idEmployee" Type="SocialFareTransit" />
+      <Association Name="Employee_Award" Member="Awards" ThisKey="id" OtherKey="IDEmployee" Type="Award" />
       <Association Name="Grazd_Employee" Member="Grazd" ThisKey="idGrazd" OtherKey="id" Type="Grazd" IsForeignKey="true" />
       <Association Name="MilitaryCategory_Employee" Member="MilitaryCategory" ThisKey="idMilitaryCategory" OtherKey="id" Type="MilitaryCategory" IsForeignKey="true" />
       <Association Name="MilitaryFitness_Employee" Member="MilitaryFitness" ThisKey="idMilitaryFitness" OtherKey="id" Type="MilitaryFitness" IsForeignKey="true" />
@@ -1027,22 +1027,6 @@
       <Association Name="Contract_Contract" Member="Contracts" ThisKey="id" OtherKey="idMainContract" Type="Contract" />
       <Association Name="Contract_Event" Member="Events" ThisKey="id" OtherKey="idContract" Type="Event" />
       <Association Name="Contract_Contract" Member="Contract1" ThisKey="idMainContract" OtherKey="id" Type="Contract" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Award" Member="Awards">
-    <Type Name="Award">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IDEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IDEducDocument" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IDAwardType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IDAwardLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="AwardLevel_Award" Member="AwardLevel" ThisKey="IDAwardLevel" OtherKey="ID" Type="AwardLevel" IsForeignKey="true" />
-      <Association Name="AwardType_Award" Member="AwardType" ThisKey="IDAwardType" OtherKey="ID" Type="AwardType" IsForeignKey="true" />
-      <Association Name="EducDocument_Award" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
-      <Association Name="Employee_Award" Member="Employee" ThisKey="IDEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
-      <Association Name="Event_Award" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DopEducType" Member="DopEducTypes">
@@ -1183,7 +1167,6 @@
       <Column Name="idEventKind" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idEventType" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idContract" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Event_Award" Member="Awards" ThisKey="id" OtherKey="idEvent" Type="Award" />
       <Association Name="Event_OK_DopEducation" Member="OK_DopEducations" ThisKey="id" OtherKey="idEvent" Type="OK_DopEducation" />
       <Association Name="Event_Validation" Member="Validations" ThisKey="id" OtherKey="idEvent" Type="Validation" />
       <Association Name="Event_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaffPrikaz" Type="OK_Otpusk" />
@@ -1191,6 +1174,7 @@
       <Association Name="Event_BusinessTrip" Member="BusinessTrips" ThisKey="id" OtherKey="idEvent" Type="BusinessTrip" />
       <Association Name="Event_Event" Member="Events" ThisKey="id" OtherKey="idMainEvent" Type="Event" />
       <Association Name="Event_Event_MaterialResponsibility" Member="Event_MaterialResponsibility" ThisKey="id" OtherKey="idEvent" Type="Event_MaterialResponsibility" Cardinality="One" />
+      <Association Name="Event_Award" Member="Awards" ThisKey="id" OtherKey="idEvent" Type="Award" />
       <Association Name="Contract_Event" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="EventKind_Event" Member="EventKind" ThisKey="idEventKind" OtherKey="id" Type="EventKind" IsForeignKey="true" />
       <Association Name="EventType_Event" Member="EventType" ThisKey="idEventType" OtherKey="id" Type="EventType" IsForeignKey="true" />
@@ -1214,6 +1198,32 @@
       <Column Name="Sum" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
       <Column Name="Perc" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
       <Association Name="MaterialResponsibility_Event_MaterialResponsibility" Member="Event_MaterialResponsibilities" ThisKey="id" OtherKey="idMaterialResponsibility" Type="Event_MaterialResponsibility" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Award" Member="Awards">
+    <Type Name="Award">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IDEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDEducDocument" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDAwardType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDAwardLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Organization" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IDGovDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="AwardLevel_Award" Member="AwardLevel" ThisKey="IDAwardLevel" OtherKey="ID" Type="AwardLevel" IsForeignKey="true" />
+      <Association Name="AwardType_Award" Member="AwardType" ThisKey="IDAwardType" OtherKey="ID" Type="AwardType" IsForeignKey="true" />
+      <Association Name="EducDocument_Award" Member="EducDocument" ThisKey="IDEducDocument" OtherKey="id" Type="EducDocument" IsForeignKey="true" />
+      <Association Name="Employee_Award" Member="Employee" ThisKey="IDEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="Event_Award" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="GovDepartment_Award" Member="GovDepartment" ThisKey="IDGovDepartment" OtherKey="id" Type="GovDepartment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GovDepartment" Member="GovDepartments">
+    <Type Name="GovDepartment">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="GovDepartment_Award" Member="Awards" ThisKey="id" OtherKey="IDGovDepartment" Type="Award" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

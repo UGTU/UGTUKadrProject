@@ -104,5 +104,15 @@ namespace Kadr.Properties {
                 return ((string)(this["KadrRealTestConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb;Initial Catalog=KadrRealTest;Integrated Security=True")]
+        public string KadrRealTestConnectionString1 {
+            get {
+                return ((string)(this["KadrRealTestConnectionString1"]));
+            }
+        }
     }
 }

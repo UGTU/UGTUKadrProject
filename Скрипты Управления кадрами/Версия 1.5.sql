@@ -712,3 +712,205 @@ go
 update [dbo].[RegionType]
 set [RegionTypeName]='Бех особых условий', [RegionTypeSmallName]='БОУ'
 where id=1
+
+
+================================================
+Необязательное поле "Организация" для наград
+=================================================
+/*
+   23 сентября 2015 г.16:47:58
+   Пользователь: 
+   Сервер: ugtudb
+   База данных: KadrRealTest
+   Приложение: 
+*/
+
+/* Чтобы предотвратить возможность потери данных, необходимо внимательно просмотреть этот скрипт, прежде чем запускать его вне контекста конструктора баз данных.*/
+BEGIN TRANSACTION
+SET QUOTED_IDENTIFIER ON
+SET ARITHABORT ON
+SET NUMERIC_ROUNDABORT OFF
+SET CONCAT_NULL_YIELDS_NULL ON
+SET ANSI_NULLS ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_Event
+GO
+ALTER TABLE dbo.Event SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_AwardLevel
+GO
+ALTER TABLE dbo.AwardLevel SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_AwardType
+GO
+ALTER TABLE dbo.AwardType SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_Employee
+GO
+ALTER TABLE dbo.Employee SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_EducDocument
+GO
+ALTER TABLE dbo.EducDocument SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.Tmp_Award
+	(
+	ID int NOT NULL IDENTITY (1, 1),
+	Name nvarchar(100) NULL,
+	IDEmployee int NOT NULL,
+	IDEducDocument int NOT NULL,
+	IDAwardType int NOT NULL,
+	idEvent int NULL,
+	IDAwardLevel int NOT NULL,
+	Organization nvarchar(100) NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Tmp_Award SET (LOCK_ESCALATION = TABLE)
+GO
+SET IDENTITY_INSERT dbo.Tmp_Award ON
+GO
+IF EXISTS(SELECT * FROM dbo.Award)
+	 EXEC('INSERT INTO dbo.Tmp_Award (ID, Name, IDEmployee, IDEducDocument, IDAwardType, idEvent, IDAwardLevel)
+		SELECT ID, CONVERT(nvarchar(100), Name), IDEmployee, IDEducDocument, IDAwardType, idEvent, IDAwardLevel FROM dbo.Award WITH (HOLDLOCK TABLOCKX)')
+GO
+SET IDENTITY_INSERT dbo.Tmp_Award OFF
+GO
+DROP TABLE dbo.Award
+GO
+EXECUTE sp_rename N'dbo.Tmp_Award', N'Award', 'OBJECT' 
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	PK_Award PRIMARY KEY CLUSTERED 
+	(
+	ID
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_EducDocument FOREIGN KEY
+	(
+	IDEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_Employee FOREIGN KEY
+	(
+	IDEmployee
+	) REFERENCES dbo.Employee
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_AwardType FOREIGN KEY
+	(
+	IDAwardType
+	) REFERENCES dbo.AwardType
+	(
+	ID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_AwardLevel FOREIGN KEY
+	(
+	IDAwardLevel
+	) REFERENCES dbo.AwardLevel
+	(
+	ID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_Event FOREIGN KEY
+	(
+	idEvent
+	) REFERENCES dbo.Event
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+COMMIT
+
+=======================================
+Добавляем новый справочник "Ведомство"
+=======================================
+CREATE TABLE [dbo].[GovDepartment](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_GovDepartment] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [U_Name] UNIQUE NONCLUSTERED 
+(
+	[Name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+=========================================
+Привязываем "Ведомство" к награде
+=========================================
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.GovDepartment SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award ADD
+	IDGovDepartment int NULL
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_GovDepartment FOREIGN KEY
+	(
+	IDGovDepartment
+	) REFERENCES dbo.GovDepartment
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+
+

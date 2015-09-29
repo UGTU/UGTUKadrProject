@@ -39,7 +39,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Вид награды")]
-        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Category("\tОсновные")]
         [System.ComponentModel.Description("Вид награды, полученной сотрудником")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<AwardType>))]
@@ -62,7 +62,7 @@ namespace Kadr.Data
 
 
         [System.ComponentModel.DisplayName("Уровень награды")]
-        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Category("\tОсновные")]
         [System.ComponentModel.Description("Уровень награды, полученной сотрудником")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<AwardLevel>))]
@@ -84,7 +84,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\tНаименование награды")]
-        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Category("\tОсновные")]
         [System.ComponentModel.Description("Наименование награды, полученной сотрудником")]
         [System.ComponentModel.ReadOnly(false)]
 
@@ -101,7 +101,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата вручения")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Category("\tПодтверждающий документ")]
         [System.ComponentModel.Description("Дата вручения награды")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
@@ -124,7 +124,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\t\tСерия")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Category("\tПодтверждающий документ")]
         [System.ComponentModel.Description("Серия документа, подтверждающего факт награждения")]
         [System.ComponentModel.ReadOnly(false)]
         public string Serie
@@ -144,7 +144,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("\tНомер")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Category("\tПодтверждающий документ")]
         [System.ComponentModel.Description("Номер документа, подтверждающего факт награждения")]
         [System.ComponentModel.ReadOnly(false)]
         public string Number
@@ -164,26 +164,42 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Организация")]
-        [System.ComponentModel.Category("Подтверждающий документ")]
+        [System.ComponentModel.Category("Дополнительно")]
         [System.ComponentModel.Description("Организация, вручившая награду")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Organisation>))]
-        public Organisation Organization
+        public string Organization
         {
             get
             {
-                if (Award.EducDocument != null)
-                    return Award.EducDocument.Organisation;
-                else
-                    return null;
+                    return Award.Organization;
             }
             set
             {
-                if (Award.EducDocument != null)
-                    Award.EducDocument.Organisation = value;
+                    Award.Organization = value;
             }
         }
-       
+
+        [System.ComponentModel.DisplayName("Ведомство")]
+        [System.ComponentModel.Category("Дополнительно")]
+        [System.ComponentModel.Description("Ведомство, вручившее награду сотруднику")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<GovDepartment>))]
+
+        public GovDepartment GDepartment
+        {
+            get
+            {
+                return Award.GovDepartment;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    Award.GovDepartment = value;
+                }
+
+            }
+        }
 
         internal Award GetAward()
         {
