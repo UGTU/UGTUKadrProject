@@ -42,7 +42,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("ОКВЭД")]
+        /*[System.ComponentModel.DisplayName("ОКВЭД")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Код экономической деятельности")]
         [System.ComponentModel.ReadOnly(false)]
@@ -77,7 +77,7 @@ namespace Kadr.Data
             {
                 factStaff.SalaryKoeff = KadrController.Instance.Model.SalaryKoeffs.Where(koef => koef.PKSubSubCategoryNumber == value).FirstOrDefault();
             }
-        }
+        }*/
 
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\tBид работы")]
