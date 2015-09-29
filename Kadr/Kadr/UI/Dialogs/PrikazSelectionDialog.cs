@@ -39,6 +39,7 @@ namespace Kadr.UI.Dialogs
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbPrikaz.DataSource = KadrController.Instance.Model.Prikazs.Where(p => p.PrikazType == cbType.SelectedItem).OrderByDescending(x=>x.DatePrikaz);
+            dialogObject = cbPrikaz.SelectedItem;
         }
 
         private void cbPrikaz_SelectedIndexChanged(object sender, EventArgs e)

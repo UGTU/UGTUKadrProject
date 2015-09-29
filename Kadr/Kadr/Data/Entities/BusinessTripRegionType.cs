@@ -27,12 +27,12 @@ namespace Kadr.Data
             RegionType = regiontype;
         }
 
-        public BusinessTripRegionType(ICommandManager commandManager, DateTime beg, DateTime end, RegionType regionType) : this()
+        public BusinessTripRegionType(ICommandManager commandManager, BusinessTrip trip, DateTime beg, DateTime end, RegionType regionType) : this()
         {
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, DateTime>(this, "DateBegin", beg, null), null);
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, DateTime>(this, "DateEnd", end, null), null);
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, RegionType>(this, "RegionType", regionType, null), null);
-      
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, BusinessTrip>(this, "BusinessTrip", trip, null), null);
         }
 
         public override string ToString()

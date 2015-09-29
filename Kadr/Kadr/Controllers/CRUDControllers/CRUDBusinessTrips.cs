@@ -17,15 +17,14 @@ namespace Kadr.Controllers
             using (PropertyGridDialogAdding<BusinessTrip> dlg =
                SimpleActionsProvider.NewSimpleObjectAddingDialog<BusinessTrip>())
             {
-                    BusinessTripRegionType btrt = new BusinessTripRegionType(dlg.CommandManager, DateTime.Now.Date, DateTime.Now.Date, KadrController.Instance.Model.RegionTypes.First());
-
+                    
                     dlg.InitializeNewObject = (x) =>
                     {
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, BusinessTrip>(btrt, "BusinessTrip", x, null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, Event>(x, "Event", new Event(dlg.CommandManager, fs.CurrentChange, MagicNumberController.BusinessTripKind,MagicNumberController.BeginEventType, false,  null, DateTime.Today), null), sender);
+                        new BusinessTripRegionType(dlg.CommandManager, x, DateTime.Now.Date, DateTime.Now.Date, KadrController.Instance.Model.RegionTypes.First());
+                        new Event_BusinessTrip(dlg.CommandManager, fs.CurrentChange, MagicNumberController.BeginEventType, x, null, DateTime.Today);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FinancingSource>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.FirstOrDefault(), null), sender);
-                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.First(), null), this);
+                       
                     };
 
                     dlg.UpdateObjectList = () =>
