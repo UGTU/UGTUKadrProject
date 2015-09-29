@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KadrRealTest" Class="dckadrDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb;Initial Catalog=KadrRealTest;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="KadrRealTestConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ugtudb;Initial Catalog=KadrRealTest;Integrated Security=True" SettingsObjectName="Kadr.Properties.Settings" SettingsPropertyName="kadrConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DepartmentType" Member="DepartmentTypes">
     <Type Name="DepartmentType">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1098,17 +1098,6 @@
       <Association Name="WorkType_FactStaffHistory" Member="WorkType" ThisKey="idTypeWork" OtherKey="id" Type="WorkType" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.EventKind" Member="EventKinds">
-    <Type Name="EventKind">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EventKindName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="idMainEventKind" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ForFactStaff" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="EventKind_EventKind" Member="EventKinds" ThisKey="id" OtherKey="idMainEventKind" Type="EventKind" />
-      <Association Name="EventKind_Event" Member="Events" ThisKey="id" OtherKey="idEventKind" Type="Event" />
-      <Association Name="EventKind_EventKind" Member="EventKind1" ThisKey="idMainEventKind" OtherKey="id" Type="EventKind" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Event" Member="Events">
     <Type Name="Event">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1130,12 +1119,12 @@
       <Association Name="Event_Award" Member="Awards" ThisKey="id" OtherKey="idEvent" Type="Award" />
       <Association Name="Event_Event_BusinessTrip" Member="Event_BusinessTrip" ThisKey="id" OtherKey="idEvent" Type="Event_BusinessTrip" Cardinality="One" />
       <Association Name="Contract_Event" Member="Contract" ThisKey="idContract" OtherKey="id" Type="Contract" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="EventKind_Event" Member="EventKind" ThisKey="idEventKind" OtherKey="id" Type="EventKind" IsForeignKey="true" />
       <Association Name="EventType_Event" Member="EventType" ThisKey="idEventType" OtherKey="id" Type="EventType" IsForeignKey="true" />
       <Association Name="FactStaffHistory_Event" Member="FactStaffHistory" ThisKey="idFactStaffHistory" OtherKey="id" Type="FactStaffHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Event_Event" Member="Event1" ThisKey="idMainEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
       <Association Name="Prikaz_Event" Member="Prikaz" ThisKey="idPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
       <Association Name="Prikaz_Event1" Member="Prikaz1" ThisKey="idPrikazEnd" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
+      <Association Name="EventKind_Event" Member="EventKind" ThisKey="idEventKind" OtherKey="id" Type="EventKind" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Event_MaterialResponsibility" Member="Event_MaterialResponsibilities">
@@ -1243,6 +1232,19 @@
       <Column Name="idBusinessTrip" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="BusinessTrip_Event_BusinessTrip" Member="BusinessTrip" ThisKey="idBusinessTrip" OtherKey="id" Type="BusinessTrip" IsForeignKey="true" />
       <Association Name="Event_Event_BusinessTrip" Member="Event" ThisKey="idEvent" OtherKey="id" Type="Event" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventKind" Member="EventKinds">
+    <Type Name="EventKind">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventKindName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="idMainEventKind" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ForFactStaff" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DecoratorName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="EventKindApplName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="EventKind_Event" Member="Events" ThisKey="id" OtherKey="idEventKind" Type="Event" />
+      <Association Name="EventKind_EventKind" Member="EventKinds" ThisKey="id" OtherKey="idMainEventKind" Type="EventKind" />
+      <Association Name="EventKind_EventKind" Member="EventKind1" ThisKey="idMainEventKind" OtherKey="id" Type="EventKind" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">
