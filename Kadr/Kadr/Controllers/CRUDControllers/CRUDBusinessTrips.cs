@@ -41,7 +41,7 @@ namespace Kadr.Controllers
 
         public static void Read(FactStaff fs, BindingSource BusinessTripsBindingSource)
         {
-            BusinessTripsBindingSource.DataSource = KadrController.Instance.Model.FactStaffHistories.Where(t => t.FactStaff == fs).SelectMany(x => x.Events).Select(x => x.Event_BusinessTrip.BusinessTrip).Distinct().Select(x => x.GetDecorator()).ToList();
+            BusinessTripsBindingSource.DataSource = KadrController.Instance.Model.FactStaffHistories.Where(t => t.FactStaff == fs).SelectMany(x => x.Events).Select(x => x.Event_BusinessTrip).Where(t=>t!=null).Select(t=>t.BusinessTrip).Distinct().Select(x => x.GetDecorator()).ToList();
         }
 
         public static void Update(FactStaff fs, BindingSource BusinessTripsBindingSource)
