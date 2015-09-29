@@ -14,6 +14,8 @@ using Kadr.Data;
 using UIX.Commands;
 using Kadr.Data.Common;
 using Reports.Frames;
+using Kadr.UI.Editors;
+using Kadr.UI.Dialogs;
 
 namespace Kadr.UI.Frames
 {
@@ -648,6 +650,15 @@ namespace Kadr.UI.Frames
 
         }
 
+        private void tsbCancelTrip_Click(object sender, EventArgs e)
+        {
+            CRUDBusinessTrips.CancelTrip(BusinessTripsBindingSource); 
+        }
+
+        private void tsbChangeTripDates_Click(object sender, EventArgs e)
+        {
+            CRUDBusinessTrips.TripChangeDates(FactStaff.CurrentChange,BusinessTripsBindingSource);
+        }
     }
 
 }
