@@ -92,6 +92,22 @@ namespace Kadr.Controllers
             }
         }
 
+        public static PrikazType MaterialPrikazType
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 18);
+            }
+        }
+
+        public static PrikazType DopEducPrikazType
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 40);
+            }
+        }
+
         public static PrikazType SocialFareTransitPrikazType
         {
             get

@@ -6,11 +6,12 @@ using System.Drawing.Design;
 using System.Linq;
 using System.Text;
 using Kadr.Controllers;
+using Kadr.Interfaces;
 
 namespace Kadr.Data
 {
 
-    internal class MaterialResponsibilityDecorator
+    internal class MaterialResponsibilityDecorator : IPrikazTypeProvider
     {
         private MaterialResponsibility _material;
 
@@ -171,6 +172,13 @@ namespace Kadr.Data
         internal MaterialResponsibility GetMaterial()
         {
             return _material;
+        }
+
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
+        public PrikazType PrikazType
+        {
+            get { return MagicNumberController.MaterialPrikazType; }
         }
     }
 }
