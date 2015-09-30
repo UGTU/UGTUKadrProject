@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Design;
 using System.Linq;
 using System.Text;
+using Kadr.Controllers;
+using Kadr.Interfaces;
 
 namespace Kadr.Data
 {
 
-    class SocialFareTransitDecorator
+    class SocialFareTransitDecorator : IPrikazTypeProvider
     {
 
         private SocialFareTransit socialFareTransit;
@@ -72,8 +75,25 @@ namespace Kadr.Data
             }
         }
 
+        /*
+        [System.ComponentModel.DisplayName("Приказ на использование")]
+        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Description("Приказ, согласно которому был использован льготный проезд")]
+        [System.ComponentModel.Editor(typeof(UI.Editors.PrikazEditor), typeof(UITypeEditor))]
+        [System.ComponentModel.ReadOnly(true)]
+        public Prikaz PrikazLgot
+        {
+            get { return socialFareTransit.Prikaz; }
+            set { socialFareTransit.Prikaz = value; }
+        }
+          */
 
-
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
+        public PrikazType PrikazType
+        {
+            get { return MagicNumberController.SocialFareTransitPrikazType; } 
+        }
     }
 
 

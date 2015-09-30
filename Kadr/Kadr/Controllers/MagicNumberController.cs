@@ -92,6 +92,22 @@ namespace Kadr.Controllers
             }
         }
 
+        public static PrikazType SocialFareTransitPrikazType
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 43);
+            }
+        }
+
+        public static PrikazType OtpuskPrikazType
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 21);
+            }
+        }
+
         static public StandingType DefaultStandingType
         {
             get

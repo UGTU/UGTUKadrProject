@@ -169,11 +169,6 @@ namespace Kadr.UI.Frames
             this.tpEmpOtpusk = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrikazColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrikazLgot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oKOtpuskBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.tsbAddOtp = new System.Windows.Forms.ToolStripButton();
@@ -502,6 +497,12 @@ namespace Kadr.UI.Frames
             this.languageLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oKLanguageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tempBS = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrikazColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrikazLgot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -1799,6 +1800,7 @@ namespace Kadr.UI.Frames
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn11,
             this.DateEnd,
+            this.CountDay,
             this.PrikazColumn,
             this.PrikazLgot});
             this.dataGridView5.DataSource = this.oKOtpuskBindingSource;
@@ -1819,45 +1821,6 @@ namespace Kadr.UI.Frames
             this.dataGridView5.Size = new System.Drawing.Size(843, 244);
             this.dataGridView5.TabIndex = 2;
             this.dataGridView5.DoubleClick += new System.EventHandler(this.tsbEditOtp_Click);
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "OK_Otpuskvid";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Вид отпуска";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "RealDateBegin";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Дата начала";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 120;
-            // 
-            // DateEnd
-            // 
-            this.DateEnd.DataPropertyName = "RealDateEnd";
-            this.DateEnd.HeaderText = "Дата окончания";
-            this.DateEnd.Name = "DateEnd";
-            this.DateEnd.ReadOnly = true;
-            this.DateEnd.Width = 120;
-            // 
-            // PrikazColumn
-            // 
-            this.PrikazColumn.DataPropertyName = "Prikaz";
-            this.PrikazColumn.HeaderText = "Приказ";
-            this.PrikazColumn.Name = "PrikazColumn";
-            this.PrikazColumn.ReadOnly = true;
-            // 
-            // PrikazLgot
-            // 
-            this.PrikazLgot.DataPropertyName = "PrikazLgot";
-            this.PrikazLgot.HeaderText = "Приказ льготного проезда";
-            this.PrikazLgot.Name = "PrikazLgot";
-            this.PrikazLgot.ReadOnly = true;
-            this.PrikazLgot.Width = 200;
             // 
             // oKOtpuskBindingSource
             // 
@@ -5035,6 +4998,52 @@ namespace Kadr.UI.Frames
             // 
             this.tempBS.DataSource = typeof(Kadr.Data.OK_Otpusk);
             // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "OK_Otpuskvid";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Вид отпуска";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "RealDateBegin";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Дата начала";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 120;
+            // 
+            // DateEnd
+            // 
+            this.DateEnd.DataPropertyName = "RealDateEnd";
+            this.DateEnd.HeaderText = "Дата окончания";
+            this.DateEnd.Name = "DateEnd";
+            this.DateEnd.ReadOnly = true;
+            this.DateEnd.Width = 120;
+            // 
+            // CountDay
+            // 
+            this.CountDay.DataPropertyName = "CountDay";
+            this.CountDay.HeaderText = "Дней";
+            this.CountDay.Name = "CountDay";
+            this.CountDay.ReadOnly = true;
+            // 
+            // PrikazColumn
+            // 
+            this.PrikazColumn.DataPropertyName = "RealPrikaz";
+            this.PrikazColumn.HeaderText = "Приказ";
+            this.PrikazColumn.Name = "PrikazColumn";
+            this.PrikazColumn.ReadOnly = true;
+            // 
+            // PrikazLgot
+            // 
+            this.PrikazLgot.DataPropertyName = "PrikazLgot";
+            this.PrikazLgot.HeaderText = "Приказ льготного проезда";
+            this.PrikazLgot.Name = "PrikazLgot";
+            this.PrikazLgot.ReadOnly = true;
+            this.PrikazLgot.Width = 200;
+            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5657,6 +5666,7 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn DateEnd;
+        private DataGridViewTextBoxColumn CountDay;
         private DataGridViewTextBoxColumn PrikazColumn;
         private DataGridViewTextBoxColumn PrikazLgot;
     }

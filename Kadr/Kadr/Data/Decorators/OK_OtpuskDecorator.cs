@@ -1,4 +1,9 @@
-﻿using Kadr.UI.Editors;
+﻿using System.Drawing.Design;
+using System.Web.Services.Description;
+using System.Windows.Forms;
+using Kadr.Controllers;
+using Kadr.Interfaces;
+using Kadr.UI.Editors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +11,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class OK_OtpuskDecorator
+    class OK_OtpuskDecorator :  IPrikazTypeProvider
     {
         private OK_Otpusk ok_Otpusk;
         public OK_OtpuskDecorator(OK_Otpusk ok_Otpusk)
@@ -69,7 +74,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата завершения")]
+        [System.ComponentModel.DisplayName("Дата окончания")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Дата завершения отпуска")]
         [System.ComponentModel.ReadOnly(false)]
@@ -103,8 +108,8 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Льготный проезд")]
-        [System.ComponentModel.Category("Основные параметры")]
-        [System.ComponentModel.Description("Льготный проезд")]
+        [System.ComponentModel.Category("Льготный проезд")]
+        [System.ComponentModel.Description("Используемый льготный проезд")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SocialFareTransitConverter))]
         public SocialFareTransit SocialFareTransit
@@ -115,9 +120,27 @@ namespace Kadr.Data
             }
             set
             {
+                if ((value.id == 0) && (ok_Otpusk.SocialFareTransit != null)) ok_Otpusk.SocialFareTransit.Prikaz = null;
                 ok_Otpusk.SocialFareTransit = value;
             }
         }
+
+        [System.ComponentModel.DisplayName("Приказ льготного проезда")]
+        [System.ComponentModel.Category("Льготный проезд")]
+        [System.ComponentModel.Description("Льготный проезд")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.Editor(typeof(UI.Editors.PrikazEditor), typeof(UITypeEditor))]
+        public Prikaz PrikazLgot
+        {
+            get { return (ok_Otpusk.SocialFareTransit != null)?ok_Otpusk.SocialFareTransit.Prikaz:null; }
+            set
+            {
+                if (value == null) return;
+                if ((ok_Otpusk.SocialFareTransit != null) && (ok_Otpusk.SocialFareTransit.id != 0)) ok_Otpusk.SocialFareTransit.Prikaz = value;
+                else MessageBox.Show("Сначала укажите льготный проезд.");
+            }
+        }
+
 
         [System.ComponentModel.DisplayName("Приказ")]
         [System.ComponentModel.Category("Основные параметры")]
@@ -154,6 +177,12 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
+        public PrikazType PrikazType
+        {
+            get { return MagicNumberController.OtpuskPrikazType;  }
+        }
     }
 
 }
