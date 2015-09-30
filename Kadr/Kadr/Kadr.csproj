@@ -267,6 +267,8 @@
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMainBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffHourBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffMainBaseDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMinDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMinMainBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryWorkTypeDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopEducDecorator.cs" />
     <Compile Include="Data\Decorators\OK_FamDecorator.cs" />

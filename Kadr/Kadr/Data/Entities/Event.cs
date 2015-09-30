@@ -82,7 +82,9 @@ namespace Kadr.Data
                     else
                         DateEnd = DateEnd.Value.Date;
 
-                FactStaffHistory = FactStaff.GetHistoryForDate(DateBegin);
+                //если не создается изменение, а редактируется
+                if (FactStaffHistory.id != 0)
+                    FactStaffHistory = FactStaff.GetHistoryForDate(DateBegin);
 
                 if (Contract != null)
                 {

@@ -968,7 +968,6 @@ namespace Kadr.UI.Frames
 
        private void btnChangeFactStaff_Click(object sender, EventArgs e)
        {
-
            FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
            if (currentFactStaff == null)
            {
@@ -976,10 +975,8 @@ namespace Kadr.UI.Frames
                return;
            }
 
-           /*if (sender.Equals(изменитьСтавкуToolStripMenuItem))
-            MessageBox.Show(sender.ToString());*/
-
-           CRUDFactStaffHistory.Create(currentFactStaff, KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(),
+           EventKind thisEventKind = KadrController.Instance.Model.EventKinds.Where(x => x.EventKindApplName == sender.ToString()).FirstOrDefault();
+           CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind?? KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(),
                MagicNumberController.BeginEventType, true);
            LoadPlanStaff();
        }
