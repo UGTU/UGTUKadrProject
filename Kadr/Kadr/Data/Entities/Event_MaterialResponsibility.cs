@@ -20,7 +20,13 @@ namespace Kadr.Data
             commandManager.Execute(
                 new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this.Event, "Prikaz",
                     prEnd, null), this);
+            //возможно, нужно:
+            //new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this.Event, "PrikazEnd",
+
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this.Event, "DateBegin", endTime, null), this);
+            // возможно, нужно:
+            //commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this.Event, "DateEnd", endTime, null), this);
+
         }
     }
 }

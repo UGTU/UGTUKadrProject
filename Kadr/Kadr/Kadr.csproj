@@ -237,7 +237,9 @@
     <Compile Include="Data\Converters\ContractConvertor.cs" />
     <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
-    <Compile Include="Data\Converters\IEntitySelector.cs" />
+    <Compile Include="Data\Converters\SocialStatusToStringConverter.cs" />
+    <Compile Include="Data\Entities\Event_BusinessTrip.cs" />
+    <Compile Include="Interfaces\IEntitySelector.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
@@ -692,6 +694,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\DatesRangeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\DatesRangeDialog.Designer.cs">
+      <DependentUpon>DatesRangeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -970,6 +978,9 @@
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\DatesRangeDialog.resx">
+      <DependentUpon>DatesRangeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.resx">
       <DependentUpon>EmployeeLinqPropertyGridDialogAdding.cs</DependentUpon>
     </EmbeddedResource>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Kadr.Data;
 using Kadr.Controllers;
+using UIX.Commands;
 
 namespace Kadr.UI.Forms
 {
@@ -65,15 +66,7 @@ namespace Kadr.UI.Forms
                 return;
             }
 
-            Event CurrentPrikaz = CurrentSF.Event;
-
-            if (CurrentPrikaz == null)
                 LinqActionsController<SocialFareTransit>.Instance.DeleteObject(CurrentSF, KadrController.Instance.Model.SocialFareTransits, null);
-            else
-            {
-                KadrController.Instance.Model.SocialFareTransits.DeleteOnSubmit(CurrentSF);
-                LinqActionsController<Event>.Instance.DeleteObject(CurrentPrikaz, KadrController.Instance.Model.Events, null);
-            }
 
             LoadPeriods();
         }
@@ -89,8 +82,8 @@ namespace Kadr.UI.Forms
                 dlg.InitializeNewObject = (x) =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, Employee>(x, "Employee", Employee, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, DateTime>(x, "DateBegin", DateTime.Today, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, DateTime>(x, "DateEnd", DateTime.Today.AddYears(SocialFareTransit.SocialFareLength), null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, DateTime>(x, "DateBegin", ((KadrController.Instance.Model.SocialFareTransits.Any(y => y.Employee == Employee)) ? KadrController.Instance.Model.SocialFareTransits.Where(z=>z.Employee == Employee).Max(y => y.DateEnd) : DateTime.Today).AddDays(1), null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, DateTime>(x, "DateEnd", x.DateBegin.AddYears(SocialFareTransit.SocialFareLength), null), this);
                 };
 
                 dlg.UpdateObjectList = () =>
@@ -101,6 +94,20 @@ namespace Kadr.UI.Forms
                 dlg.ShowDialog();
             }
             LoadPeriods();
+        }
+
+        private static Action<SocialFareTransit> BeforeApplyAction(ICommandManager commandManager, object sender)
+        {
+            return (x) =>
+            {
+              /*  if (x.TempPrikaz == null) return;
+                var event = new Event(commandManager, x.Employee.FactStaffs, MagicNumberController.EndEventType, x,
+                    x.TempPrikazEnd, x.DateEnd);
+
+                commandManager.Execute(
+                    new GenericPropertyCommand<Event_MaterialResponsibility, MaterialResponsibility>(eventMat,
+                        "MaterialResponsibility", x, null), sender);*/
+            };
         }
     }
 }

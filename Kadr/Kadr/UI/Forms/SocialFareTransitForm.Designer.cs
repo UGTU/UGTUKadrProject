@@ -40,7 +40,6 @@
             this.DelPStChangeBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnClose = new System.Windows.Forms.ToolStripButton();
-            this.IsUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,14 +47,14 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateBeginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateEndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Event = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsUsed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idEmployeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEventDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlanStaffHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.socialFareTransitBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -82,7 +81,6 @@
             this.Event,
             this.IsUsed,
             this.idEmployeeDataGridViewTextBoxColumn,
-            this.idEventDataGridViewTextBoxColumn,
             this.employeeDataGridViewTextBoxColumn});
             this.dgvPlanStaffHistory.DataSource = this.socialFareTransitBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -173,15 +171,6 @@
             this.btnClose.ToolTipText = "Закрыть окно";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // IsUsed
-            // 
-            this.IsUsed.DataPropertyName = "IsUsed";
-            this.IsUsed.HeaderText = "Был использован";
-            this.IsUsed.Name = "IsUsed";
-            this.IsUsed.ReadOnly = true;
-            this.IsUsed.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsUsed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
@@ -237,6 +226,14 @@
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Visible = false;
             // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Employee";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Employee";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -262,10 +259,19 @@
             // Event
             // 
             this.Event.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Event.DataPropertyName = "Event";
+            this.Event.DataPropertyName = "Prikaz";
             this.Event.HeaderText = "Приказ об использовании";
             this.Event.Name = "Event";
             this.Event.ReadOnly = true;
+            // 
+            // IsUsed
+            // 
+            this.IsUsed.DataPropertyName = "IsUsed";
+            this.IsUsed.HeaderText = "Был использован";
+            this.IsUsed.Name = "IsUsed";
+            this.IsUsed.ReadOnly = true;
+            this.IsUsed.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsUsed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // idEmployeeDataGridViewTextBoxColumn
             // 
@@ -275,14 +281,6 @@
             this.idEmployeeDataGridViewTextBoxColumn.ReadOnly = true;
             this.idEmployeeDataGridViewTextBoxColumn.Visible = false;
             // 
-            // idEventDataGridViewTextBoxColumn
-            // 
-            this.idEventDataGridViewTextBoxColumn.DataPropertyName = "idEvent";
-            this.idEventDataGridViewTextBoxColumn.HeaderText = "idEvent";
-            this.idEventDataGridViewTextBoxColumn.Name = "idEventDataGridViewTextBoxColumn";
-            this.idEventDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idEventDataGridViewTextBoxColumn.Visible = false;
-            // 
             // employeeDataGridViewTextBoxColumn
             // 
             this.employeeDataGridViewTextBoxColumn.DataPropertyName = "Employee";
@@ -290,14 +288,6 @@
             this.employeeDataGridViewTextBoxColumn.Name = "employeeDataGridViewTextBoxColumn";
             this.employeeDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Employee";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Employee";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Visible = false;
             // 
             // SocialFareTransitForm
             // 
@@ -337,13 +327,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEventDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Event;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEmployeeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEventDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn;
     }
 }

@@ -9,11 +9,12 @@ using System.Reflection;
 using System.Text;
 using Kadr.Controllers;
 using Kadr.Data.Converters;
+using Kadr.Interfaces;
 
 
 namespace Kadr.Data
 {
-    class DopEducationDecorator
+    class DopEducationDecorator : IPrikazTypeProvider 
     {
         private OK_DopEducation _dop;
 
@@ -261,6 +262,14 @@ namespace Kadr.Data
         internal OK_DopEducation GetDopEduc()
         {
             return _dop;
+        }
+
+
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
+        public PrikazType PrikazType
+        {
+            get { return MagicNumberController.DopEducPrikazType; }
         }
     }
 }

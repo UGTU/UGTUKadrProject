@@ -987,3 +987,27 @@ GO
 ALTER TABLE dbo.Event_BusinessTrip SET (LOCK_ESCALATION = TABLE)
 GO
 COMMIT
+set identity_insert [dbo].AwardType ON
+
+DROP INDEX  SocialFareTransit.IX_SocialFareTransitidFactStaffPrikaz
+alter table [dbo].[SocialFareTransit] drop FK_SocialFareTransit_Event
+alter table [dbo].[SocialFareTransit] drop column [idEvent]
+
+alter table [dbo].[SocialFareTransit] add idPrikaz int null
+
+/****** Object:  Index [IX_SocialFareTransit_prikaz]    Script Date: 30.09.2015 10:43:12 ******/
+CREATE NONCLUSTERED INDEX [IX_SocialFareTransit_prikaz] ON [dbo].[SocialFareTransit]
+(
+	[idPrikaz] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[SocialFareTransit]  WITH CHECK ADD  CONSTRAINT [FK_SocialFareTransit_Prikaz] FOREIGN KEY([idPrikaz])
+REFERENCES [dbo].[Prikaz] ([id])
+GO
+ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_SocialFareTransit_Prikaz]
+GO
+
+set identity_insert [dbo].[PrikazType] ON
+insert into [dbo].[PrikazType]([id],[PrikazTypeName],idPrikazSuperType)
+values(43,'Ëüדמעםûי ןנמוחה',1)
+set identity_insert [dbo].[PrikazType] OFF
