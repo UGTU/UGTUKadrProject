@@ -86,9 +86,24 @@ namespace Kadr.UI.Frames
    
         #region LoadData
 
+        private void LoadPostList(ArrayList factStaffFilters)
+        {
+                //фильтруем элементы 
+                IEnumerable<FactStaff> factStaff =
+                    KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();;
+                List<FactStaff> fcStaff = new List<FactStaff>();
+                foreach (FactStaff fcSt in factStaff)
+                    if (factStaffFilters.Contains((fcSt as IObjectState).State()))
+                    {
+                        fcStaff.Add(fcSt);
+                    }
+                factStaffBindingSource.DataSource = fcStaff;
+        }
+
         private void LoadPostList()
         {
-            factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
+            LoadPostList(ObjectStateController.Instance.GetObjectStatesForFilter(tspFactStaffFilter, null));
+            //factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
         }
 
         private void LoadBonus()
@@ -315,7 +330,7 @@ namespace Kadr.UI.Frames
         private void tcEmplPostInf_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
-                CRUDVacation.Read(FactStaff.CurrentChange, Employee, oKOtpuskBindingSource);
+                CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, oKOtpuskBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpBusTrip)
                 CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
@@ -666,6 +681,11 @@ namespace Kadr.UI.Frames
         private void tsbChangeTripDates_Click(object sender, EventArgs e)
         {
             CRUDBusinessTrips.TripChangeDates((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
+        }
+
+        private void tspFactStaffFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            LoadPostList(ObjectStateController.Instance.GetObjectStatesForFilter(tspFactStaffFilter, e));
         }
     }
 
