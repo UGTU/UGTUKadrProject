@@ -73,7 +73,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Причина замещения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<NullFactStaffReplacementReason>))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<FactStaffReplacementReason>))]
         public Kadr.Data.FactStaffReplacementReason FactStaffReplacementReason
         {
             get
