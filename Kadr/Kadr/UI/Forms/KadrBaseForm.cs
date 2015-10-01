@@ -238,9 +238,8 @@ namespace Kadr.UI.Forms
                 frame = obj.ObjectViewType;
 
 
-
-                //Отобразить кадр
-                Frame = frame;
+                        //Отобразить кадр
+                        Frame = frame;
 
                 CurrentObjectLabel.Text = obj.GetObjectName();
                 

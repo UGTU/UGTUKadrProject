@@ -9,7 +9,8 @@ namespace Kadr.Data
 {
     public partial class OK_Educ : UIX.Views.IDecorable, UIX.Views.IValidatable, IComparable
     {
-       #region partial Methods
+
+        #region partial Methods
 
         public override string ToString()
         {

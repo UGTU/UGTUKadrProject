@@ -213,21 +213,9 @@ namespace Kadr.Data
     partial void InsertOK_EmployeeLang(OK_EmployeeLang instance);
     partial void UpdateOK_EmployeeLang(OK_EmployeeLang instance);
     partial void DeleteOK_EmployeeLang(OK_EmployeeLang instance);
-    partial void InsertOK_Educ(OK_Educ instance);
-    partial void UpdateOK_Educ(OK_Educ instance);
-    partial void DeleteOK_Educ(OK_Educ instance);
-    partial void InsertEducationType(EducationType instance);
-    partial void UpdateEducationType(EducationType instance);
-    partial void DeleteEducationType(EducationType instance);
-    partial void InsertEducDocument(EducDocument instance);
-    partial void UpdateEducDocument(EducDocument instance);
-    partial void DeleteEducDocument(EducDocument instance);
     partial void InsertLanguageLevel(LanguageLevel instance);
     partial void UpdateLanguageLevel(LanguageLevel instance);
     partial void DeleteLanguageLevel(LanguageLevel instance);
-    partial void InsertEducDocumentType(EducDocumentType instance);
-    partial void UpdateEducDocumentType(EducDocumentType instance);
-    partial void DeleteEducDocumentType(EducDocumentType instance);
     partial void InsertFactStaff(FactStaff instance);
     partial void UpdateFactStaff(FactStaff instance);
     partial void DeleteFactStaff(FactStaff instance);
@@ -264,9 +252,6 @@ namespace Kadr.Data
     partial void InsertDepartmentHistory(DepartmentHistory instance);
     partial void UpdateDepartmentHistory(DepartmentHistory instance);
     partial void DeleteDepartmentHistory(DepartmentHistory instance);
-    partial void InsertEmployee(Employee instance);
-    partial void UpdateEmployee(Employee instance);
-    partial void DeleteEmployee(Employee instance);
     partial void InsertContract(Contract instance);
     partial void UpdateContract(Contract instance);
     partial void DeleteContract(Contract instance);
@@ -333,6 +318,21 @@ namespace Kadr.Data
     partial void InsertPrikaz(Prikaz instance);
     partial void UpdatePrikaz(Prikaz instance);
     partial void DeletePrikaz(Prikaz instance);
+    partial void InsertEmployee(Employee instance);
+    partial void UpdateEmployee(Employee instance);
+    partial void DeleteEmployee(Employee instance);
+    partial void InsertEducDocument(EducDocument instance);
+    partial void UpdateEducDocument(EducDocument instance);
+    partial void DeleteEducDocument(EducDocument instance);
+    partial void InsertEducationType(EducationType instance);
+    partial void UpdateEducationType(EducationType instance);
+    partial void DeleteEducationType(EducationType instance);
+    partial void InsertEducDocumentType(EducDocumentType instance);
+    partial void UpdateEducDocumentType(EducDocumentType instance);
+    partial void DeleteEducDocumentType(EducDocumentType instance);
+    partial void InsertOK_Educ(OK_Educ instance);
+    partial void UpdateOK_Educ(OK_Educ instance);
+    partial void DeleteOK_Educ(OK_Educ instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -869,43 +869,11 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<OK_Educ> OK_Educs
-		{
-			get
-			{
-				return this.GetTable<OK_Educ>();
-			}
-		}
-		
-		public System.Data.Linq.Table<EducationType> EducationTypes
-		{
-			get
-			{
-				return this.GetTable<EducationType>();
-			}
-		}
-		
-		public System.Data.Linq.Table<EducDocument> EducDocuments
-		{
-			get
-			{
-				return this.GetTable<EducDocument>();
-			}
-		}
-		
 		public System.Data.Linq.Table<LanguageLevel> LanguageLevels
 		{
 			get
 			{
 				return this.GetTable<LanguageLevel>();
-			}
-		}
-		
-		public System.Data.Linq.Table<EducDocumentType> EducDocumentTypes
-		{
-			get
-			{
-				return this.GetTable<EducDocumentType>();
 			}
 		}
 		
@@ -1002,14 +970,6 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<DepartmentHistory>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Employee> Employees
-		{
-			get
-			{
-				return this.GetTable<Employee>();
 			}
 		}
 		
@@ -1186,6 +1146,46 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<Prikaz>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Employee> Employees
+		{
+			get
+			{
+				return this.GetTable<Employee>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EducDocument> EducDocuments
+		{
+			get
+			{
+				return this.GetTable<EducDocument>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EducationType> EducationTypes
+		{
+			get
+			{
+				return this.GetTable<EducationType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EducDocumentType> EducDocumentTypes
+		{
+			get
+			{
+				return this.GetTable<EducDocumentType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_Educ> OK_Educs
+		{
+			get
+			{
+				return this.GetTable<OK_Educ>();
 			}
 		}
 		
@@ -2978,9 +2978,9 @@ namespace Kadr.Data
 		
 		private EntityRef<Rank> _Rank;
 		
-		private EntityRef<EducDocument> _EducDocument;
-		
 		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<EducDocument> _EducDocument;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -2999,8 +2999,8 @@ namespace Kadr.Data
 		public EmployeeRank()
 		{
 			this._Rank = default(EntityRef<Rank>);
-			this._EducDocument = default(EntityRef<EducDocument>);
 			this._Employee = default(EntityRef<Employee>);
+			this._EducDocument = default(EntityRef<EducDocument>);
 			OnCreated();
 		}
 		
@@ -3130,6 +3130,40 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeRank", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.EmployeeRanks.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.EmployeeRanks.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_EmployeeRank", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
 		public EducDocument EducDocument
 		{
@@ -3160,40 +3194,6 @@ namespace Kadr.Data
 						this._idEducDocument = default(int);
 					}
 					this.SendPropertyChanged("EducDocument");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeRank", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.EmployeeRanks.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.EmployeeRanks.Add(this);
-						this._idEmployee = value.id;
-					}
-					else
-					{
-						this._idEmployee = default(int);
-					}
-					this.SendPropertyChanged("Employee");
 				}
 			}
 		}
@@ -3243,9 +3243,9 @@ namespace Kadr.Data
 		
 		private EntityRef<Degree> _Degree;
 		
-		private EntityRef<EducDocument> _EducDocument;
-		
 		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<EducDocument> _EducDocument;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -3271,8 +3271,8 @@ namespace Kadr.Data
 		{
 			this._ScienceType = default(EntityRef<ScienceType>);
 			this._Degree = default(EntityRef<Degree>);
-			this._EducDocument = default(EntityRef<EducDocument>);
 			this._Employee = default(EntityRef<Employee>);
+			this._EducDocument = default(EntityRef<EducDocument>);
 			OnCreated();
 		}
 		
@@ -3500,6 +3500,40 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeDegree", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.EmployeeDegrees.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.EmployeeDegrees.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_EmployeeDegree", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
 		public EducDocument EducDocument
 		{
@@ -3530,40 +3564,6 @@ namespace Kadr.Data
 						this._idEducDocument = default(int);
 					}
 					this.SendPropertyChanged("EducDocument");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeDegree", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.EmployeeDegrees.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.EmployeeDegrees.Add(this);
-						this._idEmployee = value.id;
-					}
-					else
-					{
-						this._idEmployee = default(int);
-					}
-					this.SendPropertyChanged("Employee");
 				}
 			}
 		}
@@ -15045,11 +15045,11 @@ namespace Kadr.Data
 		
 		private EntityRef<OK_Language> _OK_Language;
 		
-		private EntityRef<EducDocument> _EducDocument;
-		
 		private EntityRef<LanguageLevel> _LanguageLevel;
 		
 		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<EducDocument> _EducDocument;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -15072,9 +15072,9 @@ namespace Kadr.Data
 		public OK_EmployeeLang()
 		{
 			this._OK_Language = default(EntityRef<OK_Language>);
-			this._EducDocument = default(EntityRef<EducDocument>);
 			this._LanguageLevel = default(EntityRef<LanguageLevel>);
 			this._Employee = default(EntityRef<Employee>);
+			this._EducDocument = default(EntityRef<EducDocument>);
 			OnCreated();
 		}
 		
@@ -15248,40 +15248,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_EmployeeLang", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
-		public EducDocument EducDocument
-		{
-			get
-			{
-				return this._EducDocument.Entity;
-			}
-			set
-			{
-				EducDocument previousValue = this._EducDocument.Entity;
-				if (((previousValue != value) 
-							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EducDocument.Entity = null;
-						previousValue.OK_EmployeeLangs.Remove(this);
-					}
-					this._EducDocument.Entity = value;
-					if ((value != null))
-					{
-						value.OK_EmployeeLangs.Add(this);
-						this._idEducDocument = value.id;
-					}
-					else
-					{
-						this._idEducDocument = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("EducDocument");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LanguageLevel_OK_EmployeeLang", Storage="_LanguageLevel", ThisKey="idLanguageLevel", OtherKey="id", IsForeignKey=true)]
 		public LanguageLevel LanguageLevel
 		{
@@ -15350,268 +15316,7 @@ namespace Kadr.Data
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Educ")]
-	public partial class OK_Educ : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idEducDocument;
-		
-		private int _idEmployee;
-		
-		private string _EducWhere;
-		
-		private System.Nullable<int> _EducWhen;
-		
-		private string _Spec;
-		
-		private string _Kvalif;
-		
-		private System.Nullable<int> _idEducationType;
-		
-		private EntityRef<EducationType> _EducationType;
-		
-		private EntityRef<EducDocument> _EducDocument;
-		
-		private EntityRef<Employee> _Employee;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidEducDocumentChanging(int value);
-    partial void OnidEducDocumentChanged();
-    partial void OnidEmployeeChanging(int value);
-    partial void OnidEmployeeChanged();
-    partial void OnEducWhereChanging(string value);
-    partial void OnEducWhereChanged();
-    partial void OnEducWhenChanging(System.Nullable<int> value);
-    partial void OnEducWhenChanged();
-    partial void OnSpecChanging(string value);
-    partial void OnSpecChanged();
-    partial void OnKvalifChanging(string value);
-    partial void OnKvalifChanged();
-    partial void OnidEducationTypeChanging(System.Nullable<int> value);
-    partial void OnidEducationTypeChanged();
-    #endregion
-		
-		public OK_Educ()
-		{
-			this._EducationType = default(EntityRef<EducationType>);
-			this._EducDocument = default(EntityRef<EducDocument>);
-			this._Employee = default(EntityRef<Employee>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEducDocument", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idEducDocument
-		{
-			get
-			{
-				return this._idEducDocument;
-			}
-			set
-			{
-				if ((this._idEducDocument != value))
-				{
-					if (this._EducDocument.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidEducDocumentChanging(value);
-					this.SendPropertyChanging();
-					this._idEducDocument = value;
-					this.SendPropertyChanged("idEducDocument");
-					this.OnidEducDocumentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
-		public int idEmployee
-		{
-			get
-			{
-				return this._idEmployee;
-			}
-			set
-			{
-				if ((this._idEmployee != value))
-				{
-					if (this._Employee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidEmployeeChanging(value);
-					this.SendPropertyChanging();
-					this._idEmployee = value;
-					this.SendPropertyChanged("idEmployee");
-					this.OnidEmployeeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EducWhere", DbType="VarChar(255)")]
-		public string EducWhere
-		{
-			get
-			{
-				return this._EducWhere;
-			}
-			set
-			{
-				if ((this._EducWhere != value))
-				{
-					this.OnEducWhereChanging(value);
-					this.SendPropertyChanging();
-					this._EducWhere = value;
-					this.SendPropertyChanged("EducWhere");
-					this.OnEducWhereChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EducWhen", DbType="Int")]
-		public System.Nullable<int> EducWhen
-		{
-			get
-			{
-				return this._EducWhen;
-			}
-			set
-			{
-				if ((this._EducWhen != value))
-				{
-					this.OnEducWhenChanging(value);
-					this.SendPropertyChanging();
-					this._EducWhen = value;
-					this.SendPropertyChanged("EducWhen");
-					this.OnEducWhenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Spec", DbType="VarChar(255)")]
-		public string Spec
-		{
-			get
-			{
-				return this._Spec;
-			}
-			set
-			{
-				if ((this._Spec != value))
-				{
-					this.OnSpecChanging(value);
-					this.SendPropertyChanging();
-					this._Spec = value;
-					this.SendPropertyChanged("Spec");
-					this.OnSpecChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kvalif", DbType="VarChar(255)")]
-		public string Kvalif
-		{
-			get
-			{
-				return this._Kvalif;
-			}
-			set
-			{
-				if ((this._Kvalif != value))
-				{
-					this.OnKvalifChanging(value);
-					this.SendPropertyChanging();
-					this._Kvalif = value;
-					this.SendPropertyChanged("Kvalif");
-					this.OnKvalifChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEducationType", DbType="Int")]
-		public System.Nullable<int> idEducationType
-		{
-			get
-			{
-				return this._idEducationType;
-			}
-			set
-			{
-				if ((this._idEducationType != value))
-				{
-					if (this._EducationType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidEducationTypeChanging(value);
-					this.SendPropertyChanging();
-					this._idEducationType = value;
-					this.SendPropertyChanged("idEducationType");
-					this.OnidEducationTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducationType_OK_Educ", Storage="_EducationType", ThisKey="idEducationType", OtherKey="id", IsForeignKey=true)]
-		public EducationType EducationType
-		{
-			get
-			{
-				return this._EducationType.Entity;
-			}
-			set
-			{
-				EducationType previousValue = this._EducationType.Entity;
-				if (((previousValue != value) 
-							|| (this._EducationType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EducationType.Entity = null;
-						previousValue.OK_Educs.Remove(this);
-					}
-					this._EducationType.Entity = value;
-					if ((value != null))
-					{
-						value.OK_Educs.Add(this);
-						this._idEducationType = value.id;
-					}
-					else
-					{
-						this._idEducationType = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("EducationType");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Educ", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_EmployeeLang", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
 		public EducDocument EducDocument
 		{
 			get
@@ -15628,57 +15333,23 @@ namespace Kadr.Data
 					if ((previousValue != null))
 					{
 						this._EducDocument.Entity = null;
-						previousValue.OK_Educ = null;
+						previousValue.OK_EmployeeLangs.Remove(this);
 					}
 					this._EducDocument.Entity = value;
 					if ((value != null))
 					{
-						value.OK_Educ = this;
+						value.OK_EmployeeLangs.Add(this);
 						this._idEducDocument = value.id;
 					}
 					else
 					{
-						this._idEducDocument = default(int);
+						this._idEducDocument = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("EducDocument");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Educ", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.OK_Educs.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.OK_Educs.Add(this);
-						this._idEmployee = value.id;
-					}
-					else
-					{
-						this._idEmployee = default(int);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -15697,648 +15368,6 @@ namespace Kadr.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EducationType")]
-	public partial class EducationType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _EduTypeName;
-		
-		private EntitySet<OK_Educ> _OK_Educs;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnEduTypeNameChanging(string value);
-    partial void OnEduTypeNameChanged();
-    #endregion
-		
-		public EducationType()
-		{
-			this._OK_Educs = new EntitySet<OK_Educ>(new Action<OK_Educ>(this.attach_OK_Educs), new Action<OK_Educ>(this.detach_OK_Educs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EduTypeName", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string EduTypeName
-		{
-			get
-			{
-				return this._EduTypeName;
-			}
-			set
-			{
-				if ((this._EduTypeName != value))
-				{
-					this.OnEduTypeNameChanging(value);
-					this.SendPropertyChanging();
-					this._EduTypeName = value;
-					this.SendPropertyChanged("EduTypeName");
-					this.OnEduTypeNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducationType_OK_Educ", Storage="_OK_Educs", ThisKey="id", OtherKey="idEducationType")]
-		public EntitySet<OK_Educ> OK_Educs
-		{
-			get
-			{
-				return this._OK_Educs;
-			}
-			set
-			{
-				this._OK_Educs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_OK_Educs(OK_Educ entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducationType = this;
-		}
-		
-		private void detach_OK_Educs(OK_Educ entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducationType = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EducDocument")]
-	public partial class EducDocument : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private System.Nullable<int> _idEducDocType;
-		
-		private string _DocSeries;
-		
-		private string _DocNumber;
-		
-		private System.Nullable<System.DateTime> _DocDate;
-		
-		private System.Nullable<int> _IdOrganisation;
-		
-		private EntityRef<EmployeeRank> _EmployeeRank;
-		
-		private EntityRef<EmployeeDegree> _EmployeeDegree;
-		
-		private EntitySet<OK_EmployeeLang> _OK_EmployeeLangs;
-		
-		private EntityRef<OK_Educ> _OK_Educ;
-		
-		private EntitySet<OK_Social> _OK_Socials;
-		
-		private EntitySet<OK_DopEducation> _OK_DopEducations;
-		
-		private EntitySet<Validation> _Validations;
-		
-		private EntitySet<OK_Inkapacity> _OK_Inkapacities;
-		
-		private EntitySet<Award> _Awards;
-		
-		private EntityRef<Organisation> _Organisation;
-		
-		private EntityRef<EducDocumentType> _EducDocumentType;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnidEducDocTypeChanging(System.Nullable<int> value);
-    partial void OnidEducDocTypeChanged();
-    partial void OnDocSeriesChanging(string value);
-    partial void OnDocSeriesChanged();
-    partial void OnDocNumberChanging(string value);
-    partial void OnDocNumberChanged();
-    partial void OnDocDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnDocDateChanged();
-    partial void OnIdOrganisationChanging(System.Nullable<int> value);
-    partial void OnIdOrganisationChanged();
-    #endregion
-		
-		public EducDocument()
-		{
-			this._EmployeeRank = default(EntityRef<EmployeeRank>);
-			this._EmployeeDegree = default(EntityRef<EmployeeDegree>);
-			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
-			this._OK_Educ = default(EntityRef<OK_Educ>);
-			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
-			this._OK_DopEducations = new EntitySet<OK_DopEducation>(new Action<OK_DopEducation>(this.attach_OK_DopEducations), new Action<OK_DopEducation>(this.detach_OK_DopEducations));
-			this._Validations = new EntitySet<Validation>(new Action<Validation>(this.attach_Validations), new Action<Validation>(this.detach_Validations));
-			this._OK_Inkapacities = new EntitySet<OK_Inkapacity>(new Action<OK_Inkapacity>(this.attach_OK_Inkapacities), new Action<OK_Inkapacity>(this.detach_OK_Inkapacities));
-			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
-			this._Organisation = default(EntityRef<Organisation>);
-			this._EducDocumentType = default(EntityRef<EducDocumentType>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEducDocType", DbType="Int")]
-		public System.Nullable<int> idEducDocType
-		{
-			get
-			{
-				return this._idEducDocType;
-			}
-			set
-			{
-				if ((this._idEducDocType != value))
-				{
-					if (this._EducDocumentType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidEducDocTypeChanging(value);
-					this.SendPropertyChanging();
-					this._idEducDocType = value;
-					this.SendPropertyChanged("idEducDocType");
-					this.OnidEducDocTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocSeries", DbType="VarChar(15)")]
-		public string DocSeries
-		{
-			get
-			{
-				return this._DocSeries;
-			}
-			set
-			{
-				if ((this._DocSeries != value))
-				{
-					this.OnDocSeriesChanging(value);
-					this.SendPropertyChanging();
-					this._DocSeries = value;
-					this.SendPropertyChanged("DocSeries");
-					this.OnDocSeriesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="VarChar(50)")]
-		public string DocNumber
-		{
-			get
-			{
-				return this._DocNumber;
-			}
-			set
-			{
-				if ((this._DocNumber != value))
-				{
-					this.OnDocNumberChanging(value);
-					this.SendPropertyChanging();
-					this._DocNumber = value;
-					this.SendPropertyChanged("DocNumber");
-					this.OnDocNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DocDate
-		{
-			get
-			{
-				return this._DocDate;
-			}
-			set
-			{
-				if ((this._DocDate != value))
-				{
-					this.OnDocDateChanging(value);
-					this.SendPropertyChanging();
-					this._DocDate = value;
-					this.SendPropertyChanged("DocDate");
-					this.OnDocDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdOrganisation", DbType="Int")]
-		public System.Nullable<int> IdOrganisation
-		{
-			get
-			{
-				return this._IdOrganisation;
-			}
-			set
-			{
-				if ((this._IdOrganisation != value))
-				{
-					if (this._Organisation.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdOrganisationChanging(value);
-					this.SendPropertyChanging();
-					this._IdOrganisation = value;
-					this.SendPropertyChanged("IdOrganisation");
-					this.OnIdOrganisationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_EmployeeRank", Storage="_EmployeeRank", ThisKey="id", OtherKey="idEducDocument", IsUnique=true, IsForeignKey=false)]
-		public EmployeeRank EmployeeRank
-		{
-			get
-			{
-				return this._EmployeeRank.Entity;
-			}
-			set
-			{
-				EmployeeRank previousValue = this._EmployeeRank.Entity;
-				if (((previousValue != value) 
-							|| (this._EmployeeRank.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EmployeeRank.Entity = null;
-						previousValue.EducDocument = null;
-					}
-					this._EmployeeRank.Entity = value;
-					if ((value != null))
-					{
-						value.EducDocument = this;
-					}
-					this.SendPropertyChanged("EmployeeRank");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_EmployeeDegree", Storage="_EmployeeDegree", ThisKey="id", OtherKey="idEducDocument", IsUnique=true, IsForeignKey=false)]
-		public EmployeeDegree EmployeeDegree
-		{
-			get
-			{
-				return this._EmployeeDegree.Entity;
-			}
-			set
-			{
-				EmployeeDegree previousValue = this._EmployeeDegree.Entity;
-				if (((previousValue != value) 
-							|| (this._EmployeeDegree.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EmployeeDegree.Entity = null;
-						previousValue.EducDocument = null;
-					}
-					this._EmployeeDegree.Entity = value;
-					if ((value != null))
-					{
-						value.EducDocument = this;
-					}
-					this.SendPropertyChanged("EmployeeDegree");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_EmployeeLang", Storage="_OK_EmployeeLangs", ThisKey="id", OtherKey="idEducDocument")]
-		public EntitySet<OK_EmployeeLang> OK_EmployeeLangs
-		{
-			get
-			{
-				return this._OK_EmployeeLangs;
-			}
-			set
-			{
-				this._OK_EmployeeLangs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Educ", Storage="_OK_Educ", ThisKey="id", OtherKey="idEducDocument", IsUnique=true, IsForeignKey=false)]
-		public OK_Educ OK_Educ
-		{
-			get
-			{
-				return this._OK_Educ.Entity;
-			}
-			set
-			{
-				OK_Educ previousValue = this._OK_Educ.Entity;
-				if (((previousValue != value) 
-							|| (this._OK_Educ.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._OK_Educ.Entity = null;
-						previousValue.EducDocument = null;
-					}
-					this._OK_Educ.Entity = value;
-					if ((value != null))
-					{
-						value.EducDocument = this;
-					}
-					this.SendPropertyChanged("OK_Educ");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Social", Storage="_OK_Socials", ThisKey="id", OtherKey="idEducDocument")]
-		public EntitySet<OK_Social> OK_Socials
-		{
-			get
-			{
-				return this._OK_Socials;
-			}
-			set
-			{
-				this._OK_Socials.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_DopEducation", Storage="_OK_DopEducations", ThisKey="id", OtherKey="idEducDocument")]
-		public EntitySet<OK_DopEducation> OK_DopEducations
-		{
-			get
-			{
-				return this._OK_DopEducations;
-			}
-			set
-			{
-				this._OK_DopEducations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Validation", Storage="_Validations", ThisKey="id", OtherKey="IDEducDocument")]
-		public EntitySet<Validation> Validations
-		{
-			get
-			{
-				return this._Validations;
-			}
-			set
-			{
-				this._Validations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Inkapacity", Storage="_OK_Inkapacities", ThisKey="id", OtherKey="idEducDocument")]
-		public EntitySet<OK_Inkapacity> OK_Inkapacities
-		{
-			get
-			{
-				return this._OK_Inkapacities;
-			}
-			set
-			{
-				this._OK_Inkapacities.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Award", Storage="_Awards", ThisKey="id", OtherKey="IDEducDocument")]
-		public EntitySet<Award> Awards
-		{
-			get
-			{
-				return this._Awards;
-			}
-			set
-			{
-				this._Awards.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Organisation_EducDocument", Storage="_Organisation", ThisKey="IdOrganisation", OtherKey="id", IsForeignKey=true)]
-		public Organisation Organisation
-		{
-			get
-			{
-				return this._Organisation.Entity;
-			}
-			set
-			{
-				Organisation previousValue = this._Organisation.Entity;
-				if (((previousValue != value) 
-							|| (this._Organisation.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Organisation.Entity = null;
-						previousValue.EducDocuments.Remove(this);
-					}
-					this._Organisation.Entity = value;
-					if ((value != null))
-					{
-						value.EducDocuments.Add(this);
-						this._IdOrganisation = value.id;
-					}
-					else
-					{
-						this._IdOrganisation = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Organisation");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_EducDocument", Storage="_EducDocumentType", ThisKey="idEducDocType", OtherKey="id", IsForeignKey=true)]
-		public EducDocumentType EducDocumentType
-		{
-			get
-			{
-				return this._EducDocumentType.Entity;
-			}
-			set
-			{
-				EducDocumentType previousValue = this._EducDocumentType.Entity;
-				if (((previousValue != value) 
-							|| (this._EducDocumentType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EducDocumentType.Entity = null;
-						previousValue.EducDocuments.Remove(this);
-					}
-					this._EducDocumentType.Entity = value;
-					if ((value != null))
-					{
-						value.EducDocuments.Add(this);
-						this._idEducDocType = value.id;
-					}
-					else
-					{
-						this._idEducDocType = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("EducDocumentType");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_OK_EmployeeLangs(OK_EmployeeLang entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = this;
-		}
-		
-		private void detach_OK_EmployeeLangs(OK_EmployeeLang entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = null;
-		}
-		
-		private void attach_OK_Socials(OK_Social entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = this;
-		}
-		
-		private void detach_OK_Socials(OK_Social entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = null;
-		}
-		
-		private void attach_OK_DopEducations(OK_DopEducation entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = this;
-		}
-		
-		private void detach_OK_DopEducations(OK_DopEducation entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = null;
-		}
-		
-		private void attach_Validations(Validation entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = this;
-		}
-		
-		private void detach_Validations(Validation entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = null;
-		}
-		
-		private void attach_OK_Inkapacities(OK_Inkapacity entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = this;
-		}
-		
-		private void detach_OK_Inkapacities(OK_Inkapacity entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = null;
-		}
-		
-		private void attach_Awards(Award entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = this;
-		}
-		
-		private void detach_Awards(Award entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocument = null;
 		}
 	}
 	
@@ -16480,172 +15509,6 @@ namespace Kadr.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EducDocumentType")]
-	public partial class EducDocumentType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _DocTypeName;
-		
-		private bool _isOld;
-		
-		private EntitySet<EducDocument> _EducDocuments;
-		
-		private EntitySet<DopEducType> _DopEducTypes;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnDocTypeNameChanging(string value);
-    partial void OnDocTypeNameChanged();
-    partial void OnisOldChanging(bool value);
-    partial void OnisOldChanged();
-    #endregion
-		
-		public EducDocumentType()
-		{
-			this._EducDocuments = new EntitySet<EducDocument>(new Action<EducDocument>(this.attach_EducDocuments), new Action<EducDocument>(this.detach_EducDocuments));
-			this._DopEducTypes = new EntitySet<DopEducType>(new Action<DopEducType>(this.attach_DopEducTypes), new Action<DopEducType>(this.detach_DopEducTypes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocTypeName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string DocTypeName
-		{
-			get
-			{
-				return this._DocTypeName;
-			}
-			set
-			{
-				if ((this._DocTypeName != value))
-				{
-					this.OnDocTypeNameChanging(value);
-					this.SendPropertyChanging();
-					this._DocTypeName = value;
-					this.SendPropertyChanged("DocTypeName");
-					this.OnDocTypeNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isOld", DbType="Bit NOT NULL")]
-		public bool isOld
-		{
-			get
-			{
-				return this._isOld;
-			}
-			set
-			{
-				if ((this._isOld != value))
-				{
-					this.OnisOldChanging(value);
-					this.SendPropertyChanging();
-					this._isOld = value;
-					this.SendPropertyChanged("isOld");
-					this.OnisOldChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_EducDocument", Storage="_EducDocuments", ThisKey="id", OtherKey="idEducDocType")]
-		public EntitySet<EducDocument> EducDocuments
-		{
-			get
-			{
-				return this._EducDocuments;
-			}
-			set
-			{
-				this._EducDocuments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_DopEducType", Storage="_DopEducTypes", ThisKey="id", OtherKey="idEducDocumentType")]
-		public EntitySet<DopEducType> DopEducTypes
-		{
-			get
-			{
-				return this._DopEducTypes;
-			}
-			set
-			{
-				this._DopEducTypes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_EducDocuments(EducDocument entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocumentType = this;
-		}
-		
-		private void detach_EducDocuments(EducDocument entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocumentType = null;
-		}
-		
-		private void attach_DopEducTypes(DopEducType entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocumentType = this;
-		}
-		
-		private void detach_DopEducTypes(DopEducType entity)
-		{
-			this.SendPropertyChanging();
-			entity.EducDocumentType = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FactStaff")]
 	public partial class FactStaff : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -16716,11 +15579,11 @@ namespace Kadr.Data
 		
 		private EntityRef<PlanStaff> _PlanStaff;
 		
-		private EntityRef<Employee> _Employee;
-		
 		private EntityRef<OK_Reason> _OK_Reason;
 		
 		private EntityRef<Prikaz> _Prikaz;
+		
+		private EntityRef<Employee> _Employee;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -16780,9 +15643,9 @@ namespace Kadr.Data
 			this._FundingCenter = default(EntityRef<FundingCenter>);
 			this._OKVED = default(EntityRef<OKVED>);
 			this._PlanStaff = default(EntityRef<PlanStaff>);
-			this._Employee = default(EntityRef<Employee>);
 			this._OK_Reason = default(EntityRef<OK_Reason>);
 			this._Prikaz = default(EntityRef<Prikaz>);
+			this._Employee = default(EntityRef<Employee>);
 			OnCreated();
 		}
 		
@@ -17506,40 +16369,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_FactStaff", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.FactStaffs.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.FactStaffs.Add(this);
-						this._idEmployee = value.id;
-					}
-					else
-					{
-						this._idEmployee = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_Reason_FactStaff", Storage="_OK_Reason", ThisKey="idreason", OtherKey="idreason", IsForeignKey=true)]
 		public OK_Reason OK_Reason
 		{
@@ -17604,6 +16433,40 @@ namespace Kadr.Data
 						this._idEndPrikaz = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Prikaz");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_FactStaff", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.FactStaffs.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.FactStaffs.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Employee");
 				}
 			}
 		}
@@ -18325,11 +17188,11 @@ namespace Kadr.Data
 		
 		private System.Nullable<System.DateTime> _DateEnd;
 		
-		private EntityRef<EducDocument> _EducDocument;
+		private EntityRef<OK_SocialStatus> _OK_SocialStatus;
 		
 		private EntityRef<Employee> _Employee;
 		
-		private EntityRef<OK_SocialStatus> _OK_SocialStatus;
+		private EntityRef<EducDocument> _EducDocument;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -18351,9 +17214,9 @@ namespace Kadr.Data
 		
 		public OK_Social()
 		{
-			this._EducDocument = default(EntityRef<EducDocument>);
-			this._Employee = default(EntityRef<Employee>);
 			this._OK_SocialStatus = default(EntityRef<OK_SocialStatus>);
+			this._Employee = default(EntityRef<Employee>);
+			this._EducDocument = default(EntityRef<EducDocument>);
 			OnCreated();
 		}
 		
@@ -18489,36 +17352,36 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Social", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
-		public EducDocument EducDocument
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_SocialStatus_OK_Social", Storage="_OK_SocialStatus", ThisKey="idSocialStatus", OtherKey="idSocialStatus", IsForeignKey=true)]
+		public OK_SocialStatus OK_SocialStatus
 		{
 			get
 			{
-				return this._EducDocument.Entity;
+				return this._OK_SocialStatus.Entity;
 			}
 			set
 			{
-				EducDocument previousValue = this._EducDocument.Entity;
+				OK_SocialStatus previousValue = this._OK_SocialStatus.Entity;
 				if (((previousValue != value) 
-							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
+							|| (this._OK_SocialStatus.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._EducDocument.Entity = null;
+						this._OK_SocialStatus.Entity = null;
 						previousValue.OK_Socials.Remove(this);
 					}
-					this._EducDocument.Entity = value;
+					this._OK_SocialStatus.Entity = value;
 					if ((value != null))
 					{
 						value.OK_Socials.Add(this);
-						this._idEducDocument = value.id;
+						this._idSocialStatus = value.idSocialStatus;
 					}
 					else
 					{
-						this._idEducDocument = default(Nullable<int>);
+						this._idSocialStatus = default(int);
 					}
-					this.SendPropertyChanged("EducDocument");
+					this.SendPropertyChanged("OK_SocialStatus");
 				}
 			}
 		}
@@ -18557,36 +17420,36 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_SocialStatus_OK_Social", Storage="_OK_SocialStatus", ThisKey="idSocialStatus", OtherKey="idSocialStatus", IsForeignKey=true)]
-		public OK_SocialStatus OK_SocialStatus
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Social", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
+		public EducDocument EducDocument
 		{
 			get
 			{
-				return this._OK_SocialStatus.Entity;
+				return this._EducDocument.Entity;
 			}
 			set
 			{
-				OK_SocialStatus previousValue = this._OK_SocialStatus.Entity;
+				EducDocument previousValue = this._EducDocument.Entity;
 				if (((previousValue != value) 
-							|| (this._OK_SocialStatus.HasLoadedOrAssignedValue == false)))
+							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._OK_SocialStatus.Entity = null;
+						this._EducDocument.Entity = null;
 						previousValue.OK_Socials.Remove(this);
 					}
-					this._OK_SocialStatus.Entity = value;
+					this._EducDocument.Entity = value;
 					if ((value != null))
 					{
 						value.OK_Socials.Add(this);
-						this._idSocialStatus = value.idSocialStatus;
+						this._idEducDocument = value.id;
 					}
 					else
 					{
-						this._idSocialStatus = default(int);
+						this._idEducDocument = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("OK_SocialStatus");
+					this.SendPropertyChanged("EducDocument");
 				}
 			}
 		}
@@ -19793,1663 +18656,6 @@ namespace Kadr.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee")]
-	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _itab_n;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private string _Otch;
-		
-		private System.Nullable<System.DateTime> _BirthDate;
-		
-		private string _BirthPlace;
-		
-		private bool _SexBit;
-		
-		private System.Nullable<int> _idGrazd;
-		
-		private System.Nullable<int> _idSemPol;
-		
-		private int _SeverKoeff;
-		
-		private int _RayonKoeff;
-		
-		private System.Guid _GUID;
-		
-		private System.Data.Linq.Binary _EmployeeSid;
-		
-		private string _EmployeeLogin;
-		
-		private bool _AllowBirthdate;
-		
-		private string _paspser;
-		
-		private string _paspnomer;
-		
-		private System.Nullable<System.DateTime> _paspdate;
-		
-		private string _paspkem;
-		
-		private string _inn;
-		
-		private string _ssgps;
-		
-		private string _medpolis;
-		
-		private string _EmployeeName;
-		
-		private System.Nullable<System.DateTime> _OtpReducedFareDateBegin;
-		
-		private string _EmployeeSmallName;
-		
-		private string _EmplHistSer;
-		
-		private string _EmplHistNumber;
-		
-		private System.Nullable<System.DateTime> _EmplHistDate;
-		
-		private System.Nullable<int> _idMilitaryCategory;
-		
-		private System.Nullable<int> _idMilitaryRank;
-		
-		private string _VUSCode;
-		
-		private System.Nullable<int> _idMilitaryFitness;
-		
-		private string _MilitaryCommissariat;
-		
-		private System.Nullable<int> _idMilitaryType;
-		
-		private string _RemovalMilitaryMark;
-		
-		private System.Nullable<int> _idMilitaryStructure;
-		
-		private string _NumberMilitaryType;
-		
-		private EntitySet<EmployeeRank> _EmployeeRanks;
-		
-		private EntitySet<EmployeeDegree> _EmployeeDegrees;
-		
-		private EntitySet<EmployeeStanding> _EmployeeStandings;
-		
-		private EntitySet<OK_phone> _OK_phones;
-		
-		private EntitySet<OK_DopInf> _OK_DopInfs;
-		
-		private EntitySet<OK_EmployeeLang> _OK_EmployeeLangs;
-		
-		private EntitySet<OK_Educ> _OK_Educs;
-		
-		private EntitySet<FactStaff> _FactStaffs;
-		
-		private EntitySet<OK_Social> _OK_Socials;
-		
-		private EntitySet<OK_Adress> _OK_Adresses;
-		
-		private EntitySet<OK_Fam> _OK_Fams;
-		
-		private EntitySet<OK_DopEducation> _OK_DopEducations;
-		
-		private EntitySet<OK_Inkapacity> _OK_Inkapacities;
-		
-		private EntitySet<Award> _Awards;
-		
-		private EntitySet<SocialFareTransit> _SocialFareTransits;
-		
-		private EntityRef<Grazd> _Grazd;
-		
-		private EntityRef<MilitaryCategory> _MilitaryCategory;
-		
-		private EntityRef<MilitaryFitness> _MilitaryFitness;
-		
-		private EntityRef<MilitaryRank> _MilitaryRank;
-		
-		private EntityRef<MilitaryStructure> _MilitaryStructure;
-		
-		private EntityRef<MilitaryType> _MilitaryType;
-		
-		private EntityRef<SemPol> _SemPol;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Onitab_nChanging(string value);
-    partial void Onitab_nChanged();
-    partial void OnFirstNameChanging(string value);
-    partial void OnFirstNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
-    partial void OnOtchChanging(string value);
-    partial void OnOtchChanged();
-    partial void OnBirthDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnBirthDateChanged();
-    partial void OnBirthPlaceChanging(string value);
-    partial void OnBirthPlaceChanged();
-    partial void OnSexBitChanging(bool value);
-    partial void OnSexBitChanged();
-    partial void OnidGrazdChanging(System.Nullable<int> value);
-    partial void OnidGrazdChanged();
-    partial void OnidSemPolChanging(System.Nullable<int> value);
-    partial void OnidSemPolChanged();
-    partial void OnSeverKoeffChanging(int value);
-    partial void OnSeverKoeffChanged();
-    partial void OnRayonKoeffChanging(int value);
-    partial void OnRayonKoeffChanged();
-    partial void OnGUIDChanging(System.Guid value);
-    partial void OnGUIDChanged();
-    partial void OnEmployeeSidChanging(System.Data.Linq.Binary value);
-    partial void OnEmployeeSidChanged();
-    partial void OnEmployeeLoginChanging(string value);
-    partial void OnEmployeeLoginChanged();
-    partial void OnAllowBirthdateChanging(bool value);
-    partial void OnAllowBirthdateChanged();
-    partial void OnpaspserChanging(string value);
-    partial void OnpaspserChanged();
-    partial void OnpaspnomerChanging(string value);
-    partial void OnpaspnomerChanged();
-    partial void OnpaspdateChanging(System.Nullable<System.DateTime> value);
-    partial void OnpaspdateChanged();
-    partial void OnpaspkemChanging(string value);
-    partial void OnpaspkemChanged();
-    partial void OninnChanging(string value);
-    partial void OninnChanged();
-    partial void OnssgpsChanging(string value);
-    partial void OnssgpsChanged();
-    partial void OnmedpolisChanging(string value);
-    partial void OnmedpolisChanged();
-    partial void OnEmployeeNameChanging(string value);
-    partial void OnEmployeeNameChanged();
-    partial void OnOtpReducedFareDateBeginChanging(System.Nullable<System.DateTime> value);
-    partial void OnOtpReducedFareDateBeginChanged();
-    partial void OnEmployeeSmallNameChanging(string value);
-    partial void OnEmployeeSmallNameChanged();
-    partial void OnEmplHistSerChanging(string value);
-    partial void OnEmplHistSerChanged();
-    partial void OnEmplHistNumberChanging(string value);
-    partial void OnEmplHistNumberChanged();
-    partial void OnEmplHistDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnEmplHistDateChanged();
-    partial void OnidMilitaryCategoryChanging(System.Nullable<int> value);
-    partial void OnidMilitaryCategoryChanged();
-    partial void OnidMilitaryRankChanging(System.Nullable<int> value);
-    partial void OnidMilitaryRankChanged();
-    partial void OnVUSCodeChanging(string value);
-    partial void OnVUSCodeChanged();
-    partial void OnidMilitaryFitnessChanging(System.Nullable<int> value);
-    partial void OnidMilitaryFitnessChanged();
-    partial void OnMilitaryCommissariatChanging(string value);
-    partial void OnMilitaryCommissariatChanged();
-    partial void OnidMilitaryTypeChanging(System.Nullable<int> value);
-    partial void OnidMilitaryTypeChanged();
-    partial void OnRemovalMilitaryMarkChanging(string value);
-    partial void OnRemovalMilitaryMarkChanged();
-    partial void OnidMilitaryStructureChanging(System.Nullable<int> value);
-    partial void OnidMilitaryStructureChanged();
-    partial void OnNumberMilitaryTypeChanging(string value);
-    partial void OnNumberMilitaryTypeChanged();
-    #endregion
-		
-		public Employee()
-		{
-			this._EmployeeRanks = new EntitySet<EmployeeRank>(new Action<EmployeeRank>(this.attach_EmployeeRanks), new Action<EmployeeRank>(this.detach_EmployeeRanks));
-			this._EmployeeDegrees = new EntitySet<EmployeeDegree>(new Action<EmployeeDegree>(this.attach_EmployeeDegrees), new Action<EmployeeDegree>(this.detach_EmployeeDegrees));
-			this._EmployeeStandings = new EntitySet<EmployeeStanding>(new Action<EmployeeStanding>(this.attach_EmployeeStandings), new Action<EmployeeStanding>(this.detach_EmployeeStandings));
-			this._OK_phones = new EntitySet<OK_phone>(new Action<OK_phone>(this.attach_OK_phones), new Action<OK_phone>(this.detach_OK_phones));
-			this._OK_DopInfs = new EntitySet<OK_DopInf>(new Action<OK_DopInf>(this.attach_OK_DopInfs), new Action<OK_DopInf>(this.detach_OK_DopInfs));
-			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
-			this._OK_Educs = new EntitySet<OK_Educ>(new Action<OK_Educ>(this.attach_OK_Educs), new Action<OK_Educ>(this.detach_OK_Educs));
-			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
-			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
-			this._OK_Adresses = new EntitySet<OK_Adress>(new Action<OK_Adress>(this.attach_OK_Adresses), new Action<OK_Adress>(this.detach_OK_Adresses));
-			this._OK_Fams = new EntitySet<OK_Fam>(new Action<OK_Fam>(this.attach_OK_Fams), new Action<OK_Fam>(this.detach_OK_Fams));
-			this._OK_DopEducations = new EntitySet<OK_DopEducation>(new Action<OK_DopEducation>(this.attach_OK_DopEducations), new Action<OK_DopEducation>(this.detach_OK_DopEducations));
-			this._OK_Inkapacities = new EntitySet<OK_Inkapacity>(new Action<OK_Inkapacity>(this.attach_OK_Inkapacities), new Action<OK_Inkapacity>(this.detach_OK_Inkapacities));
-			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
-			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
-			this._Grazd = default(EntityRef<Grazd>);
-			this._MilitaryCategory = default(EntityRef<MilitaryCategory>);
-			this._MilitaryFitness = default(EntityRef<MilitaryFitness>);
-			this._MilitaryRank = default(EntityRef<MilitaryRank>);
-			this._MilitaryStructure = default(EntityRef<MilitaryStructure>);
-			this._MilitaryType = default(EntityRef<MilitaryType>);
-			this._SemPol = default(EntityRef<SemPol>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_itab_n", DbType="VarChar(50)")]
-		public string itab_n
-		{
-			get
-			{
-				return this._itab_n;
-			}
-			set
-			{
-				if ((this._itab_n != value))
-				{
-					this.Onitab_nChanging(value);
-					this.SendPropertyChanging();
-					this._itab_n = value;
-					this.SendPropertyChanged("itab_n");
-					this.Onitab_nChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50)")]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this.OnFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._FirstName = value;
-					this.SendPropertyChanged("FirstName");
-					this.OnFirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50)")]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this.OnLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._LastName = value;
-					this.SendPropertyChanged("LastName");
-					this.OnLastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Otch", DbType="VarChar(50)")]
-		public string Otch
-		{
-			get
-			{
-				return this._Otch;
-			}
-			set
-			{
-				if ((this._Otch != value))
-				{
-					this.OnOtchChanging(value);
-					this.SendPropertyChanging();
-					this._Otch = value;
-					this.SendPropertyChanged("Otch");
-					this.OnOtchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BirthDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> BirthDate
-		{
-			get
-			{
-				return this._BirthDate;
-			}
-			set
-			{
-				if ((this._BirthDate != value))
-				{
-					this.OnBirthDateChanging(value);
-					this.SendPropertyChanging();
-					this._BirthDate = value;
-					this.SendPropertyChanged("BirthDate");
-					this.OnBirthDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BirthPlace", DbType="VarChar(200)")]
-		public string BirthPlace
-		{
-			get
-			{
-				return this._BirthPlace;
-			}
-			set
-			{
-				if ((this._BirthPlace != value))
-				{
-					this.OnBirthPlaceChanging(value);
-					this.SendPropertyChanging();
-					this._BirthPlace = value;
-					this.SendPropertyChanged("BirthPlace");
-					this.OnBirthPlaceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexBit", DbType="Bit NOT NULL")]
-		public bool SexBit
-		{
-			get
-			{
-				return this._SexBit;
-			}
-			set
-			{
-				if ((this._SexBit != value))
-				{
-					this.OnSexBitChanging(value);
-					this.SendPropertyChanging();
-					this._SexBit = value;
-					this.SendPropertyChanged("SexBit");
-					this.OnSexBitChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrazd", DbType="Int")]
-		public System.Nullable<int> idGrazd
-		{
-			get
-			{
-				return this._idGrazd;
-			}
-			set
-			{
-				if ((this._idGrazd != value))
-				{
-					if (this._Grazd.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidGrazdChanging(value);
-					this.SendPropertyChanging();
-					this._idGrazd = value;
-					this.SendPropertyChanged("idGrazd");
-					this.OnidGrazdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idSemPol", DbType="Int")]
-		public System.Nullable<int> idSemPol
-		{
-			get
-			{
-				return this._idSemPol;
-			}
-			set
-			{
-				if ((this._idSemPol != value))
-				{
-					if (this._SemPol.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidSemPolChanging(value);
-					this.SendPropertyChanging();
-					this._idSemPol = value;
-					this.SendPropertyChanged("idSemPol");
-					this.OnidSemPolChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeverKoeff", DbType="Int NOT NULL")]
-		public int SeverKoeff
-		{
-			get
-			{
-				return this._SeverKoeff;
-			}
-			set
-			{
-				if ((this._SeverKoeff != value))
-				{
-					this.OnSeverKoeffChanging(value);
-					this.SendPropertyChanging();
-					this._SeverKoeff = value;
-					this.SendPropertyChanged("SeverKoeff");
-					this.OnSeverKoeffChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RayonKoeff", DbType="Int NOT NULL")]
-		public int RayonKoeff
-		{
-			get
-			{
-				return this._RayonKoeff;
-			}
-			set
-			{
-				if ((this._RayonKoeff != value))
-				{
-					this.OnRayonKoeffChanging(value);
-					this.SendPropertyChanging();
-					this._RayonKoeff = value;
-					this.SendPropertyChanged("RayonKoeff");
-					this.OnRayonKoeffChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUID", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid GUID
-		{
-			get
-			{
-				return this._GUID;
-			}
-			set
-			{
-				if ((this._GUID != value))
-				{
-					this.OnGUIDChanging(value);
-					this.SendPropertyChanging();
-					this._GUID = value;
-					this.SendPropertyChanged("GUID");
-					this.OnGUIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeSid", DbType="VarBinary(85)", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary EmployeeSid
-		{
-			get
-			{
-				return this._EmployeeSid;
-			}
-			set
-			{
-				if ((this._EmployeeSid != value))
-				{
-					this.OnEmployeeSidChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeSid = value;
-					this.SendPropertyChanged("EmployeeSid");
-					this.OnEmployeeSidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeLogin", DbType="NVarChar(128)")]
-		public string EmployeeLogin
-		{
-			get
-			{
-				return this._EmployeeLogin;
-			}
-			set
-			{
-				if ((this._EmployeeLogin != value))
-				{
-					this.OnEmployeeLoginChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeLogin = value;
-					this.SendPropertyChanged("EmployeeLogin");
-					this.OnEmployeeLoginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllowBirthdate", DbType="Bit NOT NULL")]
-		public bool AllowBirthdate
-		{
-			get
-			{
-				return this._AllowBirthdate;
-			}
-			set
-			{
-				if ((this._AllowBirthdate != value))
-				{
-					this.OnAllowBirthdateChanging(value);
-					this.SendPropertyChanging();
-					this._AllowBirthdate = value;
-					this.SendPropertyChanged("AllowBirthdate");
-					this.OnAllowBirthdateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paspser", DbType="VarChar(255)")]
-		public string paspser
-		{
-			get
-			{
-				return this._paspser;
-			}
-			set
-			{
-				if ((this._paspser != value))
-				{
-					this.OnpaspserChanging(value);
-					this.SendPropertyChanging();
-					this._paspser = value;
-					this.SendPropertyChanged("paspser");
-					this.OnpaspserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paspnomer", DbType="VarChar(255)")]
-		public string paspnomer
-		{
-			get
-			{
-				return this._paspnomer;
-			}
-			set
-			{
-				if ((this._paspnomer != value))
-				{
-					this.OnpaspnomerChanging(value);
-					this.SendPropertyChanging();
-					this._paspnomer = value;
-					this.SendPropertyChanged("paspnomer");
-					this.OnpaspnomerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paspdate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> paspdate
-		{
-			get
-			{
-				return this._paspdate;
-			}
-			set
-			{
-				if ((this._paspdate != value))
-				{
-					this.OnpaspdateChanging(value);
-					this.SendPropertyChanging();
-					this._paspdate = value;
-					this.SendPropertyChanged("paspdate");
-					this.OnpaspdateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paspkem", DbType="VarChar(255)")]
-		public string paspkem
-		{
-			get
-			{
-				return this._paspkem;
-			}
-			set
-			{
-				if ((this._paspkem != value))
-				{
-					this.OnpaspkemChanging(value);
-					this.SendPropertyChanging();
-					this._paspkem = value;
-					this.SendPropertyChanged("paspkem");
-					this.OnpaspkemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inn", DbType="VarChar(255)")]
-		public string inn
-		{
-			get
-			{
-				return this._inn;
-			}
-			set
-			{
-				if ((this._inn != value))
-				{
-					this.OninnChanging(value);
-					this.SendPropertyChanging();
-					this._inn = value;
-					this.SendPropertyChanged("inn");
-					this.OninnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ssgps", DbType="VarChar(255)")]
-		public string ssgps
-		{
-			get
-			{
-				return this._ssgps;
-			}
-			set
-			{
-				if ((this._ssgps != value))
-				{
-					this.OnssgpsChanging(value);
-					this.SendPropertyChanging();
-					this._ssgps = value;
-					this.SendPropertyChanged("ssgps");
-					this.OnssgpsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_medpolis", DbType="VarChar(50)")]
-		public string medpolis
-		{
-			get
-			{
-				return this._medpolis;
-			}
-			set
-			{
-				if ((this._medpolis != value))
-				{
-					this.OnmedpolisChanging(value);
-					this.SendPropertyChanging();
-					this._medpolis = value;
-					this.SendPropertyChanged("medpolis");
-					this.OnmedpolisChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeName", AutoSync=AutoSync.Always, DbType="VarChar(152)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public string EmployeeName
-		{
-			get
-			{
-				return this._EmployeeName;
-			}
-			set
-			{
-				if ((this._EmployeeName != value))
-				{
-					this.OnEmployeeNameChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeName = value;
-					this.SendPropertyChanged("EmployeeName");
-					this.OnEmployeeNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtpReducedFareDateBegin", DbType="DateTime")]
-		public System.Nullable<System.DateTime> OtpReducedFareDateBegin
-		{
-			get
-			{
-				return this._OtpReducedFareDateBegin;
-			}
-			set
-			{
-				if ((this._OtpReducedFareDateBegin != value))
-				{
-					this.OnOtpReducedFareDateBeginChanging(value);
-					this.SendPropertyChanging();
-					this._OtpReducedFareDateBegin = value;
-					this.SendPropertyChanged("OtpReducedFareDateBegin");
-					this.OnOtpReducedFareDateBeginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeSmallName", AutoSync=AutoSync.Always, DbType="VarChar(56)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public string EmployeeSmallName
-		{
-			get
-			{
-				return this._EmployeeSmallName;
-			}
-			set
-			{
-				if ((this._EmployeeSmallName != value))
-				{
-					this.OnEmployeeSmallNameChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeSmallName = value;
-					this.SendPropertyChanged("EmployeeSmallName");
-					this.OnEmployeeSmallNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmplHistSer", DbType="VarChar(10)")]
-		public string EmplHistSer
-		{
-			get
-			{
-				return this._EmplHistSer;
-			}
-			set
-			{
-				if ((this._EmplHistSer != value))
-				{
-					this.OnEmplHistSerChanging(value);
-					this.SendPropertyChanging();
-					this._EmplHistSer = value;
-					this.SendPropertyChanged("EmplHistSer");
-					this.OnEmplHistSerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmplHistNumber", DbType="VarChar(20)")]
-		public string EmplHistNumber
-		{
-			get
-			{
-				return this._EmplHistNumber;
-			}
-			set
-			{
-				if ((this._EmplHistNumber != value))
-				{
-					this.OnEmplHistNumberChanging(value);
-					this.SendPropertyChanging();
-					this._EmplHistNumber = value;
-					this.SendPropertyChanged("EmplHistNumber");
-					this.OnEmplHistNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmplHistDate", DbType="Date")]
-		public System.Nullable<System.DateTime> EmplHistDate
-		{
-			get
-			{
-				return this._EmplHistDate;
-			}
-			set
-			{
-				if ((this._EmplHistDate != value))
-				{
-					this.OnEmplHistDateChanging(value);
-					this.SendPropertyChanging();
-					this._EmplHistDate = value;
-					this.SendPropertyChanged("EmplHistDate");
-					this.OnEmplHistDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMilitaryCategory", DbType="Int")]
-		public System.Nullable<int> idMilitaryCategory
-		{
-			get
-			{
-				return this._idMilitaryCategory;
-			}
-			set
-			{
-				if ((this._idMilitaryCategory != value))
-				{
-					if (this._MilitaryCategory.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidMilitaryCategoryChanging(value);
-					this.SendPropertyChanging();
-					this._idMilitaryCategory = value;
-					this.SendPropertyChanged("idMilitaryCategory");
-					this.OnidMilitaryCategoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMilitaryRank", DbType="Int")]
-		public System.Nullable<int> idMilitaryRank
-		{
-			get
-			{
-				return this._idMilitaryRank;
-			}
-			set
-			{
-				if ((this._idMilitaryRank != value))
-				{
-					if (this._MilitaryRank.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidMilitaryRankChanging(value);
-					this.SendPropertyChanging();
-					this._idMilitaryRank = value;
-					this.SendPropertyChanged("idMilitaryRank");
-					this.OnidMilitaryRankChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VUSCode", DbType="VarChar(50)")]
-		public string VUSCode
-		{
-			get
-			{
-				return this._VUSCode;
-			}
-			set
-			{
-				if ((this._VUSCode != value))
-				{
-					this.OnVUSCodeChanging(value);
-					this.SendPropertyChanging();
-					this._VUSCode = value;
-					this.SendPropertyChanged("VUSCode");
-					this.OnVUSCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMilitaryFitness", DbType="Int")]
-		public System.Nullable<int> idMilitaryFitness
-		{
-			get
-			{
-				return this._idMilitaryFitness;
-			}
-			set
-			{
-				if ((this._idMilitaryFitness != value))
-				{
-					if (this._MilitaryFitness.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidMilitaryFitnessChanging(value);
-					this.SendPropertyChanging();
-					this._idMilitaryFitness = value;
-					this.SendPropertyChanged("idMilitaryFitness");
-					this.OnidMilitaryFitnessChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MilitaryCommissariat", DbType="VarChar(900)")]
-		public string MilitaryCommissariat
-		{
-			get
-			{
-				return this._MilitaryCommissariat;
-			}
-			set
-			{
-				if ((this._MilitaryCommissariat != value))
-				{
-					this.OnMilitaryCommissariatChanging(value);
-					this.SendPropertyChanging();
-					this._MilitaryCommissariat = value;
-					this.SendPropertyChanged("MilitaryCommissariat");
-					this.OnMilitaryCommissariatChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMilitaryType", DbType="Int")]
-		public System.Nullable<int> idMilitaryType
-		{
-			get
-			{
-				return this._idMilitaryType;
-			}
-			set
-			{
-				if ((this._idMilitaryType != value))
-				{
-					if (this._MilitaryType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidMilitaryTypeChanging(value);
-					this.SendPropertyChanging();
-					this._idMilitaryType = value;
-					this.SendPropertyChanged("idMilitaryType");
-					this.OnidMilitaryTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RemovalMilitaryMark", DbType="VarChar(900)")]
-		public string RemovalMilitaryMark
-		{
-			get
-			{
-				return this._RemovalMilitaryMark;
-			}
-			set
-			{
-				if ((this._RemovalMilitaryMark != value))
-				{
-					this.OnRemovalMilitaryMarkChanging(value);
-					this.SendPropertyChanging();
-					this._RemovalMilitaryMark = value;
-					this.SendPropertyChanged("RemovalMilitaryMark");
-					this.OnRemovalMilitaryMarkChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMilitaryStructure", DbType="Int")]
-		public System.Nullable<int> idMilitaryStructure
-		{
-			get
-			{
-				return this._idMilitaryStructure;
-			}
-			set
-			{
-				if ((this._idMilitaryStructure != value))
-				{
-					if (this._MilitaryStructure.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidMilitaryStructureChanging(value);
-					this.SendPropertyChanging();
-					this._idMilitaryStructure = value;
-					this.SendPropertyChanged("idMilitaryStructure");
-					this.OnidMilitaryStructureChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberMilitaryType", DbType="VarChar(500)")]
-		public string NumberMilitaryType
-		{
-			get
-			{
-				return this._NumberMilitaryType;
-			}
-			set
-			{
-				if ((this._NumberMilitaryType != value))
-				{
-					this.OnNumberMilitaryTypeChanging(value);
-					this.SendPropertyChanging();
-					this._NumberMilitaryType = value;
-					this.SendPropertyChanged("NumberMilitaryType");
-					this.OnNumberMilitaryTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeRank", Storage="_EmployeeRanks", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<EmployeeRank> EmployeeRanks
-		{
-			get
-			{
-				return this._EmployeeRanks;
-			}
-			set
-			{
-				this._EmployeeRanks.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeDegree", Storage="_EmployeeDegrees", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<EmployeeDegree> EmployeeDegrees
-		{
-			get
-			{
-				return this._EmployeeDegrees;
-			}
-			set
-			{
-				this._EmployeeDegrees.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeStanding", Storage="_EmployeeStandings", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<EmployeeStanding> EmployeeStandings
-		{
-			get
-			{
-				return this._EmployeeStandings;
-			}
-			set
-			{
-				this._EmployeeStandings.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_phone", Storage="_OK_phones", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<OK_phone> OK_phones
-		{
-			get
-			{
-				return this._OK_phones;
-			}
-			set
-			{
-				this._OK_phones.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopInf", Storage="_OK_DopInfs", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<OK_DopInf> OK_DopInfs
-		{
-			get
-			{
-				return this._OK_DopInfs;
-			}
-			set
-			{
-				this._OK_DopInfs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_EmployeeLang", Storage="_OK_EmployeeLangs", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<OK_EmployeeLang> OK_EmployeeLangs
-		{
-			get
-			{
-				return this._OK_EmployeeLangs;
-			}
-			set
-			{
-				this._OK_EmployeeLangs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Educ", Storage="_OK_Educs", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<OK_Educ> OK_Educs
-		{
-			get
-			{
-				return this._OK_Educs;
-			}
-			set
-			{
-				this._OK_Educs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_FactStaff", Storage="_FactStaffs", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<FactStaff> FactStaffs
-		{
-			get
-			{
-				return this._FactStaffs;
-			}
-			set
-			{
-				this._FactStaffs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Social", Storage="_OK_Socials", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<OK_Social> OK_Socials
-		{
-			get
-			{
-				return this._OK_Socials;
-			}
-			set
-			{
-				this._OK_Socials.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Adress", Storage="_OK_Adresses", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<OK_Adress> OK_Adresses
-		{
-			get
-			{
-				return this._OK_Adresses;
-			}
-			set
-			{
-				this._OK_Adresses.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Fam", Storage="_OK_Fams", ThisKey="id", OtherKey="idemployee")]
-		public EntitySet<OK_Fam> OK_Fams
-		{
-			get
-			{
-				return this._OK_Fams;
-			}
-			set
-			{
-				this._OK_Fams.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopEducation", Storage="_OK_DopEducations", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<OK_DopEducation> OK_DopEducations
-		{
-			get
-			{
-				return this._OK_DopEducations;
-			}
-			set
-			{
-				this._OK_DopEducations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Inkapacity", Storage="_OK_Inkapacities", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<OK_Inkapacity> OK_Inkapacities
-		{
-			get
-			{
-				return this._OK_Inkapacities;
-			}
-			set
-			{
-				this._OK_Inkapacities.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Award", Storage="_Awards", ThisKey="id", OtherKey="IDEmployee")]
-		public EntitySet<Award> Awards
-		{
-			get
-			{
-				return this._Awards;
-			}
-			set
-			{
-				this._Awards.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SocialFareTransit", Storage="_SocialFareTransits", ThisKey="id", OtherKey="idEmployee")]
-		public EntitySet<SocialFareTransit> SocialFareTransits
-		{
-			get
-			{
-				return this._SocialFareTransits;
-			}
-			set
-			{
-				this._SocialFareTransits.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grazd_Employee", Storage="_Grazd", ThisKey="idGrazd", OtherKey="id", IsForeignKey=true)]
-		public Grazd Grazd
-		{
-			get
-			{
-				return this._Grazd.Entity;
-			}
-			set
-			{
-				Grazd previousValue = this._Grazd.Entity;
-				if (((previousValue != value) 
-							|| (this._Grazd.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Grazd.Entity = null;
-						previousValue.Employees.Remove(this);
-					}
-					this._Grazd.Entity = value;
-					if ((value != null))
-					{
-						value.Employees.Add(this);
-						this._idGrazd = value.id;
-					}
-					else
-					{
-						this._idGrazd = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Grazd");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MilitaryCategory_Employee", Storage="_MilitaryCategory", ThisKey="idMilitaryCategory", OtherKey="id", IsForeignKey=true)]
-		public MilitaryCategory MilitaryCategory
-		{
-			get
-			{
-				return this._MilitaryCategory.Entity;
-			}
-			set
-			{
-				MilitaryCategory previousValue = this._MilitaryCategory.Entity;
-				if (((previousValue != value) 
-							|| (this._MilitaryCategory.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MilitaryCategory.Entity = null;
-						previousValue.Employees.Remove(this);
-					}
-					this._MilitaryCategory.Entity = value;
-					if ((value != null))
-					{
-						value.Employees.Add(this);
-						this._idMilitaryCategory = value.id;
-					}
-					else
-					{
-						this._idMilitaryCategory = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("MilitaryCategory");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MilitaryFitness_Employee", Storage="_MilitaryFitness", ThisKey="idMilitaryFitness", OtherKey="id", IsForeignKey=true)]
-		public MilitaryFitness MilitaryFitness
-		{
-			get
-			{
-				return this._MilitaryFitness.Entity;
-			}
-			set
-			{
-				MilitaryFitness previousValue = this._MilitaryFitness.Entity;
-				if (((previousValue != value) 
-							|| (this._MilitaryFitness.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MilitaryFitness.Entity = null;
-						previousValue.Employees.Remove(this);
-					}
-					this._MilitaryFitness.Entity = value;
-					if ((value != null))
-					{
-						value.Employees.Add(this);
-						this._idMilitaryFitness = value.id;
-					}
-					else
-					{
-						this._idMilitaryFitness = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("MilitaryFitness");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MilitaryRank_Employee", Storage="_MilitaryRank", ThisKey="idMilitaryRank", OtherKey="id", IsForeignKey=true)]
-		public MilitaryRank MilitaryRank
-		{
-			get
-			{
-				return this._MilitaryRank.Entity;
-			}
-			set
-			{
-				MilitaryRank previousValue = this._MilitaryRank.Entity;
-				if (((previousValue != value) 
-							|| (this._MilitaryRank.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MilitaryRank.Entity = null;
-						previousValue.Employees.Remove(this);
-					}
-					this._MilitaryRank.Entity = value;
-					if ((value != null))
-					{
-						value.Employees.Add(this);
-						this._idMilitaryRank = value.id;
-					}
-					else
-					{
-						this._idMilitaryRank = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("MilitaryRank");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MilitaryStructure_Employee", Storage="_MilitaryStructure", ThisKey="idMilitaryStructure", OtherKey="id", IsForeignKey=true)]
-		public MilitaryStructure MilitaryStructure
-		{
-			get
-			{
-				return this._MilitaryStructure.Entity;
-			}
-			set
-			{
-				MilitaryStructure previousValue = this._MilitaryStructure.Entity;
-				if (((previousValue != value) 
-							|| (this._MilitaryStructure.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MilitaryStructure.Entity = null;
-						previousValue.Employees.Remove(this);
-					}
-					this._MilitaryStructure.Entity = value;
-					if ((value != null))
-					{
-						value.Employees.Add(this);
-						this._idMilitaryStructure = value.id;
-					}
-					else
-					{
-						this._idMilitaryStructure = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("MilitaryStructure");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MilitaryType_Employee", Storage="_MilitaryType", ThisKey="idMilitaryType", OtherKey="id", IsForeignKey=true)]
-		public MilitaryType MilitaryType
-		{
-			get
-			{
-				return this._MilitaryType.Entity;
-			}
-			set
-			{
-				MilitaryType previousValue = this._MilitaryType.Entity;
-				if (((previousValue != value) 
-							|| (this._MilitaryType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MilitaryType.Entity = null;
-						previousValue.Employees.Remove(this);
-					}
-					this._MilitaryType.Entity = value;
-					if ((value != null))
-					{
-						value.Employees.Add(this);
-						this._idMilitaryType = value.id;
-					}
-					else
-					{
-						this._idMilitaryType = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("MilitaryType");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SemPol_Employee", Storage="_SemPol", ThisKey="idSemPol", OtherKey="id", IsForeignKey=true)]
-		public SemPol SemPol
-		{
-			get
-			{
-				return this._SemPol.Entity;
-			}
-			set
-			{
-				SemPol previousValue = this._SemPol.Entity;
-				if (((previousValue != value) 
-							|| (this._SemPol.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SemPol.Entity = null;
-						previousValue.Employees.Remove(this);
-					}
-					this._SemPol.Entity = value;
-					if ((value != null))
-					{
-						value.Employees.Add(this);
-						this._idSemPol = value.id;
-					}
-					else
-					{
-						this._idSemPol = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("SemPol");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_EmployeeRanks(EmployeeRank entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_EmployeeRanks(EmployeeRank entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_EmployeeDegrees(EmployeeDegree entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_EmployeeDegrees(EmployeeDegree entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_EmployeeStandings(EmployeeStanding entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_EmployeeStandings(EmployeeStanding entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_OK_phones(OK_phone entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_OK_phones(OK_phone entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_OK_DopInfs(OK_DopInf entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_OK_DopInfs(OK_DopInf entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_OK_EmployeeLangs(OK_EmployeeLang entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_OK_EmployeeLangs(OK_EmployeeLang entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_OK_Educs(OK_Educ entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_OK_Educs(OK_Educ entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_FactStaffs(FactStaff entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_FactStaffs(FactStaff entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_OK_Socials(OK_Social entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_OK_Socials(OK_Social entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_OK_Adresses(OK_Adress entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_OK_Adresses(OK_Adress entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_OK_Fams(OK_Fam entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_OK_Fams(OK_Fam entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_OK_DopEducations(OK_DopEducation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_OK_DopEducations(OK_DopEducation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_OK_Inkapacities(OK_Inkapacity entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_OK_Inkapacities(OK_Inkapacity entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_Awards(Award entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_Awards(Award entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
-		private void attach_SocialFareTransits(SocialFareTransit entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_SocialFareTransits(SocialFareTransit entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Contract")]
 	public partial class Contract : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -21982,13 +19188,13 @@ namespace Kadr.Data
 		
 		private System.Nullable<int> _AuditHour;
 		
-		private EntityRef<Employee> _Employee;
-		
-		private EntityRef<EducDocument> _EducDocument;
-		
 		private EntityRef<DopEducType> _DopEducType;
 		
 		private EntityRef<Event> _Event;
+		
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<EducDocument> _EducDocument;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -22018,10 +19224,10 @@ namespace Kadr.Data
 		
 		public OK_DopEducation()
 		{
-			this._Employee = default(EntityRef<Employee>);
-			this._EducDocument = default(EntityRef<EducDocument>);
 			this._DopEducType = default(EntityRef<DopEducType>);
 			this._Event = default(EntityRef<Event>);
+			this._Employee = default(EntityRef<Employee>);
+			this._EducDocument = default(EntityRef<EducDocument>);
 			OnCreated();
 		}
 		
@@ -22241,74 +19447,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopEducation", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.OK_DopEducations.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.OK_DopEducations.Add(this);
-						this._idEmployee = value.id;
-					}
-					else
-					{
-						this._idEmployee = default(int);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_DopEducation", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
-		public EducDocument EducDocument
-		{
-			get
-			{
-				return this._EducDocument.Entity;
-			}
-			set
-			{
-				EducDocument previousValue = this._EducDocument.Entity;
-				if (((previousValue != value) 
-							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EducDocument.Entity = null;
-						previousValue.OK_DopEducations.Remove(this);
-					}
-					this._EducDocument.Entity = value;
-					if ((value != null))
-					{
-						value.OK_DopEducations.Add(this);
-						this._idEducDocument = value.id;
-					}
-					else
-					{
-						this._idEducDocument = default(int);
-					}
-					this.SendPropertyChanged("EducDocument");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DopEducType_OK_DopEducation", Storage="_DopEducType", ThisKey="idDopEducType", OtherKey="id", IsForeignKey=true)]
 		public DopEducType DopEducType
 		{
@@ -22377,6 +19515,74 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopEducation", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.OK_DopEducations.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.OK_DopEducations.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_DopEducation", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
+		public EducDocument EducDocument
+		{
+			get
+			{
+				return this._EducDocument.Entity;
+			}
+			set
+			{
+				EducDocument previousValue = this._EducDocument.Entity;
+				if (((previousValue != value) 
+							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducDocument.Entity = null;
+						previousValue.OK_DopEducations.Remove(this);
+					}
+					this._EducDocument.Entity = value;
+					if ((value != null))
+					{
+						value.OK_DopEducations.Add(this);
+						this._idEducDocument = value.id;
+					}
+					else
+					{
+						this._idEducDocument = default(int);
+					}
+					this.SendPropertyChanged("EducDocument");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -22414,11 +19620,11 @@ namespace Kadr.Data
 		
 		private string _Commentary;
 		
-		private EntityRef<EducDocument> _EducDocument;
-		
 		private EntityRef<ValidationDecision> _ValidationDecision;
 		
 		private EntityRef<Event> _Event;
+		
+		private EntityRef<EducDocument> _EducDocument;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -22438,9 +19644,9 @@ namespace Kadr.Data
 		
 		public Validation()
 		{
-			this._EducDocument = default(EntityRef<EducDocument>);
 			this._ValidationDecision = default(EntityRef<ValidationDecision>);
 			this._Event = default(EntityRef<Event>);
+			this._EducDocument = default(EntityRef<EducDocument>);
 			OnCreated();
 		}
 		
@@ -22556,40 +19762,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Validation", Storage="_EducDocument", ThisKey="IDEducDocument", OtherKey="id", IsForeignKey=true)]
-		public EducDocument EducDocument
-		{
-			get
-			{
-				return this._EducDocument.Entity;
-			}
-			set
-			{
-				EducDocument previousValue = this._EducDocument.Entity;
-				if (((previousValue != value) 
-							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EducDocument.Entity = null;
-						previousValue.Validations.Remove(this);
-					}
-					this._EducDocument.Entity = value;
-					if ((value != null))
-					{
-						value.Validations.Add(this);
-						this._IDEducDocument = value.id;
-					}
-					else
-					{
-						this._IDEducDocument = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("EducDocument");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ValidationDecision_Validation", Storage="_ValidationDecision", ThisKey="IDValidDecision", OtherKey="ID", IsForeignKey=true)]
 		public ValidationDecision ValidationDecision
 		{
@@ -22654,6 +19826,40 @@ namespace Kadr.Data
 						this._idEvent = default(int);
 					}
 					this.SendPropertyChanged("Event");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Validation", Storage="_EducDocument", ThisKey="IDEducDocument", OtherKey="id", IsForeignKey=true)]
+		public EducDocument EducDocument
+		{
+			get
+			{
+				return this._EducDocument.Entity;
+			}
+			set
+			{
+				EducDocument previousValue = this._EducDocument.Entity;
+				if (((previousValue != value) 
+							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducDocument.Entity = null;
+						previousValue.Validations.Remove(this);
+					}
+					this._EducDocument.Entity = value;
+					if ((value != null))
+					{
+						value.Validations.Add(this);
+						this._IDEducDocument = value.id;
+					}
+					else
+					{
+						this._IDEducDocument = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EducDocument");
 				}
 			}
 		}
@@ -24752,11 +21958,11 @@ namespace Kadr.Data
 		
 		private System.Nullable<int> _idInkapacityType;
 		
-		private EntityRef<EducDocument> _EducDocument;
+		private EntityRef<InkapacityType> _InkapacityType;
 		
 		private EntityRef<Employee> _Employee;
 		
-		private EntityRef<InkapacityType> _InkapacityType;
+		private EntityRef<EducDocument> _EducDocument;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -24782,9 +21988,9 @@ namespace Kadr.Data
 		
 		public OK_Inkapacity()
 		{
-			this._EducDocument = default(EntityRef<EducDocument>);
-			this._Employee = default(EntityRef<Employee>);
 			this._InkapacityType = default(EntityRef<InkapacityType>);
+			this._Employee = default(EntityRef<Employee>);
+			this._EducDocument = default(EntityRef<EducDocument>);
 			OnCreated();
 		}
 		
@@ -24960,36 +22166,36 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Inkapacity", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
-		public EducDocument EducDocument
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InkapacityType_OK_Inkapacity", Storage="_InkapacityType", ThisKey="idInkapacityType", OtherKey="id", IsForeignKey=true)]
+		public InkapacityType InkapacityType
 		{
 			get
 			{
-				return this._EducDocument.Entity;
+				return this._InkapacityType.Entity;
 			}
 			set
 			{
-				EducDocument previousValue = this._EducDocument.Entity;
+				InkapacityType previousValue = this._InkapacityType.Entity;
 				if (((previousValue != value) 
-							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
+							|| (this._InkapacityType.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._EducDocument.Entity = null;
+						this._InkapacityType.Entity = null;
 						previousValue.OK_Inkapacities.Remove(this);
 					}
-					this._EducDocument.Entity = value;
+					this._InkapacityType.Entity = value;
 					if ((value != null))
 					{
 						value.OK_Inkapacities.Add(this);
-						this._idEducDocument = value.id;
+						this._idInkapacityType = value.id;
 					}
 					else
 					{
-						this._idEducDocument = default(Nullable<int>);
+						this._idInkapacityType = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("EducDocument");
+					this.SendPropertyChanged("InkapacityType");
 				}
 			}
 		}
@@ -25028,36 +22234,36 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InkapacityType_OK_Inkapacity", Storage="_InkapacityType", ThisKey="idInkapacityType", OtherKey="id", IsForeignKey=true)]
-		public InkapacityType InkapacityType
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Inkapacity", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true)]
+		public EducDocument EducDocument
 		{
 			get
 			{
-				return this._InkapacityType.Entity;
+				return this._EducDocument.Entity;
 			}
 			set
 			{
-				InkapacityType previousValue = this._InkapacityType.Entity;
+				EducDocument previousValue = this._EducDocument.Entity;
 				if (((previousValue != value) 
-							|| (this._InkapacityType.HasLoadedOrAssignedValue == false)))
+							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._InkapacityType.Entity = null;
+						this._EducDocument.Entity = null;
 						previousValue.OK_Inkapacities.Remove(this);
 					}
-					this._InkapacityType.Entity = value;
+					this._EducDocument.Entity = value;
 					if ((value != null))
 					{
 						value.OK_Inkapacities.Add(this);
-						this._idInkapacityType = value.id;
+						this._idEducDocument = value.id;
 					}
 					else
 					{
-						this._idInkapacityType = default(Nullable<int>);
+						this._idEducDocument = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("InkapacityType");
+					this.SendPropertyChanged("EducDocument");
 				}
 			}
 		}
@@ -25753,13 +22959,13 @@ namespace Kadr.Data
 		
 		private EntityRef<AwardType> _AwardType;
 		
-		private EntityRef<EducDocument> _EducDocument;
-		
-		private EntityRef<Employee> _Employee;
-		
 		private EntityRef<Event> _Event;
 		
 		private EntityRef<GovDepartment> _GovDepartment;
+		
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<EducDocument> _EducDocument;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -25789,10 +22995,10 @@ namespace Kadr.Data
 		{
 			this._AwardLevel = default(EntityRef<AwardLevel>);
 			this._AwardType = default(EntityRef<AwardType>);
-			this._EducDocument = default(EntityRef<EducDocument>);
-			this._Employee = default(EntityRef<Employee>);
 			this._Event = default(EntityRef<Event>);
 			this._GovDepartment = default(EntityRef<GovDepartment>);
+			this._Employee = default(EntityRef<Employee>);
+			this._EducDocument = default(EntityRef<EducDocument>);
 			OnCreated();
 		}
 		
@@ -26068,74 +23274,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Award", Storage="_EducDocument", ThisKey="IDEducDocument", OtherKey="id", IsForeignKey=true)]
-		public EducDocument EducDocument
-		{
-			get
-			{
-				return this._EducDocument.Entity;
-			}
-			set
-			{
-				EducDocument previousValue = this._EducDocument.Entity;
-				if (((previousValue != value) 
-							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EducDocument.Entity = null;
-						previousValue.Awards.Remove(this);
-					}
-					this._EducDocument.Entity = value;
-					if ((value != null))
-					{
-						value.Awards.Add(this);
-						this._IDEducDocument = value.id;
-					}
-					else
-					{
-						this._IDEducDocument = default(int);
-					}
-					this.SendPropertyChanged("EducDocument");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Award", Storage="_Employee", ThisKey="IDEmployee", OtherKey="id", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.Awards.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.Awards.Add(this);
-						this._IDEmployee = value.id;
-					}
-					else
-					{
-						this._IDEmployee = default(int);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_Award", Storage="_Event", ThisKey="idEvent", OtherKey="id", IsForeignKey=true)]
 		public Event Event
 		{
@@ -26200,6 +23338,74 @@ namespace Kadr.Data
 						this._IDGovDepartment = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("GovDepartment");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Award", Storage="_Employee", ThisKey="IDEmployee", OtherKey="id", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.Awards.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.Awards.Add(this);
+						this._IDEmployee = value.id;
+					}
+					else
+					{
+						this._IDEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Award", Storage="_EducDocument", ThisKey="IDEducDocument", OtherKey="id", IsForeignKey=true)]
+		public EducDocument EducDocument
+		{
+			get
+			{
+				return this._EducDocument.Entity;
+			}
+			set
+			{
+				EducDocument previousValue = this._EducDocument.Entity;
+				if (((previousValue != value) 
+							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducDocument.Entity = null;
+						previousValue.Awards.Remove(this);
+					}
+					this._EducDocument.Entity = value;
+					if ((value != null))
+					{
+						value.Awards.Add(this);
+						this._IDEducDocument = value.id;
+					}
+					else
+					{
+						this._IDEducDocument = default(int);
+					}
+					this.SendPropertyChanged("EducDocument");
 				}
 			}
 		}
@@ -27149,9 +24355,9 @@ namespace Kadr.Data
 		
 		private EntitySet<OK_Otpusk> _OK_Otpusks;
 		
-		private EntityRef<Employee> _Employee;
-		
 		private EntityRef<Prikaz> _Prikaz;
+		
+		private EntityRef<Employee> _Employee;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -27172,8 +24378,8 @@ namespace Kadr.Data
 		public SocialFareTransit()
 		{
 			this._OK_Otpusks = new EntitySet<OK_Otpusk>(new Action<OK_Otpusk>(this.attach_OK_Otpusks), new Action<OK_Otpusk>(this.detach_OK_Otpusks));
-			this._Employee = default(EntityRef<Employee>);
 			this._Prikaz = default(EntityRef<Prikaz>);
+			this._Employee = default(EntityRef<Employee>);
 			OnCreated();
 		}
 		
@@ -27298,40 +24504,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SocialFareTransit", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.SocialFareTransits.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.SocialFareTransits.Add(this);
-						this._idEmployee = value.id;
-					}
-					else
-					{
-						this._idEmployee = default(int);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Prikaz_SocialFareTransit", Storage="_Prikaz", ThisKey="idPrikaz", OtherKey="id", IsForeignKey=true)]
 		public Prikaz Prikaz
 		{
@@ -27362,6 +24534,40 @@ namespace Kadr.Data
 						this._idPrikaz = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Prikaz");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SocialFareTransit", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.SocialFareTransits.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.SocialFareTransits.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
 				}
 			}
 		}
@@ -28063,6 +25269,2800 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.Prikaz = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee")]
+	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _itab_n;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private string _Otch;
+		
+		private System.Nullable<System.DateTime> _BirthDate;
+		
+		private string _BirthPlace;
+		
+		private bool _SexBit;
+		
+		private System.Nullable<int> _idGrazd;
+		
+		private System.Nullable<int> _idSemPol;
+		
+		private int _SeverKoeff;
+		
+		private int _RayonKoeff;
+		
+		private System.Guid _GUID;
+		
+		private System.Data.Linq.Binary _EmployeeSid;
+		
+		private string _EmployeeLogin;
+		
+		private bool _AllowBirthdate;
+		
+		private string _paspser;
+		
+		private string _paspnomer;
+		
+		private System.Nullable<System.DateTime> _paspdate;
+		
+		private string _paspkem;
+		
+		private string _inn;
+		
+		private string _ssgps;
+		
+		private string _medpolis;
+		
+		private string _EmployeeName;
+		
+		private System.Nullable<System.DateTime> _OtpReducedFareDateBegin;
+		
+		private string _EmployeeSmallName;
+		
+		private string _EmplHistSer;
+		
+		private string _EmplHistNumber;
+		
+		private System.Nullable<System.DateTime> _EmplHistDate;
+		
+		private System.Nullable<int> _idMilitaryCategory;
+		
+		private System.Nullable<int> _idMilitaryRank;
+		
+		private string _VUSCode;
+		
+		private System.Nullable<int> _idMilitaryFitness;
+		
+		private string _MilitaryCommissariat;
+		
+		private System.Nullable<int> _idMilitaryType;
+		
+		private string _RemovalMilitaryMark;
+		
+		private System.Nullable<int> _idMilitaryStructure;
+		
+		private string _NumberMilitaryType;
+		
+		private EntitySet<EmployeeRank> _EmployeeRanks;
+		
+		private EntitySet<EmployeeDegree> _EmployeeDegrees;
+		
+		private EntitySet<EmployeeStanding> _EmployeeStandings;
+		
+		private EntitySet<OK_phone> _OK_phones;
+		
+		private EntitySet<OK_DopInf> _OK_DopInfs;
+		
+		private EntitySet<OK_EmployeeLang> _OK_EmployeeLangs;
+		
+		private EntitySet<FactStaff> _FactStaffs;
+		
+		private EntitySet<OK_Social> _OK_Socials;
+		
+		private EntitySet<OK_Adress> _OK_Adresses;
+		
+		private EntitySet<OK_Fam> _OK_Fams;
+		
+		private EntitySet<OK_DopEducation> _OK_DopEducations;
+		
+		private EntitySet<OK_Inkapacity> _OK_Inkapacities;
+		
+		private EntitySet<Award> _Awards;
+		
+		private EntitySet<SocialFareTransit> _SocialFareTransits;
+		
+		private EntitySet<OK_Educ> _OK_Educs;
+		
+		private EntityRef<Grazd> _Grazd;
+		
+		private EntityRef<MilitaryCategory> _MilitaryCategory;
+		
+		private EntityRef<MilitaryFitness> _MilitaryFitness;
+		
+		private EntityRef<MilitaryRank> _MilitaryRank;
+		
+		private EntityRef<MilitaryStructure> _MilitaryStructure;
+		
+		private EntityRef<MilitaryType> _MilitaryType;
+		
+		private EntityRef<SemPol> _SemPol;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onitab_nChanging(string value);
+    partial void Onitab_nChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnOtchChanging(string value);
+    partial void OnOtchChanged();
+    partial void OnBirthDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnBirthDateChanged();
+    partial void OnBirthPlaceChanging(string value);
+    partial void OnBirthPlaceChanged();
+    partial void OnSexBitChanging(bool value);
+    partial void OnSexBitChanged();
+    partial void OnidGrazdChanging(System.Nullable<int> value);
+    partial void OnidGrazdChanged();
+    partial void OnidSemPolChanging(System.Nullable<int> value);
+    partial void OnidSemPolChanged();
+    partial void OnSeverKoeffChanging(int value);
+    partial void OnSeverKoeffChanged();
+    partial void OnRayonKoeffChanging(int value);
+    partial void OnRayonKoeffChanged();
+    partial void OnGUIDChanging(System.Guid value);
+    partial void OnGUIDChanged();
+    partial void OnEmployeeSidChanging(System.Data.Linq.Binary value);
+    partial void OnEmployeeSidChanged();
+    partial void OnEmployeeLoginChanging(string value);
+    partial void OnEmployeeLoginChanged();
+    partial void OnAllowBirthdateChanging(bool value);
+    partial void OnAllowBirthdateChanged();
+    partial void OnpaspserChanging(string value);
+    partial void OnpaspserChanged();
+    partial void OnpaspnomerChanging(string value);
+    partial void OnpaspnomerChanged();
+    partial void OnpaspdateChanging(System.Nullable<System.DateTime> value);
+    partial void OnpaspdateChanged();
+    partial void OnpaspkemChanging(string value);
+    partial void OnpaspkemChanged();
+    partial void OninnChanging(string value);
+    partial void OninnChanged();
+    partial void OnssgpsChanging(string value);
+    partial void OnssgpsChanged();
+    partial void OnmedpolisChanging(string value);
+    partial void OnmedpolisChanged();
+    partial void OnEmployeeNameChanging(string value);
+    partial void OnEmployeeNameChanged();
+    partial void OnOtpReducedFareDateBeginChanging(System.Nullable<System.DateTime> value);
+    partial void OnOtpReducedFareDateBeginChanged();
+    partial void OnEmployeeSmallNameChanging(string value);
+    partial void OnEmployeeSmallNameChanged();
+    partial void OnEmplHistSerChanging(string value);
+    partial void OnEmplHistSerChanged();
+    partial void OnEmplHistNumberChanging(string value);
+    partial void OnEmplHistNumberChanged();
+    partial void OnEmplHistDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEmplHistDateChanged();
+    partial void OnidMilitaryCategoryChanging(System.Nullable<int> value);
+    partial void OnidMilitaryCategoryChanged();
+    partial void OnidMilitaryRankChanging(System.Nullable<int> value);
+    partial void OnidMilitaryRankChanged();
+    partial void OnVUSCodeChanging(string value);
+    partial void OnVUSCodeChanged();
+    partial void OnidMilitaryFitnessChanging(System.Nullable<int> value);
+    partial void OnidMilitaryFitnessChanged();
+    partial void OnMilitaryCommissariatChanging(string value);
+    partial void OnMilitaryCommissariatChanged();
+    partial void OnidMilitaryTypeChanging(System.Nullable<int> value);
+    partial void OnidMilitaryTypeChanged();
+    partial void OnRemovalMilitaryMarkChanging(string value);
+    partial void OnRemovalMilitaryMarkChanged();
+    partial void OnidMilitaryStructureChanging(System.Nullable<int> value);
+    partial void OnidMilitaryStructureChanged();
+    partial void OnNumberMilitaryTypeChanging(string value);
+    partial void OnNumberMilitaryTypeChanged();
+    #endregion
+		
+		public Employee()
+		{
+			this._EmployeeRanks = new EntitySet<EmployeeRank>(new Action<EmployeeRank>(this.attach_EmployeeRanks), new Action<EmployeeRank>(this.detach_EmployeeRanks));
+			this._EmployeeDegrees = new EntitySet<EmployeeDegree>(new Action<EmployeeDegree>(this.attach_EmployeeDegrees), new Action<EmployeeDegree>(this.detach_EmployeeDegrees));
+			this._EmployeeStandings = new EntitySet<EmployeeStanding>(new Action<EmployeeStanding>(this.attach_EmployeeStandings), new Action<EmployeeStanding>(this.detach_EmployeeStandings));
+			this._OK_phones = new EntitySet<OK_phone>(new Action<OK_phone>(this.attach_OK_phones), new Action<OK_phone>(this.detach_OK_phones));
+			this._OK_DopInfs = new EntitySet<OK_DopInf>(new Action<OK_DopInf>(this.attach_OK_DopInfs), new Action<OK_DopInf>(this.detach_OK_DopInfs));
+			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
+			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
+			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
+			this._OK_Adresses = new EntitySet<OK_Adress>(new Action<OK_Adress>(this.attach_OK_Adresses), new Action<OK_Adress>(this.detach_OK_Adresses));
+			this._OK_Fams = new EntitySet<OK_Fam>(new Action<OK_Fam>(this.attach_OK_Fams), new Action<OK_Fam>(this.detach_OK_Fams));
+			this._OK_DopEducations = new EntitySet<OK_DopEducation>(new Action<OK_DopEducation>(this.attach_OK_DopEducations), new Action<OK_DopEducation>(this.detach_OK_DopEducations));
+			this._OK_Inkapacities = new EntitySet<OK_Inkapacity>(new Action<OK_Inkapacity>(this.attach_OK_Inkapacities), new Action<OK_Inkapacity>(this.detach_OK_Inkapacities));
+			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
+			this._SocialFareTransits = new EntitySet<SocialFareTransit>(new Action<SocialFareTransit>(this.attach_SocialFareTransits), new Action<SocialFareTransit>(this.detach_SocialFareTransits));
+			this._OK_Educs = new EntitySet<OK_Educ>(new Action<OK_Educ>(this.attach_OK_Educs), new Action<OK_Educ>(this.detach_OK_Educs));
+			this._Grazd = default(EntityRef<Grazd>);
+			this._MilitaryCategory = default(EntityRef<MilitaryCategory>);
+			this._MilitaryFitness = default(EntityRef<MilitaryFitness>);
+			this._MilitaryRank = default(EntityRef<MilitaryRank>);
+			this._MilitaryStructure = default(EntityRef<MilitaryStructure>);
+			this._MilitaryType = default(EntityRef<MilitaryType>);
+			this._SemPol = default(EntityRef<SemPol>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_itab_n", DbType="VarChar(50)")]
+		public string itab_n
+		{
+			get
+			{
+				return this._itab_n;
+			}
+			set
+			{
+				if ((this._itab_n != value))
+				{
+					this.Onitab_nChanging(value);
+					this.SendPropertyChanging();
+					this._itab_n = value;
+					this.SendPropertyChanged("itab_n");
+					this.Onitab_nChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50)")]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50)")]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Otch", DbType="VarChar(50)")]
+		public string Otch
+		{
+			get
+			{
+				return this._Otch;
+			}
+			set
+			{
+				if ((this._Otch != value))
+				{
+					this.OnOtchChanging(value);
+					this.SendPropertyChanging();
+					this._Otch = value;
+					this.SendPropertyChanged("Otch");
+					this.OnOtchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BirthDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> BirthDate
+		{
+			get
+			{
+				return this._BirthDate;
+			}
+			set
+			{
+				if ((this._BirthDate != value))
+				{
+					this.OnBirthDateChanging(value);
+					this.SendPropertyChanging();
+					this._BirthDate = value;
+					this.SendPropertyChanged("BirthDate");
+					this.OnBirthDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BirthPlace", DbType="VarChar(200)")]
+		public string BirthPlace
+		{
+			get
+			{
+				return this._BirthPlace;
+			}
+			set
+			{
+				if ((this._BirthPlace != value))
+				{
+					this.OnBirthPlaceChanging(value);
+					this.SendPropertyChanging();
+					this._BirthPlace = value;
+					this.SendPropertyChanged("BirthPlace");
+					this.OnBirthPlaceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexBit", DbType="Bit NOT NULL")]
+		public bool SexBit
+		{
+			get
+			{
+				return this._SexBit;
+			}
+			set
+			{
+				if ((this._SexBit != value))
+				{
+					this.OnSexBitChanging(value);
+					this.SendPropertyChanging();
+					this._SexBit = value;
+					this.SendPropertyChanged("SexBit");
+					this.OnSexBitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrazd", DbType="Int")]
+		public System.Nullable<int> idGrazd
+		{
+			get
+			{
+				return this._idGrazd;
+			}
+			set
+			{
+				if ((this._idGrazd != value))
+				{
+					if (this._Grazd.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidGrazdChanging(value);
+					this.SendPropertyChanging();
+					this._idGrazd = value;
+					this.SendPropertyChanged("idGrazd");
+					this.OnidGrazdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idSemPol", DbType="Int")]
+		public System.Nullable<int> idSemPol
+		{
+			get
+			{
+				return this._idSemPol;
+			}
+			set
+			{
+				if ((this._idSemPol != value))
+				{
+					if (this._SemPol.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidSemPolChanging(value);
+					this.SendPropertyChanging();
+					this._idSemPol = value;
+					this.SendPropertyChanged("idSemPol");
+					this.OnidSemPolChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeverKoeff", DbType="Int NOT NULL")]
+		public int SeverKoeff
+		{
+			get
+			{
+				return this._SeverKoeff;
+			}
+			set
+			{
+				if ((this._SeverKoeff != value))
+				{
+					this.OnSeverKoeffChanging(value);
+					this.SendPropertyChanging();
+					this._SeverKoeff = value;
+					this.SendPropertyChanged("SeverKoeff");
+					this.OnSeverKoeffChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RayonKoeff", DbType="Int NOT NULL")]
+		public int RayonKoeff
+		{
+			get
+			{
+				return this._RayonKoeff;
+			}
+			set
+			{
+				if ((this._RayonKoeff != value))
+				{
+					this.OnRayonKoeffChanging(value);
+					this.SendPropertyChanging();
+					this._RayonKoeff = value;
+					this.SendPropertyChanged("RayonKoeff");
+					this.OnRayonKoeffChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid GUID
+		{
+			get
+			{
+				return this._GUID;
+			}
+			set
+			{
+				if ((this._GUID != value))
+				{
+					this.OnGUIDChanging(value);
+					this.SendPropertyChanging();
+					this._GUID = value;
+					this.SendPropertyChanged("GUID");
+					this.OnGUIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeSid", DbType="VarBinary(85)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary EmployeeSid
+		{
+			get
+			{
+				return this._EmployeeSid;
+			}
+			set
+			{
+				if ((this._EmployeeSid != value))
+				{
+					this.OnEmployeeSidChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeSid = value;
+					this.SendPropertyChanged("EmployeeSid");
+					this.OnEmployeeSidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeLogin", DbType="NVarChar(128)")]
+		public string EmployeeLogin
+		{
+			get
+			{
+				return this._EmployeeLogin;
+			}
+			set
+			{
+				if ((this._EmployeeLogin != value))
+				{
+					this.OnEmployeeLoginChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeLogin = value;
+					this.SendPropertyChanged("EmployeeLogin");
+					this.OnEmployeeLoginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AllowBirthdate", DbType="Bit NOT NULL")]
+		public bool AllowBirthdate
+		{
+			get
+			{
+				return this._AllowBirthdate;
+			}
+			set
+			{
+				if ((this._AllowBirthdate != value))
+				{
+					this.OnAllowBirthdateChanging(value);
+					this.SendPropertyChanging();
+					this._AllowBirthdate = value;
+					this.SendPropertyChanged("AllowBirthdate");
+					this.OnAllowBirthdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paspser", DbType="VarChar(255)")]
+		public string paspser
+		{
+			get
+			{
+				return this._paspser;
+			}
+			set
+			{
+				if ((this._paspser != value))
+				{
+					this.OnpaspserChanging(value);
+					this.SendPropertyChanging();
+					this._paspser = value;
+					this.SendPropertyChanged("paspser");
+					this.OnpaspserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paspnomer", DbType="VarChar(255)")]
+		public string paspnomer
+		{
+			get
+			{
+				return this._paspnomer;
+			}
+			set
+			{
+				if ((this._paspnomer != value))
+				{
+					this.OnpaspnomerChanging(value);
+					this.SendPropertyChanging();
+					this._paspnomer = value;
+					this.SendPropertyChanged("paspnomer");
+					this.OnpaspnomerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paspdate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> paspdate
+		{
+			get
+			{
+				return this._paspdate;
+			}
+			set
+			{
+				if ((this._paspdate != value))
+				{
+					this.OnpaspdateChanging(value);
+					this.SendPropertyChanging();
+					this._paspdate = value;
+					this.SendPropertyChanged("paspdate");
+					this.OnpaspdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paspkem", DbType="VarChar(255)")]
+		public string paspkem
+		{
+			get
+			{
+				return this._paspkem;
+			}
+			set
+			{
+				if ((this._paspkem != value))
+				{
+					this.OnpaspkemChanging(value);
+					this.SendPropertyChanging();
+					this._paspkem = value;
+					this.SendPropertyChanged("paspkem");
+					this.OnpaspkemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inn", DbType="VarChar(255)")]
+		public string inn
+		{
+			get
+			{
+				return this._inn;
+			}
+			set
+			{
+				if ((this._inn != value))
+				{
+					this.OninnChanging(value);
+					this.SendPropertyChanging();
+					this._inn = value;
+					this.SendPropertyChanged("inn");
+					this.OninnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ssgps", DbType="VarChar(255)")]
+		public string ssgps
+		{
+			get
+			{
+				return this._ssgps;
+			}
+			set
+			{
+				if ((this._ssgps != value))
+				{
+					this.OnssgpsChanging(value);
+					this.SendPropertyChanging();
+					this._ssgps = value;
+					this.SendPropertyChanged("ssgps");
+					this.OnssgpsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_medpolis", DbType="VarChar(50)")]
+		public string medpolis
+		{
+			get
+			{
+				return this._medpolis;
+			}
+			set
+			{
+				if ((this._medpolis != value))
+				{
+					this.OnmedpolisChanging(value);
+					this.SendPropertyChanging();
+					this._medpolis = value;
+					this.SendPropertyChanged("medpolis");
+					this.OnmedpolisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeName", AutoSync=AutoSync.Always, DbType="VarChar(152)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string EmployeeName
+		{
+			get
+			{
+				return this._EmployeeName;
+			}
+			set
+			{
+				if ((this._EmployeeName != value))
+				{
+					this.OnEmployeeNameChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeName = value;
+					this.SendPropertyChanged("EmployeeName");
+					this.OnEmployeeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtpReducedFareDateBegin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> OtpReducedFareDateBegin
+		{
+			get
+			{
+				return this._OtpReducedFareDateBegin;
+			}
+			set
+			{
+				if ((this._OtpReducedFareDateBegin != value))
+				{
+					this.OnOtpReducedFareDateBeginChanging(value);
+					this.SendPropertyChanging();
+					this._OtpReducedFareDateBegin = value;
+					this.SendPropertyChanged("OtpReducedFareDateBegin");
+					this.OnOtpReducedFareDateBeginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeSmallName", AutoSync=AutoSync.Always, DbType="VarChar(56)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string EmployeeSmallName
+		{
+			get
+			{
+				return this._EmployeeSmallName;
+			}
+			set
+			{
+				if ((this._EmployeeSmallName != value))
+				{
+					this.OnEmployeeSmallNameChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeSmallName = value;
+					this.SendPropertyChanged("EmployeeSmallName");
+					this.OnEmployeeSmallNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmplHistSer", DbType="VarChar(10)")]
+		public string EmplHistSer
+		{
+			get
+			{
+				return this._EmplHistSer;
+			}
+			set
+			{
+				if ((this._EmplHistSer != value))
+				{
+					this.OnEmplHistSerChanging(value);
+					this.SendPropertyChanging();
+					this._EmplHistSer = value;
+					this.SendPropertyChanged("EmplHistSer");
+					this.OnEmplHistSerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmplHistNumber", DbType="VarChar(20)")]
+		public string EmplHistNumber
+		{
+			get
+			{
+				return this._EmplHistNumber;
+			}
+			set
+			{
+				if ((this._EmplHistNumber != value))
+				{
+					this.OnEmplHistNumberChanging(value);
+					this.SendPropertyChanging();
+					this._EmplHistNumber = value;
+					this.SendPropertyChanged("EmplHistNumber");
+					this.OnEmplHistNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmplHistDate", DbType="Date")]
+		public System.Nullable<System.DateTime> EmplHistDate
+		{
+			get
+			{
+				return this._EmplHistDate;
+			}
+			set
+			{
+				if ((this._EmplHistDate != value))
+				{
+					this.OnEmplHistDateChanging(value);
+					this.SendPropertyChanging();
+					this._EmplHistDate = value;
+					this.SendPropertyChanged("EmplHistDate");
+					this.OnEmplHistDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMilitaryCategory", DbType="Int")]
+		public System.Nullable<int> idMilitaryCategory
+		{
+			get
+			{
+				return this._idMilitaryCategory;
+			}
+			set
+			{
+				if ((this._idMilitaryCategory != value))
+				{
+					if (this._MilitaryCategory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidMilitaryCategoryChanging(value);
+					this.SendPropertyChanging();
+					this._idMilitaryCategory = value;
+					this.SendPropertyChanged("idMilitaryCategory");
+					this.OnidMilitaryCategoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMilitaryRank", DbType="Int")]
+		public System.Nullable<int> idMilitaryRank
+		{
+			get
+			{
+				return this._idMilitaryRank;
+			}
+			set
+			{
+				if ((this._idMilitaryRank != value))
+				{
+					if (this._MilitaryRank.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidMilitaryRankChanging(value);
+					this.SendPropertyChanging();
+					this._idMilitaryRank = value;
+					this.SendPropertyChanged("idMilitaryRank");
+					this.OnidMilitaryRankChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VUSCode", DbType="VarChar(50)")]
+		public string VUSCode
+		{
+			get
+			{
+				return this._VUSCode;
+			}
+			set
+			{
+				if ((this._VUSCode != value))
+				{
+					this.OnVUSCodeChanging(value);
+					this.SendPropertyChanging();
+					this._VUSCode = value;
+					this.SendPropertyChanged("VUSCode");
+					this.OnVUSCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMilitaryFitness", DbType="Int")]
+		public System.Nullable<int> idMilitaryFitness
+		{
+			get
+			{
+				return this._idMilitaryFitness;
+			}
+			set
+			{
+				if ((this._idMilitaryFitness != value))
+				{
+					if (this._MilitaryFitness.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidMilitaryFitnessChanging(value);
+					this.SendPropertyChanging();
+					this._idMilitaryFitness = value;
+					this.SendPropertyChanged("idMilitaryFitness");
+					this.OnidMilitaryFitnessChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MilitaryCommissariat", DbType="VarChar(900)")]
+		public string MilitaryCommissariat
+		{
+			get
+			{
+				return this._MilitaryCommissariat;
+			}
+			set
+			{
+				if ((this._MilitaryCommissariat != value))
+				{
+					this.OnMilitaryCommissariatChanging(value);
+					this.SendPropertyChanging();
+					this._MilitaryCommissariat = value;
+					this.SendPropertyChanged("MilitaryCommissariat");
+					this.OnMilitaryCommissariatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMilitaryType", DbType="Int")]
+		public System.Nullable<int> idMilitaryType
+		{
+			get
+			{
+				return this._idMilitaryType;
+			}
+			set
+			{
+				if ((this._idMilitaryType != value))
+				{
+					if (this._MilitaryType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidMilitaryTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idMilitaryType = value;
+					this.SendPropertyChanged("idMilitaryType");
+					this.OnidMilitaryTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RemovalMilitaryMark", DbType="VarChar(900)")]
+		public string RemovalMilitaryMark
+		{
+			get
+			{
+				return this._RemovalMilitaryMark;
+			}
+			set
+			{
+				if ((this._RemovalMilitaryMark != value))
+				{
+					this.OnRemovalMilitaryMarkChanging(value);
+					this.SendPropertyChanging();
+					this._RemovalMilitaryMark = value;
+					this.SendPropertyChanged("RemovalMilitaryMark");
+					this.OnRemovalMilitaryMarkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMilitaryStructure", DbType="Int")]
+		public System.Nullable<int> idMilitaryStructure
+		{
+			get
+			{
+				return this._idMilitaryStructure;
+			}
+			set
+			{
+				if ((this._idMilitaryStructure != value))
+				{
+					if (this._MilitaryStructure.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidMilitaryStructureChanging(value);
+					this.SendPropertyChanging();
+					this._idMilitaryStructure = value;
+					this.SendPropertyChanged("idMilitaryStructure");
+					this.OnidMilitaryStructureChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberMilitaryType", DbType="VarChar(500)")]
+		public string NumberMilitaryType
+		{
+			get
+			{
+				return this._NumberMilitaryType;
+			}
+			set
+			{
+				if ((this._NumberMilitaryType != value))
+				{
+					this.OnNumberMilitaryTypeChanging(value);
+					this.SendPropertyChanging();
+					this._NumberMilitaryType = value;
+					this.SendPropertyChanged("NumberMilitaryType");
+					this.OnNumberMilitaryTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeRank", Storage="_EmployeeRanks", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<EmployeeRank> EmployeeRanks
+		{
+			get
+			{
+				return this._EmployeeRanks;
+			}
+			set
+			{
+				this._EmployeeRanks.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeDegree", Storage="_EmployeeDegrees", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<EmployeeDegree> EmployeeDegrees
+		{
+			get
+			{
+				return this._EmployeeDegrees;
+			}
+			set
+			{
+				this._EmployeeDegrees.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_EmployeeStanding", Storage="_EmployeeStandings", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<EmployeeStanding> EmployeeStandings
+		{
+			get
+			{
+				return this._EmployeeStandings;
+			}
+			set
+			{
+				this._EmployeeStandings.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_phone", Storage="_OK_phones", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_phone> OK_phones
+		{
+			get
+			{
+				return this._OK_phones;
+			}
+			set
+			{
+				this._OK_phones.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopInf", Storage="_OK_DopInfs", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_DopInf> OK_DopInfs
+		{
+			get
+			{
+				return this._OK_DopInfs;
+			}
+			set
+			{
+				this._OK_DopInfs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_EmployeeLang", Storage="_OK_EmployeeLangs", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_EmployeeLang> OK_EmployeeLangs
+		{
+			get
+			{
+				return this._OK_EmployeeLangs;
+			}
+			set
+			{
+				this._OK_EmployeeLangs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_FactStaff", Storage="_FactStaffs", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<FactStaff> FactStaffs
+		{
+			get
+			{
+				return this._FactStaffs;
+			}
+			set
+			{
+				this._FactStaffs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Social", Storage="_OK_Socials", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_Social> OK_Socials
+		{
+			get
+			{
+				return this._OK_Socials;
+			}
+			set
+			{
+				this._OK_Socials.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Adress", Storage="_OK_Adresses", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_Adress> OK_Adresses
+		{
+			get
+			{
+				return this._OK_Adresses;
+			}
+			set
+			{
+				this._OK_Adresses.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Fam", Storage="_OK_Fams", ThisKey="id", OtherKey="idemployee")]
+		public EntitySet<OK_Fam> OK_Fams
+		{
+			get
+			{
+				return this._OK_Fams;
+			}
+			set
+			{
+				this._OK_Fams.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_DopEducation", Storage="_OK_DopEducations", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_DopEducation> OK_DopEducations
+		{
+			get
+			{
+				return this._OK_DopEducations;
+			}
+			set
+			{
+				this._OK_DopEducations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Inkapacity", Storage="_OK_Inkapacities", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_Inkapacity> OK_Inkapacities
+		{
+			get
+			{
+				return this._OK_Inkapacities;
+			}
+			set
+			{
+				this._OK_Inkapacities.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Award", Storage="_Awards", ThisKey="id", OtherKey="IDEmployee")]
+		public EntitySet<Award> Awards
+		{
+			get
+			{
+				return this._Awards;
+			}
+			set
+			{
+				this._Awards.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_SocialFareTransit", Storage="_SocialFareTransits", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<SocialFareTransit> SocialFareTransits
+		{
+			get
+			{
+				return this._SocialFareTransits;
+			}
+			set
+			{
+				this._SocialFareTransits.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Educ", Storage="_OK_Educs", ThisKey="id", OtherKey="idEmployee")]
+		public EntitySet<OK_Educ> OK_Educs
+		{
+			get
+			{
+				return this._OK_Educs;
+			}
+			set
+			{
+				this._OK_Educs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grazd_Employee", Storage="_Grazd", ThisKey="idGrazd", OtherKey="id", IsForeignKey=true)]
+		public Grazd Grazd
+		{
+			get
+			{
+				return this._Grazd.Entity;
+			}
+			set
+			{
+				Grazd previousValue = this._Grazd.Entity;
+				if (((previousValue != value) 
+							|| (this._Grazd.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Grazd.Entity = null;
+						previousValue.Employees.Remove(this);
+					}
+					this._Grazd.Entity = value;
+					if ((value != null))
+					{
+						value.Employees.Add(this);
+						this._idGrazd = value.id;
+					}
+					else
+					{
+						this._idGrazd = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Grazd");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MilitaryCategory_Employee", Storage="_MilitaryCategory", ThisKey="idMilitaryCategory", OtherKey="id", IsForeignKey=true)]
+		public MilitaryCategory MilitaryCategory
+		{
+			get
+			{
+				return this._MilitaryCategory.Entity;
+			}
+			set
+			{
+				MilitaryCategory previousValue = this._MilitaryCategory.Entity;
+				if (((previousValue != value) 
+							|| (this._MilitaryCategory.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MilitaryCategory.Entity = null;
+						previousValue.Employees.Remove(this);
+					}
+					this._MilitaryCategory.Entity = value;
+					if ((value != null))
+					{
+						value.Employees.Add(this);
+						this._idMilitaryCategory = value.id;
+					}
+					else
+					{
+						this._idMilitaryCategory = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("MilitaryCategory");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MilitaryFitness_Employee", Storage="_MilitaryFitness", ThisKey="idMilitaryFitness", OtherKey="id", IsForeignKey=true)]
+		public MilitaryFitness MilitaryFitness
+		{
+			get
+			{
+				return this._MilitaryFitness.Entity;
+			}
+			set
+			{
+				MilitaryFitness previousValue = this._MilitaryFitness.Entity;
+				if (((previousValue != value) 
+							|| (this._MilitaryFitness.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MilitaryFitness.Entity = null;
+						previousValue.Employees.Remove(this);
+					}
+					this._MilitaryFitness.Entity = value;
+					if ((value != null))
+					{
+						value.Employees.Add(this);
+						this._idMilitaryFitness = value.id;
+					}
+					else
+					{
+						this._idMilitaryFitness = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("MilitaryFitness");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MilitaryRank_Employee", Storage="_MilitaryRank", ThisKey="idMilitaryRank", OtherKey="id", IsForeignKey=true)]
+		public MilitaryRank MilitaryRank
+		{
+			get
+			{
+				return this._MilitaryRank.Entity;
+			}
+			set
+			{
+				MilitaryRank previousValue = this._MilitaryRank.Entity;
+				if (((previousValue != value) 
+							|| (this._MilitaryRank.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MilitaryRank.Entity = null;
+						previousValue.Employees.Remove(this);
+					}
+					this._MilitaryRank.Entity = value;
+					if ((value != null))
+					{
+						value.Employees.Add(this);
+						this._idMilitaryRank = value.id;
+					}
+					else
+					{
+						this._idMilitaryRank = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("MilitaryRank");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MilitaryStructure_Employee", Storage="_MilitaryStructure", ThisKey="idMilitaryStructure", OtherKey="id", IsForeignKey=true)]
+		public MilitaryStructure MilitaryStructure
+		{
+			get
+			{
+				return this._MilitaryStructure.Entity;
+			}
+			set
+			{
+				MilitaryStructure previousValue = this._MilitaryStructure.Entity;
+				if (((previousValue != value) 
+							|| (this._MilitaryStructure.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MilitaryStructure.Entity = null;
+						previousValue.Employees.Remove(this);
+					}
+					this._MilitaryStructure.Entity = value;
+					if ((value != null))
+					{
+						value.Employees.Add(this);
+						this._idMilitaryStructure = value.id;
+					}
+					else
+					{
+						this._idMilitaryStructure = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("MilitaryStructure");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MilitaryType_Employee", Storage="_MilitaryType", ThisKey="idMilitaryType", OtherKey="id", IsForeignKey=true)]
+		public MilitaryType MilitaryType
+		{
+			get
+			{
+				return this._MilitaryType.Entity;
+			}
+			set
+			{
+				MilitaryType previousValue = this._MilitaryType.Entity;
+				if (((previousValue != value) 
+							|| (this._MilitaryType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MilitaryType.Entity = null;
+						previousValue.Employees.Remove(this);
+					}
+					this._MilitaryType.Entity = value;
+					if ((value != null))
+					{
+						value.Employees.Add(this);
+						this._idMilitaryType = value.id;
+					}
+					else
+					{
+						this._idMilitaryType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("MilitaryType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SemPol_Employee", Storage="_SemPol", ThisKey="idSemPol", OtherKey="id", IsForeignKey=true)]
+		public SemPol SemPol
+		{
+			get
+			{
+				return this._SemPol.Entity;
+			}
+			set
+			{
+				SemPol previousValue = this._SemPol.Entity;
+				if (((previousValue != value) 
+							|| (this._SemPol.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SemPol.Entity = null;
+						previousValue.Employees.Remove(this);
+					}
+					this._SemPol.Entity = value;
+					if ((value != null))
+					{
+						value.Employees.Add(this);
+						this._idSemPol = value.id;
+					}
+					else
+					{
+						this._idSemPol = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("SemPol");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_EmployeeRanks(EmployeeRank entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_EmployeeRanks(EmployeeRank entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_EmployeeDegrees(EmployeeDegree entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_EmployeeDegrees(EmployeeDegree entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_EmployeeStandings(EmployeeStanding entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_EmployeeStandings(EmployeeStanding entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_phones(OK_phone entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_phones(OK_phone entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_DopInfs(OK_DopInf entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_DopInfs(OK_DopInf entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_EmployeeLangs(OK_EmployeeLang entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_EmployeeLangs(OK_EmployeeLang entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_FactStaffs(FactStaff entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_FactStaffs(FactStaff entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_Socials(OK_Social entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_Socials(OK_Social entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_Adresses(OK_Adress entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_Adresses(OK_Adress entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_Fams(OK_Fam entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_Fams(OK_Fam entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_DopEducations(OK_DopEducation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_DopEducations(OK_DopEducation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_Inkapacities(OK_Inkapacity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_Inkapacities(OK_Inkapacity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_Awards(Award entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_Awards(Award entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_SocialFareTransits(SocialFareTransit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_SocialFareTransits(SocialFareTransit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_OK_Educs(OK_Educ entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_OK_Educs(OK_Educ entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EducDocument")]
+	public partial class EducDocument : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.Nullable<int> _idEducDocType;
+		
+		private string _DocSeries;
+		
+		private string _DocNumber;
+		
+		private System.Nullable<System.DateTime> _DocDate;
+		
+		private System.Nullable<int> _IdOrganisation;
+		
+		private EntityRef<EmployeeRank> _EmployeeRank;
+		
+		private EntityRef<EmployeeDegree> _EmployeeDegree;
+		
+		private EntitySet<OK_EmployeeLang> _OK_EmployeeLangs;
+		
+		private EntitySet<OK_Social> _OK_Socials;
+		
+		private EntitySet<OK_DopEducation> _OK_DopEducations;
+		
+		private EntitySet<Validation> _Validations;
+		
+		private EntitySet<OK_Inkapacity> _OK_Inkapacities;
+		
+		private EntitySet<Award> _Awards;
+		
+		private EntityRef<OK_Educ> _OK_Educ;
+		
+		private EntityRef<Organisation> _Organisation;
+		
+		private EntityRef<EducDocumentType> _EducDocumentType;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnidEducDocTypeChanging(System.Nullable<int> value);
+    partial void OnidEducDocTypeChanged();
+    partial void OnDocSeriesChanging(string value);
+    partial void OnDocSeriesChanged();
+    partial void OnDocNumberChanging(string value);
+    partial void OnDocNumberChanged();
+    partial void OnDocDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDocDateChanged();
+    partial void OnIdOrganisationChanging(System.Nullable<int> value);
+    partial void OnIdOrganisationChanged();
+    #endregion
+		
+		public EducDocument()
+		{
+			this._EmployeeRank = default(EntityRef<EmployeeRank>);
+			this._EmployeeDegree = default(EntityRef<EmployeeDegree>);
+			this._OK_EmployeeLangs = new EntitySet<OK_EmployeeLang>(new Action<OK_EmployeeLang>(this.attach_OK_EmployeeLangs), new Action<OK_EmployeeLang>(this.detach_OK_EmployeeLangs));
+			this._OK_Socials = new EntitySet<OK_Social>(new Action<OK_Social>(this.attach_OK_Socials), new Action<OK_Social>(this.detach_OK_Socials));
+			this._OK_DopEducations = new EntitySet<OK_DopEducation>(new Action<OK_DopEducation>(this.attach_OK_DopEducations), new Action<OK_DopEducation>(this.detach_OK_DopEducations));
+			this._Validations = new EntitySet<Validation>(new Action<Validation>(this.attach_Validations), new Action<Validation>(this.detach_Validations));
+			this._OK_Inkapacities = new EntitySet<OK_Inkapacity>(new Action<OK_Inkapacity>(this.attach_OK_Inkapacities), new Action<OK_Inkapacity>(this.detach_OK_Inkapacities));
+			this._Awards = new EntitySet<Award>(new Action<Award>(this.attach_Awards), new Action<Award>(this.detach_Awards));
+			this._OK_Educ = default(EntityRef<OK_Educ>);
+			this._Organisation = default(EntityRef<Organisation>);
+			this._EducDocumentType = default(EntityRef<EducDocumentType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEducDocType", DbType="Int")]
+		public System.Nullable<int> idEducDocType
+		{
+			get
+			{
+				return this._idEducDocType;
+			}
+			set
+			{
+				if ((this._idEducDocType != value))
+				{
+					if (this._EducDocumentType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEducDocTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idEducDocType = value;
+					this.SendPropertyChanged("idEducDocType");
+					this.OnidEducDocTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocSeries", DbType="VarChar(15)")]
+		public string DocSeries
+		{
+			get
+			{
+				return this._DocSeries;
+			}
+			set
+			{
+				if ((this._DocSeries != value))
+				{
+					this.OnDocSeriesChanging(value);
+					this.SendPropertyChanging();
+					this._DocSeries = value;
+					this.SendPropertyChanged("DocSeries");
+					this.OnDocSeriesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="VarChar(50)")]
+		public string DocNumber
+		{
+			get
+			{
+				return this._DocNumber;
+			}
+			set
+			{
+				if ((this._DocNumber != value))
+				{
+					this.OnDocNumberChanging(value);
+					this.SendPropertyChanging();
+					this._DocNumber = value;
+					this.SendPropertyChanged("DocNumber");
+					this.OnDocNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DocDate
+		{
+			get
+			{
+				return this._DocDate;
+			}
+			set
+			{
+				if ((this._DocDate != value))
+				{
+					this.OnDocDateChanging(value);
+					this.SendPropertyChanging();
+					this._DocDate = value;
+					this.SendPropertyChanged("DocDate");
+					this.OnDocDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdOrganisation", DbType="Int")]
+		public System.Nullable<int> IdOrganisation
+		{
+			get
+			{
+				return this._IdOrganisation;
+			}
+			set
+			{
+				if ((this._IdOrganisation != value))
+				{
+					if (this._Organisation.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdOrganisationChanging(value);
+					this.SendPropertyChanging();
+					this._IdOrganisation = value;
+					this.SendPropertyChanged("IdOrganisation");
+					this.OnIdOrganisationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_EmployeeRank", Storage="_EmployeeRank", ThisKey="id", OtherKey="idEducDocument", IsUnique=true, IsForeignKey=false)]
+		public EmployeeRank EmployeeRank
+		{
+			get
+			{
+				return this._EmployeeRank.Entity;
+			}
+			set
+			{
+				EmployeeRank previousValue = this._EmployeeRank.Entity;
+				if (((previousValue != value) 
+							|| (this._EmployeeRank.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EmployeeRank.Entity = null;
+						previousValue.EducDocument = null;
+					}
+					this._EmployeeRank.Entity = value;
+					if ((value != null))
+					{
+						value.EducDocument = this;
+					}
+					this.SendPropertyChanged("EmployeeRank");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_EmployeeDegree", Storage="_EmployeeDegree", ThisKey="id", OtherKey="idEducDocument", IsUnique=true, IsForeignKey=false)]
+		public EmployeeDegree EmployeeDegree
+		{
+			get
+			{
+				return this._EmployeeDegree.Entity;
+			}
+			set
+			{
+				EmployeeDegree previousValue = this._EmployeeDegree.Entity;
+				if (((previousValue != value) 
+							|| (this._EmployeeDegree.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EmployeeDegree.Entity = null;
+						previousValue.EducDocument = null;
+					}
+					this._EmployeeDegree.Entity = value;
+					if ((value != null))
+					{
+						value.EducDocument = this;
+					}
+					this.SendPropertyChanged("EmployeeDegree");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_EmployeeLang", Storage="_OK_EmployeeLangs", ThisKey="id", OtherKey="idEducDocument")]
+		public EntitySet<OK_EmployeeLang> OK_EmployeeLangs
+		{
+			get
+			{
+				return this._OK_EmployeeLangs;
+			}
+			set
+			{
+				this._OK_EmployeeLangs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Social", Storage="_OK_Socials", ThisKey="id", OtherKey="idEducDocument")]
+		public EntitySet<OK_Social> OK_Socials
+		{
+			get
+			{
+				return this._OK_Socials;
+			}
+			set
+			{
+				this._OK_Socials.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_DopEducation", Storage="_OK_DopEducations", ThisKey="id", OtherKey="idEducDocument")]
+		public EntitySet<OK_DopEducation> OK_DopEducations
+		{
+			get
+			{
+				return this._OK_DopEducations;
+			}
+			set
+			{
+				this._OK_DopEducations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Validation", Storage="_Validations", ThisKey="id", OtherKey="IDEducDocument")]
+		public EntitySet<Validation> Validations
+		{
+			get
+			{
+				return this._Validations;
+			}
+			set
+			{
+				this._Validations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Inkapacity", Storage="_OK_Inkapacities", ThisKey="id", OtherKey="idEducDocument")]
+		public EntitySet<OK_Inkapacity> OK_Inkapacities
+		{
+			get
+			{
+				return this._OK_Inkapacities;
+			}
+			set
+			{
+				this._OK_Inkapacities.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_Award", Storage="_Awards", ThisKey="id", OtherKey="IDEducDocument")]
+		public EntitySet<Award> Awards
+		{
+			get
+			{
+				return this._Awards;
+			}
+			set
+			{
+				this._Awards.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Educ", Storage="_OK_Educ", ThisKey="id", OtherKey="idEducDocument", IsUnique=true, IsForeignKey=false)]
+		public OK_Educ OK_Educ
+		{
+			get
+			{
+				return this._OK_Educ.Entity;
+			}
+			set
+			{
+				OK_Educ previousValue = this._OK_Educ.Entity;
+				if (((previousValue != value) 
+							|| (this._OK_Educ.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OK_Educ.Entity = null;
+						previousValue.EducDocument = null;
+					}
+					this._OK_Educ.Entity = value;
+					if ((value != null))
+					{
+						value.EducDocument = this;
+					}
+					this.SendPropertyChanged("OK_Educ");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Organisation_EducDocument", Storage="_Organisation", ThisKey="IdOrganisation", OtherKey="id", IsForeignKey=true)]
+		public Organisation Organisation
+		{
+			get
+			{
+				return this._Organisation.Entity;
+			}
+			set
+			{
+				Organisation previousValue = this._Organisation.Entity;
+				if (((previousValue != value) 
+							|| (this._Organisation.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Organisation.Entity = null;
+						previousValue.EducDocuments.Remove(this);
+					}
+					this._Organisation.Entity = value;
+					if ((value != null))
+					{
+						value.EducDocuments.Add(this);
+						this._IdOrganisation = value.id;
+					}
+					else
+					{
+						this._IdOrganisation = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Organisation");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_EducDocument", Storage="_EducDocumentType", ThisKey="idEducDocType", OtherKey="id", IsForeignKey=true)]
+		public EducDocumentType EducDocumentType
+		{
+			get
+			{
+				return this._EducDocumentType.Entity;
+			}
+			set
+			{
+				EducDocumentType previousValue = this._EducDocumentType.Entity;
+				if (((previousValue != value) 
+							|| (this._EducDocumentType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducDocumentType.Entity = null;
+						previousValue.EducDocuments.Remove(this);
+					}
+					this._EducDocumentType.Entity = value;
+					if ((value != null))
+					{
+						value.EducDocuments.Add(this);
+						this._idEducDocType = value.id;
+					}
+					else
+					{
+						this._idEducDocType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EducDocumentType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OK_EmployeeLangs(OK_EmployeeLang entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = this;
+		}
+		
+		private void detach_OK_EmployeeLangs(OK_EmployeeLang entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = null;
+		}
+		
+		private void attach_OK_Socials(OK_Social entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = this;
+		}
+		
+		private void detach_OK_Socials(OK_Social entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = null;
+		}
+		
+		private void attach_OK_DopEducations(OK_DopEducation entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = this;
+		}
+		
+		private void detach_OK_DopEducations(OK_DopEducation entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = null;
+		}
+		
+		private void attach_Validations(Validation entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = this;
+		}
+		
+		private void detach_Validations(Validation entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = null;
+		}
+		
+		private void attach_OK_Inkapacities(OK_Inkapacity entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = this;
+		}
+		
+		private void detach_OK_Inkapacities(OK_Inkapacity entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = null;
+		}
+		
+		private void attach_Awards(Award entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = this;
+		}
+		
+		private void detach_Awards(Award entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocument = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EducationType")]
+	public partial class EducationType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _EduTypeName;
+		
+		private EntitySet<OK_Educ> _OK_Educs;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnEduTypeNameChanging(string value);
+    partial void OnEduTypeNameChanged();
+    #endregion
+		
+		public EducationType()
+		{
+			this._OK_Educs = new EntitySet<OK_Educ>(new Action<OK_Educ>(this.attach_OK_Educs), new Action<OK_Educ>(this.detach_OK_Educs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EduTypeName", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string EduTypeName
+		{
+			get
+			{
+				return this._EduTypeName;
+			}
+			set
+			{
+				if ((this._EduTypeName != value))
+				{
+					this.OnEduTypeNameChanging(value);
+					this.SendPropertyChanging();
+					this._EduTypeName = value;
+					this.SendPropertyChanged("EduTypeName");
+					this.OnEduTypeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducationType_OK_Educ", Storage="_OK_Educs", ThisKey="id", OtherKey="idEducationType")]
+		public EntitySet<OK_Educ> OK_Educs
+		{
+			get
+			{
+				return this._OK_Educs;
+			}
+			set
+			{
+				this._OK_Educs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OK_Educs(OK_Educ entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducationType = this;
+		}
+		
+		private void detach_OK_Educs(OK_Educ entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducationType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EducDocumentType")]
+	public partial class EducDocumentType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _DocTypeName;
+		
+		private bool _isOld;
+		
+		private EntitySet<DopEducType> _DopEducTypes;
+		
+		private EntitySet<EducDocument> _EducDocuments;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnDocTypeNameChanging(string value);
+    partial void OnDocTypeNameChanged();
+    partial void OnisOldChanging(bool value);
+    partial void OnisOldChanged();
+    #endregion
+		
+		public EducDocumentType()
+		{
+			this._DopEducTypes = new EntitySet<DopEducType>(new Action<DopEducType>(this.attach_DopEducTypes), new Action<DopEducType>(this.detach_DopEducTypes));
+			this._EducDocuments = new EntitySet<EducDocument>(new Action<EducDocument>(this.attach_EducDocuments), new Action<EducDocument>(this.detach_EducDocuments));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocTypeName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string DocTypeName
+		{
+			get
+			{
+				return this._DocTypeName;
+			}
+			set
+			{
+				if ((this._DocTypeName != value))
+				{
+					this.OnDocTypeNameChanging(value);
+					this.SendPropertyChanging();
+					this._DocTypeName = value;
+					this.SendPropertyChanged("DocTypeName");
+					this.OnDocTypeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isOld", DbType="Bit NOT NULL")]
+		public bool isOld
+		{
+			get
+			{
+				return this._isOld;
+			}
+			set
+			{
+				if ((this._isOld != value))
+				{
+					this.OnisOldChanging(value);
+					this.SendPropertyChanging();
+					this._isOld = value;
+					this.SendPropertyChanged("isOld");
+					this.OnisOldChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_DopEducType", Storage="_DopEducTypes", ThisKey="id", OtherKey="idEducDocumentType")]
+		public EntitySet<DopEducType> DopEducTypes
+		{
+			get
+			{
+				return this._DopEducTypes;
+			}
+			set
+			{
+				this._DopEducTypes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocumentType_EducDocument", Storage="_EducDocuments", ThisKey="id", OtherKey="idEducDocType")]
+		public EntitySet<EducDocument> EducDocuments
+		{
+			get
+			{
+				return this._EducDocuments;
+			}
+			set
+			{
+				this._EducDocuments.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_DopEducTypes(DopEducType entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocumentType = this;
+		}
+		
+		private void detach_DopEducTypes(DopEducType entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocumentType = null;
+		}
+		
+		private void attach_EducDocuments(EducDocument entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocumentType = this;
+		}
+		
+		private void detach_EducDocuments(EducDocument entity)
+		{
+			this.SendPropertyChanging();
+			entity.EducDocumentType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Educ")]
+	public partial class OK_Educ : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idEducDocument;
+		
+		private int _idEmployee;
+		
+		private string _EducWhere;
+		
+		private System.Nullable<int> _EducWhen;
+		
+		private string _Spec;
+		
+		private string _Kvalif;
+		
+		private System.Nullable<int> _idEducationType;
+		
+		private EntityRef<EducationType> _EducationType;
+		
+		private EntityRef<EducDocument> _EducDocument;
+		
+		private EntityRef<Employee> _Employee;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidEducDocumentChanging(int value);
+    partial void OnidEducDocumentChanged();
+    partial void OnidEmployeeChanging(int value);
+    partial void OnidEmployeeChanged();
+    partial void OnEducWhereChanging(string value);
+    partial void OnEducWhereChanged();
+    partial void OnEducWhenChanging(System.Nullable<int> value);
+    partial void OnEducWhenChanged();
+    partial void OnSpecChanging(string value);
+    partial void OnSpecChanged();
+    partial void OnKvalifChanging(string value);
+    partial void OnKvalifChanged();
+    partial void OnidEducationTypeChanging(System.Nullable<int> value);
+    partial void OnidEducationTypeChanged();
+    #endregion
+		
+		public OK_Educ()
+		{
+			this._EducationType = default(EntityRef<EducationType>);
+			this._EducDocument = default(EntityRef<EducDocument>);
+			this._Employee = default(EntityRef<Employee>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEducDocument", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idEducDocument
+		{
+			get
+			{
+				return this._idEducDocument;
+			}
+			set
+			{
+				if ((this._idEducDocument != value))
+				{
+					if (this._EducDocument.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEducDocumentChanging(value);
+					this.SendPropertyChanging();
+					this._idEducDocument = value;
+					this.SendPropertyChanged("idEducDocument");
+					this.OnidEducDocumentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmployee", DbType="Int NOT NULL")]
+		public int idEmployee
+		{
+			get
+			{
+				return this._idEmployee;
+			}
+			set
+			{
+				if ((this._idEmployee != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._idEmployee = value;
+					this.SendPropertyChanged("idEmployee");
+					this.OnidEmployeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EducWhere", DbType="VarChar(255)")]
+		public string EducWhere
+		{
+			get
+			{
+				return this._EducWhere;
+			}
+			set
+			{
+				if ((this._EducWhere != value))
+				{
+					this.OnEducWhereChanging(value);
+					this.SendPropertyChanging();
+					this._EducWhere = value;
+					this.SendPropertyChanged("EducWhere");
+					this.OnEducWhereChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EducWhen", DbType="Int")]
+		public System.Nullable<int> EducWhen
+		{
+			get
+			{
+				return this._EducWhen;
+			}
+			set
+			{
+				if ((this._EducWhen != value))
+				{
+					this.OnEducWhenChanging(value);
+					this.SendPropertyChanging();
+					this._EducWhen = value;
+					this.SendPropertyChanged("EducWhen");
+					this.OnEducWhenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Spec", DbType="VarChar(255)")]
+		public string Spec
+		{
+			get
+			{
+				return this._Spec;
+			}
+			set
+			{
+				if ((this._Spec != value))
+				{
+					this.OnSpecChanging(value);
+					this.SendPropertyChanging();
+					this._Spec = value;
+					this.SendPropertyChanged("Spec");
+					this.OnSpecChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kvalif", DbType="VarChar(255)")]
+		public string Kvalif
+		{
+			get
+			{
+				return this._Kvalif;
+			}
+			set
+			{
+				if ((this._Kvalif != value))
+				{
+					this.OnKvalifChanging(value);
+					this.SendPropertyChanging();
+					this._Kvalif = value;
+					this.SendPropertyChanged("Kvalif");
+					this.OnKvalifChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEducationType", DbType="Int")]
+		public System.Nullable<int> idEducationType
+		{
+			get
+			{
+				return this._idEducationType;
+			}
+			set
+			{
+				if ((this._idEducationType != value))
+				{
+					if (this._EducationType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEducationTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idEducationType = value;
+					this.SendPropertyChanged("idEducationType");
+					this.OnidEducationTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducationType_OK_Educ", Storage="_EducationType", ThisKey="idEducationType", OtherKey="id", IsForeignKey=true)]
+		public EducationType EducationType
+		{
+			get
+			{
+				return this._EducationType.Entity;
+			}
+			set
+			{
+				EducationType previousValue = this._EducationType.Entity;
+				if (((previousValue != value) 
+							|| (this._EducationType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducationType.Entity = null;
+						previousValue.OK_Educs.Remove(this);
+					}
+					this._EducationType.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Educs.Add(this);
+						this._idEducationType = value.id;
+					}
+					else
+					{
+						this._idEducationType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EducationType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EducDocument_OK_Educ", Storage="_EducDocument", ThisKey="idEducDocument", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public EducDocument EducDocument
+		{
+			get
+			{
+				return this._EducDocument.Entity;
+			}
+			set
+			{
+				EducDocument previousValue = this._EducDocument.Entity;
+				if (((previousValue != value) 
+							|| (this._EducDocument.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EducDocument.Entity = null;
+						previousValue.OK_Educ = null;
+					}
+					this._EducDocument.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Educ = this;
+						this._idEducDocument = value.id;
+					}
+					else
+					{
+						this._idEducDocument = default(int);
+					}
+					this.SendPropertyChanged("EducDocument");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OK_Educ", Storage="_Employee", ThisKey="idEmployee", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.OK_Educs.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.OK_Educs.Add(this);
+						this._idEmployee = value.id;
+					}
+					else
+					{
+						this._idEmployee = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

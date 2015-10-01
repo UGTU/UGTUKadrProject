@@ -1009,3 +1009,15 @@ set identity_insert [dbo].[PrikazType] ON
 insert into [dbo].[PrikazType]([id],[PrikazTypeName],idPrikazSuperType)
 values(43,'Ћьготный проезд',1)
 set identity_insert [dbo].[PrikazType] OFF
+
+--организации образовани€-------------------------------------------------------------------------------
+insert into [dbo].[Organisation]([Name])
+select EducWhere from OK_Educ
+where EducWhere not in (select Name from Organisation)
+
+update EducDocument set IdOrganisation = (select Organisation.id from Organisation, OK_Educ
+										  where OK_Educ.EducWhere = Organisation.name
+										  and OK_Educ.[idEducDocument] = EducDocument.id
+										  )
+where IdOrganisation is null
+--------------------------------------------------------------------------------------------------------

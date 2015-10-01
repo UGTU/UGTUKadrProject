@@ -56,7 +56,7 @@ namespace Kadr.Data
 
             }
         }
-
+        /*
         [System.ComponentModel.DisplayName("Образовательное учреждение")]
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Учреждение, где было получено образование")]
@@ -65,7 +65,7 @@ namespace Kadr.Data
         public string Where
         {
             get { return _education.Where; }
-        }
+        }*/
 
         [System.ComponentModel.DisplayName("Год окончания")]
         [System.ComponentModel.Category("Основные")]
