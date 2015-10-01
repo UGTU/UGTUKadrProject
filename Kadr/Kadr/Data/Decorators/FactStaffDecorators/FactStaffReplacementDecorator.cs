@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class FactStaffReplacementDecorator: FactStaffMainBaseDecorator
+    class FactStaffReplacementDecorator : FactStaffDecorator
     {
         private FactStaffReplacement factStaffReplacement;
         public FactStaffReplacementDecorator(FactStaffReplacement factStaffReplacement): base(factStaffReplacement.MainFactStaff)
@@ -24,7 +24,7 @@ namespace Kadr.Data
             return res;
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tФИО замещающего сотрудника")]
+        /*[System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tФИО замещающего сотрудника")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("ФИО сотрудника, назначенного на должность")]
         [System.ComponentModel.ReadOnly(false)]
@@ -39,7 +39,7 @@ namespace Kadr.Data
             {
                 factStaff.Employee = value;
             }
-        }
+        }*/
 
         [System.ComponentModel.DisplayName("Замещаемый сотрудник")]
         [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
@@ -53,7 +53,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t% замещения")]
+        /*[System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t% замещения")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("% замещения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -67,7 +67,7 @@ namespace Kadr.Data
             {
                 factStaffReplacement.ReplacedPercent = value;
             }
-        }
+        }*/
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tПричина замещения")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
@@ -102,7 +102,7 @@ namespace Kadr.Data
                 factStaffReplacement.DateEnd = value;
                 if (value == DateTime.MinValue)
                     factStaffReplacement.DateEnd = null;
-                if (factStaffReplacement.DateEnd == null)
+                if ((factStaffReplacement.DateEnd == null) || (factStaffReplacement.DateEnd>= DateTime.Today))
                     factStaffReplacement.FactStaff1.IsReplacement = true;
                 else
                     factStaffReplacement.FactStaff1.IsReplacement = false;

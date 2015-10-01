@@ -547,62 +547,8 @@ namespace Kadr.UI.Frames
 
        private void AddReplacementBtn_Click(object sender, EventArgs e)
        {
-           if (factStaffBindingSource.Current == null)
-           {
-               MessageBox.Show("Выберите сотрудника, которого нужно заместить.", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
-               return;
-           }
 
-           if ((factStaffBindingSource.Current as FactStaff).Prikaz!=null)
-           {
-               MessageBox.Show("Замещаемый сотрудник уже уволен!", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
-               return;
-           }
-
-           FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
-
-            using (Common.PropertyGridDialogAdding<FactStaffReplacement> dlg =
-                new Common.PropertyGridDialogAdding<FactStaffReplacement>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.FactStaffReplacements;
-                dlg.BindingSource = null;
-                dlg.UseInternalCommandManager = true;
-                dlg.InitializeNewObject = (x) =>
-                {
-                    FactStaff factStaff = new FactStaff();
-                    FactStaffHistory fcStHistory = new FactStaffHistory();
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, PlanStaff>(factStaff, "PlanStaff", currentFactStaff.PlanStaff, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", KadrController.Instance.Model.WorkTypes.Where(wtp => wtp.IsReplacement).FirstOrDefault(), null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(factStaff, "Employee", NullEmployee.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(fcStHistory, "Prikaz", NullPrikaz.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(factStaff, "IsReplacement", true, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", factStaff, null), this);
-
-                    //вычисляем то кол-во ставок, которое еще не замещено
-                    decimal ReplStaffCount = currentFactStaff.StaffCount;
-                    foreach (FactStaffReplacement repl in currentFactStaff.FactStaffReplacements)
-                    {
-                        if (repl.FactStaff1.Prikaz == null)
-                            ReplStaffCount -= repl.FactStaff1.StaffCount;
-                    }
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "StaffCount", ReplStaffCount, null), this);
-
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffReplacement, FactStaff>(x, "MainFactStaff", factStaff, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffReplacement, FactStaff>(x, "ReplacedFactStaff", currentFactStaff, null), this);
-                    if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
-                    {
-                        FactStaffReplacement prev = dlg.SelectedObjects[0] as FactStaffReplacement;
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffReplacement, FactStaffReplacementReason>(x, "FactStaffReplacementReason", prev.FactStaffReplacementReason, null), this);
-                    }
-                    else
-                    {
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffReplacement, FactStaffReplacementReason>(x, "FactStaffReplacementReason", NullFactStaffReplacementReason.Instance, null), this);
-                    }
-
-                };
-                dlg.ShowDialog();
-            }
-            LoadFactStaff();
+           LoadFactStaff();
        
        }
 
