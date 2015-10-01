@@ -849,9 +849,9 @@ namespace Kadr.UI.Frames
            
        }
 
-       private void CreateChangeFactStaffContractMenu()
+       public void CreateChangeFactStaffContractMenu()
        {
-           IEnumerable<EventKind> eventKinds = KadrController.Instance.Model.EventKinds.Where(x => x.EventKind1 == MagicNumberController.FactStaffChangeMainEventKind).ToArray();
+           IEnumerable<EventKind> eventKinds = MagicNumberController.FactStaffChangeEventKinds;
            System.Windows.Forms.ToolStripMenuItem[] stripItems = new ToolStripMenuItem[eventKinds.Count()];
            int i = 0;
            foreach (EventKind eventKind in eventKinds)
@@ -929,7 +929,7 @@ namespace Kadr.UI.Frames
            }
 
            EventKind thisEventKind = KadrController.Instance.Model.EventKinds.Where(x => x.EventKindApplName == sender.ToString()).FirstOrDefault();
-           CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind?? KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(),
+           CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind?? MagicNumberController.FactStaffChangeMainEventKind,
                MagicNumberController.BeginEventType, true);
            LoadPlanStaff();
        }

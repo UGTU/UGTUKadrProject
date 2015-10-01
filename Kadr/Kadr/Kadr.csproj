@@ -218,6 +218,7 @@
     <Compile Include="Controllers\CRUDControllers\CRUDStandings.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDVacation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDValidation.cs" />
+    <Compile Include="Controllers\FactStaffEventKindController.cs" />
     <Compile Include="Controllers\MagicNumberController.cs" />
     <Compile Include="Controllers\ExcelExportController.cs" />
     <Compile Include="Controllers\KadrController.cs" />

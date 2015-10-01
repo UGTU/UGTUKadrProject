@@ -1021,14 +1021,14 @@
             this.текущиеToolStripMenuItem.CheckOnClick = true;
             this.текущиеToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.текущиеToolStripMenuItem.Name = "текущиеToolStripMenuItem";
-            this.текущиеToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.текущиеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.текущиеToolStripMenuItem.Text = "Текущие";
             // 
             // отмененныеToolStripMenuItem
             // 
             this.отмененныеToolStripMenuItem.CheckOnClick = true;
             this.отмененныеToolStripMenuItem.Name = "отмененныеToolStripMenuItem";
-            this.отмененныеToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.отмененныеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.отмененныеToolStripMenuItem.Text = "Отмененные";
             // 
             // tableLayoutPanel2
