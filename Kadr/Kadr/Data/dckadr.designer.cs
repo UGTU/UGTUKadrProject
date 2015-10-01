@@ -336,7 +336,7 @@ namespace Kadr.Data
     #endregion
 		
 		public dckadrDataContext() : 
-				base(global::Kadr.Properties.Settings.Default.kadrConnectionString, mappingSource)
+				base(global::Kadr.Properties.Settings.Default.KadrRealTestConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

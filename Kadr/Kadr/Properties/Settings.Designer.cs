@@ -47,16 +47,6 @@ namespace Kadr.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb;Initial Catalog=KadrRealTest;Integrated Security=True")]
-        public string kadrConnectionString {
-            get {
-                return ((string)(this["kadrConnectionString"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Социальный статус")]
@@ -107,9 +97,9 @@ namespace Kadr.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb;Initial Catalog=KadrRealTest;Integrated Security=True")]
-        public string KadrRealTestConnectionString1 {
+        public string kadrConnectionString {
             get {
-                return ((string)(this["KadrRealTestConnectionString1"]));
+                return ((string)(this["kadrConnectionString"]));
             }
         }
     }

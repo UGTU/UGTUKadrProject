@@ -33,6 +33,14 @@ namespace Kadr.Controllers
             }
         }
 
+        public static EventKind ReplacementBeginEventKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.Single(x => x.id == 10);
+            }
+        }
+
         public static EventKind FactStaffChangeMainEventKind
         {
             get

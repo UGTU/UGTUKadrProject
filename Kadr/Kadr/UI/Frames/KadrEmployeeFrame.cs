@@ -660,12 +660,12 @@ namespace Kadr.UI.Frames
 
         private void tsbCancelTrip_Click(object sender, EventArgs e)
         {
-            CRUDBusinessTrips.CancelTrip(BusinessTripsBindingSource); 
+            CRUDBusinessTrips.CancelTrip((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource); 
         }
 
         private void tsbChangeTripDates_Click(object sender, EventArgs e)
         {
-            CRUDBusinessTrips.TripChangeDates(FactStaff.CurrentChange,BusinessTripsBindingSource);
+            CRUDBusinessTrips.TripChangeDates((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
         }
     }
 

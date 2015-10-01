@@ -1027,4 +1027,12 @@ values(7,'Продление договора',2,'Срок действия',1,'Kadr.Data.FactStaffHistoryMin
 insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
 values(8,'Изменение размера ставки',2,'Размер ставки',1,'Kadr.Data.FactStaffHistoryStaffCountDecorator',1)
 
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(10,'Назначение замещения',null,'Назначение замещения',1,null,1)
 set identity_insert [dbo].[EventKind] OFF
+
+
+
+/*go
+alter table [dbo].[FactStaffHistory]
+add [idFinancingSource] */
