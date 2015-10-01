@@ -9,10 +9,7 @@ namespace Kadr.Data
     public partial class Validation : UIX.Views.IDecorable, UIX.Views.IValidatable, IComparable
     {
 
-        // для временного хранения данных подтверждающего документа
-        public DateTime? TDocDate = null;
-        public string TSerie = null;
-        public string TNumber = null;
+
 
          #region partial Methods
 

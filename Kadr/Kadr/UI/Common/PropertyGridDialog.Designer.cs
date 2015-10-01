@@ -57,6 +57,7 @@
             this.ApplyBtn.Location = new System.Drawing.Point(481, 0);
             this.helpProvider1.SetShowHelp(this.ApplyBtn, true);
             this.ApplyBtn.Size = new System.Drawing.Size(92, 30);
+            this.ApplyBtn.Text = "Применить";
             // 
             // CancelBtn
             // 
@@ -64,6 +65,7 @@
             this.CancelBtn.Location = new System.Drawing.Point(386, 0);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
             this.CancelBtn.Size = new System.Drawing.Size(92, 30);
+            this.CancelBtn.Text = "Отмена";
             // 
             // OKBtn
             // 
@@ -72,6 +74,7 @@
             this.OKBtn.Location = new System.Drawing.Point(294, 0);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
             this.OKBtn.Size = new System.Drawing.Size(89, 30);
+            this.OKBtn.Text = "ОК";
             // 
             // HelpBtn
             // 
@@ -79,6 +82,7 @@
             this.HelpBtn.Location = new System.Drawing.Point(3, 0);
             this.helpProvider1.SetShowHelp(this.HelpBtn, true);
             this.HelpBtn.Size = new System.Drawing.Size(89, 29);
+            this.HelpBtn.Text = "Помощь";
             // 
             // commandProperyGrid1
             // 
@@ -87,7 +91,7 @@
             this.commandProperyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.commandProperyGrid1.Location = new System.Drawing.Point(0, 0);
             this.commandProperyGrid1.Name = "commandProperyGrid1";
-            this.commandProperyGrid1.Size = new System.Drawing.Size(200, 453);
+            this.commandProperyGrid1.Size = new System.Drawing.Size(576, 453);
             this.commandProperyGrid1.TabIndex = 0;
             this.commandProperyGrid1.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.commandProperyGrid1_PropertyValueChanged);
             this.commandProperyGrid1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.commandProperyGrid1_PreviewKeyDown);
