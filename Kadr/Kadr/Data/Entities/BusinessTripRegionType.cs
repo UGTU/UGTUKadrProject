@@ -144,8 +144,8 @@ namespace Kadr.Data
         {
             get
             {
-                if (DateTime.Today >= DateEnd) return true;
-                return false;
+                return (DateEnd < DateTime.Today);
+
             }
         }
     }

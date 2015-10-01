@@ -33,6 +33,14 @@ namespace Kadr.Controllers
             }
         }
 
+        public static EventKind ReplacementBeginEventKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.Single(x => x.id == 10);
+            }
+        }
+
         public static EventKind FactStaffChangeMainEventKind
         {
             get
@@ -81,14 +89,14 @@ namespace Kadr.Controllers
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 18);
+                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 18);
             }
         }
         public static EventKind VacationKind
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 15);
+                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 15);
             }
         }
 
@@ -96,7 +104,7 @@ namespace Kadr.Controllers
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 42);
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 42);
             }
         }
 
@@ -104,7 +112,7 @@ namespace Kadr.Controllers
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 18);
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 18);
             }
         }
 
@@ -112,7 +120,7 @@ namespace Kadr.Controllers
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 40);
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 40);
             }
         }
 
@@ -120,7 +128,7 @@ namespace Kadr.Controllers
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 43);
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 43);
             }
         }
 
@@ -128,7 +136,7 @@ namespace Kadr.Controllers
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 21);
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 21);
             }
         }
 

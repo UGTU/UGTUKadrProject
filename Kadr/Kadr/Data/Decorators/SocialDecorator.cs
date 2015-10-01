@@ -41,7 +41,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Основные")]
         [System.ComponentModel.Description("Социальный статус льготника")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(SocialStatusToStringConverter))]
+       // [System.ComponentModel.TypeConverter(typeof(SocialStatusToStringConverter))]
 
         public OK_SocialStatus Status
         {

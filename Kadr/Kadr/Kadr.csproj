@@ -200,6 +200,7 @@
     <Compile Include="Controllers\CRUDControllers\CRUDEmployee.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDFactStaff.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDFactStaffHistory.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDFactStaffReplacement.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDLanguage.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDPrikaz.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDSocial.cs" />
@@ -238,6 +239,8 @@
     <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
     <Compile Include="Data\Converters\SocialStatusToStringConverter.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryFinSourceDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryStaffCountDecorator.cs" />
     <Compile Include="Data\Entities\Event_BusinessTrip.cs" />
     <Compile Include="Interfaces\IEntitySelector.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
@@ -271,7 +274,6 @@
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffMainBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMinDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMinMainBaseDecorator.cs" />
-    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryWorkTypeDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopEducDecorator.cs" />
     <Compile Include="Data\Decorators\OK_FamDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopInfDecorator.cs" />
@@ -438,9 +440,7 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -871,12 +871,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
+    <None Include="app.config" />
     <None Include="CrystalReport1.mht" />
     <None Include="Data\dckadr.dbml.layout">
       <DependentUpon>dckadr.dbml</DependentUpon>

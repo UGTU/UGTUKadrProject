@@ -20,8 +20,9 @@ namespace Kadr.Data
 
         override public string ToString()
         {
-
-            return "Сотрудник " + _employee.EmployeeSmallName;
+            if (_employee.id == 0)
+                return "Ввод личных данных сотрудника";
+            return "Редактирование личных данных сотрудника";
         }
 
         [System.ComponentModel.DisplayName("ID")]

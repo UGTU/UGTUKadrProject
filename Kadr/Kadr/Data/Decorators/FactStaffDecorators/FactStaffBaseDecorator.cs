@@ -21,8 +21,9 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            return "Сотрудник отдела " + factStaff.Department.ToString().ToLower() + ", " +
-               factStaff.Post.ToString().ToLower();
+            if (factStaff.id == 0)
+                return "Прием сотрудника";
+            return "Редактирование сотрудника";
         }
 
         [System.ComponentModel.DisplayName("ID")]
