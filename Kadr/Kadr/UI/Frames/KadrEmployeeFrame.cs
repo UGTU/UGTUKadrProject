@@ -49,7 +49,11 @@ namespace Kadr.UI.Frames
             {
                 if (this.FrameNodeObject != null)
                     if ((this.FrameNodeObject as KadrEmployeeObject).Employee != null)
-                        return (this.FrameNodeObject as KadrEmployeeObject).Employee;
+                    {
+                        //return (this.FrameNodeObject as KadrEmployeeObject).Employee;
+                        return KadrController.Instance.Model.Employees.SingleOrDefault(x=> (this.FrameNodeObject as KadrEmployeeObject).Employee.id == x.id);
+                    }
+                        
                 return NullEmployee.Instance;
             }
         }

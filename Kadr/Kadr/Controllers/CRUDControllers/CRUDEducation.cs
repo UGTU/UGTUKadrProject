@@ -25,6 +25,11 @@ namespace Kadr.Controllers
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, int?>(x, "EducWhen", DateTime.Today.Year, null), sender);
                 };
 
+                dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.OK_Educs;
+                };
+
                 dlg.ShowDialog();
             }
 
