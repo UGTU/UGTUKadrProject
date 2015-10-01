@@ -19,10 +19,10 @@ namespace Kadr.Data.Converters
                 currentContract = (context.Instance as FactStaffMainBaseDecorator).CurrentContract;
             }
 
-            if (context.Instance is FactStaffHistoryMainBaseDecorator)
+            if (context.Instance is FactStaffHistoryMinDecorator)
             {
-                currentEmployee = (context.Instance as FactStaffHistoryMainBaseDecorator).FactStaff.Employee;
-                currentContract = (context.Instance as FactStaffHistoryMainBaseDecorator).CurrentContract;
+                currentEmployee = (context.Instance as FactStaffHistoryMinDecorator).FactStaff.Employee;
+                currentContract = (context.Instance as FactStaffHistoryMinDecorator).CurrentContract;
             }
 
             if (currentEmployee != null)

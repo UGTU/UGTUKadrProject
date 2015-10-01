@@ -237,9 +237,6 @@
     <Compile Include="Data\Converters\ContractConvertor.cs" />
     <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
-    <Compile Include="Data\Converters\SocialStatusToStringConverter.cs" />
-    <Compile Include="Data\Entities\Event_BusinessTrip.cs" />
-    <Compile Include="Interfaces\IEntitySelector.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
     <Compile Include="Data\Converters\PrikazConverter.cs" />
@@ -265,13 +262,14 @@
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffEmployeeAddingDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryBaseDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryFinSourceDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryHourDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMainBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffHourBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffMainBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMinDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMinMainBaseDecorator.cs" />
-    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryWorkTypeDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryStaffCountDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopEducDecorator.cs" />
     <Compile Include="Data\Decorators\OK_FamDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopInfDecorator.cs" />
@@ -694,12 +692,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.Designer.cs" />
-    <Compile Include="UI\Dialogs\DatesRangeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dialogs\DatesRangeDialog.Designer.cs">
-      <DependentUpon>DatesRangeDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -877,6 +869,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
     <None Include="ClassDiagram3.cd" />
+    <None Include="ClassDiagram4.cd" />
     <None Include="CrystalReport1.mht" />
     <None Include="Data\dckadr.dbml.layout">
       <DependentUpon>dckadr.dbml</DependentUpon>
@@ -978,9 +971,6 @@
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.resx" />
-    <EmbeddedResource Include="UI\Dialogs\DatesRangeDialog.resx">
-      <DependentUpon>DatesRangeDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\EmployeeLinqPropertyGridDialogAdding.resx">
       <DependentUpon>EmployeeLinqPropertyGridDialogAdding.cs</DependentUpon>
     </EmbeddedResource>

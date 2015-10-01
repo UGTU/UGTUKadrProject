@@ -23,7 +23,7 @@ namespace Kadr.Controllers
                     dlg.InitializeNewObject = (x) =>
                     {
                         new BusinessTripRegionType(dlg.CommandManager, x, DateTime.Now.Date, DateTime.Now.Date, KadrController.Instance.Model.RegionTypes.First());
-                        new Event_BusinessTrip(dlg.CommandManager, fs.CurrentChange, MagicNumberController.BeginEventType, x, null, DateTime.Today);
+                        //new Event_BusinessTrip(dlg.CommandManager, fs.CurrentChange, MagicNumberController.BeginEventType, x, null, DateTime.Today);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FinancingSource>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.FirstOrDefault(), null), sender);
                        
@@ -90,7 +90,7 @@ namespace Kadr.Controllers
 
         public static void TripChangeDates(FactStaffHistory fsh, BindingSource BusinessTripsBindingSource)
         {
-            using (PrikazSelectionDialog dlg = new PrikazSelectionDialog(MagicNumberController.BusinessTripPrikazType))
+            /*using (PrikazSelectionDialog dlg = new PrikazSelectionDialog(MagicNumberController.BusinessTripPrikazType))
             {
                 dlg.Text = "Приказ изменения сроков командировки";
 
@@ -118,7 +118,7 @@ namespace Kadr.Controllers
                     }
                 }
 
-            }
+            }*/
         }
     }
 }

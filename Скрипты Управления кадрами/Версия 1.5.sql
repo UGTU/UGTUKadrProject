@@ -1028,3 +1028,9 @@ insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKind
 values(8,'Изменение размера ставки',2,'Размер ставки',1,'Kadr.Data.FactStaffHistoryStaffCountDecorator',1)
 
 set identity_insert [dbo].[EventKind] OFF
+
+
+
+/*go
+alter table [dbo].[FactStaffHistory]
+add [idFinancingSource] */

@@ -819,13 +819,13 @@
             this.gRToolStripMenuItem.Name = "gRToolStripMenuItem";
             this.gRToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.gRToolStripMenuItem.Text = "Должности";
-            this.gRToolStripMenuItem.Visible = false;
             // 
             // пКГToolStripMenuItem
             // 
             this.пКГToolStripMenuItem.Name = "пКГToolStripMenuItem";
             this.пКГToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
             this.пКГToolStripMenuItem.Text = "Профессионально-квалификационные группы...";
+            this.пКГToolStripMenuItem.Visible = false;
             this.пКГToolStripMenuItem.Click += new System.EventHandler(this.пКГToolStripMenuItem_Click);
             // 
             // категорияToolStripMenuItem
@@ -833,6 +833,7 @@
             this.категорияToolStripMenuItem.Name = "категорияToolStripMenuItem";
             this.категорияToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
             this.категорияToolStripMenuItem.Text = "Профессионально-квалификационные уровни...";
+            this.категорияToolStripMenuItem.Visible = false;
             this.категорияToolStripMenuItem.Click += new System.EventHandler(this.категорияToolStripMenuItem_Click);
             // 
             // профессиональноквалификационыеПодподкатегорииToolStripMenuItem
@@ -861,6 +862,7 @@
             this.видыДолжностейToolStripMenuItem.Name = "видыДолжностейToolStripMenuItem";
             this.видыДолжностейToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
             this.видыДолжностейToolStripMenuItem.Text = "Виды должностей...";
+            this.видыДолжностейToolStripMenuItem.Visible = false;
             this.видыДолжностейToolStripMenuItem.Click += new System.EventHandler(this.видыДолжностейToolStripMenuItem_Click);
             // 
             // категорииToolStripMenuItem
@@ -868,6 +870,7 @@
             this.категорииToolStripMenuItem.Name = "категорииToolStripMenuItem";
             this.категорииToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
             this.категорииToolStripMenuItem.Text = "Категории для ВПО-2";
+            this.категорииToolStripMenuItem.Visible = false;
             this.категорииToolStripMenuItem.Click += new System.EventHandler(this.категорииToolStripMenuItem_Click);
             // 
             // категорииToolStripMenuItem1
@@ -875,6 +878,7 @@
             this.категорииToolStripMenuItem1.Name = "категорииToolStripMenuItem1";
             this.категорииToolStripMenuItem1.Size = new System.Drawing.Size(346, 22);
             this.категорииToolStripMenuItem1.Text = "Категории для зп-образования";
+            this.категорииToolStripMenuItem1.Visible = false;
             this.категорииToolStripMenuItem1.Click += new System.EventHandler(this.категорииToolStripMenuItem1_Click);
             // 
             // группыДолжностейToolStripMenuItem
@@ -882,6 +886,7 @@
             this.группыДолжностейToolStripMenuItem.Name = "группыДолжностейToolStripMenuItem";
             this.группыДолжностейToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
             this.группыДолжностейToolStripMenuItem.Text = "Группы должностей";
+            this.группыДолжностейToolStripMenuItem.Visible = false;
             this.группыДолжностейToolStripMenuItem.Click += new System.EventHandler(this.группыДолжностейToolStripMenuItem_Click);
             // 
             // персоналToolStripMenuItem
