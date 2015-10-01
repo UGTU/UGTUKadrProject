@@ -715,7 +715,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer1.Size = new System.Drawing.Size(1032, 399);
-            this.splitContainer1.SplitterDistance = 113;
+            this.splitContainer1.SplitterDistance = 112;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -731,7 +731,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1032, 113);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1032, 112);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -1021,14 +1021,14 @@
             this.текущиеToolStripMenuItem.CheckOnClick = true;
             this.текущиеToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.текущиеToolStripMenuItem.Name = "текущиеToolStripMenuItem";
-            this.текущиеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.текущиеToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.текущиеToolStripMenuItem.Text = "Текущие";
             // 
             // отмененныеToolStripMenuItem
             // 
             this.отмененныеToolStripMenuItem.CheckOnClick = true;
             this.отмененныеToolStripMenuItem.Name = "отмененныеToolStripMenuItem";
-            this.отмененныеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.отмененныеToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.отмененныеToolStripMenuItem.Text = "Отмененные";
             // 
             // tableLayoutPanel2
@@ -1044,7 +1044,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1032, 282);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1032, 283);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff
@@ -1099,7 +1099,7 @@
             this.dgvFactStaff.RowHeadersVisible = false;
             this.dgvFactStaff.RowHeadersWidth = 4;
             this.dgvFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFactStaff.Size = new System.Drawing.Size(1192, 345);
+            this.dgvFactStaff.Size = new System.Drawing.Size(1192, 346);
             this.dgvFactStaff.TabIndex = 6;
             this.dgvFactStaff.DoubleClick += new System.EventHandler(this.dgvFactStaff_DoubleClick);
             // 
@@ -1338,14 +1338,14 @@
             this.текущиеToolStripMenuItem1.CheckOnClick = true;
             this.текущиеToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.текущиеToolStripMenuItem1.Name = "текущиеToolStripMenuItem1";
-            this.текущиеToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.текущиеToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
             this.текущиеToolStripMenuItem1.Text = "Текущие";
             // 
             // уволенныеToolStripMenuItem
             // 
             this.уволенныеToolStripMenuItem.CheckOnClick = true;
             this.уволенныеToolStripMenuItem.Name = "уволенныеToolStripMenuItem";
-            this.уволенныеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.уволенныеToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.уволенныеToolStripMenuItem.Text = "Уволенные";
             // 
             // btnChangeFactStaff
