@@ -150,6 +150,7 @@ namespace Kadr.UI.Frames
         private void LoadPlanStaff()
         {
             tspPlanStaffFilter_DropDownItemClicked(null, null);
+            LoadFactStaff();
         }
 
         private void LoadFactStaff()
@@ -350,6 +351,7 @@ namespace Kadr.UI.Frames
        {
            CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
+           LoadPlanStaff();
            LoadFactStaff();
        }
 
@@ -367,6 +369,7 @@ namespace Kadr.UI.Frames
                    LinqActionsController<FactStaff>.Instance.EditObject(
                        currentFactStaff, true);
            }
+           LoadPlanStaff();
        }
 
 
@@ -435,6 +438,7 @@ namespace Kadr.UI.Frames
                LinqActionsController<FactStaff>.Instance.DeleteObject(CurrentFactStaff,
                         KadrController.Instance.Model.FactStaffs, factStaffBindingSource);
            }
+           LoadPlanStaff();
 
        }
 
@@ -488,9 +492,11 @@ namespace Kadr.UI.Frames
                     finally
                     {
                         KadrController.Instance.DeleteModel();
+                        LoadPlanStaff();
                         LoadFactStaff();
                     }
                 }
+                LoadPlanStaff();
            }
        }
 
@@ -548,6 +554,7 @@ namespace Kadr.UI.Frames
        private void AddReplacementBtn_Click(object sender, EventArgs e)
        {
            CRUDFactStaffReplacement.Create(factStaffBindingSource, factStaffBindingSource.Current as FactStaff, sender);
+           LoadPlanStaff();
            LoadFactStaff();
        
        }
@@ -942,6 +949,7 @@ namespace Kadr.UI.Frames
                HistForm.FactStaff = currentFactStaff;
                HistForm.ShowDialog();
            }
+           LoadPlanStaff();
        }
 
        private void tcForms_SelectedIndexChanged(object sender, EventArgs e)
@@ -1502,6 +1510,7 @@ namespace Kadr.UI.Frames
            CRUDEmployee.Create(this, planStaffBindingSource.Current as PlanStaff);
            //CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
+           LoadPlanStaff();
            LoadFactStaff();
        }
 
