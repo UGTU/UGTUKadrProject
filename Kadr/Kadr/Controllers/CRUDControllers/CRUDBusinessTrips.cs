@@ -25,7 +25,8 @@ namespace Kadr.Controllers
                         new BusinessTripRegionType(dlg.CommandManager, x, DateTime.Now.Date, DateTime.Now.Date, KadrController.Instance.Model.RegionTypes.First());
                         //new Event_BusinessTrip(dlg.CommandManager, fs.CurrentChange, MagicNumberController.BeginEventType, x, null, DateTime.Today);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, string>(x, "TripTargetPlace", "", null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FinancingSource>(x, "FinancingSource", KadrController.Instance.Model.FinancingSources.FirstOrDefault(), null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTrip, FinancingSource>(x, "FinancingSource", 
+                            KadrController.Instance.Model.FinancingSources.FirstOrDefault(), null), sender);
                        
                     };
 

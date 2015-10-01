@@ -33,6 +33,14 @@ namespace Kadr.Controllers
             }
         }
 
+        public static EventKind ReplacementBeginEventKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.Single(x => x.id == 10);
+            }
+        }
+
         public static EventKind FactStaffChangeMainEventKind
         {
             get
@@ -67,13 +75,7 @@ namespace Kadr.Controllers
             }
         }
 
-        public static EventKind ReplacementBeginEventKind
-        {
-            get
-            {
-                return KadrController.Instance.Model.EventKinds.Single(x => x.id == 10);
-            }
-        }
+        
 
         static public EventKind BusinessTripKind
         {
@@ -87,14 +89,14 @@ namespace Kadr.Controllers
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 18);
+                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 18);
             }
         }
         public static EventKind VacationKind
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 15);
+                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 15);
             }
         }
 
@@ -102,7 +104,39 @@ namespace Kadr.Controllers
         {
             get
             {
-                return Kadr.Controllers.KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 42);
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 42);
+            }
+        }
+
+        public static PrikazType MaterialPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 18);
+            }
+        }
+
+        public static PrikazType DopEducPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 40);
+            }
+        }
+
+        public static PrikazType SocialFareTransitPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 43);
+            }
+        }
+
+        public static PrikazType OtpuskPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 21);
             }
         }
 

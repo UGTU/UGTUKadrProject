@@ -467,7 +467,7 @@
             this.tpDepBonusReport.Location = new System.Drawing.Point(4, 22);
             this.tpDepBonusReport.Name = "tpDepBonusReport";
             this.tpDepBonusReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDepBonusReport.Size = new System.Drawing.Size(1038, 405);
+            this.tpDepBonusReport.Size = new System.Drawing.Size(802, 533);
             this.tpDepBonusReport.TabIndex = 4;
             this.tpDepBonusReport.Text = "Отчеты по надбавкам";
             this.tpDepBonusReport.UseVisualStyleBackColor = true;
@@ -533,7 +533,7 @@
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1032, 399);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(796, 527);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // toolStrip6
@@ -542,7 +542,7 @@
             this.toolStripLabel2});
             this.toolStrip6.Location = new System.Drawing.Point(0, 0);
             this.toolStrip6.Name = "toolStrip6";
-            this.toolStrip6.Size = new System.Drawing.Size(1032, 24);
+            this.toolStrip6.Size = new System.Drawing.Size(796, 24);
             this.toolStrip6.TabIndex = 11;
             this.toolStrip6.Text = "toolStrip6";
             // 
@@ -563,7 +563,7 @@
             this.tcBonusReports.Location = new System.Drawing.Point(3, 27);
             this.tcBonusReports.Name = "tcBonusReports";
             this.tcBonusReports.SelectedIndex = 0;
-            this.tcBonusReports.Size = new System.Drawing.Size(1026, 497);
+            this.tcBonusReports.Size = new System.Drawing.Size(790, 497);
             this.tcBonusReports.TabIndex = 1;
             // 
             // tpSmallDelBonusReport
@@ -571,7 +571,7 @@
             this.tpSmallDelBonusReport.Controls.Add(this.reportBaseFrameForPeriod1);
             this.tpSmallDelBonusReport.Location = new System.Drawing.Point(4, 22);
             this.tpSmallDelBonusReport.Name = "tpSmallDelBonusReport";
-            this.tpSmallDelBonusReport.Size = new System.Drawing.Size(1018, 471);
+            this.tpSmallDelBonusReport.Size = new System.Drawing.Size(782, 471);
             this.tpSmallDelBonusReport.TabIndex = 5;
             this.tpSmallDelBonusReport.Text = "Для раскладов";
             this.tpSmallDelBonusReport.UseVisualStyleBackColor = true;
@@ -586,7 +586,7 @@
             this.reportBaseFrameForPeriod1.ReportNumber = 0;
             this.reportBaseFrameForPeriod1.ReportParam = -1;
             this.reportBaseFrameForPeriod1.ReportType = null;
-            this.reportBaseFrameForPeriod1.Size = new System.Drawing.Size(1018, 471);
+            this.reportBaseFrameForPeriod1.Size = new System.Drawing.Size(782, 471);
             this.reportBaseFrameForPeriod1.TabIndex = 0;
             this.reportBaseFrameForPeriod1.WithSubReports = true;
             // 
@@ -695,7 +695,7 @@
             this.tpStaff.Location = new System.Drawing.Point(4, 22);
             this.tpStaff.Name = "tpStaff";
             this.tpStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpStaff.Size = new System.Drawing.Size(1038, 405);
+            this.tpStaff.Size = new System.Drawing.Size(802, 533);
             this.tpStaff.TabIndex = 1;
             this.tpStaff.Text = "Штаты";
             this.tpStaff.UseVisualStyleBackColor = true;
@@ -714,8 +714,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(1032, 399);
-            this.splitContainer1.SplitterDistance = 115;
+            this.splitContainer1.Size = new System.Drawing.Size(796, 527);
+            this.splitContainer1.SplitterDistance = 151;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -731,7 +731,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1032, 115);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 151);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -1044,7 +1044,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1032, 280);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 372);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff
@@ -3416,7 +3416,7 @@
             this.tpFactStaffErrors.Location = new System.Drawing.Point(4, 22);
             this.tpFactStaffErrors.Name = "tpFactStaffErrors";
             this.tpFactStaffErrors.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFactStaffErrors.Size = new System.Drawing.Size(1038, 405);
+            this.tpFactStaffErrors.Size = new System.Drawing.Size(802, 533);
             this.tpFactStaffErrors.TabIndex = 10;
             this.tpFactStaffErrors.Text = "Отчет \"Переполнения ставок\"";
             this.tpFactStaffErrors.UseVisualStyleBackColor = true;
@@ -3478,7 +3478,7 @@
             this.dgvStaffErrors.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.dgvStaffErrors.RowHeadersVisible = false;
             this.dgvStaffErrors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStaffErrors.Size = new System.Drawing.Size(1032, 374);
+            this.dgvStaffErrors.Size = new System.Drawing.Size(796, 502);
             this.dgvStaffErrors.TabIndex = 35;
             // 
             // departmentNameDataGridViewTextBoxColumn1
@@ -3605,7 +3605,7 @@
             this.toolStripLabel4});
             this.toolStrip9.Location = new System.Drawing.Point(3, 3);
             this.toolStrip9.Name = "toolStrip9";
-            this.toolStrip9.Size = new System.Drawing.Size(1032, 25);
+            this.toolStrip9.Size = new System.Drawing.Size(796, 25);
             this.toolStrip9.TabIndex = 29;
             this.toolStrip9.Text = "toolStrip9";
             // 

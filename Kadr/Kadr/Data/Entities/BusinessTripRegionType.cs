@@ -9,7 +9,7 @@ using UIX.Commands;
 
 namespace Kadr.Data
 {
-    public partial class BusinessTripRegionType : INull, IComparable, IDecorable, IValidatable, IEmployeeExperienceRecord
+    public partial class BusinessTripRegionType : INull, IComparable, IDecorable, IValidatable//, IEmployeeExperienceRecord
     {
         private ICommandManager commandManager;
         private DateTime date1;
@@ -136,15 +136,6 @@ namespace Kadr.Data
         }
         public DateTime Stop { get { return DateEnd; }
             set { }
-        }
-
-        public bool IsEnded
-        {
-            get
-            {
-                if (DateTime.Today >= DateEnd) return true;
-                return false;
-            }
         }
     }
 }

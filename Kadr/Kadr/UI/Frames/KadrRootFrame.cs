@@ -547,7 +547,7 @@ namespace Kadr.UI.Frames
 
        private void AddReplacementBtn_Click(object sender, EventArgs e)
        {
-
+           CRUDFactStaffReplacement.Create(factStaffBindingSource, factStaffBindingSource.Current as FactStaff, sender);
            LoadFactStaff();
        
        }

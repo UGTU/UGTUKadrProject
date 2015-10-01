@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using UIX.Commands;
 
-namespace Kadr.Controllers.CRUDControllers
+namespace Kadr.Controllers
 {
     class CRUDFactStaffReplacement
     {
