@@ -1011,3 +1011,20 @@ set identity_insert [dbo].[PrikazType] ON
 insert into [dbo].[PrikazType]([id],[PrikazTypeName],idPrikazSuperType)
 values(43,'Льготный проезд',1)
 set identity_insert [dbo].[PrikazType] OFF
+
+
+
+
+
+
+
+go
+set identity_insert [dbo].[EventKind] ON
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(7,'Продление договора',2,'Срок действия',1,'Kadr.Data.FactStaffHistoryMinDecorator',1)
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(8,'Изменение размера ставки',2,'Размер ставки',1,'Kadr.Data.FactStaffHistoryStaffCountDecorator',1)
+
+set identity_insert [dbo].[EventKind] OFF
