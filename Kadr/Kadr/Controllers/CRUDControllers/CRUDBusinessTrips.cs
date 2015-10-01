@@ -66,7 +66,11 @@ namespace Kadr.Controllers
                 foreach (BusinessTripRegionType rt in bt.BusinessTripRegionTypes)
                     KadrController.Instance.Model.BusinessTripRegionTypes.DeleteOnSubmit(rt);
 
+                foreach (Event_BusinessTrip e in bt.Event_BusinessTrips)
+                    KadrController.Instance.Model.Event_BusinessTrips.DeleteOnSubmit(e);
+
                 KadrController.Instance.Model.BusinessTrips.DeleteOnSubmit(bt);
+                
                 KadrController.Instance.Model.Events.DeleteOnSubmit(bt.Event);
                 KadrController.Instance.Model.SubmitChanges();
             }

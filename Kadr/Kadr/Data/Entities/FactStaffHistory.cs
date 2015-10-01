@@ -10,6 +10,12 @@ namespace Kadr.Data
     partial class FactStaffHistory : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
 
+        public EventKind CreatingEventKind
+        {
+            get;
+            set;
+        }
+
         public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false)
             : this()
         {
@@ -29,6 +35,7 @@ namespace Kadr.Data
                 CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, SalaryKoeff>(this, "SalaryKoeff", factStaff.SalaryKoeff, null), this);
             }
 
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, EventKind>(this, "CreatingEventKind", eventKind, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(this, "Prikaz", prikaz, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(this, "WorkType", workType, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
@@ -192,6 +199,18 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
+            if (CreatingEventKind != null)
+                if (CreatingEventKind.DecoratorName != null && CreatingEventKind.DecoratorName != "")
+                {
+                    Type DecoratorType = Type.GetType(CreatingEventKind.DecoratorName);
+                    if (DecoratorType != null)
+                    {
+                        System.Reflection.ConstructorInfo constructor = DecoratorType.GetConstructor(new Type[] { (Type.GetType("Kadr.Data.FactStaffHistory")) });
+                        if (constructor != null)
+                            return constructor.Invoke(new Object[] { this });
+                    }
+                    //return new DecoratorType(this);
+                }
             if (FactStaff.IsReplacement)
                 return new FactStaffHistoryReplacementDecorator(this);
             if (FactStaff.IsHourStaff)

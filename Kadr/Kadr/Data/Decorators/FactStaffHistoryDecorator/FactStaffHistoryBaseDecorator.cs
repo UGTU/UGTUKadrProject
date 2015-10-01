@@ -16,9 +16,22 @@ namespace Kadr.Data
 
         override public string ToString()
         {
+            if (factStaffHistory.EventKind != null)
+                return factStaffHistory.EventKind.ToString();
             return factStaffHistory.ToString();
         }
 
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tФИО сотрудника")]
+        [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
+        [System.ComponentModel.Description("ФИО сотрудника, назначенного на должность")]
+        [System.ComponentModel.ReadOnly(true)]
+        public Kadr.Data.Employee Employee
+        {
+            get
+            {
+                return factStaffHistory.FactStaff.Employee;
+            }
+        }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\tДата назначения")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]

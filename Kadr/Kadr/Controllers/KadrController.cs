@@ -61,6 +61,8 @@ namespace Kadr.Controllers
 
         public void DeleteModel()
         {
+            Model.Refresh(RefreshMode.OverwriteCurrentValues);
+            Model.Dispose();
             Model = null;
             //обращаемся к модели, чтобы обновились все представления
             Model.SubmitChanges();

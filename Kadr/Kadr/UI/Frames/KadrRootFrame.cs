@@ -836,6 +836,9 @@ namespace Kadr.UI.Frames
            tcDepartment.TabPages.Remove(tpMinFormReport);
            //tcDepartment.TabPages.Remove(tpTimeNorm);
            tcDepartment.TabPages.Remove(tpDepartments);
+
+           //создаем меню для изменений трудового договора FactStaff
+           CreateChangeFactStaffContractMenu();
            
            cbYear.Items.Clear();
            cbYear.Items.AddRange(KadrController.Instance.Model.TimeSheets.Select(ts => ts.TimeSheetYear as Object).Distinct().OrderByDescending(ts => ts as int?).ToArray());
@@ -891,6 +894,22 @@ namespace Kadr.UI.Frames
            cbQuarter.SelectedItem = cbQuarter.Items[DateTime.Today.Month / 3 + MonthMod3 - 1];
 
            
+       }
+
+       private void CreateChangeFactStaffContractMenu()
+       {
+           IEnumerable<EventKind> eventKinds = KadrController.Instance.Model.EventKinds.Where(x => x.EventKind1 == MagicNumberController.FactStaffChangeMainEventKind).ToArray();
+           System.Windows.Forms.ToolStripMenuItem[] stripItems = new ToolStripMenuItem[eventKinds.Count()];
+           int i = 0;
+           foreach (EventKind eventKind in eventKinds)
+           {
+               stripItems[i] = new System.Windows.Forms.ToolStripMenuItem(eventKind.EventKindApplName);
+               //stripItems[i].Text = eventKind.EventKindName;
+               stripItems[i].Name = eventKind.EventKindApplName + "ToolStripMenuItem";
+               stripItems[i].Click += new System.EventHandler(this.btnChangeFactStaff_Click);
+               i++;
+           }
+           this.tsbChangeFactStaffContract.DropDownItems.AddRange(stripItems);
        }
 
        private void btnReportLoad_Click(object sender, EventArgs e)
@@ -956,7 +975,8 @@ namespace Kadr.UI.Frames
                return;
            }
 
-           CRUDFactStaffHistory.Create(currentFactStaff, KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(),
+           EventKind thisEventKind = KadrController.Instance.Model.EventKinds.Where(x => x.EventKindApplName == sender.ToString()).FirstOrDefault();
+           CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind?? KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(),
                MagicNumberController.BeginEventType, true);
            LoadPlanStaff();
        }
@@ -1538,6 +1558,8 @@ namespace Kadr.UI.Frames
            //KadrController.Instance.AddFactStaff();
            LoadFactStaff();
        }
+
+       
 
  
        

@@ -246,6 +246,7 @@
     <Compile Include="Data\Converters\SimpleToStringConvertor.cs" />
     <Compile Include="Data\Converters\SocialFareTransitConverter.cs" />
     <Compile Include="Data\Converters\OKVEDConvertor.cs" />
+    <Compile Include="Data\Converters\WorkTypeConvertor.cs" />
     <Compile Include="Data\dcKadr.dcKadrDataContext.cs" />
     <Compile Include="Data\dckadr.designer.cs">
       <AutoGen>True</AutoGen>
@@ -268,6 +269,8 @@
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMainBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffHourBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffMainBaseDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMinDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMinMainBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryWorkTypeDecorator.cs" />
     <Compile Include="Data\Decorators\OK_DopEducDecorator.cs" />
     <Compile Include="Data\Decorators\OK_FamDecorator.cs" />

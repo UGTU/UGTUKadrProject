@@ -185,7 +185,6 @@ namespace Kadr.UI.Frames
             }
             KadrController.Instance.SubmitChanges();
             commandManager.BeginBatchCommand();
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -306,8 +305,8 @@ namespace Kadr.UI.Frames
 
         private void tcEmplPostInf_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
-                CRUDVacation.Read(((FactStaff)factStaffBindingSource.Current).CurrentChange, Employee, oKOtpuskBindingSource);
+            //if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
+                //CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpBusTrip)
                 CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
@@ -346,7 +345,7 @@ namespace Kadr.UI.Frames
 
         private void AddDegreeBtn_Click(object sender, EventArgs e)
         {
-            CRUDEmployeeDegree.Create(Employee, this,employeeDegreeBindingSource);
+            CRUDEmployeeDegree.Create(Employee, this, employeeDegreeBindingSource);
 
         }
 
@@ -367,7 +366,7 @@ namespace Kadr.UI.Frames
 
         private void DelRankBtn_Click(object sender, EventArgs e)
         {
-            CRUDEmployeeRank.Delete(Employee, employeeRankBindingSource);
+            CRUDEmployeeRank.Delete(Employee, employeeDegreeBindingSource);
         }
 
         private void tsbAddEmplStanding_Click(object sender, EventArgs e)
@@ -449,7 +448,7 @@ namespace Kadr.UI.Frames
 
         private void tsbEditMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource,this);
+            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource, sender);
         }
 
 

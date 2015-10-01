@@ -472,18 +472,20 @@ inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
 inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
 where Prikaz.idPrikazType=10  
 
-
+go
+alter table [dbo].[EventKind]
+add EventKindApplName VARCHAR(100)
 
 go
 set identity_insert [dbo].[EventKind] ON
-insert into [dbo].[EventKind]([id],[EventKindName])
-values(3,'Перевод сотрудника')
+insert into [dbo].[EventKind]([id],[EventKindName], EventKindApplName)
+values(3,'Перевод сотрудника','')
 
-insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind])
-values(4,'Смена источника финанасирования',2)
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName)
+values(4,'Смена источника финансирования',2,'Источник финанасирования')
 
-insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind])
-values(5,'Установление должностного оклада',2)
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName)
+values(5,'Установление должностного оклада',2,'Должностной оклад')
 
 insert into [dbo].[EventKind]([id],[EventKindName])
 values(6,'Ввод/вывод ставок')
@@ -1010,14 +1012,19 @@ insert into [dbo].[PrikazType]([id],[PrikazTypeName],idPrikazSuperType)
 values(43,'Льготный проезд',1)
 set identity_insert [dbo].[PrikazType] OFF
 
---организации образования-------------------------------------------------------------------------------
-insert into [dbo].[Organisation]([Name])
-select EducWhere from OK_Educ
-where EducWhere not in (select Name from Organisation)
 
-update EducDocument set IdOrganisation = (select Organisation.id from Organisation, OK_Educ
-										  where OK_Educ.EducWhere = Organisation.name
-										  and OK_Educ.[idEducDocument] = EducDocument.id
-										  )
-where IdOrganisation is null
---------------------------------------------------------------------------------------------------------
+
+
+
+
+
+go
+set identity_insert [dbo].[EventKind] ON
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(7,'Продление договора',2,'Срок действия',1,'Kadr.Data.FactStaffHistoryMinDecorator',1)
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(8,'Изменение размера ставки',2,'Размер ставки',1,'Kadr.Data.FactStaffHistoryStaffCountDecorator',1)
+
+set identity_insert [dbo].[EventKind] OFF
