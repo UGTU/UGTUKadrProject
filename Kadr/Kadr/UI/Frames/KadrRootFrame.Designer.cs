@@ -1021,14 +1021,14 @@
             this.текущиеToolStripMenuItem.CheckOnClick = true;
             this.текущиеToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.текущиеToolStripMenuItem.Name = "текущиеToolStripMenuItem";
-            this.текущиеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.текущиеToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.текущиеToolStripMenuItem.Text = "Текущие";
             // 
             // отмененныеToolStripMenuItem
             // 
             this.отмененныеToolStripMenuItem.CheckOnClick = true;
             this.отмененныеToolStripMenuItem.Name = "отмененныеToolStripMenuItem";
-            this.отмененныеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.отмененныеToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.отмененныеToolStripMenuItem.Text = "Отмененные";
             // 
             // tableLayoutPanel2
@@ -1338,14 +1338,14 @@
             this.текущиеToolStripMenuItem1.CheckOnClick = true;
             this.текущиеToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.текущиеToolStripMenuItem1.Name = "текущиеToolStripMenuItem1";
-            this.текущиеToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.текущиеToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.текущиеToolStripMenuItem1.Text = "Текущие";
             // 
             // уволенныеToolStripMenuItem
             // 
             this.уволенныеToolStripMenuItem.CheckOnClick = true;
             this.уволенныеToolStripMenuItem.Name = "уволенныеToolStripMenuItem";
-            this.уволенныеToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.уволенныеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.уволенныеToolStripMenuItem.Text = "Уволенные";
             // 
             // btnChangeFactStaff
