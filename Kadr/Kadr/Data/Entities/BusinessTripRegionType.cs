@@ -11,6 +11,8 @@ namespace Kadr.Data
 {
     public partial class BusinessTripRegionType : INull, IComparable, IDecorable, IValidatable, IEmployeeExperienceRecord
     {
+        //for u to pull!
+
         private ICommandManager commandManager;
         private DateTime date1;
         private DateTime date2;

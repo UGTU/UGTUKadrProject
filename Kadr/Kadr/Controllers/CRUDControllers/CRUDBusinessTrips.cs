@@ -42,7 +42,7 @@ namespace Kadr.Controllers
 
         public static void Read(FactStaff fs, BindingSource BusinessTripsBindingSource)
         {
-            BusinessTripsBindingSource.DataSource = KadrController.Instance.Model.FactStaffHistories.Where(t => t.FactStaff == fs).SelectMany(x => x.Events).Where(x=>x.idPrikazEnd==null).Select(x => x.Event_BusinessTrip).Where(t=>t!=null).Select(t=>t.BusinessTrip).Distinct().Select(x => x.GetDecorator()).ToList();
+            BusinessTripsBindingSource.DataSource = KadrController.Instance.Model.FactStaffHistories.Where(t => t.FactStaff == fs).SelectMany(x => x.Events).Where(x=>(x.idPrikazEnd==null)&&(x.EventType == MagicNumberController.BeginEventType)).Select(x => x.Event_BusinessTrip).Where(t=>t!=null).Select(t=>t.BusinessTrip).Select(x => x.GetDecorator()).ToList();
         }
 
         public static void Update(FactStaff fs, BindingSource BusinessTripsBindingSource)
@@ -76,7 +76,7 @@ namespace Kadr.Controllers
             Read(fs, BusinessTripsBindingSource);
         }
 
-        public static void CancelTrip(BindingSource BusinessTripsBindingSource)
+        public static void CancelTrip(FactStaff fs, BindingSource BusinessTripsBindingSource)
         {
             using (PrikazSelectionDialog dlg = new PrikazSelectionDialog(MagicNumberController.BusinessTripPrikazType))
             {
@@ -89,10 +89,10 @@ namespace Kadr.Controllers
                 }
 
             }
-
+            Read(fs, BusinessTripsBindingSource);
         }
 
-        public static void TripChangeDates(FactStaffHistory fsh, BindingSource BusinessTripsBindingSource)
+        public static void TripChangeDates(FactStaff fs, BindingSource BusinessTripsBindingSource)
         {
             using (PrikazSelectionDialog dlg = new PrikazSelectionDialog(MagicNumberController.BusinessTripPrikazType))
             {
@@ -111,7 +111,7 @@ namespace Kadr.Controllers
 
                             CM.BeginBatchCommand();
 
-                            Event_BusinessTrip ebt = new Event_BusinessTrip(CM, fsh, MagicNumberController.ChangeTermsEventType, dec.GetTrip(), null, null);
+                            Event_BusinessTrip ebt = new Event_BusinessTrip(CM, fs.CurrentChange, MagicNumberController.ChangeTermsEventType, dec.GetTrip(), null, null);
                             CM.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(ebt.Event, "Prikaz", (Prikaz)dlg.DialogObject, null), null);
                             CM.Execute(new UIX.Commands.GenericPropertyCommand<Event, Event>(ebt.Event, "Event1", dec.GetTrip().Event, null), null);
                             (BusinessTripsBindingSource.Current as BusinessTripDecorator).ChangeDates(dlgdates.dBegin.Value, dlgdates.dEnd.Value);
@@ -121,7 +121,7 @@ namespace Kadr.Controllers
                         }
                     }
                 }
-
+                Read(fs, BusinessTripsBindingSource);
             }
         }
     }
