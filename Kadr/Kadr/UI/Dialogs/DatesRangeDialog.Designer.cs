@@ -84,6 +84,7 @@
             this.dBegin.Name = "dBegin";
             this.dBegin.Size = new System.Drawing.Size(305, 20);
             this.dBegin.TabIndex = 0;
+            this.dBegin.ValueChanged += new System.EventHandler(this.dBegin_ValueChanged);
             // 
             // dEnd
             // 
@@ -92,6 +93,7 @@
             this.dEnd.Name = "dEnd";
             this.dEnd.Size = new System.Drawing.Size(305, 20);
             this.dEnd.TabIndex = 1;
+            this.dEnd.ValueChanged += new System.EventHandler(this.dEnd_ValueChanged);
             // 
             // label1
             // 

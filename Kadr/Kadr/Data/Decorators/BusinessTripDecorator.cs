@@ -95,7 +95,7 @@ namespace Kadr.Data
             {
                 if (value != null)
                 {
-                    if (Trip.BusinessTripRegionTypes.First().DateBegin == DateBegin) Trip.BusinessTripRegionTypes.First().DateBegin = value;
+                    if ((Trip.BusinessTripRegionTypes.First().DateBegin == DateBegin)|| (Trip.BusinessTripRegionTypes.First().DateBegin < value)) Trip.BusinessTripRegionTypes.First().DateBegin = value;
                     Trip.Event.DateBegin = value;
                 }
 
@@ -118,7 +118,7 @@ namespace Kadr.Data
 
                 if (value != null)
                 {
-                    if (Trip.BusinessTripRegionTypes.First().DateEnd == DateEnd) Trip.BusinessTripRegionTypes.First().DateEnd = value;
+                    if ((Trip.BusinessTripRegionTypes.First().DateEnd == DateEnd)||(Trip.BusinessTripRegionTypes.First().DateEnd > value)) Trip.BusinessTripRegionTypes.First().DateEnd = value;
                     Trip.Event.DateEnd = value;
                 }
 
@@ -244,8 +244,8 @@ namespace Kadr.Data
 
         internal void ChangeDates(DateTime beg, DateTime end)
         {
-            Trip.Event.DateBegin = beg;
-            Trip.Event.DateEnd = end;
+            DateBegin = beg;
+            DateEnd = end;
         }
     }
 
