@@ -314,8 +314,8 @@ namespace Kadr.UI.Frames
 
         private void tcEmplPostInf_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
-                //CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource);
+            if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
+                CRUDVacation.Read(FactStaff.CurrentChange, Employee, oKOtpuskBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpBusTrip)
                 CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
@@ -375,7 +375,7 @@ namespace Kadr.UI.Frames
 
         private void DelRankBtn_Click(object sender, EventArgs e)
         {
-            CRUDEmployeeRank.Delete(Employee, employeeDegreeBindingSource);
+            CRUDEmployeeRank.Delete(Employee, employeeRankBindingSource);
         }
 
         private void tsbAddEmplStanding_Click(object sender, EventArgs e)
@@ -637,12 +637,12 @@ namespace Kadr.UI.Frames
 
         private void AddDopEducBtn_Click(object sender, EventArgs e)
         {
-            CRUDDopEducation.Create(Employee, (this.FrameNodeObject as KadrEmployeeObject).FactStaff, DopEducationBindingSource, this);
+            CRUDDopEducation.Create(Employee, FactStaff, DopEducationBindingSource, this);
         }
 
         private void EditDopEducBtn_Click(object sender, EventArgs e)
         {
-            CRUDDopEducation.Update(Employee, (this.FrameNodeObject as KadrEmployeeObject).FactStaff, DopEducationBindingSource);
+            CRUDDopEducation.Update(Employee, FactStaff, DopEducationBindingSource, this);
         }
 
         private void DeleteDopEducBtn_Click(object sender, EventArgs e)
