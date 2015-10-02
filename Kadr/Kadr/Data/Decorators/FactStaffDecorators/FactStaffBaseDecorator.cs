@@ -110,7 +110,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Параметры увольнения")]
         [System.ComponentModel.Description("Причина увольнения")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<OK_Reason>))]
+        [System.ComponentModel.TypeConverter(typeof(OK_ReasonConvertor))]
         public OK_Reason OK_Reason
         {
             get

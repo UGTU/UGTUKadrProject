@@ -349,10 +349,16 @@ namespace Kadr.UI.Frames
 
        private void AddFactStaffBtn_Click(object sender, EventArgs e)
        {
+           if (!(planStaffBindingSource.Current as PlanStaff).CanAddFactStaff)
+           {
+               MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
+               return;
+           }
+
            CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
            LoadPlanStaff();
-           LoadFactStaff();
+           //LoadFactStaff();
        }
 
        private void EditFactStaffBtn_Click(object sender, EventArgs e)
@@ -555,7 +561,7 @@ namespace Kadr.UI.Frames
        {
            CRUDFactStaffReplacement.Create(factStaffBindingSource, factStaffBindingSource.Current as FactStaff, sender);
            LoadPlanStaff();
-           LoadFactStaff();
+           //LoadFactStaff();
        
        }
 
@@ -1507,12 +1513,19 @@ namespace Kadr.UI.Frames
 
        private void tsbAddEmplFactStaff_Click(object sender, EventArgs e)
        {
+           if (!(planStaffBindingSource.Current as PlanStaff).CanAddFactStaff)
+           {
+               MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
+               return;
+           }
+
            CRUDEmployee.Create(this, planStaffBindingSource.Current as PlanStaff);
            //CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
            LoadPlanStaff();
            LoadFactStaff();
        }
+
 
        
 
