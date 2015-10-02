@@ -11,7 +11,7 @@ class SocialStatusToStringConverter : SimpleToStringConvertor<OK_SocialStatus>
     {
         protected override ICollection GetCollection(ITypeDescriptorContext context)
         {
-            return base.GetCollection(context).Cast<OK_SocialStatus>().Where(x => (bool)!x.is_old).ToList();
+            return base.GetCollection(context).Cast<OK_SocialStatus>().Where(x => (bool)!x.is_old).OrderBy(y=>y.SocialStatusName).ToList();
         }
     }
 }
