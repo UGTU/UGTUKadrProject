@@ -50,7 +50,8 @@ namespace Kadr.Controllers
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
                         FactStaff prev = dlg.SelectedObjects[0] as FactStaff;
-                        fcStHistory.SetProperties(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, MagicNumberController.FactStaffCreateEventKind,
+                        fcStHistory.SetProperties(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin,
+                            department == null ? MagicNumberController.FactStaffCreateEventKind : MagicNumberController.FactStaffHourCreateEventKind,
                             MagicNumberController.BeginEventType, withContract);
                         //fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, MagicNumberController.FactStaffCreateEventKind,
                             //MagicNumberController.BeginEventType,withContract);
@@ -58,7 +59,8 @@ namespace Kadr.Controllers
                     }
                     else
                     {
-                        fcStHistory.SetProperties(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today.Date, MagicNumberController.FactStaffCreateEventKind,
+                        fcStHistory.SetProperties(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today.Date,
+                            department == null ? MagicNumberController.FactStaffCreateEventKind : MagicNumberController.FactStaffHourCreateEventKind,
                             MagicNumberController.BeginEventType, withContract);
                         //fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind,
                             //MagicNumberController.BeginEventType, withContract);

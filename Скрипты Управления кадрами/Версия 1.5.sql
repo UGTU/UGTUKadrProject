@@ -1029,6 +1029,10 @@ values(8,'Изменение размера ставки',2,'Размер ставки',1,'Kadr.Data.FactStaffHist
 
 insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
 values(10,'Назначение замещения',null,'Назначение замещения',1,null,1)
+
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(11,'Прием почасовика',null,'Прием почасовика',1,null,0)
 set identity_insert [dbo].[EventKind] OFF
 
 
@@ -1044,3 +1048,74 @@ add email varchar(100)
 go
 update [dbo].[Employee]
 set email=[EmployeeLogin]
+
+
+go
+alter table [dbo].[SalaryKoeff]
+add CategoryPPName varchar(150) null
+go
+alter table dbo.FactStaffHistory
+add idFinancingSource int null
+
+GO
+
+ALTER TABLE [dbo].[FactStaffHistory]  WITH CHECK ADD  CONSTRAINT [FK_FactStaffHistory_FinancingSource] FOREIGN KEY([idFinancingSource])
+REFERENCES [dbo].[FinancingSource] ([id])
+GO
+
+ALTER TABLE [dbo].[FactStaffHistory] CHECK CONSTRAINT [FK_FactStaffHistory_FinancingSource]
+GO
+
+GO
+
+/****** Object:  Index [IX_FactStaffHistory_idFinancingSource]    Script Date: 02.10.2015 18:35:04 ******/
+CREATE NONCLUSTERED INDEX [IX_FactStaffHistory_idFinancingSource] ON [dbo].[FactStaffHistory]
+(
+	[idFinancingSource] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+
+GO
+
+
+/*select * from [FactStaffCurrent] where id = 172 order by DateBegin
+Представление со всеми текущими параметрами FactStaff (DateBegin...) */
+alter VIEW [dbo].[FactStaffCurrent]
+AS
+SELECT        dbo.FactStaff.id, dbo.FactStaffHistory.StaffCount, dbo.FactStaffHistory.HourCount, dbo.FactStaffHistory.HourSalary, dbo.FactStaff.idPlanStaff, 
+				dbo.FactStaff.idEmployee, dbo.FactStaffHistory.idBeginPrikaz, dbo.FactStaff.idEndPrikaz, 
+                         dbo.FactStaffHistory.idTypeWork, CONVERT(date, dbo.FactStaffHistory.DateBegin) AS DateBegin, CONVERT(date, dbo.FactStaff.DateEnd) AS DateEnd, 
+                         dbo.FactStaff.IsReplacement, dbo.FactStaffHistory.id AS idFactStaffHistory, dbo.FactStaff.DateEnd AS DateEndR, dbo.FactStaffHistory.DateBegin AS DateBeginR, 
+                         dbo.FactStaff.idlaborcontrakt AS idLaborContaraktMain, dbo.FactStaffHistory.idlaborcontrakt AS idLaborContraktHistory,
+                         FactStaff.idFundingDepartment, FactStaff.idFundingCenter,FactStaff.idMainFactStaff,FactStaff.idDepartment,FactStaffHistory.[idFinancingSource],
+	FactStaffHistory.idSalaryKoeff, FactStaffHistory.[HourStaffCount],[CalcStaffCount], PhoneNumber, FactStaff.idOKVED
+FROM            dbo.FactStaff INNER JOIN
+                         dbo.FactStaffHistory ON dbo.FactStaff.id = dbo.FactStaffHistory.idFactStaff 
+                             INNER JOIN
+					  (SELECT   FactStaffHistory.idFactStaff,  MAX(DateBegin) AS LastDateBegin
+                            FROM          dbo.FactStaffHistory
+                            WHERE      (DateBegin <= GETDATE())
+							GROUP BY FactStaffHistory.idFactStaff)LastFactStaffHistory
+							ON (LastFactStaffHistory.idFactStaff = dbo.FactStaff.id) 
+								AND  dbo.FactStaffHistory.DateBegin =LastFactStaffHistory.LastDateBegin
+
+go
+
+
+
+
+
+
+
+
+
+
+
+update [FactStaffHistory]
+set [FactStaffHistory].[idFinancingSource]=FactStaff.idFinancingSource
+from [dbo].[FactStaffHistory] 
+inner join 
+dbo.FactStaff
+ON [FactStaffHistory].idFactStaff=FactStaff.id
+where FactStaff.idFinancingSource is not null
