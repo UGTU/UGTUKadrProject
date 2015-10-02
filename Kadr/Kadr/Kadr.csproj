@@ -441,7 +441,9 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
