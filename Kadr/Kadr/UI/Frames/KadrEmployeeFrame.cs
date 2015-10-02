@@ -743,7 +743,7 @@ namespace Kadr.UI.Frames
             FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
             if (currentFactStaff == null)
             {
-                MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
+                MessageBox.Show("Не выбран редактируемый объект.", "ИС \"Управление кадрами\"");
                 return;
             }
 
