@@ -1036,3 +1036,8 @@ set identity_insert [dbo].[EventKind] OFF
 /*go
 alter table [dbo].[FactStaffHistory]
 add [idFinancingSource] */
+
+set identity_insert [dbo].[dbo].[PrikazType] ON
+insert into [dbo].[PrikazType](id,idPrikazSuperType,PrikazTypeName)
+values(44,1, 'На повышение квалификации')
+set identity_insert [dbo].[dbo].[PrikazType] OFF

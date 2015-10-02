@@ -128,7 +128,7 @@ namespace Kadr.Controllers
         {
             get
             {
-                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 40);
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 44);
             }
         }
 
