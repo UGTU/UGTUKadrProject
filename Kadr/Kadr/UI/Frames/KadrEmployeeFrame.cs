@@ -103,6 +103,7 @@ namespace Kadr.UI.Frames
         private void LoadPostList()
         {
             LoadPostList(ObjectStateController.Instance.GetObjectStatesForFilter(tspFactStaffFilter, null));
+            tcEmplPostInf_SelectedIndexChanged(null, null);
             //factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
         }
 
@@ -354,7 +355,7 @@ namespace Kadr.UI.Frames
                 CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpMaterial)
-                CRUDMaterial.Read((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource);
+                CRUDMaterial.Read(FactStaff, MaterialResponsibilityBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpValidations)
                 CRUDValidation.Read((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
@@ -743,7 +744,7 @@ namespace Kadr.UI.Frames
             FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
             if (currentFactStaff == null)
             {
-                MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
+                MessageBox.Show("Не выбран редактируемый объект.", "ИС \"Управление кадрами\"");
                 return;
             }
 
