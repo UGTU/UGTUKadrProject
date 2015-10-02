@@ -1036,3 +1036,11 @@ set identity_insert [dbo].[EventKind] OFF
 /*go
 alter table [dbo].[FactStaffHistory]
 add [idFinancingSource] */
+
+
+go
+alter table [dbo].[Employee]
+add email varchar(100) 
+go
+update [dbo].[Employee]
+set email=[EmployeeLogin]
