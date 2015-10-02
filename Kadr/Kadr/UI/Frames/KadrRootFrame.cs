@@ -349,10 +349,16 @@ namespace Kadr.UI.Frames
 
        private void AddFactStaffBtn_Click(object sender, EventArgs e)
        {
+           if (!(planStaffBindingSource.Current as PlanStaff).CanAddFactStaff)
+           {
+               MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
+               return;
+           }
+
            CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
            LoadPlanStaff();
-           LoadFactStaff();
+           //LoadFactStaff();
        }
 
        private void EditFactStaffBtn_Click(object sender, EventArgs e)
@@ -555,7 +561,7 @@ namespace Kadr.UI.Frames
        {
            CRUDFactStaffReplacement.Create(factStaffBindingSource, factStaffBindingSource.Current as FactStaff, sender);
            LoadPlanStaff();
-           LoadFactStaff();
+           //LoadFactStaff();
        
        }
 
@@ -849,9 +855,9 @@ namespace Kadr.UI.Frames
            
        }
 
-       private void CreateChangeFactStaffContractMenu()
+       public void CreateChangeFactStaffContractMenu()
        {
-           IEnumerable<EventKind> eventKinds = KadrController.Instance.Model.EventKinds.Where(x => x.EventKind1 == MagicNumberController.FactStaffChangeMainEventKind).ToArray();
+           IEnumerable<EventKind> eventKinds = MagicNumberController.FactStaffChangeEventKinds;
            System.Windows.Forms.ToolStripMenuItem[] stripItems = new ToolStripMenuItem[eventKinds.Count()];
            int i = 0;
            foreach (EventKind eventKind in eventKinds)
@@ -929,7 +935,7 @@ namespace Kadr.UI.Frames
            }
 
            EventKind thisEventKind = KadrController.Instance.Model.EventKinds.Where(x => x.EventKindApplName == sender.ToString()).FirstOrDefault();
-           CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind?? KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(),
+           CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind?? MagicNumberController.FactStaffChangeMainEventKind,
                MagicNumberController.BeginEventType, true);
            LoadPlanStaff();
        }
@@ -1507,12 +1513,19 @@ namespace Kadr.UI.Frames
 
        private void tsbAddEmplFactStaff_Click(object sender, EventArgs e)
        {
+           if (!(planStaffBindingSource.Current as PlanStaff).CanAddFactStaff)
+           {
+               MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
+               return;
+           }
+
            CRUDEmployee.Create(this, planStaffBindingSource.Current as PlanStaff);
            //CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
            LoadPlanStaff();
            LoadFactStaff();
        }
+
 
        
 

@@ -86,9 +86,25 @@ namespace Kadr.UI.Frames
    
         #region LoadData
 
+        private void LoadPostList(ArrayList factStaffFilters)
+        {
+                //фильтруем элементы 
+                IEnumerable<FactStaff> factStaff =
+                    KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();;
+                List<FactStaff> fcStaff = new List<FactStaff>();
+                foreach (FactStaff fcSt in factStaff)
+                    if (factStaffFilters.Contains((fcSt as IObjectState).State()))
+                    {
+                        fcStaff.Add(fcSt);
+                    }
+                factStaffBindingSource.DataSource = fcStaff;
+        }
+
         private void LoadPostList()
         {
-            factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
+            LoadPostList(ObjectStateController.Instance.GetObjectStatesForFilter(tspFactStaffFilter, null));
+            tcEmplPostInf_SelectedIndexChanged(null, null);
+            //factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
         }
 
         private void LoadBonus()
@@ -219,6 +235,22 @@ namespace Kadr.UI.Frames
             LoadBonus(ObjectStateController.Instance.GetObjectStatesForFilter(tsbBonusFilter, e));
         }
 
+        public void CreateChangeFactStaffContractMenu()
+        {
+            IEnumerable<EventKind> eventKinds = MagicNumberController.FactStaffChangeEventKinds;
+            System.Windows.Forms.ToolStripMenuItem[] stripItems = new ToolStripMenuItem[eventKinds.Count()];
+            int i = 0;
+            foreach (EventKind eventKind in eventKinds)
+            {
+                stripItems[i] = new System.Windows.Forms.ToolStripMenuItem(eventKind.EventKindApplName);
+                //stripItems[i].Text = eventKind.EventKindName;
+                stripItems[i].Name = eventKind.EventKindApplName + "ToolStripMenuItem";
+                stripItems[i].Click += new System.EventHandler(this.tsbChangeFactStaffContract_Click);
+                i++;
+            }
+            this.tsbChangeFactStaffContract.DropDownItems.AddRange(stripItems);
+        }
+
         private void KadrEmployeeFrame_Load(object sender, EventArgs e)
         {
             tcEmployee.TabPages.Remove(tpBonus);
@@ -228,6 +260,8 @@ namespace Kadr.UI.Frames
             dtpBonRepPeriodEnd.Value = DateTime.Today;
 
             employeeBonusReportFrame1.InitializeReport(typeof(Reports.GetEmployeesSumResult), 0);
+
+            CreateChangeFactStaffContractMenu();
         }
 
         private void btnBonusRepLoad_Click(object sender, EventArgs e)
@@ -315,13 +349,13 @@ namespace Kadr.UI.Frames
         private void tcEmplPostInf_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
-                CRUDVacation.Read(FactStaff.CurrentChange, Employee, oKOtpuskBindingSource);
+                CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, oKOtpuskBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpBusTrip)
                 CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpMaterial)
-                CRUDMaterial.Read((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource);
+                CRUDMaterial.Read(FactStaff, MaterialResponsibilityBindingSource);
 
             if (tcEmplPostInf.SelectedTab == tpValidations)
                 CRUDValidation.Read((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
@@ -666,6 +700,61 @@ namespace Kadr.UI.Frames
         private void tsbChangeTripDates_Click(object sender, EventArgs e)
         {
             CRUDBusinessTrips.TripChangeDates((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
+        }
+
+        private void tspFactStaffFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            LoadPostList(ObjectStateController.Instance.GetObjectStatesForFilter(tspFactStaffFilter, e));
+        }
+
+        private void tsbChangeFactStaffContract_Click(object sender, EventArgs e)
+        {
+            FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
+            if (currentFactStaff == null)
+            {
+                MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
+                return;
+            }
+
+            EventKind thisEventKind = KadrController.Instance.Model.EventKinds.Where(x => x.EventKindApplName == sender.ToString()).FirstOrDefault();
+            CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind ?? MagicNumberController.FactStaffChangeMainEventKind,
+                MagicNumberController.BeginEventType, true);
+            LoadPostList();
+        }
+
+        private void dgvEmplPosts_DoubleClick(object sender, EventArgs e)
+        {
+            FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
+            if (currentFactStaff != null)
+            {
+                if (currentFactStaff.FundingCenter == null)
+                    currentFactStaff.FundingCenter = NullFundingCenter.Instance;
+                if (currentFactStaff.FactStaffReplacement != null)
+                    LinqActionsController<FactStaffReplacement>.Instance.EditObject(
+                        currentFactStaff.FactStaffReplacement, true);
+                else
+                    LinqActionsController<FactStaff>.Instance.EditObject(
+                        currentFactStaff, true);
+            }
+            LoadPostList();
+        }
+
+        private void btnHistoryFactStaff_Click(object sender, EventArgs e)
+        {
+            FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
+            if (currentFactStaff == null)
+            {
+                MessageBox.Show("Не выбран редактируемый объект.", "ИС \"Управление кадрами\"");
+                return;
+            }
+
+            using (Forms.FactStaffHistoryForm HistForm =
+                           new Forms.FactStaffHistoryForm())
+            {
+                HistForm.FactStaff = currentFactStaff;
+                HistForm.ShowDialog();
+            }
+            LoadPostList();
         }
     }
 

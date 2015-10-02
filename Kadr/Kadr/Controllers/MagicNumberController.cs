@@ -49,6 +49,14 @@ namespace Kadr.Controllers
             }
         }
 
+        public static IEnumerable<EventKind> FactStaffChangeEventKinds
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.Where(x => x.EventKind1 == MagicNumberController.FactStaffChangeMainEventKind).ToArray();
+            }
+        }
+
         public static EventKind VacationEventKind
         {
             get
@@ -120,7 +128,7 @@ namespace Kadr.Controllers
         {
             get
             {
-                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 40);
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 44);
             }
         }
 
