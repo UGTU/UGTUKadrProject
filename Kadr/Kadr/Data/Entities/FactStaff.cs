@@ -692,6 +692,9 @@ namespace Kadr.Data
                 if (OKVED != null)
                     if (OKVED.IsNull())
                         OKVED = null;
+                if (OK_Reason != null)
+                    if (OK_Reason.IsNull())
+                        OK_Reason = null;
 
                 (CurrentChange as UIX.Views.IValidatable).Validate();
             }

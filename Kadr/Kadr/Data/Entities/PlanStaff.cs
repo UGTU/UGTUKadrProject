@@ -21,6 +21,14 @@ namespace Kadr.Data
             return depStr;
         }
 
+        public bool CanAddFactStaff
+        {
+            get
+            {
+                return (StaffCount > FactStaffCount);
+                    
+            }
+        }
 
         public decimal FactStaffCount
         {
