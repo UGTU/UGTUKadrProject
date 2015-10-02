@@ -179,5 +179,13 @@ namespace Kadr.Controllers
                 return KadrController.Instance.Model.EventTypes.Single(x => x.id == 3);
             }
         }
+
+        public static PrikazType ValidationPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 46);
+            }
+        }
     }
 }

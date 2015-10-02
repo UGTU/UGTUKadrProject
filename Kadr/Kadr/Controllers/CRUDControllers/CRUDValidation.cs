@@ -17,18 +17,11 @@ namespace Kadr.Controllers
             {
 
                 dlg.InitializeNewObject = (x =>
-                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, Event>(x, "Event", new Event(dlg.CommandManager, fs.CurrentChange,MagicNumberController.ValidationKind), null), sender)
+                {
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, Event>(x, "Event", new Event(dlg.CommandManager, fs.CurrentChange, MagicNumberController.ValidationKind), null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, EducDocument>(x, "EducDocument", new EducDocument(dlg.CommandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.ValidationDocType))), sender);
+                }
                 );
-
-                dlg.BeforeApplyAction = (x =>
-                    {
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Validation, EducDocument>(x, "EducDocument",
-                            new EducDocument(dlg.CommandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.DocTypeName == Properties.Settings.Default.ValidationDocType))), sender);
-
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EducDocument, string>(x.EducDocument, "DocSeries", x.TSerie), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EducDocument, string>(x.EducDocument, "DocNumber", x.TNumber), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<EducDocument, DateTime?>(x.EducDocument, "DocDate", x.TDocDate), sender);
-                    });
 
                 dlg.ShowDialog();
             }

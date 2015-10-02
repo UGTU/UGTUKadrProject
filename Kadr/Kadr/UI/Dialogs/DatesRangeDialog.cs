@@ -20,5 +20,23 @@ namespace Kadr.UI.Dialogs
             this.dBegin.Value = dBegin;
             this.dEnd.Value = dEnd;
         }
+
+        private void dBegin_ValueChanged(object sender, EventArgs e)
+        {
+            if (dBegin.Value > dEnd.Value)
+            {
+                MessageBox.Show("Дата начала не может быть позже даты окончания!");
+                dBegin.Value = dEnd.Value;
+            }
+        }
+
+        private void dEnd_ValueChanged(object sender, EventArgs e)
+        {
+            if (dBegin.Value > dEnd.Value)
+            {
+                MessageBox.Show("Дата окончания не может быть раньше даты начала!");
+                dEnd.Value = dBegin.Value;
+            }
+        }
     }
 }

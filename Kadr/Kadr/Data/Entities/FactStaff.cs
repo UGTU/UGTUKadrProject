@@ -78,12 +78,10 @@ namespace Kadr.Data
         {
             get
             {
-
-                IEnumerable<Event_BusinessTrip> tripevents = CurrentChange.Events.Where(x => x.idPrikazEnd == null).Select(x => x.Event_BusinessTrip).Where(t=>t!=null);
-                IEnumerable<BusinessTrip> currenttrips = tripevents.Select(x=>x.BusinessTrip).Distinct().Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
+                IEnumerable<Event_BusinessTrip> tripevents = CurrentChange.Events.Where(x => (x.idPrikazEnd == null) && (x.EventType == MagicNumberController.BeginEventType)).Select(x => x.Event_BusinessTrip).Where(t=>t!=null);
+                IEnumerable<BusinessTrip> currenttrips = tripevents.Select(x=>x.BusinessTrip).Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
 
                 if (currenttrips.Any()) return FactStaffState.OnTrip;
-
 
                 var incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
                 if (incapacities.Any()) return FactStaffState.Incapable;

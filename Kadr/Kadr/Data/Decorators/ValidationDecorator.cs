@@ -1,4 +1,6 @@
-﻿using Kadr.Data.Converters;
+﻿using Kadr.Controllers;
+using Kadr.Data.Converters;
+using Kadr.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -8,7 +10,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class ValidationDecorator
+    class ValidationDecorator : IPrikazTypeProvider
     {
          private Validation Validation;
 
@@ -74,9 +76,31 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.DisplayName("\t\t\tВид подтверждающего документа")]
+        [System.ComponentModel.Category("Результат")]
+        [System.ComponentModel.Description("Вид документа, подтверждающего прохождение аттестации")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.TypeConverter(typeof(DocumentTypeToStringConvertor))]
+        public EducDocumentType DocType
+        {
+            get
+            {
+                if (Validation.EducDocument != null)
+                    return Validation.EducDocument.EducDocumentType;
+                else
+                    return null;
+            }
+            set
+            {
+                if (Validation.EducDocument != null)
+                    Validation.EducDocument.EducDocumentType = value;
+                
+            }
+        }
+
         [System.ComponentModel.DisplayName("\t\t\tСерия подтверждающего документа")]
         [System.ComponentModel.Category("Результат")]
-        [System.ComponentModel.Description("Серия документа, подтверждающего факт награждения")]
+        [System.ComponentModel.Description("Серия документа, подтверждающего прохождение аттестации")]
         [System.ComponentModel.ReadOnly(false)]
         public string Serie
         {
@@ -85,20 +109,20 @@ namespace Kadr.Data
                 if (Validation.EducDocument != null)
                     return Validation.EducDocument.DocSeries;
                 else
-                    return Validation.TSerie;
+                    return "";
             }
             set
             {
                 if (Validation.EducDocument != null)
                     Validation.EducDocument.DocSeries = value;
                 else
-                    Validation.TSerie = value;
+                    Validation.EducDocument.DocSeries = value;
             }
         }
 
         [System.ComponentModel.DisplayName("\t\tНомер подтверждающего документа")]
         [System.ComponentModel.Category("Результат")]
-        [System.ComponentModel.Description("Номер документа, подтверждающего факт награждения")]
+        [System.ComponentModel.Description("Номер документа, подтверждающего прохождение аттестации")]
         [System.ComponentModel.ReadOnly(false)]
         public string Number
         {
@@ -107,14 +131,12 @@ namespace Kadr.Data
                 if (Validation.EducDocument != null)
                     return Validation.EducDocument.DocNumber;
                 else
-                    return Validation.TNumber;
+                    return "";
             }
             set
             {
                 if (Validation.EducDocument != null)
                     Validation.EducDocument.DocNumber = value;
-                else
-                    Validation.TNumber = value;
             }
         }
 
@@ -130,17 +152,15 @@ namespace Kadr.Data
             get
             {
                 if (Validation.EducDocument != null)
-                return Validation.EducDocument.DocDate;
+                    return Validation.EducDocument.DocDate;
                 else
-                    return Validation.TDocDate;
+                    return null;
             }
             set
             {
 
                 if (Validation.EducDocument != null)
                     Validation.EducDocument.DocDate = value;
-                else
-                    Validation.TDocDate = value;
 
             }
         }
@@ -180,7 +200,16 @@ namespace Kadr.Data
             }
         }
 
-        internal Data.Validation GetValidation()
+        public PrikazType PrikazType
+        {
+            get
+            {
+                return MagicNumberController.ValidationPrikazType;
+            }
+        }
+
+
+        internal Validation GetValidation()
         {
             return Validation;
         }

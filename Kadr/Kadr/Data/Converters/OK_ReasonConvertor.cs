@@ -12,7 +12,7 @@ namespace Kadr.Data.Converters
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            var res = Kadr.Controllers.KadrController.Instance.Model.OK_Reasons.Where(x => !x.is_old.Value);
+            var res = Kadr.Controllers.KadrController.Instance.Model.OK_Reasons.Where(x => !x.is_old.Value).OrderBy(y=>y.reasonname);
             if (res == null)
                 return null;
             List<OK_Reason> resList = res.ToList().ToList();
