@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kadr.Data.Common;
+using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
@@ -41,16 +42,15 @@ namespace Kadr.Data
        {
            if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
            {
-               if (Event == null) throw new ArgumentNullException("Приказ по сотруднику");
+               if (Event == null) throw new ArgumentNullException("Приказ");
+                if ((Event.Prikaz == null)||(Event.Prikaz.IsNull())) throw new ArgumentNullException("Приказ");
 
-               if (EducDocument != null) 
+                if (EducDocument != null) 
                {
                    //if (EducDocument.Organisation == null) throw new ArgumentNullException("Выдавшая организация");
                    if (EducDocument.DocDate> DateTime.Now) throw new ArgumentNullException("Дата выдачи не может находиться в будущем");
                    if (EducDocument.DocDate < Event.DateBegin) throw new ArgumentNullException("Дата выдачи не может быть раньше даты аттестации");
                }
-
-               if (Event.Prikaz == null) throw new ArgumentNullException("Приказ");
 
            }
        }

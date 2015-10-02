@@ -1,4 +1,6 @@
-﻿using Kadr.Data.Converters;
+﻿using Kadr.Controllers;
+using Kadr.Data.Converters;
+using Kadr.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -8,7 +10,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class ValidationDecorator
+    class ValidationDecorator : IPrikazTypeProvider
     {
          private Validation Validation;
 
@@ -198,7 +200,16 @@ namespace Kadr.Data
             }
         }
 
-        internal Data.Validation GetValidation()
+        public PrikazType PrikazType
+        {
+            get
+            {
+                return MagicNumberController.ValidationPrikazType;
+            }
+        }
+
+
+        internal Validation GetValidation()
         {
             return Validation;
         }
