@@ -121,7 +121,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Данные трудовой книжки")]
         [System.ComponentModel.Description("Территориальные условия")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.RegionConverter))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<RegionType>))]
         //[System.ComponentModel.Editor(typeof(RegionTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]//RegionType
         public RegionType RegionType
         {

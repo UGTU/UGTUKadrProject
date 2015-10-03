@@ -1,4 +1,6 @@
-﻿using Kadr.Data.Converters;
+﻿using Kadr.Controllers;
+using Kadr.Data.Converters;
+using Kadr.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +8,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class BusinessTripDecorator
+    class BusinessTripDecorator: IPrikazTypeProvider
     {
         private BusinessTrip Trip;
 
@@ -58,7 +60,7 @@ namespace Kadr.Data
 
         [System.ComponentModel.DisplayName("Приказ")]
 
-        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Category("\t\tОсновные")]
         [System.ComponentModel.Description("Приказ, назначающий командировку")]
         [System.ComponentModel.ReadOnly(false)]
         //[System.ComponentModel.TypeConverter())]
@@ -79,7 +81,7 @@ namespace Kadr.Data
 
         [System.ComponentModel.DisplayName("Дата начала")]
 
-        [System.ComponentModel.Category("Сроки")]
+        [System.ComponentModel.Category("\t\tСроки")]
         [System.ComponentModel.Description("Дата начала командировки, значащаяся в приказе")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
@@ -93,7 +95,7 @@ namespace Kadr.Data
             {
                 if (value != null)
                 {
-                    if (Trip.BusinessTripRegionTypes.First().DateBegin == DateBegin) Trip.BusinessTripRegionTypes.First().DateBegin = value;
+                    if ((Trip.BusinessTripRegionTypes.First().DateBegin == DateBegin)|| (Trip.BusinessTripRegionTypes.First().DateBegin < value)) Trip.BusinessTripRegionTypes.First().DateBegin = value;
                     Trip.Event.DateBegin = value;
                 }
 
@@ -101,7 +103,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата окончания")]
-        [System.ComponentModel.Category("Сроки")]
+        [System.ComponentModel.Category("\t\tСроки")]
         [System.ComponentModel.Description("Дата окончания командировки, значащаяся в приказе")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
@@ -116,17 +118,34 @@ namespace Kadr.Data
 
                 if (value != null)
                 {
-                    if (Trip.BusinessTripRegionTypes.First().DateEnd == DateEnd) Trip.BusinessTripRegionTypes.First().DateEnd = value;
+                    if ((Trip.BusinessTripRegionTypes.First().DateEnd == DateEnd)||(Trip.BusinessTripRegionTypes.First().DateEnd > value)) Trip.BusinessTripRegionTypes.First().DateEnd = value;
                     Trip.Event.DateEnd = value;
                 }
 
             }
         }
 
+        [System.ComponentModel.DisplayName("Дней в дороге")]
+        [System.ComponentModel.Category("Дополнительно")]
+        [System.ComponentModel.Description("Сколько дней сотрудник проводит в дороге до места пребывания и обратно")]
+        [System.ComponentModel.ReadOnly(false)]
+        public int? DaysInRoad
+        {
+            get
+            {
+
+                return Trip.DaysInRoad;
+            }
+            set
+            {
+                Trip.DaysInRoad = value;
+            }
+
+        }
 
 
         [System.ComponentModel.DisplayName("Основное место назначения")]
-        [System.ComponentModel.Category("Места пребывания")]
+        [System.ComponentModel.Category("\tМеста пребывания")]
         [System.ComponentModel.Description("Основное место назначения командировки")]
         [System.ComponentModel.ReadOnly(false)]
         public string TargetPlace
@@ -142,8 +161,9 @@ namespace Kadr.Data
         }
 
 
+
         [System.ComponentModel.DisplayName("Финансирование")]
-        [System.ComponentModel.Category("Основные")]
+        [System.ComponentModel.Category("Дополнительно")]
         [System.ComponentModel.Description("За счет каких средств осуществляется командировка")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<FinancingSource>))]
@@ -161,7 +181,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Территориальные условия")]
-        [System.ComponentModel.Category("Места пребывания")]
+        [System.ComponentModel.Category("\tМеста пребывания")]
         [System.ComponentModel.Description("В какой регион командируется сотрудник")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<RegionType>))]
@@ -182,7 +202,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Сроки пребывания в регионах уточнены")]
-        [System.ComponentModel.Category("Места пребывания")]
+        [System.ComponentModel.Category("\tМеста пребывания")]
         [System.ComponentModel.Description("Изменены даты пребывания в регионах командировки")]
         [System.ComponentModel.ReadOnly(true)]
         [System.ComponentModel.Browsable(false)]
@@ -197,6 +217,15 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
+        public PrikazType PrikazType
+        {
+            get
+            {
+                return MagicNumberController.BusinessTripPrikazType;
+            }
+        }
 
         internal BusinessTrip GetTrip()
         {
@@ -206,6 +235,17 @@ namespace Kadr.Data
         internal BusinessTripRegionType GetRegionType()
         {
             return Trip.BusinessTripRegionTypes.FirstOrDefault();
+        }
+
+        internal void CancelTrip(Prikaz p)
+        {
+            Trip.Event.PrikazEnd = p;
+        }
+
+        internal void ChangeDates(DateTime beg, DateTime end)
+        {
+            DateBegin = beg;
+            DateEnd = end;
         }
     }
 

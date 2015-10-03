@@ -28,7 +28,7 @@ namespace Kadr.Controllers
             if ((department != null) && (planStaffCurrent == null))
             {
                 workType = WorkType.hourWorkType;
-                financingSource = FinancingSource.budgetFinancingSource;
+                financingSource = MagicNumberController.budgetFinancingSource;
                 withContract = false;
             }
 
@@ -42,20 +42,31 @@ namespace Kadr.Controllers
 
                 dlg.InitializeNewObject = (x) =>
                 {
-                    x.WithNewEmployee = false;
-                    FactStaffHistory fcStHistory;
+                    //x.WithNewEmployee = false;
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "WithNewEmployee", false, null), sender);
+                    FactStaffHistory fcStHistory = new FactStaffHistory();
+                    x.SetProperties(dlg.CommandManager, planStaffCurrent, employee, isReplacement, department, financingSource);
+
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
                         FactStaff prev = dlg.SelectedObjects[0] as FactStaff;
-                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), withContract);
+                        fcStHistory.SetProperties(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin,
+                            department == null ? MagicNumberController.FactStaffCreateEventKind : MagicNumberController.FactStaffHourCreateEventKind,
+                            MagicNumberController.BeginEventType, withContract);
+                        //fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, MagicNumberController.FactStaffCreateEventKind,
+                            //MagicNumberController.BeginEventType,withContract);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x, "StaffCount", prev.StaffCount, null), sender);
                     }
                     else
                     {
-                        fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), withContract);
+                        fcStHistory.SetProperties(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today.Date,
+                            department == null ? MagicNumberController.FactStaffCreateEventKind : MagicNumberController.FactStaffHourCreateEventKind,
+                            MagicNumberController.BeginEventType, withContract);
+                        //fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind,
+                            //MagicNumberController.BeginEventType, withContract);
                     }
 
-                    SetProperties(dlg.CommandManager, x, planStaffCurrent, employee, isReplacement, department, financingSource);
+                    
 
                 };
 
@@ -81,10 +92,10 @@ namespace Kadr.Controllers
             if (employee == null)
                 employee = NullEmployee.Instance;
 
-            FactStaff x = new FactStaff();
-            x.WithNewEmployee = true;
-            SetProperties(commandManager, x, planStaffCurrent, employee, isReplacement, department, financingSource);
-            FactStaffHistory fcStHistory = new FactStaffHistory(commandManager, x, workType, NullPrikaz.Instance, DateTime.Today, KadrController.Instance.Model.EventKinds.Where(k => k.id == 1).FirstOrDefault(), withContract);
+            FactStaff x = new FactStaff(commandManager, planStaffCurrent, employee, isReplacement, department, financingSource);
+            x.WithNewEmployee = true;            
+            FactStaffHistory fcStHistory = new FactStaffHistory(commandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind,
+                MagicNumberController.BeginEventType, withContract);
 
 
             using (Kadr.UI.Dialogs.FactStaffLinqPropertyGridDialogAdding dlg =
@@ -106,14 +117,8 @@ namespace Kadr.Controllers
             }
         }
 
-        public static void SetProperties(UIX.Commands.ICommandManager commandManager, FactStaff x, PlanStaff planStaff, Employee employee, bool isReplacement = false, Dep department = null, FinancingSource financingSource = null)
-        {
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, PlanStaff>(x, "PlanStaff", planStaff, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(x, "Employee", employee, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "IsReplacement", isReplacement, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x, "Dep", department, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x, "FundingCenter", NullFundingCenter.Instance, null), null);
-            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x, "FinancingSource", financingSource, null), null);
-        }
+        
+
+        
     }
 }

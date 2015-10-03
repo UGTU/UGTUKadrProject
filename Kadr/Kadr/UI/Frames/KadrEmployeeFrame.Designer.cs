@@ -40,15 +40,15 @@ namespace Kadr.UI.Frames
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -65,6 +65,13 @@ namespace Kadr.UI.Frames
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcEmployee = new System.Windows.Forms.TabControl();
             this.tpEmployee = new System.Windows.Forms.TabPage();
             this.tcEmplData = new System.Windows.Forms.TabControl();
@@ -125,7 +132,8 @@ namespace Kadr.UI.Frames
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serieDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.organizationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxOrganization = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.awardDecoratorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip13 = new System.Windows.Forms.ToolStrip();
             this.tsbAddAward = new System.Windows.Forms.ToolStripButton();
@@ -149,6 +157,7 @@ namespace Kadr.UI.Frames
             this.tcEmplWorkData = new System.Windows.Forms.TabControl();
             this.tpUGTUPosts = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tlpEmpPosts = new System.Windows.Forms.TableLayoutPanel();
             this.dgvEmplPosts = new System.Windows.Forms.DataGridView();
             this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -164,6 +173,12 @@ namespace Kadr.UI.Frames
             this.dateEndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prikaz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tsEmpPosts = new System.Windows.Forms.ToolStrip();
+            this.tsbChangeFactStaffContract = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btnHistoryFactStaff = new System.Windows.Forms.ToolStripButton();
+            this.tspFactStaffFilter = new System.Windows.Forms.ToolStripSplitButton();
+            this.текущиеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.уволенныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcEmplPostInf = new System.Windows.Forms.TabControl();
             this.tpEmpOtpusk = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -171,7 +186,9 @@ namespace Kadr.UI.Frames
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SocialFareTransit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.CountDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrikazColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrikazLgot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oKOtpuskBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.tsbAddOtp = new System.Windows.Forms.ToolStripButton();
@@ -185,6 +202,7 @@ namespace Kadr.UI.Frames
             this.dateBeginDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateEndDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.targetPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DaysInRoad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegionDatesChanged = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -192,7 +210,10 @@ namespace Kadr.UI.Frames
             this.tsbAddEmplTrip = new System.Windows.Forms.ToolStripButton();
             this.tsbEditEmplTrip = new System.Windows.Forms.ToolStripButton();
             this.tsbDelEmplTrip = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbChangeRegionDates = new System.Windows.Forms.ToolStripButton();
+            this.tsbChangeTripDates = new System.Windows.Forms.ToolStripButton();
+            this.tsbCancelTrip = new System.Windows.Forms.ToolStripButton();
             this.tpMaterial = new System.Windows.Forms.TabPage();
             this.dgvMaterial = new System.Windows.Forms.DataGridView();
             this.prikazBeginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -212,6 +233,7 @@ namespace Kadr.UI.Frames
             this.dgvValidations = new System.Windows.Forms.DataGridView();
             this.dateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prikazDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.decisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serieDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -283,12 +305,11 @@ namespace Kadr.UI.Frames
             this.dgvEducation = new System.Windows.Forms.DataGridView();
             this.typeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.educWhenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.whereDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.organizationDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.educDocumentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.organizationDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qualificationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EducationBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -373,6 +394,7 @@ namespace Kadr.UI.Frames
             this.tsbAddDopInf = new System.Windows.Forms.ToolStripButton();
             this.tsbEditDopInf = new System.Windows.Forms.ToolStripButton();
             this.tsbDelDopInf = new System.Windows.Forms.ToolStripButton();
+            this.organizationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -494,6 +516,7 @@ namespace Kadr.UI.Frames
             this.timeSheetDayStateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oKLanguageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tempBS = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -532,8 +555,10 @@ namespace Kadr.UI.Frames
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tlpEmpPosts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmplPosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStaffBindingSource)).BeginInit();
+            this.tsEmpPosts.SuspendLayout();
             this.tcEmplPostInf.SuspendLayout();
             this.tpEmpOtpusk.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -613,6 +638,7 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.timeSheetDayStateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageLevelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oKLanguageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tempBS)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -736,7 +762,7 @@ namespace Kadr.UI.Frames
             this.tpContData.Controls.Add(this.splitContainer3);
             this.tpContData.Location = new System.Drawing.Point(4, 22);
             this.tpContData.Name = "tpContData";
-            this.tpContData.Size = new System.Drawing.Size(788, 501);
+            this.tpContData.Size = new System.Drawing.Size(869, 339);
             this.tpContData.TabIndex = 2;
             this.tpContData.Text = "Контактные данные";
             this.tpContData.UseVisualStyleBackColor = true;
@@ -755,8 +781,8 @@ namespace Kadr.UI.Frames
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
-            this.splitContainer3.Size = new System.Drawing.Size(788, 501);
-            this.splitContainer3.SplitterDistance = 240;
+            this.splitContainer3.Size = new System.Drawing.Size(869, 339);
+            this.splitContainer3.SplitterDistance = 155;
             this.splitContainer3.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -772,7 +798,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 240);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(869, 155);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // dataGridView1
@@ -809,7 +835,7 @@ namespace Kadr.UI.Frames
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(782, 233);
+            this.dataGridView1.Size = new System.Drawing.Size(863, 233);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.tsbEditPhone_Click);
             // 
@@ -857,7 +883,7 @@ namespace Kadr.UI.Frames
             this.tsbDelPhone});
             this.toolStrip7.Location = new System.Drawing.Point(0, 0);
             this.toolStrip7.Name = "toolStrip7";
-            this.toolStrip7.Size = new System.Drawing.Size(788, 24);
+            this.toolStrip7.Size = new System.Drawing.Size(869, 24);
             this.toolStrip7.TabIndex = 2;
             this.toolStrip7.Text = "toolStrip7";
             // 
@@ -903,7 +929,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 257);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(869, 180);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // dataGridView6
@@ -943,7 +969,7 @@ namespace Kadr.UI.Frames
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView6.Size = new System.Drawing.Size(782, 228);
+            this.dataGridView6.Size = new System.Drawing.Size(863, 237);
             this.dataGridView6.TabIndex = 3;
             this.dataGridView6.DoubleClick += new System.EventHandler(this.tsbUpdAddress_Click);
             // 
@@ -1013,7 +1039,7 @@ namespace Kadr.UI.Frames
             this.tsbDelAddress});
             this.toolStrip8.Location = new System.Drawing.Point(0, 0);
             this.toolStrip8.Name = "toolStrip8";
-            this.toolStrip8.Size = new System.Drawing.Size(788, 24);
+            this.toolStrip8.Size = new System.Drawing.Size(869, 24);
             this.toolStrip8.TabIndex = 2;
             this.toolStrip8.Text = "toolStrip8";
             // 
@@ -1052,7 +1078,7 @@ namespace Kadr.UI.Frames
             this.tpFamily.Location = new System.Drawing.Point(4, 22);
             this.tpFamily.Name = "tpFamily";
             this.tpFamily.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFamily.Size = new System.Drawing.Size(788, 501);
+            this.tpFamily.Size = new System.Drawing.Size(869, 339);
             this.tpFamily.TabIndex = 1;
             this.tpFamily.Text = "Состав семьи";
             this.tpFamily.UseVisualStyleBackColor = true;
@@ -1070,7 +1096,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(782, 495);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(863, 333);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // dataGridView7
@@ -1111,7 +1137,7 @@ namespace Kadr.UI.Frames
             this.dataGridView7.ReadOnly = true;
             this.dataGridView7.RowHeadersVisible = false;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView7.Size = new System.Drawing.Size(776, 465);
+            this.dataGridView7.Size = new System.Drawing.Size(857, 465);
             this.dataGridView7.TabIndex = 4;
             this.dataGridView7.DoubleClick += new System.EventHandler(this.tsbEditFamMember_Click);
             // 
@@ -1190,7 +1216,7 @@ namespace Kadr.UI.Frames
             this.tsbDelFamMember});
             this.toolStrip9.Location = new System.Drawing.Point(0, 0);
             this.toolStrip9.Name = "toolStrip9";
-            this.toolStrip9.Size = new System.Drawing.Size(782, 24);
+            this.toolStrip9.Size = new System.Drawing.Size(863, 24);
             this.toolStrip9.TabIndex = 3;
             this.toolStrip9.Text = "toolStrip9";
             // 
@@ -1230,7 +1256,7 @@ namespace Kadr.UI.Frames
             this.tpAwards.Location = new System.Drawing.Point(4, 22);
             this.tpAwards.Name = "tpAwards";
             this.tpAwards.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAwards.Size = new System.Drawing.Size(788, 501);
+            this.tpAwards.Size = new System.Drawing.Size(869, 339);
             this.tpAwards.TabIndex = 3;
             this.tpAwards.Text = "Награды";
             this.tpAwards.UseVisualStyleBackColor = true;
@@ -1256,7 +1282,8 @@ namespace Kadr.UI.Frames
             this.dateDataGridViewTextBoxColumn,
             this.serieDataGridViewTextBoxColumn1,
             this.numberDataGridViewTextBoxColumn1,
-            this.organizationDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxOrganization,
+            this.GDepartment});
             this.dgvAwards.DataSource = this.awardDecoratorBindingSource;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
@@ -1272,7 +1299,7 @@ namespace Kadr.UI.Frames
             this.dgvAwards.ReadOnly = true;
             this.dgvAwards.RowHeadersVisible = false;
             this.dgvAwards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAwards.Size = new System.Drawing.Size(782, 470);
+            this.dgvAwards.Size = new System.Drawing.Size(863, 308);
             this.dgvAwards.TabIndex = 6;
             this.dgvAwards.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAwards_CellDoubleClick);
             // 
@@ -1322,13 +1349,20 @@ namespace Kadr.UI.Frames
             this.numberDataGridViewTextBoxColumn1.Name = "numberDataGridViewTextBoxColumn1";
             this.numberDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // organizationDataGridViewTextBoxColumn
+            // dataGridViewTextBoxOrganization
             // 
-            this.organizationDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.organizationDataGridViewTextBoxColumn.DataPropertyName = "Organization";
-            this.organizationDataGridViewTextBoxColumn.HeaderText = "Организация";
-            this.organizationDataGridViewTextBoxColumn.Name = "organizationDataGridViewTextBoxColumn";
-            this.organizationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxOrganization.DataPropertyName = "Organization";
+            this.dataGridViewTextBoxOrganization.HeaderText = "Организация";
+            this.dataGridViewTextBoxOrganization.Name = "dataGridViewTextBoxOrganization";
+            this.dataGridViewTextBoxOrganization.ReadOnly = true;
+            // 
+            // GDepartment
+            // 
+            this.GDepartment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GDepartment.DataPropertyName = "GDepartment";
+            this.GDepartment.HeaderText = "Ведомство";
+            this.GDepartment.Name = "GDepartment";
+            this.GDepartment.ReadOnly = true;
             // 
             // awardDecoratorBindingSource
             // 
@@ -1342,7 +1376,7 @@ namespace Kadr.UI.Frames
             this.tsbDelAward});
             this.toolStrip13.Location = new System.Drawing.Point(3, 3);
             this.toolStrip13.Name = "toolStrip13";
-            this.toolStrip13.Size = new System.Drawing.Size(782, 25);
+            this.toolStrip13.Size = new System.Drawing.Size(863, 25);
             this.toolStrip13.TabIndex = 5;
             this.toolStrip13.Text = "toolStrip13";
             // 
@@ -1382,7 +1416,7 @@ namespace Kadr.UI.Frames
             this.tpSocial.Location = new System.Drawing.Point(4, 22);
             this.tpSocial.Name = "tpSocial";
             this.tpSocial.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSocial.Size = new System.Drawing.Size(788, 501);
+            this.tpSocial.Size = new System.Drawing.Size(869, 339);
             this.tpSocial.TabIndex = 4;
             this.tpSocial.Text = "Социальные льготы";
             this.tpSocial.UseVisualStyleBackColor = true;
@@ -1408,7 +1442,7 @@ namespace Kadr.UI.Frames
             this.dgvSocials.ReadOnly = true;
             this.dgvSocials.RowHeadersVisible = false;
             this.dgvSocials.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSocials.Size = new System.Drawing.Size(782, 470);
+            this.dgvSocials.Size = new System.Drawing.Size(863, 308);
             this.dgvSocials.TabIndex = 8;
             this.dgvSocials.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSocials_CellDoubleClick);
             // 
@@ -1477,7 +1511,7 @@ namespace Kadr.UI.Frames
             this.tsbDelSocial});
             this.toolStrip14.Location = new System.Drawing.Point(3, 3);
             this.toolStrip14.Name = "toolStrip14";
-            this.toolStrip14.Size = new System.Drawing.Size(782, 25);
+            this.toolStrip14.Size = new System.Drawing.Size(863, 25);
             this.toolStrip14.TabIndex = 7;
             this.toolStrip14.Text = "toolStrip14";
             // 
@@ -1556,7 +1590,7 @@ namespace Kadr.UI.Frames
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dgvEmplPosts);
+            this.splitContainer1.Panel1.Controls.Add(this.tlpEmpPosts);
             // 
             // splitContainer1.Panel2
             // 
@@ -1564,6 +1598,21 @@ namespace Kadr.UI.Frames
             this.splitContainer1.Size = new System.Drawing.Size(863, 333);
             this.splitContainer1.SplitterDistance = 185;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // tlpEmpPosts
+            // 
+            this.tlpEmpPosts.ColumnCount = 1;
+            this.tlpEmpPosts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpEmpPosts.Controls.Add(this.dgvEmplPosts, 0, 1);
+            this.tlpEmpPosts.Controls.Add(this.tsEmpPosts, 0, 0);
+            this.tlpEmpPosts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpEmpPosts.Location = new System.Drawing.Point(0, 0);
+            this.tlpEmpPosts.Name = "tlpEmpPosts";
+            this.tlpEmpPosts.RowCount = 2;
+            this.tlpEmpPosts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tlpEmpPosts.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpEmpPosts.Size = new System.Drawing.Size(863, 185);
+            this.tlpEmpPosts.TabIndex = 1;
             // 
             // dgvEmplPosts
             // 
@@ -1594,22 +1643,23 @@ namespace Kadr.UI.Frames
             this.dateEndDataGridViewTextBoxColumn,
             this.Prikaz});
             this.dgvEmplPosts.DataSource = this.factStaffBindingSource;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEmplPosts.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmplPosts.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvEmplPosts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEmplPosts.Location = new System.Drawing.Point(0, 0);
+            this.dgvEmplPosts.Location = new System.Drawing.Point(3, 29);
             this.dgvEmplPosts.Name = "dgvEmplPosts";
             this.dgvEmplPosts.ReadOnly = true;
             this.dgvEmplPosts.RowHeadersVisible = false;
             this.dgvEmplPosts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmplPosts.Size = new System.Drawing.Size(863, 185);
+            this.dgvEmplPosts.Size = new System.Drawing.Size(857, 185);
             this.dgvEmplPosts.TabIndex = 0;
+            this.dgvEmplPosts.DoubleClick += new System.EventHandler(this.dgvEmplPosts_DoubleClick);
             // 
             // Department
             // 
@@ -1630,6 +1680,8 @@ namespace Kadr.UI.Frames
             // WorkType
             // 
             this.WorkType.DataPropertyName = "WorkType";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.WorkType.DefaultCellStyle = dataGridViewCellStyle10;
             this.WorkType.HeaderText = "Вид работы";
             this.WorkType.Name = "WorkType";
             this.WorkType.ReadOnly = true;
@@ -1638,6 +1690,8 @@ namespace Kadr.UI.Frames
             // HourCount
             // 
             this.HourCount.DataPropertyName = "HourCount";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.HourCount.DefaultCellStyle = dataGridViewCellStyle11;
             this.HourCount.HeaderText = "Кол-во часов";
             this.HourCount.Name = "HourCount";
             this.HourCount.ReadOnly = true;
@@ -1646,6 +1700,8 @@ namespace Kadr.UI.Frames
             // FinancingSource
             // 
             this.FinancingSource.DataPropertyName = "FinSource";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FinancingSource.DefaultCellStyle = dataGridViewCellStyle12;
             this.FinancingSource.HeaderText = "Ист фин";
             this.FinancingSource.Name = "FinancingSource";
             this.FinancingSource.ReadOnly = true;
@@ -1654,18 +1710,22 @@ namespace Kadr.UI.Frames
             // PKCategory
             // 
             this.PKCategory.DataPropertyName = "PKCategory";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PKCategory.DefaultCellStyle = dataGridViewCellStyle13;
             this.PKCategory.HeaderText = "ПКГ/ КУ/ ПУ (/ППУ)";
             this.PKCategory.Name = "PKCategory";
             this.PKCategory.ReadOnly = true;
-            this.PKCategory.Width = 50;
+            this.PKCategory.Width = 70;
             // 
             // Category
             // 
             this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Катег.";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Category.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Category.HeaderText = "Категория";
             this.Category.Name = "Category";
             this.Category.ReadOnly = true;
-            this.Category.Width = 50;
+            this.Category.Width = 70;
             // 
             // SalarySize
             // 
@@ -1678,21 +1738,23 @@ namespace Kadr.UI.Frames
             // StaffCount
             // 
             this.StaffCount.DataPropertyName = "StaffCount";
-            dataGridViewCellStyle10.Format = "N2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.StaffCount.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.StaffCount.DefaultCellStyle = dataGridViewCellStyle15;
             this.StaffCount.HeaderText = "Кол-во ставок";
             this.StaffCount.Name = "StaffCount";
             this.StaffCount.ReadOnly = true;
-            this.StaffCount.Width = 50;
+            this.StaffCount.Width = 70;
             // 
             // FStDateBegin
             // 
             this.FStDateBegin.DataPropertyName = "DateBegin";
-            this.FStDateBegin.HeaderText = "Дата назн.";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FStDateBegin.DefaultCellStyle = dataGridViewCellStyle16;
+            this.FStDateBegin.HeaderText = "Дата назначения";
             this.FStDateBegin.Name = "FStDateBegin";
             this.FStDateBegin.ReadOnly = true;
-            this.FStDateBegin.Width = 70;
             // 
             // FStPrikazBegin
             // 
@@ -1700,15 +1762,16 @@ namespace Kadr.UI.Frames
             this.FStPrikazBegin.HeaderText = "Приказ назн.";
             this.FStPrikazBegin.Name = "FStPrikazBegin";
             this.FStPrikazBegin.ReadOnly = true;
-            this.FStPrikazBegin.Width = 55;
+            this.FStPrikazBegin.Width = 70;
             // 
             // dateEndDataGridViewTextBoxColumn
             // 
             this.dateEndDataGridViewTextBoxColumn.DataPropertyName = "DateEnd";
-            this.dateEndDataGridViewTextBoxColumn.HeaderText = "Дата увольн";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dateEndDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dateEndDataGridViewTextBoxColumn.HeaderText = "Дата увольнения";
             this.dateEndDataGridViewTextBoxColumn.Name = "dateEndDataGridViewTextBoxColumn";
             this.dateEndDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateEndDataGridViewTextBoxColumn.Width = 70;
             // 
             // Prikaz
             // 
@@ -1716,12 +1779,72 @@ namespace Kadr.UI.Frames
             this.Prikaz.HeaderText = "Приказ увольн";
             this.Prikaz.Name = "Prikaz";
             this.Prikaz.ReadOnly = true;
-            this.Prikaz.Width = 55;
+            this.Prikaz.Width = 70;
             // 
             // factStaffBindingSource
             // 
             this.factStaffBindingSource.DataSource = typeof(Kadr.Data.FactStaff);
             this.factStaffBindingSource.PositionChanged += new System.EventHandler(this.factStaffBindingSource_PositionChanged);
+            // 
+            // tsEmpPosts
+            // 
+            this.tsEmpPosts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbChangeFactStaffContract,
+            this.btnHistoryFactStaff,
+            this.tspFactStaffFilter});
+            this.tsEmpPosts.Location = new System.Drawing.Point(0, 0);
+            this.tsEmpPosts.Name = "tsEmpPosts";
+            this.tsEmpPosts.Size = new System.Drawing.Size(863, 25);
+            this.tsEmpPosts.TabIndex = 0;
+            this.tsEmpPosts.Text = "toolStrip18";
+            // 
+            // tsbChangeFactStaffContract
+            // 
+            this.tsbChangeFactStaffContract.Image = global::Kadr.Properties.Resources.SychronizeListHS;
+            this.tsbChangeFactStaffContract.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbChangeFactStaffContract.Name = "tsbChangeFactStaffContract";
+            this.tsbChangeFactStaffContract.Size = new System.Drawing.Size(145, 22);
+            this.tsbChangeFactStaffContract.Text = "Изменить усл. тр. д.";
+            this.tsbChangeFactStaffContract.ToolTipText = "Изменить условия трудового договора";
+            // 
+            // btnHistoryFactStaff
+            // 
+            this.btnHistoryFactStaff.Image = global::Kadr.Properties.Resources.FillUpHS;
+            this.btnHistoryFactStaff.ImageTransparentColor = System.Drawing.Color.Black;
+            this.btnHistoryFactStaff.Name = "btnHistoryFactStaff";
+            this.btnHistoryFactStaff.Size = new System.Drawing.Size(74, 22);
+            this.btnHistoryFactStaff.Text = "История";
+            this.btnHistoryFactStaff.ToolTipText = "Открыть историю изменений";
+            this.btnHistoryFactStaff.Click += new System.EventHandler(this.btnHistoryFactStaff_Click);
+            // 
+            // tspFactStaffFilter
+            // 
+            this.tspFactStaffFilter.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.текущиеToolStripMenuItem1,
+            this.уволенныеToolStripMenuItem});
+            this.tspFactStaffFilter.Image = global::Kadr.Properties.Resources.Filter2HS;
+            this.tspFactStaffFilter.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tspFactStaffFilter.Name = "tspFactStaffFilter";
+            this.tspFactStaffFilter.Size = new System.Drawing.Size(80, 22);
+            this.tspFactStaffFilter.Text = "Фильтр";
+            this.tspFactStaffFilter.ToolTipText = "Задать фильтр сотрдников";
+            this.tspFactStaffFilter.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tspFactStaffFilter_DropDownItemClicked);
+            // 
+            // текущиеToolStripMenuItem1
+            // 
+            this.текущиеToolStripMenuItem1.Checked = true;
+            this.текущиеToolStripMenuItem1.CheckOnClick = true;
+            this.текущиеToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.текущиеToolStripMenuItem1.Name = "текущиеToolStripMenuItem1";
+            this.текущиеToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.текущиеToolStripMenuItem1.Text = "Текущие";
+            // 
+            // уволенныеToolStripMenuItem
+            // 
+            this.уволенныеToolStripMenuItem.CheckOnClick = true;
+            this.уволенныеToolStripMenuItem.Name = "уволенныеToolStripMenuItem";
+            this.уволенныеToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.уволенныеToolStripMenuItem.Text = "Уволенные";
             // 
             // tcEmplPostInf
             // 
@@ -1769,36 +1892,38 @@ namespace Kadr.UI.Frames
             this.dataGridView5.AllowUserToAddRows = false;
             this.dataGridView5.AllowUserToDeleteRows = false;
             this.dataGridView5.AutoGenerateColumns = false;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn11,
             this.DateEnd,
-            this.SocialFareTransit});
+            this.CountDay,
+            this.PrikazColumn,
+            this.PrikazLgot});
             this.dataGridView5.DataSource = this.oKOtpuskBindingSource;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView5.Location = new System.Drawing.Point(3, 27);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(843, 182);
+            this.dataGridView5.Size = new System.Drawing.Size(843, 244);
             this.dataGridView5.TabIndex = 2;
             this.dataGridView5.DoubleClick += new System.EventHandler(this.tsbEditOtp_Click);
             // 
@@ -1826,15 +1951,27 @@ namespace Kadr.UI.Frames
             this.DateEnd.ReadOnly = true;
             this.DateEnd.Width = 120;
             // 
-            // SocialFareTransit
+            // CountDay
             // 
-            this.SocialFareTransit.DataPropertyName = "WithSocialFareTransit";
-            this.SocialFareTransit.HeaderText = "С соц проездом";
-            this.SocialFareTransit.Name = "SocialFareTransit";
-            this.SocialFareTransit.ReadOnly = true;
-            this.SocialFareTransit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.SocialFareTransit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.SocialFareTransit.Width = 120;
+            this.CountDay.DataPropertyName = "CountDay";
+            this.CountDay.HeaderText = "Дней";
+            this.CountDay.Name = "CountDay";
+            this.CountDay.ReadOnly = true;
+            // 
+            // PrikazColumn
+            // 
+            this.PrikazColumn.DataPropertyName = "RealPrikaz";
+            this.PrikazColumn.HeaderText = "Приказ";
+            this.PrikazColumn.Name = "PrikazColumn";
+            this.PrikazColumn.ReadOnly = true;
+            // 
+            // PrikazLgot
+            // 
+            this.PrikazLgot.DataPropertyName = "PrikazLgot";
+            this.PrikazLgot.HeaderText = "Приказ льготного проезда";
+            this.PrikazLgot.Name = "PrikazLgot";
+            this.PrikazLgot.ReadOnly = true;
+            this.PrikazLgot.Width = 200;
             // 
             // oKOtpuskBindingSource
             // 
@@ -1915,31 +2052,32 @@ namespace Kadr.UI.Frames
             this.dgvTrips.AllowUserToAddRows = false;
             this.dgvTrips.AllowUserToDeleteRows = false;
             this.dgvTrips.AutoGenerateColumns = false;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTrips.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTrips.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvTrips.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTrips.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.prikazDataGridViewTextBoxColumn,
             this.dateBeginDataGridViewTextBoxColumn1,
             this.dateEndDataGridViewTextBoxColumn2,
             this.targetPlaceDataGridViewTextBoxColumn,
+            this.DaysInRoad,
             this.finSourceDataGridViewTextBoxColumn,
             this.RegionDatesChanged});
             this.dgvTrips.DataSource = this.BusinessTripsBindingSource;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTrips.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTrips.DefaultCellStyle = dataGridViewCellStyle22;
             this.dgvTrips.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTrips.Location = new System.Drawing.Point(3, 28);
             this.dgvTrips.Name = "dgvTrips";
@@ -1982,11 +2120,19 @@ namespace Kadr.UI.Frames
             this.targetPlaceDataGridViewTextBoxColumn.ReadOnly = true;
             this.targetPlaceDataGridViewTextBoxColumn.Width = 200;
             // 
+            // DaysInRoad
+            // 
+            this.DaysInRoad.DataPropertyName = "DaysInRoad";
+            this.DaysInRoad.HeaderText = "Дней в дороге";
+            this.DaysInRoad.Name = "DaysInRoad";
+            this.DaysInRoad.ReadOnly = true;
+            // 
             // finSourceDataGridViewTextBoxColumn
             // 
             this.finSourceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.finSourceDataGridViewTextBoxColumn.DataPropertyName = "FinSource";
             this.finSourceDataGridViewTextBoxColumn.HeaderText = "Источник финансирования";
+            this.finSourceDataGridViewTextBoxColumn.MinimumWidth = 100;
             this.finSourceDataGridViewTextBoxColumn.Name = "finSourceDataGridViewTextBoxColumn";
             this.finSourceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -2007,7 +2153,10 @@ namespace Kadr.UI.Frames
             this.tsbAddEmplTrip,
             this.tsbEditEmplTrip,
             this.tsbDelEmplTrip,
-            this.tsbChangeRegionDates});
+            this.toolStripSeparator2,
+            this.tsbChangeRegionDates,
+            this.tsbChangeTripDates,
+            this.tsbCancelTrip});
             this.tsBusinessTrips.Location = new System.Drawing.Point(3, 3);
             this.tsBusinessTrips.Name = "tsBusinessTrips";
             this.tsBusinessTrips.Size = new System.Drawing.Size(849, 25);
@@ -2043,14 +2192,38 @@ namespace Kadr.UI.Frames
             this.tsbDelEmplTrip.ToolTipText = "Удалить командировку";
             this.tsbDelEmplTrip.Click += new System.EventHandler(this.tsbDelEmplTrip_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // tsbChangeRegionDates
             // 
-            this.tsbChangeRegionDates.Image = global::Kadr.Properties.Resources.TableHS;
+            this.tsbChangeRegionDates.Image = global::Kadr.Properties.Resources.MonthlyViewHS;
             this.tsbChangeRegionDates.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbChangeRegionDates.Name = "tsbChangeRegionDates";
             this.tsbChangeRegionDates.Size = new System.Drawing.Size(247, 22);
             this.tsbChangeRegionDates.Text = "Уточнить сроки пребывания в регионах";
             this.tsbChangeRegionDates.Click += new System.EventHandler(this.tsbChangeRegionDates_Click);
+            // 
+            // tsbChangeTripDates
+            // 
+            this.tsbChangeTripDates.Image = global::Kadr.Properties.Resources.compareversionsHS;
+            this.tsbChangeTripDates.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbChangeTripDates.Name = "tsbChangeTripDates";
+            this.tsbChangeTripDates.Size = new System.Drawing.Size(258, 20);
+            this.tsbChangeTripDates.Text = "Изменить сроки командировки приказом";
+            this.tsbChangeTripDates.Click += new System.EventHandler(this.tsbChangeTripDates_Click);
+            // 
+            // tsbCancelTrip
+            // 
+            this.tsbCancelTrip.BackColor = System.Drawing.Color.Transparent;
+            this.tsbCancelTrip.Image = global::Kadr.Properties.Resources.RightsRestrictedHS;
+            this.tsbCancelTrip.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbCancelTrip.Name = "tsbCancelTrip";
+            this.tsbCancelTrip.Size = new System.Drawing.Size(221, 20);
+            this.tsbCancelTrip.Text = "Отменить командировку приказом";
+            this.tsbCancelTrip.Click += new System.EventHandler(this.tsbCancelTrip_Click);
             // 
             // tpMaterial
             // 
@@ -2069,14 +2242,14 @@ namespace Kadr.UI.Frames
             this.dgvMaterial.AllowUserToAddRows = false;
             this.dgvMaterial.AllowUserToDeleteRows = false;
             this.dgvMaterial.AutoGenerateColumns = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMaterial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMaterial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaterial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.prikazBeginDataGridViewTextBoxColumn,
@@ -2088,14 +2261,14 @@ namespace Kadr.UI.Frames
             this.dateContractDataGridViewTextBoxColumn,
             this.prikazEndDataGridViewTextBoxColumn});
             this.dgvMaterial.DataSource = this.MaterialResponsibilityBindingSource;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMaterial.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMaterial.DefaultCellStyle = dataGridViewCellStyle24;
             this.dgvMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMaterial.Location = new System.Drawing.Point(3, 28);
             this.dgvMaterial.MultiSelect = false;
@@ -2227,32 +2400,33 @@ namespace Kadr.UI.Frames
             this.dgvValidations.AllowUserToAddRows = false;
             this.dgvValidations.AllowUserToDeleteRows = false;
             this.dgvValidations.AutoGenerateColumns = false;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvValidations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvValidations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvValidations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvValidations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dateDataGridViewTextBoxColumn2,
             this.prikazDataGridViewTextBoxColumn1,
+            this.DocType,
             this.decisionDataGridViewTextBoxColumn,
             this.serieDataGridViewTextBoxColumn3,
             this.numberDataGridViewTextBoxColumn3,
             this.docDateDataGridViewTextBoxColumn1,
             this.commentaryDataGridViewTextBoxColumn});
             this.dgvValidations.DataSource = this.validationDecoratorBindingSource;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvValidations.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvValidations.DefaultCellStyle = dataGridViewCellStyle26;
             this.dgvValidations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvValidations.Location = new System.Drawing.Point(3, 28);
             this.dgvValidations.MultiSelect = false;
@@ -2278,12 +2452,21 @@ namespace Kadr.UI.Frames
             this.prikazDataGridViewTextBoxColumn1.Name = "prikazDataGridViewTextBoxColumn1";
             this.prikazDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
+            // DocType
+            // 
+            this.DocType.DataPropertyName = "DocType";
+            this.DocType.HeaderText = "Вид документа";
+            this.DocType.Name = "DocType";
+            this.DocType.ReadOnly = true;
+            this.DocType.Width = 250;
+            // 
             // decisionDataGridViewTextBoxColumn
             // 
             this.decisionDataGridViewTextBoxColumn.DataPropertyName = "Decision";
             this.decisionDataGridViewTextBoxColumn.HeaderText = "Решение комиссии";
             this.decisionDataGridViewTextBoxColumn.Name = "decisionDataGridViewTextBoxColumn";
             this.decisionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.decisionDataGridViewTextBoxColumn.Width = 180;
             // 
             // serieDataGridViewTextBoxColumn3
             // 
@@ -2394,14 +2577,14 @@ namespace Kadr.UI.Frames
             this.dataGridView4.AllowUserToAddRows = false;
             this.dataGridView4.AllowUserToDeleteRows = false;
             this.dataGridView4.AutoGenerateColumns = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -2416,14 +2599,14 @@ namespace Kadr.UI.Frames
             this.idEmployeeDataGridViewTextBoxColumn,
             this.employeeDataGridViewTextBoxColumn});
             this.dataGridView4.DataSource = this.employeeStandingBindingSource;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(3, 28);
             this.dataGridView4.MultiSelect = false;
@@ -2585,14 +2768,14 @@ namespace Kadr.UI.Frames
             this.dgvIncapacities.AllowUserToAddRows = false;
             this.dgvIncapacities.AllowUserToDeleteRows = false;
             this.dgvIncapacities.AutoGenerateColumns = false;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIncapacities.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIncapacities.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvIncapacities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIncapacities.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dateBeginDataGridViewTextBoxColumn2,
@@ -2601,14 +2784,14 @@ namespace Kadr.UI.Frames
             this.docDateDataGridViewTextBoxColumn,
             this.IsFinished});
             this.dgvIncapacities.DataSource = this.inkapacityDecoratorBindingSource;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvIncapacities.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvIncapacities.DefaultCellStyle = dataGridViewCellStyle30;
             this.dgvIncapacities.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvIncapacities.Location = new System.Drawing.Point(3, 28);
             this.dgvIncapacities.MultiSelect = false;
@@ -2734,14 +2917,14 @@ namespace Kadr.UI.Frames
             this.dgvAllBonus.AllowUserToAddRows = false;
             this.dgvAllBonus.AllowUserToDeleteRows = false;
             this.dgvAllBonus.AutoGenerateColumns = false;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAllBonus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAllBonus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.dgvAllBonus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAllBonus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -2756,14 +2939,14 @@ namespace Kadr.UI.Frames
             this.PrikazBegin,
             this.IntermediateDateEnd0});
             this.dgvAllBonus.DataSource = this.AllbonusBindingSource;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAllBonus.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAllBonus.DefaultCellStyle = dataGridViewCellStyle32;
             this.dgvAllBonus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAllBonus.Location = new System.Drawing.Point(3, 28);
             this.dgvAllBonus.MultiSelect = false;
@@ -2978,7 +3161,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer4.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer4.Size = new System.Drawing.Size(782, 495);
-            this.splitContainer4.SplitterDistance = 261;
+            this.splitContainer4.SplitterDistance = 258;
             this.splitContainer4.TabIndex = 11;
             // 
             // groupBox3
@@ -2988,7 +3171,7 @@ namespace Kadr.UI.Frames
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(782, 261);
+            this.groupBox3.Size = new System.Drawing.Size(782, 258);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
@@ -3005,7 +3188,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(776, 242);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(776, 239);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // dgvEducation
@@ -3013,47 +3196,46 @@ namespace Kadr.UI.Frames
             this.dgvEducation.AllowUserToAddRows = false;
             this.dgvEducation.AllowUserToDeleteRows = false;
             this.dgvEducation.AutoGenerateColumns = false;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEducation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEducation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.dgvEducation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.typeDataGridViewTextBoxColumn1,
             this.educWhenDataGridViewTextBoxColumn,
-            this.whereDataGridViewTextBoxColumn,
+            this.organizationDataGridViewTextBoxColumn4,
             this.educDocumentTypeDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn4,
             this.seriaDataGridViewTextBoxColumn,
             this.numberDataGridViewTextBoxColumn5,
-            this.organizationDataGridViewTextBoxColumn4,
             this.qualificationDataGridViewTextBoxColumn,
             this.specDataGridViewTextBoxColumn});
             this.dgvEducation.DataSource = this.EducationBindingSource;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEducation.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEducation.DefaultCellStyle = dataGridViewCellStyle34;
             this.dgvEducation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEducation.Location = new System.Drawing.Point(3, 28);
             this.dgvEducation.MultiSelect = false;
             this.dgvEducation.Name = "dgvEducation";
             this.dgvEducation.ReadOnly = true;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEducation.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEducation.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dgvEducation.RowHeadersVisible = false;
             this.dgvEducation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEducation.Size = new System.Drawing.Size(770, 333);
@@ -3075,13 +3257,13 @@ namespace Kadr.UI.Frames
             this.educWhenDataGridViewTextBoxColumn.Name = "educWhenDataGridViewTextBoxColumn";
             this.educWhenDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // whereDataGridViewTextBoxColumn
+            // organizationDataGridViewTextBoxColumn4
             // 
-            this.whereDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.whereDataGridViewTextBoxColumn.DataPropertyName = "Where";
-            this.whereDataGridViewTextBoxColumn.HeaderText = "Образовательное учреждение";
-            this.whereDataGridViewTextBoxColumn.Name = "whereDataGridViewTextBoxColumn";
-            this.whereDataGridViewTextBoxColumn.ReadOnly = true;
+            this.organizationDataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.organizationDataGridViewTextBoxColumn4.DataPropertyName = "Organization";
+            this.organizationDataGridViewTextBoxColumn4.HeaderText = "Организация";
+            this.organizationDataGridViewTextBoxColumn4.Name = "organizationDataGridViewTextBoxColumn4";
+            this.organizationDataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // educDocumentTypeDataGridViewTextBoxColumn
             // 
@@ -3114,14 +3296,6 @@ namespace Kadr.UI.Frames
             this.numberDataGridViewTextBoxColumn5.Name = "numberDataGridViewTextBoxColumn5";
             this.numberDataGridViewTextBoxColumn5.ReadOnly = true;
             this.numberDataGridViewTextBoxColumn5.Visible = false;
-            // 
-            // organizationDataGridViewTextBoxColumn4
-            // 
-            this.organizationDataGridViewTextBoxColumn4.DataPropertyName = "Organization";
-            this.organizationDataGridViewTextBoxColumn4.HeaderText = "Организация";
-            this.organizationDataGridViewTextBoxColumn4.Name = "organizationDataGridViewTextBoxColumn4";
-            this.organizationDataGridViewTextBoxColumn4.ReadOnly = true;
-            this.organizationDataGridViewTextBoxColumn4.Visible = false;
             // 
             // qualificationDataGridViewTextBoxColumn
             // 
@@ -3189,7 +3363,7 @@ namespace Kadr.UI.Frames
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(782, 230);
+            this.groupBox2.Size = new System.Drawing.Size(782, 233);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Языки";
@@ -3207,7 +3381,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(776, 211);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(776, 214);
             this.tableLayoutPanel12.TabIndex = 3;
             // 
             // dgvLanguages
@@ -3215,14 +3389,14 @@ namespace Kadr.UI.Frames
             this.dgvLanguages.AllowUserToAddRows = false;
             this.dgvLanguages.AllowUserToDeleteRows = false;
             this.dgvLanguages.AutoGenerateColumns = false;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLanguages.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLanguages.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.dgvLanguages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.languageDataGridViewTextBoxColumn,
             this.languageLevelDataGridViewTextBoxColumn,
@@ -3232,14 +3406,14 @@ namespace Kadr.UI.Frames
             this.numberDataGridViewTextBoxColumn4,
             this.organizationDataGridViewTextBoxColumn3});
             this.dgvLanguages.DataSource = this.employeeLangDecoratorBindingSource;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLanguages.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLanguages.DefaultCellStyle = dataGridViewCellStyle37;
             this.dgvLanguages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLanguages.Location = new System.Drawing.Point(3, 28);
             this.dgvLanguages.MultiSelect = false;
@@ -3550,28 +3724,28 @@ namespace Kadr.UI.Frames
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.AutoGenerateColumns = false;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rankDataGridViewTextBoxColumn,
             this.educDocumentDataGridViewTextBoxColumn1,
             this.rankWhereDataGridViewTextBoxColumn});
             this.dataGridView3.DataSource = this.employeeRankBindingSource;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle39;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(3, 28);
             this.dataGridView3.MultiSelect = false;
@@ -3917,14 +4091,14 @@ namespace Kadr.UI.Frames
             this.dataGridView8.AllowUserToAddRows = false;
             this.dataGridView8.AllowUserToDeleteRows = false;
             this.dataGridView8.AutoGenerateColumns = false;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView8.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView8.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
             this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView8.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDopInfDataGridViewTextBoxColumn,
@@ -3932,14 +4106,14 @@ namespace Kadr.UI.Frames
             this.dopInfDataGridViewTextBoxColumn,
             this.employeeDataGridViewTextBoxColumn4});
             this.dataGridView8.DataSource = this.oKDopInfBindingSource;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView8.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView8.DefaultCellStyle = dataGridViewCellStyle41;
             this.dataGridView8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView8.Location = new System.Drawing.Point(3, 28);
             this.dataGridView8.MultiSelect = false;
@@ -4027,6 +4201,14 @@ namespace Kadr.UI.Frames
             this.tsbDelDopInf.Text = "Удалить";
             this.tsbDelDopInf.ToolTipText = "Удалить запись";
             this.tsbDelDopInf.Click += new System.EventHandler(this.tsbDelDopInf_Click);
+            // 
+            // organizationDataGridViewTextBoxColumn
+            // 
+            this.organizationDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.organizationDataGridViewTextBoxColumn.DataPropertyName = "Organization";
+            this.organizationDataGridViewTextBoxColumn.HeaderText = "Организация";
+            this.organizationDataGridViewTextBoxColumn.Name = "organizationDataGridViewTextBoxColumn";
+            this.organizationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -4964,6 +5146,10 @@ namespace Kadr.UI.Frames
             // 
             this.oKLanguageBindingSource.DataSource = typeof(Kadr.Data.OK_Language);
             // 
+            // tempBS
+            // 
+            this.tempBS.DataSource = typeof(Kadr.Data.OK_Otpusk);
+            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5018,8 +5204,12 @@ namespace Kadr.UI.Frames
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            this.tlpEmpPosts.ResumeLayout(false);
+            this.tlpEmpPosts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmplPosts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStaffBindingSource)).EndInit();
+            this.tsEmpPosts.ResumeLayout(false);
+            this.tsEmpPosts.PerformLayout();
             this.tcEmplPostInf.ResumeLayout(false);
             this.tpEmpOtpusk.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -5128,13 +5318,14 @@ namespace Kadr.UI.Frames
             ((System.ComponentModel.ISupportInitialize)(this.timeSheetDayStateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageLevelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oKLanguageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tempBS)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private TabControl tcEmployee;
+        public TabControl tcEmployee;
         private TabPage tpEmployee;
         private TabPage tpEmpPost;
         private TabPage tpBonus;
@@ -5385,27 +5576,11 @@ namespace Kadr.UI.Frames
         private ToolStripButton tsbDelValidation;
         private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn2;
         private BindingSource validationDecoratorBindingSource;
-        private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn decisionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn commentaryDataGridViewTextBoxColumn;
         private BindingSource timeSheetDayStateBindingSource;
         private BindingSource oKLanguageBindingSource;
         private BindingSource languageLevelBindingSource;
         private BindingSource employeeLangDecoratorBindingSource;
-        private DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn educWhenDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn whereDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn educDocumentTypeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn seriaDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn qualificationDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn specDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn languageDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn languageLevelDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn levelDataGridViewTextBoxColumn;
@@ -5502,11 +5677,6 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn126;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn127;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn128;
-        private DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn targetPlaceDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn finSourceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idfamDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idmembfamDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idemployeeDataGridViewTextBoxColumn3;
@@ -5518,20 +5688,6 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn educDocumentDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn rankWhereDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn Department;
-        private DataGridViewTextBoxColumn Post;
-        private DataGridViewTextBoxColumn WorkType;
-        private DataGridViewTextBoxColumn HourCount;
-        private DataGridViewTextBoxColumn FinancingSource;
-        private DataGridViewTextBoxColumn PKCategory;
-        private DataGridViewTextBoxColumn Category;
-        private DataGridViewTextBoxColumn SalarySize;
-        private DataGridViewTextBoxColumn StaffCount;
-        private DataGridViewTextBoxColumn FStDateBegin;
-        private DataGridViewTextBoxColumn FStPrikazBegin;
-        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn Prikaz;
-        private DataGridViewCheckBoxColumn RegionDatesChanged;
         private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
@@ -5544,12 +5700,7 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn levelDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn1;
+
         private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idAdressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idEmployeeDataGridViewTextBoxColumn2;
@@ -5558,10 +5709,6 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn dateRegDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
         private DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn DateEnd;
-        private DataGridViewCheckBoxColumn SocialFareTransit;
         private BindingSource MaterialResponsibilityBindingSource;
         private DataGridViewTextBoxColumn prikazBeginDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn4;
@@ -5578,5 +5725,67 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn Type;
         private DataGridViewTextBoxColumn Organization;
         private DataGridViewTextBoxColumn specDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn levelDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxOrganization;
+        private DataGridViewTextBoxColumn GDepartment;
+        private DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateBeginDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn targetPlaceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn DaysInRoad;
+        private DataGridViewTextBoxColumn finSourceDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn RegionDatesChanged;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripButton tsbChangeTripDates;
+        private ToolStripButton tsbCancelTrip;
+        private BindingSource tempBS;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn DateEnd;
+        private DataGridViewTextBoxColumn CountDay;
+        private DataGridViewTextBoxColumn PrikazColumn;
+        private DataGridViewTextBoxColumn PrikazLgot;
+        private DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn educWhenDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn organizationDataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn educDocumentTypeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn seriaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn qualificationDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn specDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn DocType;
+        private DataGridViewTextBoxColumn decisionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn commentaryDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Department;
+        private DataGridViewTextBoxColumn Post;
+        private DataGridViewTextBoxColumn WorkType;
+        private DataGridViewTextBoxColumn HourCount;
+        private DataGridViewTextBoxColumn FinancingSource;
+        private DataGridViewTextBoxColumn PKCategory;
+        private DataGridViewTextBoxColumn Category;
+        private DataGridViewTextBoxColumn SalarySize;
+        private DataGridViewTextBoxColumn StaffCount;
+        private DataGridViewTextBoxColumn FStDateBegin;
+        private DataGridViewTextBoxColumn FStPrikazBegin;
+        private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Prikaz;
+        private TableLayoutPanel tlpEmpPosts;
+        private ToolStrip tsEmpPosts;
+        private ToolStripDropDownButton tsbChangeFactStaffContract;
+        private ToolStripSplitButton tspFactStaffFilter;
+        private ToolStripMenuItem текущиеToolStripMenuItem1;
+        private ToolStripMenuItem уволенныеToolStripMenuItem;
+        private ToolStripButton btnHistoryFactStaff;
     }
 }

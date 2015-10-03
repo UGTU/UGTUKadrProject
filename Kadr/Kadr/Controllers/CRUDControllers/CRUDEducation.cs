@@ -18,11 +18,18 @@ namespace Kadr.Controllers
 
                 dlg.InitializeNewObject = (x) =>
                 {
+                    var doc = new EducDocument(dlg.CommandManager,
+                        KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.id == EducDocumentType.EducationDoc));
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, Employee>(x, "Employee", e, null), sender);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, EducDocument>(x, "EducDocument",
-                         new EducDocument(dlg.CommandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.id == EducDocumentType.EducationDoc))), sender);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, EducationType>(x, "EducationType", KadrController.Instance.Model.EducationTypes.FirstOrDefault(), null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, EducDocument>(x, "EducDocument", doc, null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, EducationType>(x, "EducationType", 
+                        KadrController.Instance.Model.EducationTypes.FirstOrDefault(), null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, int?>(x, "EducWhen", DateTime.Today.Year, null), sender);
+                };
+
+                dlg.UpdateObjectList = () =>
+                {
+                    dlg.ObjectList = KadrController.Instance.Model.OK_Educs;
                 };
 
                 dlg.ShowDialog();
@@ -42,7 +49,6 @@ namespace Kadr.Controllers
             if (EducationBindingSource.Current != null)
             {
                 var ed = (EducationBindingSource.Current as EducationDecorator).GetEmplEduc();
-                if (ed.EducDocument == null) ed.EducDocument = new EducDocument();
                 LinqActionsController<OK_Educ>.Instance.EditObject(ed, false);
             }
 

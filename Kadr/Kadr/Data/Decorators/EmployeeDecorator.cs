@@ -20,8 +20,9 @@ namespace Kadr.Data
 
         override public string ToString()
         {
-
-            return "Сотрудник " + _employee.EmployeeSmallName;
+            if (_employee.id == 0)
+                return "Ввод личных данных сотрудника";
+            return "Редактирование личных данных сотрудника";
         }
 
         [System.ComponentModel.DisplayName("ID")]
@@ -40,6 +41,7 @@ namespace Kadr.Data
                 _employee.id = value;
             }
         }
+
         [System.ComponentModel.DisplayName("Возраст")]
         [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Возраст полных лет сотрудника")]
@@ -55,6 +57,23 @@ namespace Kadr.Data
             }
 
         }
+
+        [System.ComponentModel.DisplayName("Электронный адрес")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Адрес электронной почты")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string Email
+        {
+            get
+            {
+                return _employee.email;
+            }
+            set
+            {
+                _employee.email = value;
+            }
+        }
+
         [System.ComponentModel.DisplayName("Табельный номер")]
         [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Табельный номер сотрудника в системе отдела кадров")]

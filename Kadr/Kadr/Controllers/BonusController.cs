@@ -59,7 +59,7 @@ namespace Kadr.Controllers
 
                     if ((bonusObject is Post) || (bonusObject is Employee))
                     {
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BonusHistory, FinancingSource>(bonusHistory, "FinancingSource", FinancingSource.DefaultFinancingSource, null), this);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<BonusHistory, FinancingSource>(bonusHistory, "FinancingSource", MagicNumberController.DefaultFinancingSource, null), this);
                     }
                     /*if (bonusObject is Post)
                     {

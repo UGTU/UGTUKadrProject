@@ -69,7 +69,15 @@ namespace Kadr.Data
                 return SocialFareTransit != null;
             }
         }
-        
+
+        public Prikaz PrikazLgot
+        {
+            get
+            {
+                return (SocialFareTransit != null) ? SocialFareTransit.Prikaz : null;
+            }
+        }
+
         #region IDecorable Members
 
         public object GetDecorator()
@@ -91,11 +99,22 @@ namespace Kadr.Data
                 if (SocialFareTransit != null)
                     if (SocialFareTransit.IsNull())
                         SocialFareTransit = null;
+                if (SocialFareTransit != null)
+                {
+                    if (SocialFareTransit.Prikaz == null) throw new ArgumentNullException("Приказ на льготный проезд.");
+                }
+
+
                 if (Event.IsNull() || Event == null) throw new ArgumentNullException("Приказ.");
                 if ((OK_Otpuskvid == null) || (OK_Otpuskvid.IsNull())) throw new ArgumentNullException("Вид отпуска.");
+                if ((OK_Otpuskvid == null) || (OK_Otpuskvid.IsNull())) throw new ArgumentNullException("Вид отпуска.");
+                if ((RealDateBegin == null) || (RealDateBegin == DateTime.MinValue)) throw new ArgumentNullException("Дата начала отпуска.");
+                if ((RealDateEnd == null) || (RealDateEnd == DateTime.MinValue)) throw new ArgumentNullException("Дата окончания отпуска.");
                 if (RealDateEnd != null)
                     if (RealDateEnd < RealDateBegin)
                         throw new ArgumentOutOfRangeException("Дата окончания отпуска должна быть позже даты его начала.");
+                DateBegin = RealDateBegin;
+                DateEnd = RealDateEnd;
             }
         }
 

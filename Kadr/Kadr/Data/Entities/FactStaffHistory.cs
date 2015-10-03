@@ -3,21 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Linq;
+using Kadr.Controllers;
 
 namespace Kadr.Data
 {
     partial class FactStaffHistory : UIX.Views.IDecorable, UIX.Views.IValidatable
     {
 
-        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, bool withContract = false)
+        public EventKind CreatingEventKind
+        {
+            get;
+            set;
+        }
+
+        public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false)
             : this()
         {
+            //x.SetProperties(dlg.CommandManager, currentFactStaff, currentFactStaff.WorkType, NullPrikaz.Instance, DateTime.Today.Date, eventKind, eventType, withContract);
+            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind,eventType, withContract);
+        }
+
+
+        public void SetProperties(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false)
+        {
+            //если уже есть изменение, то берем львинную долю свойств оттуда
+            if (factStaff.CurrentChange != null)
+            {
+                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(this, "StaffCount", factStaff.StaffCount, null), this);
+                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal?>(this, "HourCount", factStaff.HourCount, null), this);
+                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal?>(this, "HourSalary", factStaff.HourSalary, null), this);
+                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, SalaryKoeff>(this, "SalaryKoeff", factStaff.SalaryKoeff, null), this);
+            }
+
+            FinancingSource financingSource = null;
+            if (eventKind == MagicNumberController.FactStaffFinSourceChangeEventKind) 
+                financingSource = factStaff.LastChange.FinancingSource;
+            if (eventKind == MagicNumberController.FactStaffHourCreateEventKind)
+                financingSource = MagicNumberController.budgetFinancingSource;
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FinancingSource>(this, "FinancingSource", financingSource, null), null);
+
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, EventKind>(this, "CreatingEventKind", eventKind, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(this, "Prikaz", prikaz, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(this, "WorkType", workType, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
-
-            Event curEvent = new Event(CommandManager, this, eventKind, withContract, prikaz);
+            
+            Event curEvent = new Event(CommandManager, this, eventKind, eventType, (eventKind.ForFactStaff) && (eventKind.WithContract.Value), prikaz);
         }
         
         public override string ToString()
@@ -38,7 +69,19 @@ namespace Kadr.Data
             }
         }
 
-        #region EventData 
+        #region EventContractData 
+
+        public Contract FirstContract
+        {
+            get
+            {
+                if (FactStaff != null)
+                    if (FactStaff.FirstDesignate != null)
+                        return FactStaff.FirstDesignate.Contract;
+                return null;
+            }
+        }
+
 
         /// <summary>
         /// Событие назначения этого изменения
@@ -47,7 +90,7 @@ namespace Kadr.Data
         {
             get
             {
-                return Events.Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
+                return Events.Where(x => x.EventKind != null).Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
             }
         }
 
@@ -78,7 +121,7 @@ namespace Kadr.Data
         {
             if (Contract != null)
             {
-                if ((Contract.DateContract == null) || (Contract.DateContract == DateTime.MinValue))
+                if ((Contract.DateContract == null) || (Contract.DateContract == DateTime.MinValue) || (Contract.DateContract.Value.Date == DateTime.Today.Date))
                 {
                     Contract.DateBegin = value;
                     Contract.DateContract = value;
@@ -140,6 +183,7 @@ namespace Kadr.Data
                     if ((Prikaz as Kadr.Data.Common.INull).IsNull()  && !FactStaff.IsHourStaff)
                         throw new ArgumentNullException("Приказ изменения.");
                 }
+
                 if ((StaffCount <= 0) || (StaffCount == null)) 
                     throw new ArgumentOutOfRangeException("Количество ставок.");
                 if (DateBegin == null) 
@@ -149,13 +193,8 @@ namespace Kadr.Data
                 if (MainEvent != null)
                     (MainEvent as UIX.Views.IValidatable).Validate();
 
-                /*if (NewContract != null)
-                {
-                    (NewContract as UIX.Views.IValidatable).Validate();
-                    Contract = NewContract;
-                    Kadr.Controllers.KadrController.Instance.Model.Contracts.InsertOnSubmit(Contract);
-                }*/
-
+                SalaryKoeff = null;
+                
 
                 //проверка на переполнение штатов на начало периода
                 /*decimal factStaffCount = Kadr.Controllers.KadrController.Instance.Model.GetFactStaffByPeriod(DateBegin, DateBegin).Where(fcSt => fcSt.idPlanStaff == FactStaff.idPlanStaff).Sum(fcSt => fcSt.StaffCount);
@@ -166,6 +205,18 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
+            if (CreatingEventKind != null)
+                if (CreatingEventKind.DecoratorName != null && CreatingEventKind.DecoratorName != "")
+                {
+                    Type DecoratorType = Type.GetType(CreatingEventKind.DecoratorName);
+                    if (DecoratorType != null)
+                    {
+                        System.Reflection.ConstructorInfo constructor = DecoratorType.GetConstructor(new Type[] { (Type.GetType("Kadr.Data.FactStaffHistory")) });
+                        if (constructor != null)
+                            return constructor.Invoke(new Object[] { this });
+                    }
+                    //return new DecoratorType(this);
+                }
             if (FactStaff.IsReplacement)
                 return new FactStaffHistoryReplacementDecorator(this);
             if (FactStaff.IsHourStaff)

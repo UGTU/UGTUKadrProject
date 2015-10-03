@@ -150,6 +150,7 @@ namespace Kadr.UI.Frames
         private void LoadPlanStaff()
         {
             tspPlanStaffFilter_DropDownItemClicked(null, null);
+            LoadFactStaff();
         }
 
         private void LoadFactStaff()
@@ -222,18 +223,18 @@ namespace Kadr.UI.Frames
                 {
                     if ((plStaff.Category == Kadr.Data.Category.PPSCategory) && ((plStaff as IObjectState).State() == ObjectState.Current))
                     {
-                        if (plStaff.FinancingSource == Kadr.Data.FinancingSource.budgetFinancingSource)
+                        if (plStaff.FinancingSource == MagicNumberController.budgetFinancingSource)
                             budgetCount += plStaff.FreeStaffCount;
 
-                        if (plStaff.FinancingSource == Kadr.Data.FinancingSource.extrabudgetFinancingSource)
+                        if (plStaff.FinancingSource == MagicNumberController.extrabudgetFinancingSource)
                             overbudgetCount += plStaff.FreeStaffCount;
                     }
                 }
             }
-            budgetHourCount = +Department.GetTimeNormForFinSource(Kadr.Data.FinancingSource.budgetFinancingSource) * budgetCount;
-            overbudgetHourCount = +Department.GetTimeNormForFinSource(Kadr.Data.FinancingSource.extrabudgetFinancingSource) * overbudgetCount;
-            busyBudgetHourCount = +Department.GetBusyHourCountForFinSource(Kadr.Data.FinancingSource.budgetFinancingSource);
-            busyOverbudgetHourCount = +Department.GetBusyHourCountForFinSource(Kadr.Data.FinancingSource.extrabudgetFinancingSource);
+            budgetHourCount = +Department.GetTimeNormForFinSource(MagicNumberController.budgetFinancingSource) * budgetCount;
+            overbudgetHourCount = +Department.GetTimeNormForFinSource(MagicNumberController.extrabudgetFinancingSource) * overbudgetCount;
+            busyBudgetHourCount = +Department.GetBusyHourCountForFinSource(MagicNumberController.budgetFinancingSource);
+            busyOverbudgetHourCount = +Department.GetBusyHourCountForFinSource(MagicNumberController.extrabudgetFinancingSource);
             tslPPSVacations.Text = "ППС вакантно: бюджет " + budgetCount.ToString() + " ставок, " + Convert.ToDecimal(string.Format("{0:0.0000}", budgetHourCount))
                         + " / " + Convert.ToDecimal(string.Format("{0:0.00}", busyBudgetHourCount))
                  + " часов, внебюджет " + overbudgetCount.ToString() + " ставок, " + Convert.ToDecimal(string.Format("{0:0.0000}",overbudgetHourCount))
@@ -348,9 +349,16 @@ namespace Kadr.UI.Frames
 
        private void AddFactStaffBtn_Click(object sender, EventArgs e)
        {
+           if (!(planStaffBindingSource.Current as PlanStaff).CanAddFactStaff)
+           {
+               MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
+               return;
+           }
+
            CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
-           LoadFactStaff();
+           LoadPlanStaff();
+           //LoadFactStaff();
        }
 
        private void EditFactStaffBtn_Click(object sender, EventArgs e)
@@ -367,6 +375,7 @@ namespace Kadr.UI.Frames
                    LinqActionsController<FactStaff>.Instance.EditObject(
                        currentFactStaff, true);
            }
+           LoadPlanStaff();
        }
 
 
@@ -435,6 +444,7 @@ namespace Kadr.UI.Frames
                LinqActionsController<FactStaff>.Instance.DeleteObject(CurrentFactStaff,
                         KadrController.Instance.Model.FactStaffs, factStaffBindingSource);
            }
+           LoadPlanStaff();
 
        }
 
@@ -488,9 +498,11 @@ namespace Kadr.UI.Frames
                     finally
                     {
                         KadrController.Instance.DeleteModel();
+                        LoadPlanStaff();
                         LoadFactStaff();
                     }
                 }
+                LoadPlanStaff();
            }
        }
 
@@ -547,62 +559,9 @@ namespace Kadr.UI.Frames
 
        private void AddReplacementBtn_Click(object sender, EventArgs e)
        {
-           if (factStaffBindingSource.Current == null)
-           {
-               MessageBox.Show("Выберите сотрудника, которого нужно заместить.", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
-               return;
-           }
-
-           if ((factStaffBindingSource.Current as FactStaff).Prikaz!=null)
-           {
-               MessageBox.Show("Замещаемый сотрудник уже уволен!", "ИС \"Управление кадрами\"", MessageBoxButtons.OK);
-               return;
-           }
-
-           FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
-
-            using (Common.PropertyGridDialogAdding<FactStaffReplacement> dlg =
-                new Common.PropertyGridDialogAdding<FactStaffReplacement>())
-            {
-                dlg.ObjectList = KadrController.Instance.Model.FactStaffReplacements;
-                dlg.BindingSource = null;
-                dlg.UseInternalCommandManager = true;
-                dlg.InitializeNewObject = (x) =>
-                {
-                    FactStaff factStaff = new FactStaff();
-                    FactStaffHistory fcStHistory = new FactStaffHistory();
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, PlanStaff>(factStaff, "PlanStaff", currentFactStaff.PlanStaff, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", KadrController.Instance.Model.WorkTypes.Where(wtp => wtp.IsReplacement).FirstOrDefault(), null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(factStaff, "Employee", NullEmployee.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(fcStHistory, "Prikaz", NullPrikaz.Instance, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(factStaff, "IsReplacement", true, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", factStaff, null), this);
-
-                    //вычисляем то кол-во ставок, которое еще не замещено
-                    decimal ReplStaffCount = currentFactStaff.StaffCount;
-                    foreach (FactStaffReplacement repl in currentFactStaff.FactStaffReplacements)
-                    {
-                        if (repl.FactStaff1.Prikaz == null)
-                            ReplStaffCount -= repl.FactStaff1.StaffCount;
-                    }
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "StaffCount", ReplStaffCount, null), this);
-
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffReplacement, FactStaff>(x, "MainFactStaff", factStaff, null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffReplacement, FactStaff>(x, "ReplacedFactStaff", currentFactStaff, null), this);
-                    if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
-                    {
-                        FactStaffReplacement prev = dlg.SelectedObjects[0] as FactStaffReplacement;
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffReplacement, FactStaffReplacementReason>(x, "FactStaffReplacementReason", prev.FactStaffReplacementReason, null), this);
-                    }
-                    else
-                    {
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffReplacement, FactStaffReplacementReason>(x, "FactStaffReplacementReason", NullFactStaffReplacementReason.Instance, null), this);
-                    }
-
-                };
-                dlg.ShowDialog();
-            }
-            LoadFactStaff();
+           CRUDFactStaffReplacement.Create(factStaffBindingSource, factStaffBindingSource.Current as FactStaff, sender);
+           LoadPlanStaff();
+           //LoadFactStaff();
        
        }
 
@@ -836,6 +795,9 @@ namespace Kadr.UI.Frames
            tcDepartment.TabPages.Remove(tpMinFormReport);
            //tcDepartment.TabPages.Remove(tpTimeNorm);
            tcDepartment.TabPages.Remove(tpDepartments);
+
+           //создаем меню для изменений трудового договора FactStaff
+           CreateChangeFactStaffContractMenu();
            
            cbYear.Items.Clear();
            cbYear.Items.AddRange(KadrController.Instance.Model.TimeSheets.Select(ts => ts.TimeSheetYear as Object).Distinct().OrderByDescending(ts => ts as int?).ToArray());
@@ -891,6 +853,22 @@ namespace Kadr.UI.Frames
            cbQuarter.SelectedItem = cbQuarter.Items[DateTime.Today.Month / 3 + MonthMod3 - 1];
 
            
+       }
+
+       public void CreateChangeFactStaffContractMenu()
+       {
+           IEnumerable<EventKind> eventKinds = MagicNumberController.FactStaffChangeEventKinds;
+           System.Windows.Forms.ToolStripMenuItem[] stripItems = new ToolStripMenuItem[eventKinds.Count()];
+           int i = 0;
+           foreach (EventKind eventKind in eventKinds)
+           {
+               stripItems[i] = new System.Windows.Forms.ToolStripMenuItem(eventKind.EventKindApplName);
+               //stripItems[i].Text = eventKind.EventKindName;
+               stripItems[i].Name = eventKind.EventKindApplName + "ToolStripMenuItem";
+               stripItems[i].Click += new System.EventHandler(this.btnChangeFactStaff_Click);
+               i++;
+           }
+           this.tsbChangeFactStaffContract.DropDownItems.AddRange(stripItems);
        }
 
        private void btnReportLoad_Click(object sender, EventArgs e)
@@ -956,7 +934,9 @@ namespace Kadr.UI.Frames
                return;
            }
 
-           KadrController.Instance.AddFactStaffHistory(currentFactStaff);
+           EventKind thisEventKind = KadrController.Instance.Model.EventKinds.Where(x => x.EventKindApplName == sender.ToString()).FirstOrDefault();
+           CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind?? MagicNumberController.FactStaffChangeMainEventKind,
+               MagicNumberController.BeginEventType, true);
            LoadPlanStaff();
        }
 
@@ -975,6 +955,7 @@ namespace Kadr.UI.Frames
                HistForm.FactStaff = currentFactStaff;
                HistForm.ShowDialog();
            }
+           LoadPlanStaff();
        }
 
        private void tcForms_SelectedIndexChanged(object sender, EventArgs e)
@@ -1378,7 +1359,8 @@ namespace Kadr.UI.Frames
            }
 
 
-           KadrController.Instance.AddFactStaffHistory(currentFactStaff);
+           CRUDFactStaffHistory.Create(currentFactStaff, KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(),
+               MagicNumberController.BeginEventType, false);
            //LoadHourFactStaff();
            tcDepartment_SelectedIndexChanged(null, null);
            
@@ -1470,7 +1452,7 @@ namespace Kadr.UI.Frames
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", Data.WorkType.hourWorkType, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x.FactStaff, "Dep", Department, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x.FactStaff, "FundingCenter", NullFundingCenter.Instance, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x.FactStaff, "FinancingSource", Data.FinancingSource.extrabudgetFinancingSource, null), this);
+                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x.FactStaff, "FinancingSource", MagicNumberController.extrabudgetFinancingSource, null), this);
                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "SalaryKoeff", 1, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", x.FactStaff, null), this);
 
@@ -1531,11 +1513,21 @@ namespace Kadr.UI.Frames
 
        private void tsbAddEmplFactStaff_Click(object sender, EventArgs e)
        {
+           if (!(planStaffBindingSource.Current as PlanStaff).CanAddFactStaff)
+           {
+               MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
+               return;
+           }
+
            CRUDEmployee.Create(this, planStaffBindingSource.Current as PlanStaff);
            //CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
+           LoadPlanStaff();
            LoadFactStaff();
        }
+
+
+       
 
  
        

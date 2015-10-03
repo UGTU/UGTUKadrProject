@@ -472,18 +472,20 @@ inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
 inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
 where Prikaz.idPrikazType=10  
 
-
+go
+alter table [dbo].[EventKind]
+add EventKindApplName VARCHAR(100)
 
 go
 set identity_insert [dbo].[EventKind] ON
-insert into [dbo].[EventKind]([id],[EventKindName])
-values(3,'Перевод сотрудника')
+insert into [dbo].[EventKind]([id],[EventKindName], EventKindApplName)
+values(3,'Перевод сотрудника','')
 
-insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind])
-values(4,'Смена источника финанасирования',2)
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [DecoratorName])
+values(4,'Смена источника финансирования',2,'Источник финанасирования', 'Kadr.Data.FactStaffHistoryFinSourceDecorator')
 
-insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind])
-values(5,'Установление должностного оклада',2)
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [DecoratorName])
+values(5,'Установление должностного оклада',2,'Должностной оклад', 'Kadr.Data.FactStaffHistoryMinDecorator')
 
 insert into [dbo].[EventKind]([id],[EventKindName])
 values(6,'Ввод/вывод ставок')
@@ -685,3 +687,435 @@ delete
 from dbo.Employee
 where id not in (select ISNULL(idEmployee,0) from dbo.FactStaff)
 and itab_n is null
+
+
+select *
+from dbo.Employee
+where [LastName] like '%true%'
+
+
+
+
+go
+update [dbo].[RegionType]
+set [RegionTypeName]='Без особых условий', [RegionTypeSmallName]='БОУ'
+where id=1
+
+
+
+
+go
+alter table [dbo].[EventKind]
+add DecoratorName VARCHAR(500) NULL
+
+
+
+go
+update [dbo].[RegionType]
+set [RegionTypeName]='Бех особых условий', [RegionTypeSmallName]='БОУ'
+where id=1
+
+
+================================================
+Необязательное поле "Организация" для наград
+=================================================
+/*
+   23 сентября 2015 г.16:47:58
+   Пользователь: 
+   Сервер: ugtudb
+   База данных: KadrRealTest
+   Приложение: 
+*/
+
+/* Чтобы предотвратить возможность потери данных, необходимо внимательно просмотреть этот скрипт, прежде чем запускать его вне контекста конструктора баз данных.*/
+BEGIN TRANSACTION
+SET QUOTED_IDENTIFIER ON
+SET ARITHABORT ON
+SET NUMERIC_ROUNDABORT OFF
+SET CONCAT_NULL_YIELDS_NULL ON
+SET ANSI_NULLS ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_Event
+GO
+ALTER TABLE dbo.Event SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_AwardLevel
+GO
+ALTER TABLE dbo.AwardLevel SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_AwardType
+GO
+ALTER TABLE dbo.AwardType SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_Employee
+GO
+ALTER TABLE dbo.Employee SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_EducDocument
+GO
+ALTER TABLE dbo.EducDocument SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.Tmp_Award
+	(
+	ID int NOT NULL IDENTITY (1, 1),
+	Name nvarchar(100) NULL,
+	IDEmployee int NOT NULL,
+	IDEducDocument int NOT NULL,
+	IDAwardType int NOT NULL,
+	idEvent int NULL,
+	IDAwardLevel int NOT NULL,
+	Organization nvarchar(100) NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Tmp_Award SET (LOCK_ESCALATION = TABLE)
+GO
+SET IDENTITY_INSERT dbo.Tmp_Award ON
+GO
+IF EXISTS(SELECT * FROM dbo.Award)
+	 EXEC('INSERT INTO dbo.Tmp_Award (ID, Name, IDEmployee, IDEducDocument, IDAwardType, idEvent, IDAwardLevel)
+		SELECT ID, CONVERT(nvarchar(100), Name), IDEmployee, IDEducDocument, IDAwardType, idEvent, IDAwardLevel FROM dbo.Award WITH (HOLDLOCK TABLOCKX)')
+GO
+SET IDENTITY_INSERT dbo.Tmp_Award OFF
+GO
+DROP TABLE dbo.Award
+GO
+EXECUTE sp_rename N'dbo.Tmp_Award', N'Award', 'OBJECT' 
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	PK_Award PRIMARY KEY CLUSTERED 
+	(
+	ID
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_EducDocument FOREIGN KEY
+	(
+	IDEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_Employee FOREIGN KEY
+	(
+	IDEmployee
+	) REFERENCES dbo.Employee
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_AwardType FOREIGN KEY
+	(
+	IDAwardType
+	) REFERENCES dbo.AwardType
+	(
+	ID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_AwardLevel FOREIGN KEY
+	(
+	IDAwardLevel
+	) REFERENCES dbo.AwardLevel
+	(
+	ID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_Event FOREIGN KEY
+	(
+	idEvent
+	) REFERENCES dbo.Event
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+COMMIT
+
+=======================================
+Добавляем новый справочник "Ведомство"
+=======================================
+CREATE TABLE [dbo].[GovDepartment](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_GovDepartment] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [U_Name] UNIQUE NONCLUSTERED 
+(
+	[Name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+=========================================
+Привязываем "Ведомство" к награде
+=========================================
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.GovDepartment SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award ADD
+	IDGovDepartment int NULL
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_GovDepartment FOREIGN KEY
+	(
+	IDGovDepartment
+	) REFERENCES dbo.GovDepartment
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+
+=========================================
+Слабая сущность "Событие командировки"
+=========================================
+CREATE TABLE [dbo].[Event_BusinessTrip](
+	[idEvent] [int] NOT NULL,
+	[idBusinessTrip] [int] NOT NULL,
+ CONSTRAINT [PK_Event_BusinessTrip] PRIMARY KEY CLUSTERED 
+(
+	[idEvent] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+========================================
+Изменяем "Командировку" для связи со слабой сущностью, также добавляем "Дни в дороге"
+========================================
+
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.BusinessTrip
+	DROP CONSTRAINT FK_BusinessTrip_FactStaffPrikaz
+GO
+ALTER TABLE dbo.Event SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.BusinessTrip ADD
+	DaysInRoad int NULL
+GO
+ALTER TABLE dbo.BusinessTrip
+	DROP CONSTRAINT IX_BusinessTrip_idFactStaffPrikaz
+GO
+ALTER TABLE dbo.BusinessTrip
+	DROP COLUMN idEvent
+GO
+ALTER TABLE dbo.BusinessTrip SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+
+=======================================
+Связи для слабой сущности "Событие командировки"
+=======================================
+
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Event_BusinessTrip ADD CONSTRAINT
+	FK_Event_BusinessTrip_Event FOREIGN KEY
+	(
+	idEvent
+	) REFERENCES dbo.Event
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Event_BusinessTrip ADD CONSTRAINT
+	FK_Event_BusinessTrip_BusinessTrip FOREIGN KEY
+	(
+	idBusinessTrip
+	) REFERENCES dbo.BusinessTrip
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Event_BusinessTrip SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+set identity_insert [dbo].AwardType ON
+
+DROP INDEX  SocialFareTransit.IX_SocialFareTransitidFactStaffPrikaz
+alter table [dbo].[SocialFareTransit] drop FK_SocialFareTransit_Event
+alter table [dbo].[SocialFareTransit] drop column [idEvent]
+
+alter table [dbo].[SocialFareTransit] add idPrikaz int null
+
+/****** Object:  Index [IX_SocialFareTransit_prikaz]    Script Date: 30.09.2015 10:43:12 ******/
+CREATE NONCLUSTERED INDEX [IX_SocialFareTransit_prikaz] ON [dbo].[SocialFareTransit]
+(
+	[idPrikaz] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[SocialFareTransit]  WITH CHECK ADD  CONSTRAINT [FK_SocialFareTransit_Prikaz] FOREIGN KEY([idPrikaz])
+REFERENCES [dbo].[Prikaz] ([id])
+GO
+ALTER TABLE [dbo].[SocialFareTransit] CHECK CONSTRAINT [FK_SocialFareTransit_Prikaz]
+GO
+
+set identity_insert [dbo].[PrikazType] ON
+insert into [dbo].[PrikazType]([id],[PrikazTypeName],idPrikazSuperType)
+values(43,'Льготный проезд',1)
+set identity_insert [dbo].[PrikazType] OFF
+
+
+
+
+
+
+
+go
+set identity_insert [dbo].[EventKind] ON
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(7,'Продление договора',2,'Срок действия',1,'Kadr.Data.FactStaffHistoryMinDecorator',1)
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(8,'Изменение размера ставки',2,'Размер ставки',1,'Kadr.Data.FactStaffHistoryStaffCountDecorator',1)
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(10,'Назначение замещения',null,'Назначение замещения',1,null,1)
+
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(11,'Прием почасовика',null,'Прием почасовика',1,null,0)
+set identity_insert [dbo].[EventKind] OFF
+
+
+
+/*go
+alter table [dbo].[FactStaffHistory]
+add [idFinancingSource] */
+
+
+go
+alter table [dbo].[Employee]
+add email varchar(100) 
+go
+update [dbo].[Employee]
+set email=[EmployeeLogin]
+
+
+go
+alter table [dbo].[SalaryKoeff]
+add CategoryPPName varchar(150) null
+go
+alter table dbo.FactStaffHistory
+add idFinancingSource int null
+
+GO
+
+ALTER TABLE [dbo].[FactStaffHistory]  WITH CHECK ADD  CONSTRAINT [FK_FactStaffHistory_FinancingSource] FOREIGN KEY([idFinancingSource])
+REFERENCES [dbo].[FinancingSource] ([id])
+GO
+
+ALTER TABLE [dbo].[FactStaffHistory] CHECK CONSTRAINT [FK_FactStaffHistory_FinancingSource]
+GO
+
+GO
+
+/****** Object:  Index [IX_FactStaffHistory_idFinancingSource]    Script Date: 02.10.2015 18:35:04 ******/
+CREATE NONCLUSTERED INDEX [IX_FactStaffHistory_idFinancingSource] ON [dbo].[FactStaffHistory]
+(
+	[idFinancingSource] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+
+GO
+
+
+/*select * from [FactStaffCurrent] where id = 172 order by DateBegin
+Представление со всеми текущими параметрами FactStaff (DateBegin...) */
+alter VIEW [dbo].[FactStaffCurrent]
+AS
+SELECT        dbo.FactStaff.id, dbo.FactStaffHistory.StaffCount, dbo.FactStaffHistory.HourCount, dbo.FactStaffHistory.HourSalary, dbo.FactStaff.idPlanStaff, 
+				dbo.FactStaff.idEmployee, dbo.FactStaffHistory.idBeginPrikaz, dbo.FactStaff.idEndPrikaz, 
+                         dbo.FactStaffHistory.idTypeWork, CONVERT(date, dbo.FactStaffHistory.DateBegin) AS DateBegin, CONVERT(date, dbo.FactStaff.DateEnd) AS DateEnd, 
+                         dbo.FactStaff.IsReplacement, dbo.FactStaffHistory.id AS idFactStaffHistory, dbo.FactStaff.DateEnd AS DateEndR, dbo.FactStaffHistory.DateBegin AS DateBeginR, 
+                         dbo.FactStaff.idlaborcontrakt AS idLaborContaraktMain, dbo.FactStaffHistory.idlaborcontrakt AS idLaborContraktHistory,
+                         FactStaff.idFundingDepartment, FactStaff.idFundingCenter,FactStaff.idMainFactStaff,FactStaff.idDepartment,FactStaffHistory.[idFinancingSource],
+	FactStaffHistory.idSalaryKoeff, FactStaffHistory.[HourStaffCount],[CalcStaffCount], PhoneNumber, FactStaff.idOKVED
+FROM            dbo.FactStaff INNER JOIN
+                         dbo.FactStaffHistory ON dbo.FactStaff.id = dbo.FactStaffHistory.idFactStaff 
+                             INNER JOIN
+					  (SELECT   FactStaffHistory.idFactStaff,  MAX(DateBegin) AS LastDateBegin
+                            FROM          dbo.FactStaffHistory
+                            WHERE      (DateBegin <= GETDATE())
+							GROUP BY FactStaffHistory.idFactStaff)LastFactStaffHistory
+							ON (LastFactStaffHistory.idFactStaff = dbo.FactStaff.id) 
+								AND  dbo.FactStaffHistory.DateBegin =LastFactStaffHistory.LastDateBegin
+
+go
+
+
+
+
+
+
+
+
+
+
+
+update [FactStaffHistory]
+set [FactStaffHistory].[idFinancingSource]=FactStaff.idFinancingSource
+from [dbo].[FactStaffHistory] 
+inner join 
+dbo.FactStaff
+ON [FactStaffHistory].idFactStaff=FactStaff.id
+where FactStaff.idFinancingSource is not null

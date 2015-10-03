@@ -23,7 +23,7 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Территориальные условия")]
         [System.ComponentModel.Description("В какой регион командируется сотрудник")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.RegionConverter))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SimpleToStringConvertor<RegionType>))]
 
         public RegionType TripMainRegion
         {

@@ -19,27 +19,25 @@ namespace Kadr.Controllers
                 dlg.InitializeNewObject = (x) =>
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, Event>(x, "Event",
-                        new Event(dlg.CommandManager, fs.CurrentChange), null), sender);
+                        new Event(dlg.CommandManager, fs.CurrentChange, MagicNumberController.VacationEventKind,MagicNumberController.BeginEventType, false, NullPrikaz.Instance, DateTime.Today.Date), null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, OK_Otpuskvid>(x, "OK_Otpuskvid", NullOK_Otpuskvid.Instance, null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, DateTime?>(x, "DateBegin", DateTime.Today.Date, null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Otpusk, DateTime?>(x, "DateEnd", DateTime.Today.Date, null), sender);
                 };
 
                 dlg.ShowDialog();
             }
-            Read(fs.CurrentChange, e, oKOtpuskBindingSource);
+            Read(fs, oKOtpuskBindingSource);
         }
 
-        public static void Read(FactStaffHistory fsh, Employee e, BindingSource oKOtpuskBindingSource)
+        public static void Read(FactStaff fs, BindingSource oKOtpuskBindingSource)
         {
-           IEnumerable<OK_Otpusk> tmp;
 
-            if (fsh != null )
-                tmp = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory == fsh);
-            else
-                tmp = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory.FactStaff.Employee == e);
-               
-                oKOtpuskBindingSource.DataSource =
-                    tmp.Where(
-                    otp => otp.Event.DateBegin >= DateTime.Today.AddYears(-1)).OrderByDescending(otp => otp.Event.DateBegin);
+           if (fs != null)
+               oKOtpuskBindingSource.DataSource = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory.FactStaff == fs).Where(
+                   otp => otp.Event.DateBegin >= DateTime.Today.AddYears(-1)).OrderByDescending(otp => otp.Event.DateBegin);
+           else
+               oKOtpuskBindingSource.DataSource = null;
             
         }
 
@@ -48,7 +46,7 @@ namespace Kadr.Controllers
             if (oKOtpuskBindingSource.Current != null)
                 LinqActionsController<OK_Otpusk>.Instance.EditObject(
                         oKOtpuskBindingSource.Current as OK_Otpusk, true);
-            Read(fs.CurrentChange, e, oKOtpuskBindingSource);
+            Read(fs, oKOtpuskBindingSource);
         }
 
         public static void Delete(FactStaff fs, Employee e, BindingSource oKOtpuskBindingSource)
@@ -71,7 +69,7 @@ namespace Kadr.Controllers
             KadrController.Instance.Model.OK_Otpusks.DeleteOnSubmit(CurrentOtp);
             LinqActionsController<Event>.Instance.DeleteObject(CurrentPrikaz, KadrController.Instance.Model.Events, null);
 
-            Read(fs.CurrentChange, e, oKOtpuskBindingSource);
+            Read(fs, oKOtpuskBindingSource);
         }
     }
 }

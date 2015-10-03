@@ -22,11 +22,12 @@ namespace Kadr.Controllers
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, Employee>(x, "Employee", e, null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, FactStaff>(x, "FactStaff", fs, null), sender);   
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_DopEducation, EducDocument>(x, "EducDocument",
-                         new EducDocument()), sender);
+                         new EducDocument(dlg.CommandManager, KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.id == EducDocumentType.DefualtDopEducationDoc))),
+                         sender);
                     
                 };
 
-                dlg.BeforeApplyAction = BeforeApplyAction();
+                dlg.BeforeApplyAction = BeforeApplyAction(dlg.CommandManager, sender);
 
                 dlg.UpdateObjectList = () =>
                 {
@@ -39,16 +40,24 @@ namespace Kadr.Controllers
             Read(e, DopEducationBindingSource);
         }
 
-        private static Action<OK_DopEducation> BeforeApplyAction()
+        private static Action<OK_DopEducation> BeforeApplyAction(ICommandManager commandManager, object sender)
         {
             return (x) =>
             {
-                if (x.TempPrikaz != null)
-                    x.Event = new Event()
-                    {
-                        FactStaff = x.FactStaff,
-                        Prikaz = x.TempPrikaz
-                    };
+                if (x.TempPrikaz == null) return;
+                var even = new Event(commandManager, x.FactStaff.CurrentChange, MagicNumberController.DopEducKind,
+                    MagicNumberController.BeginEventType,
+                    false, x.TempPrikaz);
+
+                commandManager.Execute(
+                    new GenericPropertyCommand<OK_DopEducation, Event>(x,
+                        "Event", even, null), sender);
+                 if (x.Event != null)
+                {
+                    commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(x.Event, "DateBegin", x.DateBegin, null), null);
+                    commandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(x.Event, "DateEnd", x.DateEnd, null), null);
+                }
+
                 if ((x.Event == null) || (x.Event.Prikaz != null)) return;
                 KadrController.Instance.Model.Events.DeleteOnSubmit(x.Event);
                 x.Event = null;
@@ -60,17 +69,17 @@ namespace Kadr.Controllers
             DopEducationBindingSource.DataSource = KadrController.Instance.Model.OK_DopEducations.Where(educ => educ.Employee == e).Select(x => x.GetDecorator()).ToList();
         }
 
-        public static void Update(Employee e,FactStaff fs, BindingSource DopEducationBindingSource)
+        public static void Update(Employee e, FactStaff fs, BindingSource DopEducationBindingSource, object sender)
         {
             if (DopEducationBindingSource.Current != null)
             {
                 var ed = (DopEducationBindingSource.Current as DopEducationDecorator).GetDopEduc();
                 ed.FactStaff = fs;
-                using (var dlg = new Kadr.UI.Common.LinqPropertyGridDialogEditing<OK_DopEducation>())
+                using (var dlg = new LinqPropertyGridDialogEditing<OK_DopEducation>())
                 {
                     dlg.UseInternalCommandManager = true;
                     dlg.SelectedObjects = new object[] { ed };
-                    dlg.BeforeApplyAction = BeforeApplyAction();
+                    dlg.BeforeApplyAction = BeforeApplyAction(dlg.CommandManager, sender);
                     dlg.UpdateObjectList = () =>
                     {
                         dlg.ObjectList = KadrController.Instance.Model.OK_DopEducations;

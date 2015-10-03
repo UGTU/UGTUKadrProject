@@ -59,7 +59,9 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            return this.LastName + " " + this.FirstName + " " + this.Otch;
+            if (BirthDate != null)
+                return LastName +" " + FirstName +" " + Otch + " ("+BirthDate.Value.ToShortDateString()+")";
+            return this.EmployeeName;
         }
 
 
@@ -148,7 +150,7 @@ namespace Kadr.Data
 
         public IEnumerable<BusinessTrip> GetAllTrips()
         {
-            return  FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(x => x.Events).SelectMany(p => p.BusinessTrips);
+            return  FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(x => x.Events).Select(p => p.Event_BusinessTrip).Where(p=>p!=null).Select(x=>x.BusinessTrip).Distinct();
         }
 
         public IEnumerable<BusinessTripRegionType> GetAllRegionTypes()

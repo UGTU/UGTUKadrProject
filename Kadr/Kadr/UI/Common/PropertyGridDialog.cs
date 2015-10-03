@@ -117,6 +117,8 @@ namespace Kadr.UI.Common
                 Text += commandProperyGrid1.SelectedObjects[0].ToString();
             for (int i = 1; i < commandProperyGrid1.SelectedObjects.Length; i++)
                 Text += ", " + commandProperyGrid1.SelectedObjects[i].ToString();
+
+            
         }
 
         protected void TerminateBatchCommand()

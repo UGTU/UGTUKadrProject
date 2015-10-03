@@ -40,6 +40,21 @@ namespace Kadr.Data
             return res;
         }
 
+        public FactStaff(UIX.Commands.ICommandManager commandManager, PlanStaff planStaff, Employee employee, bool isReplacement = false, Dep department = null, FinancingSource financingSource = null): this()
+        {
+            SetProperties(commandManager, planStaff, employee, isReplacement, department, financingSource);
+        }
+
+        public void SetProperties(UIX.Commands.ICommandManager commandManager, PlanStaff planStaff, Employee employee, bool isReplacement = false, Dep department = null, FinancingSource financingSource = null)
+        {
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, PlanStaff>(this, "PlanStaff", planStaff, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Employee>(this, "Employee", employee, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(this, "IsReplacement", isReplacement, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(this, "Dep", department, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(this, "FundingCenter", NullFundingCenter.Instance, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(this, "FinancingSource", financingSource, null), null);
+        }
+
         #region NewEmployeeFactStaffProperties
 
         /// <summary>
@@ -51,17 +66,7 @@ namespace Kadr.Data
             set;
         }
 
-        /*public FactStaff(Employee employee)
-        {
-            NewEmployee = employee;
-        }
-
-        public Employee NewEmployee
-        {
-            get;
-            set;
-        }*/
-        
+       
         #endregion
 
 
@@ -73,10 +78,10 @@ namespace Kadr.Data
         {
             get
             {
+                IEnumerable<Event_BusinessTrip> tripevents = CurrentChange.Events.Where(x => (x.idPrikazEnd == null) && (x.EventType == MagicNumberController.BeginEventType)).Select(x => x.Event_BusinessTrip).Where(t=>t!=null);
+                IEnumerable<BusinessTrip> currenttrips = tripevents.Select(x=>x.BusinessTrip).Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
 
-                var trips = CurrentChange.Events.SelectMany(x => x.BusinessTrips).Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
-                if (trips.Any()) return FactStaffState.OnTrip;
-
+                if (currenttrips.Any()) return FactStaffState.OnTrip;
 
                 var incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
                 if (incapacities.Any()) return FactStaffState.Incapable;
@@ -448,17 +453,20 @@ namespace Kadr.Data
         {
             get
             {
+                if (LastChange.idFinancingSource > 0)
+                    return LastChange.FinancingSource;
                 if (PlanStaff != null)
                     return PlanStaff.FinancingSource;
                 return FinancingSource;
             }
-            set
+            /*set
             {
+                if (LastChange.idFinancingSource > 0)
+                    return LastChange.FinancingSource;
                 if (PlanStaff != null)
-                    PlanStaff.FinancingSource = value;
-                else
-                    FinancingSource = value;
-            }
+                    return PlanStaff.FinancingSource;
+                return FinancingSource;
+            }*/
         }
 
         public Kadr.Data.Post Post
@@ -674,12 +682,20 @@ namespace Kadr.Data
                     throw new ArgumentNullException("Дата увольнения, так как указан приказ об увольнении.");
                 if ((Prikaz == null) && (DateEnd != null) && !IsHourStaff) //для почасовиков приказ необязателен
                     throw new ArgumentNullException("Приказ об увольнении, так как указана дата увольнения.");
+
+                if (FinancingSource != null)
+                    if (FinancingSource.IsNull())
+                        FinancingSource = null;
+
                 if (FundingCenter != null)
                     if (FundingCenter.IsNull())
                         FundingCenter = null;
                 if (OKVED != null)
                     if (OKVED.IsNull())
                         OKVED = null;
+                if (OK_Reason != null)
+                    if (OK_Reason.IsNull())
+                        OK_Reason = null;
 
                 (CurrentChange as UIX.Views.IValidatable).Validate();
             }

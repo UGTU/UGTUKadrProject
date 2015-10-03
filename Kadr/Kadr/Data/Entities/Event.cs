@@ -37,17 +37,21 @@ namespace Kadr.Data
 
         #endregion
 
-        public Event(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory, EventKind eventKind = null, bool withContract = false, Prikaz prikaz = null)
+        public Event(UIX.Commands.ICommandManager CommandManager, FactStaffHistory factStaffHistory, EventKind eventKind = null, EventType eventType = null, bool WithContract = false, Prikaz prikaz = null, DateTime? dateEnd = null)
             : this()
         {
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, FactStaffHistory>(this, "FactStaffHistory", factStaffHistory, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, Prikaz>(this, "Prikaz", prikaz?? NullPrikaz.Instance, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, EventKind>(this, "EventKind", eventKind, null), null);
+            CommandManager.Execute(
+                            new UIX.Commands.GenericPropertyCommand<Event, EventType>(this, "EventType", eventType, null), this);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateBegin", DateTime.Today, null), null);
-            //CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", DateTime.Today, null), null);
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Event, DateTime?>(this, "DateEnd", dateEnd, null), null);
 
-            if (withContract)
-                new Contract(CommandManager, this);
+            if (WithContract) 
+            {
+                new Contract(CommandManager, this, eventKind.ForFactStaff ? factStaffHistory.FirstContract : null, "", DateTime.Today.Date, DateTime.Today.Date);
+            }
         }
         
         public override string ToString()
@@ -78,7 +82,9 @@ namespace Kadr.Data
                     else
                         DateEnd = DateEnd.Value.Date;
 
-                FactStaffHistory = FactStaff.GetHistoryForDate(DateBegin);
+                //если не создается изменение, а редактируется
+                if (FactStaffHistory.id != 0)
+                    FactStaffHistory = FactStaff.GetHistoryForDate(DateBegin);
 
                 if (Contract != null)
                 {
@@ -91,7 +97,9 @@ namespace Kadr.Data
                     DateBegin = FactStaffHistory.DateBegin;
                     Prikaz = FactStaffHistory.Prikaz;
                 }
-                
+
+                if (Prikaz.IsNull())
+                    Prikaz = null;
             }
         }
 

@@ -11,7 +11,7 @@ namespace Kadr.Controllers
 {
     public static class CRUDEmployeeDegree
     {
-        public static void Create(Employee e, object sender)
+        public static void Create(Employee e, object sender, BindingSource employeeDegreeBindingSource)
         {
             using (PropertyGridDialogAdding<EmployeeDegree> dlg =
                SimpleActionsProvider.NewSimpleObjectAddingDialog<EmployeeDegree>())
@@ -32,7 +32,7 @@ namespace Kadr.Controllers
 
                     dlg.ShowDialog();
              }
-            //Read(fs, MaterialResponsibilitybindingSource);
+            Read(e, employeeDegreeBindingSource);
         }
 
         public static void Read(Employee e, BindingSource employeeDegreeBindingSource)
@@ -50,15 +50,17 @@ namespace Kadr.Controllers
 
         public static void Delete(BindingSource employeeDegreeBindingSource)
         {
-            if (MessageBox.Show("Удалить научную степень сотрудника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
-                == DialogResult.OK)
-            {
-                LinqActionsController<EducDocument>.Instance.DeleteObject((employeeDegreeBindingSource.Current as EmployeeDegree).EducDocument,
-                     KadrController.Instance.Model.EducDocuments, null);
-
-                LinqActionsController<EmployeeDegree>.Instance.DeleteObject(employeeDegreeBindingSource.Current as EmployeeDegree,
+            if (employeeDegreeBindingSource.Current == null)
+                MessageBox.Show("Не выбрано удаляемое звание!");
+            else
+                if (MessageBox.Show("Удалить научную степень сотрудника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
+                    == DialogResult.OK)
+                {
+                var degree = employeeDegreeBindingSource.Current as EmployeeDegree;
+                KadrController.Instance.Model.EducDocuments.DeleteOnSubmit(degree.EducDocument);
+                LinqActionsController<EmployeeDegree>.Instance.DeleteObject(degree,
                      KadrController.Instance.Model.EmployeeDegrees, employeeDegreeBindingSource);
-            }
+                }
         }
     }
 }

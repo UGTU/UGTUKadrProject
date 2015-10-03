@@ -130,6 +130,9 @@
   <data name="CenterAcrossHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CenterAcrossHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PrintSetupHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PrintSetupHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CopyFolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CopyFolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,23 +142,26 @@
   <data name="TaskHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TaskHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PrintSetupHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PrintSetupHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PageUpHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PageUpHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ViewThumbnailsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ViewThumbnailsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ProtectSubdocumentHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProtectSubdocumentHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EditCodeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EditCodeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Color_fontHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Color_fontHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NewCardHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewCardHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TableHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TableHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PrintHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PrintHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PushpinHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PushpinHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OrganizerHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OrganizerHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,23 +181,26 @@
   <data name="CutHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CutHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RestartHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RestartHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AlignToGridHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlignToGridHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FindHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FindHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PushpinHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PushpinHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="HighlightHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HighlightHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrintPreviewHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PrintPreviewHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundSoundHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackgroundSoundHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DataContainer_MoveFirsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DataContainer_MoveFirsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SaveAllHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SaveAllHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MoveToFolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MoveToFolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProtectFormHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProtectFormHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,17 +208,14 @@
   <data name="SaveAsWebPageHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SaveAsWebPageHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ColorHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ColorHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PortraitLandscapeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PortraitLandscapeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="DataContainer_MoveLastHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DataContainer_MoveLastHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="book_reportHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\book_reportHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RelationshipsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RelationshipsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LegendHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LegendHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,26 +226,29 @@
   <data name="AlignTableCellMiddleRightHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AlignTableCellMiddleRightHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DoubleRightArrowHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DoubleRightArrowHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="HTMLPasswordHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HTMLPasswordHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="List_NumberedRTLHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\List_NumberedRTLHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AudioHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AudioHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NewReportHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NewReportHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="openfolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\openfolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HTMLSubmitHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HTMLSubmitHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DocumentHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DocumentHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewDocumentHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewDocumentHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ExpandSpaceHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ExpandSpaceHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,29 +265,17 @@
   <data name="RadialChartHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RadialChartHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NewDocumentHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewDocumentHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SendToBackHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SendToBackHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Information.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlignObjectsCenteredVerticalHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AlignObjectsCenteredVerticalHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PrintPreviewHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PrintPreviewHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PieChart3DHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PieChart3DHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ExpirationHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExpirationHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CheckBoxHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CheckBoxHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RulerHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RulerHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewCardHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewCardHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ThumbnailLoadingHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ThumbnailLoadingHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -286,26 +283,23 @@
   <data name="PointerHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PointerHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\error.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DataContainer_MoveNextHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataContainer_MoveNextHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eps_openHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eps_openHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DataContainer_MoveNextHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DataContainer_MoveNextHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GoToParentFolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GoToParentFolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Flag_redHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Flag_redHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MonthlyViewHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MonthlyViewHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="boldhs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\boldhs.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="List_BulletsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\List_BulletsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SearchFolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SearchFolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Information1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Information.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PreviousPageHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PreviousPageHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Edit_Undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_Undo.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -316,14 +310,11 @@
   <data name="SpeechMicHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SpeechMicHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PortraitHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PortraitHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1320205531_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Filter2HS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Filter2HS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AlignToGridHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AlignToGridHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PlayHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StopHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StopHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -343,11 +334,11 @@
   <data name="ArrangeWindowsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrangeWindowsHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="XMLFileHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\XMLFileHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="List_NumberedHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\List_NumberedHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MonthlyViewHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MonthlyViewHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ShowGridlinesHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ShowGridlinesHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Book_angleHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Book_angleHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -355,26 +346,29 @@
   <data name="saveHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saveHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CheckGrammarHS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckGrammarHS1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SortHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SortHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Edit_Cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_Cut.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DIRTREE3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DIRTREE3.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SendToBackHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SendToBackHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="book_addressHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book_addressHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SearchFolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SearchFolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Filter2HS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Filter2HS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Book_StackOfReportsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Book_StackOfReportsHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RightsRestrictedHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RightsRestrictedHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1320205531_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="book_addressHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book_addressHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlignObjectsBottomHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AlignObjectsBottomHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -388,14 +382,11 @@
   <data name="PublishToWebHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PublishToWebHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EditInformationHS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditInformationHS1.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CheckGrammarHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CheckGrammarHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WarningHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WarningHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OrgChartHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OrgChartHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MultiplePagesHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MultiplePagesHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -406,35 +397,23 @@
   <data name="FlipHorizontalHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FlipHorizontalHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PieChart3DHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PieChart3DHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ShowGridlinesHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ShowGridlinesHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PortraitLandscapeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PortraitLandscapeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DeleteFolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeleteFolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="GoToPreviousMessage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GoToPreviousMessage.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="WindowsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WindowsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlignTableCellMiddleLeftJustHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AlignTableCellMiddleLeftJustHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PageUpHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PageUpHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ProtectSubdocumentHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ProtectSubdocumentHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="OptionsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OptionsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ActualSizeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ActualSizeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CheckGrammarHS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CheckGrammarHS1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GoToPreviousMessage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GoToPreviousMessage.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Calendar_scheduleHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Calendar_scheduleHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -448,14 +427,20 @@
   <data name="RecolorPictureHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RecolorPictureHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="openfolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\openfolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="OutdentHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OutdentHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MTV" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MTV.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PieChartHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PieChartHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DIRTREE3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DIRTREE3.ICO;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FillLeftHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FillLeftHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PasteHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PasteHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -475,17 +460,17 @@
   <data name="FontDialogHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FontDialogHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SplitSubdocumentHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SplitSubdocumentHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ShowGridlines2HS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ShowGridlines2HS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AudioHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AudioHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Color_fontHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Color_fontHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RightArrowHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RightArrowHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="GoToParentFolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GoToParentFolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EditTableHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditTableHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Edit_UndoHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_UndoHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -493,23 +478,14 @@
   <data name="NextPageHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NextPageHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="warning1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Warning.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="DialHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DialHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RighsRestrictedHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RighsRestrictedHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EditTableHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EditTableHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FormRunHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FormRunHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PreviousPageHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PreviousPageHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Flag_redHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flag_redHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DataContainer_NewRecordHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DataContainer_NewRecordHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -523,8 +499,8 @@
   <data name="AlignObjectsLeftHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AlignObjectsLeftHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WindowsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WindowsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="XMLFileHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\XMLFileHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GotoShortcutsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GotoShortcutsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -541,8 +517,14 @@
   <data name="DisplayInColorHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DisplayInColorHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SendBackwardHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SendBackwardHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ViewThumbnailsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ViewThumbnailsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Information1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Information.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RestartHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RestartHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PropertiesHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PropertiesHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -562,9 +544,6 @@
   <data name="List_NumberedVertTHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\List_NumberedVertTHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PlayHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PlayHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="RefreshDocViewHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RefreshDocViewHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -577,8 +556,8 @@
   <data name="Edit_Redo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_Redo.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MoveToFolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MoveToFolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PieChartHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PieChartHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ResizeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ResizeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -586,14 +565,8 @@
   <data name="SortUpHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SortUpHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DeleteHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeleteHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="SymbolHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SymbolHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="List_NumberedHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\List_NumberedHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GoToNextHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GoToNextHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -604,8 +577,8 @@
   <data name="Open" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Open.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HTMLPageHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HTMLPageHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SendBackwardHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SendBackwardHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FunctionHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FunctionHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -613,11 +586,17 @@
   <data name="AlignTableCellMiddleCenterHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AlignTableCellMiddleCenterHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ColorHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ColorHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PauseRecorderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PauseRecorderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Holder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Holder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OK.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DataContainer_MoveFirsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataContainer_MoveFirsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NoteHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NoteHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -628,14 +607,17 @@
   <data name="AlignObjectsCenteredHorizontalHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AlignObjectsCenteredHorizontalHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TextboxHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TextboxHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RecordHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RecordHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SplitSubdocumentHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SplitSubdocumentHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PrimaryKeyHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PrimaryKeyHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Excel.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BarCodeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BarCodeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -649,20 +631,14 @@
   <data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="List_BulletsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\List_BulletsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FillUpHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FillUpHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RulerHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RulerHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ThumbnailViewHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ThumbnailViewHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SaveAllHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SaveAllHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="compareversionsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\compareversionsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eps_closedHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eps_closedHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GoLtrHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GoLtrHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -673,29 +649,41 @@
   <data name="CheckSpellingHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CheckSpellingHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ShowRulelinesHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ShowRulelinesHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="InsertHyperlinkHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\InsertHyperlinkHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EditInformationHS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EditInformationHS1.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FormRunHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FormRunHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FaxHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FaxHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="compareversionsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compareversionsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="FlipVerticalHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FlipVerticalHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Information" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Information.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ExpirationHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExpirationHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OpenSelectedItemHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OpenSelectedItemHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ShowGridlines2HS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ShowGridlines2HS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="boldhs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boldhs.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ZoomHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ZoomHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Excel.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WarningHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WarningHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="List_NumberedTBHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\List_NumberedTBHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -709,44 +697,65 @@
   <data name="AttachmentHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AttachmentHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ImportXMLHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImportXMLHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="HtmlBalanceBracesHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HtmlBalanceBracesHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NewCard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NewCard.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PauseRecorderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PauseRecorderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RightArrow2HS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RightArrow2HS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BreakpointHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BreakpointHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RightsRestrictedHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RightsRestrictedHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AlignObjectsTopHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AlignObjectsTopHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eps_closedHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eps_closedHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FillUpHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FillUpHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EditInformationHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EditInformationHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="warning1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warning.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RelationshipsHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RelationshipsHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="HTMLPageHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HTMLPageHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EnvelopeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EnvelopeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RenameFolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RenameFolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Flag_greenHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Flag_greenHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ActualSizeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ActualSizeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CanvasScaleHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CanvasScaleHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ImportXMLHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ImportXMLHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EnvelopeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnvelopeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FindNextHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FindNextHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flag_greenHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flag_greenHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RenameFolderHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RenameFolderHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeleteHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditInformationHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditInformationHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OK.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RepeatHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RepeatHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -760,14 +769,14 @@
   <data name="DoubleLeftArrowHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DoubleLeftArrowHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FindNextHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FindNextHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PublishPlanHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PublishPlanHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TextboxHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TextboxHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PortraitHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PortraitHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DoubleRightArrowHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DoubleRightArrowHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ArrangeSideBySideHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrangeSideBySideHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -775,8 +784,8 @@
   <data name="HomeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HomeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FillLeftHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FillLeftHS.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CheckBoxHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckBoxHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PageWidthHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PageWidthHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -784,16 +793,14 @@
   <data name="DelTableHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\13.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ShowRulelinesHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ShowRulelinesHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ItalicHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ItalicHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RightArrow2HS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RightArrow2HS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OrgChartHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OrgChartHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="add-icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

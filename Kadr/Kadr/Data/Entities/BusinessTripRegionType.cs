@@ -5,11 +5,17 @@ using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using UIX.Views;
+using UIX.Commands;
 
 namespace Kadr.Data
 {
     public partial class BusinessTripRegionType : INull, IComparable, IDecorable, IValidatable, IEmployeeExperienceRecord
     {
+        //for u to pull!
+
+        private ICommandManager commandManager;
+        private DateTime date1;
+        private DateTime date2;
         #region Properties
 
         //public int ID { get { return idRegionType; } set { idRegionType = value; } }
@@ -21,6 +27,14 @@ namespace Kadr.Data
             DateBegin = beg;
             DateEnd = end;
             RegionType = regiontype;
+        }
+
+        public BusinessTripRegionType(ICommandManager commandManager, BusinessTrip trip, DateTime beg, DateTime end, RegionType regionType) : this()
+        {
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, DateTime>(this, "DateBegin", beg, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, DateTime>(this, "DateEnd", end, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, RegionType>(this, "RegionType", regionType, null), null);
+            commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, BusinessTrip>(this, "BusinessTrip", trip, null), null);
         }
 
         public override string ToString()
@@ -45,8 +59,8 @@ namespace Kadr.Data
                 if ((idRegionType == 0) && (RegionType == null)) throw new ArgumentNullException("Регион пребывания");
 
                 if (DateBegin > DateEnd) throw new ArgumentOutOfRangeException("Дата начала пребывания в регионе не может быть позже даты окончания!");
-                if ((BusinessTrip.FactStaffPrikaz.DateBegin > DateBegin) || (BusinessTrip.FactStaffPrikaz.DateEnd < DateBegin)) throw new ArgumentOutOfRangeException("Дата начала пребывания выходит за рамки командировки!");
-                if ((BusinessTrip.FactStaffPrikaz.DateBegin > DateEnd) || (BusinessTrip.FactStaffPrikaz.DateEnd < DateEnd)) throw new ArgumentOutOfRangeException("Дата начала пребывания выходит за рамки командировки!");
+                if ((BusinessTrip.Event.DateBegin > DateBegin) || (BusinessTrip.Event.DateEnd < DateBegin)) throw new ArgumentOutOfRangeException("Дата начала пребывания выходит за рамки командировки!");
+                if ((BusinessTrip.Event.DateBegin > DateEnd) || (BusinessTrip.Event.DateEnd < DateEnd)) throw new ArgumentOutOfRangeException("Дата окончания пребывания выходит за рамки командировки!");
             }
         }
 
@@ -88,11 +102,15 @@ namespace Kadr.Data
         }
 
 
-        
-        /// <summary>
-        /// Признак того, что этот стаж имеет дату завершения
-        /// </summary>
-        public bool IsEnded { get { return true; } }
+        public DateTime StartOfWork
+        {
+            get { return DateBegin; }
+        }
+
+        public DateTime? EndOfWork
+        {
+            get { return DateEnd; }
+        }
 
         public TerritoryConditions Territory
         {
@@ -101,7 +119,7 @@ namespace Kadr.Data
 
         public KindOfExperience Experience
         {
-            get { return BusinessTrip.FactStaffPrikaz.FactStaff.Experience; }
+            get { return BusinessTrip.Event.FactStaff.Experience; }
         }
 
         public Affilations Affilation
@@ -111,15 +129,24 @@ namespace Kadr.Data
 
         public WorkOrganizationWorkType WorkWorkType
         {
-            get { return BusinessTrip.FactStaffPrikaz
+            get { return BusinessTrip.Event
                     .FactStaff.WorkType.GetOrganizationWorkType(); }
         }
 
-        public DateTime Start { get { return DateBegin; }
+        public DateTime Start { get { return StartOfWork; }
             set { }
         }
         public DateTime Stop { get { return DateEnd; }
             set { }
+        }
+
+        public bool IsEnded
+        {
+            get
+            {
+                return (DateEnd < DateTime.Today);
+
+            }
         }
     }
 }
