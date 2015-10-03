@@ -28,7 +28,7 @@ namespace Kadr.Controllers
             if ((department != null) && (planStaffCurrent == null))
             {
                 workType = WorkType.hourWorkType;
-                financingSource = FinancingSource.budgetFinancingSource;
+                financingSource = MagicNumberController.budgetFinancingSource;
                 withContract = false;
             }
 

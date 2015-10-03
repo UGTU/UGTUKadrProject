@@ -57,6 +57,14 @@ namespace Kadr.Controllers
             }
         }
 
+        public static EventKind FactStaffFinSourceChangeEventKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.Single(x => x.id == 4);
+            }
+        }
+
         public static IEnumerable<EventKind> FactStaffChangeEventKinds
         {
             get
@@ -187,5 +195,34 @@ namespace Kadr.Controllers
                 return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 46);
             }
         }
+
+
+
+        #region FinSource
+        static public FinancingSource budgetFinancingSource
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.FinancingSources.Where(finS => finS.id == 1).First();
+            }
+        }
+
+        static public FinancingSource extrabudgetFinancingSource
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.FinancingSources.Where(finS => finS.id == 2).First();
+            }
+        }
+
+        static public FinancingSource DefaultFinancingSource
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.FinancingSources.Where(finS => finS.id == 0).First();
+            }
+        }
+
+        #endregion
     }
 }

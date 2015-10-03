@@ -13,29 +13,7 @@ namespace Kadr.Data
             return this.FinancingSourceName;
         }
 
-        static public FinancingSource budgetFinancingSource
-        {
-            get
-            {
-                return Kadr.Controllers.KadrController.Instance.Model.FinancingSources.Where(finS => finS.id == 1).First();
-            }
-        }
-
-        static public FinancingSource extrabudgetFinancingSource
-        {
-            get
-            {
-                return Kadr.Controllers.KadrController.Instance.Model.FinancingSources.Where(finS => finS.id == 2).First();
-            }
-        }
-
-        static public FinancingSource DefaultFinancingSource
-        {
-            get
-            {
-                return Kadr.Controllers.KadrController.Instance.Model.FinancingSources.Where(finS => finS.id == 0).First();
-            }
-        }
+        
         static public FinancingSource GetFinancingSourceByName(string FinancingSourceName)
         {
             return Kadr.Controllers.KadrController.Instance.Model.FinancingSources.Where(finS => finS.FinancingSourceName == FinancingSourceName).First();

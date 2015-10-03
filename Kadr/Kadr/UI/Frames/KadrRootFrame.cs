@@ -223,18 +223,18 @@ namespace Kadr.UI.Frames
                 {
                     if ((plStaff.Category == Kadr.Data.Category.PPSCategory) && ((plStaff as IObjectState).State() == ObjectState.Current))
                     {
-                        if (plStaff.FinancingSource == Kadr.Data.FinancingSource.budgetFinancingSource)
+                        if (plStaff.FinancingSource == MagicNumberController.budgetFinancingSource)
                             budgetCount += plStaff.FreeStaffCount;
 
-                        if (plStaff.FinancingSource == Kadr.Data.FinancingSource.extrabudgetFinancingSource)
+                        if (plStaff.FinancingSource == MagicNumberController.extrabudgetFinancingSource)
                             overbudgetCount += plStaff.FreeStaffCount;
                     }
                 }
             }
-            budgetHourCount = +Department.GetTimeNormForFinSource(Kadr.Data.FinancingSource.budgetFinancingSource) * budgetCount;
-            overbudgetHourCount = +Department.GetTimeNormForFinSource(Kadr.Data.FinancingSource.extrabudgetFinancingSource) * overbudgetCount;
-            busyBudgetHourCount = +Department.GetBusyHourCountForFinSource(Kadr.Data.FinancingSource.budgetFinancingSource);
-            busyOverbudgetHourCount = +Department.GetBusyHourCountForFinSource(Kadr.Data.FinancingSource.extrabudgetFinancingSource);
+            budgetHourCount = +Department.GetTimeNormForFinSource(MagicNumberController.budgetFinancingSource) * budgetCount;
+            overbudgetHourCount = +Department.GetTimeNormForFinSource(MagicNumberController.extrabudgetFinancingSource) * overbudgetCount;
+            busyBudgetHourCount = +Department.GetBusyHourCountForFinSource(MagicNumberController.budgetFinancingSource);
+            busyOverbudgetHourCount = +Department.GetBusyHourCountForFinSource(MagicNumberController.extrabudgetFinancingSource);
             tslPPSVacations.Text = "ППС вакантно: бюджет " + budgetCount.ToString() + " ставок, " + Convert.ToDecimal(string.Format("{0:0.0000}", budgetHourCount))
                         + " / " + Convert.ToDecimal(string.Format("{0:0.00}", busyBudgetHourCount))
                  + " часов, внебюджет " + overbudgetCount.ToString() + " ставок, " + Convert.ToDecimal(string.Format("{0:0.0000}",overbudgetHourCount))
@@ -1452,7 +1452,7 @@ namespace Kadr.UI.Frames
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", Data.WorkType.hourWorkType, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x.FactStaff, "Dep", Department, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x.FactStaff, "FundingCenter", NullFundingCenter.Instance, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x.FactStaff, "FinancingSource", Data.FinancingSource.extrabudgetFinancingSource, null), this);
+                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x.FactStaff, "FinancingSource", MagicNumberController.extrabudgetFinancingSource, null), this);
                    //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "SalaryKoeff", 1, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(fcStHistory, "FactStaff", x.FactStaff, null), this);
 

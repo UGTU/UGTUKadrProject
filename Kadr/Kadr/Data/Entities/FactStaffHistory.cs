@@ -35,6 +35,13 @@ namespace Kadr.Data
                 CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, SalaryKoeff>(this, "SalaryKoeff", factStaff.SalaryKoeff, null), this);
             }
 
+            FinancingSource financingSource = null;
+            if (eventKind == MagicNumberController.FactStaffFinSourceChangeEventKind) 
+                financingSource = factStaff.LastChange.FinancingSource;
+            if (eventKind == MagicNumberController.FactStaffHourCreateEventKind)
+                financingSource = MagicNumberController.budgetFinancingSource;
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FinancingSource>(this, "FinancingSource", financingSource, null), null);
+
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, EventKind>(this, "CreatingEventKind", eventKind, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(this, "Prikaz", prikaz, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(this, "WorkType", workType, null), null);
@@ -83,7 +90,7 @@ namespace Kadr.Data
         {
             get
             {
-                return Events.Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
+                return Events.Where(x => x.EventKind != null).Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
             }
         }
 
