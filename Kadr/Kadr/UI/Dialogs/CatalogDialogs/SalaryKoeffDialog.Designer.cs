@@ -33,6 +33,7 @@
             this.salaryKoeffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pKSubSubCategoryNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salaryKoeffcDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryPPNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -79,6 +80,7 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CategoryPPNameDataGridViewTextBoxColumn,
             this.pKSubSubCategoryNumberDataGridViewTextBoxColumn,
             this.salaryKoeffcDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.salaryKoeffBindingSource;
@@ -97,16 +99,24 @@
             // 
             this.pKSubSubCategoryNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.pKSubSubCategoryNumberDataGridViewTextBoxColumn.DataPropertyName = "PKSubSubCategoryNumber";
-            this.pKSubSubCategoryNumberDataGridViewTextBoxColumn.HeaderText = "Номер подподкатегории";
+            this.pKSubSubCategoryNumberDataGridViewTextBoxColumn.HeaderText = "Номер категории ПП";
             this.pKSubSubCategoryNumberDataGridViewTextBoxColumn.Name = "pKSubSubCategoryNumberDataGridViewTextBoxColumn";
             this.pKSubSubCategoryNumberDataGridViewTextBoxColumn.Width = 143;
             // 
             // salaryKoeffcDataGridViewTextBoxColumn
             // 
-            this.salaryKoeffcDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.salaryKoeffcDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.salaryKoeffcDataGridViewTextBoxColumn.DataPropertyName = "SalaryKoeffc";
             this.salaryKoeffcDataGridViewTextBoxColumn.HeaderText = "Коэффициент к окладу";
             this.salaryKoeffcDataGridViewTextBoxColumn.Name = "salaryKoeffcDataGridViewTextBoxColumn";
+            //
+            // CategoryPPNameDataGridViewTextBoxColumn
+            //
+            this.CategoryPPNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CategoryPPNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryPPName";
+            this.CategoryPPNameDataGridViewTextBoxColumn.HeaderText = "Название категории ПП";
+            this.CategoryPPNameDataGridViewTextBoxColumn.Name = "CategoryPPNameDataGridViewTextBoxColumn";
+
             // 
             // SalaryKoeffDialog
             // 
@@ -116,7 +126,7 @@
             this.ClientSize = new System.Drawing.Size(505, 267);
             this.Name = "SalaryKoeffDialog";
             this.helpProvider1.SetShowHelp(this, true);
-            this.Text = "Коэффициенты к окладу";
+            this.Text = "Квалификационные категории ПП";
             this.Load += new System.EventHandler(this.SalaryKoeffDialog_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -135,5 +145,6 @@
         private System.Windows.Forms.BindingSource salaryKoeffBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn pKSubSubCategoryNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn salaryKoeffcDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryPPNameDataGridViewTextBoxColumn;
     }
 }

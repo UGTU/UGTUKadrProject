@@ -324,15 +324,15 @@ namespace Kadr.Data
     partial void InsertOK_Reason(OK_Reason instance);
     partial void UpdateOK_Reason(OK_Reason instance);
     partial void DeleteOK_Reason(OK_Reason instance);
-    partial void InsertSalaryKoeff(SalaryKoeff instance);
-    partial void UpdateSalaryKoeff(SalaryKoeff instance);
-    partial void DeleteSalaryKoeff(SalaryKoeff instance);
     partial void InsertFinancingSource(FinancingSource instance);
     partial void UpdateFinancingSource(FinancingSource instance);
     partial void DeleteFinancingSource(FinancingSource instance);
     partial void InsertFactStaffHistory(FactStaffHistory instance);
     partial void UpdateFactStaffHistory(FactStaffHistory instance);
     partial void DeleteFactStaffHistory(FactStaffHistory instance);
+    partial void InsertSalaryKoeff(SalaryKoeff instance);
+    partial void UpdateSalaryKoeff(SalaryKoeff instance);
+    partial void DeleteSalaryKoeff(SalaryKoeff instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -1165,14 +1165,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<SalaryKoeff> SalaryKoeffs
-		{
-			get
-			{
-				return this.GetTable<SalaryKoeff>();
-			}
-		}
-		
 		public System.Data.Linq.Table<FinancingSource> FinancingSources
 		{
 			get
@@ -1186,6 +1178,14 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<FactStaffHistory>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SalaryKoeff> SalaryKoeffs
+		{
+			get
+			{
+				return this.GetTable<SalaryKoeff>();
 			}
 		}
 		
@@ -27087,196 +27087,6 @@ namespace Kadr.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SalaryKoeff")]
-	public partial class SalaryKoeff : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private int _PKSubSubCategoryNumber;
-		
-		private decimal _SalaryKoeffc;
-		
-		private string _CategoryPPName;
-		
-		private EntitySet<PKCategory> _PKCategories;
-		
-		private EntitySet<FactStaffHistory> _FactStaffHistories;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnPKSubSubCategoryNumberChanging(int value);
-    partial void OnPKSubSubCategoryNumberChanged();
-    partial void OnSalaryKoeffcChanging(decimal value);
-    partial void OnSalaryKoeffcChanged();
-    partial void OnCategoryPPNameChanging(string value);
-    partial void OnCategoryPPNameChanged();
-    #endregion
-		
-		public SalaryKoeff()
-		{
-			this._PKCategories = new EntitySet<PKCategory>(new Action<PKCategory>(this.attach_PKCategories), new Action<PKCategory>(this.detach_PKCategories));
-			this._FactStaffHistories = new EntitySet<FactStaffHistory>(new Action<FactStaffHistory>(this.attach_FactStaffHistories), new Action<FactStaffHistory>(this.detach_FactStaffHistories));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PKSubSubCategoryNumber", DbType="Int NOT NULL")]
-		public int PKSubSubCategoryNumber
-		{
-			get
-			{
-				return this._PKSubSubCategoryNumber;
-			}
-			set
-			{
-				if ((this._PKSubSubCategoryNumber != value))
-				{
-					this.OnPKSubSubCategoryNumberChanging(value);
-					this.SendPropertyChanging();
-					this._PKSubSubCategoryNumber = value;
-					this.SendPropertyChanged("PKSubSubCategoryNumber");
-					this.OnPKSubSubCategoryNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaryKoeffc", DbType="Decimal(6,2) NOT NULL")]
-		public decimal SalaryKoeffc
-		{
-			get
-			{
-				return this._SalaryKoeffc;
-			}
-			set
-			{
-				if ((this._SalaryKoeffc != value))
-				{
-					this.OnSalaryKoeffcChanging(value);
-					this.SendPropertyChanging();
-					this._SalaryKoeffc = value;
-					this.SendPropertyChanged("SalaryKoeffc");
-					this.OnSalaryKoeffcChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryPPName", DbType="VarChar(150)")]
-		public string CategoryPPName
-		{
-			get
-			{
-				return this._CategoryPPName;
-			}
-			set
-			{
-				if ((this._CategoryPPName != value))
-				{
-					this.OnCategoryPPNameChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryPPName = value;
-					this.SendPropertyChanged("CategoryPPName");
-					this.OnCategoryPPNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryKoeff_PKCategory", Storage="_PKCategories", ThisKey="id", OtherKey="idSalaryKoeff")]
-		public EntitySet<PKCategory> PKCategories
-		{
-			get
-			{
-				return this._PKCategories;
-			}
-			set
-			{
-				this._PKCategories.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryKoeff_FactStaffHistory", Storage="_FactStaffHistories", ThisKey="id", OtherKey="idSalaryKoeff")]
-		public EntitySet<FactStaffHistory> FactStaffHistories
-		{
-			get
-			{
-				return this._FactStaffHistories;
-			}
-			set
-			{
-				this._FactStaffHistories.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_PKCategories(PKCategory entity)
-		{
-			this.SendPropertyChanging();
-			entity.SalaryKoeff = this;
-		}
-		
-		private void detach_PKCategories(PKCategory entity)
-		{
-			this.SendPropertyChanging();
-			entity.SalaryKoeff = null;
-		}
-		
-		private void attach_FactStaffHistories(FactStaffHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.SalaryKoeff = this;
-		}
-		
-		private void detach_FactStaffHistories(FactStaffHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.SalaryKoeff = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FinancingSource")]
 	public partial class FinancingSource : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -27631,9 +27441,9 @@ namespace Kadr.Data
 		
 		private EntityRef<RegionType> _RegionType;
 		
-		private EntityRef<SalaryKoeff> _SalaryKoeff;
-		
 		private EntityRef<WorkType> _WorkType;
+		
+		private EntityRef<SalaryKoeff> _SalaryKoeff;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -27680,8 +27490,8 @@ namespace Kadr.Data
 			this._FinancingSource = default(EntityRef<FinancingSource>);
 			this._Prikaz = default(EntityRef<Prikaz>);
 			this._RegionType = default(EntityRef<RegionType>);
-			this._SalaryKoeff = default(EntityRef<SalaryKoeff>);
 			this._WorkType = default(EntityRef<WorkType>);
+			this._SalaryKoeff = default(EntityRef<SalaryKoeff>);
 			OnCreated();
 		}
 		
@@ -28178,40 +27988,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryKoeff_FactStaffHistory", Storage="_SalaryKoeff", ThisKey="idSalaryKoeff", OtherKey="id", IsForeignKey=true)]
-		public SalaryKoeff SalaryKoeff
-		{
-			get
-			{
-				return this._SalaryKoeff.Entity;
-			}
-			set
-			{
-				SalaryKoeff previousValue = this._SalaryKoeff.Entity;
-				if (((previousValue != value) 
-							|| (this._SalaryKoeff.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SalaryKoeff.Entity = null;
-						previousValue.FactStaffHistories.Remove(this);
-					}
-					this._SalaryKoeff.Entity = value;
-					if ((value != null))
-					{
-						value.FactStaffHistories.Add(this);
-						this._idSalaryKoeff = value.id;
-					}
-					else
-					{
-						this._idSalaryKoeff = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("SalaryKoeff");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WorkType_FactStaffHistory", Storage="_WorkType", ThisKey="idTypeWork", OtherKey="id", IsForeignKey=true)]
 		public WorkType WorkType
 		{
@@ -28246,6 +28022,40 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryKoeff_FactStaffHistory", Storage="_SalaryKoeff", ThisKey="idSalaryKoeff", OtherKey="id", IsForeignKey=true)]
+		public SalaryKoeff SalaryKoeff
+		{
+			get
+			{
+				return this._SalaryKoeff.Entity;
+			}
+			set
+			{
+				SalaryKoeff previousValue = this._SalaryKoeff.Entity;
+				if (((previousValue != value) 
+							|| (this._SalaryKoeff.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SalaryKoeff.Entity = null;
+						previousValue.FactStaffHistories.Remove(this);
+					}
+					this._SalaryKoeff.Entity = value;
+					if ((value != null))
+					{
+						value.FactStaffHistories.Add(this);
+						this._idSalaryKoeff = value.id;
+					}
+					else
+					{
+						this._idSalaryKoeff = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("SalaryKoeff");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -28276,6 +28086,196 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.FactStaffHistory = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SalaryKoeff")]
+	public partial class SalaryKoeff : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _PKSubSubCategoryNumber;
+		
+		private decimal _SalaryKoeffc;
+		
+		private string _CategoryPPName;
+		
+		private EntitySet<PKCategory> _PKCategories;
+		
+		private EntitySet<FactStaffHistory> _FactStaffHistories;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnPKSubSubCategoryNumberChanging(int value);
+    partial void OnPKSubSubCategoryNumberChanged();
+    partial void OnSalaryKoeffcChanging(decimal value);
+    partial void OnSalaryKoeffcChanged();
+    partial void OnCategoryPPNameChanging(string value);
+    partial void OnCategoryPPNameChanged();
+    #endregion
+		
+		public SalaryKoeff()
+		{
+			this._PKCategories = new EntitySet<PKCategory>(new Action<PKCategory>(this.attach_PKCategories), new Action<PKCategory>(this.detach_PKCategories));
+			this._FactStaffHistories = new EntitySet<FactStaffHistory>(new Action<FactStaffHistory>(this.attach_FactStaffHistories), new Action<FactStaffHistory>(this.detach_FactStaffHistories));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PKSubSubCategoryNumber", DbType="Int NOT NULL")]
+		public int PKSubSubCategoryNumber
+		{
+			get
+			{
+				return this._PKSubSubCategoryNumber;
+			}
+			set
+			{
+				if ((this._PKSubSubCategoryNumber != value))
+				{
+					this.OnPKSubSubCategoryNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PKSubSubCategoryNumber = value;
+					this.SendPropertyChanged("PKSubSubCategoryNumber");
+					this.OnPKSubSubCategoryNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaryKoeffc", DbType="Decimal(6,2) NOT NULL")]
+		public decimal SalaryKoeffc
+		{
+			get
+			{
+				return this._SalaryKoeffc;
+			}
+			set
+			{
+				if ((this._SalaryKoeffc != value))
+				{
+					this.OnSalaryKoeffcChanging(value);
+					this.SendPropertyChanging();
+					this._SalaryKoeffc = value;
+					this.SendPropertyChanged("SalaryKoeffc");
+					this.OnSalaryKoeffcChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryPPName", DbType="VarChar(150)")]
+		public string CategoryPPName
+		{
+			get
+			{
+				return this._CategoryPPName;
+			}
+			set
+			{
+				if ((this._CategoryPPName != value))
+				{
+					this.OnCategoryPPNameChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryPPName = value;
+					this.SendPropertyChanged("CategoryPPName");
+					this.OnCategoryPPNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryKoeff_PKCategory", Storage="_PKCategories", ThisKey="id", OtherKey="idSalaryKoeff")]
+		public EntitySet<PKCategory> PKCategories
+		{
+			get
+			{
+				return this._PKCategories;
+			}
+			set
+			{
+				this._PKCategories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalaryKoeff_FactStaffHistory", Storage="_FactStaffHistories", ThisKey="id", OtherKey="idSalaryKoeff")]
+		public EntitySet<FactStaffHistory> FactStaffHistories
+		{
+			get
+			{
+				return this._FactStaffHistories;
+			}
+			set
+			{
+				this._FactStaffHistories.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PKCategories(PKCategory entity)
+		{
+			this.SendPropertyChanging();
+			entity.SalaryKoeff = this;
+		}
+		
+		private void detach_PKCategories(PKCategory entity)
+		{
+			this.SendPropertyChanging();
+			entity.SalaryKoeff = null;
+		}
+		
+		private void attach_FactStaffHistories(FactStaffHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.SalaryKoeff = this;
+		}
+		
+		private void detach_FactStaffHistories(FactStaffHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.SalaryKoeff = null;
 		}
 	}
 	
