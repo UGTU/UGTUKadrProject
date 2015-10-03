@@ -65,7 +65,7 @@ namespace Kadr.Data
 
         private NullFinancingSource()
         {
-            this.id = 0;
+            this.id = -1;
             FinancingSourceName = "(Не задан)";
         }
 

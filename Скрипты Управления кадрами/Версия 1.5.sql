@@ -481,11 +481,11 @@ set identity_insert [dbo].[EventKind] ON
 insert into [dbo].[EventKind]([id],[EventKindName], EventKindApplName)
 values(3,'Перевод сотрудника','')
 
-insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName)
-values(4,'Смена источника финансирования',2,'Источник финанасирования')
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [DecoratorName])
+values(4,'Смена источника финансирования',2,'Источник финанасирования', 'Kadr.Data.FactStaffHistoryFinSourceDecorator')
 
-insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName)
-values(5,'Установление должностного оклада',2,'Должностной оклад')
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [DecoratorName])
+values(5,'Установление должностного оклада',2,'Должностной оклад', 'Kadr.Data.FactStaffHistoryMinDecorator')
 
 insert into [dbo].[EventKind]([id],[EventKindName])
 values(6,'Ввод/вывод ставок')

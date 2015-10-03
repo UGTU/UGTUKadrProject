@@ -241,6 +241,7 @@
     <Compile Include="Data\Converters\OK_ReasonConvertor.cs" />
     <Compile Include="Data\Converters\SocialStatusToStringConverter.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryFinSourceDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryPPCategoryDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryStaffCountDecorator.cs" />
     <Compile Include="Data\Entities\Event_BusinessTrip.cs" />
     <Compile Include="Interfaces\IEntitySelector.cs" />

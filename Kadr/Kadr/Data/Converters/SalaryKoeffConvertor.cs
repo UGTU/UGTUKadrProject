@@ -7,16 +7,17 @@ using System.Text;
 
 namespace Kadr.Data.Converters
 {
-    class FinancingSourceConvertor : SimpleToStringConvertor<FinancingSource>// TypeConverter
+    class SalaryKoeffConvertor : SimpleToStringConvertor<SalaryKoeff>
     {
-        public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
-        {
-            return true;
-        }
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            return Kadr.Controllers.KadrController.Instance.Model.FinancingSources.Where(fs => fs.id < 3).OrderBy(finSource => finSource.FinancingSourceName).ToArray();
+                var res = Kadr.Controllers.KadrController.Instance.Model.SalaryKoeffs.OrderBy(x => x.PKSubSubCategoryNumber);
+                if (res == null)
+                    return null;
+                List<SalaryKoeff> resList = res.ToList();
+                resList.Add(NullSalaryKoeff.Instance);
+                return resList;
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
@@ -27,12 +28,14 @@ namespace Kadr.Data.Converters
         public override object ConvertFrom(ITypeDescriptorContext context,
         System.Globalization.CultureInfo culture, object value)
         {
+            if (value == null)
+                return NullSalaryKoeff.Instance;
             if (value.GetType() == typeof(string))
             {
 
-                FinancingSource itemSelected = null;
+                SalaryKoeff itemSelected = null;
                 var c = GetCollection(context);
-                foreach (FinancingSource Item in c)
+                foreach (SalaryKoeff Item in c)
                 {
                     string ItemName = Item.ToString();
 
@@ -47,7 +50,7 @@ namespace Kadr.Data.Converters
                 return base.ConvertFrom(context, culture, value);
         }
 
+ 
     }
 }
-
 
