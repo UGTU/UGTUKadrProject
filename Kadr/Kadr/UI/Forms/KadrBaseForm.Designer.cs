@@ -840,7 +840,7 @@
             // 
             this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem.Name = "профессиональноквалификационыеПодподкатегорииToolStripMenuItem";
             this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
-            this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem.Text = "Коэффициенты к окладу";
+            this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem.Text = "Квалификационные категории ПП";
             this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem.Click += new System.EventHandler(this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem_Click);
             // 
             // категорииПерсоналаToolStripMenuItem

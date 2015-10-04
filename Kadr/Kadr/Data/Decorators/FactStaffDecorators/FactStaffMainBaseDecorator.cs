@@ -79,6 +79,22 @@ namespace Kadr.Data
             }
         }*/
 
+        [System.ComponentModel.DisplayName("Квалификационная категория ПП")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
+        [System.ComponentModel.Description("Квалификационная категория ПП")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.PPCategoryConvertor))]
+        public Kadr.Data.SalaryKoeff SalaryKoeff
+        {
+            get
+            {
+                return factStaff.SalaryKoeff;
+            }
+            set
+            {
+                factStaff.SalaryKoeff = value;
+            }
+        }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\tBид работы")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]

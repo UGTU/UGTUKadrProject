@@ -22,7 +22,7 @@ namespace Kadr.UI.Dialogs
         private void SalaryKoeffDialog_Load(object sender, EventArgs e)
         {
             bindingNavigator1.BindingSource = salaryKoeffBindingSource;
-            salaryKoeffBindingSource.DataSource = KadrController.Instance.Model.SalaryKoeffs;
+            salaryKoeffBindingSource.DataSource = KadrController.Instance.Model.SalaryKoeffs.OrderBy(x => x.PKSubSubCategoryNumber).ToArray();
         }
 
         private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)

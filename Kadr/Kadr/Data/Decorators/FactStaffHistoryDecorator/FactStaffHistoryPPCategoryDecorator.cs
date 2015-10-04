@@ -12,11 +12,11 @@ namespace Kadr.Data
         {
         }
 
-        [System.ComponentModel.DisplayName("Категория")]
+        [System.ComponentModel.DisplayName("Квалификационная категория ПП")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
-        [System.ComponentModel.Description("Категория ППС")]
+        [System.ComponentModel.Description("Квалификационная категория ПП")]
         [System.ComponentModel.ReadOnly(false)]
-        //[System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.SalaryKoeffConvertor))]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.PPCategoryConvertor))]
         public Kadr.Data.SalaryKoeff SalaryKoeff
         {
             get

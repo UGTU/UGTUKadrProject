@@ -1202,16 +1202,6 @@
       <Association Name="OK_Reason_FactStaff" Member="FactStaffs" ThisKey="idreason" OtherKey="idreason" Type="FactStaff" />
     </Type>
   </Table>
-  <Table Name="dbo.SalaryKoeff" Member="SalaryKoeffs">
-    <Type Name="SalaryKoeff">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PKSubSubCategoryNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SalaryKoeffc" Type="System.Decimal" DbType="Decimal(6,2) NOT NULL" CanBeNull="false" />
-      <Column Name="CategoryPPName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Association Name="SalaryKoeff_PKCategory" Member="PKCategories" ThisKey="id" OtherKey="idSalaryKoeff" Type="PKCategory" />
-      <Association Name="SalaryKoeff_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idSalaryKoeff" Type="FactStaffHistory" />
-    </Type>
-  </Table>
   <Table Name="dbo.FinancingSource" Member="FinancingSources">
     <Type Name="FinancingSource">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1249,8 +1239,18 @@
       <Association Name="FinancingSource_FactStaffHistory" Member="FinancingSource" ThisKey="idFinancingSource" OtherKey="id" Type="FinancingSource" IsForeignKey="true" />
       <Association Name="Prikaz_FactStaffHistory" Member="Prikaz" ThisKey="idBeginPrikaz" OtherKey="id" Type="Prikaz" IsForeignKey="true" />
       <Association Name="RegionType_FactStaffHistory" Member="RegionType" ThisKey="idRegionType" OtherKey="id" Type="RegionType" IsForeignKey="true" />
-      <Association Name="SalaryKoeff_FactStaffHistory" Member="SalaryKoeff" ThisKey="idSalaryKoeff" OtherKey="id" Type="SalaryKoeff" IsForeignKey="true" />
       <Association Name="WorkType_FactStaffHistory" Member="WorkType" ThisKey="idTypeWork" OtherKey="id" Type="WorkType" IsForeignKey="true" />
+      <Association Name="SalaryKoeff_FactStaffHistory" Member="SalaryKoeff" ThisKey="idSalaryKoeff" OtherKey="id" Type="SalaryKoeff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SalaryKoeff" Member="SalaryKoeffs">
+    <Type Name="SalaryKoeff">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PKSubSubCategoryNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SalaryKoeffc" Type="System.Decimal" DbType="Decimal(6,2) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryPPName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Association Name="SalaryKoeff_PKCategory" Member="PKCategories" ThisKey="id" OtherKey="idSalaryKoeff" Type="PKCategory" />
+      <Association Name="SalaryKoeff_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idSalaryKoeff" Type="FactStaffHistory" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

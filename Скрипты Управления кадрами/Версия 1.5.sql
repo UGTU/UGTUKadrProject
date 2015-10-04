@@ -1028,6 +1028,9 @@ insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKind
 values(8,'Изменение размера ставки',2,'Размер ставки',1,'Kadr.Data.FactStaffHistoryStaffCountDecorator',1)
 
 insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
+values(9,'Присвоение квалификационной категории ПП',2,'Квалификационная категория ПП',1,'Kadr.Data.FactStaffHistoryPPCategoryDecorator',1)
+
+insert into [dbo].[EventKind]([id],[EventKindName], [idMainEventKind], EventKindApplName, [ForFactStaff], [DecoratorName],[WithContract])
 values(10,'Назначение замещения',null,'Назначение замещения',1,null,1)
 
 
@@ -1119,3 +1122,9 @@ inner join
 dbo.FactStaff
 ON [FactStaffHistory].idFactStaff=FactStaff.id
 where FactStaff.idFinancingSource is not null
+
+
+
+
+
+
