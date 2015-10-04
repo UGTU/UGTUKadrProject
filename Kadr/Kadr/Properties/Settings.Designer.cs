@@ -102,5 +102,15 @@ namespace Kadr.Properties {
                 return ((string)(this["kadrConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb.ugtu.net;Initial Catalog=Kadr;Integrated Security=True")]
+        public string KadrConnectionString1 {
+            get {
+                return ((string)(this["KadrConnectionString1"]));
+            }
+        }
     }
 }

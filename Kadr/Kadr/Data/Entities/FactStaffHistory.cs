@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.Linq;
 using Kadr.Controllers;
+using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
@@ -175,7 +176,7 @@ namespace Kadr.Data
                     if ((HourStaffCount <= 0) || (HourStaffCount == null))
                         throw new Exception("Занесите нормы времени для отдела.");
                     if (Prikaz != null)
-                        if ((Prikaz as Kadr.Data.Common.INull).IsNull() && FactStaff.IsHourStaff)
+                        if ((Prikaz as INull).IsNull() && FactStaff.IsHourStaff)
                             Prikaz = null;
                 }
                 else
@@ -193,7 +194,9 @@ namespace Kadr.Data
                 if (MainEvent != null)
                     (MainEvent as UIX.Views.IValidatable).Validate();
 
-                SalaryKoeff = null;
+                if (SalaryKoeff != null)
+                    if (SalaryKoeff.IsNull())
+                        SalaryKoeff = null;
                 
 
                 //проверка на переполнение штатов на начало периода
