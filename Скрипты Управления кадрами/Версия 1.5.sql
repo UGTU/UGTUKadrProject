@@ -1,6 +1,6 @@
 
 
-EXEC sp_rename 'dbo.FactStaffHistory', 'Event'
+EXEC sp_rename 'dbo.FactStaffPrikaz', 'Event'
 
 
 go
@@ -36,9 +36,9 @@ GROUP BY idFactStaff )MaxFactStaffHistory
 
   /*--проверка правильности - ничего не должен выбрать
   select *
-  from [dbo].[FactStaffHistoryEvent]
-  inner join [FactStaffHistory] ON [FactStaffHistoryEvent].idFactStaffHistory=FactStaffHistory.id
-  inner join [dbo].[FactStaff] on [FactStaffHistoryEvent].idFactStaff=[FactStaff].id and FactStaffHistory.idFactStaff<>[FactStaff].id 
+  from [dbo].[Event]
+  inner join [FactStaffHistory] ON [Event].idFactStaffHistory=FactStaffHistory.id
+  inner join [dbo].[FactStaff] on [Event].idFactStaff=[FactStaff].id and FactStaffHistory.idFactStaff<>[FactStaff].id 
 
   */
 
@@ -64,7 +64,7 @@ CREATE TABLE [dbo].[EventKind](
 
 GO
 
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
 
 ALTER TABLE [dbo].[EventKind]  WITH CHECK ADD  CONSTRAINT [FK_EventKind_EventKind] FOREIGN KEY([idMainEventKind])
@@ -215,6 +215,7 @@ GO
 set identity_insert [dbo].[EventKind] ON
 insert into [dbo].[EventKind]([id],[EventKindName])
 values(15,'Отпуск')
+
 set identity_insert [dbo].[EventKind] OFF
 
 go
@@ -305,15 +306,9 @@ go
 EXEC sp_rename '[dbo].[SocialFareTransit].[idFactStaffPrikaz]', 'idEvent', 'COLUMN'
 
 
-
-
-go
-EXEC sp_rename '[dbo].[SocialFareTransit].[idFactStaffPrikaz]', 'idEvent', 'COLUMN'
-
-
 go
 alter table [dbo].[OK_DopEducation]
-drop constraint [FK_OK_DopEducEmployee_FactStaffPrikaz]
+DROP CONSTRAINT [FK_OK_DopEducEmployee_FactStaffPrikaz]
 
 GO
 
@@ -476,6 +471,9 @@ go
 alter table [dbo].[EventKind]
 add EventKindApplName VARCHAR(100)
 
+alter table [dbo].[EventKind]
+add DecoratorName VARCHAR(500)
+
 go
 set identity_insert [dbo].[EventKind] ON
 insert into [dbo].[EventKind]([id],[EventKindName], EventKindApplName)
@@ -497,7 +495,7 @@ set identity_insert [dbo].[EventKind] OFF
 go
 --вносим переводы
 insert into dbo.Event([idPrikaz],[DateBegin], DateEnd, [idFactStaffHistory],[idEventKind],[idContract])
-select  *--[idBeginPrikaz],FactStaffHistory.[DateBegin], [Contract].DateEnd,FactStaffHistory.[id],3,FactStaffHistory.idContract
+select  [idBeginPrikaz],FactStaffHistory.[DateBegin], [Contract].DateEnd,FactStaffHistory.[id],3,FactStaffHistory.idContract
 from dbo.FactStaffHistory
 inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
 inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
@@ -539,6 +537,8 @@ inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
 where (Prikaz.idPrikazType not between 33 and 37 ) and Prikaz.idPrikazType not in (10,13,6,7)
 
 go
+
+select * from Event where idEventKind = 4
 
 --вносим почасовиков-договорников
 select *
