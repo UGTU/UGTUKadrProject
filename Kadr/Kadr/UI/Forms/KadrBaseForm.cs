@@ -418,7 +418,7 @@ namespace Kadr.UI.Forms
             SetupFormTitle();
             tscbFindType.SelectedIndex = 0;
 
-            kadrTreeView1.FindAndSelectDepartment(Kadr.Controllers.KadrController.Instance.Model.Departments.Where(x => x.id ==63 ).FirstOrDefault());
+            //kadrTreeView1.FindAndSelectDepartment(Kadr.Controllers.KadrController.Instance.Model.Departments.Where(x => x.id ==63 ).FirstOrDefault());
         }
 
         private void SetupFormTitle()

@@ -1177,6 +1177,10 @@ set [is_old] = (select [KadrRealTest].[dbo].[OK_Reason].is_old
 				where [KadrRealTest].[dbo].[OK_Reason].idreason = [Kadr].[dbo].[OK_Reason].idreason)
 
 
+go
+
+alter table [dbo].[Employee]
+add [paspCodeKem] varchar(20) null
 
 
 

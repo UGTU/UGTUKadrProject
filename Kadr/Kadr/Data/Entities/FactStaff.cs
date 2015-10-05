@@ -83,7 +83,7 @@ namespace Kadr.Data
 
                 if (currenttrips.Any()) return FactStaffState.OnTrip;
 
-                var incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
+                IEnumerable<OK_Inkapacity> incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && ((t.DateEnd > DateTime.Now) || (t.DateEnd == null)));
                 if (incapacities.Any()) return FactStaffState.Incapable;
 
                 var vacs = OK_Otpusks.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));

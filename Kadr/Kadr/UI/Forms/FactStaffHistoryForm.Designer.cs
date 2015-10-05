@@ -53,8 +53,8 @@
             this.newStaffCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HourStaffCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalaryKoeff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinancingSource = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalaryKoeff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HourCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HourSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EventKind = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,8 +83,8 @@
             this.newStaffCountDataGridViewTextBoxColumn,
             this.HourStaffCount,
             this.workTypeDataGridViewTextBoxColumn,
-            this.SalaryKoeff,
             this.FinancingSource,
+            this.SalaryKoeff,
             this.HourCount,
             this.HourSalary,
             this.EventKind});
@@ -111,7 +111,7 @@
             this.dgvFactStaffHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFactStaffHistory.RowHeadersVisible = false;
             this.dgvFactStaffHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFactStaffHistory.Size = new System.Drawing.Size(798, 346);
+            this.dgvFactStaffHistory.Size = new System.Drawing.Size(940, 346);
             this.dgvFactStaffHistory.TabIndex = 5;
             this.dgvFactStaffHistory.DoubleClick += new System.EventHandler(this.EditFStChangeBtn_Click);
             // 
@@ -128,7 +128,7 @@
             this.btnClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(798, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(940, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -174,7 +174,6 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Дата изм.";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 81;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -277,14 +276,6 @@
             this.workTypeDataGridViewTextBoxColumn.ReadOnly = true;
             this.workTypeDataGridViewTextBoxColumn.Width = 65;
             // 
-            // SalaryKoeff
-            // 
-            this.SalaryKoeff.DataPropertyName = "SalaryKoeff";
-            this.SalaryKoeff.HeaderText = "Категория ПП";
-            this.SalaryKoeff.Name = "SalaryKoeff";
-            this.SalaryKoeff.ReadOnly = true;
-            this.SalaryKoeff.Width = 85;
-            // 
             // FinancingSource
             // 
             this.FinancingSource.DataPropertyName = "FinancingSource";
@@ -292,6 +283,14 @@
             this.FinancingSource.Name = "FinancingSource";
             this.FinancingSource.ReadOnly = true;
             this.FinancingSource.Width = 50;
+            // 
+            // SalaryKoeff
+            // 
+            this.SalaryKoeff.DataPropertyName = "SalaryKoeff";
+            this.SalaryKoeff.HeaderText = "Категория ПП";
+            this.SalaryKoeff.Name = "SalaryKoeff";
+            this.SalaryKoeff.ReadOnly = true;
+            this.SalaryKoeff.Width = 80;
             // 
             // HourCount
             // 
@@ -321,7 +320,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 371);
+            this.ClientSize = new System.Drawing.Size(940, 371);
             this.Controls.Add(this.dgvFactStaffHistory);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FactStaffHistoryForm";
@@ -360,8 +359,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn newStaffCountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn HourStaffCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn workTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SalaryKoeff;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinancingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SalaryKoeff;
         private System.Windows.Forms.DataGridViewTextBoxColumn HourCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn HourSalary;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventKind;
