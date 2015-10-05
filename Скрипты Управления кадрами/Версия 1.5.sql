@@ -1123,6 +1123,58 @@ dbo.FactStaff
 ON [FactStaffHistory].idFactStaff=FactStaff.id
 where FactStaff.idFinancingSource is not null
 
+------------------------------------------------------------------------------------------------------
+--      Тип больничного                                                                             --
+------------------------------------------------------------------------------------------------------
+CREATE TABLE [dbo].[InkapacityType](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[NameInkapacityType] [varchar](500) NOT NULL,
+ CONSTRAINT [PK_InkapacityType] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET IDENTITY_INSERT [dbo].[InkapacityType] ON 
+
+GO
+INSERT [dbo].[InkapacityType] ([id], [NameInkapacityType]) VALUES (3, N'по беременности и родам')
+GO
+INSERT [dbo].[InkapacityType] ([id], [NameInkapacityType]) VALUES (1, N'по заболеванию')
+GO
+INSERT [dbo].[InkapacityType] ([id], [NameInkapacityType]) VALUES (2, N'по уходу за ребенком')
+GO
+SET IDENTITY_INSERT [dbo].[InkapacityType] OFF
+
+CREATE UNIQUE NONCLUSTERED INDEX [IX_Table_Name] ON [dbo].[InkapacityType]
+(
+	[NameInkapacityType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX [IX_OK_Inkapacity_Type] ON [dbo].[OK_Inkapacity]
+(
+	[idInkapacityType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[OK_Inkapacity]  WITH CHECK ADD  CONSTRAINT [FK_OK_Inkapacity_InkapacityType] FOREIGN KEY([idInkapacityType])
+REFERENCES [dbo].[InkapacityType] ([id])
+GO
+ALTER TABLE [dbo].[OK_Inkapacity] CHECK CONSTRAINT [FK_OK_Inkapacity_InkapacityType]
+GO
+
+
+alter table [dbo].OK_SocialStatus add [is_old] bit null
+alter table [dbo].[OK_Reason] add [is_old] bit null
+
+
+update [Kadr].[dbo].[OK_Reason]
+set [is_old] = (select [KadrRealTest].[dbo].[OK_Reason].is_old
+				from [KadrRealTest].[dbo].[OK_Reason]
+				where [KadrRealTest].[dbo].[OK_Reason].idreason = [Kadr].[dbo].[OK_Reason].idreason)
 
 
 
