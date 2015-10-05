@@ -1429,7 +1429,7 @@
             this.отменитьToolStripMenuItem.Image = global::Kadr.Properties.Resources.Edit_Undo;
             this.отменитьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.отменитьToolStripMenuItem.Name = "отменитьToolStripMenuItem";
-            this.отменитьToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.отменитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.отменитьToolStripMenuItem.Text = "Отменить";
             // 
             // повторитьToolStripMenuItem
@@ -1437,20 +1437,20 @@
             this.повторитьToolStripMenuItem.Image = global::Kadr.Properties.Resources.Edit_Redo;
             this.повторитьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.повторитьToolStripMenuItem.Name = "повторитьToolStripMenuItem";
-            this.повторитьToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.повторитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.повторитьToolStripMenuItem.Text = "Повторить";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(145, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(149, 6);
             // 
             // вырезатьToolStripMenuItem
             // 
             this.вырезатьToolStripMenuItem.Image = global::Kadr.Properties.Resources.Edit_Cut;
             this.вырезатьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.вырезатьToolStripMenuItem.Name = "вырезатьToolStripMenuItem";
-            this.вырезатьToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.вырезатьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.вырезатьToolStripMenuItem.Text = "Вырезать";
             // 
             // копироватьToolStripMenuItem
@@ -1458,7 +1458,7 @@
             this.копироватьToolStripMenuItem.Image = global::Kadr.Properties.Resources.CopyHS;
             this.копироватьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.копироватьToolStripMenuItem.Name = "копироватьToolStripMenuItem";
-            this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.копироватьToolStripMenuItem.Text = "Копировать";
             // 
             // вставитьToolStripMenuItem
@@ -1466,18 +1466,18 @@
             this.вставитьToolStripMenuItem.Image = global::Kadr.Properties.Resources.PasteHS;
             this.вставитьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.вставитьToolStripMenuItem.Name = "вставитьToolStripMenuItem";
-            this.вставитьToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.вставитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.вставитьToolStripMenuItem.Text = "Вставить";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(145, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(149, 6);
             // 
             // выделитьВсёToolStripMenuItem
             // 
             this.выделитьВсёToolStripMenuItem.Name = "выделитьВсёToolStripMenuItem";
-            this.выделитьВсёToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.выделитьВсёToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.выделитьВсёToolStripMenuItem.Text = "Выделить всё";
             // 
             // видToolStripMenuItem
