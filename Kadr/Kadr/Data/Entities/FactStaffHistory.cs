@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.Linq;
 using Kadr.Controllers;
+using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
@@ -34,6 +35,13 @@ namespace Kadr.Data
                 CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal?>(this, "HourSalary", factStaff.HourSalary, null), this);
                 CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, SalaryKoeff>(this, "SalaryKoeff", factStaff.SalaryKoeff, null), this);
             }
+
+            FinancingSource financingSource = null;
+            if (eventKind == MagicNumberController.FactStaffFinSourceChangeEventKind) 
+                financingSource = factStaff.LastChange.FinancingSource;
+            if (eventKind == MagicNumberController.FactStaffHourCreateEventKind)
+                financingSource = MagicNumberController.budgetFinancingSource;
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FinancingSource>(this, "FinancingSource", financingSource, null), null);
 
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, EventKind>(this, "CreatingEventKind", eventKind, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(this, "Prikaz", prikaz, null), null);
@@ -83,7 +91,7 @@ namespace Kadr.Data
         {
             get
             {
-                return Events.Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
+                return Events.Where(x => x.EventKind != null).Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
             }
         }
 
@@ -168,7 +176,7 @@ namespace Kadr.Data
                     if ((HourStaffCount <= 0) || (HourStaffCount == null))
                         throw new Exception("Занесите нормы времени для отдела.");
                     if (Prikaz != null)
-                        if ((Prikaz as Kadr.Data.Common.INull).IsNull() && FactStaff.IsHourStaff)
+                        if ((Prikaz as INull).IsNull() && FactStaff.IsHourStaff)
                             Prikaz = null;
                 }
                 else
@@ -186,7 +194,9 @@ namespace Kadr.Data
                 if (MainEvent != null)
                     (MainEvent as UIX.Views.IValidatable).Validate();
 
-                SalaryKoeff = null;
+                if (SalaryKoeff != null)
+                    if (SalaryKoeff.IsNull())
+                        SalaryKoeff = null;
                 
 
                 //проверка на переполнение штатов на начало периода

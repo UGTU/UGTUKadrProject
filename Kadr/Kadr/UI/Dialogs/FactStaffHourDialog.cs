@@ -24,7 +24,7 @@ namespace Kadr.UI.Dialogs
             factStaffBindingSource.DataSource =
                 KadrController.Instance.GetHourFactStaff(null).Where(fcSt => (fcSt.DateEnd == null) || (fcSt.DateEnd > DateTime.Today));
             financingSourceBindingSource.DataSource = KadrController.Instance.Model.FinancingSources.OrderBy(fnS => fnS.FinancingSourceName);
-            cbFinancingSource.SelectedItem = FinancingSource.extrabudgetFinancingSource;
+            cbFinancingSource.SelectedItem = MagicNumberController.extrabudgetFinancingSource;
             prikazBindingSource.DataSource = KadrController.Instance.Model.Prikazs.Where(pr => (pr.idPrikazType < 26) || (pr.idPrikazType > 28)).OrderByDescending(prik => prik.DatePrikaz).ThenBy(prik => prik.PrikazName);
 
             cbYear.Items.Clear();

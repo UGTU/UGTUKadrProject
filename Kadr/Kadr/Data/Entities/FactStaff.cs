@@ -453,17 +453,20 @@ namespace Kadr.Data
         {
             get
             {
+                if (LastChange.idFinancingSource > 0)
+                    return LastChange.FinancingSource;
                 if (PlanStaff != null)
                     return PlanStaff.FinancingSource;
                 return FinancingSource;
             }
-            set
+            /*set
             {
+                if (LastChange.idFinancingSource > 0)
+                    return LastChange.FinancingSource;
                 if (PlanStaff != null)
-                    PlanStaff.FinancingSource = value;
-                else
-                    FinancingSource = value;
-            }
+                    return PlanStaff.FinancingSource;
+                return FinancingSource;
+            }*/
         }
 
         public Kadr.Data.Post Post

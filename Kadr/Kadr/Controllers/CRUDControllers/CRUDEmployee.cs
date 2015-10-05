@@ -41,15 +41,15 @@ namespace Kadr.Controllers
                     }
                     else
                     {
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, DateTime?>(x, "BirthDate",DateTime.Today.AddYears(-25), null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "FirstName", "True", null), sender);
+                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, DateTime?>(x, "BirthDate",DateTime.Today.AddYears(-25), null), sender);
+                        /*dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "FirstName", "True", null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "LastName", "True", null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "Otch", "True", null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "Otch", "True", null), sender);*/
 
                         //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, DateTime?>(x, "BirthDate", DateTime.Today, null), sender);
-                        /*dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "FirstName", "", null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "FirstName", "", null), sender);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "LastName", "", null), sender);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "Otch", "", null), sender);*/
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "Otch", "", null), sender);
 
 
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, SemPol>(x, "SemPol", SemPol.DefaultSemPol, null), sender);

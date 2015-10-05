@@ -25,6 +25,7 @@ namespace Kadr.Data
             return "Редактирование личных данных сотрудника";
         }
 
+        #region MainData
         [System.ComponentModel.DisplayName("ID")]
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код сотрудника")]
@@ -42,22 +43,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Возраст")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Возраст полных лет сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
-        public string Age
-        {
-            get
-            {
-                var age = _employee.GetAge();
-                if (age==null) return "Не указана дата рождения";
-                //return string.Format("{0} {1}", age.Value, age.Value.GetYearStr());
-                return age.ToString();
-            }
-
-        }
-
+        
         [System.ComponentModel.DisplayName("Электронный адрес")]
         [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Адрес электронной почты")]
@@ -74,7 +60,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Табельный номер")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tТабельный номер")]
         [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Табельный номер сотрудника в системе отдела кадров")]
         [System.ComponentModel.ReadOnly(false)]
@@ -107,7 +93,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\tПол")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\tПол")]
         [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Пол сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -124,6 +110,7 @@ namespace Kadr.Data
             }
         }
 
+        
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tИмя")]
         [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Имя сотрудника")]
@@ -140,7 +127,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\tОтчество")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\tОтчество")]
         [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Отчество сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -170,39 +157,8 @@ namespace Kadr.Data
                 employee = value;
             }
         }*/
-        [System.ComponentModel.DisplayName("\t\t\t\tДата рождения")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Дата рождения сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
-        public DateTime BirthDate
-        {
-            get
-            {
-                return Convert.ToDateTime(_employee.BirthDate);
-            }
-            set
-            {
-                _employee.BirthDate = value;
-            }
-        }
 
-        [System.ComponentModel.DisplayName("\t\t\tМесто рождения")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Место рождения сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
-        public string BirthPlace
-        {
-            get
-            {
-                return _employee.BirthPlace;
-            }
-            set
-            {
-                _employee.BirthPlace = value;
-            }
-        }
-
-        [System.ComponentModel.DisplayName("\t\tГражданство")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\tГражданство")]
         [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Гражданство сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -219,7 +175,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\tСемейное положение")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\tСемейное положение")]
         [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
         [System.ComponentModel.Description("Семейное положение сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -235,7 +191,78 @@ namespace Kadr.Data
                 _employee.SemPol = value;
             }
         }
+        #endregion
 
+        #region BirthData
+        [System.ComponentModel.DisplayName("\t\t\t\tДата рождения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Дата рождения сотрудника")]
+        [System.ComponentModel.RefreshProperties(RefreshProperties.Repaint)]
+        [System.ComponentModel.ReadOnly(false)]
+        public DateTime BirthDate
+        {
+            get
+            {
+                return Convert.ToDateTime(_employee.BirthDate);
+            }
+            set
+            {
+                _employee.BirthDate = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\tМесто рождения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Место рождения сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string BirthPlace
+        {
+            get
+            {
+                return _employee.BirthPlace;
+            }
+            set
+            {
+                _employee.BirthPlace = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\t\t\tВыводить дату рождения")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Выводить дату рождения на сайте ugtu")]
+        [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]//Kadr.UI.Common.CustomBooleanConverter
+        public bool AllowBirthdate
+        {
+            get
+            {
+                return _employee.AllowBirthdate;
+            }
+            set
+            {
+                _employee.AllowBirthdate = value;
+            }
+        }
+
+        [System.ComponentModel.DisplayName("\tВозраст")]
+        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
+        [System.ComponentModel.Description("Возраст полных лет сотрудника")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string Age
+        {
+            get
+            {
+                var age = _employee.GetAge();
+                if (age == null) return "Не указана дата рождения";
+                //return string.Format("{0} {1}", age.Value, age.Value.GetYearStr());
+                return age.ToString();
+            }
+
+        }
+
+        #endregion
+
+        #region Koeffs
         [System.ComponentModel.DisplayName("Районный коэффициент")]
         [System.ComponentModel.Category("\t\t\t\tКоэффициенты")]
         [System.ComponentModel.Description("Районный коэффициент сотрудника")]
@@ -267,9 +294,10 @@ namespace Kadr.Data
                 _employee.SeverKoeff = value;
             }
         }
+        #endregion
 
-
-        [System.ComponentModel.DisplayName("Серия")]
+        #region PaspData
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tСерия")]
         [System.ComponentModel.Category("\t\t\tПаспорт")]
         [System.ComponentModel.Description("Серия паспорта сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -285,7 +313,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Номер")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\tНомер")]
         [System.ComponentModel.Category("\t\t\tПаспорт")]
         [System.ComponentModel.Description("Номер паспорта сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -301,7 +329,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Кем выдан")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\tКем выдан")]
         [System.ComponentModel.Category("\t\t\tПаспорт")]
         [System.ComponentModel.Description("Кем выдан паспорт сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -317,7 +345,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата выдачи")]
+        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\tДата выдачи")]
         [System.ComponentModel.Category("\t\t\tПаспорт")]
         [System.ComponentModel.Description("Дата выдачи паспорта сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
@@ -333,6 +361,25 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.DisplayName("\t\t\tКод подразделения")]
+        [System.ComponentModel.Category("\t\t\tПаспорт")]
+        [System.ComponentModel.Description("Код подразделения, выдавшего паспорт")]
+        [System.ComponentModel.ReadOnly(false)]
+        public string paspCodeKem
+        {
+            get
+            {
+                return _employee.paspCodeKem;
+            }
+            set
+            {
+                _employee.paspCodeKem = value;
+            }
+        }
+
+        #endregion
+
+        #region EmplHist
         [System.ComponentModel.DisplayName("Серия ТК")]
         [System.ComponentModel.Category("\t\tТрудовая книжка")]
         [System.ComponentModel.Description("Серия трудовой книжки сотрудника")]
@@ -380,6 +427,9 @@ namespace Kadr.Data
                 _employee.EmplHistDate = value;
             }
         }
+        #endregion
+
+        #region OtherDocsData
         [System.ComponentModel.DisplayName("ИНН")]
         [System.ComponentModel.Category("\t\t\t\t\tДокументы")]
         [System.ComponentModel.Description("ИНН сотрудника")]
@@ -424,9 +474,15 @@ namespace Kadr.Data
             }
             set
             {
-                _employee.ssgps = value;
+                if ((value.Substring(3, 1) != "-") && (value.Length == 11))
+                    _employee.ssgps = value.Substring(0, 3) + "-" + value.Substring(3, 3) + "-" + value.Substring(6, 3) + "-" + value.Substring(9, 2); 
+                else
+                    _employee.ssgps = value;
             }
         }
+        #endregion
+
+        #region ExperienceData
         [System.ComponentModel.DisplayName("Общий трудовой стаж")]
         [System.ComponentModel.Category("Трудовой стаж")]
         [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника")]
@@ -538,7 +594,9 @@ namespace Kadr.Data
                   .FormatAsExperience();
             }
         }
+        #endregion
 
+        #region MilitaryData
         //Воинский учет
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tКатегория запаса")]
         [System.ComponentModel.Category("\tВоинский учет")]
@@ -688,6 +746,8 @@ namespace Kadr.Data
                 _employee.NumberMilitaryType = value;
             }
         }
+
+        #endregion
 
     }
 }

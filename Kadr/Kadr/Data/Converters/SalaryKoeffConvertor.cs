@@ -7,17 +7,17 @@ using System.Text;
 
 namespace Kadr.Data.Converters
 {
-    class OK_ReasonConvertor : SimpleToStringConvertor<OK_Reason>
+    class SalaryKoeffConvertor : SimpleToStringConvertor<SalaryKoeff>
     {
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            var res = Kadr.Controllers.KadrController.Instance.Model.OK_Reasons.Where(x => !x.is_old.Value).OrderBy(y=>y.reasonname);
-            if (res == null)
-                return null;
-            List<OK_Reason> resList = res.ToList().ToList();
-            resList.Add(NullOK_Reason.Instance);
-            return resList;
+                var res = Kadr.Controllers.KadrController.Instance.Model.SalaryKoeffs.OrderBy(x => x.PKSubSubCategoryNumber);
+                if (res == null)
+                    return null;
+                List<SalaryKoeff> resList = res.ToList();
+                resList.Add(NullSalaryKoeff.Instance);
+                return resList;
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
@@ -29,14 +29,13 @@ namespace Kadr.Data.Converters
         System.Globalization.CultureInfo culture, object value)
         {
             if (value == null)
-                return NullOK_Reason.Instance;
-
+                return NullSalaryKoeff.Instance;
             if (value.GetType() == typeof(string))
             {
 
-                OK_Reason itemSelected = null;
+                SalaryKoeff itemSelected = null;
                 var c = GetCollection(context);
-                foreach (OK_Reason Item in c)
+                foreach (SalaryKoeff Item in c)
                 {
                     string ItemName = Item.ToString();
 

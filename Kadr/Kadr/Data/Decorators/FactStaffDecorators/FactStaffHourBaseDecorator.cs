@@ -92,23 +92,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\tИсточник финансирования")]
-        [System.ComponentModel.Category("\t\t\tПочасовики")]
-        [System.ComponentModel.Description("Источник финансирования (редактировать для почасовиков)")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.FinancingSourceConvertor))]
-        public Kadr.Data.FinancingSource FinancingSource
-        {
-            get
-            {
-                return factStaff.FinancingSource;
-            }
-            set
-            {
-                factStaff.FinancingSource = value;
-            }
-        }
-
+        
         [System.ComponentModel.DisplayName("\t\t\t\t\tКомментарий")]
         [System.ComponentModel.Category("\t\t\tПочасовики")]
         [System.ComponentModel.Description("Комментарий")]

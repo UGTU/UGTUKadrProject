@@ -42,8 +42,8 @@
             this.RollbackMenuItem = new System.Windows.Forms.ToolStripSplitButton();
             this.RedoMenuItem = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.tscbTextSearch = new System.Windows.Forms.ToolStripComboBox();
             this.tscbFindType = new System.Windows.Forms.ToolStripComboBox();
+            this.tscbTextSearch = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.расширенныйПоискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
@@ -235,8 +235,8 @@
             this.RollbackMenuItem,
             this.RedoMenuItem,
             this.toolStripSeparator5,
-            this.tscbTextSearch,
             this.tscbFindType,
+            this.tscbTextSearch,
             this.toolStripSplitButton1,
             this.toolStripSeparator11,
             this.tsbEmployeeFilter,
@@ -371,12 +371,6 @@
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             this.toolStripSeparator5.Visible = false;
             // 
-            // tscbTextSearch
-            // 
-            this.tscbTextSearch.Name = "tscbTextSearch";
-            this.tscbTextSearch.Size = new System.Drawing.Size(270, 25);
-            this.tscbTextSearch.SelectedIndexChanged += new System.EventHandler(this.tscbTextSearch_SelectedIndexChanged);
-            // 
             // tscbFindType
             // 
             this.tscbFindType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -387,6 +381,12 @@
             this.tscbFindType.Name = "tscbFindType";
             this.tscbFindType.Size = new System.Drawing.Size(160, 25);
             this.tscbFindType.SelectedIndexChanged += new System.EventHandler(this.tscbFindType_SelectedIndexChanged);
+            // 
+            // tscbTextSearch
+            // 
+            this.tscbTextSearch.Name = "tscbTextSearch";
+            this.tscbTextSearch.Size = new System.Drawing.Size(270, 25);
+            this.tscbTextSearch.SelectedIndexChanged += new System.EventHandler(this.tscbTextSearch_SelectedIndexChanged);
             // 
             // toolStripSplitButton1
             // 
@@ -840,7 +840,7 @@
             // 
             this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem.Name = "профессиональноквалификационыеПодподкатегорииToolStripMenuItem";
             this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
-            this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem.Text = "Коэффициенты к окладу";
+            this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem.Text = "Квалификационные категории ПП";
             this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem.Click += new System.EventHandler(this.профессиональноквалификационыеПодподкатегорииToolStripMenuItem_Click);
             // 
             // категорииПерсоналаToolStripMenuItem
