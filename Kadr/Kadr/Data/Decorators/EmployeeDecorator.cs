@@ -474,7 +474,10 @@ namespace Kadr.Data
             }
             set
             {
-                _employee.ssgps = value;
+                if ((value.Substring(3, 1) != "-") && (value.Length == 11))
+                    _employee.ssgps = value.Substring(0, 3) + "-" + value.Substring(3, 3) + "-" + value.Substring(6, 3) + "-" + value.Substring(9, 2); 
+                else
+                    _employee.ssgps = value;
             }
         }
         #endregion
