@@ -1125,6 +1125,10 @@ where FactStaff.idFinancingSource is not null
 
 
 
+go
+
+alter table [dbo].[Employee]
+add [paspCodeKem] varchar(20) null
 
 
 
