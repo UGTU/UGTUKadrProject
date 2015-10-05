@@ -246,7 +246,7 @@
             this.toolStripSeparator14});
             toolStrip1.Location = new System.Drawing.Point(3, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(838, 25);
+            toolStrip1.Size = new System.Drawing.Size(838, 27);
             toolStrip1.TabIndex = 1;
             // 
             // tsbNew
@@ -385,7 +385,7 @@
             // tscbTextSearch
             // 
             this.tscbTextSearch.Name = "tscbTextSearch";
-            this.tscbTextSearch.Size = new System.Drawing.Size(270, 25);
+            this.tscbTextSearch.Size = new System.Drawing.Size(310, 23);
             this.tscbTextSearch.SelectedIndexChanged += new System.EventHandler(this.tscbTextSearch_SelectedIndexChanged);
             // 
             // toolStripSplitButton1
@@ -516,7 +516,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(841, 389);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(841, 387);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -577,7 +577,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.splitContainer1.Size = new System.Drawing.Size(841, 389);
+            this.splitContainer1.Size = new System.Drawing.Size(841, 387);
             this.splitContainer1.SplitterDistance = 192;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -589,7 +589,7 @@
             this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
             this.kadrTreeView1.Name = "kadrTreeView1";
             this.kadrTreeView1.SelectedImageIndex = 0;
-            this.kadrTreeView1.Size = new System.Drawing.Size(190, 387);
+            this.kadrTreeView1.Size = new System.Drawing.Size(190, 385);
             this.kadrTreeView1.TabIndex = 0;
             this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
             this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
@@ -1429,7 +1429,7 @@
             this.отменитьToolStripMenuItem.Image = global::Kadr.Properties.Resources.Edit_Undo;
             this.отменитьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.отменитьToolStripMenuItem.Name = "отменитьToolStripMenuItem";
-            this.отменитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.отменитьToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.отменитьToolStripMenuItem.Text = "Отменить";
             // 
             // повторитьToolStripMenuItem
@@ -1437,20 +1437,20 @@
             this.повторитьToolStripMenuItem.Image = global::Kadr.Properties.Resources.Edit_Redo;
             this.повторитьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.повторитьToolStripMenuItem.Name = "повторитьToolStripMenuItem";
-            this.повторитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.повторитьToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.повторитьToolStripMenuItem.Text = "Повторить";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(145, 6);
             // 
             // вырезатьToolStripMenuItem
             // 
             this.вырезатьToolStripMenuItem.Image = global::Kadr.Properties.Resources.Edit_Cut;
             this.вырезатьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.вырезатьToolStripMenuItem.Name = "вырезатьToolStripMenuItem";
-            this.вырезатьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.вырезатьToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.вырезатьToolStripMenuItem.Text = "Вырезать";
             // 
             // копироватьToolStripMenuItem
@@ -1458,7 +1458,7 @@
             this.копироватьToolStripMenuItem.Image = global::Kadr.Properties.Resources.CopyHS;
             this.копироватьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.копироватьToolStripMenuItem.Name = "копироватьToolStripMenuItem";
-            this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.копироватьToolStripMenuItem.Text = "Копировать";
             // 
             // вставитьToolStripMenuItem
@@ -1466,18 +1466,18 @@
             this.вставитьToolStripMenuItem.Image = global::Kadr.Properties.Resources.PasteHS;
             this.вставитьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.вставитьToolStripMenuItem.Name = "вставитьToolStripMenuItem";
-            this.вставитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.вставитьToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.вставитьToolStripMenuItem.Text = "Вставить";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(145, 6);
             // 
             // выделитьВсёToolStripMenuItem
             // 
             this.выделитьВсёToolStripMenuItem.Name = "выделитьВсёToolStripMenuItem";
-            this.выделитьВсёToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.выделитьВсёToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.выделитьВсёToolStripMenuItem.Text = "Выделить всё";
             // 
             // видToolStripMenuItem
