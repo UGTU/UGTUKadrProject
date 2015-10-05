@@ -19,7 +19,7 @@ namespace Kadr.Data
         {
             get
             {
-                return Event_BusinessTrips.Select(x=>x.Event).SingleOrDefault(x=>x.EventType == MagicNumberController.BeginEventType);
+                return Event_BusinessTrips.Select(x=>x.Event).FirstOrDefault(x=>x.EventType == MagicNumberController.BeginEventType);
             }
         }
 
@@ -27,7 +27,7 @@ namespace Kadr.Data
         {
             get
             {
-                return Event_BusinessTrips.Select(x => x.Event).SingleOrDefault(x => x.EventType == MagicNumberController.ChangeTermsEventType);
+                return Event_BusinessTrips.Select(x => x.Event).FirstOrDefault(x => x.EventType == MagicNumberController.ChangeTermsEventType);
             }
         }
 
@@ -35,7 +35,7 @@ namespace Kadr.Data
         {
             get
             {
-                return Event_BusinessTrips.Select(x => x.Event).SingleOrDefault(x => x.EventType == MagicNumberController.BeginEventType);
+                return Event_BusinessTrips.Select(x => x.Event).FirstOrDefault(x => x.EventType == MagicNumberController.BeginEventType);
             }
         }
 
