@@ -16,6 +16,7 @@ using Kadr.Data.Common;
 using Reports.Frames;
 using Kadr.UI.Editors;
 using Kadr.UI.Dialogs;
+using System.Reflection;
 
 namespace Kadr.UI.Frames
 {
@@ -195,7 +196,8 @@ namespace Kadr.UI.Frames
         {
             InitializeComponent();
             FrameObject = AObject;
-        }
+
+           }
 
         protected override void DoRefreshFrame()
         {
@@ -262,6 +264,8 @@ namespace Kadr.UI.Frames
             employeeBonusReportFrame1.InitializeReport(typeof(Reports.GetEmployeesSumResult), 0);
 
             CreateChangeFactStaffContractMenu();
+
+            cpgEmployee.LabelColumnWidth = (int)Math.Round((double)cpgEmployee.LabelColumnWidth / 2);
         }
 
         private void btnBonusRepLoad_Click(object sender, EventArgs e)

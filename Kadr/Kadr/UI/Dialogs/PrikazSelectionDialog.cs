@@ -55,14 +55,6 @@ namespace Kadr.UI.Dialogs
             this.Height += pAdding.Height;
         }
 
-        private void bAdd_Click(object sender, EventArgs e)
-        {
-            Prikaz p = CRUDPrikaz.Create(tbName.Text, (PrikazType)cbType.SelectedItem, dtDate.Value, dtBegin.Value, dtEnd.Value);
-            cbPrikaz.DataSource = KadrController.Instance.Model.Prikazs.Where(x => x.PrikazType == cbType.SelectedItem);
-            cbPrikaz.Text = p.ToString();
-            dialogObject = p;
-            bCancelAddingMode_Click(sender, e);
-        }
 
         private void bCancelAddingMode_Click(object sender, EventArgs e)
         {
@@ -70,6 +62,31 @@ namespace Kadr.UI.Dialogs
             pAdding.Visible = false;
             this.Height -= pAdding.Height;
             this.Height += pSelection.Height;
+        }
+
+        private void OKBtn_Click(object sender, EventArgs e)
+        {
+            if (pAdding.Visible)
+            {
+
+                DateTime? d1 = dtDate.Value;
+                DateTime? d2 = (dtBegin.Checked) ? dtDate.Value : (DateTime?)null;
+                DateTime? d3 = (dtEnd.Checked) ? dtDate.Value : (DateTime?)null;
+
+                Prikaz p = CRUDPrikaz.Create(tbName.Text, (PrikazType)cbType.SelectedItem, d1, d2, d3);
+                //cbPrikaz.DataSource = KadrController.Instance.Model.Prikazs.Where(x => x.PrikazType == cbType.SelectedItem);
+                //cbPrikaz.Text = p.ToString();
+                dialogObject = p;
+            }
+            
+        }
+
+        private void dtDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtBegin.Value = dtDate.Value;
+            dtBegin.Checked = false;
+            dtEnd.Value = dtDate.Value;
+            dtEnd.Checked = false;
         }
     }
 }

@@ -73,7 +73,13 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null) Trip.Event.Prikaz = value;
+                if (value != null)
+                {
+                    Trip.Event.Prikaz = value;
+                    if (value.DateBegin != null) DateBegin = (DateTime)value.DateBegin;
+                    if (value.DateEnd != null) DateEnd = (DateTime)value.DateBegin;
+                }
+                
                 // спросить про это:
                 // factStaff.MainFactStaff = KadrController.Instance.Model.FactStaffs.Where(fcSt => fcSt.id == value.id).SingleOrDefault();
             }
@@ -81,7 +87,7 @@ namespace Kadr.Data
 
         [System.ComponentModel.DisplayName("Дата начала")]
 
-        [System.ComponentModel.Category("\t\tСроки")]
+        [System.ComponentModel.Category("\t\tСроки командировки")]
         [System.ComponentModel.Description("Дата начала командировки, значащаяся в приказе")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
@@ -103,7 +109,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата окончания")]
-        [System.ComponentModel.Category("\t\tСроки")]
+        [System.ComponentModel.Category("\t\tСроки командировки")]
         [System.ComponentModel.Description("Дата окончания командировки, значащаяся в приказе")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
@@ -185,8 +191,8 @@ namespace Kadr.Data
         [System.ComponentModel.Description("В какой регион командируется сотрудник")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<RegionType>))]
-        //В случае, если регион не требует дополнительного указания сроков пребывания, для создания записи BusinessTripRegionType будут использованы сроки командировки из приказа
-        //В ином случае предполагается, что пользователь отредактирует запись места пребывания при помощи пункта меню "Изменить сроки пребывания в регионе"
+        //В случае, если регион не требует дополнительного указания сроков пребывания, для создания записи BusinessTripRegionType будут использованы Сроки командировки командировки из приказа
+        //В ином случае предполагается, что пользователь отредактирует запись места пребывания при помощи пункта меню "Изменить Сроки командировки пребывания в регионе"
         public RegionType TripMainRegion
         {
             get
@@ -201,7 +207,7 @@ namespace Kadr.Data
 
         }
 
-        [System.ComponentModel.DisplayName("Сроки пребывания в регионах уточнены")]
+        [System.ComponentModel.DisplayName("Сроки командировки пребывания в регионах уточнены")]
         [System.ComponentModel.Category("\tМеста пребывания")]
         [System.ComponentModel.Description("Изменены даты пребывания в регионах командировки")]
         [System.ComponentModel.ReadOnly(true)]

@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace UIX.UI
 {
@@ -71,6 +72,32 @@ namespace UIX.UI
             }
 
             
+        }
+
+        public int LabelColumnWidth
+        {
+            get
+            {
+                Type type = GetType().BaseType;
+                FieldInfo field = type.GetField("gridView",
+                BindingFlags.NonPublic | BindingFlags.Instance);
+
+                object valGrid = field.GetValue(this);
+                Type gridType = valGrid.GetType();
+                return (int)gridType.InvokeMember("GetLabelWidth", BindingFlags.Public | BindingFlags.InvokeMethod | BindingFlags.Instance, null, valGrid, new object[] { });
+
+                
+            }
+            set
+            {
+                Type type = GetType().BaseType;
+                FieldInfo field = type.GetField("gridView",
+                BindingFlags.NonPublic | BindingFlags.Instance);
+
+                object valGrid = field.GetValue(this);
+                Type gridType = valGrid.GetType();
+                gridType.InvokeMember("MoveSplitterTo", BindingFlags.NonPublic | BindingFlags.InvokeMethod | BindingFlags.Instance, null, valGrid, new object[] { value });
+            }
         }
     }
 }
