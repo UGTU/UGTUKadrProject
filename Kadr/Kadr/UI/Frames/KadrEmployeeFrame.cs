@@ -103,6 +103,8 @@ namespace Kadr.UI.Frames
         private void LoadPostList()
         {
             LoadPostList(ObjectStateController.Instance.GetObjectStatesForFilter(tspFactStaffFilter, null));
+            //factStaffBindingSource.Current = FactStaff;
+            factStaffBindingSource.Position = factStaffBindingSource.IndexOf(FactStaff);
             tcEmplPostInf_SelectedIndexChanged(null, null);
             //factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
         }
