@@ -43,7 +43,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Количество дней")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\tОсновные параметры")]
         [System.ComponentModel.Description("Количество дней отпуска")]
         [System.ComponentModel.ReadOnly(false)]
         public int? CountDay
@@ -59,7 +59,7 @@ namespace Kadr.Data
         }
 
         [System.ComponentModel.DisplayName("Дата начала")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\tОсновные параметры")]
         [System.ComponentModel.Description("Дата начала отпуска")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateBegin
@@ -71,11 +71,12 @@ namespace Kadr.Data
             set
             {
                 ok_Otpusk.RealDateBegin = value;
+                CountDay = (DateEnd - DateBegin).Days + 1;
             }
         }
 
         [System.ComponentModel.DisplayName("Дата окончания")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\tОсновные параметры")]
         [System.ComponentModel.Description("Дата завершения отпуска")]
         [System.ComponentModel.ReadOnly(false)]
         public DateTime DateEnd
@@ -87,11 +88,12 @@ namespace Kadr.Data
             set
             {
                 ok_Otpusk.RealDateEnd = value;
+                CountDay = (DateEnd - DateBegin).Days + 1;
             }
         }
 
         [System.ComponentModel.DisplayName("Вид отпуска")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\tОсновные параметры")]
         [System.ComponentModel.Description("Вид отпуска")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OK_OtpuskvidConverter))]
@@ -120,8 +122,11 @@ namespace Kadr.Data
             }
             set
             {
-                if ((value.id == 0) && (ok_Otpusk.SocialFareTransit != null)) ok_Otpusk.SocialFareTransit.Prikaz = null;
+
+                if (((value == null) || (value.id == 0)) && (ok_Otpusk.SocialFareTransit != null)) ok_Otpusk.SocialFareTransit.Prikaz = null; 
                 ok_Otpusk.SocialFareTransit = value;
+                if (value == null) return;
+                if ((value.id != 0) && (PrikazLgot == null)) PrikazLgot = ok_Otpusk.Prikaz;
             }
         }
 
@@ -143,7 +148,7 @@ namespace Kadr.Data
 
 
         [System.ComponentModel.DisplayName("Приказ")]
-        [System.ComponentModel.Category("Основные параметры")]
+        [System.ComponentModel.Category("\tОсновные параметры")]
         [System.ComponentModel.Description("Приказ")]
         [System.ComponentModel.ReadOnly(false)]
         [System.ComponentModel.Editor(typeof(PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]

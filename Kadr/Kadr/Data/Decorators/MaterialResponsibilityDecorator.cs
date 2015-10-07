@@ -100,6 +100,7 @@ namespace Kadr.Data
                 }
             set
             {
+               
                 _material.SumMoney = value;
             }
         }

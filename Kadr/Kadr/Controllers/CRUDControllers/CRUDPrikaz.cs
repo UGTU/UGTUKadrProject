@@ -9,7 +9,7 @@ namespace Kadr.Controllers.CRUDControllers
 {
     public static class CRUDPrikaz
     {
-        public static Prikaz Create(string Name, PrikazType pt, DateTime Date, DateTime DateBegin, DateTime DateEnd)
+        public static Prikaz Create(string Name, PrikazType pt, DateTime? Date, DateTime? DateBegin, DateTime? DateEnd)
         {
             Prikaz p = new Prikaz();
             p.PrikazType = pt;

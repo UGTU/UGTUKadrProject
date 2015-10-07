@@ -43,9 +43,7 @@
             this.dtDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.bAdd = new System.Windows.Forms.Button();
             this.pAdding = new System.Windows.Forms.Panel();
-            this.bCancelAddingMode = new System.Windows.Forms.Button();
             this.pSelection = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,11 +60,11 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbSuperType);
             this.helpProvider1.SetShowHelp(this.panel1, true);
-            this.panel1.Size = new System.Drawing.Size(481, 110);
+            this.panel1.Size = new System.Drawing.Size(481, 104);
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(12, 125);
+            this.panel2.Location = new System.Drawing.Point(12, 119);
             this.panel2.Size = new System.Drawing.Size(481, 30);
             // 
             // ApplyBtn
@@ -89,6 +87,7 @@
             this.OKBtn.Location = new System.Drawing.Point(205, 2);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
             this.OKBtn.Text = "ОК";
+            this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
             // 
             // HelpBtn
             // 
@@ -175,9 +174,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(-3, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 13);
+            this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Наименование приказа:";
+            this.label4.Text = "Номер приказа:";
             // 
             // label5
             // 
@@ -190,19 +189,23 @@
             // 
             // dtBegin
             // 
+            this.dtBegin.Checked = false;
             this.dtBegin.CustomFormat = "dd.MM.yyyy";
             this.dtBegin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtBegin.Location = new System.Drawing.Point(0, 83);
             this.dtBegin.Name = "dtBegin";
+            this.dtBegin.ShowCheckBox = true;
             this.dtBegin.Size = new System.Drawing.Size(219, 20);
             this.dtBegin.TabIndex = 11;
             // 
             // dtEnd
             // 
+            this.dtEnd.Checked = false;
             this.dtEnd.CustomFormat = "dd.MM.yyyy";
             this.dtEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtEnd.Location = new System.Drawing.Point(240, 84);
             this.dtEnd.Name = "dtEnd";
+            this.dtEnd.ShowCheckBox = true;
             this.dtEnd.Size = new System.Drawing.Size(210, 20);
             this.dtEnd.TabIndex = 12;
             // 
@@ -214,6 +217,7 @@
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(210, 20);
             this.dtDate.TabIndex = 13;
+            this.dtDate.ValueChanged += new System.EventHandler(this.dtDate_ValueChanged);
             // 
             // label6
             // 
@@ -233,43 +237,21 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Дата окончания действия:";
             // 
-            // bAdd
-            // 
-            this.bAdd.Location = new System.Drawing.Point(101, 114);
-            this.bAdd.Name = "bAdd";
-            this.bAdd.Size = new System.Drawing.Size(118, 34);
-            this.bAdd.TabIndex = 16;
-            this.bAdd.Text = "Добавить приказ";
-            this.bAdd.UseVisualStyleBackColor = true;
-            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
-            // 
             // pAdding
             // 
-            this.pAdding.Controls.Add(this.bCancelAddingMode);
             this.pAdding.Controls.Add(this.label6);
             this.pAdding.Controls.Add(this.tbName);
-            this.pAdding.Controls.Add(this.bAdd);
             this.pAdding.Controls.Add(this.label7);
             this.pAdding.Controls.Add(this.label4);
             this.pAdding.Controls.Add(this.label5);
             this.pAdding.Controls.Add(this.dtDate);
             this.pAdding.Controls.Add(this.dtBegin);
             this.pAdding.Controls.Add(this.dtEnd);
-            this.pAdding.Location = new System.Drawing.Point(15, 45);
+            this.pAdding.Location = new System.Drawing.Point(15, 49);
             this.pAdding.Name = "pAdding";
-            this.pAdding.Size = new System.Drawing.Size(459, 156);
+            this.pAdding.Size = new System.Drawing.Size(459, 111);
             this.pAdding.TabIndex = 17;
             this.pAdding.Visible = false;
-            // 
-            // bCancelAddingMode
-            // 
-            this.bCancelAddingMode.Location = new System.Drawing.Point(240, 114);
-            this.bCancelAddingMode.Name = "bCancelAddingMode";
-            this.bCancelAddingMode.Size = new System.Drawing.Size(118, 34);
-            this.bCancelAddingMode.TabIndex = 17;
-            this.bCancelAddingMode.Text = "Отменить";
-            this.bCancelAddingMode.UseVisualStyleBackColor = true;
-            this.bCancelAddingMode.Click += new System.EventHandler(this.bCancelAddingMode_Click);
             // 
             // pSelection
             // 
@@ -286,7 +268,8 @@
             this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 169);
+            this.ClientSize = new System.Drawing.Size(505, 163);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PrikazSelectionDialog";
             this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Выбор приказа";
@@ -313,7 +296,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Button bAdd;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtDate;
@@ -321,6 +303,5 @@
         private System.Windows.Forms.DateTimePicker dtBegin;
         private System.Windows.Forms.Panel pSelection;
         private System.Windows.Forms.Panel pAdding;
-        private System.Windows.Forms.Button bCancelAddingMode;
     }
 }

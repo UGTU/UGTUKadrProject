@@ -37,7 +37,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Серия аттестата")]
+        [System.ComponentModel.DisplayName("\t\tСерия аттестата")]
         [System.ComponentModel.Category("Данные аттестата")]
         [System.ComponentModel.Description("Серия аттестата")]
         [System.ComponentModel.ReadOnly(false)]
@@ -53,7 +53,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Номер аттестата")]
+        [System.ComponentModel.DisplayName("\tНомер аттестата")]
         [System.ComponentModel.Category("Данные аттестата")]
         [System.ComponentModel.Description("Номер аттестата")]
         [System.ComponentModel.ReadOnly(false)]

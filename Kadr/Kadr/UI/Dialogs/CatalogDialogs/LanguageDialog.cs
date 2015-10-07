@@ -28,5 +28,6 @@ namespace Kadr.UI.Dialogs
         {
             IsModified = true;
         }
+
     }
 }

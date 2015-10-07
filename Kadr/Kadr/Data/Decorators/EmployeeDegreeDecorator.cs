@@ -73,7 +73,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Серия диплома")]
+        [System.ComponentModel.DisplayName("\t\tСерия диплома")]
         [System.ComponentModel.Category("Данные диплома")]
         [System.ComponentModel.Description("Серия диплома")]
         [System.ComponentModel.ReadOnly(false)]
@@ -89,7 +89,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Номер диплома")]
+        [System.ComponentModel.DisplayName("\tНомер диплома")]
         [System.ComponentModel.Category("Данные диплома")]
         [System.ComponentModel.Description("Номер диплома")]
         [System.ComponentModel.ReadOnly(false)]
