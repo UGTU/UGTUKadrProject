@@ -159,9 +159,9 @@ namespace Kadr.UI.Frames
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tlpEmpPosts = new System.Windows.Forms.TableLayoutPanel();
             this.dgvEmplPosts = new System.Windows.Forms.DataGridView();
+            this.WorkType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HourCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinancingSource = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PKCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1632,9 +1632,9 @@ namespace Kadr.UI.Frames
             this.dgvEmplPosts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvEmplPosts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmplPosts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.WorkType,
             this.Department,
             this.Post,
-            this.WorkType,
             this.HourCount,
             this.FinancingSource,
             this.PKCategory,
@@ -1665,6 +1665,16 @@ namespace Kadr.UI.Frames
             this.dgvEmplPosts.TabIndex = 0;
             this.dgvEmplPosts.DoubleClick += new System.EventHandler(this.dgvEmplPosts_DoubleClick);
             // 
+            // WorkType
+            // 
+            this.WorkType.DataPropertyName = "WorkType";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.WorkType.DefaultCellStyle = dataGridViewCellStyle10;
+            this.WorkType.HeaderText = "Вид работы";
+            this.WorkType.Name = "WorkType";
+            this.WorkType.ReadOnly = true;
+            this.WorkType.Width = 55;
+            // 
             // Department
             // 
             this.Department.DataPropertyName = "Department";
@@ -1680,16 +1690,6 @@ namespace Kadr.UI.Frames
             this.Post.HeaderText = "Должность";
             this.Post.Name = "Post";
             this.Post.ReadOnly = true;
-            // 
-            // WorkType
-            // 
-            this.WorkType.DataPropertyName = "WorkType";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.WorkType.DefaultCellStyle = dataGridViewCellStyle10;
-            this.WorkType.HeaderText = "Вид работы";
-            this.WorkType.Name = "WorkType";
-            this.WorkType.ReadOnly = true;
-            this.WorkType.Width = 55;
             // 
             // HourCount
             // 
@@ -5796,9 +5796,9 @@ namespace Kadr.UI.Frames
         private ToolStripMenuItem текущиеToolStripMenuItem1;
         private ToolStripMenuItem уволенныеToolStripMenuItem;
         private ToolStripButton btnHistoryFactStaff;
+        private DataGridViewTextBoxColumn WorkType;
         private DataGridViewTextBoxColumn Department;
         private DataGridViewTextBoxColumn Post;
-        private DataGridViewTextBoxColumn WorkType;
         private DataGridViewTextBoxColumn HourCount;
         private DataGridViewTextBoxColumn FinancingSource;
         private DataGridViewTextBoxColumn PKCategory;

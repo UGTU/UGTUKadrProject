@@ -115,6 +115,9 @@ namespace Kadr.Data
                         throw new ArgumentOutOfRangeException("Дата окончания отпуска должна быть позже даты его начала.");
                 DateBegin = RealDateBegin;
                 DateEnd = RealDateEnd;
+
+                Prikaz = Event.Prikaz;
+                FactStaff = Event.FactStaffHistory.FactStaff;
             }
         }
 

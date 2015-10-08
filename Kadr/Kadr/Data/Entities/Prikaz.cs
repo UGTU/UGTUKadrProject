@@ -45,9 +45,14 @@ namespace Kadr.Data
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
                 if (PrikazType.IsNull()) throw new ArgumentNullException("Вид приказа.");
+
+                if (DateBegin != null)
+                    DateBegin = DateBegin.Value.Date;
+
+                if (PrikazName == null)
+                    throw new ArgumentNullException("Номер приказа.");
             }
-            if (DateBegin != null)
-                DateBegin = DateBegin.Value.Date;
+            
         }
         #endregion
 
