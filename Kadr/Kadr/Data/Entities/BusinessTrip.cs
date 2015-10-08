@@ -64,6 +64,8 @@ namespace Kadr.Data
 
                 if (Event.Prikaz == null) throw new ArgumentNullException("Приказ");
 
+                if (Event.Prikaz.IsNull()) throw new ArgumentNullException("Приказ");
+
                 if (BusinessTripRegionTypes.Count()==0) throw new ArgumentNullException("Регион пребывания");
 
                 if (FinancingSource==null) throw new ArgumentNullException("Источник финансирования");

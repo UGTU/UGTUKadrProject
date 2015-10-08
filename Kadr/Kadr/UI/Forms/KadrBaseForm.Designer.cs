@@ -246,7 +246,7 @@
             this.toolStripSeparator14});
             toolStrip1.Location = new System.Drawing.Point(3, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(838, 27);
+            toolStrip1.Size = new System.Drawing.Size(838, 25);
             toolStrip1.TabIndex = 1;
             // 
             // tsbNew
@@ -298,7 +298,7 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
             this.toolStripSeparator4.Visible = false;
             // 
             // tsbCut
@@ -307,7 +307,7 @@
             this.tsbCut.Image = global::Kadr.Properties.Resources.Edit_Cut;
             this.tsbCut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCut.Name = "tsbCut";
-            this.tsbCut.Size = new System.Drawing.Size(23, 22);
+            this.tsbCut.Size = new System.Drawing.Size(23, 24);
             this.tsbCut.Visible = false;
             this.tsbCut.Click += new System.EventHandler(this.tsbCut_Click);
             this.tsbCut.MouseEnter += new System.EventHandler(this.tsbCut_MouseEnter);
@@ -385,7 +385,7 @@
             // tscbTextSearch
             // 
             this.tscbTextSearch.Name = "tscbTextSearch";
-            this.tscbTextSearch.Size = new System.Drawing.Size(310, 23);
+            this.tscbTextSearch.Size = new System.Drawing.Size(310, 25);
             this.tscbTextSearch.SelectedIndexChanged += new System.EventHandler(this.tscbTextSearch_SelectedIndexChanged);
             // 
             // toolStripSplitButton1
@@ -516,7 +516,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(841, 387);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(841, 389);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -577,7 +577,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.splitContainer1.Size = new System.Drawing.Size(841, 387);
+            this.splitContainer1.Size = new System.Drawing.Size(841, 389);
             this.splitContainer1.SplitterDistance = 192;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -589,7 +589,7 @@
             this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
             this.kadrTreeView1.Name = "kadrTreeView1";
             this.kadrTreeView1.SelectedImageIndex = 0;
-            this.kadrTreeView1.Size = new System.Drawing.Size(190, 385);
+            this.kadrTreeView1.Size = new System.Drawing.Size(190, 387);
             this.kadrTreeView1.TabIndex = 0;
             this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
             this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);

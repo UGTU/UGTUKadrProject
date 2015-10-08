@@ -273,8 +273,6 @@ namespace Kadr.UI.Frames
             employeeBonusReportFrame1.UpdateReportParams(dtpBonRepPeriodBegin.Value, dtpBonRepPeriodEnd.Value, Employee.id, false);
         }
 
- 
-
         private void dgvAllBonus_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
             if ((dgvAllBonus.Rows[e.RowIndex].DataBoundItem as Bonus).HasHistoryChanges)
