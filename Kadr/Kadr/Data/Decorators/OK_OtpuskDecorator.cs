@@ -122,7 +122,6 @@ namespace Kadr.Data
             }
             set
             {
-
                 if (((value == null) || (value.id == 0)) && (ok_Otpusk.SocialFareTransit != null)) ok_Otpusk.SocialFareTransit.Prikaz = null; 
                 ok_Otpusk.SocialFareTransit = value;
                 if (value == null) return;

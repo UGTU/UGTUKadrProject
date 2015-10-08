@@ -499,7 +499,7 @@ select  [idBeginPrikaz],FactStaffHistory.[DateBegin], [Contract].DateEnd,FactSta
 from dbo.FactStaffHistory
 inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
 inner join dbo.[Contract] ON FactStaffHistory.idContract=[Contract].id
-where Prikaz.idPrikazType=6
+where Prikaz.idPrikazType=6 
 
 go
 --вносим ввод/вывод ставок
@@ -1181,6 +1181,24 @@ go
 
 alter table [dbo].[Employee]
 add [paspCodeKem] varchar(20) null
+
+
+
+
+
+
+go
+update dbo.OK_Otpusk
+set [idFactStaff]=[FactStaffHistory].idFactStaff, [idOtpuskPrikaz]=Event.idPrikaz
+--select *
+from
+[dbo].[OK_Otpusk]
+inner join dbo.Event
+on [OK_Otpusk].idFactStaffPrikaz=Event.id
+inner join [dbo].[FactStaffHistory]
+on Event.idFactStaffHistory=[FactStaffHistory].id
+where [OK_Otpusk].[idFactStaff] is null or [idOtpuskPrikaz] is null
+
 
 
 
