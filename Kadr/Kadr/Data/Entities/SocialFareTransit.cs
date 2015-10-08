@@ -6,7 +6,7 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    partial class SocialFareTransit : UIX.Views.IDecorable, INull
+    partial class SocialFareTransit : UIX.Views.IDecorable, INullable
     {
         /// <summary>
         /// продолжительность периода льготного проезда
@@ -35,15 +35,6 @@ namespace Kadr.Data
 
         #endregion
 
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
         
     }
 
@@ -56,19 +47,10 @@ namespace Kadr.Data
         }
 
         public static readonly NullSocialFareTransit Instance = new NullSocialFareTransit();
-
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 }

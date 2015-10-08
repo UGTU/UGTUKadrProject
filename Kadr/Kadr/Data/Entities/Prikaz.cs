@@ -7,7 +7,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Prikaz : UIX.Views.IDecorable, INull, UIX.Views.IValidatable,IComparable
+    public partial class Prikaz : UIX.Views.IDecorable, INullable, UIX.Views.IValidatable,IComparable
     {
         public Prikaz(UIX.Commands.ICommandManager commandManager, PrikazType type)
             : this()
@@ -74,15 +74,6 @@ namespace Kadr.Data
 
         #endregion
 
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
         #region Члены IComparable
 
         public int CompareTo(object obj)
@@ -104,18 +95,12 @@ namespace Kadr.Data
 
         public static readonly NullPrikaz Instance = new NullPrikaz();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 }

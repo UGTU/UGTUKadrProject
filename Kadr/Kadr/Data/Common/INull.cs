@@ -8,9 +8,14 @@ namespace Kadr.Data.Common
     /// <summary>
     /// Тип, поддерживающий Null-объекты
     /// </summary>
-    interface INull
+    interface INullable
     {
-        bool IsNull();
+
+    }
+
+    interface INull:INullable
+    {
+
     }
 
     static class NullExtentsions
@@ -20,17 +25,17 @@ namespace Kadr.Data.Common
         /// </summary>
         /// <param name="obj">Объект</param>
         /// <returns>Истина, если объект является null-объектом</returns>
-        public static bool IsNull(this INull obj)
+        public static bool IsNull(this INullable obj)
         {
             if (obj == null) throw new ArgumentNullException("Obj");
-            return obj.IsNull(); 
+            return (obj is INull);
         }
         /// <summary>
         /// Получает INull интерфейс объекта
         /// </summary>
         /// <param name="obj">Объект</param>
         /// <returns>Интерфейс типа INull</returns>
-        public static INull AsNull(this INull obj)
+        public static INullable AsNull(this INullable obj)
         {
             return obj;
         }

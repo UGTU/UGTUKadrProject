@@ -8,15 +8,13 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class TimeSheetFSWorkingDay : UIX.Views.IDecorable, UIX.Views.IValidatable, INull
+    public partial class TimeSheetFSWorkingDay : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable
     {
         public override string ToString()
         {
             return FactStaff.ToString() + " " + TimeSheet.ToString();
 
         }
-
-
 
         public Dep department
         {
@@ -64,10 +62,6 @@ namespace Kadr.Data
             OnValidate(ChangeAction.Insert); 
         }
 
-        bool INull.IsNull()
-        {
-            return false;
-        }
     }
 
 
@@ -81,19 +75,11 @@ namespace Kadr.Data
 
         public static readonly NullTimeSheetFSWorkingDay Instance = new NullTimeSheetFSWorkingDay();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 
 }

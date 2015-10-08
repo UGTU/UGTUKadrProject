@@ -9,21 +9,12 @@ using UIX.Views;
 
 namespace Kadr.Data
 {
-    public partial class PostGroup : INull
+    public partial class PostGroup : INullable
     {
         public override string ToString()
         {
             return GroupName;
         }
-
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
     }
 
 
@@ -37,17 +28,11 @@ namespace Kadr.Data
 
         public static readonly NullPostGroup Instance = new NullPostGroup();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
         public override string ToString()
         {
             return "(Не задана)";
         }
 
-        #endregion
     }
 }

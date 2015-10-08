@@ -9,7 +9,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class PlanStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState
+    public partial class PlanStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState
     {
         public override string ToString()
         {
@@ -284,15 +284,6 @@ namespace Kadr.Data
 
         #endregion
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
 
         #region IObjectState Members
 
@@ -317,19 +308,10 @@ namespace Kadr.Data
 
         public static readonly NullPlanStaff Instance = new NullPlanStaff();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не задан)";
         }
-
-        #endregion
     }
 
 }

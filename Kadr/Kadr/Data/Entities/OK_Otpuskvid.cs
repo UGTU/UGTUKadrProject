@@ -6,22 +6,12 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class OK_Otpuskvid : INull
+    public partial class OK_Otpuskvid : INullable
     {
         public override string ToString()
         {
             return this.otpuskvidname;
         }
-
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-
-        }
-
-        #endregion
     }
 
     public class NullOK_Otpuskvid : OK_Otpuskvid, INull
@@ -34,19 +24,10 @@ namespace Kadr.Data
 
         public static readonly NullOK_Otpuskvid Instance = new NullOK_Otpuskvid();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не задан)";
         }
-
-        #endregion
     }
 
 }

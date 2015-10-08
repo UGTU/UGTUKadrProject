@@ -7,7 +7,7 @@ using Kadr.Controllers;
 
 namespace Kadr.Data
 {
-    public partial class WorkType : INull, IComparable
+    public partial class WorkType : INullable, IComparable
     {
         /// <summary>
         /// возвращает вид работы "почасовики"
@@ -37,15 +37,6 @@ namespace Kadr.Data
         }
 
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
         #region Члены IComparable
 
         public int CompareTo(object obj)
@@ -66,19 +57,10 @@ namespace Kadr.Data
 
         public static readonly NullWorkType Instance = new NullWorkType();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не задан)";
         }
-
-        #endregion
     }
 
 }

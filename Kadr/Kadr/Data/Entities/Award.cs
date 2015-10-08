@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kadr.Data.Common;
+using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
@@ -44,8 +45,8 @@ namespace Kadr.Data
                }
 
                if (Employee == null) throw new ArgumentNullException("Сотрудник");
-               if (AwardType == null) throw new ArgumentNullException("Наименование награды");
-               if (AwardLevel == null) throw new ArgumentNullException("Уровень награды");
+               if ((Name == null)&&(AwardType.IsNull())) throw new ArgumentNullException("Наименование награды");
+               //if (AwardLevel == null) throw new ArgumentNullException("Уровень награды");
            }
        }
         

@@ -8,14 +8,13 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class EmployeeRank : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IComparable
+    public partial class EmployeeRank : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IComparable
     {
         public override string ToString()
         {
             return Rank.SmallName;
         }
 
-        #region partial Methods
 
         partial void OnCreated()
         {
@@ -50,13 +49,7 @@ namespace Kadr.Data
         }
 
 
-        #endregion
 
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
 
         #region IDecorable Members
 
@@ -98,18 +91,12 @@ namespace Kadr.Data
 
         public static readonly NullEmployeeRank Instance = new NullEmployeeRank();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не заданo)";
         }
 
-        #endregion
     }
 }

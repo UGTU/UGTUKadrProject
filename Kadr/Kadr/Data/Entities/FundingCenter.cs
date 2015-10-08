@@ -6,21 +6,13 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class FundingCenter: INull
+    public partial class FundingCenter: INullable
     {
         public override string ToString()
         {
             return FundingCenterName;
         }
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
     }
 
 
@@ -34,18 +26,11 @@ namespace Kadr.Data
 
         public static readonly NullFundingCenter Instance = new NullFundingCenter();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(По умолчанию)";
         }
-
-        #endregion
     }
 }

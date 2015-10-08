@@ -7,7 +7,7 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    partial class DepartmentHistory : INull, UIX.Views.IDecorable, UIX.Views.IValidatable
+    partial class DepartmentHistory : INullable, UIX.Views.IDecorable, UIX.Views.IValidatable
     {
 
         public override string ToString()
@@ -80,7 +80,7 @@ namespace Kadr.Data
 
                 if (DateBegin == null) 
                     throw new ArgumentNullException("Дата изменения.");
-                if (((Prikaz as Kadr.Data.Common.INull).IsNull()) || (Prikaz == null))
+                if (((Prikaz as Kadr.Data.Common.INullable).IsNull()) || (Prikaz == null))
                     throw new ArgumentNullException("Приказ изменения.");
             }
 
@@ -100,10 +100,6 @@ namespace Kadr.Data
         }
         #endregion
 
-        bool INull.IsNull()
-        {
-            return false;
-        }
     }
 
 
@@ -120,19 +116,13 @@ namespace Kadr.Data
 
         public static readonly NullDepartmentHistory Instance = new NullDepartmentHistory();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 }
 

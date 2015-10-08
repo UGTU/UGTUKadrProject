@@ -9,7 +9,7 @@ using UIX.Commands;
 
 namespace Kadr.Data
 {
-    public partial class BusinessTripRegionType : INull, IComparable, IDecorable, IValidatable, IEmployeeExperienceRecord
+    public partial class BusinessTripRegionType :  IComparable, IDecorable, IValidatable, IEmployeeExperienceRecord
     {
         //for u to pull!
 
@@ -76,15 +76,6 @@ namespace Kadr.Data
 
         #endregion
 
-
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
 
         #region IDecorable Members
 

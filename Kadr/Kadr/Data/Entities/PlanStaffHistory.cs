@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Linq;
+using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
@@ -65,7 +66,7 @@ namespace Kadr.Data
                     throw new ArgumentNullException("Kол-во ставок.");
                 if (DateBegin == null) 
                     throw new ArgumentNullException("Дата изменения.");
-                if (((Prikaz as Kadr.Data.Common.INull).IsNull()) || (Prikaz == null))
+                if (((Prikaz as Kadr.Data.Common.INullable).IsNull()) || (Prikaz == null))
                     throw new ArgumentNullException("Приказ изменения.");
             }
         }

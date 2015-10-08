@@ -8,7 +8,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class EducDocument : INull, IComparable
+    public partial class EducDocument : INullable, IComparable
     {
 
         public EducDocument(UIX.Commands.ICommandManager commandManager, EducDocumentType type):this()
@@ -25,10 +25,6 @@ namespace Kadr.Data
         }
 
 
-        bool INull.IsNull()
-        {
-            return false;
-        }
 
 
         #region partial Methods
@@ -60,19 +56,13 @@ namespace Kadr.Data
 
         public static readonly NullEducDocument Instance = new NullEducDocument();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 
 }

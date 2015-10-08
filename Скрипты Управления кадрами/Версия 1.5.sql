@@ -1199,6 +1199,139 @@ inner join [dbo].[FactStaffHistory]
 on Event.idFactStaffHistory=[FactStaffHistory].id
 where [OK_Otpusk].[idFactStaff] is null or [idOtpuskPrikaz] is null
 
+=============================
+поля "вид награды" и "уровень награды" делаем необязательными
+=============================
 
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_Event
+GO
+ALTER TABLE dbo.Event SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_AwardLevel
+GO
+ALTER TABLE dbo.AwardLevel SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_AwardType
+GO
+ALTER TABLE dbo.AwardType SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_Employee
+GO
+ALTER TABLE dbo.Employee SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Award
+	DROP CONSTRAINT FK_Award_EducDocument
+GO
+ALTER TABLE dbo.EducDocument SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.Tmp_Award
+	(
+	ID int NOT NULL IDENTITY (1, 1),
+	Name nvarchar(100) NULL,
+	IDEmployee int NOT NULL,
+	IDEducDocument int NOT NULL,
+	IDAwardType int NULL,
+	idEvent int NULL,
+	IDAwardLevel int NULL,
+	Organization nvarchar(100) NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Tmp_Award SET (LOCK_ESCALATION = TABLE)
+GO
+SET IDENTITY_INSERT dbo.Tmp_Award ON
+GO
+IF EXISTS(SELECT * FROM dbo.Award)
+	 EXEC('INSERT INTO dbo.Tmp_Award (ID, Name, IDEmployee, IDEducDocument, IDAwardType, idEvent, IDAwardLevel, Organization)
+		SELECT ID, Name, IDEmployee, IDEducDocument, IDAwardType, idEvent, IDAwardLevel, Organization FROM dbo.Award WITH (HOLDLOCK TABLOCKX)')
+GO
+SET IDENTITY_INSERT dbo.Tmp_Award OFF
+GO
+DROP TABLE dbo.Award
+GO
+EXECUTE sp_rename N'dbo.Tmp_Award', N'Award', 'OBJECT' 
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	PK_Award PRIMARY KEY CLUSTERED 
+	(
+	ID
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_EducDocument FOREIGN KEY
+	(
+	IDEducDocument
+	) REFERENCES dbo.EducDocument
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_Employee FOREIGN KEY
+	(
+	IDEmployee
+	) REFERENCES dbo.Employee
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_AwardType FOREIGN KEY
+	(
+	IDAwardType
+	) REFERENCES dbo.AwardType
+	(
+	ID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_AwardLevel FOREIGN KEY
+	(
+	IDAwardLevel
+	) REFERENCES dbo.AwardLevel
+	(
+	ID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Award ADD CONSTRAINT
+	FK_Award_Event FOREIGN KEY
+	(
+	idEvent
+	) REFERENCES dbo.Event
+	(
+	id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+COMMIT
 
