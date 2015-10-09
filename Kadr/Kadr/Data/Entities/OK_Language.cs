@@ -6,7 +6,7 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class OK_Language : INull, IComparable
+    public partial class OK_Language : INullable, IComparable
     {
         public override string ToString()
         {
@@ -34,17 +34,10 @@ namespace Kadr.Data
 
         public static readonly NullOK_Language Instance = new NullOK_Language();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
         public override string ToString()
         {
             return "(Не заданo)";
         }
 
-        #endregion
     }
 }

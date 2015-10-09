@@ -19,7 +19,7 @@ namespace Kadr.Data
             return TerritoryConditions.Default;
         }
     }
-    public  partial class RegionType: INull
+    public  partial class RegionType: INullable
     {
         public static RegionType UsualConditionRegionType
         {
@@ -34,14 +34,6 @@ namespace Kadr.Data
             return RegionTypeSmallName;
         }
 
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
     }
 
     public class NullRegionType : RegionType, INull
@@ -55,18 +47,12 @@ namespace Kadr.Data
 
         public static readonly NullRegionType Instance = new NullRegionType();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 }

@@ -7,7 +7,7 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    partial class OK_MembFam : UIX.Views.IValidatable, INull
+    partial class OK_MembFam : UIX.Views.IValidatable, INullable
     {
         public override string ToString()
         {
@@ -39,16 +39,6 @@ namespace Kadr.Data
         }
 
         #endregion
-
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-
-        }
-
-        #endregion
     }
 
     public class NullOK_MembFam : OK_MembFam, INull
@@ -61,19 +51,11 @@ namespace Kadr.Data
 
         public static readonly NullOK_MembFam Instance = new NullOK_MembFam();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 
 }

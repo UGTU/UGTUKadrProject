@@ -8,7 +8,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IComparable, IExperienceProvider
+    public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IComparable, IExperienceProvider
     {
         /* public string EmployeeName
          {
@@ -110,16 +110,6 @@ namespace Kadr.Data
         #endregion
 
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
-
         #region Члены IComparable
 
         public int CompareTo(object obj)
@@ -170,19 +160,12 @@ namespace Kadr.Data
 
         public static readonly NullEmployee Instance = new NullEmployee();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 
 }

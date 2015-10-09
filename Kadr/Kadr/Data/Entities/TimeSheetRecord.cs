@@ -84,7 +84,7 @@ namespace Kadr.Data
         {
             get
             {
-                return (!(timeSheetFSRecord as INull).IsNull());
+                return (!(timeSheetFSRecord as INullable).IsNull());
                     
             }
             

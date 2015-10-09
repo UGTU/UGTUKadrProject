@@ -7,21 +7,12 @@ using Kadr.Data.Common;
 namespace Kadr.Data
 {
      
-    public partial class SalaryKoeff: INull
+    public partial class SalaryKoeff: INullable
     {
         public override string ToString()
         {
             return CategoryPPName + " (" + PKSubSubCategoryNumber.ToString()+")";
         }
-
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
     }
 
     public class NullSalaryKoeff : SalaryKoeff, INull
@@ -35,18 +26,10 @@ namespace Kadr.Data
 
         public static readonly NullSalaryKoeff Instance = new NullSalaryKoeff();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не задана)";
         }
 
-        #endregion
     }
 }

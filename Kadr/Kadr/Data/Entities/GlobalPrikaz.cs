@@ -8,14 +8,12 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class GlobalPrikaz : UIX.Views.IValidatable,INull,IComparable
+    public partial class GlobalPrikaz : UIX.Views.IValidatable,INullable,IComparable
     {
         public override string ToString()
         {
             return Convert.ToString(this.PrikazNumber);
         }
-
-
 
         #region partial Methods
 
@@ -49,15 +47,6 @@ namespace Kadr.Data
 
 
 
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
         #region Члены IComparable
 
         public int CompareTo(object obj)
@@ -78,18 +67,11 @@ namespace Kadr.Data
 
         public static readonly NullGlobalPrikaz Instance = new NullGlobalPrikaz();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 
 }

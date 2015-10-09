@@ -8,7 +8,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Dep : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable
+    public partial class Dep : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState, IComparable
     {
         public static Dep UGTUDep
         {
@@ -400,15 +400,6 @@ namespace Kadr.Data
         #endregion
 
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
         #region IValidatable Members
 
         public void Validate()
@@ -452,19 +443,13 @@ namespace Kadr.Data
 
         public static readonly NullDepartment Instance = new NullDepartment();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 
 }

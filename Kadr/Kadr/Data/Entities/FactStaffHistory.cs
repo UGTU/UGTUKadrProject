@@ -176,12 +176,12 @@ namespace Kadr.Data
                     if ((HourStaffCount <= 0) || (HourStaffCount == null))
                         throw new Exception("Занесите нормы времени для отдела.");
                     if (Prikaz != null)
-                        if ((Prikaz as INull).IsNull() && FactStaff.IsHourStaff)
+                        if ((Prikaz as INullable).IsNull() && FactStaff.IsHourStaff)
                             Prikaz = null;
                 }
                 else
                 {
-                    if ((Prikaz as Kadr.Data.Common.INull).IsNull()  && !FactStaff.IsHourStaff)
+                    if ((Prikaz as Kadr.Data.Common.INullable).IsNull()  && !FactStaff.IsHourStaff)
                         throw new ArgumentNullException("Приказ изменения.");
                 }
 

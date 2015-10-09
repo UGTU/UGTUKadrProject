@@ -7,22 +7,12 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class PrikazType :  INull, IComparable
+    public partial class PrikazType :  INullable, IComparable
     {
         public override string ToString()
         {
             return this.PrikazTypeName;
         }
-
-
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
 
         #region Члены IComparable
 
@@ -45,19 +35,13 @@ namespace Kadr.Data
 
         public static readonly NullPrikazType Instance = new NullPrikazType();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 
 }

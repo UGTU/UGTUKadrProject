@@ -12,7 +12,7 @@ namespace Kadr.Data
 {
     public enum FactStaffState {Present, Incapable, OnTrip, OnVacation};
 
-    public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable, IEmployeeExperienceRecord
+    public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState, IComparable, IEmployeeExperienceRecord
     {
 
         public override string ToString()
@@ -730,15 +730,6 @@ namespace Kadr.Data
         #endregion
 
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
 
         #region IObjectState Members
 
@@ -818,19 +809,12 @@ namespace Kadr.Data
 
         public static readonly NullFactStaff Instance = new NullFactStaff();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 
     

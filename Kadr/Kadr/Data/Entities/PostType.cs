@@ -8,17 +8,13 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class PostType : INull
+    public partial class PostType : INullable
     {
         public override string ToString()
         {
             return PostTypeName;
         }
 
-        bool INull.IsNull()
-        {
-            return false;
-        }
     }
 
     public class NullPostType : PostType, INull
@@ -31,18 +27,12 @@ namespace Kadr.Data
 
         public static readonly NullPostType Instance = new NullPostType();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 }

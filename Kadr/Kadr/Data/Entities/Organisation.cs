@@ -13,13 +13,6 @@ namespace Kadr.Data
             return Name;
         }
 
-        #region INull Members
-        public bool IsNull()
-        {
-            return false;
-        }
-        #endregion
-
         public int CompareTo(object obj)
         {
             return Name.CompareTo(obj.ToString());
@@ -35,17 +28,11 @@ namespace Kadr.Data
 
         public static readonly NullOrganisation Instance = new NullOrganisation();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
         public override string ToString()
         {
             return "(Не заданo)";
         }
 
-        #endregion
     }
 }

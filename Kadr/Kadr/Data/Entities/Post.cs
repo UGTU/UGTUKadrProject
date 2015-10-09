@@ -7,7 +7,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Post : CompareObject, INull, UIX.Views.IDecorable, UIX.Views.IValidatable, IObjectState
+    public partial class Post : CompareObject, INullable, UIX.Views.IDecorable, UIX.Views.IValidatable, IObjectState
     {
         public override string ToString()
         {
@@ -79,15 +79,6 @@ namespace Kadr.Data
 
         #endregion
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
         #region Члены IDecorable
 
         public object GetDecorator()
@@ -126,17 +117,11 @@ namespace Kadr.Data
 
         public static readonly NullPost Instance = new NullPost();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
         public override string ToString()
         {
             return "(Не задана)";
         }
 
-        #endregion
     }
 }

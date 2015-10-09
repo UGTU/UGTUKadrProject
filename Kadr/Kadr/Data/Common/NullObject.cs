@@ -10,10 +10,5 @@ namespace Kadr.Data.Common
     /// </summary>
     class NullObject: INull
     {
-        bool INull.IsNull()
-        {
-            return false;
-
-        }
     }
 }
