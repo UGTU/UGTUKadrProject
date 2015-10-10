@@ -246,7 +246,7 @@
             this.toolStripSeparator14});
             toolStrip1.Location = new System.Drawing.Point(3, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(838, 25);
+            toolStrip1.Size = new System.Drawing.Size(882, 25);
             toolStrip1.TabIndex = 1;
             // 
             // tsbNew
@@ -298,7 +298,7 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             this.toolStripSeparator4.Visible = false;
             // 
             // tsbCut
@@ -307,7 +307,7 @@
             this.tsbCut.Image = global::Kadr.Properties.Resources.Edit_Cut;
             this.tsbCut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCut.Name = "tsbCut";
-            this.tsbCut.Size = new System.Drawing.Size(23, 24);
+            this.tsbCut.Size = new System.Drawing.Size(23, 22);
             this.tsbCut.Visible = false;
             this.tsbCut.Click += new System.EventHandler(this.tsbCut_Click);
             this.tsbCut.MouseEnter += new System.EventHandler(this.tsbCut_MouseEnter);
@@ -516,11 +516,11 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(841, 389);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(885, 389);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(841, 462);
+            this.toolStripContainer1.Size = new System.Drawing.Size(885, 462);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -538,7 +538,7 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 0);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-            this.statusStrip1.Size = new System.Drawing.Size(841, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(885, 24);
             this.statusStrip1.TabIndex = 0;
             // 
             // CurrentObjectLabel
@@ -577,8 +577,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.splitContainer1.Size = new System.Drawing.Size(841, 389);
-            this.splitContainer1.SplitterDistance = 192;
+            this.splitContainer1.Size = new System.Drawing.Size(885, 389);
+            this.splitContainer1.SplitterDistance = 202;
             this.splitContainer1.TabIndex = 0;
             // 
             // kadrTreeView1
@@ -589,7 +589,7 @@
             this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
             this.kadrTreeView1.Name = "kadrTreeView1";
             this.kadrTreeView1.SelectedImageIndex = 0;
-            this.kadrTreeView1.Size = new System.Drawing.Size(190, 387);
+            this.kadrTreeView1.Size = new System.Drawing.Size(200, 387);
             this.kadrTreeView1.TabIndex = 0;
             this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
             this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
@@ -639,7 +639,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(841, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(885, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1623,7 +1623,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(841, 462);
+            this.ClientSize = new System.Drawing.Size(885, 462);
             this.Controls.Add(this.toolStripContainer1);
             this.helpProvider1.SetHelpKeyword(this, "Главное окно программы");
             this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TableOfContents);

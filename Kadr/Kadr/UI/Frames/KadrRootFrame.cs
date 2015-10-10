@@ -1128,7 +1128,7 @@ namespace Kadr.UI.Frames
            if ((departmentBindingSource.Current as Dep) != null)
            {
                ((FrameNodeObject as RootNodeObject).treeView as KadrTreeView.KadrTreeView).FindAndSelectDepartment(
-                   (departmentBindingSource.Current as Dep).Department);
+                   (departmentBindingSource.Current as Dep));
            }
        }
 

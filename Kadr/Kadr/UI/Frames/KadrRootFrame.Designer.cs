@@ -1102,7 +1102,7 @@
             this.dgvFactStaff.RowHeadersVisible = false;
             this.dgvFactStaff.RowHeadersWidth = 4;
             this.dgvFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFactStaff.Size = new System.Drawing.Size(1192, 350);
+            this.dgvFactStaff.Size = new System.Drawing.Size(1192, 352);
             this.dgvFactStaff.TabIndex = 6;
             this.dgvFactStaff.DoubleClick += new System.EventHandler(this.dgvFactStaff_DoubleClick);
             // 
@@ -1625,7 +1625,7 @@
             this.tpHourStaff.Location = new System.Drawing.Point(4, 22);
             this.tpHourStaff.Name = "tpHourStaff";
             this.tpHourStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHourStaff.Size = new System.Drawing.Size(1038, 405);
+            this.tpHourStaff.Size = new System.Drawing.Size(802, 533);
             this.tpHourStaff.TabIndex = 11;
             this.tpHourStaff.Text = "Почасовики";
             this.tpHourStaff.UseVisualStyleBackColor = true;
@@ -1644,7 +1644,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(1032, 399);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(796, 527);
             this.tableLayoutPanel11.TabIndex = 2;
             // 
             // toolStrip12
@@ -1664,7 +1664,7 @@
             this.btnHourStaffToExcel});
             this.toolStrip12.Location = new System.Drawing.Point(0, 0);
             this.toolStrip12.Name = "toolStrip12";
-            this.toolStrip12.Size = new System.Drawing.Size(1032, 24);
+            this.toolStrip12.Size = new System.Drawing.Size(796, 24);
             this.toolStrip12.TabIndex = 8;
             this.toolStrip12.Text = "toolStrip12";
             // 
@@ -1796,9 +1796,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslPPSVacations});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 379);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1032, 20);
+            this.statusStrip1.Size = new System.Drawing.Size(796, 20);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1888,7 +1888,7 @@
             this.dgvHourFactStaff.RowHeadersVisible = false;
             this.dgvHourFactStaff.RowHeadersWidth = 4;
             this.dgvHourFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHourFactStaff.Size = new System.Drawing.Size(1026, 349);
+            this.dgvHourFactStaff.Size = new System.Drawing.Size(790, 477);
             this.dgvHourFactStaff.TabIndex = 9;
             this.dgvHourFactStaff.DoubleClick += new System.EventHandler(this.dgvHourFactStaff_DoubleClick);
             // 
@@ -2215,7 +2215,7 @@
             this.tpTimeNorm.Location = new System.Drawing.Point(4, 22);
             this.tpTimeNorm.Name = "tpTimeNorm";
             this.tpTimeNorm.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTimeNorm.Size = new System.Drawing.Size(1038, 405);
+            this.tpTimeNorm.Size = new System.Drawing.Size(802, 533);
             this.tpTimeNorm.TabIndex = 9;
             this.tpTimeNorm.Text = "Нормы времени";
             this.tpTimeNorm.UseVisualStyleBackColor = true;
@@ -2233,7 +2233,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1032, 399);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(796, 527);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // dgvTimeNorm
@@ -2277,7 +2277,7 @@
             this.dgvTimeNorm.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvTimeNorm.RowHeadersVisible = false;
             this.dgvTimeNorm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTimeNorm.Size = new System.Drawing.Size(1026, 371);
+            this.dgvTimeNorm.Size = new System.Drawing.Size(1026, 499);
             this.dgvTimeNorm.TabIndex = 1;
             this.dgvTimeNorm.DoubleClick += new System.EventHandler(this.btnEditTimeNorm_Click);
             // 
