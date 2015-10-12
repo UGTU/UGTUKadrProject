@@ -450,13 +450,22 @@ namespace Kadr.UI.Frames
 
        private void TransferFactStaffBtn_Click(object sender, EventArgs e)
        {
-           if (dgvFactStaff.SelectedRows.Count < 1)
+           if (factStaffBindingSource.Current == null)
            {
-               MessageBox.Show("Выберите сотрудников для перевода!");
+               MessageBox.Show("Выберите сотрудникa для перевода!");
                return;
            }
 
-           //проверяем, чтобы переводимые еще не были уволены
+           FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
+           if (currentFactStaff.DateEnd < DateTime.Today)
+           {
+               MessageBox.Show("Выбранный сотрудник уже уволен!");
+               return;
+           }
+           FactStaff newFactStaff = CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this, null, false, currentFactStaff);
+           
+
+           /*//проверяем, чтобы переводимые еще не были уволены
            foreach (DataGridViewRow selectedRow in dgvFactStaff.SelectedRows)
            {
                //в текущей записи выставляем приказ о переводе и дату перевода
@@ -503,7 +512,8 @@ namespace Kadr.UI.Frames
                     }
                 }
                 LoadPlanStaff();
-           }
+           }*/
+           LoadPlanStaff();
        }
 
        private void dgvPlanStaff_DoubleClick(object sender, EventArgs e)
@@ -1128,7 +1138,7 @@ namespace Kadr.UI.Frames
            if ((departmentBindingSource.Current as Dep) != null)
            {
                ((FrameNodeObject as RootNodeObject).treeView as KadrTreeView.KadrTreeView).FindAndSelectDepartment(
-                   (departmentBindingSource.Current as Dep).Department);
+                   (departmentBindingSource.Current as Dep));
            }
        }
 

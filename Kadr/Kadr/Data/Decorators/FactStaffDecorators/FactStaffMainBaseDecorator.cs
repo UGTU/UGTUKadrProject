@@ -20,12 +20,17 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Должность в штатном расписании")]
         [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("Должность в штатном расписании")]
+        [System.ComponentModel.Editor(typeof(PlanStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
         [System.ComponentModel.ReadOnly(false)]
         public Kadr.Data.PlanStaff PlanStaff
         {
             get
             {
                 return factStaff.PlanStaff;
+            }
+            set
+            {
+                factStaff.PlanStaff = value;
             }
         }
 

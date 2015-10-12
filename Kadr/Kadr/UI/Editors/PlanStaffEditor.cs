@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing.Design;
 using System.ComponentModel;
+using Kadr.Data;
 
 
 namespace Kadr.UI.Editors
@@ -18,7 +19,10 @@ namespace Kadr.UI.Editors
                 
                 dlg.Text = "Запись штатного расписания";
                 dlg.QueryText = "Выберите запись штатного расписания";
-                dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.PlanStaffs;
+                if (context.Instance is FactStaffReplacementDecorator)
+                    dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.PlanStaffs.ToArray();
+                else
+                    dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.PlanStaffs.ToArray().Where(x => (x.DateEnd == null) || (x.DateEnd > DateTime.Today)).Where(x => (x.StaffCount > x.FactStaffCount)).ToArray();
                 dlg.SelectedValue = (Kadr.Data.PlanStaff)value;
 
                 if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)

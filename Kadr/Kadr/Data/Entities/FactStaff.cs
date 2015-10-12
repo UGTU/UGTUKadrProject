@@ -60,7 +60,7 @@ namespace Kadr.Data
         /// <summary>
         /// Признак того, что запись создана одновременно с новым сотрудником
         /// </summary>
-        public bool WithNewEmployee
+        public bool EmployeeReadOnly
         {
             get;
             set;
@@ -707,7 +707,7 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
-            if (WithNewEmployee)
+            if (EmployeeReadOnly)
                 return new FactStaffEmployeeAddingDecorator(this);
             if (IsHourStaff)
                 return new FactStaffHourDecorator(this);

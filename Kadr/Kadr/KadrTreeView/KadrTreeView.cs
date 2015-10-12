@@ -60,12 +60,12 @@ namespace Kadr.KadrTreeView
                                     CreateTreeNode(null, "Приказы", typeof(KadrPrikazObject));
             KadrPrikazObject prikObj =
                     APG.CodeHelper.DBTreeView.DBTreeNodeObject.GetNodeObjectOfNode<KadrPrikazObject>(prikNode);
-/*
+
             //узел Должность
             System.Windows.Forms.TreeNode postNode =
                                     CreateTreeNode(null, "Сотрудники", typeof(KadrPostObject));
             KadrPostObject postObj =
-                    APG.CodeHelper.DBTreeView.DBTreeNodeObject.GetNodeObjectOfNode<KadrPostObject>(postNode);*/
+                    APG.CodeHelper.DBTreeView.DBTreeNodeObject.GetNodeObjectOfNode<KadrPostObject>(postNode);
 
         }
 
@@ -75,14 +75,14 @@ namespace Kadr.KadrTreeView
         /// </summary>
         /// <param name="department"></param>
         /// <returns></returns>
-        public Kadr.KadrTreeView.RootNodeObject FindAndSelectDepartment(Department Department)
+        public Kadr.KadrTreeView.RootNodeObject FindAndSelectDepartment(Dep department)
         {
             IsSeaching = true;
             try
             {
                 //если такого отдела нет
                 //отдел, который ищем
-                Dep department = KadrController.Instance.Model.Deps.Where(dep => dep.id == Department.id).FirstOrDefault();
+                //Dep department = KadrController.Instance.Model.Deps.Where(dep => dep.id == Department.id).FirstOrDefault();
                 if (department == null)
                     return null;
 
@@ -167,7 +167,7 @@ namespace Kadr.KadrTreeView
             if (seachFactStaff == null)
                 seachFactStaff = emplFactStaff.OrderByDescending(fcSt => fcSt.DateEnd).FirstOrDefault();
 
-            Kadr.KadrTreeView.RootNodeObject depObj = FindAndSelectDepartment(KadrController.Instance.Model.Departments.Where(dep => dep.id == seachFactStaff.Department.id).FirstOrDefault());
+            Kadr.KadrTreeView.RootNodeObject depObj = FindAndSelectDepartment(KadrController.Instance.Model.Deps.Where(dep => dep.id == seachFactStaff.Department.id).FirstOrDefault());
             if (depObj == null)
                 return false;
 

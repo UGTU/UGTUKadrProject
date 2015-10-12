@@ -1335,3 +1335,48 @@ ALTER TABLE dbo.Award ADD CONSTRAINT
 GO
 COMMIT
 
+
+
+
+
+GO
+/****** Object:  Trigger [dbo].[FactStaffHistoryOneMainStaff]    Script Date: 10.10.2015 13:50:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--проверяем, чтобы основная должность была 1
+ALTER TRIGGER [dbo].[FactStaffHistoryOneMainStaff]
+ ON [dbo].[FactStaffHistory]
+  FOR UPDATE, INSERT
+AS
+
+DECLARE @idFactStaffHistory INT
+SELECT @idFactStaffHistory=
+ INSERTED.id
+		FROM INSERTED
+			INNER JOIN
+				dbo.FactStaff FactStaffCurrent ON INSERTED.idFactStaff=FactStaffCurrent.id
+			INNER JOIN
+				dbo.FactStaffCurrent OtherFactStaff ON FactStaffCurrent.idEmployee=OtherFactStaff.idEmployee
+					AND OtherFactStaff.id<>INSERTED.idFactStaff
+			inner join 
+				(SELECT Event.idFactStaffHistory, Event.idEventKind from 
+					dbo.Event 
+					INNER JOIN dbo.EventKind ON Event.idEventKind=EventKind.id
+						AND EventKind.ForFactStaff=1)Event ON INSERTED.id=Event.idFactStaffHistory	 
+		WHERE FactStaffCurrent.idEndPrikaz IS NULL		--СТАВКИ ОТКРЫТЫ
+			AND OtherFactStaff.idEndPrikaz IS NULL		--остальные ставки ОТКРЫТы
+			AND OtherFactStaff.idTypeWork IN (SELECT WorkType.id	--осн вид работы
+				FROM WorkType WHERE WorkType.IsMain=1)
+			AND INSERTED.idTypeWork IN (SELECT WorkType.id	--осн вид работы
+				FROM WorkType WHERE WorkType.IsMain=1)
+			and Event.idEventKind<>3
+
+IF (@idFactStaffHistory IS NOT NULL )			
+BEGIN
+	DECLARE @error VARCHAR(MAX)
+	SET @error='Ошибка! Вы пытаетесь добавить сотруднику еще одну основную должность. id='+CONVERT(VARCHAR(MAX),@idFactStaffHistory)
+      RAISERROR(@error, 16,1)
+      ROLLBACK TRAN 
+END

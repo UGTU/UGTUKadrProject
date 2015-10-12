@@ -33,6 +33,14 @@ namespace Kadr.Controllers
             }
         }
 
+        public static EventKind FactStaffTransferEventKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.Single(x => x.id == 3);
+            }
+        }
+
         public static EventKind FactStaffHourCreateEventKind
         {
             get
@@ -224,5 +232,13 @@ namespace Kadr.Controllers
         }
 
         #endregion
+
+        static public OK_Reason TransferReason
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.OK_Reasons.Where(x => x.idreason == 218).First();
+            }
+        }
     }
 }
