@@ -241,6 +241,7 @@
     <Compile Include="Data\Converters\OK_ReasonConvertor.cs" />
     <Compile Include="Data\Converters\PPCategoryConvertor.cs" />
     <Compile Include="Data\Converters\SocialStatusToStringConverter.cs" />
+    <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffTransferDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryFinSourceDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryPPCategoryDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryStaffCountDecorator.cs" />
@@ -443,7 +444,9 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
