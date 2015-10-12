@@ -235,6 +235,7 @@
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
     <Compile Include="Data\Common\WorkTypeExtensions.cs" />
+    <Compile Include="Data\Converters\AwardTypeConverter.cs" />
     <Compile Include="Data\Converters\ContractConvertor.cs" />
     <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />

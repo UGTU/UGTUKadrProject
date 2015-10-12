@@ -70,8 +70,6 @@ namespace UIX.UI
                     e.ChangedItem.Value, e.OldValue, null));
                 }
             }
-
-            
         }
 
         public int LabelColWidth
@@ -85,8 +83,6 @@ namespace UIX.UI
                 object valGrid = field.GetValue(this);
                 Type gridType = valGrid.GetType();
                 return (int)gridType.InvokeMember("GetLabelWidth", BindingFlags.Public | BindingFlags.InvokeMethod | BindingFlags.Instance, null, valGrid, new object[] { });
-
-                
             }
             set
             {
