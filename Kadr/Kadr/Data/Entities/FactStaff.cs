@@ -707,8 +707,10 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
+            if ((EmployeeReadOnly) && (PlanStaff.IsNull()))
+                return new FactStaffTransferDecorator(this);
             if (EmployeeReadOnly)
-                return new FactStaffEmployeeAddingDecorator(this);
+                return new FactStaffEmployeeReadOnlyDecorator(this);
             if (IsHourStaff)
                 return new FactStaffHourDecorator(this);
             return new FactStaffDecorator(this);

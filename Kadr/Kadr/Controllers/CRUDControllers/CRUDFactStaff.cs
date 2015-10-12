@@ -13,7 +13,7 @@ namespace Kadr.Controllers
     {
         public static FactStaff Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, Dep department = null, bool isReplacement = false, FactStaff prevFactStaff = null)
         {
-            if ((planStaffCurrent == null) && (department == null))
+            if ((planStaffCurrent == null) && (department == null) && (prevFactStaff != null))
             {
                 MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
                 return null;
@@ -31,6 +31,7 @@ namespace Kadr.Controllers
             {
                 eventKind = MagicNumberController.FactStaffTransferEventKind;
                 employee = prevFactStaff.Employee;
+                planStaffCurrent = NullPlanStaff.Instance;
             }
 
             WorkType workType = NullWorkType.Instance;
