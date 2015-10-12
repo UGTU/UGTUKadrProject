@@ -17,15 +17,21 @@ namespace Kadr.Data
             set;
         }
 
+        public FactStaff prevFactStaff
+        {
+            get;
+            set;
+        }
+
         public FactStaffHistory(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false)
             : this()
         {
             //x.SetProperties(dlg.CommandManager, currentFactStaff, currentFactStaff.WorkType, NullPrikaz.Instance, DateTime.Today.Date, eventKind, eventType, withContract);
-            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind,eventType, withContract);
+            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind,eventType, withContract, null);
         }
 
 
-        public void SetProperties(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false)
+        public void SetProperties(UIX.Commands.ICommandManager CommandManager, FactStaff factStaff, WorkType workType, Prikaz prikaz, DateTime dateBegin, EventKind eventKind, EventType eventType, bool withContract = false, FactStaff prevFactStaff = null)
         {
             //если уже есть изменение, то берем львинную долю свойств оттуда
             if (factStaff.CurrentChange != null)
@@ -48,6 +54,8 @@ namespace Kadr.Data
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(this, "WorkType", workType, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
+            if (eventKind == MagicNumberController.FactStaffTransferEventKind)
+                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "prevFactStaff", prevFactStaff, null), null);
             
             Event curEvent = new Event(CommandManager, this, eventKind, eventType, (eventKind.ForFactStaff) && (eventKind.WithContract.Value), prikaz);
         }
@@ -198,7 +206,12 @@ namespace Kadr.Data
                     if (SalaryKoeff.IsNull())
                         SalaryKoeff = null;
                 
-
+                if (prevFactStaff != null)
+                {
+                    prevFactStaff.Prikaz = Prikaz;
+                    prevFactStaff.DateEnd = DateBegin.AddDays(-1);
+                    prevFactStaff.OK_Reason = MagicNumberController.TransferReason;
+                }
                 //проверка на переполнение штатов на начало периода
                 /*decimal factStaffCount = Kadr.Controllers.KadrController.Instance.Model.GetFactStaffByPeriod(DateBegin, DateBegin).Where(fcSt => fcSt.idPlanStaff == FactStaff.idPlanStaff).Sum(fcSt => fcSt.StaffCount);
                 decimal planStaffCount = Kadr.Controllers.KadrController.Instance.Model*/
@@ -218,7 +231,6 @@ namespace Kadr.Data
                         if (constructor != null)
                             return constructor.Invoke(new Object[] { this });
                     }
-                    //return new DecoratorType(this);
                 }
             if (FactStaff.IsReplacement)
                 return new FactStaffHistoryReplacementDecorator(this);

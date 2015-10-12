@@ -11,15 +11,28 @@ namespace Kadr.Controllers
 {
     public static class CRUDFactStaff
     {
-        public static void Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, Dep department = null, bool isReplacement = false)
+        public static FactStaff Create(System.Windows.Forms.BindingSource factStaffBindingSource, PlanStaff planStaffCurrent, object sender, Dep department = null, bool isReplacement = false, FactStaff prevFactStaff = null)
         {
             if ((planStaffCurrent == null) && (department == null))
             {
                 MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
-                return;
+                return null;
             }
 
-            Employee employee = NullEmployee.Instance;
+            bool employeeReadOnly = true;
+            EventKind eventKind = department == null ? MagicNumberController.FactStaffCreateEventKind : MagicNumberController.FactStaffHourCreateEventKind;
+            Employee employee;
+            if (prevFactStaff == null)
+            {
+                employee = NullEmployee.Instance;
+                employeeReadOnly = false;
+            }
+            else
+            {
+                eventKind = MagicNumberController.FactStaffTransferEventKind;
+                employee = prevFactStaff.Employee;
+            }
+
             WorkType workType = NullWorkType.Instance;
             bool withContract = true;
             FinancingSource financingSource = NullFinancingSource.Instance;
@@ -43,25 +56,28 @@ namespace Kadr.Controllers
                 dlg.InitializeNewObject = (x) =>
                 {
                     //x.WithNewEmployee = false;
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "WithNewEmployee", false, null), sender);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x, "EmployeeReadOnly", employeeReadOnly, null), sender);
                     FactStaffHistory fcStHistory = new FactStaffHistory();
                     x.SetProperties(dlg.CommandManager, planStaffCurrent, employee, isReplacement, department, financingSource);
 
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
+                        prevFactStaff = dlg.SelectedObjects[0] as FactStaff;
+                    if (prevFactStaff != null)
                     {
-                        FactStaff prev = dlg.SelectedObjects[0] as FactStaff;
-                        fcStHistory.SetProperties(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin,
-                            department == null ? MagicNumberController.FactStaffCreateEventKind : MagicNumberController.FactStaffHourCreateEventKind,
-                            MagicNumberController.BeginEventType, withContract);
+                        fcStHistory.SetProperties(dlg.CommandManager, x, prevFactStaff.WorkType,
+                            eventKind == MagicNumberController.FactStaffTransferEventKind ? NullPrikaz.Instance : prevFactStaff.PrikazBegin,
+                            eventKind == MagicNumberController.FactStaffTransferEventKind ? DateTime.Today : prevFactStaff.DateBegin,
+                            eventKind,
+                            MagicNumberController.BeginEventType, withContract, prevFactStaff);
                         //fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, MagicNumberController.FactStaffCreateEventKind,
                             //MagicNumberController.BeginEventType,withContract);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x, "StaffCount", prev.StaffCount, null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x, "StaffCount", prevFactStaff.StaffCount, null), sender);
                     }
                     else
                     {
                         fcStHistory.SetProperties(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today.Date,
-                            department == null ? MagicNumberController.FactStaffCreateEventKind : MagicNumberController.FactStaffHourCreateEventKind,
-                            MagicNumberController.BeginEventType, withContract);
+                            eventKind,
+                            MagicNumberController.BeginEventType, withContract, prevFactStaff);
                         //fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind,
                             //MagicNumberController.BeginEventType, withContract);
                     }
@@ -76,6 +92,10 @@ namespace Kadr.Controllers
                     dlg.ObjectList = KadrController.Instance.Model.FactStaffs;
                 };
                 dlg.ShowDialog();
+
+                if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
+                    return dlg.SelectedObjects[0] as FactStaff;
+                return null;
             }
         }
 
@@ -93,7 +113,7 @@ namespace Kadr.Controllers
                 employee = NullEmployee.Instance;
 
             FactStaff x = new FactStaff(commandManager, planStaffCurrent, employee, isReplacement, department, financingSource);
-            x.WithNewEmployee = true;            
+            x.EmployeeReadOnly = true;            
             FactStaffHistory fcStHistory = new FactStaffHistory(commandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind,
                 MagicNumberController.BeginEventType, withContract);
 

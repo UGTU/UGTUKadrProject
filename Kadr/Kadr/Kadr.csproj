@@ -269,7 +269,7 @@
     <Compile Include="Data\Decorators\EducationDecorator.cs" />
     <Compile Include="Data\Decorators\EmployeeLangDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffBaseDecorator.cs" />
-    <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffEmployeeAddingDecorator.cs" />
+    <Compile Include="Data\Decorators\FactStaffDecorators\FactStaffEmployeeReadOnlyDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryBaseDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryHourDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryMainBaseDecorator.cs" />
