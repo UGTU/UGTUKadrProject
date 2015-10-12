@@ -722,7 +722,6 @@ namespace Kadr.UI.Frames
             this.cpgEmployee.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.cpgEmployee.CommandRegister = null;
             this.cpgEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cpgEmployee.LabelColumnWidth = 762;
             this.cpgEmployee.Location = new System.Drawing.Point(3, 3);
             this.cpgEmployee.Name = "cpgEmployee";
             this.cpgEmployee.Size = new System.Drawing.Size(857, 287);

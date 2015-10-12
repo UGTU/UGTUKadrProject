@@ -267,7 +267,8 @@ namespace Kadr.UI.Frames
 
             CreateChangeFactStaffContractMenu();
 
-            cpgEmployee.LabelColumnWidth = (int)Math.Round((double)cpgEmployee.LabelColumnWidth / 2);
+            int i = (int)Math.Round((double)cpgEmployee.LabelColWidth / 2);
+            cpgEmployee.LabelColWidth = i;
         }
 
         private void btnBonusRepLoad_Click(object sender, EventArgs e)

@@ -74,7 +74,7 @@ namespace UIX.UI
             
         }
 
-        public int LabelColumnWidth
+        public int LabelColWidth
         {
             get
             {
