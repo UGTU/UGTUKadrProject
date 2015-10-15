@@ -20,7 +20,7 @@ namespace Kadr.Data
 
     }
 
-    public class NullAwardType : AwardType, INull
+    public class NullAwardType : AwardType, INull, INullable
     {
 
         private NullAwardType()

@@ -10,6 +10,8 @@ namespace Kadr.Data
 {
     public partial class Dep : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState, IComparable
     {
+        private DepartmentHistory lastChange = null;
+
         public static Dep UGTUDep
         {
             get
@@ -105,12 +107,13 @@ namespace Kadr.Data
             {
                 if ((id < 1) && (DepartmentHistories.Count < 1))
                     return NullDepartmentHistory.Instance;
-                DepartmentHistory lastChange = DepartmentHistories/*.Where(dep => dep.DateBegin<= DateTime.Today)*/.OrderBy(depHist => depHist.DateBegin).ToArray().LastOrDefault();
-                if (lastChange != null)
+                if (lastChange == null)
+                lastChange = DepartmentHistories/*.Where(dep => dep.DateBegin<= DateTime.Today)*/.OrderBy(depHist => depHist.DateBegin).ToArray().LastOrDefault();
+                if (lastChange == null)
+                    lastChange = NullDepartmentHistory.Instance;
+
                     return lastChange;
-                else
-                    return NullDepartmentHistory.Instance;
-            }
+                }
         }
 
         /// <summary>
@@ -352,9 +355,12 @@ namespace Kadr.Data
 
         partial void OnCreated()
         {
-            DepartmentName = "Новый отдел";
-            DepartmentSmallName = "Новый отдел";
-            dateCreate = DateTime.Today;
+            if (DepartmentName == null)
+            {
+                DepartmentName = "Новый отдел";
+                DepartmentSmallName = "Новый отдел";
+                dateCreate = DateTime.Today;
+            }
         }
 
         /// <summary>

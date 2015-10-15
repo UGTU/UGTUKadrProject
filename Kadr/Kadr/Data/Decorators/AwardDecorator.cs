@@ -42,7 +42,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\tОсновные")]
         [System.ComponentModel.Description("Вид награды, полученной сотрудником")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<AwardType>))]
+        [System.ComponentModel.TypeConverter(typeof(AwardTypeConverter))]
 
         public AwardType Type
         {
@@ -65,7 +65,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\tОсновные")]
         [System.ComponentModel.Description("Уровень награды, полученной сотрудником")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<AwardLevel>))]
+        [System.ComponentModel.TypeConverter(typeof(AwardLevelConverter))]
 
         public AwardLevel Level
         {

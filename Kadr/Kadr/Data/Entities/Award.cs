@@ -46,8 +46,11 @@ namespace Kadr.Data
 
                if (Employee == null) throw new ArgumentNullException("Сотрудник");
                if ((Name == null)&&(AwardType.IsNull())) throw new ArgumentNullException("Наименование награды");
-               //if (AwardLevel == null) throw new ArgumentNullException("Уровень награды");
-           }
+                //if (AwardLevel == null) throw new ArgumentNullException("Уровень награды");
+
+                if (AwardType.IsNull()) AwardType = null;
+                if (AwardLevel.IsNull()) AwardLevel = null;
+            }
        }
         
         #endregion

@@ -27,7 +27,7 @@ namespace Kadr.Data.Common
         /// <returns>Истина, если объект является null-объектом</returns>
         public static bool IsNull(this INullable obj)
         {
-            if (obj == null) throw new ArgumentNullException("Obj");
+            if (obj == null) return true;//throw new ArgumentNullException("Obj");
             return (obj is INull);
         }
         /// <summary>

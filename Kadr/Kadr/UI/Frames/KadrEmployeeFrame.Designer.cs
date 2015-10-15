@@ -197,6 +197,8 @@ namespace Kadr.UI.Frames
             this.tsbDelOtp = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSocialFareTransit = new System.Windows.Forms.ToolStripButton();
+            this.tsbVacationFilter = new System.Windows.Forms.ToolStripDropDownButton();
+            this.заПоследние3ГодаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tpBusTrip = new System.Windows.Forms.TabPage();
             this.dgvTrips = new System.Windows.Forms.DataGridView();
             this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -722,6 +724,7 @@ namespace Kadr.UI.Frames
             this.cpgEmployee.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.cpgEmployee.CommandRegister = null;
             this.cpgEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cpgEmployee.LabelColWidth = 762;
             this.cpgEmployee.Location = new System.Drawing.Point(3, 3);
             this.cpgEmployee.Name = "cpgEmployee";
             this.cpgEmployee.Size = new System.Drawing.Size(857, 287);
@@ -764,7 +767,7 @@ namespace Kadr.UI.Frames
             this.tpContData.Controls.Add(this.splitContainer3);
             this.tpContData.Location = new System.Drawing.Point(4, 22);
             this.tpContData.Name = "tpContData";
-            this.tpContData.Size = new System.Drawing.Size(869, 339);
+            this.tpContData.Size = new System.Drawing.Size(788, 501);
             this.tpContData.TabIndex = 2;
             this.tpContData.Text = "Контактные данные";
             this.tpContData.UseVisualStyleBackColor = true;
@@ -783,8 +786,8 @@ namespace Kadr.UI.Frames
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
-            this.splitContainer3.Size = new System.Drawing.Size(869, 339);
-            this.splitContainer3.SplitterDistance = 154;
+            this.splitContainer3.Size = new System.Drawing.Size(788, 501);
+            this.splitContainer3.SplitterDistance = 226;
             this.splitContainer3.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -800,7 +803,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(869, 154);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 226);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // dataGridView1
@@ -837,7 +840,7 @@ namespace Kadr.UI.Frames
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(863, 233);
+            this.dataGridView1.Size = new System.Drawing.Size(782, 233);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.tsbEditPhone_Click);
             // 
@@ -885,7 +888,7 @@ namespace Kadr.UI.Frames
             this.tsbDelPhone});
             this.toolStrip7.Location = new System.Drawing.Point(0, 0);
             this.toolStrip7.Name = "toolStrip7";
-            this.toolStrip7.Size = new System.Drawing.Size(869, 24);
+            this.toolStrip7.Size = new System.Drawing.Size(788, 24);
             this.toolStrip7.TabIndex = 2;
             this.toolStrip7.Text = "toolStrip7";
             // 
@@ -931,7 +934,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(869, 181);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 271);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // dataGridView6
@@ -971,7 +974,7 @@ namespace Kadr.UI.Frames
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView6.Size = new System.Drawing.Size(863, 238);
+            this.dataGridView6.Size = new System.Drawing.Size(782, 241);
             this.dataGridView6.TabIndex = 3;
             this.dataGridView6.DoubleClick += new System.EventHandler(this.tsbUpdAddress_Click);
             // 
@@ -1041,7 +1044,7 @@ namespace Kadr.UI.Frames
             this.tsbDelAddress});
             this.toolStrip8.Location = new System.Drawing.Point(0, 0);
             this.toolStrip8.Name = "toolStrip8";
-            this.toolStrip8.Size = new System.Drawing.Size(869, 24);
+            this.toolStrip8.Size = new System.Drawing.Size(788, 24);
             this.toolStrip8.TabIndex = 2;
             this.toolStrip8.Text = "toolStrip8";
             // 
@@ -1080,7 +1083,7 @@ namespace Kadr.UI.Frames
             this.tpFamily.Location = new System.Drawing.Point(4, 22);
             this.tpFamily.Name = "tpFamily";
             this.tpFamily.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFamily.Size = new System.Drawing.Size(869, 339);
+            this.tpFamily.Size = new System.Drawing.Size(788, 501);
             this.tpFamily.TabIndex = 1;
             this.tpFamily.Text = "Состав семьи";
             this.tpFamily.UseVisualStyleBackColor = true;
@@ -1098,7 +1101,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(863, 333);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(782, 495);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // dataGridView7
@@ -1139,7 +1142,7 @@ namespace Kadr.UI.Frames
             this.dataGridView7.ReadOnly = true;
             this.dataGridView7.RowHeadersVisible = false;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView7.Size = new System.Drawing.Size(857, 465);
+            this.dataGridView7.Size = new System.Drawing.Size(776, 465);
             this.dataGridView7.TabIndex = 4;
             this.dataGridView7.DoubleClick += new System.EventHandler(this.tsbEditFamMember_Click);
             // 
@@ -1218,7 +1221,7 @@ namespace Kadr.UI.Frames
             this.tsbDelFamMember});
             this.toolStrip9.Location = new System.Drawing.Point(0, 0);
             this.toolStrip9.Name = "toolStrip9";
-            this.toolStrip9.Size = new System.Drawing.Size(863, 24);
+            this.toolStrip9.Size = new System.Drawing.Size(782, 24);
             this.toolStrip9.TabIndex = 3;
             this.toolStrip9.Text = "toolStrip9";
             // 
@@ -1849,14 +1852,14 @@ namespace Kadr.UI.Frames
             this.текущиеToolStripMenuItem1.CheckOnClick = true;
             this.текущиеToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.текущиеToolStripMenuItem1.Name = "текущиеToolStripMenuItem1";
-            this.текущиеToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.текущиеToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.текущиеToolStripMenuItem1.Text = "Текущие";
             // 
             // уволенныеToolStripMenuItem
             // 
             this.уволенныеToolStripMenuItem.CheckOnClick = true;
             this.уволенныеToolStripMenuItem.Name = "уволенныеToolStripMenuItem";
-            this.уволенныеToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.уволенныеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.уволенныеToolStripMenuItem.Text = "Уволенные";
             // 
             // tcEmplPostInf
@@ -1997,7 +2000,8 @@ namespace Kadr.UI.Frames
             this.tsbEditOtp,
             this.tsbDelOtp,
             this.toolStripSeparator1,
-            this.tsbSocialFareTransit});
+            this.tsbSocialFareTransit,
+            this.tsbVacationFilter});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
             this.toolStrip5.Size = new System.Drawing.Size(849, 24);
@@ -2047,6 +2051,26 @@ namespace Kadr.UI.Frames
             this.tsbSocialFareTransit.Text = "Льготный проезд";
             this.tsbSocialFareTransit.ToolTipText = "Льготный проезд";
             this.tsbSocialFareTransit.Click += new System.EventHandler(this.tsbSocialFareTransit_Click);
+            // 
+            // tsbVacationFilter
+            // 
+            this.tsbVacationFilter.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.заПоследние3ГодаToolStripMenuItem});
+            this.tsbVacationFilter.Image = global::Kadr.Properties.Resources.Filter2HS;
+            this.tsbVacationFilter.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbVacationFilter.Name = "tsbVacationFilter";
+            this.tsbVacationFilter.Size = new System.Drawing.Size(77, 21);
+            this.tsbVacationFilter.Text = "Фильтр";
+            // 
+            // заПоследние3ГодаToolStripMenuItem
+            // 
+            this.заПоследние3ГодаToolStripMenuItem.Checked = true;
+            this.заПоследние3ГодаToolStripMenuItem.CheckOnClick = true;
+            this.заПоследние3ГодаToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.заПоследние3ГодаToolStripMenuItem.Name = "заПоследние3ГодаToolStripMenuItem";
+            this.заПоследние3ГодаToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.заПоследние3ГодаToolStripMenuItem.Text = "За последнее время";
+            this.заПоследние3ГодаToolStripMenuItem.Click += new System.EventHandler(this.заПоследние3ГодаToolStripMenuItem_Click);
             // 
             // tpBusTrip
             // 
@@ -2627,7 +2651,7 @@ namespace Kadr.UI.Frames
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowHeadersVisible = false;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(857, 302);
+            this.dataGridView4.Size = new System.Drawing.Size(857, 464);
             this.dataGridView4.TabIndex = 9;
             this.dataGridView4.DoubleClick += new System.EventHandler(this.tsbEditEmplStanding_Click);
             // 
@@ -3182,7 +3206,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer4.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer4.Size = new System.Drawing.Size(782, 495);
-            this.splitContainer4.SplitterDistance = 258;
+            this.splitContainer4.SplitterDistance = 257;
             this.splitContainer4.TabIndex = 11;
             // 
             // groupBox3
@@ -3192,7 +3216,7 @@ namespace Kadr.UI.Frames
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(782, 258);
+            this.groupBox3.Size = new System.Drawing.Size(782, 257);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
@@ -3209,7 +3233,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(776, 239);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(776, 238);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // dgvEducation
@@ -3384,7 +3408,7 @@ namespace Kadr.UI.Frames
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(782, 233);
+            this.groupBox2.Size = new System.Drawing.Size(782, 234);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Языки";
@@ -3402,7 +3426,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(776, 214);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(776, 215);
             this.tableLayoutPanel12.TabIndex = 3;
             // 
             // dgvLanguages
@@ -3571,7 +3595,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox5);
             this.splitContainer2.Size = new System.Drawing.Size(863, 333);
-            this.splitContainer2.SplitterDistance = 165;
+            this.splitContainer2.SplitterDistance = 164;
             this.splitContainer2.TabIndex = 2;
             // 
             // groupBox4
@@ -3580,7 +3604,7 @@ namespace Kadr.UI.Frames
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(863, 165);
+            this.groupBox4.Size = new System.Drawing.Size(863, 164);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ученые степени";
@@ -3598,7 +3622,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(857, 146);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(857, 145);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // dataGridView2
@@ -3719,7 +3743,7 @@ namespace Kadr.UI.Frames
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(863, 164);
+            this.groupBox5.Size = new System.Drawing.Size(863, 165);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Научные звания";
@@ -3737,7 +3761,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(857, 145);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(857, 146);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // dataGridView3
@@ -5810,5 +5834,7 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn Prikaz;
         private DataGridViewTextBoxColumn OK_Reason;
         private TextBox textBox1;
+        private ToolStripDropDownButton tsbVacationFilter;
+        private ToolStripMenuItem заПоследние3ГодаToolStripMenuItem;
     }
 }

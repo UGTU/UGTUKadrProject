@@ -23,7 +23,7 @@ namespace Kadr.Data
              get
              {
                  if ((FirstName != null) && (Otch != null))
-                     return this.LastName + " " + this.FirstName[0] + "." + this.Otch[0] + ".";
+                     return this.this + " " + LastName.FirstName[0] + "." + this.Otch[0] + ".";
                  else
                      return LastName;
              }

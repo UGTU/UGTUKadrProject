@@ -354,7 +354,7 @@ namespace Kadr.UI.Frames
         private void tcEmplPostInf_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
-                CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, oKOtpuskBindingSource);
+                CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, oKOtpuskBindingSource, заПоследние3ГодаToolStripMenuItem.Checked);
 
             if (tcEmplPostInf.SelectedTab == tpBusTrip)
                 CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
@@ -439,18 +439,18 @@ namespace Kadr.UI.Frames
 
         private void tsbAddOtp_Click(object sender, EventArgs e)
         {
-            CRUDVacation.Create((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource, this);
+            CRUDVacation.Create((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource, this, заПоследние3ГодаToolStripMenuItem.Checked);
         }
 
 
         private void tsbEditOtp_Click(object sender, EventArgs e)
         {
-            CRUDVacation.Update((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource);
+            CRUDVacation.Update((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource, заПоследние3ГодаToolStripMenuItem.Checked);
         }
 
                 private void tsbDelOtp_Click(object sender, EventArgs e)
         {
-            CRUDVacation.Delete((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource);
+            CRUDVacation.Delete((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource, заПоследние3ГодаToolStripMenuItem.Checked);
         }
 
 
@@ -760,6 +760,11 @@ namespace Kadr.UI.Frames
                 HistForm.ShowDialog();
             }
             LoadPostList();
+        }
+
+        private void заПоследние3ГодаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, oKOtpuskBindingSource, заПоследние3ГодаToolStripMenuItem.Checked);
         }
     }
 
