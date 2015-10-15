@@ -787,7 +787,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
             this.splitContainer3.Size = new System.Drawing.Size(788, 501);
-            this.splitContainer3.SplitterDistance = 226;
+            this.splitContainer3.SplitterDistance = 224;
             this.splitContainer3.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -803,7 +803,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 226);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 224);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // dataGridView1
@@ -934,7 +934,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 271);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 273);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // dataGridView6
@@ -974,7 +974,7 @@ namespace Kadr.UI.Frames
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView6.Size = new System.Drawing.Size(782, 241);
+            this.dataGridView6.Size = new System.Drawing.Size(782, 243);
             this.dataGridView6.TabIndex = 3;
             this.dataGridView6.DoubleClick += new System.EventHandler(this.tsbUpdAddress_Click);
             // 
@@ -1261,7 +1261,7 @@ namespace Kadr.UI.Frames
             this.tpAwards.Location = new System.Drawing.Point(4, 22);
             this.tpAwards.Name = "tpAwards";
             this.tpAwards.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAwards.Size = new System.Drawing.Size(788, 501);
+            this.tpAwards.Size = new System.Drawing.Size(869, 339);
             this.tpAwards.TabIndex = 3;
             this.tpAwards.Text = "Награды";
             this.tpAwards.UseVisualStyleBackColor = true;
@@ -1304,7 +1304,7 @@ namespace Kadr.UI.Frames
             this.dgvAwards.ReadOnly = true;
             this.dgvAwards.RowHeadersVisible = false;
             this.dgvAwards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAwards.Size = new System.Drawing.Size(782, 470);
+            this.dgvAwards.Size = new System.Drawing.Size(863, 308);
             this.dgvAwards.TabIndex = 6;
             this.dgvAwards.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAwards_CellDoubleClick);
             // 
@@ -1381,7 +1381,7 @@ namespace Kadr.UI.Frames
             this.tsbDelAward});
             this.toolStrip13.Location = new System.Drawing.Point(3, 3);
             this.toolStrip13.Name = "toolStrip13";
-            this.toolStrip13.Size = new System.Drawing.Size(782, 25);
+            this.toolStrip13.Size = new System.Drawing.Size(863, 25);
             this.toolStrip13.TabIndex = 5;
             this.toolStrip13.Text = "toolStrip13";
             // 
@@ -1852,14 +1852,14 @@ namespace Kadr.UI.Frames
             this.текущиеToolStripMenuItem1.CheckOnClick = true;
             this.текущиеToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.текущиеToolStripMenuItem1.Name = "текущиеToolStripMenuItem1";
-            this.текущиеToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.текущиеToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
             this.текущиеToolStripMenuItem1.Text = "Текущие";
             // 
             // уволенныеToolStripMenuItem
             // 
             this.уволенныеToolStripMenuItem.CheckOnClick = true;
             this.уволенныеToolStripMenuItem.Name = "уволенныеToolStripMenuItem";
-            this.уволенныеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.уволенныеToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.уволенныеToolStripMenuItem.Text = "Уволенные";
             // 
             // tcEmplPostInf
@@ -3206,7 +3206,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer4.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer4.Size = new System.Drawing.Size(782, 495);
-            this.splitContainer4.SplitterDistance = 257;
+            this.splitContainer4.SplitterDistance = 255;
             this.splitContainer4.TabIndex = 11;
             // 
             // groupBox3
@@ -3216,7 +3216,7 @@ namespace Kadr.UI.Frames
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(782, 257);
+            this.groupBox3.Size = new System.Drawing.Size(782, 255);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
@@ -3233,7 +3233,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(776, 238);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(776, 236);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // dgvEducation
@@ -3408,7 +3408,7 @@ namespace Kadr.UI.Frames
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(782, 234);
+            this.groupBox2.Size = new System.Drawing.Size(782, 236);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Языки";
@@ -3426,7 +3426,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(776, 215);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(776, 217);
             this.tableLayoutPanel12.TabIndex = 3;
             // 
             // dgvLanguages

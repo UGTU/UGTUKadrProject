@@ -15,8 +15,11 @@ namespace Kadr.Data
         {
             string res ="";
 
+            if (Name != null)
+                res = string.Format("Награда: {0}", Name);
+            else
             if (AwardType != null)
-                res = string.Format("Награда: {0}", AwardType.Name, Employee.EmployeeSmallName);
+                res = string.Format("Награда: {0}", AwardType.Name);
 
             if (EducDocument != null)
                 if (EducDocument.DocDate!=null)
@@ -48,6 +51,7 @@ namespace Kadr.Data
                if ((Name == null)&&(AwardType.IsNull())) throw new ArgumentNullException("Наименование награды");
                 //if (AwardLevel == null) throw new ArgumentNullException("Уровень награды");
 
+                
                 if (AwardType.IsNull()) AwardType = null;
                 if (AwardLevel.IsNull()) AwardLevel = null;
             }
