@@ -119,7 +119,7 @@ namespace Kadr.Data
 
         public KindOfExperience Experience
         {
-            get { return BusinessTrip.Event.FactStaff.Experience; }
+            get { return BusinessTrip.Event.FactStaff.CurrentChange.Experience; }
         }
 
         public Affilations Affilation

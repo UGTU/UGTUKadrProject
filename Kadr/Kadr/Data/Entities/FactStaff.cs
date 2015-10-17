@@ -12,7 +12,7 @@ namespace Kadr.Data
 {
     public enum FactStaffState {Present, Incapable, OnTrip, OnVacation};
 
-    public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable, IEmployeeExperienceRecord
+    public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable
     {
 
         public override string ToString()
@@ -763,48 +763,7 @@ namespace Kadr.Data
                 return new FactStaffHour(this);
             }
         }*/
-        
-        /// <summary>
-        /// Признак того, что этот стаж имеет дату завершения
-        /// </summary>
-        public bool IsEnded { get { return DateEnd.HasValue; } }
-
-        public TerritoryConditions Territory
-        {
-            get
-            {
-
-                //Заглушка до тех пор, пока не определимся, что указывает на территориальные условия
-                return TerritoryConditions.North;
-            }
-        }
-        public KindOfExperience Experience {
-            get
-            {
-                return Category.GetKindOfExperience();
-            }
-
-        }
-        
-        public Affilations Affilation {
-            get
-            {
-                // Записи штатного расписания всегда являются стажем в организации
-                return Affilations.Organization;
-            }
-        }
-
-        public WorkOrganizationWorkType WorkWorkType
-        {
-            get { return WorkType.GetOrganizationWorkType(); }
-        }
-
-        public DateTime Start { get { return DateBegin; }
-            set { }
-        }
-        public DateTime Stop { get { return DateEnd.HasValue ? DateEnd.Value : DateTime.Today; }
-            set { }
-        }
+             
     }
 
 

@@ -138,7 +138,7 @@ namespace Kadr.Data
                 // Записи из трудовой книжки, другие организации
                 var standingSet = EmployeeStandings.Cast<IEmployeeExperienceRecord>();
                 // Записи из штатного расписания, эта организация
-                var stuffSet = FactStaffs.Cast<IEmployeeExperienceRecord>();
+                var stuffSet = FactStaffs.SelectMany(x=>x.FactStaffHistories).Cast<IEmployeeExperienceRecord>();
                 // Записи о пребываниях в различных регионах во время командировок
                 var tripsSet = GetAllRegionTypes().Cast<IEmployeeExperienceRecord>();
 

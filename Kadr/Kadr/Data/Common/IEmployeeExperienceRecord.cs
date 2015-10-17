@@ -15,7 +15,7 @@ namespace Kadr.Data.Common
         /// <summary>
         /// РКС
         /// </summary>
-        StrictNorth = 3,
+        StrictNorth = 4,
         /// <summary>
         /// МКС
         /// </summary>

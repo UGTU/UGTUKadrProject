@@ -171,11 +171,7 @@ namespace Kadr.Data
             {
                 return (CurrentChange == null) ? null : CurrentChange.Address;
             }
-            set
-            {
-                if (CurrentChange != null)
-                    CurrentChange.Address = value;
-            }
+          
         }
 
         public RegionType CurrentRegionType
@@ -183,12 +179,7 @@ namespace Kadr.Data
             get
             {
                 return (CurrentChange == null) ? null : CurrentChange.RegionType;
-            }
-            set
-            {
-                if (CurrentChange != null)
-                    CurrentChange.RegionType = value;
-            }
+            }          
         }
 
         public decimal DepExtraordSum
