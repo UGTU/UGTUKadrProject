@@ -174,6 +174,7 @@ namespace Kadr.Data
             {
                 if (_education.EducDocument != null)
                     _education.EducDocument.Organisation = value;
+                _education.EducWhere = (value != null)? value.Name:"";
             }
         }
 

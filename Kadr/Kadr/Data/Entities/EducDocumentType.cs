@@ -11,7 +11,8 @@ namespace Kadr.Data
 {
     public partial class EducDocumentType : INullable
     {
-        public static int EducationDoc = 12;
+        public static int Attestat = 12;
+        public static int Diplom = 11;
         public static int DefualtDopEducationDoc = 13;
         public static int RankDoc = 2;
 

@@ -19,7 +19,7 @@ namespace Kadr.Controllers
                 dlg.InitializeNewObject = (x) =>
                 {
                     var doc = new EducDocument(dlg.CommandManager,
-                        KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.id == EducDocumentType.EducationDoc));
+                        KadrController.Instance.Model.EducDocumentTypes.FirstOrDefault(q => q.id == EducDocumentType.Diplom));
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, Employee>(x, "Employee", e, null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, EducDocument>(x, "EducDocument", doc, null), sender);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<OK_Educ, EducationType>(x, "EducationType", 

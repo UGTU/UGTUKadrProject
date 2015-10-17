@@ -93,7 +93,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Сумма выплаты за мат. ответственность по приказу")]
         [System.ComponentModel.ReadOnly(false)]
-        public decimal Sum
+        public decimal? Sum
         {
             get{
                 return _material.SumMoney;
