@@ -49,6 +49,7 @@ namespace Kadr.Controllers
             if (EducationBindingSource.Current != null)
             {
                 var ed = (EducationBindingSource.Current as EducationDecorator).GetEmplEduc();
+                
                 LinqActionsController<OK_Educ>.Instance.EditObject(ed, false);
             }
 
