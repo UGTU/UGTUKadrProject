@@ -8,6 +8,8 @@ namespace Kadr.Data
 {
     public partial class OK_Reason: CompareObject, INullable
     {
+        public static int NotFired = 253;
+
         public override string ToString()
         {
             return reasonname;

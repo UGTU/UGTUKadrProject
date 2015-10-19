@@ -54,7 +54,7 @@ namespace Kadr.Data
                 socialFareTransit.DateBegin = value;
                 if ((value != null) && (value != DateTime.MinValue))
                 {
-                    socialFareTransit.DateEnd = value.AddYears(SocialFareTransit.SocialFareLength);
+                    socialFareTransit.DateEnd = value.AddYears(SocialFareTransit.SocialFareLength).AddDays(-1);
                 }
             }
         }

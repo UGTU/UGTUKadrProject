@@ -694,7 +694,7 @@ namespace Kadr.Data
                     if (OKVED.IsNull())
                         OKVED = null;
                 if (OK_Reason != null)
-                    if (OK_Reason.IsNull())
+                    if ((OK_Reason.IsNull()) || (OK_Reason.idreason == OK_Reason.NotFired))
                         OK_Reason = null;
 
                 (CurrentChange as UIX.Views.IValidatable).Validate();
