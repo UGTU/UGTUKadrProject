@@ -449,7 +449,9 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -782,6 +784,7 @@
     <Compile Include="UI\Editors\GrazdEditor.cs" />
     <Compile Include="UI\Editors\OKVEDEditor.cs" />
     <Compile Include="UI\Editors\OK_OtpuskvidEditor.cs" />
+    <Compile Include="UI\Editors\OrganisationEditor.cs" />
     <Compile Include="UI\Editors\PKCategoryEditor.cs" />
     <Compile Include="UI\Editors\PKGroupEditor.cs" />
     <Compile Include="UI\Editors\PlanStaffEditor.cs" />

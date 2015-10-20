@@ -100,7 +100,7 @@ namespace Kadr.Data
             get { return MainEvent.FactStaff; }
         }
 
-        public decimal SumMoney
+        public decimal? SumMoney
         {
             get
             {
