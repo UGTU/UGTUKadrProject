@@ -41,14 +41,6 @@ namespace Kadr.UI.Frames
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -72,6 +64,14 @@ namespace Kadr.UI.Frames
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcEmployee = new System.Windows.Forms.TabControl();
             this.tpEmployee = new System.Windows.Forms.TabPage();
             this.tcEmplData = new System.Windows.Forms.TabControl();
@@ -159,20 +159,6 @@ namespace Kadr.UI.Frames
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tlpEmpPosts = new System.Windows.Forms.TableLayoutPanel();
             this.dgvEmplPosts = new System.Windows.Forms.DataGridView();
-            this.WorkType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HourCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FinancingSource = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PKCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalarySize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StaffCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FStDateBegin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FStPrikazBegin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateEndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prikaz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OK_Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsEmpPosts = new System.Windows.Forms.ToolStrip();
             this.tsbChangeFactStaffContract = new System.Windows.Forms.ToolStripDropDownButton();
@@ -521,6 +507,20 @@ namespace Kadr.UI.Frames
             this.languageLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oKLanguageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tempBS = new System.Windows.Forms.BindingSource(this.components);
+            this.WorkType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HourCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinancingSource = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PKCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalarySize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StaffCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FStDateBegin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FStPrikazBegin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateEndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prikaz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OK_Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tcEmployee.SuspendLayout();
             this.tpEmployee.SuspendLayout();
@@ -1556,7 +1556,7 @@ namespace Kadr.UI.Frames
             this.tpEmpPost.Location = new System.Drawing.Point(4, 22);
             this.tpEmpPost.Name = "tpEmpPost";
             this.tpEmpPost.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmpPost.Size = new System.Drawing.Size(802, 533);
+            this.tpEmpPost.Size = new System.Drawing.Size(883, 371);
             this.tpEmpPost.TabIndex = 1;
             this.tpEmpPost.Text = "Трудовая деятельность";
             this.tpEmpPost.UseVisualStyleBackColor = true;
@@ -1570,7 +1570,7 @@ namespace Kadr.UI.Frames
             this.tcEmplWorkData.Location = new System.Drawing.Point(3, 3);
             this.tcEmplWorkData.Name = "tcEmplWorkData";
             this.tcEmplWorkData.SelectedIndex = 0;
-            this.tcEmplWorkData.Size = new System.Drawing.Size(796, 527);
+            this.tcEmplWorkData.Size = new System.Drawing.Size(877, 365);
             this.tcEmplWorkData.TabIndex = 1;
             this.tcEmplWorkData.SelectedIndexChanged += new System.EventHandler(this.tcEmplWorkData_SelectedIndexChanged);
             // 
@@ -1580,7 +1580,7 @@ namespace Kadr.UI.Frames
             this.tpUGTUPosts.Location = new System.Drawing.Point(4, 22);
             this.tpUGTUPosts.Name = "tpUGTUPosts";
             this.tpUGTUPosts.Padding = new System.Windows.Forms.Padding(3);
-            this.tpUGTUPosts.Size = new System.Drawing.Size(788, 501);
+            this.tpUGTUPosts.Size = new System.Drawing.Size(869, 339);
             this.tpUGTUPosts.TabIndex = 0;
             this.tpUGTUPosts.Text = "Должности";
             this.tpUGTUPosts.UseVisualStyleBackColor = true;
@@ -1600,7 +1600,7 @@ namespace Kadr.UI.Frames
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tcEmplPostInf);
-            this.splitContainer1.Size = new System.Drawing.Size(782, 495);
+            this.splitContainer1.Size = new System.Drawing.Size(863, 333);
             this.splitContainer1.SplitterDistance = 258;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -1616,7 +1616,7 @@ namespace Kadr.UI.Frames
             this.tlpEmpPosts.RowCount = 2;
             this.tlpEmpPosts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tlpEmpPosts.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpEmpPosts.Size = new System.Drawing.Size(782, 258);
+            this.tlpEmpPosts.Size = new System.Drawing.Size(863, 258);
             this.tlpEmpPosts.TabIndex = 1;
             // 
             // dgvEmplPosts
@@ -1663,139 +1663,9 @@ namespace Kadr.UI.Frames
             this.dgvEmplPosts.ReadOnly = true;
             this.dgvEmplPosts.RowHeadersVisible = false;
             this.dgvEmplPosts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmplPosts.Size = new System.Drawing.Size(776, 226);
+            this.dgvEmplPosts.Size = new System.Drawing.Size(857, 226);
             this.dgvEmplPosts.TabIndex = 0;
             this.dgvEmplPosts.DoubleClick += new System.EventHandler(this.dgvEmplPosts_DoubleClick);
-            // 
-            // WorkType
-            // 
-            this.WorkType.DataPropertyName = "WorkType";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.WorkType.DefaultCellStyle = dataGridViewCellStyle10;
-            this.WorkType.HeaderText = "Вид работы";
-            this.WorkType.Name = "WorkType";
-            this.WorkType.ReadOnly = true;
-            this.WorkType.Width = 55;
-            // 
-            // Department
-            // 
-            this.Department.DataPropertyName = "Department";
-            this.Department.HeaderText = "Отдел";
-            this.Department.Name = "Department";
-            this.Department.ReadOnly = true;
-            this.Department.Width = 110;
-            // 
-            // Post
-            // 
-            this.Post.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Post.DataPropertyName = "Post";
-            this.Post.HeaderText = "Должность";
-            this.Post.Name = "Post";
-            this.Post.ReadOnly = true;
-            // 
-            // HourCount
-            // 
-            this.HourCount.DataPropertyName = "HourCount";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.HourCount.DefaultCellStyle = dataGridViewCellStyle11;
-            this.HourCount.HeaderText = "Кол-во часов";
-            this.HourCount.Name = "HourCount";
-            this.HourCount.ReadOnly = true;
-            this.HourCount.Width = 45;
-            // 
-            // FinancingSource
-            // 
-            this.FinancingSource.DataPropertyName = "FinSource";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FinancingSource.DefaultCellStyle = dataGridViewCellStyle12;
-            this.FinancingSource.HeaderText = "Ист фин";
-            this.FinancingSource.Name = "FinancingSource";
-            this.FinancingSource.ReadOnly = true;
-            this.FinancingSource.Width = 45;
-            // 
-            // PKCategory
-            // 
-            this.PKCategory.DataPropertyName = "PKCategory";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PKCategory.DefaultCellStyle = dataGridViewCellStyle13;
-            this.PKCategory.HeaderText = "ПКГ/ КУ/ ПУ (/ППУ)";
-            this.PKCategory.Name = "PKCategory";
-            this.PKCategory.ReadOnly = true;
-            this.PKCategory.Width = 60;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Category.DefaultCellStyle = dataGridViewCellStyle14;
-            this.Category.HeaderText = "Категория";
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            this.Category.Width = 60;
-            // 
-            // SalarySize
-            // 
-            this.SalarySize.DataPropertyName = "SalarySize";
-            this.SalarySize.HeaderText = "Размер оклада/ стоим. часа";
-            this.SalarySize.Name = "SalarySize";
-            this.SalarySize.ReadOnly = true;
-            this.SalarySize.Width = 70;
-            // 
-            // StaffCount
-            // 
-            this.StaffCount.DataPropertyName = "StaffCount";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Format = "N2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.StaffCount.DefaultCellStyle = dataGridViewCellStyle15;
-            this.StaffCount.HeaderText = "Кол-во ставок";
-            this.StaffCount.Name = "StaffCount";
-            this.StaffCount.ReadOnly = true;
-            this.StaffCount.Width = 55;
-            // 
-            // FStDateBegin
-            // 
-            this.FStDateBegin.DataPropertyName = "DateBegin";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FStDateBegin.DefaultCellStyle = dataGridViewCellStyle16;
-            this.FStDateBegin.HeaderText = "Дата назначения";
-            this.FStDateBegin.Name = "FStDateBegin";
-            this.FStDateBegin.ReadOnly = true;
-            this.FStDateBegin.Width = 80;
-            // 
-            // FStPrikazBegin
-            // 
-            this.FStPrikazBegin.DataPropertyName = "PrikazBegin";
-            this.FStPrikazBegin.HeaderText = "Приказ назн.";
-            this.FStPrikazBegin.Name = "FStPrikazBegin";
-            this.FStPrikazBegin.ReadOnly = true;
-            this.FStPrikazBegin.Width = 70;
-            // 
-            // dateEndDataGridViewTextBoxColumn
-            // 
-            this.dateEndDataGridViewTextBoxColumn.DataPropertyName = "DateEnd";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dateEndDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dateEndDataGridViewTextBoxColumn.HeaderText = "Дата увольнения";
-            this.dateEndDataGridViewTextBoxColumn.Name = "dateEndDataGridViewTextBoxColumn";
-            this.dateEndDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateEndDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // Prikaz
-            // 
-            this.Prikaz.DataPropertyName = "Prikaz";
-            this.Prikaz.HeaderText = "Приказ увольн";
-            this.Prikaz.Name = "Prikaz";
-            this.Prikaz.ReadOnly = true;
-            this.Prikaz.Width = 70;
-            // 
-            // OK_Reason
-            // 
-            this.OK_Reason.DataPropertyName = "OK_Reason";
-            this.OK_Reason.HeaderText = "Причина увольнения";
-            this.OK_Reason.Name = "OK_Reason";
-            this.OK_Reason.ReadOnly = true;
-            this.OK_Reason.Width = 200;
             // 
             // factStaffBindingSource
             // 
@@ -1810,7 +1680,7 @@ namespace Kadr.UI.Frames
             this.tspFactStaffFilter});
             this.tsEmpPosts.Location = new System.Drawing.Point(0, 0);
             this.tsEmpPosts.Name = "tsEmpPosts";
-            this.tsEmpPosts.Size = new System.Drawing.Size(782, 25);
+            this.tsEmpPosts.Size = new System.Drawing.Size(863, 25);
             this.tsEmpPosts.TabIndex = 0;
             this.tsEmpPosts.Text = "toolStrip18";
             // 
@@ -1872,7 +1742,7 @@ namespace Kadr.UI.Frames
             this.tcEmplPostInf.Location = new System.Drawing.Point(0, 0);
             this.tcEmplPostInf.Name = "tcEmplPostInf";
             this.tcEmplPostInf.SelectedIndex = 0;
-            this.tcEmplPostInf.Size = new System.Drawing.Size(782, 233);
+            this.tcEmplPostInf.Size = new System.Drawing.Size(863, 71);
             this.tcEmplPostInf.TabIndex = 1;
             this.tcEmplPostInf.SelectedIndexChanged += new System.EventHandler(this.tcEmplPostInf_SelectedIndexChanged);
             // 
@@ -1882,7 +1752,7 @@ namespace Kadr.UI.Frames
             this.tpEmpOtpusk.Location = new System.Drawing.Point(4, 22);
             this.tpEmpOtpusk.Name = "tpEmpOtpusk";
             this.tpEmpOtpusk.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmpOtpusk.Size = new System.Drawing.Size(774, 207);
+            this.tpEmpOtpusk.Size = new System.Drawing.Size(855, 45);
             this.tpEmpOtpusk.TabIndex = 0;
             this.tpEmpOtpusk.Text = "Отпуска";
             this.tpEmpOtpusk.UseVisualStyleBackColor = true;
@@ -1900,7 +1770,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(768, 201);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(849, 39);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // dataGridView5
@@ -1939,7 +1809,7 @@ namespace Kadr.UI.Frames
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(762, 244);
+            this.dataGridView5.Size = new System.Drawing.Size(843, 244);
             this.dataGridView5.TabIndex = 2;
             this.dataGridView5.DoubleClick += new System.EventHandler(this.tsbEditOtp_Click);
             // 
@@ -2004,7 +1874,7 @@ namespace Kadr.UI.Frames
             this.tsbVacationFilter});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(768, 24);
+            this.toolStrip5.Size = new System.Drawing.Size(849, 24);
             this.toolStrip5.TabIndex = 1;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -3163,7 +3033,7 @@ namespace Kadr.UI.Frames
             this.tpEducation.Location = new System.Drawing.Point(4, 22);
             this.tpEducation.Name = "tpEducation";
             this.tpEducation.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEducation.Size = new System.Drawing.Size(883, 371);
+            this.tpEducation.Size = new System.Drawing.Size(802, 533);
             this.tpEducation.TabIndex = 3;
             this.tpEducation.Text = "Образование";
             this.tpEducation.UseVisualStyleBackColor = true;
@@ -3177,7 +3047,7 @@ namespace Kadr.UI.Frames
             this.tcEducation.Location = new System.Drawing.Point(3, 3);
             this.tcEducation.Name = "tcEducation";
             this.tcEducation.SelectedIndex = 0;
-            this.tcEducation.Size = new System.Drawing.Size(877, 365);
+            this.tcEducation.Size = new System.Drawing.Size(796, 527);
             this.tcEducation.TabIndex = 4;
             // 
             // tpGrandEducation
@@ -3186,7 +3056,7 @@ namespace Kadr.UI.Frames
             this.tpGrandEducation.Location = new System.Drawing.Point(4, 22);
             this.tpGrandEducation.Name = "tpGrandEducation";
             this.tpGrandEducation.Padding = new System.Windows.Forms.Padding(3);
-            this.tpGrandEducation.Size = new System.Drawing.Size(869, 339);
+            this.tpGrandEducation.Size = new System.Drawing.Size(788, 501);
             this.tpGrandEducation.TabIndex = 1;
             this.tpGrandEducation.Text = "Основное образование";
             this.tpGrandEducation.UseVisualStyleBackColor = true;
@@ -3205,8 +3075,8 @@ namespace Kadr.UI.Frames
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer4.Size = new System.Drawing.Size(863, 333);
-            this.splitContainer4.SplitterDistance = 171;
+            this.splitContainer4.Size = new System.Drawing.Size(782, 495);
+            this.splitContainer4.SplitterDistance = 254;
             this.splitContainer4.TabIndex = 11;
             // 
             // groupBox3
@@ -3216,7 +3086,7 @@ namespace Kadr.UI.Frames
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(863, 171);
+            this.groupBox3.Size = new System.Drawing.Size(782, 254);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
@@ -3233,7 +3103,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(857, 152);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(776, 235);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // dgvEducation
@@ -3283,7 +3153,7 @@ namespace Kadr.UI.Frames
             this.dgvEducation.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dgvEducation.RowHeadersVisible = false;
             this.dgvEducation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEducation.Size = new System.Drawing.Size(851, 333);
+            this.dgvEducation.Size = new System.Drawing.Size(770, 333);
             this.dgvEducation.TabIndex = 9;
             this.dgvEducation.DoubleClick += new System.EventHandler(this.EditEducationBtn_Click);
             // 
@@ -3369,7 +3239,7 @@ namespace Kadr.UI.Frames
             this.DeleteEducationBtn});
             this.toolStrip16.Location = new System.Drawing.Point(0, 0);
             this.toolStrip16.Name = "toolStrip16";
-            this.toolStrip16.Size = new System.Drawing.Size(857, 25);
+            this.toolStrip16.Size = new System.Drawing.Size(776, 25);
             this.toolStrip16.TabIndex = 8;
             this.toolStrip16.Text = "toolStrip16";
             // 
@@ -3408,7 +3278,7 @@ namespace Kadr.UI.Frames
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(863, 158);
+            this.groupBox2.Size = new System.Drawing.Size(782, 237);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Языки";
@@ -3426,7 +3296,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(857, 139);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(776, 218);
             this.tableLayoutPanel12.TabIndex = 3;
             // 
             // dgvLanguages
@@ -5195,6 +5065,137 @@ namespace Kadr.UI.Frames
             // 
             this.tempBS.DataSource = typeof(Kadr.Data.OK_Otpusk);
             // 
+            // WorkType
+            // 
+            this.WorkType.DataPropertyName = "WorkType";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.WorkType.DefaultCellStyle = dataGridViewCellStyle10;
+            this.WorkType.HeaderText = "Вид работы";
+            this.WorkType.Name = "WorkType";
+            this.WorkType.ReadOnly = true;
+            this.WorkType.Width = 55;
+            // 
+            // Department
+            // 
+            this.Department.DataPropertyName = "Department";
+            this.Department.HeaderText = "Отдел";
+            this.Department.Name = "Department";
+            this.Department.ReadOnly = true;
+            this.Department.Width = 110;
+            // 
+            // Post
+            // 
+            this.Post.DataPropertyName = "Post";
+            this.Post.HeaderText = "Должность";
+            this.Post.Name = "Post";
+            this.Post.ReadOnly = true;
+            this.Post.Width = 150;
+            // 
+            // HourCount
+            // 
+            this.HourCount.DataPropertyName = "HourCount";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.HourCount.DefaultCellStyle = dataGridViewCellStyle11;
+            this.HourCount.HeaderText = "Кол-во часов";
+            this.HourCount.Name = "HourCount";
+            this.HourCount.ReadOnly = true;
+            this.HourCount.Width = 45;
+            // 
+            // FinancingSource
+            // 
+            this.FinancingSource.DataPropertyName = "FinSource";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FinancingSource.DefaultCellStyle = dataGridViewCellStyle12;
+            this.FinancingSource.HeaderText = "Ист фин";
+            this.FinancingSource.Name = "FinancingSource";
+            this.FinancingSource.ReadOnly = true;
+            this.FinancingSource.Width = 45;
+            // 
+            // PKCategory
+            // 
+            this.PKCategory.DataPropertyName = "PKCategory";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PKCategory.DefaultCellStyle = dataGridViewCellStyle13;
+            this.PKCategory.HeaderText = "ПКГ/ КУ/ ПУ (/ППУ)";
+            this.PKCategory.Name = "PKCategory";
+            this.PKCategory.ReadOnly = true;
+            this.PKCategory.Width = 50;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Category.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Category.HeaderText = "Катег";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            this.Category.Width = 40;
+            // 
+            // SalarySize
+            // 
+            this.SalarySize.DataPropertyName = "SalarySize";
+            this.SalarySize.HeaderText = "Размер оклада/ стоим. часа";
+            this.SalarySize.Name = "SalarySize";
+            this.SalarySize.ReadOnly = true;
+            this.SalarySize.Width = 50;
+            // 
+            // StaffCount
+            // 
+            this.StaffCount.DataPropertyName = "StaffCount";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.StaffCount.DefaultCellStyle = dataGridViewCellStyle15;
+            this.StaffCount.HeaderText = "Кол-во ставок";
+            this.StaffCount.Name = "StaffCount";
+            this.StaffCount.ReadOnly = true;
+            this.StaffCount.Width = 55;
+            // 
+            // FStDateBegin
+            // 
+            this.FStDateBegin.DataPropertyName = "DateBegin";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FStDateBegin.DefaultCellStyle = dataGridViewCellStyle16;
+            this.FStDateBegin.HeaderText = "Дата назнач";
+            this.FStDateBegin.Name = "FStDateBegin";
+            this.FStDateBegin.ReadOnly = true;
+            this.FStDateBegin.Width = 70;
+            // 
+            // FStPrikazBegin
+            // 
+            this.FStPrikazBegin.DataPropertyName = "PrikazBegin";
+            this.FStPrikazBegin.HeaderText = "Приказ назн.";
+            this.FStPrikazBegin.Name = "FStPrikazBegin";
+            this.FStPrikazBegin.ReadOnly = true;
+            this.FStPrikazBegin.Width = 70;
+            // 
+            // dateEndDataGridViewTextBoxColumn
+            // 
+            this.dateEndDataGridViewTextBoxColumn.DataPropertyName = "DateEnd";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dateEndDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dateEndDataGridViewTextBoxColumn.HeaderText = "Дата увольнения";
+            this.dateEndDataGridViewTextBoxColumn.Name = "dateEndDataGridViewTextBoxColumn";
+            this.dateEndDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateEndDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // Prikaz
+            // 
+            this.Prikaz.DataPropertyName = "Prikaz";
+            this.Prikaz.HeaderText = "Приказ увольн";
+            this.Prikaz.Name = "Prikaz";
+            this.Prikaz.ReadOnly = true;
+            this.Prikaz.Width = 70;
+            // 
+            // OK_Reason
+            // 
+            this.OK_Reason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OK_Reason.DataPropertyName = "OK_Reason";
+            this.OK_Reason.HeaderText = "Причина увольнения";
+            this.OK_Reason.MinimumWidth = 50;
+            this.OK_Reason.Name = "OK_Reason";
+            this.OK_Reason.ReadOnly = true;
+            // 
             // KadrEmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5819,6 +5820,9 @@ namespace Kadr.UI.Frames
         private ToolStripMenuItem текущиеToolStripMenuItem1;
         private ToolStripMenuItem уволенныеToolStripMenuItem;
         private ToolStripButton btnHistoryFactStaff;
+        private TextBox textBox1;
+        private ToolStripDropDownButton tsbVacationFilter;
+        private ToolStripMenuItem заПоследние3ГодаToolStripMenuItem;
         private DataGridViewTextBoxColumn WorkType;
         private DataGridViewTextBoxColumn Department;
         private DataGridViewTextBoxColumn Post;
@@ -5833,8 +5837,5 @@ namespace Kadr.UI.Frames
         private DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Prikaz;
         private DataGridViewTextBoxColumn OK_Reason;
-        private TextBox textBox1;
-        private ToolStripDropDownButton tsbVacationFilter;
-        private ToolStripMenuItem заПоследние3ГодаToolStripMenuItem;
     }
 }
