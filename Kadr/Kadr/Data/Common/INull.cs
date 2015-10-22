@@ -39,5 +39,10 @@ namespace Kadr.Data.Common
         {
             return obj;
         }
+
+        public static INullable GetNullInstance(this INullable obj)
+        {
+            return (null as INullable);
+        }
     }
 }

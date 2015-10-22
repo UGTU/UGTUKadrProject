@@ -96,7 +96,8 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\tОсновные параметры")]
         [System.ComponentModel.Description("Вид отпуска")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OK_OtpuskvidConverter))]
+        //[System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.OK_OtpuskvidConverter))]
+        [System.ComponentModel.TypeConverter(typeof(Converters.SimpleToStringConvertor<OK_Otpuskvid>))]
         public OK_Otpuskvid OK_Otpuskvid
         {
             get
