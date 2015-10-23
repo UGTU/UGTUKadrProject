@@ -21,12 +21,8 @@ namespace Kadr.UI.Editors
                 dlg.SelectedValue = (Kadr.Data.Organisation)value;
 
                 if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    if (dlg.SelectedValue == null)
-                        return Kadr.Data.NullOrganisation.Instance;
-                    else
-                        return dlg.SelectedValue;
-                else
-                    return value;
+                    return dlg.SelectedValue;
+                return value;
             }
 
         }

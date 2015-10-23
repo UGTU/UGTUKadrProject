@@ -45,6 +45,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pAdding = new System.Windows.Forms.Panel();
             this.pSelection = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pAdding.SuspendLayout();
@@ -64,36 +65,39 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Location = new System.Drawing.Point(12, 119);
             this.panel2.Size = new System.Drawing.Size(481, 30);
+            this.panel2.Controls.SetChildIndex(this.OKBtn, 0);
+            this.panel2.Controls.SetChildIndex(this.CancelBtn, 0);
+            this.panel2.Controls.SetChildIndex(this.ApplyBtn, 0);
+            this.panel2.Controls.SetChildIndex(this.HelpBtn, 0);
+            this.panel2.Controls.SetChildIndex(this.button1, 0);
             // 
             // ApplyBtn
             // 
             this.helpProvider1.SetHelpString(this.ApplyBtn, "Âíîñèò èçìåíåíèÿ â áàçó äàííûõ, íå çàêðûâàÿ îêíî.");
             this.ApplyBtn.Location = new System.Drawing.Point(389, 2);
             this.helpProvider1.SetShowHelp(this.ApplyBtn, true);
-            this.ApplyBtn.Text = "Применить";
             // 
             // CancelBtn
             // 
             this.helpProvider1.SetHelpString(this.CancelBtn, "Îòìåíÿåò âñå èçìåíåíèÿ ñ ìîìåíòà ïîñëåäíîåãî ñîõðàíåíèÿ è çàêðûâàåò îêíî.");
             this.CancelBtn.Location = new System.Drawing.Point(297, 2);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
-            this.CancelBtn.Text = "Отмена";
             // 
             // OKBtn
             // 
             this.helpProvider1.SetHelpString(this.OKBtn, "Âíîñèò èçìåíåíèÿ â áàçó äàííûõ è çàêðûâàåò îêíî.");
             this.OKBtn.Location = new System.Drawing.Point(205, 2);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
-            this.OKBtn.Text = "ОК";
             this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
             // 
             // HelpBtn
             // 
             this.helpProvider1.SetHelpString(this.HelpBtn, "Âûçîâ ñïðàâêè ïî äèàëîãîâîìó îêíó");
             this.helpProvider1.SetShowHelp(this.HelpBtn, true);
-            this.HelpBtn.Text = "Помощь";
+            this.HelpBtn.Visible = false;
             // 
             // cbSuperType
             // 
@@ -263,6 +267,16 @@
             this.pSelection.Size = new System.Drawing.Size(459, 55);
             this.pSelection.TabIndex = 18;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Очистить значение";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PrikazSelectionDialog
             // 
             this.ApplyButtonVisible = true;
@@ -303,5 +317,6 @@
         private System.Windows.Forms.DateTimePicker dtBegin;
         private System.Windows.Forms.Panel pSelection;
         private System.Windows.Forms.Panel pAdding;
+        private System.Windows.Forms.Button button1;
     }
 }

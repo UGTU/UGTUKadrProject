@@ -88,5 +88,10 @@ namespace Kadr.UI.Dialogs
             dtEnd.Value = dtDate.Value;
             dtEnd.Checked = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cbPrikaz.SelectedItem = null;
+        }
     }
 }
