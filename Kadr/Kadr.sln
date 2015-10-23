@@ -20,7 +20,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHelper.Tests", "CodeHel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kadr.Tests", "Kadr.Tests\Kadr.Tests.csproj", "{E38D5726-3520-400F-9DEB-125BF9B28C16}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E9F7B8DA-8C51-4240-BC24-EF4E8C3EF529}"
+	ProjectSection(SolutionItems) = preProject
+		Performance1.psess = Performance1.psess
+		Performance2.psess = Performance2.psess
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AISRB DEBUG|Any CPU = AISRB DEBUG|Any CPU
 		AISRB DEBUG|x64 = AISRB DEBUG|x64
