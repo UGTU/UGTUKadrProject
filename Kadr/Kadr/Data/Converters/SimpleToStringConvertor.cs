@@ -49,8 +49,9 @@ namespace Kadr.Data.Converters
 
             //Для пункта "(Не задано)", пока в работе...
 
-            /*if (typeof(INullable).IsAssignableFrom(typeof(T)))
-                (col as List<T>).Add((T)((col as List<T>)[0] as INullable).GetNullInstance());*/
+            if (col.Count>0)
+            if (typeof(INullable).IsAssignableFrom(typeof(T)))
+                (col as List<T>).Add((T)((col as List<T>)[0] as INullable).GetNullInstance());
 
                 return col;
 

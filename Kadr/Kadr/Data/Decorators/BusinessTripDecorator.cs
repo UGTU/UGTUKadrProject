@@ -73,9 +73,9 @@ namespace Kadr.Data
             }
             set
             {
+                Trip.Event.Prikaz = value;
                 if (value != null)
                 {
-                    Trip.Event.Prikaz = value;
                     if (value.DateBegin != null) DateBegin = (DateTime)value.DateBegin;
                     if (value.DateEnd != null) DateEnd = (DateTime)value.DateBegin;
                 }
@@ -162,7 +162,7 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null) Trip.TripTargetPlace = value;
+                 Trip.TripTargetPlace = value;
             }
         }
 
@@ -182,7 +182,7 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null) Trip.FinancingSource = value;
+                 Trip.FinancingSource = value;
             }
         }
 

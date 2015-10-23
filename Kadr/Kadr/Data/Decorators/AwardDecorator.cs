@@ -52,10 +52,7 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null)
-                {
                     Award.AwardType = value;
-                }
 
             }
         }
@@ -75,10 +72,7 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null)
-                {
                     Award.AwardLevel = value;
-                }
 
             }
         }
@@ -115,10 +109,7 @@ namespace Kadr.Data
             set
             {
 
-                if (value != null)
-                {
                     Award.EducDocument.DocDate = value;
-                }
 
             }
         }
@@ -193,10 +184,7 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null)
-                {
                     Award.GovDepartment = value;
-                }
             }
         }
 

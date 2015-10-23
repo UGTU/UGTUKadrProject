@@ -68,7 +68,7 @@ namespace Kadr.Data
 
                 if (BusinessTripRegionTypes.Count()==0) throw new ArgumentNullException("Регион пребывания");
 
-                if (FinancingSource==null) throw new ArgumentNullException("Источник финансирования");
+                //if (FinancingSource==null) throw new ArgumentNullException("Источник финансирования");
 
                 if (TripTargetPlace == null) throw new ArgumentNullException("Место назначения");
                 if (TripTargetPlace == "") throw new ArgumentNullException("Место назначения");
