@@ -120,7 +120,7 @@ namespace Kadr.Data
             {
                 if (Inkapacity.EducDocument != null)
                     Inkapacity.EducDocument.DocNumber = value;
-                else
+
                     Inkapacity.NInkapacity = value;
             }
         }
