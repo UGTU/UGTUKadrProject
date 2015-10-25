@@ -70,8 +70,8 @@ namespace Kadr.Controllers
                 != DialogResult.OK)
                 return;
 
-            KadrController.Instance.Model.OK_Otpusks.DeleteOnSubmit(CurrentOtp);
-            LinqActionsController<Event>.Instance.DeleteObject(CurrentPrikaz, KadrController.Instance.Model.Events, null);
+            KadrController.Instance.Model.Events.DeleteOnSubmit(CurrentPrikaz);
+            LinqActionsController<OK_Otpusk>.Instance.DeleteObject(CurrentOtp, KadrController.Instance.Model.OK_Otpusks, null);
 
             Read(fs, oKOtpuskBindingSource, filter);
         }

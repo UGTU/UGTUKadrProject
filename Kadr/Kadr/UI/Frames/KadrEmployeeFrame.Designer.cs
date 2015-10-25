@@ -3637,7 +3637,7 @@ namespace Kadr.UI.Frames
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(877, 340);
+            this.dataGridView2.Size = new System.Drawing.Size(877, 357);
             this.dataGridView2.TabIndex = 8;
             this.dataGridView2.DoubleClick += new System.EventHandler(this.EditDegreeBtn_Click);
             // 
@@ -3790,7 +3790,7 @@ namespace Kadr.UI.Frames
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(877, 349);
+            this.dataGridView3.Size = new System.Drawing.Size(877, 366);
             this.dataGridView3.TabIndex = 8;
             this.dataGridView3.DoubleClick += new System.EventHandler(this.EditRankBtn_Click);
             // 

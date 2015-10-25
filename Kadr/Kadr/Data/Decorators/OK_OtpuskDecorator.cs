@@ -161,6 +161,7 @@ namespace Kadr.Data
             set
             {
                 ok_Otpusk.RealPrikaz = value;
+                ok_Otpusk.Prikaz = value;
             }
         }
 
