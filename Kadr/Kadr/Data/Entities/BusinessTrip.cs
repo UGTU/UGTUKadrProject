@@ -99,7 +99,6 @@ namespace Kadr.Data
 
         #endregion
 
-
         #region IValidatable Members
 
         void UIX.Views.IValidatable.Validate()
@@ -108,7 +107,6 @@ namespace Kadr.Data
         }
 
         #endregion
-
 
         #region IDecorable Members
 

@@ -106,17 +106,17 @@ namespace Kadr.UI.Frames
             if (Department != null)
             {
                 //departmentBindingSource.DataSource = KadrController.Instance.Model.Departments.Where(dep => dep.idManagerDepartment == Department.id).ToArray().OrderBy(dep => dep.DepartmentName); 
-                    //KadrController.Instance.Model.Deps.ToArray().Where(dep => dep.LastChange.idManagerDepartment == Department.id).ToArray().OrderBy(dep => dep.DepartmentName);
-                    //Department.DepartmentHistories1.Where(dep => dep.Dep.dateExit == null).OrderBy( dep => dep.DepartmentName);
+                //KadrController.Instance.Model.Deps.ToArray().Where(dep => dep.LastChange.idManagerDepartment == Department.id).ToArray().OrderBy(dep => dep.DepartmentName);
+                //Department.DepartmentHistories1.Where(dep => dep.Dep.dateExit == null).OrderBy( dep => dep.DepartmentName);
 
                 //фильтруем элементы
-                IEnumerable<Dep> departments = KadrController.Instance.Model.Deps.ToArray().Where(dep => dep.idManagerDepartment == Department.id).ToArray().OrderBy(dep => dep.DepartmentName); 
+                //IEnumerable<Dep> departments = KadrController.Instance.Model.Deps.ToArray().Where(dep => dep.idManagerDepartment == Department.id).ToArray().OrderBy(dep => dep.DepartmentName); 
+                IEnumerable<Dep> departments = Department.Deps.OrderBy(dep => dep.DepartmentName).ToList();
                 ArrayList deps = new ArrayList();
                 foreach (Dep dep in departments)
                     if (depFilters.Contains((dep as IObjectState).State()))
-                    {
+
                         deps.Add(dep);
-                    }
                 departmentBindingSource.DataSource = deps;
                 
             }

@@ -78,16 +78,18 @@ namespace Kadr.Data
         {
             get
             {
-                IEnumerable<Event_BusinessTrip> tripevents = CurrentChange.Events.Where(x => (x.idPrikazEnd == null) && (x.EventType == MagicNumberController.BeginEventType)).Select(x => x.Event_BusinessTrip).Where(t=>t!=null);
-                IEnumerable<BusinessTrip> currenttrips = tripevents.Select(x=>x.BusinessTrip).Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
+                //return FactStaffState.Present;
+                
+                IEnumerable<Event_BusinessTrip> tripevents = CurrentChange.Events.Where(x => (x.idPrikazEnd == null) && (x.idEventType == MagicNumberController.BeginEventTypeId) && (x.DateBegin < DateTime.Now) && (x.DateEnd > DateTime.Now)).Select(x => x.Event_BusinessTrip);
+                IEnumerable<BusinessTrip> currenttrips = tripevents.Where(t => t != null).Select(x=>x.BusinessTrip);
 
                 if (currenttrips.Any()) return FactStaffState.OnTrip;
 
-                IEnumerable<OK_Inkapacity> incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && ((t.DateEnd > DateTime.Now) || (t.DateEnd == null)));
-                if (incapacities.Any()) return FactStaffState.Incapable;
+                if (Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && ((t.DateEnd > DateTime.Now) || (t.DateEnd == null))).Any())
+                return FactStaffState.Incapable;
 
-                var vacs = OK_Otpusks.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
-                if (vacs.Any()) return FactStaffState.OnVacation;
+                if (OK_Otpusks.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now)).Any())
+                    return FactStaffState.OnVacation;
 
                 return FactStaffState.Present;
             }

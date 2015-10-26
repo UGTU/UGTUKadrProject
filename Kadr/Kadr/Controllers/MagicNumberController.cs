@@ -99,6 +99,14 @@ namespace Kadr.Controllers
             }
         }
 
+        public static int BeginEventTypeId
+        {
+            get
+            {
+                return 1;
+            }
+        }
+
         public static EventType EndEventType
         {
             get
