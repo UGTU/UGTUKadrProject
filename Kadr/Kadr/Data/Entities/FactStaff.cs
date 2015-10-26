@@ -651,7 +651,7 @@ namespace Kadr.Data
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
-                if ((PlanStaff == null) && (HourCount == null)) throw new ArgumentNullException("Элемент штатного расписания.");
+                if ((PlanStaff == null) && (HourCount == null)) throw new ArgumentNullException("Количество часов.");
                 if ((Dep == null) && (HourCount > 0)) throw new ArgumentNullException("Отдел для почасовика.");
 
                 if (MainFactStaff != null)
