@@ -50,10 +50,8 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null)
-                {
+
                     _education.EducationType = value;
-                }
 
             }
         }

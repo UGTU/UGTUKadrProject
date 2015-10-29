@@ -118,10 +118,22 @@ namespace Kadr.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb;Initial Catalog=Kadr;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ugtudb;Initial Catalog=KadrRealTest;Integrated Security=True")]
         public string KadrRealTestConnectionString2 {
             get {
                 return ((string)(this["KadrRealTestConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("(Не задано)")]
+        public string NullName {
+            get {
+                return ((string)(this["NullName"]));
+            }
+            set {
+                this["NullName"] = value;
             }
         }
     }

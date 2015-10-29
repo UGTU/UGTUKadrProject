@@ -140,7 +140,7 @@
             // 
             // cbPrikaz
             // 
-            this.cbPrikaz.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbPrikaz.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cbPrikaz.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbPrikaz.FormattingEnabled = true;
             this.cbPrikaz.Location = new System.Drawing.Point(0, 26);

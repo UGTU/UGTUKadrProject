@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using Kadr.Data.Common;
+using Kadr.Properties;
 
 namespace Kadr.Data.Converters
 {
@@ -47,7 +48,7 @@ namespace Kadr.Data.Converters
                 (col as List<T>).Sort();
             }
 
-            //Для пункта "(Не задано)", пока в работе...
+            //Для пункта "(Не задано)"
 
             if (col.Count>0)
             if (typeof(INullable).IsAssignableFrom(typeof(T)))
@@ -87,7 +88,7 @@ namespace Kadr.Data.Converters
             }
 
             if (destinationType == typeof(string) && value == null)
-               return "(Не задано)"; 
+               return Settings.Default.NullName; 
 
             return base.ConvertTo(context, culture, value, destinationType);
         }
@@ -113,7 +114,7 @@ namespace Kadr.Data.Converters
             {
                 
                 T itemSelected = null;
-                if ((string)value == "(Не задано)") return itemSelected;
+                if ((string)value == Settings.Default.NullName) return itemSelected;
 
                 foreach (T Item in GetCollection(context))
                 {
