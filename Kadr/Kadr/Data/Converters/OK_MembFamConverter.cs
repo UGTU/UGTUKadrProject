@@ -17,6 +17,7 @@ namespace Kadr.Data.Converters
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
             ICollection collection = Kadr.Controllers.KadrController.Instance.Model.OK_MembFams.OrderBy(MF => MF.membfamname).ToList();
+            (collection as IList).Add(NullOK_MembFam.Instance);
             return collection;
         }
 
