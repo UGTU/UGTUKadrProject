@@ -6,9 +6,11 @@ using System.Linq;
 using System.Text;
 using Kadr.Data.Converters;
 using Kadr.Interfaces;
+using System.ComponentModel;
 
 namespace Kadr.Data
 {
+    [TypeConverter(typeof(PropertySorter))]
     class AwardDecorator
     {
         private Award Award;
@@ -24,11 +26,11 @@ namespace Kadr.Data
             return Award.ToString();
         }
 
-        [System.ComponentModel.DisplayName("ID")]
-        [System.ComponentModel.Category("Атрибуты")]
-        [System.ComponentModel.Description("Уникальный код награды")]
-        [System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.Browsable(false)]
+        [DisplayName("ID")]
+        [Category("Атрибуты")]
+        [Description("Уникальный код награды")]
+        [ReadOnly(true)]
+        [Browsable(false)]
 
         public int Id
         {
@@ -38,11 +40,12 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Вид награды")]
-        [System.ComponentModel.Category("\tОсновные")]
-        [System.ComponentModel.Description("Вид награды, полученной сотрудником")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(AwardTypeConverter))]
+        [DisplayName("Вид награды")]
+        [Category("1. Основные")]
+        [PropertyOrder(2)]
+        [Description("Вид награды, полученной сотрудником")]
+        [ReadOnly(false)]
+        [TypeConverter(typeof(AwardTypeConverter))]
 
         public AwardType Type
         {
@@ -58,11 +61,12 @@ namespace Kadr.Data
         }
 
 
-        [System.ComponentModel.DisplayName("Уровень награды")]
-        [System.ComponentModel.Category("\tОсновные")]
-        [System.ComponentModel.Description("Уровень награды, полученной сотрудником")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(AwardLevelConverter))]
+        [DisplayName("Уровень награды")]
+        [Category("1. Основные")]
+        [PropertyOrder(3)]
+        [Description("Уровень награды, полученной сотрудником")]
+        [ReadOnly(false)]
+        [TypeConverter(typeof(AwardLevelConverter))]
 
         public AwardLevel Level
         {
@@ -77,10 +81,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\tНаименование награды")]
-        [System.ComponentModel.Category("\tОсновные")]
-        [System.ComponentModel.Description("Наименование награды, полученной сотрудником")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Наименование награды")]
+        [PropertyOrder(1)]
+        [Category("1. Основные")]
+        [Description("Наименование награды, полученной сотрудником")]
+        [ReadOnly(false)]
 
         public string Name
         {
@@ -94,11 +99,12 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата вручения")]
-        [System.ComponentModel.Category("\tПодтверждающий документ")]
-        [System.ComponentModel.Description("Дата вручения награды")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
+        [DisplayName("Дата вручения")]
+        [Category("2. Подтверждающий документ")]
+        [PropertyOrder(3)]
+        [Description("Дата вручения награды")]
+        [ReadOnly(false)]
+        [EditorAttribute(typeof(DateTimeEditor), typeof(UITypeEditor))]
 
         public DateTime? Date
         {
@@ -114,10 +120,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\tСерия")]
-        [System.ComponentModel.Category("\tПодтверждающий документ")]
-        [System.ComponentModel.Description("Серия документа, подтверждающего факт награждения")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Серия")]
+        [PropertyOrder(1)]
+        [Category("2. Подтверждающий документ")]
+        [Description("Серия документа, подтверждающего факт награждения")]
+        [ReadOnly(false)]
         public string Serie
         {
             get
@@ -134,10 +141,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\tНомер")]
-        [System.ComponentModel.Category("\tПодтверждающий документ")]
-        [System.ComponentModel.Description("Номер документа, подтверждающего факт награждения")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Номер")]
+        [PropertyOrder(2)]
+        [Category("2. Подтверждающий документ")]
+        [Description("Номер документа, подтверждающего факт награждения")]
+        [ReadOnly(false)]
         public string Number
         {
             get
@@ -154,10 +162,10 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Организация")]
-        [System.ComponentModel.Category("Дополнительно")]
-        [System.ComponentModel.Description("Организация, вручившая награду")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Организация")]
+        [Category("3. Дополнительно")]
+        [Description("Организация, вручившая награду")]
+        [ReadOnly(false)]
         public string Organization
         {
             get
@@ -170,11 +178,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Ведомство")]
-        [System.ComponentModel.Category("Дополнительно")]
-        [System.ComponentModel.Description("Ведомство, вручившее награду сотруднику")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<GovDepartment>))]
+        [DisplayName("Ведомство")]
+        [Category("3. Дополнительно")]
+        [Description("Ведомство, вручившее награду сотруднику")]
+        [ReadOnly(false)]
+        [TypeConverter(typeof(SimpleToStringConvertor<GovDepartment>))]
 
         public GovDepartment GDepartment
         {

@@ -10,6 +10,7 @@ using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
+    [TypeConverter(typeof(PropertySorter))]
     public class EmployeeDecorator
     {
         private readonly Employee _employee;
@@ -26,11 +27,11 @@ namespace Kadr.Data
         }
 
         #region MainData
-        [System.ComponentModel.DisplayName("ID")]
-        [System.ComponentModel.Category("Атрибуты")]
-        [System.ComponentModel.Description("Уникальный код сотрудника")]
-        [System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.Browsable(false)]
+        [DisplayName("ID")]
+        [Category("Атрибуты")]
+        [Description("Уникальный код сотрудника")]
+        [ReadOnly(true)]
+        [Browsable(false)]
         public int ID
         {
             get
@@ -44,10 +45,11 @@ namespace Kadr.Data
         }
 
         
-        [System.ComponentModel.DisplayName("Электронный адрес")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Адрес электронной почты")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Электронный адрес")]
+        [Category("1. Личные данные")]
+        [PropertyOrder(13)]
+        [Description("Адрес электронной почты")]
+        [ReadOnly(false)]
         public string Email
         {
             get
@@ -60,10 +62,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tТабельный номер")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Табельный номер сотрудника в системе отдела кадров")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Табельный номер")]
+        [PropertyOrder(1)]
+        [Category("1. Личные данные")]
+        [Description("Табельный номер сотрудника в системе отдела кадров")]
+        [ReadOnly(false)]
         public string itab_n
         {
             get
@@ -77,10 +80,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\tФамилия")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Фамилия сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Фамилия")]
+        [Category("1. Личные данные")]
+        [PropertyOrder(2)]
+        [Description("Фамилия сотрудника")]
+        [ReadOnly(false)]
         public string LastName
         {
             get
@@ -93,11 +97,12 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\tПол")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Пол сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.GenderBooleanConverter))]//Kadr.UI.Common.CustomBooleanConverter
+        [DisplayName("Пол")]
+        [Category("1. Личные данные")]
+        [Description("Пол сотрудника")]
+        [PropertyOrder(5)]
+        [ReadOnly(false)]
+        [TypeConverter(typeof(Kadr.UI.Common.GenderBooleanConverter))]//Kadr.UI.Common.CustomBooleanConverter
         public bool SexBit
         {
             get
@@ -111,10 +116,11 @@ namespace Kadr.Data
         }
 
         
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tИмя")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Имя сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Имя")]
+        [Category("1. Личные данные")]
+        [Description("Имя сотрудника")]
+        [PropertyOrder(3)]
+        [ReadOnly(false)]
         public string FirstName
         {
             get
@@ -127,10 +133,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\tОтчество")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Отчество сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Отчество")]
+        [Category("1. Личные данные")]
+        [Description("Отчество сотрудника")]
+        [PropertyOrder(4)]
+        [ReadOnly(false)]
         public string Otch
         {
             get
@@ -143,9 +150,9 @@ namespace Kadr.Data
             }
         }
 
-        /*[System.ComponentModel.DisplayName("ИНН")]
-        [System.ComponentModel.Category("Документы")]
-        [System.ComponentModel.Description("ИНН сотрудника")]
+        /*[DisplayName("ИНН")]
+        [Category("Документы")]
+        [Description("ИНН сотрудника")]
         public string
         {
             get
@@ -158,11 +165,12 @@ namespace Kadr.Data
             }
         }*/
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\tГражданство")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Гражданство сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Grazd>))]
+        [DisplayName("Гражданство")]
+        [Category("1. Личные данные")]
+        [PropertyOrder(6)]
+        [Description("Гражданство сотрудника")]
+        [ReadOnly(false)]
+        [TypeConverter(typeof(SimpleToStringConvertor<Grazd>))]
         public Grazd Grazd
         {
             get
@@ -175,11 +183,12 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\tСемейное положение")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Семейное положение сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<SemPol>))]
+        [DisplayName("Семейное положение")]
+        [Category("1. Личные данные")]
+        [PropertyOrder(7)]
+        [Description("Семейное положение сотрудника")]
+        [ReadOnly(false)]
+        [TypeConverter(typeof(SimpleToStringConvertor<SemPol>))]
         public SemPol SemPol
         {
             get
@@ -194,11 +203,12 @@ namespace Kadr.Data
         #endregion
 
         #region BirthData
-        [System.ComponentModel.DisplayName("\t\t\t\tДата рождения")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Дата рождения сотрудника")]
-        [System.ComponentModel.RefreshProperties(RefreshProperties.Repaint)]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Дата рождения")]
+        [Category("1. Личные данные")]
+        [PropertyOrder(8)]
+        [Description("Дата рождения сотрудника")]
+        [RefreshProperties(RefreshProperties.Repaint)]
+        [ReadOnly(false)]
         public DateTime BirthDate
         {
             get
@@ -211,10 +221,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\tМесто рождения")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Место рождения сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Место рождения")]
+        [Category("1. Личные данные")]
+        [PropertyOrder(10)]
+        [Description("Место рождения сотрудника")]
+        [ReadOnly(false)]
         public string BirthPlace
         {
             get
@@ -227,11 +238,12 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\tВыводить дату рождения")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Выводить дату рождения на сайте ugtu")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]//Kadr.UI.Common.CustomBooleanConverter
+        [DisplayName("Выводить дату рождения")]
+        [Category("1. Личные данные")]
+        [PropertyOrder(9)]
+        [Description("Выводить дату рождения на сайте ugtu")]
+        [ReadOnly(false)]
+        [TypeConverter(typeof(Kadr.UI.Common.CustomBooleanConverter))]//Kadr.UI.Common.CustomBooleanConverter
         public bool AllowBirthdate
         {
             get
@@ -244,10 +256,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\tВозраст")]
-        [System.ComponentModel.Category("\t\t\t\t\t\tЛичные данные")]
-        [System.ComponentModel.Description("Возраст полных лет сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Возраст")]
+        [Category("1. Личные данные")]
+        [PropertyOrder(12)]
+        [Description("Возраст полных лет сотрудника")]
+        [ReadOnly(false)]
         public string Age
         {
             get
@@ -263,10 +276,11 @@ namespace Kadr.Data
         #endregion
 
         #region Koeffs
-        [System.ComponentModel.DisplayName("Районный коэффициент")]
-        [System.ComponentModel.Category("\t\t\t\tКоэффициенты")]
-        [System.ComponentModel.Description("Районный коэффициент сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Районный коэффициент")]
+        [Category("3. Коэффициенты")]
+        [PropertyOrder(1)]
+        [Description("Районный коэффициент сотрудника")]
+        [ReadOnly(false)]
         public int RayonKoeff
         {
             get
@@ -279,10 +293,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Северный коэффициент")]
-        [System.ComponentModel.Category("\t\t\t\tКоэффициенты")]
-        [System.ComponentModel.Description("Северный коэффициент сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Северный коэффициент")]
+        [Category("3. Коэффициенты")]
+        [PropertyOrder(2)]
+        [Description("Северный коэффициент сотрудника")]
+        [ReadOnly(false)]
         public int SeverKoeff
         {
             get
@@ -297,10 +312,11 @@ namespace Kadr.Data
         #endregion
 
         #region PaspData
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tСерия")]
-        [System.ComponentModel.Category("\t\t\tПаспорт")]
-        [System.ComponentModel.Description("Серия паспорта сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Серия")]
+        [Category("4. Паспорт")]
+        [PropertyOrder(1)]
+        [Description("Серия паспорта сотрудника")]
+        [ReadOnly(false)]
         public string Paspser
         {
             get
@@ -313,10 +329,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\t\t\t\tНомер")]
-        [System.ComponentModel.Category("\t\t\tПаспорт")]
-        [System.ComponentModel.Description("Номер паспорта сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Номер")]
+        [Category("4. Паспорт")]
+        [PropertyOrder(2)]
+        [Description("Номер паспорта сотрудника")]
+        [ReadOnly(false)]
         public string Paspnomer
         {
             get
@@ -329,10 +346,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\tКем выдан")]
-        [System.ComponentModel.Category("\t\t\tПаспорт")]
-        [System.ComponentModel.Description("Кем выдан паспорт сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Кем выдан")]
+        [Category("4. Паспорт")]
+        [PropertyOrder(4)]
+        [Description("Кем выдан паспорт сотрудника")]
+        [ReadOnly(false)]
         public string Paspkem
         {
             get
@@ -345,10 +363,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\t\tДата выдачи")]
-        [System.ComponentModel.Category("\t\t\tПаспорт")]
-        [System.ComponentModel.Description("Дата выдачи паспорта сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName(" Дата выдачи")]
+        [Category("4. Паспорт")]
+        [PropertyOrder(3)]
+        [Description("Дата выдачи паспорта сотрудника")]
+        [ReadOnly(false)]
         public DateTime Paspdate
         {
             get
@@ -361,10 +380,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\tКод подразделения")]
-        [System.ComponentModel.Category("\t\t\tПаспорт")]
-        [System.ComponentModel.Description("Код подразделения, выдавшего паспорт")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Код подразделения")]
+        [Category("4. Паспорт")]
+        [PropertyOrder(5)]
+        [Description("Код подразделения, выдавшего паспорт")]
+        [ReadOnly(false)]
         public string paspCodeKem
         {
             get
@@ -380,10 +400,11 @@ namespace Kadr.Data
         #endregion
 
         #region EmplHist
-        [System.ComponentModel.DisplayName("Серия ТК")]
-        [System.ComponentModel.Category("\t\tТрудовая книжка")]
-        [System.ComponentModel.Description("Серия трудовой книжки сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Серия ТК")]
+        [Category("5. Трудовая книжка")]
+        [PropertyOrder(3)]
+        [Description("Серия трудовой книжки сотрудника")]
+        [ReadOnly(false)]
         public string EmplHistSer
         {
             get
@@ -396,10 +417,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Номер ТК")]
-        [System.ComponentModel.Category("\t\tТрудовая книжка")]
-        [System.ComponentModel.Description("Номер трудовой книжки сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Номер ТК")]
+        [Category("5. Трудовая книжка")]
+        [PropertyOrder(2)]
+        [Description("Номер трудовой книжки сотрудника")]
+        [ReadOnly(false)]
         public string EmplHistNumber
         {
             get
@@ -412,10 +434,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата выдачи ТК")]
-        [System.ComponentModel.Category("\t\tТрудовая книжка")]
-        [System.ComponentModel.Description("Дата выдачи трудовой книжки сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Дата выдачи ТК")]
+        [Category("5. Трудовая книжка")]
+        [PropertyOrder(1)]
+        [Description("Дата выдачи трудовой книжки сотрудника")]
+        [ReadOnly(false)]
         public DateTime EmplHistDate
         {
             get
@@ -430,10 +453,11 @@ namespace Kadr.Data
         #endregion
 
         #region OtherDocsData
-        [System.ComponentModel.DisplayName("ИНН")]
-        [System.ComponentModel.Category("\t\t\t\t\tДокументы")]
-        [System.ComponentModel.Description("ИНН сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("ИНН")]
+        [Category("2. Документы")]
+        [PropertyOrder(1)]
+        [Description("ИНН сотрудника")]
+        [ReadOnly(false)]
         public string INN
         {
             get
@@ -446,10 +470,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Номер мед полиса")]
-        [System.ComponentModel.Category("\t\t\t\t\tДокументы")]
-        [System.ComponentModel.Description("Номер медицинского полиса сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Номер мед полиса")]
+        [Category("2. Документы")]
+        [PropertyOrder(2)]
+        [Description("Номер медицинского полиса сотрудника")]
+        [ReadOnly(false)]
         public string Medpolis
         {
             get
@@ -462,10 +487,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("СНИЛС")]
-        [System.ComponentModel.Category("\t\t\t\t\tДокументы")]
-        [System.ComponentModel.Description("СНИЛС сотрудника")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("СНИЛС")]
+        [Category("2. Документы")]
+        [PropertyOrder(3)]
+        [Description("СНИЛС сотрудника")]
+        [ReadOnly(false)]
         public string Ssgps
         {
             get
@@ -483,10 +509,11 @@ namespace Kadr.Data
         #endregion
 
         #region ExperienceData
-        [System.ComponentModel.DisplayName("Общий трудовой стаж")]
-        [System.ComponentModel.Category("Трудовой стаж")]
-        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника")]
-        [System.ComponentModel.ReadOnly(true)]
+        [DisplayName("Общий трудовой стаж")]
+        [Category("7. Трудовой стаж")]
+        [PropertyOrder(3)]
+        [Description("Число лет, месяцев и дней стажа сотрудника")]
+        [ReadOnly(true)]
         public string TotalExperience
         {
             get
@@ -497,10 +524,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Научно-педагогический трудовой стаж")]
-        [System.ComponentModel.Category("Трудовой стаж")]
-        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника на научно-педагогических должностях")]
-        [System.ComponentModel.ReadOnly(true)]
+        [DisplayName("Научно-педагогический трудовой стаж")]
+        [Category("7. Трудовой стаж")]
+        [PropertyOrder(1)]
+        [Description("Число лет, месяцев и дней стажа сотрудника на научно-педагогических должностях")]
+        [ReadOnly(true)]
         public string TotalPedagogicalExperience
         {
             get
@@ -512,10 +540,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Северный трудовой стаж")]
-        [System.ComponentModel.Category("Трудовой стаж")]
-        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах МКС или РКС")]
-        [System.ComponentModel.ReadOnly(true)]
+        [DisplayName("Северный трудовой стаж")]
+        [Category("7. Трудовой стаж")]
+        [PropertyOrder(4)]
+        [Description("Число лет, месяцев и дней стажа сотрудника в районах МКС или РКС")]
+        [ReadOnly(true)]
         public string TotalNorthExperience
         {
             get
@@ -524,10 +553,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Трудовой стаж МКС")]
-        [System.ComponentModel.Category("Трудовой стаж")]
-        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах МКС")]
-        [System.ComponentModel.ReadOnly(true)]
+        [DisplayName("Трудовой стаж МКС")]
+        [Category("7. Трудовой стаж")]
+        [PropertyOrder(6)]
+        [Description("Число лет, месяцев и дней стажа сотрудника в районах МКС")]
+        [ReadOnly(true)]
         public string NorthExperience
         {
             get
@@ -535,10 +565,11 @@ namespace Kadr.Data
                 return GetSpecificNorthExperienceStr(TerritoryConditions.North);
             }
         }
-        [System.ComponentModel.DisplayName("Трудовой стаж РКС")]
-        [System.ComponentModel.Category("Трудовой стаж")]
-        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в районах РКС")]
-        [System.ComponentModel.ReadOnly(true)]
+        [DisplayName("Трудовой стаж РКС")]
+        [Category("7. Трудовой стаж")]
+        [PropertyOrder(7)]
+        [Description("Число лет, месяцев и дней стажа сотрудника в районах РКС")]
+        [ReadOnly(true)]
         public string StrictNorthExperience
         {
             get
@@ -562,10 +593,11 @@ namespace Kadr.Data
                 .GetExperience().FormatAsExperience();
         }
 
-        [System.ComponentModel.DisplayName("Трудовой стаж в организации")]
-        [System.ComponentModel.Category("Трудовой стаж")]
-        [System.ComponentModel.Description("Число лет, месяцев и дней стажа сотрудника в этой организации")]
-        [System.ComponentModel.ReadOnly(true)]
+        [DisplayName("Трудовой стаж в организации")]
+        [Category("7. Трудовой стаж")]
+        [PropertyOrder(5)]
+        [Description("Число лет, месяцев и дней стажа сотрудника в этой организации")]
+        [ReadOnly(true)]
         public string TotalOrganizationExperience
         {
             get
@@ -578,10 +610,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Непрерывный трудовой стаж в организации")]
-        [System.ComponentModel.Category("Трудовой стаж")]
-        [System.ComponentModel.Description("Число лет, месяцев и дней непрерывного стажа сотрудника в этой организации")]
-        [System.ComponentModel.ReadOnly(true)]
+        [DisplayName("Непрерывный трудовой стаж в организации")]
+        [Category("7. Трудовой стаж")]
+        [PropertyOrder(2)]
+        [Description("Число лет, месяцев и дней непрерывного стажа сотрудника в этой организации")]
+        [ReadOnly(true)]
         public string TotalOrganizationContiniousExperience
         {
             get
@@ -598,11 +631,12 @@ namespace Kadr.Data
 
         #region MilitaryData
         //Воинский учет
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tКатегория запаса")]
-        [System.ComponentModel.Category("\tВоинский учет")]
-        [System.ComponentModel.Description("Категория запаса")]
+        [DisplayName("Категория запаса")]
+        [Category("6. Воинский учет")]
+        [PropertyOrder(1)]
+        [Description("Категория запаса")]
         [TypeConverter(typeof(SimpleToStringConvertor<MilitaryCategory>))]
-        [System.ComponentModel.ReadOnly(false)]
+        [ReadOnly(false)]
         public MilitaryCategory MilitaryCategory
         {
             get
@@ -615,11 +649,12 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\t\tВоинское звание")]
-        [System.ComponentModel.Category("\tВоинский учет")]
-        [System.ComponentModel.Description("Воинское звание")]
+        [DisplayName("Воинское звание")]
+        [Category("6. Воинский учет")]
+        [PropertyOrder(2)]
+        [Description("Воинское звание")]
         [TypeConverter(typeof(SimpleToStringConvertor<MilitaryRank>))]
-        [System.ComponentModel.ReadOnly(false)]
+        [ReadOnly(false)]
         public MilitaryRank MilitaryRank
         {
             get
@@ -632,11 +667,12 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\t\tСостав (профиль)")]
-        [System.ComponentModel.Category("\tВоинский учет")]
-        [System.ComponentModel.Description("Состав (профиль)")]
+        [DisplayName("Состав (профиль)")]
+        [Category("6. Воинский учет")]
+        [PropertyOrder(3)]
+        [Description("Состав (профиль)")]
         [TypeConverter(typeof(SimpleToStringConvertor<MilitaryStructure>))]
-        [System.ComponentModel.ReadOnly(false)]
+        [ReadOnly(false)]
         public MilitaryStructure MilitaryStructure
         {
             get
@@ -649,10 +685,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\t\tПолное кодовое обозначение ВУС ")]
-        [System.ComponentModel.Category("\tВоинский учет")]
-        [System.ComponentModel.Description("Полное кодовое обозначение ВУС ")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Полное кодовое обозначение ВУС ")]
+        [Category("6. Воинский учет")]
+        [PropertyOrder(4)]
+        [Description("Полное кодовое обозначение ВУС ")]
+        [ReadOnly(false)]
         public string VUSCode
         {
             get
@@ -665,11 +702,12 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\t\tКатегория годности к военной службе ")]
-        [System.ComponentModel.Category("\tВоинский учет")]
-        [System.ComponentModel.Description("Категория годности к военной службе ")]
+        [DisplayName("Категория годности к военной службе ")]
+        [Category("6. Воинский учет")]
+        [PropertyOrder(5)]
+        [Description("Категория годности к военной службе ")]
         [TypeConverter(typeof(SimpleToStringConvertor<MilitaryFitness>))]
-        [System.ComponentModel.ReadOnly(false)]
+        [ReadOnly(false)]
         public MilitaryFitness MilitaryFitness
         {
             get
@@ -682,10 +720,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\t\tВоенный комиссариат")]
-        [System.ComponentModel.Category("\tВоинский учет")]
-        [System.ComponentModel.Description("Наименование военного комиссариата по месту жительства")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Военный комиссариат")]
+        [Category("6. Воинский учет")]
+        [PropertyOrder(6)]
+        [Description("Наименование военного комиссариата по месту жительства")]
+        [ReadOnly(false)]
         public string MilitaryCommissariat
         {
             get
@@ -698,11 +737,12 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\t\tТип воинского учета")]
-        [System.ComponentModel.Category("\tВоинский учет")]
-        [System.ComponentModel.Description("Тип воинского учета")]
+        [DisplayName("Тип воинского учета")]
+        [Category("6. Воинский учет")]
+        [PropertyOrder(7)]
+        [Description("Тип воинского учета")]
         [TypeConverter(typeof(SimpleToStringConvertor<MilitaryType>))]
-        [System.ComponentModel.ReadOnly(false)]
+        [ReadOnly(false)]
         public MilitaryType MilitaryType
         {
             get
@@ -715,10 +755,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Отметка о снятии с воинского учета")]
-        [System.ComponentModel.Category("\tВоинский учет")]
-        [System.ComponentModel.Description("Отметка о снятии с воинского учета")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Отметка о снятии с воинского учета")]
+        [Category("6. Воинский учет")]
+        [PropertyOrder(9)]
+        [Description("Отметка о снятии с воинского учета")]
+        [ReadOnly(false)]
         public string RemovalMilitaryMark
         {
             get
@@ -731,10 +772,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("\tНомер команды, партии / Номер спец. учета")]
-        [System.ComponentModel.Category("\tВоинский учет")]
-        [System.ComponentModel.Description("Номер команды, партии / Номер спец. учета")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Номер команды, партии / Номер спец. учета")]
+        [Category("6. Воинский учет")]
+        [PropertyOrder(8)]
+        [Description("Номер команды, партии / Номер спец. учета")]
+        [ReadOnly(false)]
         public string NumberMilitaryType
         {
             get
