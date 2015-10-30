@@ -6,7 +6,7 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class Organisation : INull, IComparable
+    public partial class Organisation : INullable, IComparable
     {
         public override string ToString()
         {

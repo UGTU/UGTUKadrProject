@@ -3,11 +3,13 @@ using Kadr.Data.Converters;
 using Kadr.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 namespace Kadr.Data
 {
+    [TypeConverter(typeof(PropertySorter))]
     class BusinessTripDecorator: IPrikazTypeProvider
     {
         private BusinessTrip Trip;
@@ -25,11 +27,11 @@ namespace Kadr.Data
             return Trip.ToString();
         }
 
-        [System.ComponentModel.DisplayName("ID")]
-        [System.ComponentModel.Category("Атрибуты")]
-        [System.ComponentModel.Description("Уникальный код командировки")]
-        [System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.Browsable(false)]
+        [DisplayName("ID")]
+        [Category("Атрибуты")]
+        [Description("Уникальный код командировки")]
+        [ReadOnly(true)]
+        [Browsable(false)]
         public int ID
         {
             get
@@ -43,9 +45,9 @@ namespace Kadr.Data
         }
 
         /*
-        [System.ComponentModel.DisplayName("Дата приказа")]
-        [System.ComponentModel.Category("Основные")]
-        [System.ComponentModel.Description("Дата, по которой будет отфильтровано поле 'Приказ'")]
+        [DisplayName("Дата приказа")]
+        [Category("Основные")]
+        [Description("Дата, по которой будет отфильтровано поле 'Приказ'")]
         public DateTime PrikazDate
         {
             get
@@ -58,13 +60,12 @@ namespace Kadr.Data
             }
         }*/
 
-        [System.ComponentModel.DisplayName("Приказ")]
-
-        [System.ComponentModel.Category("\t\tОсновные")]
-        [System.ComponentModel.Description("Приказ, назначающий командировку")]
-        [System.ComponentModel.ReadOnly(false)]
-        //[System.ComponentModel.TypeConverter())]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [DisplayName("Приказ")]
+        [Category("1. Основные")]
+        [Description("Приказ, назначающий командировку")]
+        [ReadOnly(false)]
+        [PropertyOrder(1)]
+        [Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz Prikaz
         {
             get
@@ -85,16 +86,15 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата начала")]
-
-        [System.ComponentModel.Category("\t\tСроки командировки")]
-        [System.ComponentModel.Description("Дата начала командировки, значащаяся в приказе")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Дата начала")]
+        [PropertyOrder(10)]
+        [Category("2. Сроки командировки")]
+        [Description("Дата начала командировки, значащаяся в приказе")]
+        [ReadOnly(false)]
         public DateTime DateBegin
         {
             get
             {
-
                 return (DateTime)Trip.Event.DateBegin;
             }
             set
@@ -104,14 +104,14 @@ namespace Kadr.Data
                     if ((Trip.BusinessTripRegionTypes.First().DateBegin == DateBegin)|| (Trip.BusinessTripRegionTypes.First().DateBegin < value)) Trip.BusinessTripRegionTypes.First().DateBegin = value;
                     Trip.Event.DateBegin = value;
                 }
-
             }
         }
 
-        [System.ComponentModel.DisplayName("Дата окончания")]
-        [System.ComponentModel.Category("\t\tСроки командировки")]
-        [System.ComponentModel.Description("Дата окончания командировки, значащаяся в приказе")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Дата окончания")]
+        [PropertyOrder(20)]
+        [Category("2. Сроки командировки")]
+        [Description("Дата окончания командировки, значащаяся в приказе")]
+        [ReadOnly(false)]
         public DateTime DateEnd
         {
             get
@@ -131,10 +131,10 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Дней в дороге")]
-        [System.ComponentModel.Category("Дополнительно")]
-        [System.ComponentModel.Description("Сколько дней сотрудник проводит в дороге до места пребывания и обратно")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Дней в дороге")]
+        [Category("4. Дополнительно")]
+        [Description("Сколько дней сотрудник проводит в дороге до места пребывания и обратно")]
+        [ReadOnly(false)]
         public int? DaysInRoad
         {
             get
@@ -150,10 +150,10 @@ namespace Kadr.Data
         }
 
 
-        [System.ComponentModel.DisplayName("Основное место назначения")]
-        [System.ComponentModel.Category("\tМеста пребывания")]
-        [System.ComponentModel.Description("Основное место назначения командировки")]
-        [System.ComponentModel.ReadOnly(false)]
+        [DisplayName("Основное место назначения")]
+        [Category("3. Места пребывания")]
+        [Description("Основное место назначения командировки")]
+        [ReadOnly(false)]
         public string TargetPlace
         {
             get
@@ -168,12 +168,12 @@ namespace Kadr.Data
 
 
 
-        [System.ComponentModel.DisplayName("Финансирование")]
-        [System.ComponentModel.Category("Дополнительно")]
-        [System.ComponentModel.Description("За счет каких средств осуществляется командировка")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<FinancingSource>))]
-        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [DisplayName("Финансирование")]
+        [Category("4. Дополнительно")]
+        [Description("За счет каких средств осуществляется командировка")]
+        [ReadOnly(false)]
+        [TypeConverter(typeof(SimpleToStringConvertor<FinancingSource>))]
+        //[Editor(typeof(Kadr.UI.Editors.FinancingSourceEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public FinancingSource FinSource
         {
             get
@@ -186,11 +186,11 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Территориальные условия")]
-        [System.ComponentModel.Category("\tМеста пребывания")]
-        [System.ComponentModel.Description("В какой регион командируется сотрудник")]
-        [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<RegionType>))]
+        [DisplayName("Территориальные условия")]
+        [Category("3. Места пребывания")]
+        [Description("В какой регион командируется сотрудник")]
+        [ReadOnly(false)]
+        [TypeConverter(typeof(SimpleToStringConvertor<RegionType>))]
         //В случае, если регион не требует дополнительного указания сроков пребывания, для создания записи BusinessTripRegionType будут использованы Сроки командировки командировки из приказа
         //В ином случае предполагается, что пользователь отредактирует запись места пребывания при помощи пункта меню "Изменить Сроки командировки пребывания в регионе"
         public RegionType TripMainRegion
@@ -207,12 +207,12 @@ namespace Kadr.Data
 
         }
 
-        [System.ComponentModel.DisplayName("Сроки командировки пребывания в регионах уточнены")]
-        [System.ComponentModel.Category("\tМеста пребывания")]
-        [System.ComponentModel.Description("Изменены даты пребывания в регионах командировки")]
-        [System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.Browsable(false)]
-        //[System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<RegionType>))]
+        [DisplayName("Сроки командировки пребывания в регионах уточнены")]
+        [Category("3. Места пребывания")]
+        [Description("Изменены даты пребывания в регионах командировки")]
+        [ReadOnly(true)]
+        [Browsable(false)]
+        //[TypeConverter(typeof(SimpleToStringConvertor<RegionType>))]
 
         public bool IsRegionDatesChanged
         {
@@ -223,8 +223,8 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.Browsable(false)]
-        [System.ComponentModel.ReadOnly(true)]
+        [Browsable(false)]
+        [ReadOnly(true)]
         public PrikazType PrikazType
         {
             get

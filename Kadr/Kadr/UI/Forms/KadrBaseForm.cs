@@ -22,8 +22,6 @@ namespace Kadr.UI.Forms
 {
     public partial class KadrBaseForm : Form
     {
-
-
         #region Private fields
         private APG.CodeHelper.Actions.ActionManager actionManager = new APG.CodeHelper.Actions.ActionManager();
         private Kadr.UI.Frames.KadrBaseFrame activeFrame;
