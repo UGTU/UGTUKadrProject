@@ -38,6 +38,7 @@ namespace Kadr.UI.Dialogs
 
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //cbPrikaz.DataSource = KadrController.Instance.Model.Prikazs.OrderByDescending(x => x.DatePrikaz);
             cbPrikaz.DataSource = KadrController.Instance.Model.Prikazs.Where(p => p.PrikazType == cbType.SelectedItem).OrderByDescending(x=>x.DatePrikaz);
             dialogObject = cbPrikaz.SelectedItem;
         }
@@ -49,19 +50,25 @@ namespace Kadr.UI.Dialogs
 
         private void bAddingMode_Click(object sender, EventArgs e)
         {
+            cbFilter.Visible = false;
             pSelection.Visible = false;
             pAdding.Visible = true;
             this.Height -= pSelection.Height;
             this.Height += pAdding.Height;
+            cbSuperType.Enabled = true;
+            cbType.Enabled = true;
         }
 
 
         private void bCancelAddingMode_Click(object sender, EventArgs e)
         {
+            cbFilter.Visible = true;
             pSelection.Visible = true;
             pAdding.Visible = false;
             this.Height -= pAdding.Height;
             this.Height += pSelection.Height;
+            cbSuperType.Enabled = cbFilter.Checked;
+            cbType.Enabled = cbFilter.Checked;
         }
 
         private void OKBtn_Click(object sender, EventArgs e)
@@ -87,11 +94,22 @@ namespace Kadr.UI.Dialogs
             dtBegin.Checked = false;
             dtEnd.Value = dtDate.Value;
             dtEnd.Checked = false;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             cbPrikaz.SelectedItem = null;
+        }
+
+        private void cbFilter_Click(object sender, EventArgs e)
+        {
+            if (cbFilter.Checked) cbPrikaz.DataSource = KadrController.Instance.Model.Prikazs.Where(p => p.PrikazType == cbType.SelectedItem).OrderByDescending(x => x.DatePrikaz);
+            else
+            cbPrikaz.DataSource = KadrController.Instance.Model.Prikazs.OrderByDescending(x => x.DatePrikaz);
+
+            cbSuperType.Enabled = cbFilter.Checked;
+            cbType.Enabled = cbFilter.Checked;
         }
     }
 }
