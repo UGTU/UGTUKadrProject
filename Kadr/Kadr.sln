@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kadr", "Kadr\Kadr.csproj", "{474F0D94-C66E-4FE3-9BFE-0B0C587A5015}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHelper", "CodeHelper\CodeHelper.csproj", "{EC01AD24-E555-43E5-93BD-B99F082725D1}"
@@ -27,9 +25,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AISRB DEBUG|Any CPU = AISRB DEBUG|Any CPU
 		AISRB DEBUG|x64 = AISRB DEBUG|x64
