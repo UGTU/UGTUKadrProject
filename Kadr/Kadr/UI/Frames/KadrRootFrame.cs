@@ -376,7 +376,6 @@ namespace Kadr.UI.Frames
        }
 
 
-
        private void DelPlanStaffBtn_Click(object sender, EventArgs e)
        {
            PlanStaff CurrentPlanStaff = planStaffBindingSource.Current as Kadr.Data.PlanStaff;

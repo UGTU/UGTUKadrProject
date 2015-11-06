@@ -25,6 +25,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Данные аттестата")]
         [System.ComponentModel.Description("Дата выдачи аттестата")]
         [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.Browsable(false)]
         public DateTime DocDate
         {
             get
