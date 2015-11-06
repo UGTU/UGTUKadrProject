@@ -55,6 +55,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pSelection);
             this.panel1.Controls.Add(this.pAdding);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.cbType);
@@ -62,12 +63,12 @@
             this.panel1.Controls.Add(this.cbSuperType);
             this.panel1.Location = new System.Drawing.Point(12, 31);
             this.helpProvider1.SetShowHelp(this.panel1, true);
-            this.panel1.Size = new System.Drawing.Size(481, 125);
+            this.panel1.Size = new System.Drawing.Size(481, 126);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(12, 140);
+            this.panel2.Location = new System.Drawing.Point(12, 141);
             this.panel2.Size = new System.Drawing.Size(481, 30);
             this.panel2.Controls.SetChildIndex(this.OKBtn, 0);
             this.panel2.Controls.SetChildIndex(this.CancelBtn, 0);
@@ -149,6 +150,7 @@
             this.cbPrikaz.Size = new System.Drawing.Size(418, 21);
             this.cbPrikaz.TabIndex = 4;
             this.cbPrikaz.SelectedIndexChanged += new System.EventHandler(this.cbPrikaz_SelectedIndexChanged);
+            this.cbPrikaz.Click += new System.EventHandler(this.cbPrikaz_Click);
             // 
             // label3
             // 
@@ -247,7 +249,6 @@
             // 
             // pAdding
             // 
-            this.pAdding.Controls.Add(this.pSelection);
             this.pAdding.Controls.Add(this.label6);
             this.pAdding.Controls.Add(this.tbName);
             this.pAdding.Controls.Add(this.label7);
@@ -267,7 +268,7 @@
             this.pSelection.Controls.Add(this.bAddingMode);
             this.pSelection.Controls.Add(this.cbPrikaz);
             this.pSelection.Controls.Add(this.label3);
-            this.pSelection.Location = new System.Drawing.Point(0, 1);
+            this.pSelection.Location = new System.Drawing.Point(15, 49);
             this.pSelection.Name = "pSelection";
             this.pSelection.Size = new System.Drawing.Size(459, 55);
             this.pSelection.TabIndex = 18;
@@ -300,7 +301,7 @@
             this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 184);
+            this.ClientSize = new System.Drawing.Size(505, 185);
             this.Controls.Add(this.cbFilter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PrikazSelectionDialog";
