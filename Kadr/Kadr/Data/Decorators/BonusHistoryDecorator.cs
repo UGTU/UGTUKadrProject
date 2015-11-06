@@ -24,6 +24,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Основные атрибуты изменения")]
         [System.ComponentModel.Description("Дата назначения/изменения надбавки")]
         [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.Browsable(false)]
         public DateTime DateBegin
         {
             get

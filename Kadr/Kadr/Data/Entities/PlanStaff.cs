@@ -30,6 +30,21 @@ namespace Kadr.Data
             }
         }
 
+        /// <summary>
+        /// кол-во вакансий (свободных ставок без учета замещений)
+        /// </summary>
+        public decimal FreeFactStaffCount
+        {
+            get
+            {
+                return (StaffCount - FactStaffCount);
+            }
+        }
+
+        
+        /// /// <summary>
+        /// кол-во занятых ставок без замещений
+        /// </summary>
         public decimal FactStaffCount
         {
             get
@@ -38,7 +53,9 @@ namespace Kadr.Data
             }
         }
 
-
+        /// <summary>
+        /// кол-во занятых ставок с учетом замещений
+        /// </summary>
         public decimal AllFactStaffCount
         {
             get

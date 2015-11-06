@@ -25,6 +25,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Название отдела, к которому относится норма времени")]
         [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
         public Kadr.Data.Dep Department
         {
             get
