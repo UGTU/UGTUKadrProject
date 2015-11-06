@@ -349,11 +349,8 @@ namespace Kadr.UI.Frames
 
        private void AddFactStaffBtn_Click(object sender, EventArgs e)
        {
-           if (!(planStaffBindingSource.Current as PlanStaff).CanAddFactStaff)
-           {
-               MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
+           if (!CanAddFactStaff())
                return;
-           }
 
            CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
@@ -1521,13 +1518,26 @@ namespace Kadr.UI.Frames
  
        }
 
-       private void tsbAddEmplFactStaff_Click(object sender, EventArgs e)
+       private bool CanAddFactStaff()
        {
+           if (planStaffBindingSource.Current == null)
+           {
+               MessageBox.Show("Не выбрана запись штатного расписания!", "ИС \"Управление кадрами\"");
+               return false;
+           }
+
            if (!(planStaffBindingSource.Current as PlanStaff).CanAddFactStaff)
            {
                MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
-               return;
+               return false;
            }
+           return true;
+       }
+
+       private void tsbAddEmplFactStaff_Click(object sender, EventArgs e)
+       {
+           if (!CanAddFactStaff())
+               return;
 
            CRUDEmployee.Create(this, planStaffBindingSource.Current as PlanStaff);
            //CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
