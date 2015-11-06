@@ -142,7 +142,7 @@ namespace Kadr.KadrTreeView
         /// <returns></returns>
         protected override bool DoAddChildNodes()
         {
-            IOrderedEnumerable<Dep> deps = department.Deps.Where(dep => departmentFilters.Contains((dep as IObjectState).State())).OrderBy(dep => dep.DepartmentName);
+            IOrderedEnumerable<Dep> deps = KadrController.Instance.Model.Deps.ToArray().Where(dep => dep.idManagerDepartment == department.id).Where(dep => departmentFilters.Contains((dep as IObjectState).State())).OrderBy(dep => dep.DepartmentName);
             
             //создаем узлы-отделы
             foreach (Kadr.Data.Dep dep in deps)
