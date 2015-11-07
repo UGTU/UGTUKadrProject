@@ -191,7 +191,7 @@ E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : 
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Program: тип является запечатанным.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Properties.Resources: тип невидим для exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Properties.Settings: тип является запечатанным.
-E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для <PrivateImplementationDetails>{BFCB5CE8-F3B7-4C39-A97D-EB28F2802EDA}: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для <PrivateImplementationDetails>{5D967477-97BB-4CC0-8AC9-5B383668DB34}: тип не поддерживается из-за внутренних ограничений.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для <>f__AnonymousType0`2: тип является запечатанным.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для <>f__AnonymousType1`1: тип является запечатанным.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для <>f__AnonymousType2`2: тип является запечатанным.
@@ -413,7 +413,7 @@ E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : 
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClassa: тип не поддерживается из-за внутренних ограничений.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClasse: тип не поддерживается из-за внутренних ограничений.
-E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для <PrivateImplementationDetails>{BFCB5CE8-F3B7-4C39-A97D-EB28F2802EDA}: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для <PrivateImplementationDetails>{5D967477-97BB-4CC0-8AC9-5B383668DB34}: тип не поддерживается из-за внутренних ограничений.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для <>f__AnonymousType0`2: тип не поддерживается из-за внутренних ограничений.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для <>f__AnonymousType1`1: тип не поддерживается из-за внутренних ограничений.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для <>f__AnonymousType2`2: тип не поддерживается из-за внутренних ограничений.
