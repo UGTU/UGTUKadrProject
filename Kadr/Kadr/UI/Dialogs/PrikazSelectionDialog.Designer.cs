@@ -55,21 +55,22 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pSelection);
-            this.panel1.Controls.Add(this.pAdding);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.cbFilter);
             this.panel1.Controls.Add(this.cbType);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbSuperType);
-            this.panel1.Location = new System.Drawing.Point(12, 31);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.helpProvider1.SetShowHelp(this.panel1, true);
-            this.panel1.Size = new System.Drawing.Size(481, 126);
+            this.panel1.Size = new System.Drawing.Size(490, 81);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(12, 141);
-            this.panel2.Size = new System.Drawing.Size(481, 30);
+            this.panel2.Location = new System.Drawing.Point(12, 143);
+            this.panel2.Size = new System.Drawing.Size(466, 30);
             this.panel2.Controls.SetChildIndex(this.OKBtn, 0);
             this.panel2.Controls.SetChildIndex(this.CancelBtn, 0);
             this.panel2.Controls.SetChildIndex(this.ApplyBtn, 0);
@@ -79,21 +80,21 @@
             // ApplyBtn
             // 
             this.helpProvider1.SetHelpString(this.ApplyBtn, "Âíîñèò èçìåíåíèÿ â áàçó äàííûõ, íå çàêðûâàÿ îêíî.");
-            this.ApplyBtn.Location = new System.Drawing.Point(389, 2);
+            this.ApplyBtn.Location = new System.Drawing.Point(374, 2);
             this.helpProvider1.SetShowHelp(this.ApplyBtn, true);
             this.ApplyBtn.Text = "Применить";
             // 
             // CancelBtn
             // 
             this.helpProvider1.SetHelpString(this.CancelBtn, "Îòìåíÿåò âñå èçìåíåíèÿ ñ ìîìåíòà ïîñëåäíîåãî ñîõðàíåíèÿ è çàêðûâàåò îêíî.");
-            this.CancelBtn.Location = new System.Drawing.Point(297, 2);
+            this.CancelBtn.Location = new System.Drawing.Point(282, 2);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
             this.CancelBtn.Text = "Отмена";
             // 
             // OKBtn
             // 
             this.helpProvider1.SetHelpString(this.OKBtn, "Âíîñèò èçìåíåíèÿ â áàçó äàííûõ è çàêðûâàåò îêíî.");
-            this.OKBtn.Location = new System.Drawing.Point(205, 2);
+            this.OKBtn.Location = new System.Drawing.Point(190, 2);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
             this.OKBtn.Text = "OK";
             this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
@@ -107,7 +108,7 @@
             // cbSuperType
             // 
             this.cbSuperType.FormattingEnabled = true;
-            this.cbSuperType.Location = new System.Drawing.Point(15, 23);
+            this.cbSuperType.Location = new System.Drawing.Point(15, 50);
             this.cbSuperType.Name = "cbSuperType";
             this.cbSuperType.Size = new System.Drawing.Size(255, 21);
             this.cbSuperType.TabIndex = 0;
@@ -116,7 +117,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 8);
+            this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 1;
@@ -125,7 +126,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(273, 7);
+            this.label2.Location = new System.Drawing.Point(273, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 3;
@@ -134,7 +135,7 @@
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(276, 23);
+            this.cbType.Location = new System.Drawing.Point(276, 50);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(198, 21);
             this.cbType.TabIndex = 2;
@@ -145,7 +146,7 @@
             this.cbPrikaz.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cbPrikaz.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbPrikaz.FormattingEnabled = true;
-            this.cbPrikaz.Location = new System.Drawing.Point(0, 26);
+            this.cbPrikaz.Location = new System.Drawing.Point(15, 19);
             this.cbPrikaz.Name = "cbPrikaz";
             this.cbPrikaz.Size = new System.Drawing.Size(418, 21);
             this.cbPrikaz.TabIndex = 4;
@@ -155,7 +156,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-3, 10);
+            this.label3.Location = new System.Drawing.Point(12, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 5;
@@ -165,7 +166,7 @@
             // 
             this.bAddingMode.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bAddingMode.Image = global::Kadr.Properties.Resources.add_icon1;
-            this.bAddingMode.Location = new System.Drawing.Point(424, 19);
+            this.bAddingMode.Location = new System.Drawing.Point(439, 12);
             this.bAddingMode.Name = "bAddingMode";
             this.bAddingMode.Size = new System.Drawing.Size(35, 32);
             this.bAddingMode.TabIndex = 6;
@@ -174,7 +175,7 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(0, 33);
+            this.tbName.Location = new System.Drawing.Point(16, 34);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(219, 20);
             this.tbName.TabIndex = 7;
@@ -182,7 +183,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(-3, 17);
+            this.label4.Location = new System.Drawing.Point(13, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 8;
@@ -191,7 +192,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(237, 17);
+            this.label5.Location = new System.Drawing.Point(253, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 13);
             this.label5.TabIndex = 10;
@@ -202,7 +203,7 @@
             this.dtBegin.Checked = false;
             this.dtBegin.CustomFormat = "dd.MM.yyyy";
             this.dtBegin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtBegin.Location = new System.Drawing.Point(0, 83);
+            this.dtBegin.Location = new System.Drawing.Point(16, 84);
             this.dtBegin.Name = "dtBegin";
             this.dtBegin.ShowCheckBox = true;
             this.dtBegin.Size = new System.Drawing.Size(219, 20);
@@ -213,7 +214,7 @@
             this.dtEnd.Checked = false;
             this.dtEnd.CustomFormat = "dd.MM.yyyy";
             this.dtEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtEnd.Location = new System.Drawing.Point(240, 84);
+            this.dtEnd.Location = new System.Drawing.Point(256, 85);
             this.dtEnd.Name = "dtEnd";
             this.dtEnd.ShowCheckBox = true;
             this.dtEnd.Size = new System.Drawing.Size(210, 20);
@@ -223,7 +224,7 @@
             // 
             this.dtDate.CustomFormat = "dd.MM.yyyy";
             this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDate.Location = new System.Drawing.Point(240, 33);
+            this.dtDate.Location = new System.Drawing.Point(256, 34);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(210, 20);
             this.dtDate.TabIndex = 13;
@@ -232,7 +233,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(-3, 67);
+            this.label6.Location = new System.Drawing.Point(13, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(132, 13);
             this.label6.TabIndex = 14;
@@ -241,7 +242,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(237, 68);
+            this.label7.Location = new System.Drawing.Point(253, 69);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(142, 13);
             this.label7.TabIndex = 15;
@@ -257,9 +258,10 @@
             this.pAdding.Controls.Add(this.dtDate);
             this.pAdding.Controls.Add(this.dtBegin);
             this.pAdding.Controls.Add(this.dtEnd);
-            this.pAdding.Location = new System.Drawing.Point(15, 49);
+            this.pAdding.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pAdding.Location = new System.Drawing.Point(0, 136);
             this.pAdding.Name = "pAdding";
-            this.pAdding.Size = new System.Drawing.Size(459, 127);
+            this.pAdding.Size = new System.Drawing.Size(490, 127);
             this.pAdding.TabIndex = 17;
             this.pAdding.Visible = false;
             // 
@@ -268,9 +270,10 @@
             this.pSelection.Controls.Add(this.bAddingMode);
             this.pSelection.Controls.Add(this.cbPrikaz);
             this.pSelection.Controls.Add(this.label3);
-            this.pSelection.Location = new System.Drawing.Point(15, 49);
+            this.pSelection.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pSelection.Location = new System.Drawing.Point(0, 81);
             this.pSelection.Name = "pSelection";
-            this.pSelection.Size = new System.Drawing.Size(459, 55);
+            this.pSelection.Size = new System.Drawing.Size(490, 55);
             this.pSelection.TabIndex = 18;
             // 
             // button1
@@ -288,7 +291,7 @@
             this.cbFilter.AutoSize = true;
             this.cbFilter.Checked = true;
             this.cbFilter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbFilter.Location = new System.Drawing.Point(27, 8);
+            this.cbFilter.Location = new System.Drawing.Point(15, 8);
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.Size = new System.Drawing.Size(196, 17);
             this.cbFilter.TabIndex = 7;
@@ -301,15 +304,17 @@
             this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 185);
-            this.Controls.Add(this.cbFilter);
+            this.ClientSize = new System.Drawing.Size(490, 187);
+            this.Controls.Add(this.pAdding);
+            this.Controls.Add(this.pSelection);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PrikazSelectionDialog";
             this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Выбор приказа";
             this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.pSelection, 0);
+            this.Controls.SetChildIndex(this.pAdding, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
-            this.Controls.SetChildIndex(this.cbFilter, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -318,7 +323,6 @@
             this.pSelection.ResumeLayout(false);
             this.pSelection.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
