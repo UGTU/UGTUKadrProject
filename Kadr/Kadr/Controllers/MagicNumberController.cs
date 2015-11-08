@@ -140,6 +140,27 @@ namespace Kadr.Controllers
             }
         }
 
+//****************************** ТИПЫ ПРИКАЗОВ ***************************************************************
+
+        //Прием сотрудника
+        public static PrikazType HiredPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 10);
+            }
+        }
+
+        //Увольнение сотрудника
+        public static PrikazType FiredPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 5);
+            }
+        }
+        
+        //Командировка
         public static PrikazType BusinessTripPrikazType
         {
             get
@@ -148,6 +169,7 @@ namespace Kadr.Controllers
             }
         }
 
+        //Материальная ответственность
         public static PrikazType MaterialPrikazType
         {
             get
@@ -156,6 +178,9 @@ namespace Kadr.Controllers
             }
         }
 
+        
+
+        //Дополнительное образование
         public static PrikazType DopEducPrikazType
         {
             get
@@ -164,6 +189,16 @@ namespace Kadr.Controllers
             }
         }
 
+        //Отпуск
+        public static PrikazType OtpuskPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 21);
+            }
+        }
+
+        //Льготный проезд
         public static PrikazType SocialFareTransitPrikazType
         {
             get
@@ -172,13 +207,7 @@ namespace Kadr.Controllers
             }
         }
 
-        public static PrikazType OtpuskPrikazType
-        {
-            get
-            {
-                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 21);
-            }
-        }
+//****************************************************************************************************
 
         static public StandingType DefaultStandingType
         {

@@ -46,6 +46,7 @@
             this.pAdding = new System.Windows.Forms.Panel();
             this.pSelection = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbFilter = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pAdding.SuspendLayout();
@@ -60,13 +61,14 @@
             this.panel1.Controls.Add(this.cbType);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbSuperType);
+            this.panel1.Location = new System.Drawing.Point(12, 31);
             this.helpProvider1.SetShowHelp(this.panel1, true);
-            this.panel1.Size = new System.Drawing.Size(481, 104);
+            this.panel1.Size = new System.Drawing.Size(481, 126);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(12, 119);
+            this.panel2.Location = new System.Drawing.Point(12, 141);
             this.panel2.Size = new System.Drawing.Size(481, 30);
             this.panel2.Controls.SetChildIndex(this.OKBtn, 0);
             this.panel2.Controls.SetChildIndex(this.CancelBtn, 0);
@@ -107,14 +109,14 @@
             this.cbSuperType.FormattingEnabled = true;
             this.cbSuperType.Location = new System.Drawing.Point(15, 23);
             this.cbSuperType.Name = "cbSuperType";
-            this.cbSuperType.Size = new System.Drawing.Size(219, 21);
+            this.cbSuperType.Size = new System.Drawing.Size(255, 21);
             this.cbSuperType.TabIndex = 0;
             this.cbSuperType.SelectedIndexChanged += new System.EventHandler(this.cbSuperType_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Location = new System.Drawing.Point(12, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 1;
@@ -123,7 +125,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(252, 7);
+            this.label2.Location = new System.Drawing.Point(273, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 3;
@@ -132,9 +134,9 @@
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(255, 23);
+            this.cbType.Location = new System.Drawing.Point(276, 23);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(219, 21);
+            this.cbType.Size = new System.Drawing.Size(198, 21);
             this.cbType.TabIndex = 2;
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
@@ -148,6 +150,7 @@
             this.cbPrikaz.Size = new System.Drawing.Size(418, 21);
             this.cbPrikaz.TabIndex = 4;
             this.cbPrikaz.SelectedIndexChanged += new System.EventHandler(this.cbPrikaz_SelectedIndexChanged);
+            this.cbPrikaz.Click += new System.EventHandler(this.cbPrikaz_Click);
             // 
             // label3
             // 
@@ -256,7 +259,7 @@
             this.pAdding.Controls.Add(this.dtEnd);
             this.pAdding.Location = new System.Drawing.Point(15, 49);
             this.pAdding.Name = "pAdding";
-            this.pAdding.Size = new System.Drawing.Size(459, 111);
+            this.pAdding.Size = new System.Drawing.Size(459, 127);
             this.pAdding.TabIndex = 17;
             this.pAdding.Visible = false;
             // 
@@ -265,7 +268,7 @@
             this.pSelection.Controls.Add(this.bAddingMode);
             this.pSelection.Controls.Add(this.cbPrikaz);
             this.pSelection.Controls.Add(this.label3);
-            this.pSelection.Location = new System.Drawing.Point(15, 46);
+            this.pSelection.Location = new System.Drawing.Point(15, 49);
             this.pSelection.Name = "pSelection";
             this.pSelection.Size = new System.Drawing.Size(459, 55);
             this.pSelection.TabIndex = 18;
@@ -280,16 +283,33 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cbFilter
+            // 
+            this.cbFilter.AutoSize = true;
+            this.cbFilter.Checked = true;
+            this.cbFilter.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbFilter.Location = new System.Drawing.Point(27, 8);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(196, 17);
+            this.cbFilter.TabIndex = 7;
+            this.cbFilter.Text = "Фильтровать по видам приказов";
+            this.cbFilter.UseVisualStyleBackColor = true;
+            this.cbFilter.CheckedChanged += new System.EventHandler(this.cbFilter_Click);
+            // 
             // PrikazSelectionDialog
             // 
             this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 163);
+            this.ClientSize = new System.Drawing.Size(505, 185);
+            this.Controls.Add(this.cbFilter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PrikazSelectionDialog";
             this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Выбор приказа";
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.panel2, 0);
+            this.Controls.SetChildIndex(this.cbFilter, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -298,6 +318,7 @@
             this.pSelection.ResumeLayout(false);
             this.pSelection.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -321,5 +342,6 @@
         private System.Windows.Forms.Panel pSelection;
         private System.Windows.Forms.Panel pAdding;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox cbFilter;
     }
 }

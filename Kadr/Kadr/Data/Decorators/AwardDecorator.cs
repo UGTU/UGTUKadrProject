@@ -15,7 +15,6 @@ namespace Kadr.Data
     {
         private Award Award;
 
-
         public AwardDecorator(Award Award)
         {
             this.Award = Award;

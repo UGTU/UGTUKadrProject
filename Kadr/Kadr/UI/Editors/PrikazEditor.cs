@@ -13,11 +13,16 @@ namespace Kadr.UI.Editors
     [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
     public class PrikazEditor : System.Drawing.Design.UITypeEditor
     {
+        protected virtual PrikazType PrikazType(ITypeDescriptorContext context)
+        {
+            return (context.Instance as IPrikazTypeProvider).PrikazType;
+        }
+        
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
             PrikazType pt = null;
             if (context.Instance is IPrikazTypeProvider)
-                pt = (context.Instance as IPrikazTypeProvider).PrikazType;
+                pt = this.PrikazType(context);
 
             using (PrikazSelectionDialog dlg = new PrikazSelectionDialog(pt))
             {
