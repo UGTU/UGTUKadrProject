@@ -207,6 +207,15 @@ namespace Kadr.Controllers
             }
         }
 
+        //Аттестации
+        public static PrikazType ValidationPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 45);
+            }
+        }
+
 //****************************************************************************************************
 
         static public StandingType DefaultStandingType
@@ -233,13 +242,7 @@ namespace Kadr.Controllers
             }
         }
 
-        public static PrikazType ValidationPrikazType
-        {
-            get
-            {
-                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 46);
-            }
-        }
+
 
 
 

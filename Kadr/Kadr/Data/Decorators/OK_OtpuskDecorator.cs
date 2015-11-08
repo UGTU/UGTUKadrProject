@@ -29,7 +29,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код отпуска")]
         [System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.Browsable(true)]
+        [System.ComponentModel.Browsable(false)]
         public int ID
         {
             get
