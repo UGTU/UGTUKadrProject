@@ -134,7 +134,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Льготный проезд")]
         [System.ComponentModel.Description("Льготный проезд")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(UI.Editors.SocialFarePrikazEditor), typeof(UITypeEditor))]
+        //[System.ComponentModel.Editor(typeof(UI.Editors.SocialFarePrikazEditor), typeof(UITypeEditor))]
         public Prikaz PrikazLgot
         {
             get { return (ok_Otpusk.SocialFareTransit != null)?ok_Otpusk.SocialFareTransit.Prikaz:null; }

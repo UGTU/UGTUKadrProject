@@ -183,12 +183,12 @@ namespace Kadr.UI.Frames
 
         private void LoadFactStaff(ArrayList factStaffFilters)
         {
-            if ((planStaffBindingSource.Current as Kadr.Data.PlanStaff) != null)
+            if ((CurrentPlanStaff) != null)
             {
                 //фильтруем элементы 
                 IEnumerable<FactStaff> factStaff =
                     KadrController.Instance.Model.FactStaffs.Where(
-                        fact => ((fact.PlanStaff == (planStaffBindingSource.Current as Kadr.Data.PlanStaff)))).OrderBy(
+                        fact => ((fact.PlanStaff == (CurrentPlanStaff)))).OrderBy(
                             plSt => plSt.DateEnd).ThenBy(plSt => plSt.Employee.LastName).ThenBy(
                                 plSt => plSt.Employee.FirstName);
                 List<FactStaff> fcStaff = new List<FactStaff>();
@@ -344,18 +344,25 @@ namespace Kadr.UI.Frames
 
        private void EditPlanStaffBtn_Click(object sender, EventArgs e)
        {
-           LinqActionsController<PlanStaff>.Instance.EditObject(planStaffBindingSource.Current as Kadr.Data.PlanStaff, true);
+           LinqActionsController<PlanStaff>.Instance.EditObject(CurrentPlanStaff, true);
+       }
+
+       protected PlanStaff CurrentPlanStaff
+       {
+           get
+           {
+                if (planStaffBindingSource.Current == null)
+                    return null;
+                return KadrController.Instance.Model.PlanStaffs.SingleOrDefault(plSt => plSt.id == (planStaffBindingSource.Current as PlanStaff).id);
+           }
        }
 
        private void AddFactStaffBtn_Click(object sender, EventArgs e)
        {
-           if (!(planStaffBindingSource.Current as PlanStaff).CanAddFactStaff)
-           {
-               MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
+           if (!CanAddFactStaff())
                return;
-           }
 
-           CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
+           CRUDFactStaff.Create(factStaffBindingSource, CurrentPlanStaff, this);
            //KadrController.Instance.AddFactStaff();
            LoadPlanStaff();
            //LoadFactStaff();
@@ -379,11 +386,8 @@ namespace Kadr.UI.Frames
        }
 
 
-
        private void DelPlanStaffBtn_Click(object sender, EventArgs e)
        {
-           PlanStaff CurrentPlanStaff = planStaffBindingSource.Current as Kadr.Data.PlanStaff;
-
            if (CurrentPlanStaff == null)
            {
                MessageBox.Show("Не выбрана удаляемая запись штатного расписания.", "АИС \"Штатное расписание\"");
@@ -462,7 +466,7 @@ namespace Kadr.UI.Frames
                MessageBox.Show("Выбранный сотрудник уже уволен!");
                return;
            }
-           FactStaff newFactStaff = CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this, null, false, currentFactStaff);
+           FactStaff newFactStaff = CRUDFactStaff.Create(factStaffBindingSource, CurrentPlanStaff, this, null, false, currentFactStaff);
            
 
            /*//проверяем, чтобы переводимые еще не были уволены
@@ -530,7 +534,6 @@ namespace Kadr.UI.Frames
  
        private void btnEditSalary_Click(object sender, EventArgs e)
        {
-           PlanStaff CurrentPlanStaff = planStaffBindingSource.Current as PlanStaff;
            if (CurrentPlanStaff != null)
            {
                using (Kadr.UI.Forms.PlanStaffSalaryHistoryForm dlg =
@@ -548,7 +551,7 @@ namespace Kadr.UI.Frames
            using (Forms.KadrBonusForm bonFrm =
                new Forms.KadrBonusForm())
            {
-               bonFrm.BonusObject = planStaffBindingSource.Current as PlanStaff;
+               bonFrm.BonusObject = CurrentPlanStaff;
                ObjectStateController.Instance.GetFilterForObjectState(bonFrm.tsbBonusFilter, BonusFilterSetting);
                bonFrm.ShowDialog();
            }
@@ -889,8 +892,8 @@ namespace Kadr.UI.Frames
 
        private void btnChangePlanStaff_Click(object sender, EventArgs e)
        {
-           
-           PlanStaff currentPlanStaff = planStaffBindingSource.Current as PlanStaff;
+
+           PlanStaff currentPlanStaff = CurrentPlanStaff;
            if (currentPlanStaff == null)
            {
                MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
@@ -930,30 +933,39 @@ namespace Kadr.UI.Frames
            using (Forms.PlanStaffHistoryForm HistForm =
                new Forms.PlanStaffHistoryForm())
            {
-               HistForm.PlanStaff = planStaffBindingSource.Current as PlanStaff;
+               HistForm.PlanStaff = CurrentPlanStaff;
                HistForm.ShowDialog();
+           }
+       }
+
+       protected FactStaff CurrentFactStaff
+       {
+           get
+           {
+               FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
+               if (currentFactStaff == null)
+                   return null;
+               return KadrController.Instance.Model.FactStaffs.SingleOrDefault(fcSt => fcSt.id == currentFactStaff.id);
            }
        }
 
        private void btnChangeFactStaff_Click(object sender, EventArgs e)
        {
-           FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
-           if (currentFactStaff == null)
+           if (CurrentFactStaff == null)
            {
                MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
                return;
            }
 
            EventKind thisEventKind = KadrController.Instance.Model.EventKinds.Where(x => x.EventKindApplName == sender.ToString()).FirstOrDefault();
-           CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind?? MagicNumberController.FactStaffChangeMainEventKind,
+           CRUDFactStaffHistory.Create(CurrentFactStaff, thisEventKind ?? MagicNumberController.FactStaffChangeMainEventKind,
                MagicNumberController.BeginEventType, true);
            LoadPlanStaff();
        }
 
        private void btnHistoryFactStaff_Click(object sender, EventArgs e)
        {
-           FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
-           if (currentFactStaff == null)
+           if (CurrentFactStaff == null)
            {
                MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
                return;
@@ -962,7 +974,7 @@ namespace Kadr.UI.Frames
            using (Forms.FactStaffHistoryForm HistForm =
                           new Forms.FactStaffHistoryForm())
            {
-               HistForm.FactStaff = currentFactStaff;
+               HistForm.FactStaff = CurrentFactStaff;
                HistForm.ShowDialog();
            }
            LoadPlanStaff();
@@ -1521,15 +1533,28 @@ namespace Kadr.UI.Frames
  
        }
 
-       private void tsbAddEmplFactStaff_Click(object sender, EventArgs e)
+       private bool CanAddFactStaff()
        {
-           if (!(planStaffBindingSource.Current as PlanStaff).CanAddFactStaff)
+           if (CurrentPlanStaff == null)
            {
-               MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
-               return;
+               MessageBox.Show("Не выбрана запись штатного расписания!", "ИС \"Управление кадрами\"");
+               return false;
            }
 
-           CRUDEmployee.Create(this, planStaffBindingSource.Current as PlanStaff);
+           if (!CurrentPlanStaff.CanAddFactStaff)
+           {
+               MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
+               return false;
+           }
+           return true;
+       }
+
+       private void tsbAddEmplFactStaff_Click(object sender, EventArgs e)
+       {
+           if (!CanAddFactStaff())
+               return;
+
+           CRUDEmployee.Create(this, CurrentPlanStaff);
            //CRUDFactStaff.Create(factStaffBindingSource, planStaffBindingSource.Current as PlanStaff, this);
            //KadrController.Instance.AddFactStaff();
            LoadPlanStaff();
