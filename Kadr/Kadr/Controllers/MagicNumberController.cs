@@ -89,7 +89,32 @@ namespace Kadr.Controllers
             }
         }
 
+        static public EventKind BusinessTripKind
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 17);
+            }
+        }
+
+        public static EventKind ValidationKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 18);
+            }
+        }
+        public static EventKind VacationKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 15);
+            }
+        }
+
         #endregion
+
+        #region EventTypes
 
         public static EventType BeginEventType
         {
@@ -115,32 +140,9 @@ namespace Kadr.Controllers
             }
         }
 
-        
+        #endregion
 
-        static public EventKind BusinessTripKind
-        {
-            get
-            {
-                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 17);
-            }
-        }
-
-        public static EventKind ValidationKind
-        {
-            get
-            {
-                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 18);
-            }
-        }
-        public static EventKind VacationKind
-        {
-            get
-            {
-                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 15);
-            }
-        }
-
-//****************************** ТИПЫ ПРИКАЗОВ ***************************************************************
+        #region PrikazType
 
         //Прием сотрудника
         public static PrikazType HiredPrikazType
@@ -178,8 +180,6 @@ namespace Kadr.Controllers
             }
         }
 
-        
-
         //Дополнительное образование
         public static PrikazType DopEducPrikazType
         {
@@ -216,7 +216,7 @@ namespace Kadr.Controllers
             }
         }
 
-//****************************************************************************************************
+        #endregion
 
         static public StandingType DefaultStandingType
         {
