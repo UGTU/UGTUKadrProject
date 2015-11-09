@@ -1,451 +1,423 @@
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for <>f__AnonymousType0`2: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for <>f__AnonymousType1`1: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for <>f__AnonymousType2`2: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Program: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Properties.Resources: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Properties.Settings: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Frames.FrameDataChangedDelegate: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Common.CustomBooleanConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Common.CalendarEditingControl: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Common.GenderBooleanConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Common.DbConnectionPurpose: type is a value type.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Common.UiExtensions: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.KadrTreeView.KadrEmployeeObject: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.KadrTreeView.KadrNodeState: type is a value type.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.KadrTreeView.KadrPostObject: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.KadrTreeView.KadrPrikazObject: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Interfaces.IEntitySelector: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Interfaces.IOrderInformer: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Interfaces.IPrikazTypeProvider: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.DocumentTypeToStringConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffTransferDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryFinSourceDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryPPCategoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryStaffCountDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.AwardDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.BusinessTripDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.BusinessTripRegionTypeDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.BonusTypeDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.BonusDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.BonusHistoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.DopEducationDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.EducationDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.EmployeeLangDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffEmployeeReadOnlyDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryHourDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryMainBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHourBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffMainBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryMinDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryMinMainBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.DopEducTypeDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.OK_FamDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.OK_DopInfDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.MaterialResponsibilityDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.OK_AdressDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.OK_phoneDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.SocialDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.OK_OtpuskDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHourContractDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHourDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffMonthHourDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.DepartmentFundDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.DepartmentTimeNormDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryReplacementDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.PlanStaffHistoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.SocialFareTransitDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.TimeSheetFSWorkingDaysDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.TimeSheetDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.EmployeeStandingDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.EmployeeRankDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.EmployeeDegreeDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.PlanStaffSalaryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.PKCategorySalaryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.PostDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.PKCategoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.PKGroupDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.PrikazDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffReplacementDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.PlanStaffDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.DepartmentHistoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.DepartmentDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.InkapacityDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.ValidationDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullAwardLevel: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullAwardType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullBonus: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullBonusMeasure: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullBonusSuperType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullBonusType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullCategory: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullCategoryVPO: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullCategoryZP: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullDegree: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullDepartment: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullDepartmentFund: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullDepartmentHistory: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullEducationType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullEducDocument: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullEducDocumentType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullEmployee: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullEmployeeDegree: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullEmployeeRank: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffState: type is a value type.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullFactStaff: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffBonusProject: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullFactStaffReplacement: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullFactStaffReplacementReason: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullFinancingSource: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullFundingCenter: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullGlobalPrikaz: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullGrazd: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullLanguageLevel: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullOKVED: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullOK_Language: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullOK_MembFam: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullOK_Otpuskvid: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullOK_Reason: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullOrganisation: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullPKCategory: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullPKCategorySalary: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullPKGroup: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullPlanStaff: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullPlanStaffSalary: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullPost: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullPostGroup: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullPostType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullPrikaz: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullPrikazType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullRank: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.RegionTypeExtensions: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullRegionType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullSalaryKoeff: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullScienceType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullSemPol: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullSocialFareTransit: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.RStandingTypeExtensions: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullStandingType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullTimeSheetFSWorkingDay: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullWorkShedule: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.NullWorkType: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.AwardLevelConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.AwardTypeConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.ContractConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.FinancingSourceConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.OK_ReasonConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.PPCategoryConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.SocialStatusToStringConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.OK_MembFamConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.OK_OtpuskvidConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.PrikazConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.SimpleToStringConvertor`1: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.SocialFareTransitConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.OKVEDConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.WorkTypeConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Converters.RegionConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.CategoryExtensions: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.EmployeeExperienceExtensions: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.EmployeeExtensions: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.INullable: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.INull: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.NullExtentsions: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.ObjectState: type is a value type.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.IObjectState: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.ObjectStateController: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.NullObject: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.WorkOrganizationWorkType: type is a value type.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.WorkTypeExtensions: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.TerritoryConditions: type is a value type.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.Affilations: type is a value type.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.Common.KindOfExperience: type is a value type.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.BonusController: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDDopEducation: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDEducation: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDEmployee: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDFactStaff: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDFactStaffHistory: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDFactStaffReplacement: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDLanguage: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDSocial: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDAward: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDIncapacity: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDMembFam: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDPhone: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDAddress: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDBusinessRegionType: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDBusinessTrips: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDDopInfo: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDEmployeeDegree: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDEmployeeRank: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDMaterial: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDStanding: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDVacation: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDValidation: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.MagicNumberController: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.ExcelExportController: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.KadrController: type has no family visible contructors.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.LinqActionsController`1: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.MonthController: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.PropertyGridExtensions: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.SimpleActionsProvider: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDControllers.CRUDPrikaz: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Command.CreatePlanStaffCommand: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for <PrivateImplementationDetails>: type is sealed.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for <>f__AnonymousType0`2: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for <>f__AnonymousType1`1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for <>f__AnonymousType2`2: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Program: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Properties.Resources: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Properties.Settings: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.FrameDataChangedDelegate: type is a delegate.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrEmployeeFrame+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrEmployeeFrame+<>c__DisplayClass92_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass30_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass34_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass53_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass59_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass59_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass61_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass69_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass76_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass76_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass78_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass80_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass90_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrPrikazFrame+<>c__DisplayClass3_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass12_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass16_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass26_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass6_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass9_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.DepartmentFundForm+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.DepartmentFundForm+<>c__DisplayClass9_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.KadrBaseForm+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.KadrBaseForm+ImportDocsDelegate: type is a delegate.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.KadrBonusForm+<>c__DisplayClass6_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.PlanStaffSalaryHistoryForm+<>c__DisplayClass8_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.PlanStaffSalaryHistoryForm+<>c__DisplayClass8_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.SocialFareTransitForm+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.SocialFareTransitForm+<>c__DisplayClass10_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.TimeSheetReport+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.TimeSheetReport+<>c__DisplayClass5_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.TimeSheetsForm+<>c__DisplayClass9_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Editors.BonusTypeEditor+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Editors.PlanStaffEditor+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Editors.SocialFareTransitEditor+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.BonusProlongDialog+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.BonusProlongDialog+<>c__DisplayClass3_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.BonusProlongFullDialog+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.BonusProlongFullDialog+<>c__DisplayClass4_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.BonusReportColumnsDialog+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.DopEducTypeDialog+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.DopEducTypeDialog+<>c__DisplayClass3_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.FactStaffBonusDialog+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.FactStaffHourDialog+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.PrikazSelectionDialog+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Common.CustomBooleanConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Common.CustomPropertiesTypeConverter`1+CustomPropertyDescriptor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Common.CalendarEditingControl: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Common.GenderBooleanConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Common.PropertyGridDialog+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Common.DbConnectionPurpose: type is an enum.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.KadrTreeView.KadrTreeView+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.KadrTreeView.KadrTreeView+<>c__DisplayClass3_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.KadrTreeView.KadrTreeView+<>c__DisplayClass5_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.KadrTreeView.KadrEmployeeObject: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.KadrTreeView.KadrNodeState: type is an enum.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.KadrTreeView.KadrPostObject: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.KadrTreeView.KadrPrikazObject: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.KadrTreeView.RootNodeObject+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.KadrTreeView.RootNodeObject+<>c__DisplayClass5_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Interfaces.IEntitySelector: type is an interface.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Interfaces.IOrderInformer: type is an interface.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Interfaces.IPrikazTypeProvider: type is an interface.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.DocumentTypeToStringConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffTransferDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryFinSourceDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryPPCategoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryStaffCountDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.TimeSheet+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.TimeSheet+<>c__DisplayClass70_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.TimeSheet+<>c__DisplayClass72_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.TimeSheet+<>c__DisplayClass76_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PKCategory+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Dep+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Dep+<>c__DisplayClass162_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.BonusHistory+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Bonus+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PlanStaff+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PlanStaffHistory+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaff+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaff+<>c__DisplayClass233_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.BusinessTrip+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FinancingSource+<>c__DisplayClass74_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistory+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Employee+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.MaterialResponsibility+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.AwardDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.BusinessTripDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.BusinessTripRegionTypeDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.BonusTypeDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.BonusDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.BonusHistoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.DopEducationDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.EducationDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.EmployeeLangDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffEmployeeReadOnlyDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryHourDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryMainBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHourBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffMainBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryMinDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryMinMainBaseDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.DopEducTypeDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.OK_FamDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.OK_DopInfDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.MaterialResponsibilityDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.OK_AdressDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.OK_phoneDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.SocialDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.OK_OtpuskDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHourContractDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHourDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffMonthHourDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.DepartmentFundDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.DepartmentTimeNormDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryReplacementDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PlanStaffHistoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.SocialFareTransitDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.TimeSheetFSWorkingDaysDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.TimeSheetDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.EmployeeStandingDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.EmployeeRankDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.EmployeeDegreeDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PlanStaffSalaryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PKCategorySalaryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PostDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PKCategoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PKGroupDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.EmployeeDecorator+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.EmployeeDecorator+<>c__DisplayClass91_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PrikazDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffReplacementDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PlanStaffDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.DepartmentHistoryDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.DepartmentDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.InkapacityDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.ValidationDecorator: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffState: type is an enum.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffBonusProject: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.AwardLevelConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.AwardTypeConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.ContractConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.FinancingSourceConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.OK_ReasonConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.PPCategoryConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.SocialStatusToStringConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.OK_MembFamConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.OK_OtpuskvidConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.PrikazConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.SimpleToStringConvertor`1: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.SocialFareTransitConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.OKVEDConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.WorkTypeConvertor: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.RegionConverter: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.AdvancedBindingList`1+myIntDelegate: type is a delegate.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.EmployeeExperienceExtensions+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.EmployeeExperienceExtensions+<>c__DisplayClass9_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.EmployeeExperienceExtensions+<Continious>d__11: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.INullable: type is an interface.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.INull: type is an interface.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.NullExtentsions: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.ObjectState: type is an enum.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.IObjectState: type is an interface.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.ObjectStateController: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.NullObject: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.WorkOrganizationWorkType: type is an enum.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.TerritoryConditions: type is an enum.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.Affilations: type is an enum.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.KindOfExperience: type is an enum.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.IEmployeeExperienceRecord: type is an interface.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.IExperienceProvider: type is an interface.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.BonusController: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDDopEducation+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDDopEducation+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDDopEducation+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDDopEducation+<>c__DisplayClass2_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDDopEducation+<>c__DisplayClass3_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEducation+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEducation+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEducation+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEmployee+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEmployee+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDFactStaff+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDFactStaff+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDFactStaffHistory+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDFactStaffHistory+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDFactStaffReplacement: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDLanguage+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDLanguage+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDLanguage+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDSocial+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDSocial+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDSocial+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDAward+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDAward+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDAward+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDIncapacity+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDIncapacity+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDIncapacity+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDMembFam+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDMembFam+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDMembFam+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDPhone+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDPhone+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDPhone+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDAddress+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDAddress+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDAddress+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDBusinessTrips+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDBusinessTrips+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDBusinessTrips+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDDopInfo: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEmployeeDegree+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEmployeeDegree+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEmployeeDegree+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEmployeeRank+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEmployeeRank+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDEmployeeRank+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDMaterial+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDMaterial+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDMaterial+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDMaterial+<>c__DisplayClass2_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDMaterial+<>c__DisplayClass3_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDStanding+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDStanding+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDStanding+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDVacation+<>c__DisplayClass0_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDVacation+<>c__DisplayClass0_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDVacation+<>c__DisplayClass1_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.CRUDValidation: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.MagicNumberController: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.ExcelExportController: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.KadrController+<>c: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.KadrController+<>c__DisplayClass23_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.KadrController+<>c__DisplayClass24_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.KadrController+<>c__DisplayClass24_1: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.KadrController+<>c__DisplayClass25_0: type is not supported because of internal limitations.
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.LinqActionsController`1: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.MonthController: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Controllers.SimpleActionsProvider: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Command.CreatePlanStaffCommand: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for <PrivateImplementationDetails>: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Command.CreatePlanStaffCommand: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.BonusController: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDDopEducation: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDEducation: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDEmployee: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDFactStaff: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDFactStaffHistory: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDFactStaffReplacement: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDLanguage: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDControllers.CRUDPrikaz: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDSocial: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDAward: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDIncapacity: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDMembFam: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDPhone: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDAddress: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDBusinessRegionType: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDBusinessTrips: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDDopInfo: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDEmployeeDegree: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDEmployeeRank: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDMaterial: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDStanding: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDVacation: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.CRUDValidation: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.MagicNumberController: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.ExcelExportController: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.KadrController: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.LinqActionsController`1: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.MonthController: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.PropertyGridExtensions: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Controllers.SimpleActionsProvider: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.CategoryExtensions: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.EmployeeExperienceExtensions: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.EmployeeExtensions: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.INullable: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.INull: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.NullExtentsions: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.ObjectState: тип является типом значения.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.IObjectState: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.ObjectStateController: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.NullObject: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.WorkOrganizationWorkType: тип является типом значения.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.WorkTypeExtensions: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.SimpleToStringConvertor`1: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.AwardLevelConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.AwardTypeConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.ContractConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.DocumentTypeToStringConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.FinancingSourceConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.OK_ReasonConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.PPCategoryConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.SocialStatusToStringConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Interfaces.IPrikazTypeProvider: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffMainBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffEmployeeReadOnlyDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffTransferDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHistoryBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHistoryMinMainBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHistoryFinSourceDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHistoryMinDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHistoryPPCategoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHistoryStaffCountDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Interfaces.IEntitySelector: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.OK_MembFamConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.OK_OtpuskvidConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.PrikazConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.SocialFareTransitConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.OKVEDConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.WorkTypeConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.AwardDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.BusinessTripDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.BusinessTripRegionTypeDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.BonusTypeDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.BonusDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.BonusHistoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.DopEducationDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.EducationDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.EmployeeLangDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHistoryHourDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHistoryMainBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHourBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.DopEducTypeDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.OK_FamDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.OK_DopInfDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.MaterialResponsibilityDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.OK_AdressDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.OK_phoneDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.SocialDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.OK_OtpuskDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHourContractDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHourDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffMonthHourDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.DepartmentFundDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.DepartmentTimeNormDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHistoryReplacementDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffHistoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.PlanStaffHistoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.SocialFareTransitDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.TimeSheetFSWorkingDaysDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.TimeSheetDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.EmployeeStandingDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.EmployeeRankDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.EmployeeDegreeDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.PlanStaffSalaryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.PKCategorySalaryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.PostDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.PKCategoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.PKGroupDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.PrikazDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffReplacementDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.PlanStaffDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.DepartmentHistoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.DepartmentDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.InkapacityDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.ValidationDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullAwardLevel: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullAwardType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullBonus: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullBonusMeasure: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullBonusSuperType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullBonusType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullCategory: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullCategoryVPO: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullCategoryZP: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullDegree: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullDepartment: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullDepartmentFund: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullDepartmentHistory: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullEducationType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullEducDocument: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullEducDocumentType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullEmployee: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullEmployeeDegree: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullEmployeeRank: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffState: тип является типом значения.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullFactStaff: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.FactStaffBonusProject: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullFactStaffReplacement: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullFactStaffReplacementReason: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullFinancingSource: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullFundingCenter: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullGlobalPrikaz: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullGrazd: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullLanguageLevel: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullOKVED: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullOK_Language: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullOK_MembFam: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullOK_Otpuskvid: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullOK_Reason: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullOrganisation: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullPKCategory: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullPKCategorySalary: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullPKGroup: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullPlanStaff: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullPlanStaffSalary: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullPost: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullPostGroup: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullPostType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullPrikaz: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullPrikazType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullRank: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.RegionTypeExtensions: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullRegionType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullSalaryKoeff: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullScienceType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullSemPol: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullSocialFareTransit: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.RStandingTypeExtensions: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullStandingType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullTimeSheetFSWorkingDay: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullWorkShedule: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.NullWorkType: тип не содержит видимые для семейства конструкторы.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.TerritoryConditions: тип является типом значения.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.Affilations: тип является типом значения.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Common.KindOfExperience: тип является типом значения.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Interfaces.IOrderInformer: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.KadrTreeView.KadrEmployeeObject: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.KadrTreeView.KadrNodeState: тип является типом значения.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.KadrTreeView.KadrPostObject: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.KadrTreeView.KadrPrikazObject: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.UI.Common.CustomBooleanConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.UI.Common.CalendarEditingControl: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.UI.Common.GenderBooleanConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Data.Converters.RegionConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.UI.Common.DbConnectionPurpose: тип является типом значения.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.UI.Common.UiExtensions: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.UI.Editors.FiredPrikazEditor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.UI.Editors.SocialFarePrikazEditor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.UI.Frames.FrameDataChangedDelegate: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Program: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Properties.Resources: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для Kadr.Properties.Settings: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для <PrivateImplementationDetails>{8BDD9873-35F3-474A-96DE-E55767F46809}: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для <>f__AnonymousType0`2: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для <>f__AnonymousType1`1: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать заглушку для <>f__AnonymousType2`2: тип является запечатанным.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Command.CreatePlanStaffCommand: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.BonusController: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDDopEducation+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDDopEducation+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDDopEducation+<>c__DisplayClass9: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDDopEducation+<>c__DisplayClassb: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDDopEducation+<>c__DisplayClassf: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEducation+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEducation+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEducation+<>c__DisplayClass8: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEmployee+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEmployee+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDFactStaff+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDFactStaff+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDFactStaffHistory+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDFactStaffHistory+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDFactStaffReplacement: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDLanguage+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDLanguage+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDLanguage+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDSocial+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDSocial+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDSocial+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDAward+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDAward+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDAward+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDIncapacity+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDIncapacity+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDIncapacity+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDMembFam+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDMembFam+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDMembFam+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDPhone+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDPhone+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDPhone+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDAddress+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDAddress+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDAddress+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDBusinessTrips+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDBusinessTrips+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDBusinessTrips+<>c__DisplayClass8: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDDopInfo: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEmployeeDegree+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEmployeeDegree+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEmployeeDegree+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEmployeeRank+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEmployeeRank+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDEmployeeRank+<>c__DisplayClass8: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDMaterial+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDMaterial+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDMaterial+<>c__DisplayClass9: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDMaterial+<>c__DisplayClassb: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDMaterial+<>c__DisplayClassf: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDStanding+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDStanding+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDStanding+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDVacation+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDVacation+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDVacation+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.CRUDValidation: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.MagicNumberController: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.ExcelExportController: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.KadrController+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.KadrController+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.KadrController+<>c__DisplayClassa: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.KadrController+<>c__DisplayClasse: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.LinqActionsController`1: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.MonthController: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Controllers.SimpleActionsProvider: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.AdvancedBindingList`1+myIntDelegate: тип является делегатом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.EmployeeExperienceExtensions+<>c__DisplayClass5: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.EmployeeExperienceExtensions+<Continious>d__b: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.IEmployeeExperienceRecord: тип является интерфейсом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.INullable: тип является интерфейсом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.INull: тип является интерфейсом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.NullExtentsions: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.ObjectState: тип является перечислением.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.IObjectState: тип является интерфейсом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.ObjectStateController: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.NullObject: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.WorkOrganizationWorkType: тип является перечислением.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.SimpleToStringConvertor`1: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.AwardLevelConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.AwardTypeConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.ContractConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.DocumentTypeToStringConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.FinancingSourceConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.OK_ReasonConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.PPCategoryConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.SocialStatusToStringConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Interfaces.IPrikazTypeProvider: тип является интерфейсом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffMainBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffEmployeeReadOnlyDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffTransferDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHistoryBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHistoryMinMainBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHistoryFinSourceDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHistoryMinDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHistoryPPCategoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHistoryStaffCountDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Interfaces.IEntitySelector: тип является интерфейсом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.OK_MembFamConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.OK_OtpuskvidConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.PrikazConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.SocialFareTransitConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.OKVEDConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.WorkTypeConvertor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.TimeSheet+<>c__DisplayClass0: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.TimeSheet+<>c__DisplayClass7: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.TimeSheet+<>c__DisplayClassb: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Dep+<>c__DisplayClass5: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaff+<>c__DisplayClassf: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FinancingSource+<>c__DisplayClass0: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.IExperienceProvider: тип является интерфейсом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.AwardDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.BusinessTripDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.BusinessTripRegionTypeDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.BonusTypeDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.BonusDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.BonusHistoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.DopEducationDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.EducationDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.EmployeeLangDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHistoryHourDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHistoryMainBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHourBaseDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.DopEducTypeDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.OK_FamDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.OK_DopInfDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.MaterialResponsibilityDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.OK_AdressDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.OK_phoneDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.SocialDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.OK_OtpuskDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHourContractDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHourDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffMonthHourDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.DepartmentFundDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.DepartmentTimeNormDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHistoryReplacementDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffHistoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.PlanStaffHistoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.SocialFareTransitDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.TimeSheetFSWorkingDaysDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.TimeSheetDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.EmployeeStandingDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.EmployeeRankDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.EmployeeDegreeDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.PlanStaffSalaryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.PKCategorySalaryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.PostDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.PKCategoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.PKGroupDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.EmployeeDecorator+<>c__DisplayClass3: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.PrikazDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffReplacementDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.PlanStaffDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.DepartmentHistoryDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.DepartmentDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.InkapacityDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.ValidationDecorator: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffState: тип является перечислением.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.FactStaffBonusProject: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.TerritoryConditions: тип является перечислением.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.Affilations: тип является перечислением.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Common.KindOfExperience: тип является перечислением.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Interfaces.IOrderInformer: тип является интерфейсом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.KadrTreeView.KadrTreeView+<>c__DisplayClass19: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.KadrTreeView.KadrTreeView+<>c__DisplayClass3: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.KadrTreeView.KadrEmployeeObject: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.KadrTreeView.KadrNodeState: тип является перечислением.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.KadrTreeView.KadrPostObject: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.KadrTreeView.KadrPrikazObject: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.KadrTreeView.RootNodeObject+<>c__DisplayClass1c: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Common.CustomBooleanConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Common.CustomPropertiesTypeConverter`1+CustomPropertyDescriptor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Common.CalendarEditingControl: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Common.GenderBooleanConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Data.Converters.RegionConverter: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Common.DbConnectionPurpose: тип является перечислением.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Dialogs.BonusProlongDialog+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Dialogs.BonusProlongFullDialog+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Dialogs.DopEducTypeDialog+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Dialogs.PrikazSelectionDialog+<>c__DisplayClass0: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Editors.FiredPrikazEditor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Editors.SocialFarePrikazEditor: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Editors.SocialFareTransitEditor+<>c__DisplayClass0: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Forms.DepartmentFundForm+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Forms.KadrBaseForm+ImportDocsDelegate: тип является делегатом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Forms.KadrBonusForm+<>c__DisplayClass1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Forms.PlanStaffSalaryHistoryForm+<>c__DisplayClass3: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Forms.PlanStaffSalaryHistoryForm+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Forms.SocialFareTransitForm+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Forms.TimeSheetReport+<>c__DisplayClass0: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Forms.TimeSheetsForm+<>c__DisplayClass4: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.FrameDataChangedDelegate: тип является делегатом.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Program: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Properties.Resources: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.Properties.Settings: тип невидим для exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrEmployeeFrame+<>c__DisplayClass8: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass10: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass14: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass18: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass1a: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass20: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass23: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass26: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass2a: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass2c: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass30: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass8: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClassa: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrPrikazFrame+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass12: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass6: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClassa: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClasse: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для <PrivateImplementationDetails>{8BDD9873-35F3-474A-96DE-E55767F46809}: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для <>f__AnonymousType0`2: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для <>f__AnonymousType1`1: тип не поддерживается из-за внутренних ограничений.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Невозможно создать оболочку совместимости для <>f__AnonymousType2`2: тип не поддерживается из-за внутренних ограничений.

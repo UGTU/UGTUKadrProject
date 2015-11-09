@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kadr.Interfaces;
 
 namespace Kadr.Data
 {
-    class FactStaffHistoryBaseDecorator
+    class FactStaffHistoryBaseDecorator : IPrikazTypeProvider
     {
         protected FactStaffHistory factStaffHistory;
         public FactStaffHistoryBaseDecorator(FactStaffHistory factStaffHistory)
@@ -68,9 +69,12 @@ namespace Kadr.Data
             }
         }
 
-
- 
-
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
+        public PrikazType PrikazType
+        {
+            get { return MagicNumberController.HiredPrikazType; }
+        }
     }
 }
 

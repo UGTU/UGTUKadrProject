@@ -48,10 +48,18 @@ namespace Kadr.UI.Dialogs
             {
                 cbSuperType.SelectedItem = KadrController.Instance.Model.PrikazSuperTypes.FirstOrDefault(x => x.PrikazTypes.FirstOrDefault(p => p == pt) != null);
                 cbType.SelectedItem = pt;
+                doFilter = true;
+                cbFilter.Checked = true;
+                panel1.Visible = false;
+                Height -= panel1.Height;
             }
             else
+            {
                 cbSuperType.SelectedItem = KadrController.Instance.Model.PrikazSuperTypes.FirstOrDefault();
-
+                panel1.Visible = true;
+                
+            }
+            
             RefreshPrikazs();
         }
 
@@ -106,6 +114,7 @@ namespace Kadr.UI.Dialogs
 
                 dialogObject = p;
             }
+            if (dialogObject!= null)
             lastPrikazId = (dialogObject as Prikaz).id;
         }
 
