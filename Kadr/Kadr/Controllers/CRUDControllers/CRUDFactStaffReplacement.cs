@@ -43,7 +43,7 @@ namespace Kadr.Controllers
                     decimal ReplStaffCount = currentFactStaff.StaffCount;
                     foreach (FactStaffReplacement repl in currentFactStaff.FactStaffReplacements)
                     {
-                        if (repl.FactStaff1.Prikaz == null)
+                        if ((repl.DateEnd >= DateTime.Today) && (repl.FactStaff1.Prikaz == null) && (repl.FactStaff1.IsReplacement))
                             ReplStaffCount -= repl.FactStaff1.StaffCount;
                     }
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "StaffCount", ReplStaffCount, null), sender);
