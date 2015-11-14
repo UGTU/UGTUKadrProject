@@ -16,8 +16,9 @@ namespace Kadr.Data.Converters
 
         private ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
         {
-            
-            return Kadr.Controllers.KadrController.Instance.Model.OK_Otpuskvids.OrderBy(oV => oV.otpuskvidname).ToArray();
+            IList l = Kadr.Controllers.KadrController.Instance.Model.OK_Otpuskvids.OrderBy(oV => oV.otpuskvidname).ToList();
+            l.Add(NullOK_Otpuskvid.Instance);
+            return l;
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)

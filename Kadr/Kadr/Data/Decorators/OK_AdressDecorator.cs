@@ -22,6 +22,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код адреса")]
         [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
         public int idAdress
         {
             get

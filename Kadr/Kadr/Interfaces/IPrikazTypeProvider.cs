@@ -8,6 +8,8 @@ namespace Kadr.Interfaces
 {
     interface IPrikazTypeProvider
     {
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
         PrikazType PrikazType { get; }
     }
 }

@@ -8,21 +8,13 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class BonusMeasure : INull
+    public partial class BonusMeasure : INullable
     {
         public override string ToString()
         {
             return MeasureName +" ("+this.Sign+")";
         }
 
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-
-        }
-        #endregion INull
     }
 
      public class NullBonusMeasure : BonusMeasure, INull
@@ -35,18 +27,11 @@ namespace Kadr.Data
 
         public static readonly NullBonusMeasure Instance = new NullBonusMeasure();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не заданa)";
         }
-
-        #endregion
+        
     }
 }

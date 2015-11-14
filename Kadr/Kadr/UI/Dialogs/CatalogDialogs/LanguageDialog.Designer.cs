@@ -108,7 +108,7 @@
             this.ClientSize = new System.Drawing.Size(575, 263);
             this.Name = "LanguageDialog";
             this.helpProvider1.SetShowHelp(this, true);
-            this.Text = "LanguageDialog";
+            this.Text = "Языки";
             this.Load += new System.EventHandler(this.LanguageDialog_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

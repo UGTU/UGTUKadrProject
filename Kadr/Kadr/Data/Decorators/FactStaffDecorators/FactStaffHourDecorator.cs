@@ -1,4 +1,6 @@
-﻿using Kadr.UI.Editors;
+﻿using Kadr.Controllers;
+using Kadr.Interfaces;
+using Kadr.UI.Editors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +8,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    class FactStaffHourDecorator: FactStaffHourBaseDecorator
+    class FactStaffHourDecorator : FactStaffHourBaseDecorator, IPrikazTypeProvider
     {
         public FactStaffHourDecorator(FactStaff factStaff)
             : base(factStaff)
@@ -48,7 +50,12 @@ namespace Kadr.Data
             }
         }
 
-
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
+        public PrikazType PrikazType
+        {
+            get { return MagicNumberController.HiredPrikazType; }
+        }
     }
 
 }

@@ -7,7 +7,7 @@ using Kadr.Controllers;
 
 namespace Kadr.Data
 {
-    public partial class WorkShedule: INull
+    public partial class WorkShedule: INullable
     {
         public override string ToString()
         {
@@ -35,14 +35,6 @@ namespace Kadr.Data
             throw new ArgumentOutOfRangeException("Название должности");
         }
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
     }
 
     public class NullWorkShedule : WorkShedule, INull
@@ -55,18 +47,13 @@ namespace Kadr.Data
 
         public static readonly NullWorkShedule Instance = new NullWorkShedule();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
+
     }
 
 }

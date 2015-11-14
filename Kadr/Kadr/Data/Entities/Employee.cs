@@ -8,7 +8,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IComparable, IExperienceProvider
+    public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IComparable, IExperienceProvider
     {
         /* public string EmployeeName
          {
@@ -23,7 +23,7 @@ namespace Kadr.Data
              get
              {
                  if ((FirstName != null) && (Otch != null))
-                     return this.LastName + " " + this.FirstName[0] + "." + this.Otch[0] + ".";
+                     return this.this + " " + LastName.FirstName[0] + "." + this.Otch[0] + ".";
                  else
                      return LastName;
              }
@@ -110,16 +110,6 @@ namespace Kadr.Data
         #endregion
 
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
-
         #region Члены IComparable
 
         public int CompareTo(object obj)
@@ -138,11 +128,13 @@ namespace Kadr.Data
                 // Записи из трудовой книжки, другие организации
                 var standingSet = EmployeeStandings.Cast<IEmployeeExperienceRecord>();
                 // Записи из штатного расписания, эта организация
-                var stuffSet = FactStaffs.SelectMany(x=>x.FactStaffHistories).Cast<IEmployeeExperienceRecord>();
+                // ===Записи замещения временно исключены, поскольку вызывают зацикливание программы====
+                // var stuffSet = FactStaffs.Cast<IEmployeeExperienceRecord>();
+                var stuffSet = FactStaffs.Where(x=>!x.isReplacement).Cast<IEmployeeExperienceRecord>();
                 // Записи о пребываниях в различных регионах во время командировок
                 var tripsSet = GetAllRegionTypes().Cast<IEmployeeExperienceRecord>();
 
-                return tripsSet.Concat(standingSet.Concat(stuffSet));
+                return tripsSet.Concat(standingSet).Concat(stuffSet);
             }
         }
 
@@ -170,19 +162,12 @@ namespace Kadr.Data
 
         public static readonly NullEmployee Instance = new NullEmployee();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 
 }

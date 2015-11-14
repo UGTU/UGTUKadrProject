@@ -1,4 +1,5 @@
 ﻿using Kadr.Controllers;
+using Kadr.Interfaces;
 using Kadr.UI.Editors;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
-    class FactStaffMainBaseDecorator: FactStaffBaseDecorator
+    class FactStaffMainBaseDecorator : FactStaffBaseDecorator, IPrikazTypeProvider
     {
         public FactStaffMainBaseDecorator(FactStaff factStaff)
             : base(factStaff)
@@ -20,12 +21,17 @@ namespace Kadr.Data
         [System.ComponentModel.DisplayName("Должность в штатном расписании")]
         [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\tОбщие")]
         [System.ComponentModel.Description("Должность в штатном расписании")]
+        [System.ComponentModel.Editor(typeof(PlanStaffEditor), typeof(System.Drawing.Design.UITypeEditor))]
         [System.ComponentModel.ReadOnly(false)]
         public Kadr.Data.PlanStaff PlanStaff
         {
             get
             {
                 return factStaff.PlanStaff;
+            }
+            set
+            {
+                factStaff.PlanStaff = value;
             }
         }
 
@@ -325,5 +331,12 @@ namespace Kadr.Data
         }
 
         #endregion
+
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
+        public PrikazType PrikazType
+        {
+            get { return MagicNumberController.HiredPrikazType; }
+        }
     }
 }

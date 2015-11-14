@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using Kadr.Data;
 using System.Data.Linq;
+using Kadr.Controllers;
 
 namespace Kadr.Data
 {
-    public partial class Event : UIX.Views.IValidatable, INull, IObjectState, IComparable
+    public partial class Event : UIX.Views.IValidatable, INullable, IObjectState, IComparable
     {
         #region Properties
 
@@ -101,6 +102,23 @@ namespace Kadr.Data
                 if (Prikaz.IsNull())
                     Prikaz = null;
             }
+
+            /*if (action == ChangeAction.Insert)
+            {
+                if ((EventKind == Kadr.Controllers.MagicNumberController.FactStaffCreateEventKind) && (Contract != null))
+                {
+                    Prikaz ContractPrikaz = CRUDPrikaz.Create(Contract.ContractName, Kadr.Controllers.MagicNumberController.ContractPrikazType, Contract.DateContract, Contract.DateBegin, Contract.DateEnd);
+                    if ((ContractPrikaz != null) && (FactStaffHistory != null))
+                    {
+                        FactStaff currentFactStaff = FactStaffHistory.FactStaff;
+                        if (!(currentFactStaff.idlaborcontrakt > 0))
+                            currentFactStaff.idlaborcontrakt = ContractPrikaz.id;
+                        else
+                            FactStaffHistory.idlaborcontrakt = ContractPrikaz.id;
+                    }
+                }
+            }*/
+
         }
 
         #endregion
@@ -115,15 +133,6 @@ namespace Kadr.Data
 
         #endregion
 
-
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
 
 
         #region IObjectState Members

@@ -22,8 +22,6 @@ namespace Kadr.UI.Forms
 {
     public partial class KadrBaseForm : Form
     {
-
-
         #region Private fields
         private APG.CodeHelper.Actions.ActionManager actionManager = new APG.CodeHelper.Actions.ActionManager();
         private Kadr.UI.Frames.KadrBaseFrame activeFrame;
@@ -1025,7 +1023,7 @@ namespace Kadr.UI.Forms
             tscbTextSearch.Items.Clear();
             if (tscbFindType.SelectedIndex == 1) //по отделу
             {
-                foreach (Department dep in KadrController.Instance.Model.Departments.OrderBy(dep => dep.DepartmentSmallName))
+                foreach (Dep dep in KadrController.Instance.Model.Deps.ToArray().OrderBy(dep => dep.DepartmentName))
                 {
                     tscbTextSearch.Items.Add(dep);
                 }
@@ -1044,7 +1042,7 @@ namespace Kadr.UI.Forms
         {
             if (tscbFindType.SelectedIndex == 1) //по отделу
             {
-                kadrTreeView1.FindAndSelectDepartment(tscbTextSearch.SelectedItem as Department);
+                kadrTreeView1.FindAndSelectDepartment(tscbTextSearch.SelectedItem as Dep);
             }
             if (tscbFindType.SelectedIndex == 0) //по сотрудникам
             {

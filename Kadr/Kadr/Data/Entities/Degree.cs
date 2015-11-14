@@ -8,7 +8,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Degree : IComparable, INull
+    public partial class Degree : IComparable, INullable
     {
 
         public override string ToString()
@@ -23,10 +23,6 @@ namespace Kadr.Data
             return (DegreeOrder.CompareTo((obj as Degree).DegreeOrder));
         }
 
-        bool INull.IsNull()
-        {
-            return false;
-        }
     }
 
 
@@ -40,19 +36,13 @@ namespace Kadr.Data
 
         public static readonly NullDegree Instance = new NullDegree();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задана)";
         }
 
-        #endregion
+
     }
 
 }

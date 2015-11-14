@@ -200,6 +200,8 @@ namespace Kadr.Data
             }
         }
 
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
         public PrikazType PrikazType
         {
             get

@@ -6,7 +6,7 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class DopEducType : INull
+    public partial class DopEducType : INullable
     {
         public override string ToString()
         {

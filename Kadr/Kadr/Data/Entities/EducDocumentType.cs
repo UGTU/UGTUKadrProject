@@ -9,9 +9,10 @@ using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
-    public partial class EducDocumentType : INull
+    public partial class EducDocumentType : INullable
     {
-        public static int EducationDoc = 12;
+        public static int Attestat = 12;
+        public static int Diplom = 11;
         public static int DefualtDopEducationDoc = 13;
         public static int RankDoc = 2;
 
@@ -21,11 +22,6 @@ namespace Kadr.Data
             return DocTypeName;
         }
 
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
 
     }
 
@@ -39,18 +35,10 @@ namespace Kadr.Data
 
         public static readonly NullEducDocumentType Instance = new NullEducDocumentType();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 }

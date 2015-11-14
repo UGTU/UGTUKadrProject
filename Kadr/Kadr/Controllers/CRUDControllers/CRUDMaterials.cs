@@ -99,10 +99,12 @@ namespace Kadr.Controllers
             foreach (var evMat in currMaterial.Event_MaterialResponsibilities)
             {
                 KadrController.Instance.Model.Events.DeleteOnSubmit(evMat.Event);
+                KadrController.Instance.Model.Event_MaterialResponsibilities.DeleteOnSubmit(evMat);
             }
 
+
+            KadrController.Instance.Model.Contracts.DeleteOnSubmit(currContract);
             LinqActionsController<MaterialResponsibility>.Instance.DeleteObject(currMaterial, KadrController.Instance.Model.MaterialResponsibilities, null);
-            LinqActionsController<Contract>.Instance.DeleteObject(currContract, KadrController.Instance.Model.Contracts, null);
 
             Read(fs, MaterialResponsibilitybindingSource);
         }

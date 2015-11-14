@@ -16,6 +16,7 @@ using Kadr.Data.Common;
 using Reports.Frames;
 using Kadr.UI.Editors;
 using Kadr.UI.Dialogs;
+using System.Reflection;
 
 namespace Kadr.UI.Frames
 {
@@ -103,6 +104,8 @@ namespace Kadr.UI.Frames
         private void LoadPostList()
         {
             LoadPostList(ObjectStateController.Instance.GetObjectStatesForFilter(tspFactStaffFilter, null));
+            //factStaffBindingSource.Current = FactStaff;
+            factStaffBindingSource.Position = factStaffBindingSource.IndexOf(FactStaff);
             tcEmplPostInf_SelectedIndexChanged(null, null);
             //factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
         }
@@ -195,7 +198,8 @@ namespace Kadr.UI.Frames
         {
             InitializeComponent();
             FrameObject = AObject;
-        }
+
+           }
 
         protected override void DoRefreshFrame()
         {
@@ -262,14 +266,15 @@ namespace Kadr.UI.Frames
             employeeBonusReportFrame1.InitializeReport(typeof(Reports.GetEmployeesSumResult), 0);
 
             CreateChangeFactStaffContractMenu();
+
+            int i = (int)Math.Round((double)cpgEmployee.LabelColWidth / 2);
+            cpgEmployee.LabelColWidth = i;
         }
 
         private void btnBonusRepLoad_Click(object sender, EventArgs e)
         {
             employeeBonusReportFrame1.UpdateReportParams(dtpBonRepPeriodBegin.Value, dtpBonRepPeriodEnd.Value, Employee.id, false);
         }
-
- 
 
         private void dgvAllBonus_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
@@ -349,7 +354,7 @@ namespace Kadr.UI.Frames
         private void tcEmplPostInf_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tcEmplPostInf.SelectedTab == tpEmpOtpusk)
-                CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, oKOtpuskBindingSource);
+                CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, oKOtpuskBindingSource, заПоследние3ГодаToolStripMenuItem.Checked);
 
             if (tcEmplPostInf.SelectedTab == tpBusTrip)
                 CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
@@ -434,34 +439,34 @@ namespace Kadr.UI.Frames
 
         private void tsbAddOtp_Click(object sender, EventArgs e)
         {
-            CRUDVacation.Create((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource, this);
+            CRUDVacation.Create(CurrentFactStaff, Employee, oKOtpuskBindingSource, this, заПоследние3ГодаToolStripMenuItem.Checked);
         }
 
 
         private void tsbEditOtp_Click(object sender, EventArgs e)
         {
-            CRUDVacation.Update((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource);
+            CRUDVacation.Update(CurrentFactStaff, Employee, oKOtpuskBindingSource, заПоследние3ГодаToolStripMenuItem.Checked);
         }
 
                 private void tsbDelOtp_Click(object sender, EventArgs e)
         {
-            CRUDVacation.Delete((FactStaff)factStaffBindingSource.Current, Employee, oKOtpuskBindingSource);
+            CRUDVacation.Delete(CurrentFactStaff, Employee, oKOtpuskBindingSource, заПоследние3ГодаToolStripMenuItem.Checked);
         }
 
 
         private void tsbAddEmplTrip_Click(object sender, EventArgs e)
         {
-            CRUDBusinessTrips.Create((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource, this);
+            CRUDBusinessTrips.Create(CurrentFactStaff, BusinessTripsBindingSource, this);
         }
 
         private void tsbDelEmplTrip_Click(object sender, EventArgs e)
         {
-            CRUDBusinessTrips.Delete((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
+            CRUDBusinessTrips.Delete(CurrentFactStaff, BusinessTripsBindingSource);
         }
 
         private void tsbEditEmplTrip_Click(object sender, EventArgs e)
         {
-            CRUDBusinessTrips.Update((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
+            CRUDBusinessTrips.Update(CurrentFactStaff, BusinessTripsBindingSource);
         }
 
         private void dgvTrips_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -475,23 +480,23 @@ namespace Kadr.UI.Frames
             if (BusinessTripsBindingSource.Current != null)
             {
                 CRUDBusinessRegionType.Update((BusinessTripsBindingSource.Current as BusinessTripDecorator).GetTrip());
-                CRUDBusinessTrips.Read((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
+                CRUDBusinessTrips.Read(CurrentFactStaff, BusinessTripsBindingSource);
             }
         }
 
         private void tsbAddMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Create((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource, this);
+            CRUDMaterial.Create(CurrentFactStaff, MaterialResponsibilityBindingSource, this);
         }
 
         private void tsbDelMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Delete((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource);
+            CRUDMaterial.Delete(CurrentFactStaff, MaterialResponsibilityBindingSource);
         }
 
         private void tsbEditMaterial_Click(object sender, EventArgs e)
         {
-            CRUDMaterial.Update((FactStaff)factStaffBindingSource.Current, MaterialResponsibilityBindingSource, sender);
+            CRUDMaterial.Update(CurrentFactStaff, MaterialResponsibilityBindingSource, sender);
         }
 
 
@@ -621,17 +626,17 @@ namespace Kadr.UI.Frames
 
         private void tsbAddValidation_Click(object sender, EventArgs e)
         {
-            CRUDValidation.Create((FactStaff)factStaffBindingSource.Current,validationDecoratorBindingSource,this); 
+            CRUDValidation.Create(CurrentFactStaff, validationDecoratorBindingSource, this); 
         }
 
         private void tsbEditValidation_Click(object sender, EventArgs e)
         {
-            CRUDValidation.Update((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
+            CRUDValidation.Update(CurrentFactStaff, validationDecoratorBindingSource);
         }
 
         private void tsbDelValidation_Click(object sender, EventArgs e)
         {
-            CRUDValidation.Delete((FactStaff)factStaffBindingSource.Current, validationDecoratorBindingSource);
+            CRUDValidation.Delete(CurrentFactStaff, validationDecoratorBindingSource);
         }
 
         private void dgvValidations_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -694,12 +699,12 @@ namespace Kadr.UI.Frames
 
         private void tsbCancelTrip_Click(object sender, EventArgs e)
         {
-            CRUDBusinessTrips.CancelTrip((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource); 
+            CRUDBusinessTrips.CancelTrip(CurrentFactStaff, BusinessTripsBindingSource); 
         }
 
         private void tsbChangeTripDates_Click(object sender, EventArgs e)
         {
-            CRUDBusinessTrips.TripChangeDates((FactStaff)factStaffBindingSource.Current, BusinessTripsBindingSource);
+            CRUDBusinessTrips.TripChangeDates(CurrentFactStaff, BusinessTripsBindingSource);
         }
 
         private void tspFactStaffFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -707,42 +712,51 @@ namespace Kadr.UI.Frames
             LoadPostList(ObjectStateController.Instance.GetObjectStatesForFilter(tspFactStaffFilter, e));
         }
 
+        protected FactStaff CurrentFactStaff
+        {
+            get
+            {
+                FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
+                if (currentFactStaff == null)
+                    return null;
+                return KadrController.Instance.Model.FactStaffs.SingleOrDefault(fcSt => fcSt.id == currentFactStaff.id);
+            }
+        }
+
         private void tsbChangeFactStaffContract_Click(object sender, EventArgs e)
         {
-            FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
-            if (currentFactStaff == null)
+
+            if (CurrentFactStaff == null)
             {
                 MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
                 return;
             }
 
             EventKind thisEventKind = KadrController.Instance.Model.EventKinds.Where(x => x.EventKindApplName == sender.ToString()).FirstOrDefault();
-            CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind ?? MagicNumberController.FactStaffChangeMainEventKind,
+            CRUDFactStaffHistory.Create(CurrentFactStaff, thisEventKind ?? MagicNumberController.FactStaffChangeMainEventKind,
                 MagicNumberController.BeginEventType, true);
             LoadPostList();
         }
 
         private void dgvEmplPosts_DoubleClick(object sender, EventArgs e)
         {
-            FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
-            if (currentFactStaff != null)
+            if (CurrentFactStaff != null)
             {
-                if (currentFactStaff.FundingCenter == null)
-                    currentFactStaff.FundingCenter = NullFundingCenter.Instance;
-                if (currentFactStaff.FactStaffReplacement != null)
+                if (CurrentFactStaff.FundingCenter == null)
+                    CurrentFactStaff.FundingCenter = NullFundingCenter.Instance;
+                if (CurrentFactStaff.FactStaffReplacement != null)
                     LinqActionsController<FactStaffReplacement>.Instance.EditObject(
-                        currentFactStaff.FactStaffReplacement, true);
+                        CurrentFactStaff.FactStaffReplacement, true);
                 else
                     LinqActionsController<FactStaff>.Instance.EditObject(
-                        currentFactStaff, true);
+                        CurrentFactStaff, true);
             }
             LoadPostList();
         }
 
         private void btnHistoryFactStaff_Click(object sender, EventArgs e)
         {
-            FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
-            if (currentFactStaff == null)
+            if (CurrentFactStaff == null)
             {
                 MessageBox.Show("Не выбран редактируемый объект.", "ИС \"Управление кадрами\"");
                 return;
@@ -751,10 +765,15 @@ namespace Kadr.UI.Frames
             using (Forms.FactStaffHistoryForm HistForm =
                            new Forms.FactStaffHistoryForm())
             {
-                HistForm.FactStaff = currentFactStaff;
+                HistForm.FactStaff = CurrentFactStaff;
                 HistForm.ShowDialog();
             }
             LoadPostList();
+        }
+
+        private void заПоследние3ГодаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, oKOtpuskBindingSource, заПоследние3ГодаToolStripMenuItem.Checked);
         }
     }
 

@@ -23,6 +23,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Общие")]
         [System.ComponentModel.Description("Сотрудник, для которого указываются часы")]
         [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
         public FactStaff FactStaff
         {
             get

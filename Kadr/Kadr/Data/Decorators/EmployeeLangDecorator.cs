@@ -49,10 +49,8 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null)
-                {
+
                     _employeeLang.OK_Language = value;
-                }
 
             }
         }
@@ -70,10 +68,7 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null)
-                {
                     _employeeLang.LanguageLevel = value;
-                }
 
             }
         }

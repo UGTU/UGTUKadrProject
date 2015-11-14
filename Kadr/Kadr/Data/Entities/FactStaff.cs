@@ -12,7 +12,7 @@ namespace Kadr.Data
 {
     public enum FactStaffState {Present, Incapable, OnTrip, OnVacation};
 
-    public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable
+    public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState, IComparable, IEmployeeExperienceRecord
     {
 
         public override string ToString()
@@ -60,7 +60,7 @@ namespace Kadr.Data
         /// <summary>
         /// Признак того, что запись создана одновременно с новым сотрудником
         /// </summary>
-        public bool WithNewEmployee
+        public bool EmployeeReadOnly
         {
             get;
             set;
@@ -78,16 +78,18 @@ namespace Kadr.Data
         {
             get
             {
-                IEnumerable<Event_BusinessTrip> tripevents = CurrentChange.Events.Where(x => (x.idPrikazEnd == null) && (x.EventType == MagicNumberController.BeginEventType)).Select(x => x.Event_BusinessTrip).Where(t=>t!=null);
-                IEnumerable<BusinessTrip> currenttrips = tripevents.Select(x=>x.BusinessTrip).Where(t => (t.Event.DateBegin < DateTime.Now) && (t.Event.DateEnd > DateTime.Now));
+                //return FactStaffState.Present;
+                
+                IEnumerable<Event_BusinessTrip> tripevents = CurrentChange.Events.Where(x => (x.idPrikazEnd == null) && (x.idEventType == MagicNumberController.BeginEventTypeId) && (x.DateBegin < DateTime.Now) && (x.DateEnd > DateTime.Now)).Select(x => x.Event_BusinessTrip);
+                IEnumerable<BusinessTrip> currenttrips = tripevents.Where(t => t != null).Select(x=>x.BusinessTrip);
 
                 if (currenttrips.Any()) return FactStaffState.OnTrip;
 
-                IEnumerable<OK_Inkapacity> incapacities = Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && ((t.DateEnd > DateTime.Now) || (t.DateEnd == null)));
-                if (incapacities.Any()) return FactStaffState.Incapable;
+                if (Employee.OK_Inkapacities.Where(t => (t.DateBegin < DateTime.Now) && ((t.DateEnd > DateTime.Now) || (t.DateEnd == null))).Any())
+                return FactStaffState.Incapable;
 
-                var vacs = OK_Otpusks.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now));
-                if (vacs.Any()) return FactStaffState.OnVacation;
+                if (OK_Otpusks.Where(t => (t.DateBegin < DateTime.Now) && (t.DateEnd > DateTime.Now)).Any())
+                    return FactStaffState.OnVacation;
 
                 return FactStaffState.Present;
             }
@@ -649,7 +651,7 @@ namespace Kadr.Data
         {
             if ((action == ChangeAction.Insert) || (action == ChangeAction.Update))
             {
-                if ((PlanStaff == null) && (HourCount == null)) throw new ArgumentNullException("Элемент штатного расписания.");
+                if ((PlanStaff == null) && (HourCount == null)) throw new ArgumentNullException("Количество часов.");
                 if ((Dep == null) && (HourCount > 0)) throw new ArgumentNullException("Отдел для почасовика.");
 
                 if (MainFactStaff != null)
@@ -694,7 +696,7 @@ namespace Kadr.Data
                     if (OKVED.IsNull())
                         OKVED = null;
                 if (OK_Reason != null)
-                    if (OK_Reason.IsNull())
+                    if ((OK_Reason.IsNull()) || (OK_Reason.idreason == OK_Reason.NotFired))
                         OK_Reason = null;
 
                 (CurrentChange as UIX.Views.IValidatable).Validate();
@@ -707,8 +709,10 @@ namespace Kadr.Data
 
         public object GetDecorator()
         {
-            if (WithNewEmployee)
-                return new FactStaffEmployeeAddingDecorator(this);
+            if ((EmployeeReadOnly) && (PlanStaff.IsNull()))
+                return new FactStaffTransferDecorator(this);
+            if (EmployeeReadOnly)
+                return new FactStaffEmployeeReadOnlyDecorator(this);
             if (IsHourStaff)
                 return new FactStaffHourDecorator(this);
             return new FactStaffDecorator(this);
@@ -729,15 +733,6 @@ namespace Kadr.Data
 
         #endregion
 
-
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
 
 
         #region IObjectState Members
@@ -763,7 +758,48 @@ namespace Kadr.Data
                 return new FactStaffHour(this);
             }
         }*/
-             
+        
+        /// <summary>
+        /// Признак того, что этот стаж имеет дату завершения
+        /// </summary>
+        public bool IsEnded { get { return DateEnd.HasValue; } }
+
+        public TerritoryConditions Territory
+        {
+            get
+            {
+
+                //Заглушка до тех пор, пока не определимся, что указывает на территориальные условия
+                return TerritoryConditions.North;
+            }
+        }
+        public KindOfExperience Experience {
+            get
+            {
+                return Category.GetKindOfExperience();
+            }
+
+        }
+        
+        public Affilations Affilation {
+            get
+            {
+                // Записи штатного расписания всегда являются стажем в организации
+                return Affilations.Organization;
+            }
+        }
+
+        public WorkOrganizationWorkType WorkWorkType
+        {
+            get { return WorkType.GetOrganizationWorkType(); }
+        }
+
+        public DateTime Start { get { return DateBegin; }
+            set { }
+        }
+        public DateTime Stop { get { return DateEnd.HasValue ? DateEnd.Value : DateTime.Today; }
+            set { }
+        }
     }
 
 
@@ -777,19 +813,12 @@ namespace Kadr.Data
 
         public static readonly NullFactStaff Instance = new NullFactStaff();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 
     

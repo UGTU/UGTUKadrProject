@@ -6,19 +6,12 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class Organisation : INull, IComparable
+    public partial class Organisation : INullable, IComparable
     {
         public override string ToString()
         {
             return Name;
         }
-
-        #region INull Members
-        public bool IsNull()
-        {
-            return false;
-        }
-        #endregion
 
         public int CompareTo(object obj)
         {
@@ -35,17 +28,11 @@ namespace Kadr.Data
 
         public static readonly NullOrganisation Instance = new NullOrganisation();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
         public override string ToString()
         {
             return "(Не заданo)";
         }
 
-        #endregion
     }
 }

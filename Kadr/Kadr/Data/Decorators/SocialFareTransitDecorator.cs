@@ -27,6 +27,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код приказа в системе")]
         [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
         public int ID
         {
             get
@@ -54,7 +55,7 @@ namespace Kadr.Data
                 socialFareTransit.DateBegin = value;
                 if ((value != null) && (value != DateTime.MinValue))
                 {
-                    socialFareTransit.DateEnd = value.AddYears(SocialFareTransit.SocialFareLength);
+                    socialFareTransit.DateEnd = value.AddYears(SocialFareTransit.SocialFareLength).AddDays(-1);
                 }
             }
         }

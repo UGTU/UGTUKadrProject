@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using UIX.Commands;
 
-namespace Kadr.Controllers.CRUDControllers
+namespace Kadr.Controllers
 {
     public static class CRUDPrikaz
     {
-        public static Prikaz Create(string Name, PrikazType pt, DateTime Date, DateTime DateBegin, DateTime DateEnd)
+        public static Prikaz Create(string Name, PrikazType pt, DateTime? Date, DateTime? DateBegin, DateTime? DateEnd)
         {
             Prikaz p = new Prikaz();
             p.PrikazType = pt;

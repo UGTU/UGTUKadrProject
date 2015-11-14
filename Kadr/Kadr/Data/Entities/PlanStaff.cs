@@ -9,7 +9,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class PlanStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState
+    public partial class PlanStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState
     {
         public override string ToString()
         {
@@ -30,6 +30,21 @@ namespace Kadr.Data
             }
         }
 
+        /// <summary>
+        /// кол-во вакансий (свободных ставок без учета замещений)
+        /// </summary>
+        public decimal FreeFactStaffCount
+        {
+            get
+            {
+                return (StaffCount - FactStaffCount);
+            }
+        }
+
+        
+        /// /// <summary>
+        /// кол-во занятых ставок без замещений
+        /// </summary>
         public decimal FactStaffCount
         {
             get
@@ -38,7 +53,9 @@ namespace Kadr.Data
             }
         }
 
-
+        /// <summary>
+        /// кол-во занятых ставок с учетом замещений
+        /// </summary>
         public decimal AllFactStaffCount
         {
             get
@@ -284,15 +301,6 @@ namespace Kadr.Data
 
         #endregion
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
-
 
         #region IObjectState Members
 
@@ -317,19 +325,10 @@ namespace Kadr.Data
 
         public static readonly NullPlanStaff Instance = new NullPlanStaff();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не задан)";
         }
-
-        #endregion
     }
 
 }

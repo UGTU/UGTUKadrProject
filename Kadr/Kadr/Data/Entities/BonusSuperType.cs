@@ -8,7 +8,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class BonusSuperType : INull
+    public partial class BonusSuperType : INullable
     {
 
         public override string ToString()
@@ -16,14 +16,6 @@ namespace Kadr.Data
             return BonusSuperTypeName;
         }
 
-        #region INull Members
-
-        public bool IsNull()
-        {
-            return false;
-        }
-
-        #endregion
     }
 
     public class NullBonusSuperType : BonusSuperType, INull
@@ -36,18 +28,11 @@ namespace Kadr.Data
 
         public static readonly NullBonusSuperType Instance = new NullBonusSuperType();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 }

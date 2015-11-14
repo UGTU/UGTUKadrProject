@@ -90,6 +90,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Дата окончания замещения")]
         [System.ComponentModel.ReadOnly(false)]
+        [System.ComponentModel.RefreshProperties(System.ComponentModel.RefreshProperties.Repaint)]
         // [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PostEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public DateTime ReplacementDataEnd
         {
@@ -106,6 +107,13 @@ namespace Kadr.Data
                     factStaffReplacement.FactStaff1.IsReplacement = true;
                 else
                     factStaffReplacement.FactStaff1.IsReplacement = false;
+                if (factStaffReplacement.MainFactStaff.CurrentChange != null)
+                    if (factStaffReplacement.MainFactStaff.CurrentChange.MainEvent != null)
+                    {
+                        factStaffReplacement.MainFactStaff.CurrentChange.MainEvent.DateEnd = factStaffReplacement.DateEnd;
+                        if (factStaffReplacement.MainFactStaff.CurrentChange.MainEvent.Contract != null)
+                            factStaffReplacement.MainFactStaff.CurrentChange.MainEvent.Contract.DateEnd = factStaffReplacement.DateEnd;
+                    }
             }
         }
 

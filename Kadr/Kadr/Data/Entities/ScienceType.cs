@@ -8,18 +8,12 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class ScienceType : CompareObject, INull
+    public partial class ScienceType : CompareObject, INullable
     {
         public override string ToString()
         {
 
             return ScienceTypeName;
-        }
-
-
-        bool INull.IsNull()
-        {
-            return false;
         }
     }
 
@@ -35,18 +29,10 @@ namespace Kadr.Data
 
         public static readonly NullScienceType Instance = new NullScienceType();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не заданa)";
         }
 
-        #endregion
     }
 }

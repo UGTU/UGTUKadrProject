@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Kadr.Data
 {
-    public partial class BusinessTrip : UIX.Views.IDecorable, UIX.Views.IValidatable, INull, IObjectState, IComparable
+    public partial class BusinessTrip : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState, IComparable
     {
         #region Properties
 
@@ -64,9 +64,11 @@ namespace Kadr.Data
 
                 if (Event.Prikaz == null) throw new ArgumentNullException("Приказ");
 
+                if (Event.Prikaz.IsNull()) throw new ArgumentNullException("Приказ");
+
                 if (BusinessTripRegionTypes.Count()==0) throw new ArgumentNullException("Регион пребывания");
 
-                if (FinancingSource==null) throw new ArgumentNullException("Источник финансирования");
+                //if (FinancingSource==null) throw new ArgumentNullException("Источник финансирования");
 
                 if (TripTargetPlace == null) throw new ArgumentNullException("Место назначения");
                 if (TripTargetPlace == "") throw new ArgumentNullException("Место назначения");
@@ -97,22 +99,11 @@ namespace Kadr.Data
 
         #endregion
 
-
         #region IValidatable Members
 
         void UIX.Views.IValidatable.Validate()
         {
             OnValidate(ChangeAction.Insert);
-        }
-
-        #endregion
-
-
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
         }
 
         #endregion

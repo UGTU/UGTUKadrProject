@@ -8,7 +8,7 @@ using System.Data.Linq;
 
 namespace Kadr.Data
 {
-    public partial class Rank : INull, IComparable
+    public partial class Rank : INullable, IComparable
     {
         public override string ToString()
         {
@@ -21,11 +21,6 @@ namespace Kadr.Data
             {
                 return RankName;
             }
-        }
-
-        bool INull.IsNull()
-        {
-            return false;
         }
 
         #region Члены IComparable
@@ -48,18 +43,10 @@ namespace Kadr.Data
 
         public static readonly NullRank Instance = new NullRank();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не заданo)";
         }
 
-        #endregion
     }
 }

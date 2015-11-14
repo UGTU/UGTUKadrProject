@@ -6,7 +6,7 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    public partial class SemPol : CompareObject, INull//, IComparable
+    public partial class SemPol : CompareObject, INullable//, IComparable
     {
         public override string ToString()
         {
@@ -20,16 +20,6 @@ namespace Kadr.Data
                 return Kadr.Controllers.KadrController.Instance.Model.SemPols.Where(semP => semP.id == 1).First();
             }
         }
-
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return false;
-
-        }
-
-        #endregion
 
         /*public int CompareTo(object obj)
         {
@@ -47,18 +37,12 @@ namespace Kadr.Data
 
         public static readonly NullSemPol Instance = new NullSemPol();
 
-        #region INull Members
 
-        bool INull.IsNull()
-        {
-            return true;
-        }
         public override string ToString()
         {
             return "(Не заданo)";
         }
 
-        #endregion
     }
 }
 

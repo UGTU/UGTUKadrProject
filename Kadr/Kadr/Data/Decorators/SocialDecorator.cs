@@ -51,10 +51,8 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null)
-                {
+
                     Social.OK_SocialStatus = value;
-                }
 
             }
         }

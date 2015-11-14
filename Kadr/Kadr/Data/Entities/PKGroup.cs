@@ -9,7 +9,7 @@ using System.Data.Linq.Mapping;
 
 namespace Kadr.Data
 {
-    public partial class  PKGroup: INull
+    public partial class  PKGroup: INullable
     {
         public override string ToString()
         {
@@ -24,15 +24,6 @@ namespace Kadr.Data
             }
         }
 
-
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
     }
 
     public class NullPKGroup: PKGroup, INull
@@ -49,14 +40,5 @@ namespace Kadr.Data
             return "Не указана";
         }
 
-
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
-        #endregion
     }
 }

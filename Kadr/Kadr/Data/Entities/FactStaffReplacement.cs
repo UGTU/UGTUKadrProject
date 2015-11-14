@@ -9,16 +9,11 @@ using UIX.Views;
 
 namespace Kadr.Data
 {
-    public partial class FactStaffReplacement : INull, UIX.Views.IDecorable, UIX.Views.IValidatable, IComparable
+    public partial class FactStaffReplacement : INullable, UIX.Views.IDecorable, UIX.Views.IValidatable, IComparable
     {
         public override string ToString()
         {
             return "";
-        }
-        
-        bool INull.IsNull()
-        {
-            return false;
         }
 
         public FactStaff ReplacedFactStaff
@@ -135,18 +130,11 @@ namespace Kadr.Data
 
         public static readonly NullFactStaffReplacement Instance = new NullFactStaffReplacement();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
 
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 }

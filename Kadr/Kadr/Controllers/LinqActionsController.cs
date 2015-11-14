@@ -11,6 +11,22 @@ using Kadr.Data;
 
 namespace Kadr.Controllers
 {
+    /*class WithID
+    {
+        public int id;
+    }
+
+    class GenericMethodsCotroller<T> where T : WithID
+    {
+        public static T GetCurrentObject(BindingSource bindingSource, System.Data.Linq.Table<T> objectList)  
+        {
+            T currentObject = bindingSource.Current as T;
+            if (currentObject == null)
+                return null;
+            return objectList.SingleOrDefault(obj => obj.id == currentObject.id);
+        }
+    }*/
+
     class LinqActionsController<T> where T : class
     {
         private static LinqActionsController<T> instance;
@@ -99,7 +115,7 @@ namespace Kadr.Controllers
 
         }
 
-
+        
 
     }
 }

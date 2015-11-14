@@ -5,6 +5,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using Kadr.Controllers;
+using Kadr.Data.Common;
 
 
 namespace Kadr.Data
@@ -100,7 +101,7 @@ namespace Kadr.Data
             get { return MainEvent.FactStaff; }
         }
 
-        public decimal SumMoney
+        public decimal? SumMoney
         {
             get
             {
@@ -132,7 +133,7 @@ namespace Kadr.Data
         {
             if ((action != ChangeAction.Insert) && (action != ChangeAction.Update)) return;
 
-            if (MainEvent.idPrikaz == 0) throw new ArgumentNullException("Приказ назначения ответственности.");
+            if (MainEvent.Prikaz.IsNull()) throw new ArgumentNullException("Приказ назначения ответственности.");
             if ((MainEvent.Contract.ContractName == null) || (MainEvent.Contract.ContractName.Trim() == "")) throw new ArgumentNullException("Номер договора.");
             if (MainEvent.Contract.DateContract == null) throw new ArgumentNullException("Дата договора.");
             if (MainEvent.DateBegin == null) throw new ArgumentNullException("Дата начала действия.");

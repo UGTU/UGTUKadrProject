@@ -25,7 +25,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код типа повышения квалификации")]
         [System.ComponentModel.ReadOnly(true)]
-     //   [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.Browsable(false)]
         public int IdDopEducType
         {
             get

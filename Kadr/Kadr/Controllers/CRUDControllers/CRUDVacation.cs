@@ -5,12 +5,13 @@ using System.Text;
 using Kadr.UI.Common;
 using System.Windows.Forms;
 using Kadr.Data;
+using Kadr.Properties;
 
 namespace Kadr.Controllers
 {
     public static class CRUDVacation
     {
-        public static void Create(FactStaff fs, Employee e,BindingSource oKOtpuskBindingSource, object sender)
+        public static void Create(FactStaff fs, Employee e,BindingSource oKOtpuskBindingSource, object sender, bool filter)
         {
             using (PropertyGridDialogAdding<OK_Otpusk> dlg =
                SimpleActionsProvider.NewSimpleObjectAddingDialog<OK_Otpusk>())
@@ -27,29 +28,34 @@ namespace Kadr.Controllers
 
                 dlg.ShowDialog();
             }
-            Read(fs, oKOtpuskBindingSource);
+            Read(fs, oKOtpuskBindingSource, filter);
         }
 
-        public static void Read(FactStaff fs, BindingSource oKOtpuskBindingSource)
+        public static void Read(FactStaff fs, BindingSource oKOtpuskBindingSource, bool filter)
         {
+            if (fs != null)
+            {
+                var otps = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory.FactStaff == fs);
 
-           if (fs != null)
-               oKOtpuskBindingSource.DataSource = KadrController.Instance.Model.OK_Otpusks.Where(otp => otp.Event.FactStaffHistory.FactStaff == fs).Where(
-                   otp => otp.Event.DateBegin >= DateTime.Today.AddYears(-1)).OrderByDescending(otp => otp.Event.DateBegin);
-           else
-               oKOtpuskBindingSource.DataSource = null;
+                if (filter) otps = otps.Where(otp => otp.Event.DateBegin >= DateTime.Today.AddYears(-Settings.Default.DisplayVacationsYears));
+                   otps = otps.OrderByDescending(otp => otp.Event.DateBegin);
+
+                oKOtpuskBindingSource.DataSource = otps;
+            }
+            else
+                oKOtpuskBindingSource.DataSource = null;
             
         }
 
-        public static void Update(FactStaff fs, Employee e, BindingSource oKOtpuskBindingSource)
+        public static void Update(FactStaff fs, Employee e, BindingSource oKOtpuskBindingSource, bool filter)
         {
             if (oKOtpuskBindingSource.Current != null)
                 LinqActionsController<OK_Otpusk>.Instance.EditObject(
                         oKOtpuskBindingSource.Current as OK_Otpusk, true);
-            Read(fs, oKOtpuskBindingSource);
+            Read(fs, oKOtpuskBindingSource, filter);
         }
 
-        public static void Delete(FactStaff fs, Employee e, BindingSource oKOtpuskBindingSource)
+        public static void Delete(FactStaff fs, Employee e, BindingSource oKOtpuskBindingSource, bool filter)
         {
              OK_Otpusk CurrentOtp = oKOtpuskBindingSource.Current as OK_Otpusk;
              Event CurrentPrikaz = CurrentOtp.Event;
@@ -62,14 +68,12 @@ namespace Kadr.Controllers
 
             if (MessageBox.Show("Удалить отпуск?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
                 != DialogResult.OK)
-            {
                 return;
-            }
 
-            KadrController.Instance.Model.OK_Otpusks.DeleteOnSubmit(CurrentOtp);
-            LinqActionsController<Event>.Instance.DeleteObject(CurrentPrikaz, KadrController.Instance.Model.Events, null);
+            KadrController.Instance.Model.Events.DeleteOnSubmit(CurrentPrikaz);
+            LinqActionsController<OK_Otpusk>.Instance.DeleteObject(CurrentOtp, KadrController.Instance.Model.OK_Otpusks, null);
 
-            Read(fs, oKOtpuskBindingSource);
+            Read(fs, oKOtpuskBindingSource, filter);
         }
     }
 }

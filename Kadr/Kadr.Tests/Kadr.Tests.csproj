@@ -68,7 +68,7 @@
     <Compile Include="RegionTypeExtensionsTests.cs" />
     <Compile Include="StandingTypeExtensionsTests.cs" />
     <Compile Include="UiPurposeTests.cs" />
-    <Compile Include="FactStaffHistoryExperienceTests.cs" />
+    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodeHelper\CodeHelper.csproj">

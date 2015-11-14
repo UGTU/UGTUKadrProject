@@ -19,7 +19,8 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            return _education.EducationType.EduTypeName + ", " + _education.EducWhen;
+            return ((_education.EducationType!=null)?_education.EducationType.EduTypeName + ", " : _education.EducDocument.EducDocumentType.DocTypeName)
+                + _education.EducWhen;
         }
 
         [System.ComponentModel.DisplayName("idEducDocument")]
@@ -49,10 +50,8 @@ namespace Kadr.Data
             }
             set
             {
-                if (value != null)
-                {
+
                     _education.EducationType = value;
-                }
 
             }
         }
@@ -161,7 +160,8 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Подтверждающий документ")]
         [System.ComponentModel.Description("Организация, вручившая документ об образовании")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Organisation>))]
+       // [System.ComponentModel.TypeConverter(typeof(SimpleToStringConvertor<Organisation>))]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.OrganisationEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Organisation Organization
         {
             get
@@ -174,6 +174,7 @@ namespace Kadr.Data
             {
                 if (_education.EducDocument != null)
                     _education.EducDocument.Organisation = value;
+                _education.EducWhere = (value != null)? value.Name:"";
             }
         }
 

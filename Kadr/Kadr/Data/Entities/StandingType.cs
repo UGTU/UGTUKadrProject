@@ -20,7 +20,7 @@ namespace Kadr.Data
         }
     }
 
-    public partial class StandingType : CompareObject, INull
+    public partial class StandingType : CompareObject, INullable
     {
         public override string ToString()
         {
@@ -35,14 +35,6 @@ namespace Kadr.Data
             }
         }
 
-        #region Члены INull
-
-        bool INull.IsNull()
-        {
-            return false;
-        }
-
-        #endregion
     }
 
     public class NullStandingType : StandingType, INull
@@ -56,18 +48,10 @@ namespace Kadr.Data
 
         public static readonly NullStandingType Instance = new NullStandingType();
 
-        #region INull Members
-
-        bool INull.IsNull()
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return "(Не задан)";
         }
 
-        #endregion
     }
 }

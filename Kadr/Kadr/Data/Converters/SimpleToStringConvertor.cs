@@ -6,12 +6,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using Kadr.Data.Common;
+using Kadr.Properties;
 
 namespace Kadr.Data.Converters
 {
     class SimpleToStringConvertor<T> : TypeConverter
         where T:class
     {
+        protected ICollection col = null;
 
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
@@ -19,8 +22,10 @@ namespace Kadr.Data.Converters
         }
 
         protected virtual ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)
-        {            
-            var table = KadrController.Instance.Model.GetTable<T>().ToList();            
+        {
+            if (col != null) return col;
+
+            var table = KadrController.Instance.Model.GetTable<T>() as IQueryable<T>;            
             
             // реализуй IOrderInformer для своего контекста (например, декоратора), чтобы передать названия полей для сортировки — и конвертер отсортирует сам
             if (context.Instance is IOrderInformer)
@@ -32,17 +37,26 @@ namespace Kadr.Data.Converters
                     for (var i=orderProps.Length-1; i>=0; i--)
                     {
                         var s = orderProps[i];
-                        table = table.OrderBy(x => x.GetType().GetProperty(s).GetValue(x, null)).ToList();
-                    }                
+                        table = table.OrderBy(x => x.GetType().GetProperty(s).GetValue(x, null));
+                    }
+                col = table.ToList<T>();
             }
             else
-            {                
-                if (typeof(IComparable).IsAssignableFrom(typeof(T)))
-                    table.Sort();                
+            {
+                col = table.ToList();
+                if (typeof(IComparable).IsAssignableFrom(typeof(T)))    
+                (col as List<T>).Sort();
             }
-            
 
-            return table;
+            //Для пункта "(Не задано)"
+
+            if (col.Count>0)
+            if (typeof(INullable).IsAssignableFrom(typeof(T)))
+                (col as List<T>).Add((T)((col as List<T>)[0] as INullable).GetNullInstance());
+
+                return col;
+
+
         }
 
         public override TypeConverter.StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
@@ -67,11 +81,15 @@ namespace Kadr.Data.Converters
         public override object ConvertTo(ITypeDescriptorContext context,
        System.Globalization.CultureInfo culture, object value, Type destinationType)
         {
-            if (destinationType == typeof(string) && value is AwardType)
+            if (destinationType == typeof(string) && value is T)
             {
                 T item = (T)value;
                 return item.ToString();
             }
+
+            if (destinationType == typeof(string) && value == null)
+               return Settings.Default.NullName; 
+
             return base.ConvertTo(context, culture, value, destinationType);
         }
 
@@ -90,17 +108,24 @@ namespace Kadr.Data.Converters
         public override object ConvertFrom(ITypeDescriptorContext context,
         System.Globalization.CultureInfo culture, object value)
         {
+
+
             if (value.GetType() == typeof(string))
             {
+                
                 T itemSelected = null;
+                if ((string)value == Settings.Default.NullName) return itemSelected;
 
                 foreach (T Item in GetCollection(context))
                 {
-                    string ItemName = Item.ToString();
-
-                    if (ItemName.Equals((string)value))
+                    if (Item != null)
                     {
-                        itemSelected = Item;
+                        string ItemName = Item.ToString();
+
+                        if (ItemName.Equals((string)value))
+                        {
+                            itemSelected = Item;
+                        }
                     }
                 }
                 return itemSelected;

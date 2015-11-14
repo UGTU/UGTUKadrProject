@@ -23,6 +23,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код надбавки в системе")]
         [System.ComponentModel.ReadOnly(true)]
+        [System.ComponentModel.Browsable(false)]
         public int ID
         {
             get
@@ -131,11 +132,10 @@ namespace Kadr.Data
             set
             {
                 bonus.BonusType = value;
-                if (value != null)
-                    bonus.LastFinancingSource = value.FinancingSource;
+
+                bonus.LastFinancingSource = value.FinancingSource;
             }
         }
-
         [System.ComponentModel.DisplayName("Приказ назначения")]
         [System.ComponentModel.Category("Основные параметры")]
         [System.ComponentModel.Description("Приказ назначения (последнего изменения) надбавки")]

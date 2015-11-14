@@ -15,7 +15,7 @@ using Kadr.Data.Common;
 namespace Kadr.Controllers
 {
 
-    class KadrController: UIX.Controllers.GenericController<Kadr.Data.dckadrDataContext>
+    public class KadrController: UIX.Controllers.GenericController<Kadr.Data.dckadrDataContext>
     {
 
         /// <summary>

@@ -83,7 +83,7 @@ namespace Kadr.UI.Forms
                 {
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, Employee>(x, "Employee", Employee, null), this);
                     dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, DateTime>(x, "DateBegin", ((KadrController.Instance.Model.SocialFareTransits.Any(y => y.Employee == Employee)) ? KadrController.Instance.Model.SocialFareTransits.Where(z=>z.Employee == Employee).Max(y => y.DateEnd) : DateTime.Today).AddDays(1), null), this);
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, DateTime>(x, "DateEnd", x.DateBegin.AddYears(SocialFareTransit.SocialFareLength), null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<SocialFareTransit, DateTime>(x, "DateEnd", x.DateBegin.AddYears(SocialFareTransit.SocialFareLength).AddDays(-1), null), this);
                 };
 
                 dlg.UpdateObjectList = () =>
