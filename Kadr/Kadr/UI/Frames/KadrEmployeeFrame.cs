@@ -168,6 +168,7 @@ namespace Kadr.UI.Frames
             cpgEmployee.SelectedObjects = new object[] { Employee.GetDecorator() };
             commandManager = new UIX.Commands.CommandManager();
             cpgEmployee.CommandRegister = commandManager.GetCommandRegister();
+            cpgEmployee.ExpandGroup("6. Воинский учет");
             commandManager.BeginBatchCommand();
         }
 

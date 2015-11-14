@@ -12,6 +12,8 @@ namespace Kadr.Controllers
 {
     public static class CRUDEmployee
     {
+
+
         public static void Create(object sender, PlanStaff planStaff)
         {
             if (planStaff == null)
