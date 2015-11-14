@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UIX.Commands;
 
-namespace Kadr.Controllers.CRUDControllers
+namespace Kadr.Controllers
 {
     public static class CRUDPrikaz
     {
