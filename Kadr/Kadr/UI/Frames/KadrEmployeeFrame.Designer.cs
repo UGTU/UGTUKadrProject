@@ -786,7 +786,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
             this.splitContainer3.Size = new System.Drawing.Size(788, 501);
-            this.splitContainer3.SplitterDistance = 223;
+            this.splitContainer3.SplitterDistance = 222;
             this.splitContainer3.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -802,7 +802,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 223);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 222);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // dataGridView1
@@ -933,7 +933,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 274);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 275);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // dataGridView6
@@ -973,7 +973,7 @@ namespace Kadr.UI.Frames
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView6.Size = new System.Drawing.Size(782, 427);
+            this.dataGridView6.Size = new System.Drawing.Size(782, 429);
             this.dataGridView6.TabIndex = 3;
             this.dataGridView6.DoubleClick += new System.EventHandler(this.tsbUpdAddress_Click);
             // 

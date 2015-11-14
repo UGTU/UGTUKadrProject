@@ -66,7 +66,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Параметры увольнения")]
         [System.ComponentModel.Description("Приказ увольнения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
-        //[System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FiredPrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FiredPrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz PrikazEnd
         {
             get

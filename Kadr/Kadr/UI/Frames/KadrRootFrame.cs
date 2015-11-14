@@ -370,17 +370,16 @@ namespace Kadr.UI.Frames
 
        private void EditFactStaffBtn_Click(object sender, EventArgs e)
        {
-           FactStaff currentFactStaff = factStaffBindingSource.Current as Kadr.Data.FactStaff;
-           if (currentFactStaff != null)
+           if (CurrentFactStaff != null)
            {
-               if (currentFactStaff.FundingCenter == null)
-                    currentFactStaff.FundingCenter = NullFundingCenter.Instance;
-               if (currentFactStaff.FactStaffReplacement != null)
+               if (CurrentFactStaff.FundingCenter == null)
+                    CurrentFactStaff.FundingCenter = NullFundingCenter.Instance;
+               if (CurrentFactStaff.FactStaffReplacement != null)
                    LinqActionsController<FactStaffReplacement>.Instance.EditObject(
-                       currentFactStaff.FactStaffReplacement, true);
+                       CurrentFactStaff.FactStaffReplacement, true);
                else
                    LinqActionsController<FactStaff>.Instance.EditObject(
-                       currentFactStaff, true);
+                       CurrentFactStaff, true);
            }
            LoadPlanStaff();
        }
@@ -415,8 +414,6 @@ namespace Kadr.UI.Frames
 
        private void DelFactStaffBtn_Click(object sender, EventArgs e)
        {
-           FactStaff CurrentFactStaff = factStaffBindingSource.Current as FactStaff;
-
            if (CurrentFactStaff == null)
            {
                MessageBox.Show("Не выбрана удаляемая запись штатного расписания.", "АИС \"Штатное расписание\"");
@@ -454,19 +451,18 @@ namespace Kadr.UI.Frames
 
        private void TransferFactStaffBtn_Click(object sender, EventArgs e)
        {
-           if (factStaffBindingSource.Current == null)
+           if (CurrentFactStaff == null)
            {
                MessageBox.Show("Выберите сотрудникa для перевода!");
                return;
            }
 
-           FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
-           if (currentFactStaff.DateEnd < DateTime.Today)
+           if (CurrentFactStaff.DateEnd < DateTime.Today)
            {
                MessageBox.Show("Выбранный сотрудник уже уволен!");
                return;
            }
-           FactStaff newFactStaff = CRUDFactStaff.Create(factStaffBindingSource, CurrentPlanStaff, this, null, false, currentFactStaff);
+           FactStaff newFactStaff = CRUDFactStaff.Create(factStaffBindingSource, CurrentPlanStaff, this, null, false, CurrentFactStaff);
            
 
            /*//проверяем, чтобы переводимые еще не были уволены
@@ -563,7 +559,7 @@ namespace Kadr.UI.Frames
            using (Forms.KadrBonusForm bonFrm =
                 new Forms.KadrBonusForm())
            {
-               bonFrm.BonusObject = factStaffBindingSource.Current as FactStaff;
+               bonFrm.BonusObject = CurrentFactStaff;
                ObjectStateController.Instance.GetFilterForObjectState(bonFrm.tsbBonusFilter, BonusFilterSetting);
                bonFrm.ShowDialog();
            }
@@ -572,7 +568,7 @@ namespace Kadr.UI.Frames
 
        private void AddReplacementBtn_Click(object sender, EventArgs e)
        {
-           CRUDFactStaffReplacement.Create(factStaffBindingSource, factStaffBindingSource.Current as FactStaff, sender);
+           CRUDFactStaffReplacement.Create(factStaffBindingSource, CurrentFactStaff, sender);
            LoadPlanStaff();
            //LoadFactStaff();
        
@@ -942,12 +938,25 @@ namespace Kadr.UI.Frames
        {
            get
            {
+               //GenericMethodsCotroller<FactStaff>.GetCurrentObject(factStaffBindingSource, KadrController.Instance.Model.FactStaffs);
                FactStaff currentFactStaff = factStaffBindingSource.Current as FactStaff;
                if (currentFactStaff == null)
                    return null;
                return KadrController.Instance.Model.FactStaffs.SingleOrDefault(fcSt => fcSt.id == currentFactStaff.id);
            }
        }
+
+       protected FactStaff CurrentHourFactStaff
+       {
+           get
+           {
+               FactStaff currentFactStaff = hourFactStaffBindingSource.Current as FactStaff;
+               if (currentFactStaff == null)
+                   return null;
+               return KadrController.Instance.Model.FactStaffs.SingleOrDefault(fcSt => fcSt.id == currentFactStaff.id);
+           }
+       }
+
 
        private void btnChangeFactStaff_Click(object sender, EventArgs e)
        {
@@ -1297,21 +1306,20 @@ namespace Kadr.UI.Frames
 
        private void dgvHourFactStaff_DoubleClick(object sender, EventArgs e)
        {
-           FactStaff currentFactStaff = (hourFactStaffBindingSource.Current as Kadr.Data.FactStaff);
-           if (currentFactStaff != null)
+           if (CurrentHourFactStaff != null)
            {
-               if (currentFactStaff.FundingCenter == null)
-                   currentFactStaff.FundingCenter = NullFundingCenter.Instance;
+               if (CurrentHourFactStaff.FundingCenter == null)
+                   CurrentHourFactStaff.FundingCenter = NullFundingCenter.Instance;
                /*if (currentFactStaff.FactStaffReplacement != null)
                    LinqActionsController<FactStaffReplacement>.Instance.EditObject(
                        currentFactStaff.FactStaffReplacement, true);
                else*/
-               if (currentFactStaff.IsContractHourStaff)
+               if (CurrentHourFactStaff.IsContractHourStaff)
                    LinqActionsController<FactStaffHourContract>.Instance.EditObject(
-                       currentFactStaff.FactStaffHourContract, true);
-               if (currentFactStaff.IsPrikazHourStaff)
+                       CurrentHourFactStaff.FactStaffHourContract, true);
+               if (CurrentHourFactStaff.IsPrikazHourStaff)
                    LinqActionsController<FactStaffHour>.Instance.EditObject(
-                       currentFactStaff.FactStaffHour, true);
+                       CurrentHourFactStaff.FactStaffHour, true);
            }
            LoadHourFactStaff();
        }
@@ -1324,9 +1332,8 @@ namespace Kadr.UI.Frames
 
        private void DelHourFactStaffBtn_Click(object sender, EventArgs e)
        {
-           FactStaff CurrentFactStaff = hourFactStaffBindingSource.Current as Kadr.Data.FactStaff;
 
-           if (CurrentFactStaff == null)
+           if (CurrentHourFactStaff == null)
            {
                MessageBox.Show("Не выбрана удаляемая запись штатного расписания.", "АИС \"Штатное расписание\"");
                return;
@@ -1346,15 +1353,15 @@ namespace Kadr.UI.Frames
            {
 
 
-               if (CurrentFactStaff.FactStaffReplacements.Count > 0)
+               if (CurrentHourFactStaff.FactStaffReplacements.Count > 0)
                {
-                   foreach (FactStaffReplacement fcStRepl in CurrentFactStaff.FactStaffReplacements)
+                   foreach (FactStaffReplacement fcStRepl in CurrentHourFactStaff.FactStaffReplacements)
                    {
                        KadrController.Instance.Model.FactStaffReplacements.DeleteOnSubmit(fcStRepl);
                    }
                    KadrController.Instance.Model.SubmitChanges();
                }
-               LinqActionsController<FactStaff>.Instance.DeleteObject(CurrentFactStaff,
+               LinqActionsController<FactStaff>.Instance.DeleteObject(CurrentHourFactStaff,
                         KadrController.Instance.Model.FactStaffs, hourFactStaffBindingSource);
            }
 
@@ -1366,22 +1373,21 @@ namespace Kadr.UI.Frames
            using (Forms.FactStaffHistoryForm HistForm =
                           new Forms.FactStaffHistoryForm())
            {
-               HistForm.FactStaff = hourFactStaffBindingSource.Current as Kadr.Data.FactStaff;
+               HistForm.FactStaff = CurrentHourFactStaff;
                HistForm.ShowDialog();
            }
        }
 
        private void EditHourFactStaffBtn_Click(object sender, EventArgs e)
        {
-           FactStaff currentFactStaff = hourFactStaffBindingSource.Current as FactStaff;
-           if (currentFactStaff == null)
+           if (CurrentHourFactStaff == null)
            {
                MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
                return;
            }
 
 
-           CRUDFactStaffHistory.Create(currentFactStaff, KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(),
+           CRUDFactStaffHistory.Create(CurrentHourFactStaff, KadrController.Instance.Model.EventKinds.Where(EK => EK.id == 2).FirstOrDefault(),
                MagicNumberController.BeginEventType, false);
            //LoadHourFactStaff();
            tcDepartment_SelectedIndexChanged(null, null);
