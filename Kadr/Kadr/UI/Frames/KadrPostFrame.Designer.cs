@@ -352,7 +352,7 @@
             this.tpPost.Location = new System.Drawing.Point(4, 22);
             this.tpPost.Name = "tpPost";
             this.tpPost.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPost.Size = new System.Drawing.Size(802, 533);
+            this.tpPost.Size = new System.Drawing.Size(863, 375);
             this.tpPost.TabIndex = 1;
             this.tpPost.Text = "Должности";
             this.tpPost.UseVisualStyleBackColor = true;
@@ -371,7 +371,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 527);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(857, 369);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPost
@@ -844,7 +844,7 @@
             this.tpBonusType.Location = new System.Drawing.Point(4, 22);
             this.tpBonusType.Name = "tpBonusType";
             this.tpBonusType.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBonusType.Size = new System.Drawing.Size(863, 375);
+            this.tpBonusType.Size = new System.Drawing.Size(802, 533);
             this.tpBonusType.TabIndex = 4;
             this.tpBonusType.Text = "Виды надбавок";
             this.tpBonusType.UseVisualStyleBackColor = true;
@@ -871,7 +871,7 @@
             this.dgvBonusTypes.ReadOnly = true;
             this.dgvBonusTypes.RowHeadersVisible = false;
             this.dgvBonusTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBonusTypes.Size = new System.Drawing.Size(857, 369);
+            this.dgvBonusTypes.Size = new System.Drawing.Size(796, 527);
             this.dgvBonusTypes.TabIndex = 6;
             this.dgvBonusTypes.DoubleClick += new System.EventHandler(this.btnEditBonusType_Click);
             // 
