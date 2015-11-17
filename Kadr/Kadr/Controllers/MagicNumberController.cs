@@ -216,6 +216,17 @@ namespace Kadr.Controllers
             }
         }
 
+        /// <summary>
+        /// Договор
+        /// </summary>
+        public static PrikazType ContractPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 27);
+            }
+        }
+
         #endregion
 
         static public StandingType DefaultStandingType
