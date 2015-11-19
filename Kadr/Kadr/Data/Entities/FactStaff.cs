@@ -10,7 +10,7 @@ using Kadr.Data;
 
 namespace Kadr.Data
 {
-    public enum FactStaffState {Present, Incapable, OnTrip, OnVacation};
+    public enum FactStaffState {Present, Incapable, OnTrip, OnVacation, Fired};
 
     public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState, IComparable, IEmployeeExperienceRecord
     {
@@ -79,9 +79,13 @@ namespace Kadr.Data
             get
             {
                 //return FactStaffState.Present;
-                
+
+                var depId = CurrentChange.FactStaff.Department.id;
+                if (!CurrentChange.FactStaff.Employee.FactStaffs.Any(x=>(x.Department.id == depId) &&((x.DateEnd > DateTime.Now)||(x.DateEnd == null)))) return FactStaffState.Fired;
+
                 IEnumerable<Event_BusinessTrip> tripevents = CurrentChange.Events.Where(x => (x.idPrikazEnd == null) && (x.idEventType == MagicNumberController.BeginEventTypeId) && (x.DateBegin < DateTime.Now) && (x.DateEnd > DateTime.Now)).Select(x => x.Event_BusinessTrip);
                 IEnumerable<BusinessTrip> currenttrips = tripevents.Where(t => t != null).Select(x=>x.BusinessTrip);
+
 
                 if (currenttrips.Any()) return FactStaffState.OnTrip;
 

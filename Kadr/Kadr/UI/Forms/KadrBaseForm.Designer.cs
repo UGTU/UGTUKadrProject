@@ -396,7 +396,7 @@
             this.toolStripSplitButton1.Image = global::Kadr.Properties.Resources.PlayHS;
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Black;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             this.toolStripSplitButton1.Visible = false;
             this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
@@ -420,7 +420,7 @@
             this.tsbEmployeeFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbEmployeeFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbEmployeeFilter.Name = "tsbEmployeeFilter";
-            this.tsbEmployeeFilter.Size = new System.Drawing.Size(105, 20);
+            this.tsbEmployeeFilter.Size = new System.Drawing.Size(105, 22);
             this.tsbEmployeeFilter.Tag = "";
             this.tsbEmployeeFilter.Text = "Сотрудники";
             this.tsbEmployeeFilter.ToolTipText = "Настройки фильтра по сотрудникам";
@@ -624,6 +624,8 @@
             this.treeViewImageList.Images.SetKeyName(21, "man_unavailable.png");
             this.treeViewImageList.Images.SetKeyName(22, "man_vacation.png");
             this.treeViewImageList.Images.SetKeyName(23, "woman_vacation.png");
+            this.treeViewImageList.Images.SetKeyName(24, "Firedman.png");
+            this.treeViewImageList.Images.SetKeyName(25, "Firedwoman.png");
             // 
             // menuStrip1
             // 

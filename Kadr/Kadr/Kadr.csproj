@@ -1336,6 +1336,8 @@
     <None Include="Resources\add-icon.png" />
     <Content Include="Resources\Kadr.ico" />
     <Content Include="Resources\TreeIcons\briefcase.png" />
+    <Content Include="Resources\TreeIcons\Firedman.png" />
+    <Content Include="Resources\TreeIcons\Firedwoman.png" />
     <Content Include="Resources\TreeIcons\palmtree.png" />
     <Content Include="Resources\TreeIcons\thermometer.png" />
     <Content Include="Resources\TreeIcons\woman_gone.png" />

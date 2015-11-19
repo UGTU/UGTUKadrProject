@@ -21,4 +21,4 @@ or (id in (select [idBeginPrikaz] from [dbo].[FactStaffHistory]))
 order by idPrikazType
 
 
-select * from [Prikaz] where [PrikazName] like '%Í.Í.%'
+select * from [Prikaz] where [PrikazName] like '%696-ë%'
