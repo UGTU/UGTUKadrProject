@@ -5,6 +5,8 @@ E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : 
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Properties.Resources: type is not visible to exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Properties.Settings: type is sealed.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Frames.FrameDataChangedDelegate: type is sealed.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Editors.FiredPrikazEditor: type is not visible to exported or assembly(Kadr.Fakes).
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Editors.SocialFarePrikazEditor: type is not visible to exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Common.CustomBooleanConverter: type is not visible to exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Common.CalendarEditingControl: type is not visible to exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.UI.Common.GenderBooleanConverter: type is not visible to exported or assembly(Kadr.Fakes).
@@ -170,6 +172,7 @@ E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : 
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDFactStaffHistory: type is sealed.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDFactStaffReplacement: type is not visible to exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDLanguage: type is sealed.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDPrikaz: type is sealed.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDSocial: type is sealed.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDAward: type is sealed.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDIncapacity: type is sealed.
@@ -192,7 +195,6 @@ E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : 
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.MonthController: type is not visible to exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.PropertyGridExtensions: type is sealed.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.SimpleActionsProvider: type is sealed.
-E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Controllers.CRUDControllers.CRUDPrikaz: type is sealed.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Command.CreatePlanStaffCommand: type is not visible to exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for <PrivateImplementationDetails>: type is sealed.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for <>f__AnonymousType0`2: type is not supported because of internal limitations.
@@ -203,20 +205,22 @@ E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : 
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Properties.Settings: type is not visible to exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.FrameDataChangedDelegate: type is a delegate.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrEmployeeFrame+<>c: type is not supported because of internal limitations.
-E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrEmployeeFrame+<>c__DisplayClass92_0: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrEmployeeFrame+<>c__DisplayClass93_0: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrEmployeeFrame+<>c__DisplayClass94_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass30_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass55_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass61_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass61_1: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass64_0: type is not supported because of internal limitations.
-E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass65_0: type is not supported because of internal limitations.
-E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass73_0: type is not supported because of internal limitations.
-E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass80_0: type is not supported because of internal limitations.
-E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass80_1: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass66_0: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass67_0: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass75_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass82_0: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass82_1: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass84_0: type is not supported because of internal limitations.
-E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass94_0: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass86_0: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrRootFrame+<>c__DisplayClass96_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrPrikazFrame+<>c__DisplayClass3_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass12_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Frames.KadrPostFrame+<>c__DisplayClass16_0: type is not supported because of internal limitations.
@@ -236,7 +240,9 @@ E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : 
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.TimeSheetReport+<>c__DisplayClass5_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Forms.TimeSheetsForm+<>c__DisplayClass9_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Editors.BonusTypeEditor+<>c: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Editors.FiredPrikazEditor: type is not visible to exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Editors.PlanStaffEditor+<>c: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Editors.SocialFarePrikazEditor: type is not visible to exported or assembly(Kadr.Fakes).
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Editors.SocialFareTransitEditor+<>c__DisplayClass0_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.BonusProlongDialog+<>c: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.UI.Dialogs.BonusProlongDialog+<>c__DisplayClass3_0: type is not supported because of internal limitations.
@@ -283,6 +289,7 @@ E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : 
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PlanStaff+<>c: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.PlanStaffHistory+<>c: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaff+<>c: type is not supported because of internal limitations.
+E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaff+<>c__DisplayClass211_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaff+<>c__DisplayClass233_0: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.BusinessTrip+<>c: type is not supported because of internal limitations.
 E:\Projects\GitHub\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FinancingSource+<>c__DisplayClass74_0: type is not supported because of internal limitations.
