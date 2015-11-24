@@ -79,6 +79,14 @@ namespace Kadr.Data
             }
         }
 
+        public RegionType RegionType
+        {
+            get
+            {
+                return KadrController.Instance.Model.RegionTypes.SingleOrDefault(rt => rt.id == idRegionType);
+            }
+        }
+
         #region IObjectState Members
 
         public ObjectState State()

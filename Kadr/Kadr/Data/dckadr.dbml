@@ -368,28 +368,6 @@
       <Column Name="FactStaffFullName" Type="System.String" DbType="VarChar(380)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Department" Member="Departments">
-    <Type Name="Department">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentSmallName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="idDepartmentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idManagerDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="dateCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="dateExit" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="idManagerPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SeverKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RayonKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DepartmentGUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="idFundingCenter" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DepartmentIndex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="DepPhoneNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="HasTimeSheet" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.OKVED" Member="OKVEDs">
     <Type Name="OKVED">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1252,6 +1230,31 @@
       <Column Name="Sum" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
       <Column Name="Perc" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
       <Association Name="MaterialResponsibility_Event_MaterialResponsibility" Member="Event_MaterialResponsibilities" ThisKey="id" OtherKey="idMaterialResponsibility" Type="Event_MaterialResponsibility" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Department" Member="Departments">
+    <Type Name="Department">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentSmallName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="idDepartmentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idManagerDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dateCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dateExit" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idManagerPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeverKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RayonKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentGUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="idFundingCenter" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentIndex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DepPhoneNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HasTimeSheet" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idOKVED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="idRegionType" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">

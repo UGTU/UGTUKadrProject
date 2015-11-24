@@ -36,12 +36,18 @@ namespace Kadr.Data
                 return KadrController.Instance.Model.Deps.Where(dep => dep.id == 1).SingleOrDefault();
             }
         }
-        
+
+        protected Department fullDepartment = null;
+
         public Department FullDepartment
         {
             get
             {
-                return KadrController.Instance.Model.Departments.Where(dep => dep.id == id).FirstOrDefault();
+                if (fullDepartment == null)
+                {
+                    fullDepartment = KadrController.Instance.Model.Departments.SingleOrDefault(dep => dep.id == id);
+                }
+                return fullDepartment;
             }
         }
 
@@ -84,23 +90,31 @@ namespace Kadr.Data
             return FullDepartment.DepartmentName + GetDepartmentManager() ;
         }
 
+        protected FactStaff departmentManager = null;
+
         public string GetDepartmentManager()
         {
-            if (PlanStaff != null)
+            try
             {
-                try
+                if (departmentManager == null)
                 {
-                    //берем первого руководителя из списка неуволенных
-                    FactStaff factStaff = PlanStaff.FactStaffs.Where(fctStaff => fctStaff.Prikaz == null).First() as FactStaff;
-                    if (factStaff != null)
-                        return " ("+factStaff.ToString()+")";
+                    if (PlanStaff != null)
+                    {
+                        //берем первого руководителя из списка неуволенных
+                        departmentManager = PlanStaff.FactStaffs.Where(fctStaff => fctStaff.Prikaz == null).First() as FactStaff;
+                    }
                 }
-                catch (InvalidOperationException)
-                {
-                    return "";
-                }
+
+                if (departmentManager != null)
+                    return " (" + departmentManager.ToString() + ")";
+
+            }
+            catch (InvalidOperationException)
+            {
+                return "";
             }
             return "";
+
         }
 
         public Department Department
@@ -139,19 +153,19 @@ namespace Kadr.Data
         /// <summary>
         /// Текущее (действующее) изменение отдела
         /// </summary>
-        public DepartmentHistory CurrentChange
+        public Department CurrentChange
         {
             get
             {
                 //if ((id < 1) && (DepartmentHistoriesCache.Count < 1))
                 // return NullDepartmentHistory.Instance;
-                if (currentChange == null)
-                    currentChange = DepartmentHistories.Where(dep => dep.DateBegin <= DateTime.Today).OrderBy(depHist => depHist.DateBegin).LastOrDefault(/*depHist => DepartmentHistoriesCache.Max(p => p.DateBegin) == depHist.DateBegin*/);
+                //if (currentChange == null)
+                    //currentChange = DepartmentHistories.Where(dep => dep.DateBegin <= DateTime.Today).OrderBy(depHist => depHist.DateBegin).LastOrDefault(/*depHist => DepartmentHistoriesCache.Max(p => p.DateBegin) == depHist.DateBegin*/);
                 //DepartmentHistory currentChange = DepartmentHistories.Where(dep => dep.DateBegin <= DateTime.Today).OrderBy(depHist => depHist.DateBegin).ToArray().LastOrDefault();
-                if (currentChange.IsNull())
-                    currentChange = LastChange;
+                //if (currentChange.IsNull())
+                    //currentChange = LastChange;
 
-                return currentChange;
+                return FullDepartment;
             }
         }
         /// <summary>
@@ -210,11 +224,11 @@ namespace Kadr.Data
             {
                 return (CurrentChange == null) ? null : CurrentChange.RegionType;
             }
-            set
+            /*set
             {
                 if (CurrentChange != null)
                     CurrentChange.RegionType = value;
-            }
+            }*/
         }
 
         public decimal DepExtraordSum
@@ -284,18 +298,18 @@ namespace Kadr.Data
             }
         }
 
-        public DateTime dateCreate
+        public DateTime dateBegin
         {
             get
             {
-                if (CreatingChange == null)
+                if (CurrentChange == null)
                     return DateTime.Today;
                 else
-                    return CreatingChange.DateBegin;
+                    return CurrentChange.dateCreate;
             }
             set
             {
-                CreatingChange.DateBegin = value;
+                CurrentChange.dateCreate = value;
             }
         }
 
@@ -318,14 +332,14 @@ namespace Kadr.Data
         {
             get
             {
-                if (LastChange == null)
+                if (CurrentChange == null)
                     return -1;
                 else
-                    return LastChange.idManagerDepartment;
+                    return CurrentChange.idManagerDepartment;
             }
             set
             {
-                LastChange.idManagerDepartment = value;
+                CurrentChange.idManagerDepartment = value;
             }
         }
 
@@ -380,16 +394,6 @@ namespace Kadr.Data
 
 
         #region partial Methods
-
-        partial void OnCreated()
-        {
-            if (DepartmentName == null)
-            {
-                DepartmentName = "Новый отдел";
-                DepartmentSmallName = "Новый отдел";
-                dateCreate = DateTime.Today;
-            }
-        }
 
         /// <summary>
         /// Проверка всех параметров перед сохранением
@@ -447,7 +451,7 @@ namespace Kadr.Data
 
         public ObjectState State()
         {
-            if (((dateExit == null) || (dateExit > DateTime.Today)) && (dateCreate <= DateTime.Today))
+            if (((dateExit == null) || (dateExit > DateTime.Today)) && (dateBegin <= DateTime.Today))
                 return ObjectState.Current;
             else
                 return ObjectState.Canceled;
