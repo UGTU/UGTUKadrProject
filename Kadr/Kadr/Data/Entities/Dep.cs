@@ -81,7 +81,7 @@ namespace Kadr.Data
         public override string ToString()
         {
 
-            return this.DepartmentName + GetDepartmentManager() ;
+            return FullDepartment.DepartmentName + GetDepartmentManager() ;
         }
 
         public string GetDepartmentManager()
@@ -146,7 +146,7 @@ namespace Kadr.Data
                 //if ((id < 1) && (DepartmentHistoriesCache.Count < 1))
                 // return NullDepartmentHistory.Instance;
                 if (currentChange == null)
-                 currentChange = DepartmentHistoriesCache.Where(dep => dep.DateBegin <= DateTime.Today).FirstOrDefault(depHist => DepartmentHistoriesCache.Max(p => p.DateBegin) == depHist.DateBegin);
+                    currentChange = DepartmentHistories.Where(dep => dep.DateBegin <= DateTime.Today).OrderBy(depHist => depHist.DateBegin).LastOrDefault(/*depHist => DepartmentHistoriesCache.Max(p => p.DateBegin) == depHist.DateBegin*/);
                 //DepartmentHistory currentChange = DepartmentHistories.Where(dep => dep.DateBegin <= DateTime.Today).OrderBy(depHist => depHist.DateBegin).ToArray().LastOrDefault();
                 if (currentChange.IsNull())
                     currentChange = LastChange;
@@ -333,7 +333,7 @@ namespace Kadr.Data
         {
             get
             {
-                if (LastChange == null)
+                if (CurrentChange == null)
                     return null;
                 else
                     return CurrentChange.DepartmentName;

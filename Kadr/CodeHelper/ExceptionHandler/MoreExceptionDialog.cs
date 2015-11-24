@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,7 +45,7 @@ namespace APG.CodeHelper.ExceptionHandler
             //ListViewItem lvi;
             //object obj = null;
             //exeptionListView.Items.Clear();
-            //ListViewItem etypeItem = new ListViewItem("Тип исключения");
+            //ListViewItem etypeItem = new ListViewItem("РўРёРї РёСЃРєР»СЋС‡РµРЅРёСЏ");
             //etypeItem.SubItems.Add(E.GetType().ToString());
             //exeptionListView.Items.Add(etypeItem);
             //System.Reflection.PropertyInfo[] props = E.GetType().GetProperties();            
