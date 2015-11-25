@@ -207,7 +207,7 @@ namespace Kadr.Controllers
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
                         FactStaff prev = dlg.SelectedObjects[0] as FactStaff;
-                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime?>(fcStHistory, "DateBegin", prev.LastChange.DateBegin, null), this);
+                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime?>(fcStHistory, "DateBegin", prev.CurrentChange.DateBegin, null), this);
                         //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(fcStHistory, "Prikaz", prev.PrikazBegin, null), this);
                         //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", prev.WorkType, null), this);
                         //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "StaffCount", prev.StaffCount, null), this);
@@ -275,7 +275,7 @@ namespace Kadr.Controllers
         public IEnumerable<FactStaff> GetHourFactStaff(Dep Department)
         {
             if (Department == null)
-                Department = Dep.UGTUDep;
+                Department = MagicNumberController.UGTUDep;
             return KadrController.Instance.Model.FactStaffs.Where(fS => fS.idMainFactStaff == null).Where(
                         fact => ((fact.Dep == Department) || (Department.ManagerDepartment == null)) && (fact.Dep != null)).OrderBy(
                             fcSt => fcSt.FinancingSource.OrderBy).ThenBy(fcSt => fcSt.Employee.EmployeeName).ToArray().Where(fact =>

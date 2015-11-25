@@ -161,21 +161,26 @@ namespace Kadr.Data
             }
         }
 
+        private PlanStaffHistory currentChange;
+
         /// <summary>
         /// возвращает последнее изменение
         /// </summary>
-        public PlanStaffHistory LastChange
+        public PlanStaffHistory CurrentChange
         {
             get
             {
-                PlanStaffHistory lastChange = PlanStaffHistories/*.Where(plStChange => plStChange.DateBegin <= DateTime.Today.Date)*/.OrderBy(plStChange => plStChange.DateBegin).LastOrDefault();
-                if (lastChange == null)
-                    lastChange = FirstDesignate;
-                return lastChange;
+                if (currentChange == null)
+                    currentChange = PlanStaffHistories.Where(plStChange => plStChange.DateBegin <= DateTime.Today.Date).OrderBy(plStChange => plStChange.DateBegin).LastOrDefault();
+                if (currentChange == null)
+                    currentChange = FirstDesignate;
+                return currentChange;
             }
         }
 
         #region partial Methods
+
+        private PlanStaffHistory firstDesignate;
 
         /// <summary>
         /// возвращает первоначальное изменение
@@ -184,7 +189,9 @@ namespace Kadr.Data
         {
             get
             {
-                return PlanStaffHistories.OrderBy(plStHistory => plStHistory.DateBegin).FirstOrDefault();
+                if (firstDesignate == null)
+                    firstDesignate = PlanStaffHistories.OrderBy(plStHistory => plStHistory.DateBegin).FirstOrDefault();
+                return firstDesignate;
 
             }
         }
@@ -212,14 +219,14 @@ namespace Kadr.Data
         {
             get
             {
-                if (LastChange == null)
+                if (CurrentChange == null)
                     return null;
                 else
-                    return LastChange.FinancingSource;
+                    return CurrentChange.FinancingSource;
             }
             set
             {
-                LastChange.FinancingSource = value;
+                CurrentChange.FinancingSource = value;
             }
         }
 
@@ -227,14 +234,14 @@ namespace Kadr.Data
         {
             get
             {
-                if (LastChange == null)
+                if (CurrentChange == null)
                     return 0;
                 else
-                    return LastChange.StaffCount;
+                    return CurrentChange.StaffCount;
             }
             set
             {
-                LastChange.StaffCount = value;
+                CurrentChange.StaffCount = value;
             }
         }
 
@@ -242,14 +249,14 @@ namespace Kadr.Data
         {
             get
             {
-                if (LastChange == null)
+                if (CurrentChange == null)
                     return null;
                 else
-                    return LastChange.Prikaz;
+                    return CurrentChange.Prikaz;
             }
             set
             {
-                LastChange.Prikaz = value;
+                CurrentChange.Prikaz = value;
             }
         }
         

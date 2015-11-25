@@ -27,15 +27,9 @@ namespace Kadr.Data
         }
 
         private DepartmentHistory lastChange = null;
-        private DepartmentHistory currentChange = null;
+        //private DepartmentHistory currentChange = null;
 
-        public static Dep UGTUDep
-        {
-            get
-            {
-                return KadrController.Instance.Model.Deps.Where(dep => dep.id == 1).SingleOrDefault();
-            }
-        }
+        
 
         protected Department fullDepartment = null;
 
@@ -106,7 +100,7 @@ namespace Kadr.Data
                 }
 
                 if (departmentManager != null)
-                    return " (" + departmentManager.ToString() + ")";
+                    return " (" + departmentManager.Employee.EmployeeName + ")";
 
             }
             catch (InvalidOperationException)
@@ -163,7 +157,7 @@ namespace Kadr.Data
                     //currentChange = DepartmentHistories.Where(dep => dep.DateBegin <= DateTime.Today).OrderBy(depHist => depHist.DateBegin).LastOrDefault(/*depHist => DepartmentHistoriesCache.Max(p => p.DateBegin) == depHist.DateBegin*/);
                 //DepartmentHistory currentChange = DepartmentHistories.Where(dep => dep.DateBegin <= DateTime.Today).OrderBy(depHist => depHist.DateBegin).ToArray().LastOrDefault();
                 //if (currentChange.IsNull())
-                    //currentChange = LastChange;
+                    //currentChange = CurrentChange;
 
                 return FullDepartment;
             }

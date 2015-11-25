@@ -17,8 +17,7 @@ namespace Kadr.Data
             get
             {
                 if (dep == null)
-                    dep = Kadr.Controllers.KadrController.Instance.Model.Deps.Where(dp => dp.id == id).FirstOrDefault();
-
+                    dep = Kadr.Controllers.KadrController.Instance.Model.Deps.SingleOrDefault(dp => dp.id == id);
                 return dep;
             }
         }
@@ -26,14 +25,7 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-
-            
-            if (Dep != null)
-            {
-                return Dep.ToString();
-             
-            }
-            else return null;
+            return DepartmentName;
         }
 
         public decimal DepExtraordSum

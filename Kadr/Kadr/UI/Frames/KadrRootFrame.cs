@@ -106,7 +106,7 @@ namespace Kadr.UI.Frames
             if (Department != null)
             {
                 //departmentBindingSource.DataSource = KadrController.Instance.Model.Departments.Where(dep => dep.idManagerDepartment == Department.id).ToArray().OrderBy(dep => dep.DepartmentName); 
-                //KadrController.Instance.Model.Deps.ToArray().Where(dep => dep.LastChange.idManagerDepartment == Department.id).ToArray().OrderBy(dep => dep.DepartmentName);
+                //KadrController.Instance.Model.Deps.ToArray().Where(dep => dep.CurrentChange.idManagerDepartment == Department.id).ToArray().OrderBy(dep => dep.DepartmentName);
                 //Department.DepartmentHistories1.Where(dep => dep.Dep.dateExit == null).OrderBy( dep => dep.DepartmentName);
 
                 //фильтруем элементы
@@ -1459,7 +1459,7 @@ namespace Kadr.UI.Frames
                    if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                    {
                        FactStaff prev = (dlg.SelectedObjects[0] as FactStaffHourContract).FactStaff;
-                       //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime?>(fcStHistory, "DateBegin", prev.LastChange.DateBegin, null), this);
+                       //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime?>(fcStHistory, "DateBegin", prev.CurrentChange.DateBegin, null), this);
                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(fcStHistory, "Prikaz", prev.PrikazBegin, null), this);
                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", prev.WorkType, null), this);
                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, decimal>(fcStHistory, "StaffCount", prev.StaffCount, null), this);

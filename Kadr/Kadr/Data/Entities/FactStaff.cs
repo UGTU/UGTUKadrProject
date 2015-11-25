@@ -467,8 +467,8 @@ namespace Kadr.Data
             }
             /*set
             {
-                if (LastChange.idFinancingSource > 0)
-                    return LastChange.FinancingSource;
+                if (CurrentChange.idFinancingSource > 0)
+                    return CurrentChange.FinancingSource;
                 if (PlanStaff != null)
                     return PlanStaff.FinancingSource;
                 return FinancingSource;
