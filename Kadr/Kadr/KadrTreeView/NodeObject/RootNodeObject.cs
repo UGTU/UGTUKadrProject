@@ -53,7 +53,7 @@ namespace Kadr.KadrTreeView
 
         public override string GetObjectName()
         {
-            return Department.DepartmentName + Department.GetDepartmentManager() ;
+            return Department.ToString() ;
         }
 
         public override string GetObjectInfo()

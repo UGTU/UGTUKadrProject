@@ -8,6 +8,14 @@ namespace Kadr.Controllers
 {
     class MagicNumberController
     {
+        public static Dep UGTUDep
+        {
+            get
+            {
+                return KadrController.Instance.Model.Deps.SingleOrDefault(dep => dep.id == 1);
+            }
+        }
+
         #region EventKinds
         public static EventKind MatResponsibilityKind
         {

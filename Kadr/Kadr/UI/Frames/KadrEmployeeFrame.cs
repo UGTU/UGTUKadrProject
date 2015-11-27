@@ -107,7 +107,7 @@ namespace Kadr.UI.Frames
             //factStaffBindingSource.Current = FactStaff;
             factStaffBindingSource.Position = factStaffBindingSource.IndexOf(FactStaff);
             tcEmplPostInf_SelectedIndexChanged(null, null);
-            //factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.LastChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
+            //factStaffBindingSource.DataSource = KadrController.Instance.Model.FactStaffs.Where(factSt => factSt.Employee == Employee).ToArray().OrderByDescending(factSt => factSt.CurrentChange.DateBegin).ToArray();//.OfType<UIX.Views.IDecorable>().ToArray();
         }
 
         private void LoadBonus()

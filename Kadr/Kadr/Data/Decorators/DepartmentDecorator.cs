@@ -168,11 +168,11 @@ namespace Kadr.Data
         {
             get
             {
-                return Convert.ToDateTime(department.dateCreate);
+                return Convert.ToDateTime(department.dateBegin);
             }
             set
             {
-                department.dateCreate = value;
+                department.dateBegin = value;
             }
         }
 
