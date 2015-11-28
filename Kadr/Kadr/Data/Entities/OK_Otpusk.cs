@@ -106,6 +106,7 @@ namespace Kadr.Data
 
 
                 if (Event.IsNull() || Event == null) throw new ArgumentNullException("Приказ.");
+                (Event as UIX.Views.IValidatable).Validate();
                 if ((OK_Otpuskvid == null) || (OK_Otpuskvid.IsNull())) throw new ArgumentNullException("Вид отпуска.");
                 if ((OK_Otpuskvid == null) || (OK_Otpuskvid.IsNull())) throw new ArgumentNullException("Вид отпуска.");
                 if ((RealDateBegin == null) || (RealDateBegin == DateTime.MinValue)) throw new ArgumentNullException("Дата начала отпуска.");
