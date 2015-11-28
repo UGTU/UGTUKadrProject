@@ -12,6 +12,27 @@ namespace UIX.UI
 {
     public partial class CommandPropertyGrid : PropertyGrid
     {
+
+        public void ExpandGroup(string groupName)
+        {
+            GridItem root = SelectedGridItem;
+            //Get the parent
+            while (root.Parent != null)
+                root = root.Parent;
+
+            if (root != null)
+            {
+                foreach (GridItem g in root.GridItems)
+                {
+                    if (g.GridItemType == GridItemType.Category && g.Label == groupName)
+                    {
+                        g.Expanded = false;
+                        break;
+                    }
+                }
+            }
+        }
+
         private Commands.ICommandRegister commandRegister;
 
         new public object SelectedObject

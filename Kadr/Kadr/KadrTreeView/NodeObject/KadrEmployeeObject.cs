@@ -64,6 +64,9 @@ namespace Kadr.KadrTreeView
                 if (state == FactStaffState.OnVacation)
                     Node.ImageIndex = 15;
 
+                if (state == FactStaffState.Fired)
+                    Node.ImageIndex = 24;
+
                 if (!Employee.SexBit)
                     Node.ImageIndex += Properties.Settings.Default.SexImagesInterval;
             }

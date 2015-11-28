@@ -175,7 +175,10 @@ namespace Kadr.UI.Common
                 return;
             }
 
-            if (IsModified)
+            Cancel();
+            e.Cancel = false;
+
+          /*  if (IsModified)
             {
                 DialogResult result = MessageBox.Show("Данные в окне были изменены. Сохранить сделанные изменения в базе данных?", 
                     "Сохранение изменений", MessageBoxButtons.YesNoCancel, 
@@ -195,7 +198,7 @@ namespace Kadr.UI.Common
                         e.Cancel = true;
                         break;
                 } 
-            }
+            }*/
         }
 
         protected void SetupButtonsVisible()
