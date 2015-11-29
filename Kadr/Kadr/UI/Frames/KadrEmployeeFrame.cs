@@ -727,14 +727,15 @@ namespace Kadr.UI.Frames
         private void tsbChangeFactStaffContract_Click(object sender, EventArgs e)
         {
 
-            if (CurrentFactStaff == null)
+            FactStaff currentFactStaff = CurrentFactStaff;
+            if (currentFactStaff == null)
             {
                 MessageBox.Show("Не выбран редактируемый объект.", "АИС \"Штатное расписание\"");
                 return;
             }
 
             EventKind thisEventKind = KadrController.Instance.Model.EventKinds.Where(x => x.EventKindApplName == sender.ToString()).FirstOrDefault();
-            CRUDFactStaffHistory.Create(CurrentFactStaff, thisEventKind ?? MagicNumberController.FactStaffChangeMainEventKind,
+            CRUDFactStaffHistory.Create(currentFactStaff, thisEventKind ?? MagicNumberController.FactStaffChangeMainEventKind,
                 MagicNumberController.BeginEventType, true);
             LoadPostList();
         }

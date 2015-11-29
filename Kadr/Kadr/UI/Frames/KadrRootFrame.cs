@@ -1477,7 +1477,7 @@ namespace Kadr.UI.Frames
                    }
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, bool>(x.FactStaff, "IsReplacement", false, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FactStaff>(x.FactStaff, "FactStaff1", NullFactStaff.Instance, null), this);
-                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", Data.WorkType.hourWorkType, null), this);
+                   dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(fcStHistory, "WorkType", MagicNumberController.hourWorkType, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, Dep>(x.FactStaff, "Dep", Department, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FundingCenter>(x.FactStaff, "FundingCenter", NullFundingCenter.Instance, null), this);
                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, FinancingSource>(x.FactStaff, "FinancingSource", MagicNumberController.extrabudgetFinancingSource, null), this);

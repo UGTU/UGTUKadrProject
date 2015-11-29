@@ -108,11 +108,11 @@ namespace Kadr.Data
                 else
                     factStaffReplacement.FactStaff1.IsReplacement = false;
                 if (factStaffReplacement.MainFactStaff.CurrentChange != null)
-                    if (factStaffReplacement.MainFactStaff.CurrentChange.MainEvent != null)
+                    if (factStaffReplacement.MainFactStaff.CurrentChange.Event != null)
                     {
-                        factStaffReplacement.MainFactStaff.CurrentChange.MainEvent.DateEnd = factStaffReplacement.DateEnd;
-                        if (factStaffReplacement.MainFactStaff.CurrentChange.MainEvent.Contract != null)
-                            factStaffReplacement.MainFactStaff.CurrentChange.MainEvent.Contract.DateEnd = factStaffReplacement.DateEnd;
+                        factStaffReplacement.MainFactStaff.CurrentChange.Event.DateEnd = factStaffReplacement.DateEnd;
+                        if (factStaffReplacement.MainFactStaff.CurrentChange.Event.Contract != null)
+                            factStaffReplacement.MainFactStaff.CurrentChange.Event.Contract.DateEnd = factStaffReplacement.DateEnd;
                     }
             }
         }

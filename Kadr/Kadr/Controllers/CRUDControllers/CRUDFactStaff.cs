@@ -41,7 +41,7 @@ namespace Kadr.Controllers
             //если создается почасовик, то для него другие параметры задаем
             if ((department != null) && (planStaffCurrent == null))
             {
-                workType = WorkType.hourWorkType;
+                workType = MagicNumberController.hourWorkType;
                 financingSource = MagicNumberController.budgetFinancingSource;
                 withContract = false;
             }

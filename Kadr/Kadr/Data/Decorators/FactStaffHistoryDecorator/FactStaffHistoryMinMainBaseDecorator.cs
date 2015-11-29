@@ -24,10 +24,6 @@ namespace Kadr.Data
             {
                 return factStaffHistory.Contract;
             }
-            set
-            {
-                factStaffHistory.Contract = value;
-            }
         }
 
         [System.ComponentModel.DisplayName("\t\t\t\t\t\t\t\tОсновной договор")]

@@ -9,27 +9,6 @@ namespace Kadr.Data
 {
     public partial class WorkType : INullable, IComparable
     {
-        /// <summary>
-        /// возвращает вид работы "почасовики"
-        /// </summary>
-        public static WorkType hourWorkType
-        {
-            get
-            {
-                return KadrController.Instance.Model.WorkTypes.Where(wt => wt.id == 19).FirstOrDefault();
-            }
-        }
-
-        /// <summary>
-        /// возвращает основной вид работы
-        /// </summary>
-        static public WorkType MainWorkType
-        {
-            get
-            {
-                return Kadr.Controllers.KadrController.Instance.Model.WorkTypes.Where(wt => wt.id == 1).First();
-            }
-        }
         
         public override string ToString()
         {

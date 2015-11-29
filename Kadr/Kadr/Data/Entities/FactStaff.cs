@@ -498,11 +498,11 @@ namespace Kadr.Data
         {
             get
             {
-                return CurrentChange.Contract;
+                return CurrentChange.Event.Contract;
             }
             set
             {
-                CurrentChange.Contract = value;
+                CurrentChange.Event.Contract = value;
             }
         }
 

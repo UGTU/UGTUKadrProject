@@ -56,8 +56,8 @@ namespace Kadr.Data
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
             if (eventKind == MagicNumberController.FactStaffTransferEventKind)
                 CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "prevFactStaff", prevFactStaff, null), null);
-            
-            Event curEvent = new Event(CommandManager, this, eventKind, eventType, (eventKind.ForFactStaff) && (eventKind.WithContract.Value), prikaz);
+
+            Event = new Event(CommandManager, this, eventKind, eventType, (eventKind.ForFactStaff) && (eventKind.WithContract.Value), prikaz);
         }
         
         public override string ToString()
@@ -92,7 +92,7 @@ namespace Kadr.Data
         }
 
 
-        /// <summary>
+        /*/// <summary>
         /// Событие назначения этого изменения
         /// </summary>
         public Event MainEvent
@@ -101,25 +101,39 @@ namespace Kadr.Data
             {
                 return Events.Where(x => x.EventKind != null).Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
             }
-        }
+        }*/
 
         /// <summary>
-        /// Связанный договор
+        /// Событие назначения этого изменения
         /// </summary>
+        private Event currentEvent;
+
+        /// <summary>
+        /// Связанное событие 
+        /// </summary>
+        public Event Event
+        {
+            get
+            {
+                if (currentEvent == null)
+                {
+                    currentEvent = Events.Where(x => x.EventKind != null).Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
+                }
+                return currentEvent;
+            }
+            set
+            {
+                currentEvent = value;
+            }
+        }
+
         public Contract Contract
         {
             get
             {
-                if (MainEvent != null)
-                    return MainEvent.Contract;
-                return null;
+                return Event.Contract;
             }
-            set
-            {
-                if (MainEvent != null)
-                    MainEvent.Contract = value;
 
-            }
         }
 
         /// <summary>
@@ -145,14 +159,14 @@ namespace Kadr.Data
         {
             get
             {
-                if (MainEvent != null)
-                    return MainEvent.EventKind;
+                if (Event != null)
+                    return Event.EventKind;
                 return null;
             }
             set
             {
-                if (MainEvent != null)
-                    MainEvent.EventKind = value;
+                if (Event != null)
+                    Event.EventKind = value;
             }
         }
         #endregion
@@ -199,8 +213,8 @@ namespace Kadr.Data
                     throw new ArgumentNullException("Дата изменения.");
 
 
-                if (MainEvent != null)
-                    (MainEvent as UIX.Views.IValidatable).Validate();
+                if (Event != null)
+                    (Event as UIX.Views.IValidatable).Validate();
 
                 if (SalaryKoeff != null)
                     if (SalaryKoeff.IsNull())
