@@ -1046,7 +1046,8 @@ namespace Kadr.UI.Forms
             }
             if (tscbFindType.SelectedIndex == 0) //по сотрудникам
             {
-                kadrTreeView1.FindAndSelectEmployee(tscbTextSearch.SelectedItem as Employee);
+                Employee employee = KadrController.Instance.Model.Employees.SingleOrDefault(empl => empl.id == (tscbTextSearch.SelectedItem as Employee).id);
+                kadrTreeView1.FindAndSelectEmployee(employee);
             }
         }
 

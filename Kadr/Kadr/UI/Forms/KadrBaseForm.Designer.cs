@@ -246,7 +246,7 @@
             this.toolStripSeparator14});
             toolStrip1.Location = new System.Drawing.Point(3, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(1025, 25);
+            toolStrip1.Size = new System.Drawing.Size(1098, 25);
             toolStrip1.TabIndex = 1;
             // 
             // tsbNew
@@ -420,7 +420,7 @@
             this.tsbEmployeeFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbEmployeeFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbEmployeeFilter.Name = "tsbEmployeeFilter";
-            this.tsbEmployeeFilter.Size = new System.Drawing.Size(105, 22);
+            this.tsbEmployeeFilter.Size = new System.Drawing.Size(105, 20);
             this.tsbEmployeeFilter.Tag = "";
             this.tsbEmployeeFilter.Text = "Сотрудники";
             this.tsbEmployeeFilter.ToolTipText = "Настройки фильтра по сотрудникам";
@@ -443,7 +443,7 @@
             this.tsbDepartmentFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbDepartmentFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbDepartmentFilter.Name = "tsbDepartmentFilter";
-            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 22);
+            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 20);
             this.tsbDepartmentFilter.Text = "Отделы";
             this.tsbDepartmentFilter.ToolTipText = "Настройки фильтра по отделам";
             this.tsbDepartmentFilter.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsbDepartmentFilter_DropDownItemClicked);

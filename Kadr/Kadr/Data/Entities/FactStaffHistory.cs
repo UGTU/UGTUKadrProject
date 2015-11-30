@@ -204,7 +204,7 @@ namespace Kadr.Data
                 else
                 {
                     if ((Prikaz as Kadr.Data.Common.INullable).IsNull()  && !FactStaff.IsHourStaff)
-                        throw new ArgumentNullException("Приказ изменения.");
+                        throw new ArgumentNullException("Приказ назначения.");
                 }
 
                 if ((StaffCount <= 0) || (StaffCount == null)) 
