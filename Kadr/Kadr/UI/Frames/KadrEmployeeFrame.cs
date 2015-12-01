@@ -777,6 +777,58 @@ namespace Kadr.UI.Frames
         {
             CRUDVacation.Read((FactStaff)factStaffBindingSource.Current, oKOtpuskBindingSource, заПоследние3ГодаToolStripMenuItem.Checked);
         }
+
+        private void TransferFactStaffBtn_Click(object sender, EventArgs e)
+        {
+            if (CurrentFactStaff == null)
+            {
+                MessageBox.Show("Выберите сотрудникa для перевода!");
+                return;
+            }
+
+            if (CurrentFactStaff.DateEnd < DateTime.Today)
+            {
+                MessageBox.Show("Выбранный сотрудник уже уволен!");
+                return;
+            }
+
+            FactStaff newFactStaff = CRUDFactStaff.Create(factStaffBindingSource, CurrentFactStaff.PlanStaff, this, null, false, CurrentFactStaff);
+
+            LoadPostList();
+        }
+
+        private void AddReplacementBtn_Click(object sender, EventArgs e)
+        {
+            CRUDFactStaffReplacement.Create(factStaffBindingSource, CurrentFactStaff, sender);
+            LoadPostList();
+        }
+
+        private void DelFactStaffBtn_Click(object sender, EventArgs e)
+        {
+            if (CurrentFactStaff == null)
+            {
+                MessageBox.Show("Не выбрана удаляемая запись штатного расписания.", "АИС \"Штатное расписание\"");
+                return;
+            }
+
+            if (MessageBox.Show("Удалить должность сотрудника?", "ИС \"Управление кадрами\"", MessageBoxButtons.OKCancel)
+                == DialogResult.OK)
+            {
+
+
+                if (CurrentFactStaff.FactStaffReplacements.Count > 0)
+                {
+                    foreach (FactStaffReplacement fcStRepl in CurrentFactStaff.FactStaffReplacements)
+                    {
+                        KadrController.Instance.Model.FactStaffReplacements.DeleteOnSubmit(fcStRepl);
+                    }
+                    KadrController.Instance.Model.SubmitChanges();
+                }
+                LinqActionsController<FactStaff>.Instance.DeleteObject(CurrentFactStaff,
+                         KadrController.Instance.Model.FactStaffs, factStaffBindingSource);
+            }
+            LoadPostList();
+        }
     }
 
 }
