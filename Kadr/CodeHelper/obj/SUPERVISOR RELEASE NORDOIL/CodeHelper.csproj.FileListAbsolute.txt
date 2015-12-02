@@ -121,6 +121,7 @@ C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR 
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\CodeHelper\bin\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csprojResolveAssemblyReference.cache
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\MultiSelectTreeView.MiltiSelectTreeView.resources
@@ -174,4 +175,3 @@ C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISO
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
 E:\Projects\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csprojResolveAssemblyReference.cache
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csprojResolveAssemblyReference.cache

@@ -81,15 +81,6 @@ namespace APG.ExceptionHandler {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Значение конца интервала должно быть больше или равно значению начала интервала..
-        /// </summary>
-        internal static string IntervalOutOfRangeException {
-            get {
-                return ResourceManager.GetString("IntervalOutOfRangeException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Warning {

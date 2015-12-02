@@ -1,115 +1,65 @@
 ﻿using System;
-using System.CodeDom;
 
 namespace APG.Base
 {
-    /// <summary>
-    /// Определяет продолжительность с точностью до дат и операцию сложения
-    /// </summary>
-    public class DateSpan
+    public class DateDifference
     {
-        protected int _day;
-        protected int _month;
-        protected int _year;
+        /// <summary>
+        /// defining Number of days in month; index 0=> january and 11=> December
+        /// february contain either 28 or 29 days, that's why here value is -1
+        /// which wil be calculate later.
+        /// </summary>
+        private int[] monthDay = new int[12] { 31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
         /// <summary>
-        /// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+        /// contain from date
         /// </summary>
-        /// <returns>
-        /// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
-        /// </returns>
-        /// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param>
-        public override bool Equals(object obj)
-        {
-            var otherDate = obj as DateSpan;
-            if (otherDate == null) throw new ArgumentNullException(nameof(obj));             
-            return (Days == otherDate.Days) && (Months == otherDate.Months) && (Years == otherDate.Years);
-        }
+        private DateTime fromDate;
 
         /// <summary>
-        /// Serves as a hash function for a particular type. 
+        /// contain To Date
         /// </summary>
-        /// <returns>
-        /// A hash code for the current <see cref="T:System.Object"/>.
-        /// </returns>
-        public override int GetHashCode()
+        private DateTime toDate;
+
+        /// <summary>
+        /// this three variable for output representation..
+        /// </summary>
+        private int year;
+        private int month;
+        private int day;
+
+        public DateDifference(DateTime d1, DateTime d2)
         {
-            return Days ^ Months ^ Years;
-        }
+            int increment;
 
-        public DateSpan() { }
-
-        public DateSpan(int days, int months, int years)
-        {
-            if (days > 31 || months > 11)
-                throw new ArgumentException("Число дней в дате должно быть меньше 32 и число месяцев меньше 12");
-            _year = years;
-            _month = months;
-            _day = days;
-        }
-
-        public int Years => _year;
-
-        public int Months => _month;
-
-        public int Days => _day;
-
-        public DateSpan Add(DateSpan other)
-        {
-            var sumDays = other.Days + Days;
-            var sumMonths = other.Months + Months;
-            var sumYears = other.Years + Years;
-
-            sumMonths += sumDays / 30;
-            sumYears += sumMonths / 12;
-
-            return new DateSpan(sumDays % 30, sumMonths % 12, sumYears);
-        }
-
-        public static DateSpan operator +(DateSpan dateSpan, DateSpan other)
-        {
-            return dateSpan.Add(other);
-        }
-
-        public static implicit operator TimeSpan(DateSpan dateSpan)
-        {
-            return dateSpan.AsTimespan;
-        }
-
-        public TimeSpan AsTimespan => new TimeSpan(Days + Months * 30 + Years * 365);
-    }
-
-    public class DateSpanDifference : DateSpan
-    {
-        private readonly int[] _monthDay = new int[12] { 31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
-        public DateSpanDifference(DateTime d1, DateTime d2)
-        {
-            DateTime fromDate;
-            DateTime toDate;
             if (d1 > d2)
             {
-                fromDate = d2;
-                toDate = d1;
+                this.fromDate = d2;
+                this.toDate = d1;
             }
             else
             {
-                fromDate = d1;
-                toDate = d2;
+                this.fromDate = d1;
+                this.toDate = d2;
             }
 
+            /// 
+            /// Day Calculation
+            /// 
+            increment = 0;
 
-            var increment = 0;
-
-            if (fromDate.Day > toDate.Day)
+            if (this.fromDate.Day > this.toDate.Day)
             {
-                increment = _monthDay[fromDate.Month - 1];
-            }
+                increment = this.monthDay[this.fromDate.Month - 1];
 
+            }
+            /// if it is february month
+            /// if it's to day is less then from day
             if (increment == -1)
             {
-                if (DateTime.IsLeapYear(fromDate.Year))
+                if (DateTime.IsLeapYear(this.fromDate.Year))
                 {
+                    // leap year february contain 29 days
                     increment = 29;
                 }
                 else
@@ -119,32 +69,63 @@ namespace APG.Base
             }
             if (increment != 0)
             {
-                _day = toDate.Day + increment - fromDate.Day;
+                day = (this.toDate.Day + increment) - this.fromDate.Day;
                 increment = 1;
             }
             else
             {
-                _day = toDate.Day - fromDate.Day;
+                day = this.toDate.Day - this.fromDate.Day;
             }
 
-
-            if (fromDate.Month + increment > toDate.Month)
+            ///
+            ///month calculation
+            ///
+            if ((this.fromDate.Month + increment) > this.toDate.Month)
             {
-                _month = toDate.Month + 12 - (fromDate.Month + increment);
+                this.month = (this.toDate.Month + 12) - (this.fromDate.Month + increment);
                 increment = 1;
             }
             else
             {
-                _month = toDate.Month - (fromDate.Month + increment);
+                this.month = (this.toDate.Month) - (this.fromDate.Month + increment);
                 increment = 0;
             }
 
-            _year = toDate.Year - (fromDate.Year + increment);
+            ///
+            /// year calculation
+            ///
+            this.year = this.toDate.Year - (this.fromDate.Year + increment);
+
         }
 
         public override string ToString()
         {
-            return NumericExtensions.FormatDate(Years, Months, Days);
+            return NumericExtensions.FormatDateDifference(Years, Months, Days);
         }
+
+        public int Years
+        {
+            get
+            {
+                return this.year;
+            }
+        }
+
+        public int Months
+        {
+            get
+            {
+                return this.month;
+            }
+        }
+
+        public int Days
+        {
+            get
+            {
+                return this.day;
+            }
+        }        
+
     }
 }

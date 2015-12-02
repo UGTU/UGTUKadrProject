@@ -2,12 +2,10 @@ using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
-using APG.ExceptionHandler;
 using APG.Relays;
 
 namespace APG.Base
 {
-    
     public interface IRange<TU> where TU : IComparable
     {
         TU Start { get; set; }
@@ -51,24 +49,14 @@ namespace APG.Base
 
     public static class RangeExtensions
     {
-        /// <summary>
-        /// Вызывает исключение, если значение конца интервала меньше значения начала интервала
-        /// </summary>
-        /// <typeparam name="TU">Тип параметра интервала</typeparam>
-        /// <param name="range">Объект интервала</param>
-        public static void CheckRange<TU>(this IRange<TU> range) where TU:IComparable
-        {
-            if (range == null) throw new ArgumentNullException(nameof(range));
-            if (range.Start.Greater(range.Stop))
-                throw new RangeParametersException<TU>(Res.IntervalOutOfRangeException, range);
-        }
-
         public static RangeRelation GetRelationTo<TU>(this IRange<TU> sourceRange, TU start, TU stop) where TU :
             IComparable
         {
             var startStartResult = sourceRange.Start.CompareTo(start);
             var stopStopResult = sourceRange.Stop.CompareTo(stop);
-            
+            //var startStopResult = sourceRange.Start.CompareTo(stop);
+            //var stopStartResult = sourceRange.Stop.CompareTo(start);
+
             if (stopStopResult == 0 && startStartResult == 0)
                 return RangeRelation.Equals;
             if ((startStartResult <= 0) && (stopStopResult >= 0))
