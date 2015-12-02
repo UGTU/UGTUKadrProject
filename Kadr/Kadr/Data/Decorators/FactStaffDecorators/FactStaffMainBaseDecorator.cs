@@ -165,11 +165,11 @@ namespace Kadr.Data
         {
             get
             {
-                return factStaff.MainContract;
+                return factStaff.CurrentMainContract;
             }
             set
             {
-                factStaff.MainContract = value;
+                factStaff.CurrentMainContract = value;
             }
         }
 

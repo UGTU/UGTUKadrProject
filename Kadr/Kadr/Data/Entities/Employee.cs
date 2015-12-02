@@ -10,24 +10,24 @@ namespace Kadr.Data
 {
     public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IComparable, IExperienceProvider
     {
-        /* public string EmployeeName
+         public string currentEmployeeName
          {
              get
              {
-                 return this.LastName + " " + this.FirstName + " " + this.Otch;
+                 return LastName + " " + FirstName + " " + Otch;
              }
          }
 
-         public string EmployeeSmallName
-         {
+         public string currentEmployeeSmallName
+        {
              get
              {
                  if ((FirstName != null) && (Otch != null))
-                     return this.this + " " + LastName.FirstName[0] + "." + this.Otch[0] + ".";
+                     return LastName + " " + FirstName[0] + "." + Otch[0] + ".";
                  else
                      return LastName;
              }
-         }*/
+         }
 
         public EmployeeRank Rank
         {
@@ -60,8 +60,8 @@ namespace Kadr.Data
         public override string ToString()
         {
             if (BirthDate != null)
-                return EmployeeName + " ("+BirthDate.Value.ToShortDateString()+")";
-            return this.EmployeeName;
+                return currentEmployeeName + " ("+BirthDate.Value.ToShortDateString()+")";
+            return this.currentEmployeeName;
         }
 
 

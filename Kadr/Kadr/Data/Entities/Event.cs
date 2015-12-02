@@ -51,7 +51,7 @@ namespace Kadr.Data
 
             if (WithContract) 
             {
-                new Contract(CommandManager, this, eventKind.ForFactStaff ? factStaffHistory.FirstContract : null, "", DateTime.Today.Date, DateTime.Today.Date);
+                new Contract(CommandManager, this, eventKind.ForFactStaff ? factStaffHistory.GlobalMainContract : null, "", DateTime.Today.Date, DateTime.Today.Date);
             }
         }
         

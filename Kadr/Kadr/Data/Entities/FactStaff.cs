@@ -197,7 +197,18 @@ namespace Kadr.Data
             }
         }
 
-        
+
+        public Contract GlobalMainContract
+        {
+            get
+            {
+                if (FirstDesignate != null)
+                    if (FirstDesignate.Contract != null)
+                        return FirstDesignate.Contract.IsMainContract ? FirstDesignate.Contract : FirstDesignate.Contract.MainContract;
+                return null;
+            }
+        }
+
 
         #endregion
 
@@ -506,7 +517,7 @@ namespace Kadr.Data
             }
         }
 
-        public Contract MainContract
+        public Contract CurrentMainContract
         {
             get
             {
