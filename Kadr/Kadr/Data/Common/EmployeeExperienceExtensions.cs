@@ -50,7 +50,21 @@ namespace Kadr.Data.Common
             var years = tsExperience.GetExperienceYears();
             var monthes = tsExperience.GetExperienceMonthes();
             var days = tsExperience.GetExperienceDays();
-            return NumericExtensions.FormatDateDifference(years, monthes, days);
+            return NumericExtensions.FormatDate(years, monthes, days);
+        }
+
+        /// <summary>
+        /// Возвращает строку с данными по стажу
+        /// </summary>
+        /// <param name="dateSpanExperience"></param>
+        /// <returns></returns>
+        public static string FormatAsExperience(this DateSpan dateSpanExperience)
+        {
+            if (dateSpanExperience == null) throw new ArgumentNullException(nameof(dateSpanExperience));
+            var years = dateSpanExperience.Years;
+            var monthes = dateSpanExperience.Months;
+            var days = dateSpanExperience.Days;
+            return NumericExtensions.FormatDate(years, monthes, days);
         }
         /// <summary>
         /// Получает из заданной коллекции элементы северного стажа.
@@ -92,6 +106,27 @@ namespace Kadr.Data.Common
             var enumerable = experienceSet as IList<IEmployeeExperienceRecord> ?? experienceSet.ToList();
             var extraDays = CalculateExtraDays(enumerable);
             return TimeSpan.FromDays(enumerable.Sum(x=> ((x.IsEnded ? x.Stop.AddDays(1) : nextDay) - x.Start).Days) - extraDays);
+        }
+        /// <summary>
+        /// Расчитывает и возвращает стаж сотрудника
+        /// </summary>
+        /// <param name="experienceSet">Записи стажа</param>        
+        /// <returns>Стаж сотрудника</returns>
+        public static DateSpan GetExperienceDates(this IEnumerable<IEmployeeExperienceRecord> experienceSet)
+        {
+            // Стаж расчитывается с учётом того, что день увольнения считается рабочим днём
+            // Если сотрудник продолжает работать в день расчёта стажа, то считается, что 
+            // текущий день вошёл в стаж.
+            var nextDay = DateTime.Today.AddDays(1);
+            var enumerable = experienceSet as IList<IEmployeeExperienceRecord> ?? experienceSet.ToList();
+            var extraDays = CalculateExtraDays(enumerable);
+            //return TimeSpan.FromDays(enumerable.Sum(x => ((x.IsEnded ? x.Stop.AddDays(1) : nextDay) - x.Start).Days) - extraDays);
+            var result = 
+                enumerable.Select(
+                    x => new DateSpanDifference((x.IsEnded ? x.Stop.AddDays(1) : nextDay), x.Start.AddDays(extraDays)))
+                    .Aggregate(new DateSpan(0, 0, 0), (a, b) => a+b, r=>r);
+            return result;
+
         }
         /// <summary>
         /// Есди даты окончания и начала следующей записи стажа совпадают, то следует учитывать, что 

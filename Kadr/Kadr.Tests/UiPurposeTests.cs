@@ -1,4 +1,7 @@
-﻿using System.Linq.Expressions;
+﻿using System.Data.Common;
+using System.Data.OleDb;
+using System.Data.SqlClient;
+using System.Linq.Expressions;
 using Kadr.UI.Common;
 using Microsoft.QualityTools.Testing.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -10,10 +13,8 @@ namespace Kadr.Tests
     {
         static void CheckPurposeTest(string connString, DbConnectionPurpose expected)
         {
-            var conn = new System.Data.Fakes.StubIDbConnection()
-            {
-                ConnectionStringGet = () =>connString
-            };
+            DbConnection conn = new SqlConnection();
+            conn.ConnectionString = connString;
             var actual = conn.GetDbPurpose();
             Assert.AreEqual(expected, actual);
         }

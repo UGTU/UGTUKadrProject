@@ -9,12 +9,12 @@ namespace Kadr.Data.Common
 {
   public static class EmployeeExtensions
     {
-        public static DateDifference GetAge(this Employee employee)
+        public static DateSpanDifference GetAge(this Employee employee)
         {
             if (!employee.BirthDate.HasValue) return null;
             var today = DateTime.Today;
             var birthDate = employee.BirthDate.Value;            
-            return new DateDifference(birthDate, today);
+            return new DateSpanDifference(birthDate, today);
         }
     }
 }

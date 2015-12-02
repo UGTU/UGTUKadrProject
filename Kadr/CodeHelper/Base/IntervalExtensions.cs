@@ -64,6 +64,10 @@ namespace APG.Base
             {
                 var nextStart = startOrdered.FirstOrDefault(x => x.Start.Greater(startPoint));
                 var nextStop = stopOrdered.FirstOrDefault(x => x.Stop.Greater(startPoint));
+                
+                // Проверка корректности параметров интервала
+                nextStop?.CheckRange();
+                nextStart?.CheckRange();
 
                 if (nextStop == null && nextStart == null)
                     yield break;
