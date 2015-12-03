@@ -306,9 +306,6 @@ namespace Kadr.Data
     partial void InsertEventKind(EventKind instance);
     partial void UpdateEventKind(EventKind instance);
     partial void DeleteEventKind(EventKind instance);
-    partial void InsertOK_Reason(OK_Reason instance);
-    partial void UpdateOK_Reason(OK_Reason instance);
-    partial void DeleteOK_Reason(OK_Reason instance);
     partial void InsertFinancingSource(FinancingSource instance);
     partial void UpdateFinancingSource(FinancingSource instance);
     partial void DeleteFinancingSource(FinancingSource instance);
@@ -333,6 +330,9 @@ namespace Kadr.Data
     partial void InsertMaterialResponsibility(MaterialResponsibility instance);
     partial void UpdateMaterialResponsibility(MaterialResponsibility instance);
     partial void DeleteMaterialResponsibility(MaterialResponsibility instance);
+    partial void InsertOK_Reason(OK_Reason instance);
+    partial void UpdateOK_Reason(OK_Reason instance);
+    partial void DeleteOK_Reason(OK_Reason instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -1109,14 +1109,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<OK_Reason> OK_Reasons
-		{
-			get
-			{
-				return this.GetTable<OK_Reason>();
-			}
-		}
-		
 		public System.Data.Linq.Table<FinancingSource> FinancingSources
 		{
 			get
@@ -1186,6 +1178,14 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<Department>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_Reason> OK_Reasons
+		{
+			get
+			{
+				return this.GetTable<OK_Reason>();
 			}
 		}
 		
@@ -15939,11 +15939,11 @@ namespace Kadr.Data
 		
 		private EntityRef<Prikaz> _Prikaz;
 		
-		private EntityRef<OK_Reason> _OK_Reason;
-		
 		private EntityRef<FinancingSource> _FinancingSource;
 		
 		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<OK_Reason> _OK_Reason;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -16003,9 +16003,9 @@ namespace Kadr.Data
 			this._OKVED = default(EntityRef<OKVED>);
 			this._PlanStaff = default(EntityRef<PlanStaff>);
 			this._Prikaz = default(EntityRef<Prikaz>);
-			this._OK_Reason = default(EntityRef<OK_Reason>);
 			this._FinancingSource = default(EntityRef<FinancingSource>);
 			this._Employee = default(EntityRef<Employee>);
+			this._OK_Reason = default(EntityRef<OK_Reason>);
 			OnCreated();
 		}
 		
@@ -16729,40 +16729,6 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_Reason_FactStaff", Storage="_OK_Reason", ThisKey="idreason", OtherKey="idreason", IsForeignKey=true)]
-		public OK_Reason OK_Reason
-		{
-			get
-			{
-				return this._OK_Reason.Entity;
-			}
-			set
-			{
-				OK_Reason previousValue = this._OK_Reason.Entity;
-				if (((previousValue != value) 
-							|| (this._OK_Reason.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._OK_Reason.Entity = null;
-						previousValue.FactStaffs.Remove(this);
-					}
-					this._OK_Reason.Entity = value;
-					if ((value != null))
-					{
-						value.FactStaffs.Add(this);
-						this._idreason = value.idreason;
-					}
-					else
-					{
-						this._idreason = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("OK_Reason");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FinancingSource_FactStaff", Storage="_FinancingSource", ThisKey="idFinancingSource", OtherKey="id", IsForeignKey=true)]
 		public FinancingSource FinancingSource
 		{
@@ -16827,6 +16793,40 @@ namespace Kadr.Data
 						this._idEmployee = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_Reason_FactStaff", Storage="_OK_Reason", ThisKey="idreason", OtherKey="idreason", IsForeignKey=true)]
+		public OK_Reason OK_Reason
+		{
+			get
+			{
+				return this._OK_Reason.Entity;
+			}
+			set
+			{
+				OK_Reason previousValue = this._OK_Reason.Entity;
+				if (((previousValue != value) 
+							|| (this._OK_Reason.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OK_Reason.Entity = null;
+						previousValue.FactStaffs.Remove(this);
+					}
+					this._OK_Reason.Entity = value;
+					if ((value != null))
+					{
+						value.FactStaffs.Add(this);
+						this._idreason = value.idreason;
+					}
+					else
+					{
+						this._idreason = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("OK_Reason");
 				}
 			}
 		}
@@ -24021,168 +24021,6 @@ namespace Kadr.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Reason")]
-	public partial class OK_Reason : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idreason;
-		
-		private string _reasonname;
-		
-		private bool _isUvoln;
-		
-		private System.Nullable<bool> _is_old;
-		
-		private EntitySet<FactStaff> _FactStaffs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidreasonChanging(int value);
-    partial void OnidreasonChanged();
-    partial void OnreasonnameChanging(string value);
-    partial void OnreasonnameChanged();
-    partial void OnisUvolnChanging(bool value);
-    partial void OnisUvolnChanged();
-    partial void Onis_oldChanging(System.Nullable<bool> value);
-    partial void Onis_oldChanged();
-    #endregion
-		
-		public OK_Reason()
-		{
-			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idreason", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idreason
-		{
-			get
-			{
-				return this._idreason;
-			}
-			set
-			{
-				if ((this._idreason != value))
-				{
-					this.OnidreasonChanging(value);
-					this.SendPropertyChanging();
-					this._idreason = value;
-					this.SendPropertyChanged("idreason");
-					this.OnidreasonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_reasonname", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string reasonname
-		{
-			get
-			{
-				return this._reasonname;
-			}
-			set
-			{
-				if ((this._reasonname != value))
-				{
-					this.OnreasonnameChanging(value);
-					this.SendPropertyChanging();
-					this._reasonname = value;
-					this.SendPropertyChanged("reasonname");
-					this.OnreasonnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isUvoln", DbType="Bit NOT NULL")]
-		public bool isUvoln
-		{
-			get
-			{
-				return this._isUvoln;
-			}
-			set
-			{
-				if ((this._isUvoln != value))
-				{
-					this.OnisUvolnChanging(value);
-					this.SendPropertyChanging();
-					this._isUvoln = value;
-					this.SendPropertyChanged("isUvoln");
-					this.OnisUvolnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_old", DbType="Bit")]
-		public System.Nullable<bool> is_old
-		{
-			get
-			{
-				return this._is_old;
-			}
-			set
-			{
-				if ((this._is_old != value))
-				{
-					this.Onis_oldChanging(value);
-					this.SendPropertyChanging();
-					this._is_old = value;
-					this.SendPropertyChanged("is_old");
-					this.Onis_oldChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_Reason_FactStaff", Storage="_FactStaffs", ThisKey="idreason", OtherKey="idreason")]
-		public EntitySet<FactStaff> FactStaffs
-		{
-			get
-			{
-				return this._FactStaffs;
-			}
-			set
-			{
-				this._FactStaffs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_FactStaffs(FactStaff entity)
-		{
-			this.SendPropertyChanging();
-			entity.OK_Reason = this;
-		}
-		
-		private void detach_FactStaffs(FactStaff entity)
-		{
-			this.SendPropertyChanging();
-			entity.OK_Reason = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FinancingSource")]
 	public partial class FinancingSource : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -28354,6 +28192,168 @@ namespace Kadr.Data
 					this._idRegionType = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_Reason")]
+	public partial class OK_Reason : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idreason;
+		
+		private string _reasonname;
+		
+		private bool _isUvoln;
+		
+		private System.Nullable<bool> _is_old;
+		
+		private EntitySet<FactStaff> _FactStaffs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidreasonChanging(int value);
+    partial void OnidreasonChanged();
+    partial void OnreasonnameChanging(string value);
+    partial void OnreasonnameChanged();
+    partial void OnisUvolnChanging(bool value);
+    partial void OnisUvolnChanged();
+    partial void Onis_oldChanging(System.Nullable<bool> value);
+    partial void Onis_oldChanged();
+    #endregion
+		
+		public OK_Reason()
+		{
+			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idreason", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idreason
+		{
+			get
+			{
+				return this._idreason;
+			}
+			set
+			{
+				if ((this._idreason != value))
+				{
+					this.OnidreasonChanging(value);
+					this.SendPropertyChanging();
+					this._idreason = value;
+					this.SendPropertyChanged("idreason");
+					this.OnidreasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_reasonname", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string reasonname
+		{
+			get
+			{
+				return this._reasonname;
+			}
+			set
+			{
+				if ((this._reasonname != value))
+				{
+					this.OnreasonnameChanging(value);
+					this.SendPropertyChanging();
+					this._reasonname = value;
+					this.SendPropertyChanged("reasonname");
+					this.OnreasonnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isUvoln", DbType="Bit NOT NULL")]
+		public bool isUvoln
+		{
+			get
+			{
+				return this._isUvoln;
+			}
+			set
+			{
+				if ((this._isUvoln != value))
+				{
+					this.OnisUvolnChanging(value);
+					this.SendPropertyChanging();
+					this._isUvoln = value;
+					this.SendPropertyChanged("isUvoln");
+					this.OnisUvolnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_old", DbType="Bit")]
+		public System.Nullable<bool> is_old
+		{
+			get
+			{
+				return this._is_old;
+			}
+			set
+			{
+				if ((this._is_old != value))
+				{
+					this.Onis_oldChanging(value);
+					this.SendPropertyChanging();
+					this._is_old = value;
+					this.SendPropertyChanged("is_old");
+					this.Onis_oldChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OK_Reason_FactStaff", Storage="_FactStaffs", ThisKey="idreason", OtherKey="idreason")]
+		public EntitySet<FactStaff> FactStaffs
+		{
+			get
+			{
+				return this._FactStaffs;
+			}
+			set
+			{
+				this._FactStaffs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_FactStaffs(FactStaff entity)
+		{
+			this.SendPropertyChanging();
+			entity.OK_Reason = this;
+		}
+		
+		private void detach_FactStaffs(FactStaff entity)
+		{
+			this.SendPropertyChanging();
+			entity.OK_Reason = null;
 		}
 	}
 	

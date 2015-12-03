@@ -166,6 +166,20 @@ namespace Kadr.Data
             }
         }
 
+        public decimal CalcStaffCount
+        {
+            get
+            {
+                if (LastChange == null)
+                    return 0;
+                return LastChange.CalcStaffCount;
+            }
+            set
+            {
+                LastChange.CalcStaffCount = value;
+            }
+        }
+
         public Category Category
         {
             get
@@ -704,9 +718,8 @@ namespace Kadr.Data
                     if (FinancingSource.IsNull())
                         FinancingSource = null;
 
-                if (FundingCenter != null)
-                    if (FundingCenter.IsNull())
-                        FundingCenter = null;
+                FundingCenter = PlanStaff.Dep.FundingCenter;
+
                 if (OKVED != null)
                     if (OKVED.IsNull())
                         OKVED = null;
