@@ -718,7 +718,10 @@ namespace Kadr.Data
                     if (FinancingSource.IsNull())
                         FinancingSource = null;
 
-                FundingCenter = PlanStaff.Dep.FundingCenter;
+                if (PlanStaff != null)
+                    FundingCenter = PlanStaff.Dep.FundingCenter;
+                else
+                    FundingCenter = null;
 
                 if (OKVED != null)
                     if (OKVED.IsNull())
