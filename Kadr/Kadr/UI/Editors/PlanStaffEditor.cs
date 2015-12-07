@@ -16,7 +16,7 @@ namespace Kadr.UI.Editors
         {
             using (Common.ListSelectDialog<Kadr.Data.PlanStaff> dlg = new Kadr.UI.Common.ListSelectDialog<Kadr.Data.PlanStaff>())
             {
-                
+                dlg.Width += 400;
                 dlg.Text = "Запись штатного расписания";
                 dlg.QueryText = "Выберите запись штатного расписания";
                 if (context.Instance is FactStaffReplacementDecorator)
