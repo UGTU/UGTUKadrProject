@@ -13,9 +13,7 @@ namespace Kadr.Tests
         {
             var regType = new RegionType() {id=1};
             Assert.AreEqual(TerritoryConditions.Default, regType.GetTerritoryCondition());
-            regType.id = 2;
-            Assert.AreEqual(TerritoryConditions.North, regType.GetTerritoryCondition());
-            regType.id = 4;
+            regType.id = 3;
             Assert.AreEqual(TerritoryConditions.StrictNorth, regType.GetTerritoryCondition());
             regType.id = 5;
             Assert.AreEqual(TerritoryConditions.Default, regType.GetTerritoryCondition());

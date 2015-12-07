@@ -69,7 +69,6 @@
     <Compile Include="StandingTypeExtensionsTests.cs" />
     <Compile Include="UiPurposeTests.cs" />
     <Compile Include="UnitTest1.cs" />
-    <Compile Include="SqlExceptionHelperFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodeHelper\CodeHelper.csproj">
