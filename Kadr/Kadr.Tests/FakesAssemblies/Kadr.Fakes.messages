@@ -19,9 +19,6 @@ C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fake
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Interfaces.IEntitySelector: type is not visible to exported or assembly(Kadr.Fakes).
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Interfaces.IOrderInformer: type is not visible to exported or assembly(Kadr.Fakes).
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Interfaces.IPrikazTypeProvider: type is not visible to exported or assembly(Kadr.Fakes).
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Helpers.UniqueType: type is a value type.
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Helpers.OperationType: type is a value type.
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Helpers.SqlExceptionHelper: type is sealed.
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.DocumentTypeToStringConvertor: type is not visible to exported or assembly(Kadr.Fakes).
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffTransferDecorator: type is not visible to exported or assembly(Kadr.Fakes).
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate stub for Kadr.Data.FactStaffHistoryFinSourceDecorator: type is not visible to exported or assembly(Kadr.Fakes).
@@ -275,10 +272,6 @@ C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fake
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Interfaces.IEntitySelector: type is an interface.
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Interfaces.IOrderInformer: type is an interface.
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Interfaces.IPrikazTypeProvider: type is an interface.
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Helpers.UniqueType: type is an enum.
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Helpers.OperationType: type is an enum.
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Helpers.SqlExceptionHelper+<>c__DisplayClass11_0: type is not supported because of internal limitations.
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Helpers.SqlExceptionHelper+<>c__DisplayClass12_0: type is not supported because of internal limitations.
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.DocumentTypeToStringConvertor: type is not visible to exported or assembly(Kadr.Fakes).
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffTransferDecorator: type is not visible to exported or assembly(Kadr.Fakes).
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.FactStaffHistoryFinSourceDecorator: type is not visible to exported or assembly(Kadr.Fakes).
@@ -377,9 +370,8 @@ C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fake
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Converters.RegionConverter: type is not visible to exported or assembly(Kadr.Fakes).
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.AdvancedBindingList`1+myIntDelegate: type is a delegate.
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.EmployeeExperienceExtensions+<>c: type is not supported because of internal limitations.
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.EmployeeExperienceExtensions+<>c__DisplayClass10_0: type is not supported because of internal limitations.
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.EmployeeExperienceExtensions+<>c__DisplayClass11_0: type is not supported because of internal limitations.
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.EmployeeExperienceExtensions+<Continious>d__13: type is not supported because of internal limitations.
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.EmployeeExperienceExtensions+<>c__DisplayClass9_0: type is not supported because of internal limitations.
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.EmployeeExperienceExtensions+<Continious>d__11: type is not supported because of internal limitations.
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.INullable: type is an interface.
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.INull: type is an interface.
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\Kadr.Tests\Fakes\Kadr.fakes : warning : Cannot generate shim for Kadr.Data.Common.NullExtentsions: type is not visible to exported or assembly(Kadr.Fakes).

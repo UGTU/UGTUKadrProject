@@ -50,7 +50,7 @@ namespace Kadr.Data.Common
             var years = tsExperience.GetExperienceYears();
             var monthes = tsExperience.GetExperienceMonthes();
             var days = tsExperience.GetExperienceDays();
-            return NumericExtensions.FormatDateDifference(years, monthes, days);
+            return NumericExtensions.FormatDate(years, monthes, days);
         }
         /// <summary>
         /// Получает из заданной коллекции элементы северного стажа.
