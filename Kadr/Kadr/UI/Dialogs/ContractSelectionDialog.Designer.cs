@@ -40,33 +40,37 @@
             ((System.ComponentModel.ISupportInitialize)(this.contractBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
+            // btnClearSelection
+            // 
+            this.btnClearSelection.Location = new System.Drawing.Point(0, 1);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.pSelection);
             this.helpProvider1.SetShowHelp(this.panel1, true);
-            this.panel1.Size = new System.Drawing.Size(493, 58);
+            this.panel1.Size = new System.Drawing.Size(556, 198);
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(12, 72);
-            this.panel2.Size = new System.Drawing.Size(508, 52);
+            this.panel2.Location = new System.Drawing.Point(12, 212);
+            this.panel2.Size = new System.Drawing.Size(571, 52);
             // 
             // ApplyBtn
             // 
             this.helpProvider1.SetHelpString(this.ApplyBtn, "Вносит изменения в базу данных, не закрывая окно.");
-            this.ApplyBtn.Location = new System.Drawing.Point(399, 4);
+            this.ApplyBtn.Location = new System.Drawing.Point(479, 3);
             this.helpProvider1.SetShowHelp(this.ApplyBtn, true);
             // 
             // CancelBtn
             // 
             this.helpProvider1.SetHelpString(this.CancelBtn, "Отменяет все изменения с момента последноего сохранения и закрывает окно.");
-            this.CancelBtn.Location = new System.Drawing.Point(307, 4);
+            this.CancelBtn.Location = new System.Drawing.Point(387, 3);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
             // 
             // OKBtn
             // 
             this.helpProvider1.SetHelpString(this.OKBtn, "Вносит изменения в базу данных и закрывает окно.");
-            this.OKBtn.Location = new System.Drawing.Point(215, 4);
+            this.OKBtn.Location = new System.Drawing.Point(295, 3);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
             // 
             // HelpBtn
@@ -82,7 +86,7 @@
             this.pSelection.Dock = System.Windows.Forms.DockStyle.Top;
             this.pSelection.Location = new System.Drawing.Point(0, 0);
             this.pSelection.Name = "pSelection";
-            this.pSelection.Size = new System.Drawing.Size(493, 55);
+            this.pSelection.Size = new System.Drawing.Size(556, 55);
             this.pSelection.TabIndex = 19;
             // 
             // bAddingMode
@@ -124,10 +128,10 @@
             this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 103);
+            this.ClientSize = new System.Drawing.Size(567, 243);
             this.Name = "ContractSelectionDialog";
             this.helpProvider1.SetShowHelp(this, true);
-            this.Text = "ContractSelectionDialog";
+            this.Text = "Выбор договора";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.pSelection.ResumeLayout(false);

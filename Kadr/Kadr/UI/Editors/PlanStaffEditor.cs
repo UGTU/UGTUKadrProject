@@ -24,7 +24,7 @@ namespace Kadr.UI.Editors
                 else
                     dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.PlanStaffs.ToArray().Where(x => (x.DateEnd == null) || (x.DateEnd > DateTime.Today))/*.Where(x => (x.StaffCount > x.FactStaffCount))*/.ToArray().OrderBy(x => x.Dep.DepartmentName).ThenBy(x => x.Post.PostName).ToArray();
                 dlg.SelectedValue = (Kadr.Data.PlanStaff)value;
-
+                
                 if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     if (dlg.SelectedValue == null)

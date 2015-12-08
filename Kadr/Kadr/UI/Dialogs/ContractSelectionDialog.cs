@@ -14,9 +14,17 @@ namespace Kadr.UI.Dialogs
 {
     public partial class ContractSelectionDialog : BaseSelectionDialog
     {
+        public Employee Employee
+        {
+            get;
+            set;
+        }
+
         public ContractSelectionDialog()
         {
             InitializeComponent();
         }
+
+        
     }
 }
