@@ -33,14 +33,13 @@ namespace Kadr.UI.Dialogs
             }
             else
             {
-                ObjectListBindingSource.DataSource = Kadr.Controllers.KadrController.Instance.Model.Contracts/*.Where(x => x.idMainContract == null)*/.ToArray();
+                ObjectListBindingSource.DataSource = Kadr.Controllers.KadrController.Instance.Model.Contracts.Where(x => x.idMainContract == null).ToArray();
             }
             dialogObject = cbObjectList.SelectedItem;
         }
 
         public ContractSelectionDialog(): base()
         {
-
             InitializeComponent();
             lObjectTypeName.Text = "Договор";
         }
