@@ -43,5 +43,14 @@ namespace Kadr.UI.Common
         {
             dialogObject = cbObjectList.SelectedItem;
         }
+
+        private void bAddingMode_Click(object sender, EventArgs e)
+        {
+            pSelection.Visible = false;
+            pAdding.Visible = true;
+            this.Height -= pSelection.Height;
+            this.Height += pAdding.Height;
+            btnClearSelection.Visible = false;
+        }
     }
 }

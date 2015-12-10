@@ -44,7 +44,9 @@ namespace Kadr.UI.Dialogs
             lObjectTypeName.Text = "Договор";
         }
 
-
-        
+        private void ContractSelectionDialog_Load(object sender, EventArgs e)
+        {
+            dtpDateEnd.Text = null;
+        }
     }
 }
