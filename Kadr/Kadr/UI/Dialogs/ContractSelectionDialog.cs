@@ -18,13 +18,17 @@ namespace Kadr.UI.Dialogs
 
         protected override void DoRefreshList()
         {
+            //если сотрудник не задан, то сразу переходим на добавление договора
             if ((Employee == null) || (Employee.IsNull()))
             {
-                throw new ArgumentNullException("Cотрудник.");
+                AddingModeOn();
             }
-                //выбираем только договоры (без доп соглашений)
+            
+            //выбираем только договоры (без доп соглашений) 
             var res = Employee.FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(y => y.Events).Where(x => x.EventKind != null).Where(x
-                        => x.EventKind.ForFactStaff).Where(x => x.Contract != null).Select(z => z.Contract).Where(m => m.idMainContract == null).Where(x => x.id > 0);
+                        => x.EventKind.ForFactStaff).Where(x => x.Contract != null).Select(z => z.Contract).Where(m => m.idMainContract == null).Where(x => x.id > 0).Concat(
+                            Employee.FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(y => y.Events).Where(x => x.EventKind != null).Where(x
+                              => x.EventKind.ForFactStaff).Where(x => x.Contract != null).Select(z => z.Contract).Where(m => m.idMainContract != null).Select(x => x.MainContract).Where(x => x.id > 0)).Distinct();
 
             if (res != null)
                     ObjectListBindingSource.DataSource = res.ToList();

@@ -31,11 +31,11 @@ namespace Kadr.UI.Editors
                     currentContract = (context.Instance as FactStaffHistoryMinDecorator).CurrentContract;
                 }
 
-            if ((currentEmployee == null) || (currentEmployee.IsNull()))
+            /*if ((currentEmployee == null) || (currentEmployee.IsNull()))
             {
                 throw new ArgumentNullException("Cотрудник.");
                 return null;
-            }
+            }*/
 
             using (ContractSelectionDialog dlg = new ContractSelectionDialog())
             {

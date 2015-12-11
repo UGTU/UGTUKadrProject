@@ -28,8 +28,10 @@ namespace Kadr.Data
             }
             set
             {
-                if (factStaff.Employee != value)
-                    MainContract = null;
+                if ((factStaff.Employee != value) && (MainContract != null))
+                    //поверяем, чтобы договор не был новым
+                    if (MainContract.id > 0)
+                        MainContract = null;
                 factStaff.Employee = value;
             }
         }

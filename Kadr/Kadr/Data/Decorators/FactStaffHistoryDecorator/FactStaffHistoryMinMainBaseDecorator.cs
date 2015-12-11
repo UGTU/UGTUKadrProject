@@ -30,7 +30,8 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
         [System.ComponentModel.Description("Основной договор")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.ContractConvertor))]
+        //[System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.ContractConvertor))]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.ContractEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Contract MainContract
         {
             get
