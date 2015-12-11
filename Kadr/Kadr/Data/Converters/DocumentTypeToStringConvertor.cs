@@ -12,7 +12,7 @@ namespace Kadr.Data
     {
         protected override ICollection GetCollection(ITypeDescriptorContext context)
         {
-            IList res = base.GetCollection(context).Cast<EducDocumentType>().Where(x => !x.isOld).ToList();
+            IList res = base.GetCollection(context).Cast<EducDocumentType>().Where(x => x!=null).Where(p => !p.isOld).ToList();
             res.Add(NullEducDocumentType.Instance);
             return res;
         }
