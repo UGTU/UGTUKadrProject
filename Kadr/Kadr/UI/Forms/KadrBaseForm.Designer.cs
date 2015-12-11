@@ -246,7 +246,7 @@
             this.toolStripSeparator14});
             toolStrip1.Location = new System.Drawing.Point(3, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(882, 25);
+            toolStrip1.Size = new System.Drawing.Size(1025, 25);
             toolStrip1.TabIndex = 1;
             // 
             // tsbNew
@@ -385,7 +385,7 @@
             // tscbTextSearch
             // 
             this.tscbTextSearch.Name = "tscbTextSearch";
-            this.tscbTextSearch.Size = new System.Drawing.Size(310, 25);
+            this.tscbTextSearch.Size = new System.Drawing.Size(450, 25);
             this.tscbTextSearch.SelectedIndexChanged += new System.EventHandler(this.tscbTextSearch_SelectedIndexChanged);
             // 
             // toolStripSplitButton1
@@ -396,7 +396,7 @@
             this.toolStripSplitButton1.Image = global::Kadr.Properties.Resources.PlayHS;
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Black;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             this.toolStripSplitButton1.Visible = false;
             this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
@@ -420,7 +420,7 @@
             this.tsbEmployeeFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbEmployeeFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbEmployeeFilter.Name = "tsbEmployeeFilter";
-            this.tsbEmployeeFilter.Size = new System.Drawing.Size(105, 20);
+            this.tsbEmployeeFilter.Size = new System.Drawing.Size(105, 22);
             this.tsbEmployeeFilter.Tag = "";
             this.tsbEmployeeFilter.Text = "Сотрудники";
             this.tsbEmployeeFilter.ToolTipText = "Настройки фильтра по сотрудникам";
@@ -443,7 +443,7 @@
             this.tsbDepartmentFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbDepartmentFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbDepartmentFilter.Name = "tsbDepartmentFilter";
-            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 20);
+            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 22);
             this.tsbDepartmentFilter.Text = "Отделы";
             this.tsbDepartmentFilter.ToolTipText = "Настройки фильтра по отделам";
             this.tsbDepartmentFilter.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsbDepartmentFilter_DropDownItemClicked);
@@ -467,7 +467,7 @@
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 25);
             this.toolStripSeparator13.Visible = false;
             // 
             // tsbBonusFilter
@@ -503,7 +503,7 @@
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 25);
             this.toolStripSeparator14.Visible = false;
             // 
             // toolStripContainer1
@@ -516,11 +516,11 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(885, 389);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1101, 389);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(885, 462);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1101, 462);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -538,7 +538,7 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 0);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-            this.statusStrip1.Size = new System.Drawing.Size(885, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(1101, 24);
             this.statusStrip1.TabIndex = 0;
             // 
             // CurrentObjectLabel
@@ -577,8 +577,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.splitContainer1.Size = new System.Drawing.Size(885, 389);
-            this.splitContainer1.SplitterDistance = 202;
+            this.splitContainer1.Size = new System.Drawing.Size(1101, 389);
+            this.splitContainer1.SplitterDistance = 251;
             this.splitContainer1.TabIndex = 0;
             // 
             // kadrTreeView1
@@ -589,7 +589,7 @@
             this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
             this.kadrTreeView1.Name = "kadrTreeView1";
             this.kadrTreeView1.SelectedImageIndex = 0;
-            this.kadrTreeView1.Size = new System.Drawing.Size(200, 387);
+            this.kadrTreeView1.Size = new System.Drawing.Size(249, 387);
             this.kadrTreeView1.TabIndex = 0;
             this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
             this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
@@ -624,6 +624,8 @@
             this.treeViewImageList.Images.SetKeyName(21, "man_unavailable.png");
             this.treeViewImageList.Images.SetKeyName(22, "man_vacation.png");
             this.treeViewImageList.Images.SetKeyName(23, "woman_vacation.png");
+            this.treeViewImageList.Images.SetKeyName(24, "Firedman.png");
+            this.treeViewImageList.Images.SetKeyName(25, "Firedwoman.png");
             // 
             // menuStrip1
             // 
@@ -639,7 +641,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(885, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1101, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1623,7 +1625,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(885, 462);
+            this.ClientSize = new System.Drawing.Size(1101, 462);
             this.Controls.Add(this.toolStripContainer1);
             this.helpProvider1.SetHelpKeyword(this, "Главное окно программы");
             this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TableOfContents);

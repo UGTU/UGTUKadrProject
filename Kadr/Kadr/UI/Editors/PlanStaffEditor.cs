@@ -16,15 +16,15 @@ namespace Kadr.UI.Editors
         {
             using (Common.ListSelectDialog<Kadr.Data.PlanStaff> dlg = new Kadr.UI.Common.ListSelectDialog<Kadr.Data.PlanStaff>())
             {
-                
+                dlg.Width += 400;
                 dlg.Text = "Запись штатного расписания";
                 dlg.QueryText = "Выберите запись штатного расписания";
                 if (context.Instance is FactStaffReplacementDecorator)
                     dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.PlanStaffs.ToArray();
                 else
-                    dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.PlanStaffs.ToArray().Where(x => (x.DateEnd == null) || (x.DateEnd > DateTime.Today)).Where(x => (x.StaffCount > x.FactStaffCount)).ToArray();
+                    dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.PlanStaffs.ToArray().Where(x => (x.DateEnd == null) || (x.DateEnd > DateTime.Today))/*.Where(x => (x.StaffCount > x.FactStaffCount))*/.ToArray().OrderBy(x => x.Dep.DepartmentName).ThenBy(x => x.Post.PostName).ToArray();
                 dlg.SelectedValue = (Kadr.Data.PlanStaff)value;
-
+                
                 if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     if (dlg.SelectedValue == null)
@@ -37,6 +37,11 @@ namespace Kadr.UI.Editors
             }
             
         }
+
+        /*public override System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(System.ComponentModel.ITypeDescriptorContext context)
+        {
+            return UITypeEditorEditStyle.DropDown;
+        }*/
 
         public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
         {

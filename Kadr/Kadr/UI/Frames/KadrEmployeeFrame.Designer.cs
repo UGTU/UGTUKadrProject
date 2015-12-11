@@ -162,7 +162,13 @@ namespace Kadr.UI.Frames
             this.factStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsEmpPosts = new System.Windows.Forms.ToolStrip();
             this.tsbChangeFactStaffContract = new System.Windows.Forms.ToolStripDropDownButton();
+            this.DelFactStaffBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnHistoryFactStaff = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.TransferFactStaffBtn = new System.Windows.Forms.ToolStripButton();
+            this.AddReplacementBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tspFactStaffFilter = new System.Windows.Forms.ToolStripSplitButton();
             this.текущиеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.уволенныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -786,7 +792,7 @@ namespace Kadr.UI.Frames
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel9);
             this.splitContainer3.Size = new System.Drawing.Size(788, 501);
-            this.splitContainer3.SplitterDistance = 223;
+            this.splitContainer3.SplitterDistance = 221;
             this.splitContainer3.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -802,7 +808,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 223);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(788, 221);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // dataGridView1
@@ -933,7 +939,7 @@ namespace Kadr.UI.Frames
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 274);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(788, 276);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // dataGridView6
@@ -973,7 +979,7 @@ namespace Kadr.UI.Frames
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView6.Size = new System.Drawing.Size(782, 427);
+            this.dataGridView6.Size = new System.Drawing.Size(782, 430);
             this.dataGridView6.TabIndex = 3;
             this.dataGridView6.DoubleClick += new System.EventHandler(this.tsbUpdAddress_Click);
             // 
@@ -1676,7 +1682,13 @@ namespace Kadr.UI.Frames
             // 
             this.tsEmpPosts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbChangeFactStaffContract,
+            this.DelFactStaffBtn,
+            this.toolStripSeparator4,
             this.btnHistoryFactStaff,
+            this.toolStripSeparator5,
+            this.TransferFactStaffBtn,
+            this.AddReplacementBtn,
+            this.toolStripSeparator6,
             this.tspFactStaffFilter});
             this.tsEmpPosts.Location = new System.Drawing.Point(0, 0);
             this.tsEmpPosts.Name = "tsEmpPosts";
@@ -1693,6 +1705,21 @@ namespace Kadr.UI.Frames
             this.tsbChangeFactStaffContract.Text = "Изменить усл. тр. д.";
             this.tsbChangeFactStaffContract.ToolTipText = "Изменить условия трудового договора";
             // 
+            // DelFactStaffBtn
+            // 
+            this.DelFactStaffBtn.Image = global::Kadr.Properties.Resources.DelTableHS;
+            this.DelFactStaffBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.DelFactStaffBtn.Name = "DelFactStaffBtn";
+            this.DelFactStaffBtn.Size = new System.Drawing.Size(71, 22);
+            this.DelFactStaffBtn.Text = "Удалить";
+            this.DelFactStaffBtn.ToolTipText = "Удалить сотрудника";
+            this.DelFactStaffBtn.Click += new System.EventHandler(this.DelFactStaffBtn_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
             // btnHistoryFactStaff
             // 
             this.btnHistoryFactStaff.Image = global::Kadr.Properties.Resources.FillUpHS;
@@ -1702,6 +1729,36 @@ namespace Kadr.UI.Frames
             this.btnHistoryFactStaff.Text = "История";
             this.btnHistoryFactStaff.ToolTipText = "Открыть историю изменений";
             this.btnHistoryFactStaff.Click += new System.EventHandler(this.btnHistoryFactStaff_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // TransferFactStaffBtn
+            // 
+            this.TransferFactStaffBtn.Image = global::Kadr.Properties.Resources.NextPageHS;
+            this.TransferFactStaffBtn.ImageTransparentColor = System.Drawing.Color.Black;
+            this.TransferFactStaffBtn.Name = "TransferFactStaffBtn";
+            this.TransferFactStaffBtn.Size = new System.Drawing.Size(85, 22);
+            this.TransferFactStaffBtn.Text = "Перевести";
+            this.TransferFactStaffBtn.ToolTipText = "Перевести сотрудников";
+            this.TransferFactStaffBtn.Click += new System.EventHandler(this.TransferFactStaffBtn_Click);
+            // 
+            // AddReplacementBtn
+            // 
+            this.AddReplacementBtn.Image = global::Kadr.Properties.Resources.RelationshipsHS;
+            this.AddReplacementBtn.ImageTransparentColor = System.Drawing.Color.Black;
+            this.AddReplacementBtn.Name = "AddReplacementBtn";
+            this.AddReplacementBtn.Size = new System.Drawing.Size(151, 22);
+            this.AddReplacementBtn.Text = "Назначить замещение";
+            this.AddReplacementBtn.ToolTipText = "Назначить замещение сотрудника";
+            this.AddReplacementBtn.Click += new System.EventHandler(this.AddReplacementBtn_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
             // 
             // tspFactStaffFilter
             // 
@@ -5143,7 +5200,7 @@ namespace Kadr.UI.Frames
             // 
             // StaffCount
             // 
-            this.StaffCount.DataPropertyName = "StaffCount";
+            this.StaffCount.DataPropertyName = "CalcStaffCount";
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle15.Format = "N2";
             dataGridViewCellStyle15.NullValue = null;
@@ -5830,6 +5887,12 @@ namespace Kadr.UI.Frames
         private ToolStripButton btnHistoryFactStaff;
         private ToolStripDropDownButton tsbVacationFilter;
         private ToolStripMenuItem заПоследние3ГодаToolStripMenuItem;
+        private ToolStripButton TransferFactStaffBtn;
+        private ToolStripButton AddReplacementBtn;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripSeparator toolStripSeparator6;
+        private ToolStripButton DelFactStaffBtn;
         private DataGridViewTextBoxColumn WorkType;
         private DataGridViewTextBoxColumn Department;
         private DataGridViewTextBoxColumn Post;

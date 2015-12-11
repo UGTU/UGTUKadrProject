@@ -231,21 +231,33 @@ namespace Kadr.UI.Frames
                 dlg.BindingSource = employeeBindingSource;
                 dlg.InitializeNewObject = (x) =>
                 {
-                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Guid>(x, "GUID", Guid.NewGuid(), null), this);
+                    dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Guid>(x, "GUID", Guid.NewGuid(), null), sender);
                     if ((dlg.SelectedObjects != null) && (dlg.SelectedObjects.Length == 1))
                     {
                         Employee prev = dlg.SelectedObjects[0] as Employee;
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, SemPol>(x, "SemPol", prev.SemPol, null), this);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Grazd>(x, "Grazd", prev.Grazd, null), this);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, SemPol>(x, "SemPol", prev.SemPol, null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Grazd>(x, "Grazd", prev.Grazd, null), sender);
 
                     }
                     else
                     {
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, SemPol>(x, "SemPol", NullSemPol.Instance, null), this);
-                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Grazd>(x, "Grazd", NullGrazd.Instance, null), this);
+                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, DateTime?>(x, "BirthDate",DateTime.Today.AddYears(-25), null), sender);
+                        /*dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "FirstName", "True", null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "LastName", "True", null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "Otch", "True", null), sender);*/
+
+                        //dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, DateTime?>(x, "BirthDate", DateTime.Today, null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "FirstName", "", null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "LastName", "", null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, string>(x, "Otch", "", null), sender);
+
+
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, SemPol>(x, "SemPol", SemPol.DefaultSemPol, null), sender);
+                        dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<Employee, Grazd>(x, "Grazd", Grazd.DefaultGrazd, null), sender);
 
                     }
                 };
+
 
 
                 dlg.ShowDialog();

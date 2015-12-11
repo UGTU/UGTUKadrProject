@@ -11,6 +11,8 @@ namespace Kadr.UI.Editors
     [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
     public class FactStaffEditor : System.Drawing.Design.UITypeEditor
     {
+       
+
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
             using (Common.ListSelectDialog<Kadr.Data.FactStaffCurrentMainData> dlg = new Kadr.UI.Common.ListSelectDialog<Kadr.Data.FactStaffCurrentMainData>())

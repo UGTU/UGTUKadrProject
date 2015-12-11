@@ -1,4 +1,5 @@
 ﻿using Kadr.Controllers;
+using Kadr.Interfaces;
 using Kadr.UI.Editors;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace Kadr.Data
             return "Редактирование сотрудника";
         }
 
+        [System.ComponentModel.Browsable(false)]
         [System.ComponentModel.DisplayName("ID")]
         [System.ComponentModel.Category("\t\t\t\t\t\t\t\t\t\t\t\tАтрибуты")]
         [System.ComponentModel.Description("Уникальный код сотрудника в штатном расписании")]
@@ -64,7 +66,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Параметры увольнения")]
         [System.ComponentModel.Description("Приказ увольнения сотрудника")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.FiredPrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Kadr.Data.Prikaz PrikazEnd
         {
             get
@@ -141,7 +143,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Центр затрат")]
+        /*[System.ComponentModel.DisplayName("Центр затрат")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Центр затрат")]
         [System.ComponentModel.ReadOnly(false)]
@@ -157,7 +159,7 @@ namespace Kadr.Data
                 factStaff.FundingCenter = value;
             }
         }
-
+        */
     }
 
 }

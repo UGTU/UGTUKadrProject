@@ -442,6 +442,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Common\BaseSelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\BaseSelectionDialog.Designer.cs">
+      <DependentUpon>BaseSelectionDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Common\CustomBaseDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -450,9 +456,7 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -706,6 +710,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.Designer.cs" />
+    <Compile Include="UI\Dialogs\ContractSelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ContractSelectionDialog.Designer.cs">
+      <DependentUpon>ContractSelectionDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dialogs\DatesRangeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -773,6 +783,7 @@
     <Compile Include="UI\Editors\CategoryEditor.cs" />
     <Compile Include="UI\Editors\CategoryVPOEditor.cs" />
     <Compile Include="UI\Editors\CategoryZPEditor.cs" />
+    <Compile Include="UI\Editors\ContractEditor.cs" />
     <Compile Include="UI\Editors\DegreeEditor.cs" />
     <Compile Include="UI\Editors\DepartmentEditor.cs" />
     <Compile Include="UI\Editors\DepManagerPlanStaffEditor.cs" />
@@ -780,6 +791,7 @@
     <Compile Include="UI\Editors\FactStaffEditor.cs" />
     <Compile Include="UI\Editors\FactStaffReplacementReasonEditor.cs" />
     <Compile Include="UI\Editors\FinancingSourceEditor.cs" />
+    <Compile Include="UI\Editors\FiredPrikazEditor.cs" />
     <Compile Include="UI\Editors\FundingCenterEditor.cs" />
     <Compile Include="UI\Editors\GlobalPrikazEditor.cs" />
     <Compile Include="UI\Editors\GrazdEditor.cs" />
@@ -799,6 +811,7 @@
     <Compile Include="UI\Editors\ScienceTypeEditor.cs" />
     <Compile Include="UI\Editors\SemPolEditor.cs" />
     <Compile Include="UI\Editors\MonthEditor.cs" />
+    <Compile Include="UI\Editors\SocialFarePrikazEditor.cs" />
     <Compile Include="UI\Editors\SocialFareTransitEditor.cs" />
     <Compile Include="UI\Editors\StandingTypeEditor.cs" />
     <Compile Include="UI\Editors\TripRegionsEditor.cs" />
@@ -890,6 +903,9 @@
       <DependentUpon>dckadr.dbml</DependentUpon>
       <SubType>Designer</SubType>
     </None>
+    <EmbeddedResource Include="UI\Common\BaseSelectionDialog.resx">
+      <DependentUpon>BaseSelectionDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Common\CustomBaseDialog.resx">
       <DependentUpon>CustomBaseDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -986,6 +1002,9 @@
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.resx" />
+    <EmbeddedResource Include="UI\Dialogs\ContractSelectionDialog.resx">
+      <DependentUpon>ContractSelectionDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\DatesRangeDialog.resx">
       <DependentUpon>DatesRangeDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -1318,6 +1337,8 @@
     <None Include="Resources\add-icon.png" />
     <Content Include="Resources\Kadr.ico" />
     <Content Include="Resources\TreeIcons\briefcase.png" />
+    <Content Include="Resources\TreeIcons\Firedman.png" />
+    <Content Include="Resources\TreeIcons\Firedwoman.png" />
     <Content Include="Resources\TreeIcons\palmtree.png" />
     <Content Include="Resources\TreeIcons\thermometer.png" />
     <Content Include="Resources\TreeIcons\woman_gone.png" />

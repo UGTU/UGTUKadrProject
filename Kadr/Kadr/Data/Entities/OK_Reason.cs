@@ -15,6 +15,13 @@ namespace Kadr.Data
             return reasonname;
         }
 
+
+        partial void OnCreated()
+        {
+            isUvoln = true;
+
+        }
+
     }
 
     public class NullOK_Reason : OK_Reason, INull

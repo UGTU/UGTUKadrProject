@@ -17,7 +17,11 @@ namespace Kadr.Data
             set;
         }
 
-        public FactStaff prevFactStaff
+
+        /// <summary>
+        /// используется для перевода
+        /// </summary>
+        public FactStaff transferPrevFactStaff
         {
             get;
             set;
@@ -54,10 +58,15 @@ namespace Kadr.Data
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(this, "WorkType", workType, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, DateTime>(this, "DateBegin", dateBegin, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "FactStaff", factStaff, null), null);
+
+            //если это перевод, то заносим соответствующие данные
             if (eventKind == MagicNumberController.FactStaffTransferEventKind)
-                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "prevFactStaff", prevFactStaff, null), null);
-            
-            Event curEvent = new Event(CommandManager, this, eventKind, eventType, (eventKind.ForFactStaff) && (eventKind.WithContract.Value), prikaz);
+            {
+                CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "transferPrevFactStaff", prevFactStaff, null), null);
+                //CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FactStaff>(this, "transferPrevFactStaff", transferPrevFactStaff, null), null);
+            }
+
+            Event = new Event(CommandManager, this, eventKind, eventType, (eventKind.ForFactStaff) && (eventKind.WithContract.Value), prikaz);
         }
         
         public override string ToString()
@@ -80,19 +89,25 @@ namespace Kadr.Data
 
         #region EventContractData 
 
-        public Contract FirstContract
+        
+
+        
+
+        public Contract GlobalMainContract
         {
             get
             {
+                if (transferPrevFactStaff != null)
+                    return transferPrevFactStaff.GlobalMainContract;
                 if (FactStaff != null)
-                    if (FactStaff.FirstDesignate != null)
-                        return FactStaff.FirstDesignate.Contract;
+                    return FactStaff.GlobalMainContract;
                 return null;
             }
+
         }
 
 
-        /// <summary>
+        /*/// <summary>
         /// Событие назначения этого изменения
         /// </summary>
         public Event MainEvent
@@ -101,25 +116,39 @@ namespace Kadr.Data
             {
                 return Events.Where(x => x.EventKind != null).Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
             }
-        }
+        }*/
 
         /// <summary>
-        /// Связанный договор
+        /// Событие назначения этого изменения
         /// </summary>
+        private Event currentEvent;
+
+        /// <summary>
+        /// Связанное событие 
+        /// </summary>
+        public Event Event
+        {
+            get
+            {
+                if (currentEvent == null)
+                {
+                    currentEvent = Events.Where(x => x.EventKind != null).Where(x => x.EventKind.ForFactStaff).FirstOrDefault();
+                }
+                return currentEvent;
+            }
+            set
+            {
+                currentEvent = value;
+            }
+        }
+
         public Contract Contract
         {
             get
             {
-                if (MainEvent != null)
-                    return MainEvent.Contract;
-                return null;
+                return Event.Contract;
             }
-            set
-            {
-                if (MainEvent != null)
-                    MainEvent.Contract = value;
 
-            }
         }
 
         /// <summary>
@@ -145,14 +174,14 @@ namespace Kadr.Data
         {
             get
             {
-                if (MainEvent != null)
-                    return MainEvent.EventKind;
+                if (Event != null)
+                    return Event.EventKind;
                 return null;
             }
             set
             {
-                if (MainEvent != null)
-                    MainEvent.EventKind = value;
+                if (Event != null)
+                    Event.EventKind = value;
             }
         }
         #endregion
@@ -190,7 +219,7 @@ namespace Kadr.Data
                 else
                 {
                     if ((Prikaz as Kadr.Data.Common.INullable).IsNull()  && !FactStaff.IsHourStaff)
-                        throw new ArgumentNullException("Приказ изменения.");
+                        throw new ArgumentNullException("Приказ назначения.");
                 }
 
                 if ((StaffCount <= 0) || (StaffCount == null)) 
@@ -199,18 +228,18 @@ namespace Kadr.Data
                     throw new ArgumentNullException("Дата изменения.");
 
 
-                if (MainEvent != null)
-                    (MainEvent as UIX.Views.IValidatable).Validate();
+                if (Event != null)
+                    (Event as UIX.Views.IValidatable).Validate();
 
                 if (SalaryKoeff != null)
                     if (SalaryKoeff.IsNull())
                         SalaryKoeff = null;
                 
-                if (prevFactStaff != null)
+                if (transferPrevFactStaff != null)
                 {
-                    prevFactStaff.Prikaz = Prikaz;
-                    prevFactStaff.DateEnd = DateBegin.AddDays(-1);
-                    prevFactStaff.OK_Reason = MagicNumberController.TransferReason;
+                    transferPrevFactStaff.Prikaz = Prikaz;
+                    transferPrevFactStaff.DateEnd = DateBegin.AddDays(-1);
+                    transferPrevFactStaff.OK_Reason = MagicNumberController.TransferReason;
                 }
                 //проверка на переполнение штатов на начало периода
                 /*decimal factStaffCount = Kadr.Controllers.KadrController.Instance.Model.GetFactStaffByPeriod(DateBegin, DateBegin).Where(fcSt => fcSt.idPlanStaff == FactStaff.idPlanStaff).Sum(fcSt => fcSt.StaffCount);

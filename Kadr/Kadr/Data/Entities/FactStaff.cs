@@ -10,7 +10,7 @@ using Kadr.Data;
 
 namespace Kadr.Data
 {
-    public enum FactStaffState {Present, Incapable, OnTrip, OnVacation};
+    public enum FactStaffState {Present, Incapable, OnTrip, OnVacation, Fired};
 
     public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState, IComparable, IEmployeeExperienceRecord
     {
@@ -79,9 +79,13 @@ namespace Kadr.Data
             get
             {
                 //return FactStaffState.Present;
-                
+
+                var depId = CurrentChange.FactStaff.Department.id;
+                if (!CurrentChange.FactStaff.Employee.FactStaffs.Any(x=>(x.Department.id == depId) &&((x.DateEnd > DateTime.Now)||(x.DateEnd == null)))) return FactStaffState.Fired;
+
                 IEnumerable<Event_BusinessTrip> tripevents = CurrentChange.Events.Where(x => (x.idPrikazEnd == null) && (x.idEventType == MagicNumberController.BeginEventTypeId) && (x.DateBegin < DateTime.Now) && (x.DateEnd > DateTime.Now)).Select(x => x.Event_BusinessTrip);
                 IEnumerable<BusinessTrip> currenttrips = tripevents.Where(t => t != null).Select(x=>x.BusinessTrip);
+
 
                 if (currenttrips.Any()) return FactStaffState.OnTrip;
 
@@ -162,6 +166,20 @@ namespace Kadr.Data
             }
         }
 
+        public decimal CalcStaffCount
+        {
+            get
+            {
+                if (LastChange == null)
+                    return 0;
+                return LastChange.CalcStaffCount;
+            }
+            set
+            {
+                LastChange.CalcStaffCount = value;
+            }
+        }
+
         public Category Category
         {
             get
@@ -193,7 +211,18 @@ namespace Kadr.Data
             }
         }
 
-        
+
+        public Contract GlobalMainContract
+        {
+            get
+            {
+                if (FirstDesignate != null)
+                    if (FirstDesignate.Contract != null)
+                        return FirstDesignate.Contract.IsMainContract ? FirstDesignate.Contract : FirstDesignate.Contract.MainContract;
+                return null;
+            }
+        }
+
 
         #endregion
 
@@ -463,8 +492,8 @@ namespace Kadr.Data
             }
             /*set
             {
-                if (LastChange.idFinancingSource > 0)
-                    return LastChange.FinancingSource;
+                if (CurrentChange.idFinancingSource > 0)
+                    return CurrentChange.FinancingSource;
                 if (PlanStaff != null)
                     return PlanStaff.FinancingSource;
                 return FinancingSource;
@@ -494,15 +523,15 @@ namespace Kadr.Data
         {
             get
             {
-                return CurrentChange.Contract;
+                return CurrentChange.Event.Contract;
             }
             set
             {
-                CurrentChange.Contract = value;
+                CurrentChange.Event.Contract = value;
             }
         }
 
-        public Contract MainContract
+        public Contract CurrentMainContract
         {
             get
             {
@@ -689,9 +718,11 @@ namespace Kadr.Data
                     if (FinancingSource.IsNull())
                         FinancingSource = null;
 
-                if (FundingCenter != null)
-                    if (FundingCenter.IsNull())
-                        FundingCenter = null;
+                if (PlanStaff != null)
+                    FundingCenter = PlanStaff.Dep.FundingCenter;
+                else
+                    FundingCenter = null;
+
                 if (OKVED != null)
                     if (OKVED.IsNull())
                         OKVED = null;

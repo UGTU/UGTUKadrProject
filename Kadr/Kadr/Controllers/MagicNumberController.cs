@@ -8,6 +8,36 @@ namespace Kadr.Controllers
 {
     class MagicNumberController
     {
+        /// <summary>
+        /// возвращает вид работы "почасовики"
+        /// </summary>
+        public static WorkType hourWorkType
+        {
+            get
+            {
+                return KadrController.Instance.Model.WorkTypes.Where(wt => wt.id == 19).FirstOrDefault();
+            }
+        }
+
+        /// <summary>
+        /// возвращает основной вид работы
+        /// </summary>
+        static public WorkType MainWorkType
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.WorkTypes.Where(wt => wt.id == 1).First();
+            }
+        }
+
+        public static Dep UGTUDep
+        {
+            get
+            {
+                return KadrController.Instance.Model.Deps.SingleOrDefault(dep => dep.id == 1);
+            }
+        }
+
         #region EventKinds
         public static EventKind MatResponsibilityKind
         {
@@ -89,7 +119,32 @@ namespace Kadr.Controllers
             }
         }
 
+        static public EventKind BusinessTripKind
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 17);
+            }
+        }
+
+        public static EventKind ValidationKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 18);
+            }
+        }
+        public static EventKind VacationKind
+        {
+            get
+            {
+                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 15);
+            }
+        }
+
         #endregion
+
+        #region EventTypes
 
         public static EventType BeginEventType
         {
@@ -115,31 +170,29 @@ namespace Kadr.Controllers
             }
         }
 
+        #endregion
+
+        #region PrikazType
+
+        //Прием сотрудника
+        public static PrikazType HiredPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 10);
+            }
+        }
+
+        //Увольнение сотрудника
+        public static PrikazType FiredPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 5);
+            }
+        }
         
-
-        static public EventKind BusinessTripKind
-        {
-            get
-            {
-                return Kadr.Controllers.KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 17);
-            }
-        }
-
-        public static EventKind ValidationKind
-        {
-            get
-            {
-                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 18);
-            }
-        }
-        public static EventKind VacationKind
-        {
-            get
-            {
-                return KadrController.Instance.Model.EventKinds.SingleOrDefault(x => x.id == 15);
-            }
-        }
-
+        //Командировка
         public static PrikazType BusinessTripPrikazType
         {
             get
@@ -148,6 +201,7 @@ namespace Kadr.Controllers
             }
         }
 
+        //Материальная ответственность
         public static PrikazType MaterialPrikazType
         {
             get
@@ -156,6 +210,7 @@ namespace Kadr.Controllers
             }
         }
 
+        //Дополнительное образование
         public static PrikazType DopEducPrikazType
         {
             get
@@ -164,6 +219,16 @@ namespace Kadr.Controllers
             }
         }
 
+        //Отпуск
+        public static PrikazType OtpuskPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 21);
+            }
+        }
+
+        //Льготный проезд
         public static PrikazType SocialFareTransitPrikazType
         {
             get
@@ -172,13 +237,27 @@ namespace Kadr.Controllers
             }
         }
 
-        public static PrikazType OtpuskPrikazType
+        //Аттестации
+        public static PrikazType ValidationPrikazType
         {
             get
             {
-                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 21);
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 45);
             }
         }
+
+        /// <summary>
+        /// Договор
+        /// </summary>
+        public static PrikazType ContractPrikazType
+        {
+            get
+            {
+                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 27);
+            }
+        }
+
+        #endregion
 
         static public StandingType DefaultStandingType
         {
@@ -204,13 +283,7 @@ namespace Kadr.Controllers
             }
         }
 
-        public static PrikazType ValidationPrikazType
-        {
-            get
-            {
-                return KadrController.Instance.Model.PrikazTypes.SingleOrDefault(x => x.id == 46);
-            }
-        }
+
 
 
 

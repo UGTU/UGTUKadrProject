@@ -28,6 +28,8 @@ namespace Kadr.Data
             }
             set
             {
+                if (factStaff.Employee != value)
+                    MainContract = null;
                 factStaff.Employee = value;
             }
         }

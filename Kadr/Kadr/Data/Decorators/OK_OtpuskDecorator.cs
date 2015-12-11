@@ -29,7 +29,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Атрибуты")]
         [System.ComponentModel.Description("Уникальный код отпуска")]
         [System.ComponentModel.ReadOnly(true)]
-        [System.ComponentModel.Browsable(true)]
+        [System.ComponentModel.Browsable(false)]
         public int ID
         {
             get
@@ -134,7 +134,7 @@ namespace Kadr.Data
         [System.ComponentModel.Category("Льготный проезд")]
         [System.ComponentModel.Description("Льготный проезд")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.Editor(typeof(UI.Editors.PrikazEditor), typeof(UITypeEditor))]
+        [System.ComponentModel.Editor(typeof(PrikazEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Prikaz PrikazLgot
         {
             get { return (ok_Otpusk.SocialFareTransit != null)?ok_Otpusk.SocialFareTransit.Prikaz:null; }

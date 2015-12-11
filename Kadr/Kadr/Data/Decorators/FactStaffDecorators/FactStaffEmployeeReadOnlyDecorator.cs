@@ -34,7 +34,7 @@ namespace Kadr.Data
         {
             get
             {
-                return factStaff.MainContract;
+                return factStaff.GlobalMainContract;
             }
             
         }

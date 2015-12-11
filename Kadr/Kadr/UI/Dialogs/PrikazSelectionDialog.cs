@@ -1,5 +1,4 @@
 ﻿using Kadr.Controllers;
-using Kadr.Controllers.CRUDControllers;
 using Kadr.Data;
 using Kadr.UI.Common;
 using System;

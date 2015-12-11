@@ -1,4 +1,5 @@
 ﻿using Kadr.Controllers;
+using Kadr.Interfaces;
 using Kadr.UI.Editors;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using Kadr.Data.Converters;
 
 namespace Kadr.Data
 {
-    class FactStaffMainBaseDecorator: FactStaffBaseDecorator
+    class FactStaffMainBaseDecorator : FactStaffBaseDecorator, IPrikazTypeProvider
     {
         public FactStaffMainBaseDecorator(FactStaff factStaff)
             : base(factStaff)
@@ -159,16 +160,17 @@ namespace Kadr.Data
         [System.ComponentModel.Category("\t\t\tПараметры договора/ доп. соглашения")]
         [System.ComponentModel.Description("Основной договор")]
         [System.ComponentModel.ReadOnly(false)]
-        [System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.ContractConvertor))]
+        //[System.ComponentModel.TypeConverter(typeof(Kadr.Data.Converters.ContractConvertor))]
+        [System.ComponentModel.Editor(typeof(Kadr.UI.Editors.ContractEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Contract MainContract
         {
             get
             {
-                return factStaff.MainContract;
+                return factStaff.CurrentMainContract;
             }
             set
             {
-                factStaff.MainContract = value;
+                factStaff.CurrentMainContract = value;
             }
         }
 
@@ -330,5 +332,12 @@ namespace Kadr.Data
         }
 
         #endregion
+
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.ReadOnly(true)]
+        public PrikazType PrikazType
+        {
+            get { return MagicNumberController.HiredPrikazType; }
+        }
     }
 }

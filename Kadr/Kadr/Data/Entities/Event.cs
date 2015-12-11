@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Kadr.Data;
 using System.Data.Linq;
+using Kadr.Controllers;
 
 namespace Kadr.Data
 {
@@ -50,7 +51,7 @@ namespace Kadr.Data
 
             if (WithContract) 
             {
-                new Contract(CommandManager, this, eventKind.ForFactStaff ? factStaffHistory.FirstContract : null, "", DateTime.Today.Date, DateTime.Today.Date);
+                new Contract(CommandManager, this, eventKind.ForFactStaff ? factStaffHistory.GlobalMainContract : null, "", DateTime.Today.Date, DateTime.Today.Date);
             }
         }
         
@@ -101,6 +102,23 @@ namespace Kadr.Data
                 if (Prikaz.IsNull())
                     Prikaz = null;
             }
+
+            /*if (action == ChangeAction.Insert)
+            {
+                if ((EventKind == Kadr.Controllers.MagicNumberController.FactStaffCreateEventKind) && (Contract != null))
+                {
+                    Prikaz ContractPrikaz = CRUDPrikaz.Create(Contract.ContractName, Kadr.Controllers.MagicNumberController.ContractPrikazType, Contract.DateContract, Contract.DateBegin, Contract.DateEnd);
+                    if ((ContractPrikaz != null) && (FactStaffHistory != null))
+                    {
+                        FactStaff currentFactStaff = FactStaffHistory.FactStaff;
+                        if (!(currentFactStaff.idlaborcontrakt > 0))
+                            currentFactStaff.idlaborcontrakt = ContractPrikaz.id;
+                        else
+                            FactStaffHistory.idlaborcontrakt = ContractPrikaz.id;
+                    }
+                }
+            }*/
+
         }
 
         #endregion

@@ -33,7 +33,6 @@
             this.LeaveReasonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idreasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reasonnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isUvolnDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isoldDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -76,7 +75,6 @@
             this.dgvLeaveReason.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idreasonDataGridViewTextBoxColumn,
             this.reasonnameDataGridViewTextBoxColumn,
-            this.isUvolnDataGridViewCheckBoxColumn,
             this.isoldDataGridViewTextBoxColumn});
             this.dgvLeaveReason.DataSource = this.LeaveReasonBindingSource;
             this.dgvLeaveReason.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -103,13 +101,6 @@
             this.reasonnameDataGridViewTextBoxColumn.DataPropertyName = "reasonname";
             this.reasonnameDataGridViewTextBoxColumn.HeaderText = "Наименование причины";
             this.reasonnameDataGridViewTextBoxColumn.Name = "reasonnameDataGridViewTextBoxColumn";
-            // 
-            // isUvolnDataGridViewCheckBoxColumn
-            // 
-            this.isUvolnDataGridViewCheckBoxColumn.DataPropertyName = "isUvoln";
-            this.isUvolnDataGridViewCheckBoxColumn.HeaderText = "isUvoln";
-            this.isUvolnDataGridViewCheckBoxColumn.Name = "isUvolnDataGridViewCheckBoxColumn";
-            this.isUvolnDataGridViewCheckBoxColumn.Visible = false;
             // 
             // isoldDataGridViewTextBoxColumn
             // 
@@ -144,7 +135,6 @@
         private System.Windows.Forms.BindingSource LeaveReasonBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idreasonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn reasonnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isUvolnDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isoldDataGridViewTextBoxColumn;
     }
 }
