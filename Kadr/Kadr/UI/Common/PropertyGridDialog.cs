@@ -137,7 +137,7 @@ namespace Kadr.UI.Common
             InitializeComponent();
             SubscribeContainerEvents();
             commandProperyGrid1.SelectedGridItemChanged += CommandProperyGrid1_SelectedGridItemChanged;
-            //commandProperyGrid1.LabelColWidth = commandProperyGrid1.Width/2;
+            //commandProperyGrid1.LabelColWidth = commandProperyGrid1.Width/4;
         }
 
         private void CommandProperyGrid1_SelectedGridItemChanged(object sender, SelectedGridItemChangedEventArgs e)
@@ -234,7 +234,7 @@ namespace Kadr.UI.Common
 
             }
         }
-
+        /*
         private void commandProperyGrid1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (commandProperyGrid1.SelectedGridItem.PropertyDescriptor.ComponentType == typeof(DateTime))
@@ -255,5 +255,6 @@ namespace Kadr.UI.Common
         {
             MessageBox.Show("Clicked");
         }
+        */
     }
 }
