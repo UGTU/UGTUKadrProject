@@ -90,6 +90,7 @@
             this.helpProvider1.SetHelpString(this.OKBtn, "Вносит изменения в базу данных и закрывает окно.");
             this.OKBtn.Location = new System.Drawing.Point(280, 3);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
+            this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
             // 
             // HelpBtn
             // 

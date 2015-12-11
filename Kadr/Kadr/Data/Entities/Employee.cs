@@ -6,6 +6,7 @@ using Kadr.Data.Common;
 using Kadr.Controllers;
 using System.Data.Linq;
 
+
 namespace Kadr.Data
 {
     public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IComparable, IExperienceProvider
