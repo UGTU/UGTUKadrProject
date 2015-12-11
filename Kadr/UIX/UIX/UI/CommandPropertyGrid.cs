@@ -30,6 +30,12 @@ namespace UIX.UI
             }
         }
 
+        protected override void OnMouseClick(MouseEventArgs e)
+        {
+            base.OnMouseClick(e);
+            
+        }
+
         /// <summary>
         /// Регистратор команд
         /// </summary>
@@ -43,7 +49,10 @@ namespace UIX.UI
         {
             InitializeComponent();
         }
-
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+        }
         protected override void OnPropertyValueChanged(PropertyValueChangedEventArgs e)
         {
             if (CommandRegister != null)

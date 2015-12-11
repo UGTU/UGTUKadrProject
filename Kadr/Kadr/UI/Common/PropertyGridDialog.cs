@@ -135,7 +135,42 @@ namespace Kadr.UI.Common
         public PropertyGridDialog()
         {
             InitializeComponent();
+            SubscribeContainerEvents();
+            commandProperyGrid1.SelectedGridItemChanged += CommandProperyGrid1_SelectedGridItemChanged;
+            //commandProperyGrid1.LabelColWidth = commandProperyGrid1.Width/2;
         }
+
+        private void CommandProperyGrid1_SelectedGridItemChanged(object sender, SelectedGridItemChangedEventArgs e)
+        {
+            //
+        }
+
+        private void SubscribeContainerEvents()
+        {
+            SubscribeControlsEvents(commandProperyGrid1);
+        }
+
+        private void SubscribeControlsEvents(Control control)
+        {
+            //control.PreviewKeyDown += Item_PreviewKeyDown;
+            control.KeyPress += Control_KeyPress;
+            control.TabStop = true;
+            foreach (Control item in control.Controls)
+            {
+                SubscribeControlsEvents(item);
+            }
+        }
+
+        private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MessageBox.Show(sender.ToString());
+        }
+
+        private void Item_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            MessageBox.Show(sender.ToString());
+        }
+
         // см. комментария для initialObjects
         private object initialObject;
 
@@ -209,6 +244,16 @@ namespace Kadr.UI.Common
 
 
             }
+        }
+
+        private void commandProperyGrid1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("!");
+        }
+
+        private void commandProperyGrid1_MouseClick(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show("Clicked");
         }
     }
 }
