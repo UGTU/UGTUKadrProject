@@ -30,6 +30,19 @@ namespace Kadr.Data
              }
          }
 
+        /// <summary>
+        /// возвращает все договоры сотрудника (без доп соглашений)
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Contract> GetAllMainContracts()
+        {
+            return FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(y => y.Events).Where(x => x.EventKind != null).Where(x
+                        => x.EventKind.ForFactStaff).Where(x => x.Contract != null).Select(z => z.Contract).Where(m => m.idMainContract == null).Where(x => x.id > 0).Concat(
+                            FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(y => y.Events).Where(x => x.EventKind != null).Where(x
+                              => x.EventKind.ForFactStaff).Where(x => x.Contract != null).Select(z => z.Contract).Where(m => m.idMainContract != null).Select(x => x.MainContract).Where(x => x.id > 0)).Distinct();
+        }
+
+
         public EmployeeRank Rank
         {
             get

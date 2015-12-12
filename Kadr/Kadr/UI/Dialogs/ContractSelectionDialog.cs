@@ -44,11 +44,8 @@ namespace Kadr.UI.Dialogs
                 return;
             }
             
-            //выбираем только договоры (без доп соглашений) 
-            var res = Employee.FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(y => y.Events).Where(x => x.EventKind != null).Where(x
-                        => x.EventKind.ForFactStaff).Where(x => x.Contract != null).Select(z => z.Contract).Where(m => m.idMainContract == null).Where(x => x.id > 0).Concat(
-                            Employee.FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(y => y.Events).Where(x => x.EventKind != null).Where(x
-                              => x.EventKind.ForFactStaff).Where(x => x.Contract != null).Select(z => z.Contract).Where(m => m.idMainContract != null).Select(x => x.MainContract).Where(x => x.id > 0)).Distinct();
+            //берем только договоры (без доп соглашений) 
+            var res = Employee.GetAllMainContracts();
 
             if (res != null)
                     ObjectListBindingSource.DataSource = res.ToList();
@@ -63,16 +60,16 @@ namespace Kadr.UI.Dialogs
 
         private void ContractSelectionDialog_Load(object sender, EventArgs e)
         {
-            dtpDateEnd.Text = null;
+            if (!dtpDateEnd.Checked)
+                dtpDateEnd.Text = null;
         }
 
         private void OKBtn_Click(object sender, EventArgs e)
         {
             if (pAdding.Visible)
             {
-
                 Contract c = CRUDContract.Create(tbContractName.Text, dtpDateContract.Value, 
-                    (dtpDateBegin.Checked) ? dtpDateBegin.Value : (DateTime?)null,
+                    dtpDateBegin.Value,
                     (dtpDateEnd.Checked) ? dtpDateEnd.Value : (DateTime?)null);
 
                 dialogObject = c;
@@ -81,10 +78,12 @@ namespace Kadr.UI.Dialogs
 
         private void dtpDateContract_ValueChanged(object sender, EventArgs e)
         {
-            bool Checked = dtpDateEnd.Checked;
             dtpDateBegin.Value = dtpDateContract.Value;
-            dtpDateEnd.Value = dtpDateContract.Value;
-            dtpDateEnd.Checked = Checked;
+            if (!dtpDateEnd.Checked)
+            {
+                dtpDateEnd.Value = dtpDateContract.Value;
+                dtpDateEnd.Checked = false;
+            }
         }
     }
 }
