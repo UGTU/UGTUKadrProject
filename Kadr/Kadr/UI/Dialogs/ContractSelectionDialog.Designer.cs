@@ -139,6 +139,7 @@
             this.dtpDateContract.Name = "dtpDateContract";
             this.dtpDateContract.Size = new System.Drawing.Size(251, 20);
             this.dtpDateContract.TabIndex = 5;
+            this.dtpDateContract.ValueChanged += new System.EventHandler(this.dtpDateContract_ValueChanged);
             // 
             // label3
             // 
@@ -171,7 +172,7 @@
             // 
             // ContractSelectionDialog
             // 
-            this.ApplyButtonVisible = true;
+            this.ApplyButtonVisible = false;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 123);

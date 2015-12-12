@@ -10,10 +10,24 @@ namespace Kadr.UI.Dialogs
 {
     public partial class ContractSelectionDialog : BaseSelectionDialog
     {
+
         public Employee Employee
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// загрузка данных из имеющегося объекта
+        /// </summary>
+        /// <param name="contract"></param>
+        private void ReadObjectData(Contract contract)
+        {
+            tbContractName.Text = contract.ContractName;
+            dtpDateBegin.Value = Convert.ToDateTime(contract.DateBegin);
+            dtpDateContract.Value = Convert.ToDateTime(contract.DateContract);
+            dtpDateEnd.Value = contract.DateEnd?? Convert.ToDateTime(contract.DateContract);
+            dtpDateEnd.Checked = contract.DateEnd != null;
         }
 
         protected override void DoRefreshList()
@@ -22,6 +36,12 @@ namespace Kadr.UI.Dialogs
             if ((Employee == null) || (Employee.IsNull()))
             {
                 AddingModeOn();
+
+                if (dialogObject != null)
+                {
+                    ReadObjectData(dialogObject as Contract);
+                }
+                return;
             }
             
             //выбираем только договоры (без доп соглашений) 
@@ -57,6 +77,14 @@ namespace Kadr.UI.Dialogs
 
                 dialogObject = c;
             }
+        }
+
+        private void dtpDateContract_ValueChanged(object sender, EventArgs e)
+        {
+            bool Checked = dtpDateEnd.Checked;
+            dtpDateBegin.Value = dtpDateContract.Value;
+            dtpDateEnd.Value = dtpDateContract.Value;
+            dtpDateEnd.Checked = Checked;
         }
     }
 }
