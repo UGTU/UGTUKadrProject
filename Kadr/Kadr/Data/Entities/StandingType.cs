@@ -13,6 +13,7 @@ namespace Kadr.Data
         /// <returns>Вид работы</returns>
         public static KindOfExperience GetKindOfExperience(this StandingType standingType)
         {
+            if (standingType == null) throw new ArgumentNullException(nameof(standingType));
             var values = Enum.GetValues(typeof(KindOfExperience)).Cast<int>();
             if (values.Contains(standingType.id))
                 return (KindOfExperience)standingType.id;

@@ -15,7 +15,7 @@ namespace Kadr.Tests
                 FactStaff = new FactStaff(){Department = new Dep() }
             };
 
-            Assert.AreEqual(fsh.Territory, NullRegionType.Instance.GetTerritoryCondition());
+            Assert.AreEqual(fsh.Territory, RegionType.Default);
 
             fsh.FactStaff.Department.DepartmentHistories.Add(
                 new DepartmentHistory() { RegionType = new RegionType() { id = 2 }});

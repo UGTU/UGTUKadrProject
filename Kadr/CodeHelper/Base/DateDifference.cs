@@ -37,6 +37,21 @@ namespace APG.Base
             return Days ^ Months ^ Years;
         }
 
+        #region Overrides of Object
+
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>
+        /// A string that represents the current object.
+        /// </returns>
+        public override string ToString()
+        {
+            return $"{Days}/{Months}/{Years}";
+        }
+
+        #endregion
+
         public DateSpan() { }
 
         public DateSpan(int days, int months, int years)

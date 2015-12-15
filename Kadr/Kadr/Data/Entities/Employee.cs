@@ -143,8 +143,8 @@ namespace Kadr.Data
                 var standingSet = EmployeeStandings.Cast<IEmployeeExperienceRecord>();
                 // Записи из штатного расписания, эта организация
                 // ===Записи замещения временно исключены, поскольку вызывают зацикливание программы====
-                // var stuffSet = FactStaffs.Cast<IEmployeeExperienceRecord>();
-                var stuffSet = FactStaffs.Where(x => x.DateBegin < DateTime.Today).Where(x=>!x.isReplacement).Cast<IEmployeeExperienceRecord>();
+                 var stuffSet = FactStaffs.SelectMany(x=>x.FactStaffHistories).Cast<IEmployeeExperienceRecord>();
+                //var stuffSet = FactStaffs.Where(x => x.DateBegin < DateTime.Today).Where(x=>!x.isReplacement).Cast<IEmployeeExperienceRecord>();
                 // Записи о пребываниях в различных регионах во время командировок
                 var tripsSet = GetAllRegionTypes().Cast<IEmployeeExperienceRecord>();
 

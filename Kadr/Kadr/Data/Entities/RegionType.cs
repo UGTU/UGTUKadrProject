@@ -13,6 +13,7 @@ namespace Kadr.Data
         /// <returns>Территориальные условия</returns>
         public static TerritoryConditions GetTerritoryCondition(this RegionType regionType)
         {
+            if (regionType == null) throw new ArgumentNullException(nameof(regionType));
             var values = Enum.GetValues(typeof (TerritoryConditions)).Cast<int>();
             if (values.Contains(regionType.id))
                 return (TerritoryConditions) regionType.id;
@@ -21,6 +22,8 @@ namespace Kadr.Data
     }
     public  partial class RegionType: INullable
     {
+        public static readonly RegionType Default = new RegionType() {id=1};
+
         public static RegionType UsualConditionRegionType
         {
             get
