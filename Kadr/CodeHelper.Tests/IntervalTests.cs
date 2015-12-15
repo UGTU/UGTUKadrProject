@@ -181,6 +181,7 @@ namespace CodeHelper.Tests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(RangeParametersException<DateTime>))]
         public void FutureDatesSequnceTest()
         {
 

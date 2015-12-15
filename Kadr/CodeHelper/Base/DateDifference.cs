@@ -41,6 +41,7 @@ namespace APG.Base
 
         public DateSpan(int days, int months, int years)
         {
+            if (days < 0 || months < 0 || years < 0) throw new ArgumentException("Значения параметров должны быть больше нуля.");
             if (days > 31 || months > 11)
                 throw new ArgumentException("Число дней в дате должно быть меньше 32 и число месяцев меньше 12");
             _year = years;
@@ -48,6 +49,12 @@ namespace APG.Base
             _day = days;
         }
 
+        public static DateSpan operator - (DateSpan ds, int days)
+        {
+            var years = days/(30*12);
+            var months = days % (30*12) / 30;            
+            return new DateSpan(ds.Days - days % 30, ds.Months - months, ds.Years - years);
+        } 
         public int Years => _year;
 
         public int Months => _month;
@@ -64,7 +71,7 @@ namespace APG.Base
             sumYears += sumMonths / 12;
 
             return new DateSpan(sumDays % 30, sumMonths % 12, sumYears);
-        }
+        }        
 
         public static DateSpan operator +(DateSpan dateSpan, DateSpan other)
         {
