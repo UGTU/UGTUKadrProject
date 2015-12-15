@@ -253,6 +253,7 @@
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryPPCategoryDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryStaffCountDecorator.cs" />
     <Compile Include="Data\Entities\Event_BusinessTrip.cs" />
+    <Compile Include="Helpers\SqlExceptionHelper.cs" />
     <Compile Include="Interfaces\IEntitySelector.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
