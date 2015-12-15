@@ -18,7 +18,9 @@ namespace Kadr.Data.Converters
 
         public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
         {
+            col = null;
             return true;
+
         }
 
         protected virtual ICollection GetCollection(System.ComponentModel.ITypeDescriptorContext context)

@@ -143,7 +143,7 @@ namespace Kadr.Data
             }
         }
 
-        [System.ComponentModel.DisplayName("Центр затрат")]
+        /*[System.ComponentModel.DisplayName("Центр затрат")]
         [System.ComponentModel.Category("\t\t\t\t\t\tОсновные параметры")]
         [System.ComponentModel.Description("Центр затрат")]
         [System.ComponentModel.ReadOnly(false)]
@@ -159,7 +159,7 @@ namespace Kadr.Data
                 factStaff.FundingCenter = value;
             }
         }
-
+        */
     }
 
 }

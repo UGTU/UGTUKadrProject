@@ -34,8 +34,9 @@
             // 
             // commandProperyGrid1
             // 
-            this.commandProperyGrid1.Size = new System.Drawing.Size(576, 620);
-            // 
+            //this.commandProperyGrid1.LabelColWidth = 507;
+            //this.commandProperyGrid1.Size = new System.Drawing.Size(576, 620);
+           // 
             // btnPrikaz
             // 
             this.btnPrikaz.Click += new System.EventHandler(this.btnPrikaz_Click);
@@ -55,27 +56,23 @@
             this.ApplyBtn.Location = new System.Drawing.Point(485, 0);
             this.helpProvider1.SetShowHelp(this.ApplyBtn, true);
             this.ApplyBtn.Size = new System.Drawing.Size(88, 30);
-            this.ApplyBtn.Text = "Применить";
             // 
             // CancelBtn
             // 
             this.helpProvider1.SetHelpString(this.CancelBtn, "Отменяет все изменения с момента последноего сохранения и закрывает окно.");
             this.CancelBtn.Location = new System.Drawing.Point(390, 0);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
-            this.CancelBtn.Text = "Отмена";
             // 
             // OKBtn
             // 
             this.helpProvider1.SetHelpString(this.OKBtn, "Вносит изменения в базу данных и закрывает окно.");
             this.OKBtn.Location = new System.Drawing.Point(298, 0);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
-            this.OKBtn.Text = "ОК";
             // 
             // HelpBtn
             // 
             this.helpProvider1.SetHelpString(this.HelpBtn, "Вызов справки по диалоговому окну");
             this.helpProvider1.SetShowHelp(this.HelpBtn, true);
-            this.HelpBtn.Text = "Помощь";
             // 
             // PropertyGridDialogAdding
             // 

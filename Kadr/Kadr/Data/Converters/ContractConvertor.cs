@@ -38,7 +38,7 @@ namespace Kadr.Data.Converters
             }
             else
             {
-                return Kadr.Controllers.KadrController.Instance.Model.Contracts.ToArray();
+                return Kadr.Controllers.KadrController.Instance.Model.Contracts.Where(x => x.MainContract == null).ToArray();
             }
         }
 

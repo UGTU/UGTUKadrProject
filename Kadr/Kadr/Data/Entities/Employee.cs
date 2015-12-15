@@ -6,28 +6,42 @@ using Kadr.Data.Common;
 using Kadr.Controllers;
 using System.Data.Linq;
 
+
 namespace Kadr.Data
 {
     public partial class Employee : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IComparable, IExperienceProvider
     {
-        /* public string EmployeeName
+         public string currentEmployeeName
          {
              get
              {
-                 return this.LastName + " " + this.FirstName + " " + this.Otch;
+                 return LastName + " " + FirstName + " " + Otch;
              }
          }
 
-         public string EmployeeSmallName
-         {
+         public string currentEmployeeSmallName
+        {
              get
              {
                  if ((FirstName != null) && (Otch != null))
-                     return this.this + " " + LastName.FirstName[0] + "." + this.Otch[0] + ".";
+                     return LastName + " " + FirstName[0] + "." + Otch[0] + ".";
                  else
                      return LastName;
              }
-         }*/
+         }
+
+        /// <summary>
+        /// возвращает все договоры сотрудника (без доп соглашений)
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Contract> GetAllMainContracts()
+        {
+            return FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(y => y.Events).Where(x => x.EventKind != null).Where(x
+                        => x.EventKind.ForFactStaff).Where(x => x.Contract != null).Select(z => z.Contract).Where(m => m.idMainContract == null).Where(x => x.id > 0).Concat(
+                            FactStaffs.SelectMany(x => x.FactStaffHistories).SelectMany(y => y.Events).Where(x => x.EventKind != null).Where(x
+                              => x.EventKind.ForFactStaff).Where(x => x.Contract != null).Select(z => z.Contract).Where(m => m.idMainContract != null).Select(x => x.MainContract).Where(x => x.id > 0)).Distinct();
+        }
+
 
         public EmployeeRank Rank
         {
@@ -60,8 +74,8 @@ namespace Kadr.Data
         public override string ToString()
         {
             if (BirthDate != null)
-                return EmployeeName + " ("+BirthDate.Value.ToShortDateString()+")";
-            return this.EmployeeName;
+                return currentEmployeeName + " ("+BirthDate.Value.ToShortDateString()+")";
+            return this.currentEmployeeName;
         }
 
 
@@ -130,7 +144,7 @@ namespace Kadr.Data
                 // Записи из штатного расписания, эта организация
                 // ===Записи замещения временно исключены, поскольку вызывают зацикливание программы====
                 // var stuffSet = FactStaffs.Cast<IEmployeeExperienceRecord>();
-                var stuffSet = FactStaffs.Where(x=>!x.isReplacement).Cast<IEmployeeExperienceRecord>();
+                var stuffSet = FactStaffs.Where(x => x.DateBegin < DateTime.Today).Where(x=>!x.isReplacement).Cast<IEmployeeExperienceRecord>();
                 // Записи о пребываниях в различных регионах во время командировок
                 var tripsSet = GetAllRegionTypes().Cast<IEmployeeExperienceRecord>();
 

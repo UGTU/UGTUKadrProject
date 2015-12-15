@@ -166,6 +166,20 @@ namespace Kadr.Data
             }
         }
 
+        public decimal CalcStaffCount
+        {
+            get
+            {
+                if (LastChange == null)
+                    return 0;
+                return LastChange.CalcStaffCount;
+            }
+            set
+            {
+                LastChange.CalcStaffCount = value;
+            }
+        }
+
         public Category Category
         {
             get
@@ -197,7 +211,18 @@ namespace Kadr.Data
             }
         }
 
-        
+
+        public Contract GlobalMainContract
+        {
+            get
+            {
+                if (FirstDesignate != null)
+                    if (FirstDesignate.Contract != null)
+                        return FirstDesignate.Contract.IsMainContract ? FirstDesignate.Contract : FirstDesignate.Contract.MainContract;
+                return null;
+            }
+        }
+
 
         #endregion
 
@@ -498,15 +523,15 @@ namespace Kadr.Data
         {
             get
             {
-                return CurrentChange.Contract;
+                return CurrentChange.Event.Contract;
             }
             set
             {
-                CurrentChange.Contract = value;
+                CurrentChange.Event.Contract = value;
             }
         }
 
-        public Contract MainContract
+        public Contract CurrentMainContract
         {
             get
             {
@@ -693,9 +718,11 @@ namespace Kadr.Data
                     if (FinancingSource.IsNull())
                         FinancingSource = null;
 
-                if (FundingCenter != null)
-                    if (FundingCenter.IsNull())
-                        FundingCenter = null;
+                if (PlanStaff != null)
+                    FundingCenter = PlanStaff.Dep.FundingCenter;
+                else
+                    FundingCenter = null;
+
                 if (OKVED != null)
                     if (OKVED.IsNull())
                         OKVED = null;

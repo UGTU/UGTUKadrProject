@@ -8,6 +8,28 @@ namespace Kadr.Controllers
 {
     class MagicNumberController
     {
+        /// <summary>
+        /// возвращает вид работы "почасовики"
+        /// </summary>
+        public static WorkType hourWorkType
+        {
+            get
+            {
+                return KadrController.Instance.Model.WorkTypes.Where(wt => wt.id == 19).FirstOrDefault();
+            }
+        }
+
+        /// <summary>
+        /// возвращает основной вид работы
+        /// </summary>
+        static public WorkType MainWorkType
+        {
+            get
+            {
+                return Kadr.Controllers.KadrController.Instance.Model.WorkTypes.Where(wt => wt.id == 1).First();
+            }
+        }
+
         public static Dep UGTUDep
         {
             get

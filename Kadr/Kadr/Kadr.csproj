@@ -195,6 +195,7 @@
   <ItemGroup>
     <Compile Include="Command\CreatePlanStaffCommand.cs" />
     <Compile Include="Controllers\BonusController.cs" />
+    <Compile Include="Controllers\CRUDControllers\CRUDContract.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDDopEducation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDEducation.cs" />
     <Compile Include="Controllers\CRUDControllers\CRUDEmployee.cs" />
@@ -456,9 +457,7 @@
     </Compile>
     <Compile Include="Data\Converters\CustomBooleanConverter.cs" />
     <Compile Include="Data\Converters\CustomPropertiesTypeConverter.cs" />
-    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UI\Common\DataGridViewDateTimeColumn.cs" />
     <Compile Include="UI\Common\DateChooserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -785,6 +784,7 @@
     <Compile Include="UI\Editors\CategoryEditor.cs" />
     <Compile Include="UI\Editors\CategoryVPOEditor.cs" />
     <Compile Include="UI\Editors\CategoryZPEditor.cs" />
+    <Compile Include="UI\Editors\ContractEditor.cs" />
     <Compile Include="UI\Editors\DegreeEditor.cs" />
     <Compile Include="UI\Editors\DepartmentEditor.cs" />
     <Compile Include="UI\Editors\DepManagerPlanStaffEditor.cs" />

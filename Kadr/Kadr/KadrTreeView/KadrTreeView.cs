@@ -145,7 +145,8 @@ namespace Kadr.KadrTreeView
         /// <param name="employee"></param>
         public bool FindAndSelectEmployee(Employee employee)
         {
-
+            if (employee == null)
+                return false;
             //поиск соответствующей записи в штатном
             IEnumerable<FactStaff> emplFactStaff = employee.FactStaffs;
             if (emplFactStaff.Count() == 0)
@@ -167,7 +168,7 @@ namespace Kadr.KadrTreeView
             if (seachFactStaff == null)
                 seachFactStaff = emplFactStaff.OrderByDescending(fcSt => fcSt.DateEnd).FirstOrDefault();
 
-            Kadr.KadrTreeView.RootNodeObject depObj = FindAndSelectDepartment(KadrController.Instance.Model.Deps.Where(dep => dep.id == seachFactStaff.Department.id).FirstOrDefault());
+            RootNodeObject depObj = FindAndSelectDepartment(KadrController.Instance.Model.Deps.Where(dep => dep.id == seachFactStaff.Department.id).FirstOrDefault());
             if (depObj == null)
                 return false;
 

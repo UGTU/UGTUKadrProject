@@ -279,7 +279,7 @@ namespace Kadr.Controllers
             return KadrController.Instance.Model.FactStaffs.Where(fS => fS.idMainFactStaff == null).Where(
                         fact => ((fact.Dep == Department) || (Department.ManagerDepartment == null)) && (fact.Dep != null)).OrderBy(
                             fcSt => fcSt.FinancingSource.OrderBy).ThenBy(fcSt => fcSt.Employee.EmployeeName).ToArray().Where(fact =>
-                            (fact.WorkType == Kadr.Data.WorkType.hourWorkType)).ToArray();
+                            (fact.WorkType == MagicNumberController.hourWorkType)).ToArray();
         }
 
         public IEnumerable<BonusType> GetCurrentBonusTypes()

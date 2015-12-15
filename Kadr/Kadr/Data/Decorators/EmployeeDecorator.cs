@@ -518,9 +518,9 @@ namespace Kadr.Data
         {
             get
             {
-                return _employee.EmployeeExperiences
+                return "";/* _employee.EmployeeExperiences
                     .SequenceInterval()
-                    .GetExperience().FormatAsExperience();
+                    .GetExperience().FormatAsExperience();*/
             }
         }
 
@@ -533,10 +533,10 @@ namespace Kadr.Data
         {
             get
             {
-                return _employee.EmployeeExperiences
+                return "";/* _employee.EmployeeExperiences
                   .Where(x => x.Experience == KindOfExperience.Pedagogical)
                   .SequenceInterval()
-                  .GetExperience().FormatAsExperience();
+                  .GetExperience().FormatAsExperience();*/
             }
         }
 
@@ -549,7 +549,7 @@ namespace Kadr.Data
         {
             get
             {
-                return GetSpecificNorthExperienceStr();
+                return "";// GetSpecificNorthExperienceStr();
             }
         }
 
@@ -562,7 +562,7 @@ namespace Kadr.Data
         {
             get
             {
-                return GetSpecificNorthExperienceStr(TerritoryConditions.North);
+                return "";// GetSpecificNorthExperienceStr(TerritoryConditions.North);
             }
         }
         [DisplayName("Трудовой стаж РКС")]
@@ -574,23 +574,23 @@ namespace Kadr.Data
         {
             get
             {
-                return GetSpecificNorthExperienceStr(TerritoryConditions.StrictNorth);
+                return "";// GetSpecificNorthExperienceStr(TerritoryConditions.StrictNorth);
             }
         }
 
         private string GetSpecificNorthExperienceStr()
         {
-            return _employee.EmployeeExperiences.FilterNorthExperience().
+            return "";/* _employee.EmployeeExperiences.FilterNorthExperience().
                 SequenceInterval()
-                .GetExperience().FormatAsExperience();
+                .GetExperience().FormatAsExperience();*/
         }
         private string GetSpecificNorthExperienceStr(TerritoryConditions conditions)
         {
-            return _employee.EmployeeExperiences
+            return "";/* _employee.EmployeeExperiences
                 .FilterNorthExperience()
                 .Where(x=>x.Territory == conditions)
                 .SequenceInterval()
-                .GetExperience().FormatAsExperience();
+                .GetExperience().FormatAsExperience();*/
         }
 
         [DisplayName("Трудовой стаж в организации")]
@@ -602,11 +602,11 @@ namespace Kadr.Data
         {
             get
             {
-                return _employee.EmployeeExperiences
+                return "";/* _employee.EmployeeExperiences
                     .Where(x => x.Affilation == Affilations.Organization)
                     .SequenceInterval()
                     .GetExperience()
-                    .FormatAsExperience();
+                    .FormatAsExperience();*/
             }
         }
 
@@ -619,12 +619,12 @@ namespace Kadr.Data
         {
             get
             {
-                return _employee.EmployeeExperiences
+                return "";/* _employee.EmployeeExperiences
                   .Where(x => x.Affilation == Affilations.Organization)
                   .SequenceInterval()
                   .Continious()
                   .GetExperience()
-                  .FormatAsExperience();
+                  .FormatAsExperience();*/
             }
         }
         #endregion

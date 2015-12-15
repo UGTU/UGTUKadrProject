@@ -35,7 +35,7 @@ namespace Kadr.UI.Dialogs
             if (BeforeApplyAction != null)
                 BeforeApplyAction(newObject);
 
-            if (CRUDFactStaff.CreateWithEmployee(null, PlanStaff, null, false, true, SelectedObjects[0] as Employee, CommandManager, null, WorkType.MainWorkType,null,true) != DialogResult.OK)
+            if (CRUDFactStaff.CreateWithEmployee(null, PlanStaff, null, false, true, SelectedObjects[0] as Employee, CommandManager, null, MagicNumberController.MainWorkType,null,true) != DialogResult.OK)
             {
 
             }

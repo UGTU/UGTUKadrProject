@@ -46,11 +46,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -93,6 +88,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpDepBonusReport = new System.Windows.Forms.TabPage();
             this.cbBonRepWithSubDeps = new System.Windows.Forms.CheckBox();
             this.btnBonusRepLoad = new System.Windows.Forms.Button();
@@ -215,45 +215,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslPPSVacations = new System.Windows.Forms.ToolStripStatusLabel();
             this.dgvHourFactStaff = new System.Windows.Forms.DataGridView();
-            this.isReplacementDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HourFinancingSource = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UniversalEmployee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeDegree = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeRank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HourSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RestHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idPlanStaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEmployeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEndPrikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateEndDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDSheduleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idlaborcontraktDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idreasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idFundingDepartmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idFundingCenterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDepartmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idFinancingSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMainFactStaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.factStaffReplacementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.depDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.factStaff1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.financingSourceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fundingCenterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.planStaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hourFactStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpTimeNorm = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -463,6 +424,45 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrikazBegin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SalarySize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isReplacementDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HourFinancingSource = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UniversalEmployee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeDegree = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeRank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HourSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RestHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPlanStaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEmployeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEndPrikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateEndDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDSheduleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idlaborcontraktDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idreasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idFundingDepartmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idFundingCenterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDepartmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idFinancingSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMainFactStaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factStaffReplacementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.depDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factStaff1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.financingSourceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fundingCenterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.planStaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prikazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tpDepBonusReport.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -695,7 +695,7 @@
             this.tpEmplBonusReport.Location = new System.Drawing.Point(4, 22);
             this.tpEmplBonusReport.Name = "tpEmplBonusReport";
             this.tpEmplBonusReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmplBonusReport.Size = new System.Drawing.Size(702, 471);
+            this.tpEmplBonusReport.Size = new System.Drawing.Size(927, 471);
             this.tpEmplBonusReport.TabIndex = 0;
             this.tpEmplBonusReport.Text = "По сотрудникам";
             this.tpEmplBonusReport.UseVisualStyleBackColor = true;
@@ -710,7 +710,7 @@
             this.departmentBonusReportFrame1.ReportNumber = 0;
             this.departmentBonusReportFrame1.ReportParam = -1;
             this.departmentBonusReportFrame1.ReportType = null;
-            this.departmentBonusReportFrame1.Size = new System.Drawing.Size(696, 465);
+            this.departmentBonusReportFrame1.Size = new System.Drawing.Size(921, 465);
             this.departmentBonusReportFrame1.TabIndex = 0;
             this.departmentBonusReportFrame1.WithSubReports = true;
             // 
@@ -720,7 +720,7 @@
             this.tpT3ByPostReport.Location = new System.Drawing.Point(4, 22);
             this.tpT3ByPostReport.Name = "tpT3ByPostReport";
             this.tpT3ByPostReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpT3ByPostReport.Size = new System.Drawing.Size(702, 471);
+            this.tpT3ByPostReport.Size = new System.Drawing.Size(927, 471);
             this.tpT3ByPostReport.TabIndex = 3;
             this.tpT3ByPostReport.Text = "Т3 по должностям";
             this.tpT3ByPostReport.UseVisualStyleBackColor = true;
@@ -735,7 +735,7 @@
             this.depByPostBonusТ3ReportFrame1.ReportNumber = 0;
             this.depByPostBonusТ3ReportFrame1.ReportParam = -1;
             this.depByPostBonusТ3ReportFrame1.ReportType = null;
-            this.depByPostBonusТ3ReportFrame1.Size = new System.Drawing.Size(696, 465);
+            this.depByPostBonusТ3ReportFrame1.Size = new System.Drawing.Size(921, 465);
             this.depByPostBonusТ3ReportFrame1.TabIndex = 0;
             this.depByPostBonusТ3ReportFrame1.WithSubReports = true;
             // 
@@ -745,7 +745,7 @@
             this.tpT3ByCategoryReport.Location = new System.Drawing.Point(4, 22);
             this.tpT3ByCategoryReport.Name = "tpT3ByCategoryReport";
             this.tpT3ByCategoryReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpT3ByCategoryReport.Size = new System.Drawing.Size(702, 471);
+            this.tpT3ByCategoryReport.Size = new System.Drawing.Size(927, 471);
             this.tpT3ByCategoryReport.TabIndex = 4;
             this.tpT3ByCategoryReport.Text = "Т3 по категориям";
             this.tpT3ByCategoryReport.UseVisualStyleBackColor = true;
@@ -760,7 +760,7 @@
             this.depByCategoryBonusТ3ReportFrame1.ReportNumber = 0;
             this.depByCategoryBonusТ3ReportFrame1.ReportParam = -1;
             this.depByCategoryBonusТ3ReportFrame1.ReportType = null;
-            this.depByCategoryBonusТ3ReportFrame1.Size = new System.Drawing.Size(696, 465);
+            this.depByCategoryBonusТ3ReportFrame1.Size = new System.Drawing.Size(921, 465);
             this.depByCategoryBonusТ3ReportFrame1.TabIndex = 0;
             this.depByCategoryBonusТ3ReportFrame1.WithSubReports = true;
             // 
@@ -769,7 +769,7 @@
             this.tpBonusByFundSources.Controls.Add(this.reportBaseFrameForPeriod2);
             this.tpBonusByFundSources.Location = new System.Drawing.Point(4, 22);
             this.tpBonusByFundSources.Name = "tpBonusByFundSources";
-            this.tpBonusByFundSources.Size = new System.Drawing.Size(702, 471);
+            this.tpBonusByFundSources.Size = new System.Drawing.Size(927, 471);
             this.tpBonusByFundSources.TabIndex = 6;
             this.tpBonusByFundSources.Text = "Фонд по источникам";
             this.tpBonusByFundSources.UseVisualStyleBackColor = true;
@@ -784,7 +784,7 @@
             this.reportBaseFrameForPeriod2.ReportNumber = 0;
             this.reportBaseFrameForPeriod2.ReportParam = -1;
             this.reportBaseFrameForPeriod2.ReportType = null;
-            this.reportBaseFrameForPeriod2.Size = new System.Drawing.Size(702, 471);
+            this.reportBaseFrameForPeriod2.Size = new System.Drawing.Size(927, 471);
             this.reportBaseFrameForPeriod2.TabIndex = 0;
             this.reportBaseFrameForPeriod2.WithSubReports = true;
             // 
@@ -794,7 +794,7 @@
             this.tpStaff.Location = new System.Drawing.Point(4, 22);
             this.tpStaff.Name = "tpStaff";
             this.tpStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpStaff.Size = new System.Drawing.Size(947, 487);
+            this.tpStaff.Size = new System.Drawing.Size(802, 533);
             this.tpStaff.TabIndex = 1;
             this.tpStaff.Text = "Штаты";
             this.tpStaff.UseVisualStyleBackColor = true;
@@ -815,8 +815,8 @@
             // 
             this.splitContainer1.Panel2.AllowDrop = true;
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(941, 481);
-            this.splitContainer1.SplitterDistance = 262;
+            this.splitContainer1.Size = new System.Drawing.Size(796, 527);
+            this.splitContainer1.SplitterDistance = 283;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -833,7 +833,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(941, 262);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 283);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -888,7 +888,7 @@
             this.dgvPlanStaff.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvPlanStaff.RowHeadersVisible = false;
             this.dgvPlanStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlanStaff.Size = new System.Drawing.Size(918, 242);
+            this.dgvPlanStaff.Size = new System.Drawing.Size(935, 255);
             this.dgvPlanStaff.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn81
@@ -1013,7 +1013,7 @@
             this.tspPlanStaffFilter});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(924, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(941, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -1149,7 +1149,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(941, 215);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 240);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff
@@ -1487,7 +1487,7 @@
             this.tpDepartments.Location = new System.Drawing.Point(4, 22);
             this.tpDepartments.Name = "tpDepartments";
             this.tpDepartments.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDepartments.Size = new System.Drawing.Size(722, 487);
+            this.tpDepartments.Size = new System.Drawing.Size(947, 487);
             this.tpDepartments.TabIndex = 0;
             this.tpDepartments.Text = "Отделы";
             this.tpDepartments.UseVisualStyleBackColor = true;
@@ -1504,7 +1504,7 @@
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(716, 481);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(941, 481);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // dgvDepartments
@@ -1550,7 +1550,7 @@
             this.dgvDepartments.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDepartments.RowHeadersVisible = false;
             this.dgvDepartments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDepartments.Size = new System.Drawing.Size(710, 451);
+            this.dgvDepartments.Size = new System.Drawing.Size(935, 451);
             this.dgvDepartments.TabIndex = 0;
             this.dgvDepartments.DoubleClick += new System.EventHandler(this.dgvDepartments_DoubleClick);
             // 
@@ -1608,7 +1608,7 @@
             this.tsbDepFilter});
             this.toolStrip10.Location = new System.Drawing.Point(0, 0);
             this.toolStrip10.Name = "toolStrip10";
-            this.toolStrip10.Size = new System.Drawing.Size(716, 24);
+            this.toolStrip10.Size = new System.Drawing.Size(941, 24);
             this.toolStrip10.TabIndex = 6;
             this.toolStrip10.Text = "toolStrip10";
             // 
@@ -1736,7 +1736,7 @@
             this.tpHourStaff.Location = new System.Drawing.Point(4, 22);
             this.tpHourStaff.Name = "tpHourStaff";
             this.tpHourStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHourStaff.Size = new System.Drawing.Size(802, 533);
+            this.tpHourStaff.Size = new System.Drawing.Size(947, 487);
             this.tpHourStaff.TabIndex = 11;
             this.tpHourStaff.Text = "Почасовики";
             this.tpHourStaff.UseVisualStyleBackColor = true;
@@ -1755,7 +1755,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(796, 527);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(941, 481);
             this.tableLayoutPanel11.TabIndex = 2;
             // 
             // toolStrip12
@@ -1774,7 +1774,7 @@
             this.btnHourStaffToExcel});
             this.toolStrip12.Location = new System.Drawing.Point(0, 0);
             this.toolStrip12.Name = "toolStrip12";
-            this.toolStrip12.Size = new System.Drawing.Size(796, 24);
+            this.toolStrip12.Size = new System.Drawing.Size(941, 24);
             this.toolStrip12.TabIndex = 8;
             this.toolStrip12.Text = "toolStrip12";
             // 
@@ -1896,9 +1896,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslPPSVacations});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 461);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(796, 20);
+            this.statusStrip1.Size = new System.Drawing.Size(941, 20);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1927,10 +1927,9 @@
             this.dgvHourFactStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHourFactStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.isReplacementDataGridViewCheckBoxColumn,
-            this.dataGridViewTextBoxColumn26,
             this.dataGridViewTextBoxColumn28,
-            this.dataGridViewTextBoxColumn30,
             this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn30,
             this.dataGridViewTextBoxColumn25,
             this.dataGridViewTextBoxColumn29,
             this.Dep,
@@ -1940,6 +1939,7 @@
             this.EmployeeRank,
             this.HourSalary,
             this.RestHours,
+            this.dataGridViewTextBoxColumn26,
             this.Comment,
             this.idDataGridViewTextBoxColumn,
             this.idPlanStaffDataGridViewTextBoxColumn,
@@ -1988,334 +1988,9 @@
             this.dgvHourFactStaff.RowHeadersVisible = false;
             this.dgvHourFactStaff.RowHeadersWidth = 4;
             this.dgvHourFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHourFactStaff.Size = new System.Drawing.Size(790, 477);
+            this.dgvHourFactStaff.Size = new System.Drawing.Size(935, 431);
             this.dgvHourFactStaff.TabIndex = 9;
             this.dgvHourFactStaff.DoubleClick += new System.EventHandler(this.dgvHourFactStaff_DoubleClick);
-            // 
-            // isReplacementDataGridViewCheckBoxColumn
-            // 
-            this.isReplacementDataGridViewCheckBoxColumn.DataPropertyName = "IsReplacement";
-            this.isReplacementDataGridViewCheckBoxColumn.HeaderText = "IsReplacement";
-            this.isReplacementDataGridViewCheckBoxColumn.Name = "isReplacementDataGridViewCheckBoxColumn";
-            this.isReplacementDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isReplacementDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            this.dataGridViewTextBoxColumn26.DataPropertyName = "HourStaffCount";
-            dataGridViewCellStyle15.Format = "N2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridViewTextBoxColumn26.HeaderText = "Расч ставка";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.ReadOnly = true;
-            this.dataGridViewTextBoxColumn26.Width = 45;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            this.dataGridViewTextBoxColumn28.DataPropertyName = "PrikazBegin";
-            dataGridViewCellStyle16.Format = "N2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridViewTextBoxColumn28.HeaderText = "Приказ назначения";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.ReadOnly = true;
-            this.dataGridViewTextBoxColumn28.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn30
-            // 
-            this.dataGridViewTextBoxColumn30.DataPropertyName = "DateEnd";
-            this.dataGridViewTextBoxColumn30.HeaderText = "Дата увольн.";
-            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
-            this.dataGridViewTextBoxColumn30.ReadOnly = true;
-            this.dataGridViewTextBoxColumn30.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            this.dataGridViewTextBoxColumn27.DataPropertyName = "DateBegin";
-            dataGridViewCellStyle17.Format = "N2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridViewTextBoxColumn27.HeaderText = "Дата приема";
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            this.dataGridViewTextBoxColumn27.ReadOnly = true;
-            this.dataGridViewTextBoxColumn27.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.DataPropertyName = "HourCount";
-            dataGridViewCellStyle18.Format = "N2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridViewTextBoxColumn25.HeaderText = "Кол-во часов";
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.ReadOnly = true;
-            this.dataGridViewTextBoxColumn25.Width = 45;
-            // 
-            // dataGridViewTextBoxColumn29
-            // 
-            this.dataGridViewTextBoxColumn29.DataPropertyName = "Prikaz";
-            dataGridViewCellStyle19.Format = "N2";
-            dataGridViewCellStyle19.NullValue = null;
-            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle19;
-            this.dataGridViewTextBoxColumn29.HeaderText = "Приказ увольн";
-            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
-            this.dataGridViewTextBoxColumn29.ReadOnly = true;
-            this.dataGridViewTextBoxColumn29.Width = 55;
-            // 
-            // Dep
-            // 
-            this.Dep.DataPropertyName = "Dep";
-            this.Dep.HeaderText = "Отдел";
-            this.Dep.Name = "Dep";
-            this.Dep.ReadOnly = true;
-            // 
-            // HourFinancingSource
-            // 
-            this.HourFinancingSource.DataPropertyName = "FinancingSource";
-            this.HourFinancingSource.HeaderText = "Ист фин.";
-            this.HourFinancingSource.Name = "HourFinancingSource";
-            this.HourFinancingSource.ReadOnly = true;
-            this.HourFinancingSource.Width = 45;
-            // 
-            // UniversalEmployee
-            // 
-            this.UniversalEmployee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UniversalEmployee.DataPropertyName = "UniversalEmployee";
-            this.UniversalEmployee.HeaderText = "Сотрудник";
-            this.UniversalEmployee.Name = "UniversalEmployee";
-            this.UniversalEmployee.ReadOnly = true;
-            // 
-            // EmployeeDegree
-            // 
-            this.EmployeeDegree.DataPropertyName = "EmployeeDegree";
-            this.EmployeeDegree.HeaderText = "Степень";
-            this.EmployeeDegree.Name = "EmployeeDegree";
-            this.EmployeeDegree.ReadOnly = true;
-            this.EmployeeDegree.Width = 70;
-            // 
-            // EmployeeRank
-            // 
-            this.EmployeeRank.DataPropertyName = "EmployeeRank";
-            this.EmployeeRank.HeaderText = "Звание";
-            this.EmployeeRank.Name = "EmployeeRank";
-            this.EmployeeRank.ReadOnly = true;
-            this.EmployeeRank.Width = 70;
-            // 
-            // HourSalary
-            // 
-            this.HourSalary.DataPropertyName = "HourSalary";
-            this.HourSalary.HeaderText = "Стоим часа ";
-            this.HourSalary.Name = "HourSalary";
-            this.HourSalary.ReadOnly = true;
-            this.HourSalary.Width = 45;
-            // 
-            // RestHours
-            // 
-            this.RestHours.DataPropertyName = "RestHours";
-            this.RestHours.HeaderText = "Остаток часов";
-            this.RestHours.Name = "RestHours";
-            this.RestHours.ReadOnly = true;
-            this.RestHours.Width = 50;
-            // 
-            // Comment
-            // 
-            this.Comment.DataPropertyName = "Comment";
-            this.Comment.HeaderText = "Комментарий";
-            this.Comment.Name = "Comment";
-            this.Comment.ReadOnly = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idPlanStaffDataGridViewTextBoxColumn
-            // 
-            this.idPlanStaffDataGridViewTextBoxColumn.DataPropertyName = "idPlanStaff";
-            this.idPlanStaffDataGridViewTextBoxColumn.HeaderText = "idPlanStaff";
-            this.idPlanStaffDataGridViewTextBoxColumn.Name = "idPlanStaffDataGridViewTextBoxColumn";
-            this.idPlanStaffDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idPlanStaffDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idEmployeeDataGridViewTextBoxColumn
-            // 
-            this.idEmployeeDataGridViewTextBoxColumn.DataPropertyName = "idEmployee";
-            this.idEmployeeDataGridViewTextBoxColumn.HeaderText = "idEmployee";
-            this.idEmployeeDataGridViewTextBoxColumn.Name = "idEmployeeDataGridViewTextBoxColumn";
-            this.idEmployeeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idEmployeeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idEndPrikazDataGridViewTextBoxColumn
-            // 
-            this.idEndPrikazDataGridViewTextBoxColumn.DataPropertyName = "idEndPrikaz";
-            this.idEndPrikazDataGridViewTextBoxColumn.HeaderText = "idEndPrikaz";
-            this.idEndPrikazDataGridViewTextBoxColumn.Name = "idEndPrikazDataGridViewTextBoxColumn";
-            this.idEndPrikazDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idEndPrikazDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dateEndDataGridViewTextBoxColumn1
-            // 
-            this.dateEndDataGridViewTextBoxColumn1.DataPropertyName = "DateEnd";
-            this.dateEndDataGridViewTextBoxColumn1.HeaderText = "DateEnd";
-            this.dateEndDataGridViewTextBoxColumn1.Name = "dateEndDataGridViewTextBoxColumn1";
-            this.dateEndDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dateEndDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.phoneNumberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // iDSheduleDataGridViewTextBoxColumn
-            // 
-            this.iDSheduleDataGridViewTextBoxColumn.DataPropertyName = "IDShedule";
-            this.iDSheduleDataGridViewTextBoxColumn.HeaderText = "IDShedule";
-            this.iDSheduleDataGridViewTextBoxColumn.Name = "iDSheduleDataGridViewTextBoxColumn";
-            this.iDSheduleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDSheduleDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idlaborcontraktDataGridViewTextBoxColumn
-            // 
-            this.idlaborcontraktDataGridViewTextBoxColumn.DataPropertyName = "idlaborcontrakt";
-            this.idlaborcontraktDataGridViewTextBoxColumn.HeaderText = "idlaborcontrakt";
-            this.idlaborcontraktDataGridViewTextBoxColumn.Name = "idlaborcontraktDataGridViewTextBoxColumn";
-            this.idlaborcontraktDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idlaborcontraktDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idreasonDataGridViewTextBoxColumn
-            // 
-            this.idreasonDataGridViewTextBoxColumn.DataPropertyName = "idreason";
-            this.idreasonDataGridViewTextBoxColumn.HeaderText = "idreason";
-            this.idreasonDataGridViewTextBoxColumn.Name = "idreasonDataGridViewTextBoxColumn";
-            this.idreasonDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idreasonDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idFundingDepartmentDataGridViewTextBoxColumn
-            // 
-            this.idFundingDepartmentDataGridViewTextBoxColumn.DataPropertyName = "idFundingDepartment";
-            this.idFundingDepartmentDataGridViewTextBoxColumn.HeaderText = "idFundingDepartment";
-            this.idFundingDepartmentDataGridViewTextBoxColumn.Name = "idFundingDepartmentDataGridViewTextBoxColumn";
-            this.idFundingDepartmentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idFundingDepartmentDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // employeeDataGridViewTextBoxColumn1
-            // 
-            this.employeeDataGridViewTextBoxColumn1.DataPropertyName = "Employee";
-            this.employeeDataGridViewTextBoxColumn1.HeaderText = "Employee";
-            this.employeeDataGridViewTextBoxColumn1.Name = "employeeDataGridViewTextBoxColumn1";
-            this.employeeDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.employeeDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // idTimeSheetSheduleTypeDataGridViewTextBoxColumn
-            // 
-            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn.DataPropertyName = "idTimeSheetSheduleType";
-            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn.HeaderText = "idTimeSheetSheduleType";
-            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn.Name = "idTimeSheetSheduleTypeDataGridViewTextBoxColumn";
-            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idFundingCenterDataGridViewTextBoxColumn
-            // 
-            this.idFundingCenterDataGridViewTextBoxColumn.DataPropertyName = "idFundingCenter";
-            this.idFundingCenterDataGridViewTextBoxColumn.HeaderText = "idFundingCenter";
-            this.idFundingCenterDataGridViewTextBoxColumn.Name = "idFundingCenterDataGridViewTextBoxColumn";
-            this.idFundingCenterDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idFundingCenterDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idDepartmentDataGridViewTextBoxColumn
-            // 
-            this.idDepartmentDataGridViewTextBoxColumn.DataPropertyName = "idDepartment";
-            this.idDepartmentDataGridViewTextBoxColumn.HeaderText = "idDepartment";
-            this.idDepartmentDataGridViewTextBoxColumn.Name = "idDepartmentDataGridViewTextBoxColumn";
-            this.idDepartmentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDepartmentDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idFinancingSourceDataGridViewTextBoxColumn
-            // 
-            this.idFinancingSourceDataGridViewTextBoxColumn.DataPropertyName = "idFinancingSource";
-            this.idFinancingSourceDataGridViewTextBoxColumn.HeaderText = "idFinancingSource";
-            this.idFinancingSourceDataGridViewTextBoxColumn.Name = "idFinancingSourceDataGridViewTextBoxColumn";
-            this.idFinancingSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idFinancingSourceDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            this.commentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.commentDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idMainFactStaffDataGridViewTextBoxColumn
-            // 
-            this.idMainFactStaffDataGridViewTextBoxColumn.DataPropertyName = "idMainFactStaff";
-            this.idMainFactStaffDataGridViewTextBoxColumn.HeaderText = "idMainFactStaff";
-            this.idMainFactStaffDataGridViewTextBoxColumn.Name = "idMainFactStaffDataGridViewTextBoxColumn";
-            this.idMainFactStaffDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idMainFactStaffDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // factStaffReplacementDataGridViewTextBoxColumn
-            // 
-            this.factStaffReplacementDataGridViewTextBoxColumn.DataPropertyName = "FactStaffReplacement";
-            this.factStaffReplacementDataGridViewTextBoxColumn.HeaderText = "FactStaffReplacement";
-            this.factStaffReplacementDataGridViewTextBoxColumn.Name = "factStaffReplacementDataGridViewTextBoxColumn";
-            this.factStaffReplacementDataGridViewTextBoxColumn.ReadOnly = true;
-            this.factStaffReplacementDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // depDataGridViewTextBoxColumn
-            // 
-            this.depDataGridViewTextBoxColumn.DataPropertyName = "Dep";
-            this.depDataGridViewTextBoxColumn.HeaderText = "Dep";
-            this.depDataGridViewTextBoxColumn.Name = "depDataGridViewTextBoxColumn";
-            this.depDataGridViewTextBoxColumn.ReadOnly = true;
-            this.depDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // factStaff1DataGridViewTextBoxColumn
-            // 
-            this.factStaff1DataGridViewTextBoxColumn.DataPropertyName = "FactStaff1";
-            this.factStaff1DataGridViewTextBoxColumn.HeaderText = "FactStaff1";
-            this.factStaff1DataGridViewTextBoxColumn.Name = "factStaff1DataGridViewTextBoxColumn";
-            this.factStaff1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.factStaff1DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // financingSourceDataGridViewTextBoxColumn1
-            // 
-            this.financingSourceDataGridViewTextBoxColumn1.DataPropertyName = "FinancingSource";
-            this.financingSourceDataGridViewTextBoxColumn1.HeaderText = "FinancingSource";
-            this.financingSourceDataGridViewTextBoxColumn1.Name = "financingSourceDataGridViewTextBoxColumn1";
-            this.financingSourceDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.financingSourceDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // fundingCenterDataGridViewTextBoxColumn
-            // 
-            this.fundingCenterDataGridViewTextBoxColumn.DataPropertyName = "FundingCenter";
-            this.fundingCenterDataGridViewTextBoxColumn.HeaderText = "FundingCenter";
-            this.fundingCenterDataGridViewTextBoxColumn.Name = "fundingCenterDataGridViewTextBoxColumn";
-            this.fundingCenterDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fundingCenterDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // planStaffDataGridViewTextBoxColumn
-            // 
-            this.planStaffDataGridViewTextBoxColumn.DataPropertyName = "PlanStaff";
-            this.planStaffDataGridViewTextBoxColumn.HeaderText = "PlanStaff";
-            this.planStaffDataGridViewTextBoxColumn.Name = "planStaffDataGridViewTextBoxColumn";
-            this.planStaffDataGridViewTextBoxColumn.ReadOnly = true;
-            this.planStaffDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // prikazDataGridViewTextBoxColumn
-            // 
-            this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
-            this.prikazDataGridViewTextBoxColumn.HeaderText = "Prikaz";
-            this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
-            this.prikazDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prikazDataGridViewTextBoxColumn.Visible = false;
             // 
             // hourFactStaffBindingSource
             // 
@@ -2588,7 +2263,7 @@
             this.tpDepStaffReport.Location = new System.Drawing.Point(4, 22);
             this.tpDepStaffReport.Name = "tpDepStaffReport";
             this.tpDepStaffReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDepStaffReport.Size = new System.Drawing.Size(702, 471);
+            this.tpDepStaffReport.Size = new System.Drawing.Size(927, 471);
             this.tpDepStaffReport.TabIndex = 1;
             this.tpDepStaffReport.Text = "Без деления по источникам фин-я";
             this.tpDepStaffReport.UseVisualStyleBackColor = true;
@@ -2603,7 +2278,7 @@
             this.depStaffReportFrame1.ReportNumber = 0;
             this.depStaffReportFrame1.ReportParam = -1;
             this.depStaffReportFrame1.ReportType = null;
-            this.depStaffReportFrame1.Size = new System.Drawing.Size(696, 465);
+            this.depStaffReportFrame1.Size = new System.Drawing.Size(921, 465);
             this.depStaffReportFrame1.TabIndex = 0;
             this.depStaffReportFrame1.WithSubReports = true;
             // 
@@ -2933,7 +2608,7 @@
             this.tpCategoryAverage.Location = new System.Drawing.Point(4, 22);
             this.tpCategoryAverage.Name = "tpCategoryAverage";
             this.tpCategoryAverage.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCategoryAverage.Size = new System.Drawing.Size(702, 471);
+            this.tpCategoryAverage.Size = new System.Drawing.Size(927, 471);
             this.tpCategoryAverage.TabIndex = 1;
             this.tpCategoryAverage.Text = "По категориям";
             this.tpCategoryAverage.UseVisualStyleBackColor = true;
@@ -2947,7 +2622,7 @@
             this.depCategoryAverageStaff1.ReportParam = -1;
             this.depCategoryAverageStaff1.ReportType = null;
             this.depCategoryAverageStaff1.SelectedYear = 0;
-            this.depCategoryAverageStaff1.Size = new System.Drawing.Size(696, 465);
+            this.depCategoryAverageStaff1.Size = new System.Drawing.Size(921, 465);
             this.depCategoryAverageStaff1.TabIndex = 0;
             this.depCategoryAverageStaff1.WithSubReports = true;
             // 
@@ -2957,7 +2632,7 @@
             this.tpCategoryVPOAverage.Location = new System.Drawing.Point(4, 22);
             this.tpCategoryVPOAverage.Name = "tpCategoryVPOAverage";
             this.tpCategoryVPOAverage.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCategoryVPOAverage.Size = new System.Drawing.Size(702, 471);
+            this.tpCategoryVPOAverage.Size = new System.Drawing.Size(927, 471);
             this.tpCategoryVPOAverage.TabIndex = 3;
             this.tpCategoryVPOAverage.Text = "По категориям по ВПО";
             this.tpCategoryVPOAverage.UseVisualStyleBackColor = true;
@@ -2971,7 +2646,7 @@
             this.depCategoryAverageStaff2.ReportParam = -1;
             this.depCategoryAverageStaff2.ReportType = null;
             this.depCategoryAverageStaff2.SelectedYear = 0;
-            this.depCategoryAverageStaff2.Size = new System.Drawing.Size(696, 465);
+            this.depCategoryAverageStaff2.Size = new System.Drawing.Size(921, 465);
             this.depCategoryAverageStaff2.TabIndex = 0;
             this.depCategoryAverageStaff2.WithSubReports = true;
             // 
@@ -3100,7 +2775,7 @@
             this.tpDepPostAverage.Location = new System.Drawing.Point(4, 22);
             this.tpDepPostAverage.Name = "tpDepPostAverage";
             this.tpDepPostAverage.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDepPostAverage.Size = new System.Drawing.Size(702, 471);
+            this.tpDepPostAverage.Size = new System.Drawing.Size(927, 471);
             this.tpDepPostAverage.TabIndex = 2;
             this.tpDepPostAverage.Text = "По должностям";
             this.tpDepPostAverage.UseVisualStyleBackColor = true;
@@ -3115,7 +2790,7 @@
             this.depPostAverageStaffFrame1.ReportParam = -1;
             this.depPostAverageStaffFrame1.ReportType = null;
             this.depPostAverageStaffFrame1.SelectedYear = 0;
-            this.depPostAverageStaffFrame1.Size = new System.Drawing.Size(696, 465);
+            this.depPostAverageStaffFrame1.Size = new System.Drawing.Size(921, 465);
             this.depPostAverageStaffFrame1.TabIndex = 0;
             this.depPostAverageStaffFrame1.WithSubReports = true;
             // 
@@ -3124,7 +2799,7 @@
             this.tpByOKVED.Controls.Add(this.reportBaseFrameForQuarter1);
             this.tpByOKVED.Location = new System.Drawing.Point(4, 22);
             this.tpByOKVED.Name = "tpByOKVED";
-            this.tpByOKVED.Size = new System.Drawing.Size(702, 471);
+            this.tpByOKVED.Size = new System.Drawing.Size(927, 471);
             this.tpByOKVED.TabIndex = 5;
             this.tpByOKVED.Text = "По ОКВЕД";
             // 
@@ -3138,7 +2813,7 @@
             this.reportBaseFrameForQuarter1.ReportParam = -1;
             this.reportBaseFrameForQuarter1.ReportType = null;
             this.reportBaseFrameForQuarter1.SelectedYear = 0;
-            this.reportBaseFrameForQuarter1.Size = new System.Drawing.Size(702, 471);
+            this.reportBaseFrameForQuarter1.Size = new System.Drawing.Size(927, 471);
             this.reportBaseFrameForQuarter1.TabIndex = 0;
             this.reportBaseFrameForQuarter1.WithSubReports = true;
             // 
@@ -3147,7 +2822,7 @@
             this.tpZZFAverage.Controls.Add(this.reportBaseFrameForQuarter2);
             this.tpZZFAverage.Location = new System.Drawing.Point(4, 22);
             this.tpZZFAverage.Name = "tpZZFAverage";
-            this.tpZZFAverage.Size = new System.Drawing.Size(702, 471);
+            this.tpZZFAverage.Size = new System.Drawing.Size(927, 471);
             this.tpZZFAverage.TabIndex = 6;
             this.tpZZFAverage.Text = "По ЦЗФ";
             this.tpZZFAverage.UseVisualStyleBackColor = true;
@@ -3162,7 +2837,7 @@
             this.reportBaseFrameForQuarter2.ReportParam = -1;
             this.reportBaseFrameForQuarter2.ReportType = null;
             this.reportBaseFrameForQuarter2.SelectedYear = 0;
-            this.reportBaseFrameForQuarter2.Size = new System.Drawing.Size(702, 471);
+            this.reportBaseFrameForQuarter2.Size = new System.Drawing.Size(927, 471);
             this.reportBaseFrameForQuarter2.TabIndex = 0;
             this.reportBaseFrameForQuarter2.WithSubReports = true;
             // 
@@ -3323,7 +2998,7 @@
             this.tpForm7.Location = new System.Drawing.Point(4, 22);
             this.tpForm7.Name = "tpForm7";
             this.tpForm7.Padding = new System.Windows.Forms.Padding(3);
-            this.tpForm7.Size = new System.Drawing.Size(702, 471);
+            this.tpForm7.Size = new System.Drawing.Size(927, 471);
             this.tpForm7.TabIndex = 0;
             this.tpForm7.Text = "Форма №7 (Должности)";
             this.tpForm7.UseVisualStyleBackColor = true;
@@ -3338,7 +3013,7 @@
             this.minFormsFrame1.ReportNumber = 0;
             this.minFormsFrame1.ReportParam = -1;
             this.minFormsFrame1.ReportType = null;
-            this.minFormsFrame1.Size = new System.Drawing.Size(696, 465);
+            this.minFormsFrame1.Size = new System.Drawing.Size(921, 465);
             this.minFormsFrame1.TabIndex = 0;
             this.minFormsFrame1.WithSubReports = true;
             // 
@@ -3348,7 +3023,7 @@
             this.tpForm3.Location = new System.Drawing.Point(4, 22);
             this.tpForm3.Name = "tpForm3";
             this.tpForm3.Padding = new System.Windows.Forms.Padding(3);
-            this.tpForm3.Size = new System.Drawing.Size(702, 471);
+            this.tpForm3.Size = new System.Drawing.Size(927, 471);
             this.tpForm3.TabIndex = 1;
             this.tpForm3.Text = "Форма №3 (ППС)";
             this.tpForm3.UseVisualStyleBackColor = true;
@@ -3363,7 +3038,7 @@
             this.minForm3PPSFrame1.ReportNumber = 0;
             this.minForm3PPSFrame1.ReportParam = -1;
             this.minForm3PPSFrame1.ReportType = null;
-            this.minForm3PPSFrame1.Size = new System.Drawing.Size(696, 465);
+            this.minForm3PPSFrame1.Size = new System.Drawing.Size(921, 465);
             this.minForm3PPSFrame1.TabIndex = 0;
             this.minForm3PPSFrame1.WithSubReports = true;
             // 
@@ -3518,7 +3193,7 @@
             this.tpPostStaffChangesReport.Location = new System.Drawing.Point(4, 22);
             this.tpPostStaffChangesReport.Name = "tpPostStaffChangesReport";
             this.tpPostStaffChangesReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPostStaffChangesReport.Size = new System.Drawing.Size(702, 471);
+            this.tpPostStaffChangesReport.Size = new System.Drawing.Size(927, 471);
             this.tpPostStaffChangesReport.TabIndex = 1;
             this.tpPostStaffChangesReport.Text = "По должностям";
             this.tpPostStaffChangesReport.UseVisualStyleBackColor = true;
@@ -3533,7 +3208,7 @@
             this.postStaffChangesFrame1.ReportNumber = 0;
             this.postStaffChangesFrame1.ReportParam = -1;
             this.postStaffChangesFrame1.ReportType = null;
-            this.postStaffChangesFrame1.Size = new System.Drawing.Size(696, 465);
+            this.postStaffChangesFrame1.Size = new System.Drawing.Size(921, 465);
             this.postStaffChangesFrame1.TabIndex = 0;
             this.postStaffChangesFrame1.WithSubReports = true;
             // 
@@ -4550,6 +4225,330 @@
             this.SalarySize.Name = "SalarySize";
             this.SalarySize.ReadOnly = true;
             // 
+            // isReplacementDataGridViewCheckBoxColumn
+            // 
+            this.isReplacementDataGridViewCheckBoxColumn.DataPropertyName = "IsReplacement";
+            this.isReplacementDataGridViewCheckBoxColumn.HeaderText = "IsReplacement";
+            this.isReplacementDataGridViewCheckBoxColumn.Name = "isReplacementDataGridViewCheckBoxColumn";
+            this.isReplacementDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isReplacementDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "PrikazBegin";
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridViewTextBoxColumn28.HeaderText = "Приказ назначения";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn28.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "DateBegin";
+            dataGridViewCellStyle16.NullValue = null;
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridViewTextBoxColumn27.HeaderText = "Дата приема";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            this.dataGridViewTextBoxColumn27.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "DateEnd";
+            this.dataGridViewTextBoxColumn30.HeaderText = "Дата увольн.";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            this.dataGridViewTextBoxColumn30.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "HourCount";
+            dataGridViewCellStyle17.Format = "N2";
+            dataGridViewCellStyle17.NullValue = null;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dataGridViewTextBoxColumn25.HeaderText = "Кол-во часов";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            this.dataGridViewTextBoxColumn25.Width = 45;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "Prikaz";
+            dataGridViewCellStyle18.Format = "N2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridViewTextBoxColumn29.HeaderText = "Приказ увольн";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
+            this.dataGridViewTextBoxColumn29.Width = 55;
+            // 
+            // Dep
+            // 
+            this.Dep.DataPropertyName = "Dep";
+            this.Dep.HeaderText = "Отдел";
+            this.Dep.Name = "Dep";
+            this.Dep.ReadOnly = true;
+            // 
+            // HourFinancingSource
+            // 
+            this.HourFinancingSource.DataPropertyName = "FinancingSource";
+            this.HourFinancingSource.HeaderText = "Ист фин.";
+            this.HourFinancingSource.Name = "HourFinancingSource";
+            this.HourFinancingSource.ReadOnly = true;
+            this.HourFinancingSource.Width = 45;
+            // 
+            // UniversalEmployee
+            // 
+            this.UniversalEmployee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UniversalEmployee.DataPropertyName = "UniversalEmployee";
+            this.UniversalEmployee.HeaderText = "Сотрудник";
+            this.UniversalEmployee.Name = "UniversalEmployee";
+            this.UniversalEmployee.ReadOnly = true;
+            // 
+            // EmployeeDegree
+            // 
+            this.EmployeeDegree.DataPropertyName = "EmployeeDegree";
+            this.EmployeeDegree.HeaderText = "Степень";
+            this.EmployeeDegree.Name = "EmployeeDegree";
+            this.EmployeeDegree.ReadOnly = true;
+            this.EmployeeDegree.Width = 70;
+            // 
+            // EmployeeRank
+            // 
+            this.EmployeeRank.DataPropertyName = "EmployeeRank";
+            this.EmployeeRank.HeaderText = "Звание";
+            this.EmployeeRank.Name = "EmployeeRank";
+            this.EmployeeRank.ReadOnly = true;
+            this.EmployeeRank.Width = 70;
+            // 
+            // HourSalary
+            // 
+            this.HourSalary.DataPropertyName = "HourSalary";
+            this.HourSalary.HeaderText = "Стоим часа ";
+            this.HourSalary.Name = "HourSalary";
+            this.HourSalary.ReadOnly = true;
+            this.HourSalary.Width = 45;
+            // 
+            // RestHours
+            // 
+            this.RestHours.DataPropertyName = "RestHours";
+            this.RestHours.HeaderText = "Остаток часов";
+            this.RestHours.Name = "RestHours";
+            this.RestHours.ReadOnly = true;
+            this.RestHours.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "HourStaffCount";
+            dataGridViewCellStyle19.Format = "N2";
+            dataGridViewCellStyle19.NullValue = null;
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridViewTextBoxColumn26.HeaderText = "Расч ставка";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            this.dataGridViewTextBoxColumn26.Width = 45;
+            // 
+            // Comment
+            // 
+            this.Comment.DataPropertyName = "Comment";
+            this.Comment.HeaderText = "Комментарий";
+            this.Comment.Name = "Comment";
+            this.Comment.ReadOnly = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idPlanStaffDataGridViewTextBoxColumn
+            // 
+            this.idPlanStaffDataGridViewTextBoxColumn.DataPropertyName = "idPlanStaff";
+            this.idPlanStaffDataGridViewTextBoxColumn.HeaderText = "idPlanStaff";
+            this.idPlanStaffDataGridViewTextBoxColumn.Name = "idPlanStaffDataGridViewTextBoxColumn";
+            this.idPlanStaffDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idPlanStaffDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idEmployeeDataGridViewTextBoxColumn
+            // 
+            this.idEmployeeDataGridViewTextBoxColumn.DataPropertyName = "idEmployee";
+            this.idEmployeeDataGridViewTextBoxColumn.HeaderText = "idEmployee";
+            this.idEmployeeDataGridViewTextBoxColumn.Name = "idEmployeeDataGridViewTextBoxColumn";
+            this.idEmployeeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idEmployeeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idEndPrikazDataGridViewTextBoxColumn
+            // 
+            this.idEndPrikazDataGridViewTextBoxColumn.DataPropertyName = "idEndPrikaz";
+            this.idEndPrikazDataGridViewTextBoxColumn.HeaderText = "idEndPrikaz";
+            this.idEndPrikazDataGridViewTextBoxColumn.Name = "idEndPrikazDataGridViewTextBoxColumn";
+            this.idEndPrikazDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idEndPrikazDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dateEndDataGridViewTextBoxColumn1
+            // 
+            this.dateEndDataGridViewTextBoxColumn1.DataPropertyName = "DateEnd";
+            this.dateEndDataGridViewTextBoxColumn1.HeaderText = "DateEnd";
+            this.dateEndDataGridViewTextBoxColumn1.Name = "dateEndDataGridViewTextBoxColumn1";
+            this.dateEndDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dateEndDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.phoneNumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // iDSheduleDataGridViewTextBoxColumn
+            // 
+            this.iDSheduleDataGridViewTextBoxColumn.DataPropertyName = "IDShedule";
+            this.iDSheduleDataGridViewTextBoxColumn.HeaderText = "IDShedule";
+            this.iDSheduleDataGridViewTextBoxColumn.Name = "iDSheduleDataGridViewTextBoxColumn";
+            this.iDSheduleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDSheduleDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idlaborcontraktDataGridViewTextBoxColumn
+            // 
+            this.idlaborcontraktDataGridViewTextBoxColumn.DataPropertyName = "idlaborcontrakt";
+            this.idlaborcontraktDataGridViewTextBoxColumn.HeaderText = "idlaborcontrakt";
+            this.idlaborcontraktDataGridViewTextBoxColumn.Name = "idlaborcontraktDataGridViewTextBoxColumn";
+            this.idlaborcontraktDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idlaborcontraktDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idreasonDataGridViewTextBoxColumn
+            // 
+            this.idreasonDataGridViewTextBoxColumn.DataPropertyName = "idreason";
+            this.idreasonDataGridViewTextBoxColumn.HeaderText = "idreason";
+            this.idreasonDataGridViewTextBoxColumn.Name = "idreasonDataGridViewTextBoxColumn";
+            this.idreasonDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idreasonDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idFundingDepartmentDataGridViewTextBoxColumn
+            // 
+            this.idFundingDepartmentDataGridViewTextBoxColumn.DataPropertyName = "idFundingDepartment";
+            this.idFundingDepartmentDataGridViewTextBoxColumn.HeaderText = "idFundingDepartment";
+            this.idFundingDepartmentDataGridViewTextBoxColumn.Name = "idFundingDepartmentDataGridViewTextBoxColumn";
+            this.idFundingDepartmentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idFundingDepartmentDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // employeeDataGridViewTextBoxColumn1
+            // 
+            this.employeeDataGridViewTextBoxColumn1.DataPropertyName = "Employee";
+            this.employeeDataGridViewTextBoxColumn1.HeaderText = "Employee";
+            this.employeeDataGridViewTextBoxColumn1.Name = "employeeDataGridViewTextBoxColumn1";
+            this.employeeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeeDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // idTimeSheetSheduleTypeDataGridViewTextBoxColumn
+            // 
+            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn.DataPropertyName = "idTimeSheetSheduleType";
+            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn.HeaderText = "idTimeSheetSheduleType";
+            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn.Name = "idTimeSheetSheduleTypeDataGridViewTextBoxColumn";
+            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idTimeSheetSheduleTypeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idFundingCenterDataGridViewTextBoxColumn
+            // 
+            this.idFundingCenterDataGridViewTextBoxColumn.DataPropertyName = "idFundingCenter";
+            this.idFundingCenterDataGridViewTextBoxColumn.HeaderText = "idFundingCenter";
+            this.idFundingCenterDataGridViewTextBoxColumn.Name = "idFundingCenterDataGridViewTextBoxColumn";
+            this.idFundingCenterDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idFundingCenterDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idDepartmentDataGridViewTextBoxColumn
+            // 
+            this.idDepartmentDataGridViewTextBoxColumn.DataPropertyName = "idDepartment";
+            this.idDepartmentDataGridViewTextBoxColumn.HeaderText = "idDepartment";
+            this.idDepartmentDataGridViewTextBoxColumn.Name = "idDepartmentDataGridViewTextBoxColumn";
+            this.idDepartmentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDepartmentDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idFinancingSourceDataGridViewTextBoxColumn
+            // 
+            this.idFinancingSourceDataGridViewTextBoxColumn.DataPropertyName = "idFinancingSource";
+            this.idFinancingSourceDataGridViewTextBoxColumn.HeaderText = "idFinancingSource";
+            this.idFinancingSourceDataGridViewTextBoxColumn.Name = "idFinancingSourceDataGridViewTextBoxColumn";
+            this.idFinancingSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idFinancingSourceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            this.commentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.commentDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idMainFactStaffDataGridViewTextBoxColumn
+            // 
+            this.idMainFactStaffDataGridViewTextBoxColumn.DataPropertyName = "idMainFactStaff";
+            this.idMainFactStaffDataGridViewTextBoxColumn.HeaderText = "idMainFactStaff";
+            this.idMainFactStaffDataGridViewTextBoxColumn.Name = "idMainFactStaffDataGridViewTextBoxColumn";
+            this.idMainFactStaffDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idMainFactStaffDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // factStaffReplacementDataGridViewTextBoxColumn
+            // 
+            this.factStaffReplacementDataGridViewTextBoxColumn.DataPropertyName = "FactStaffReplacement";
+            this.factStaffReplacementDataGridViewTextBoxColumn.HeaderText = "FactStaffReplacement";
+            this.factStaffReplacementDataGridViewTextBoxColumn.Name = "factStaffReplacementDataGridViewTextBoxColumn";
+            this.factStaffReplacementDataGridViewTextBoxColumn.ReadOnly = true;
+            this.factStaffReplacementDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // depDataGridViewTextBoxColumn
+            // 
+            this.depDataGridViewTextBoxColumn.DataPropertyName = "Dep";
+            this.depDataGridViewTextBoxColumn.HeaderText = "Dep";
+            this.depDataGridViewTextBoxColumn.Name = "depDataGridViewTextBoxColumn";
+            this.depDataGridViewTextBoxColumn.ReadOnly = true;
+            this.depDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // factStaff1DataGridViewTextBoxColumn
+            // 
+            this.factStaff1DataGridViewTextBoxColumn.DataPropertyName = "FactStaff1";
+            this.factStaff1DataGridViewTextBoxColumn.HeaderText = "FactStaff1";
+            this.factStaff1DataGridViewTextBoxColumn.Name = "factStaff1DataGridViewTextBoxColumn";
+            this.factStaff1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.factStaff1DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // financingSourceDataGridViewTextBoxColumn1
+            // 
+            this.financingSourceDataGridViewTextBoxColumn1.DataPropertyName = "FinancingSource";
+            this.financingSourceDataGridViewTextBoxColumn1.HeaderText = "FinancingSource";
+            this.financingSourceDataGridViewTextBoxColumn1.Name = "financingSourceDataGridViewTextBoxColumn1";
+            this.financingSourceDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.financingSourceDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // fundingCenterDataGridViewTextBoxColumn
+            // 
+            this.fundingCenterDataGridViewTextBoxColumn.DataPropertyName = "FundingCenter";
+            this.fundingCenterDataGridViewTextBoxColumn.HeaderText = "FundingCenter";
+            this.fundingCenterDataGridViewTextBoxColumn.Name = "fundingCenterDataGridViewTextBoxColumn";
+            this.fundingCenterDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fundingCenterDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // planStaffDataGridViewTextBoxColumn
+            // 
+            this.planStaffDataGridViewTextBoxColumn.DataPropertyName = "PlanStaff";
+            this.planStaffDataGridViewTextBoxColumn.HeaderText = "PlanStaff";
+            this.planStaffDataGridViewTextBoxColumn.Name = "planStaffDataGridViewTextBoxColumn";
+            this.planStaffDataGridViewTextBoxColumn.ReadOnly = true;
+            this.planStaffDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // prikazDataGridViewTextBoxColumn
+            // 
+            this.prikazDataGridViewTextBoxColumn.DataPropertyName = "Prikaz";
+            this.prikazDataGridViewTextBoxColumn.HeaderText = "Prikaz";
+            this.prikazDataGridViewTextBoxColumn.Name = "prikazDataGridViewTextBoxColumn";
+            this.prikazDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prikazDataGridViewTextBoxColumn.Visible = false;
+            // 
             // KadrRootFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4896,45 +4895,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn endFactStaffCountDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tpCategoryVPOAverage;
         private System.Windows.Forms.TabPage tpCategoryZPAverage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HourFinancingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UniversalEmployee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeDegree;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeRank;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HourSalary;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RestHours;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idPlanStaffDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEmployeeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEndPrikazDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isReplacementDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDSheduleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idlaborcontraktDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idreasonDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFundingDepartmentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idTimeSheetSheduleTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFundingCenterDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDepartmentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFinancingSourceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMainFactStaffDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn factStaffReplacementDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn depDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn factStaff1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn financingSourceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fundingCenterDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn planStaffDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tpQrStaffAverage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.TabControl tcQrStaffAverage;
@@ -5060,5 +5020,44 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DateEnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prikaz;
         private System.Windows.Forms.DataGridViewTextBoxColumn OK_Reason;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isReplacementDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HourFinancingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UniversalEmployee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeDegree;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeRank;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HourSalary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RestHours;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPlanStaffDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEmployeeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEndPrikazDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateEndDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDSheduleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idlaborcontraktDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idreasonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFundingDepartmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idTimeSheetSheduleTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFundingCenterDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDepartmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFinancingSourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMainFactStaffDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn factStaffReplacementDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn depDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn factStaff1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn financingSourceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fundingCenterDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn planStaffDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prikazDataGridViewTextBoxColumn;
     }
 }
