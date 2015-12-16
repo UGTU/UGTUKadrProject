@@ -37,3 +37,8 @@ E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\UI
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
+D:\Project\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.dll
+D:\Project\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.pdb
+D:\Project\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
+D:\Project\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
+D:\Project\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb
