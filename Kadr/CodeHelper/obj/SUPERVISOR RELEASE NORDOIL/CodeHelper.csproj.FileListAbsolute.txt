@@ -173,5 +173,4 @@ C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISO
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\ru-RU\CodeHelper.resources.dll
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.dll
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.pdb
-E:\Projects\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csprojResolveAssemblyReference.cache
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\CodeHelper\obj\SUPERVISOR RELEASE NORDOIL\CodeHelper.csprojResolveAssemblyReference.cache
