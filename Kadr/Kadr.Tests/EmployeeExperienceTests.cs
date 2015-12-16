@@ -21,21 +21,42 @@ namespace Kadr.Tests
             Console.WriteLine(str);
             Assert.AreEqual("2 года, 6 месяцев, 15 дней", str);
         }
+     
+        [TestMethod]
+        public void CurrentExperienceTest()
+        {
+            var today = DateTime.Today;
+            var set = new[]
+            {
+                new StubIEmployeeExperienceRecord() {StartGet = () => today.AddDays(-1)},
+                new StubIEmployeeExperienceRecord() {StartGet = () => today.AddDays(1)},
+            };
+            var actual = set.CurrentExperience().ToList();
+            Assert.AreEqual(1, actual.Count);
+            Assert.AreEqual(today.AddDays(-1), actual[0].Start);
+        }
 
         [TestMethod]
         public void EmployeeDecoratorExperienceTest()
         {
+            var startDate = DateTime.Parse("01.01.2014");
+            var endDate = DateTime.Parse("01.01.2014").AddYears(1).AddMonths(6).AddDays(15);
             var employee = new Employee()
             {
                 EmployeeStandings = new EntitySet<EmployeeStanding>()
                 {
-                    new EmployeeStanding() {DateBegin = DateTime.Parse("01.01.2014"),
-                        DateEnd = DateTime.Parse("01.01.2014").AddDays(359+180+15) }
+                    new EmployeeStanding() {DateBegin = startDate,
+                        DateEnd = endDate }
                 }
             };
 
             var decorator = new EmployeeDecorator(employee);
-            Assert.AreEqual("1 год, 6 месяцев, 15 дней", decorator.TotalExperience);
+            Assert.AreEqual("1 год, 6 месяцев, 16 дней", decorator.TotalExperience);
+            Assert.AreEqual("0 лет, 0 месяцев, 0 дней", decorator.NorthExperience);
+            Assert.AreEqual("0 лет, 0 месяцев, 0 дней", decorator.TotalOrganizationContiniousExperience);
+            Assert.AreEqual("0 лет, 0 месяцев, 0 дней", decorator.TotalPedagogicalExperience);
+            Assert.AreEqual("0 лет, 0 месяцев, 0 дней", decorator.TotalOrganizationExperience);
+
         }
 
         [TestMethod]
@@ -97,6 +118,8 @@ namespace Kadr.Tests
                         }
             };
             Assert.AreEqual(TimeSpan.FromDays(1), provider.EmployeeExperiences.GetExperience());
+            Assert.AreEqual(new DateSpan(1,0,0), provider.EmployeeExperiences.GetExperienceDates());
+
         }
         [TestMethod]
         public void GetExperienceWhenHiredTodayTest()
@@ -118,7 +141,8 @@ namespace Kadr.Tests
         }
 
         /// <summary>
-        /// Проверка не выполнения(!!!) инварианта, что сумма северного стажа всегда равна сумме стажа в РКС и МКС
+        /// Проверка не выполнения(!!!) инварианта, 
+        /// что сумма северного стажа всегда равна сумме стажа в РКС и МКС
         /// и зависит от последовательности вызова метода SequenceInterval(), 
         /// даты получения стажа перекрываться во времени
         /// </summary>
@@ -160,9 +184,10 @@ namespace Kadr.Tests
             };
             var expSet = provider.EmployeeExperiences.ToList();
             var totalNorth = expSet.FilterNorthExperience().ToList();
-            var north = totalNorth.Where(x => x.Territory == TerritoryConditions.North);
-            var strictNorth = totalNorth.Where(x => x.Territory == TerritoryConditions.StrictNorth);
+            var north = totalNorth.Where(x => x.Territory == TerritoryConditions.North).ToList();
+            var strictNorth = totalNorth.Where(x => x.Territory == TerritoryConditions.StrictNorth).ToList();
             Assert.AreEqual(totalNorth.GetExperience(), north.GetExperience()+strictNorth.GetExperience());
+            Assert.AreEqual(totalNorth.GetExperienceDates(), north.GetExperienceDates() + strictNorth.GetExperienceDates());
 
             var totalIntervaledPre = totalNorth.SequenceInterval();
             var totalIntervaledPost = expSet.SequenceInterval().FilterNorthExperience();
@@ -193,7 +218,33 @@ namespace Kadr.Tests
         }
 
         /// <summary>
-        /// Если дата окончания предыдущего стажа совпадает с датой начала следующего стажа, то эта дата должна считаться стажем однократно (1 день)
+        /// Если дата окончания стажа задана в будущем, т
+        /// о нужно, что бы стаж расчитывался на текущий момент
+        /// </summary>
+        [TestMethod]
+        public void GetExperienceWhenFireDateInTheFutureTest()
+        {
+            var today = DateTime.Today;
+            var future = today.AddYears(1);
+            var start = today.AddDays(-1);
+            IExperienceProvider provider = new StubIExperienceProvider()
+            {
+                EmployeeExperiencesGet = () => new List<IEmployeeExperienceRecord>()
+                {
+                    new StubIEmployeeExperienceRecord()
+                    {
+                        StartGet = ()=>start,
+                        IsEndedGet = ()=>true,
+                        StopGet = ()=>future
+                    }
+                }
+            };
+            var actual = provider.EmployeeExperiences.GetExperienceDates();
+            Assert.AreEqual(new DateSpan(1,0,0), actual);
+        }
+        /// <summary>
+        /// Если дата окончания предыдущего стажа совпадает с датой начала следующего стажа, 
+        /// то эта дата должна считаться стажем однократно (1 день)
         /// </summary>
         [TestMethod]
         public void GetExperienceWhenContainsEqualStopAndNextStartDatesTest()
@@ -225,6 +276,8 @@ namespace Kadr.Tests
                 }
             };
             Assert.AreEqual(TimeSpan.FromDays(4), provider.EmployeeExperiences.GetExperience());
+            Assert.AreEqual(new DateSpan(4, 0, 0), provider.EmployeeExperiences.GetExperienceDates());
+
         }
         [TestMethod]
         public void NorthExperienceTest()
@@ -294,6 +347,8 @@ namespace Kadr.Tests
             var northExperience = experienceSet.FilterNorthExperience().ToList();
             Assert.AreEqual(2, northExperience.Count());
             Assert.AreEqual(8, northExperience.GetExperience().Days);
+
+            Assert.AreEqual(new DateSpan(8, 0, 0), northExperience.GetExperienceDates());
         }
         [TestMethod]
         public void GetIntersectedExperienceTest()
@@ -331,9 +386,11 @@ namespace Kadr.Tests
                     }
             };
             var experience = provider.EmployeeExperiences.Sequence<IEmployeeExperienceRecord, DateTime>
-                ((x, s, e) => new ExperienceInterval(x, s, e));
+                ((x, s, e) => new ExperienceInterval(x, s, e)).ToList();
             var actual = experience.GetExperience();
             Assert.AreEqual(365, actual.Days);
+            Assert.AreEqual(new DateSpan(0, 0, 1), experience.GetExperienceDates());
+
         }
 
         [TestMethod]
@@ -445,11 +502,13 @@ namespace Kadr.Tests
 
             // Педагогический стаж
             var pedExperienceSet =
-                provider.EmployeeExperiences.Where(x => x.Experience == KindOfExperience.Pedagogical);
+                provider.EmployeeExperiences.Where(x => x.Experience == KindOfExperience.Pedagogical).ToList();
             experience = pedExperienceSet.GetExperience();
             Assert.AreEqual(1, experience.GetExperienceYears());
             Assert.AreEqual(0, experience.GetExperienceMonthes());
             Assert.AreEqual(5, experience.GetExperienceDays());
+            Assert.AreEqual(new DateSpan(0, 0, 1), pedExperienceSet.GetExperienceDates());
+
 
             // Непрерывный стаж в организации
             var orgExperienceSet = provider.EmployeeExperiences.Where
