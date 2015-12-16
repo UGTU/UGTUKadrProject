@@ -30,7 +30,6 @@ C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.pd
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb
-E:\Projects\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.dll
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.pdb
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
