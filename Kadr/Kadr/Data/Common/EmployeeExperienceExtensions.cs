@@ -122,11 +122,31 @@ namespace Kadr.Data.Common
             var extraDays = CalculateExtraDays(enumerable);
             var result =
                 enumerable.Select(
-                    x => new DateSpanDifference((x.IsEnded ? x.Stop.AddDays(1) : nextDay), x.Start))
+                    x => new DateSpanDifference(ChooseEndDate(x, nextDay), x.Start))
                     .Aggregate(new DateSpan(0, 0, 0), (a, b) => a + b, r => r) - extraDays;
             return result;
 
         }
+
+        private static DateTime ChooseEndDate(IEmployeeExperienceRecord x, DateTime nextDay)
+        {
+            var today = DateTime.Today;
+            return (x.IsEnded ? (x.Stop > today ? today : x.Stop.AddDays(1)) : nextDay);
+        }
+
+        /// <summary>
+        /// Получает записи стажа, действительные на настоящий момент времени
+        /// </summary>
+        /// <param name="records">Записи стажа</param>
+        /// <returns>Записи стажа, действительные на текущий момент времени</returns>
+        public static IEnumerable<IEmployeeExperienceRecord> CurrentExperience(
+            this IEnumerable<IEmployeeExperienceRecord> records)
+        {
+            if (records == null) throw new ArgumentNullException(nameof(records));
+            var today = DateTime.Today;
+            return records.Where(x => x.Start <= today);
+        }
+
         /// <summary>
         /// Есди даты окончания и начала следующей записи стажа совпадают, то следует учитывать, что 
         /// стаж непрерывен и не требуется учитывать день увольнения

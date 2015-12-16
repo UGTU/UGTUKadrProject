@@ -59,10 +59,10 @@ namespace Kadr.Data
         /// Признак того, что этот стаж имеет дату завершения
         /// </summary>
         public bool IsEnded { get { return true; } }
-        public TerritoryConditions Territory { get { return RegionType.GetTerritoryCondition(); } }
+        public TerritoryConditions Territory { get { return (RegionType??RegionType.UsualConditionRegionType).GetTerritoryCondition(); } }
         public KindOfExperience Experience
         {
-            get { return StandingType.GetKindOfExperience(); }
+            get { return (StandingType??StandingType.DefaultStadingType).GetKindOfExperience(); }
         }
         /// <summary>
         /// Получает место работы по записи в трудовой книжке. Книжка содержит данные 
