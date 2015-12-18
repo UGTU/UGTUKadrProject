@@ -720,10 +720,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.Designer.cs" />
-    <Compile Include="UI\Dialogs\ContractSelectionDialog.cs">
+    <Compile Include="UI\Dialogs\SelectionDialogs\ContractSelectionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\ContractSelectionDialog.Designer.cs">
+    <Compile Include="UI\Dialogs\SelectionDialogs\ContractSelectionDialog.Designer.cs">
       <DependentUpon>ContractSelectionDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\DatesRangeDialog.cs">
@@ -774,10 +774,16 @@
     <Compile Include="UI\Dialogs\PrikazDialog.Designer.cs">
       <DependentUpon>PrikazDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dialogs\PrikazSelectionDialog.cs">
+    <Compile Include="UI\Dialogs\SelectionDialogs\EmployeeSelectionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\PrikazSelectionDialog.Designer.cs">
+    <Compile Include="UI\Dialogs\SelectionDialogs\EmployeeSelectionDialog.Designer.cs">
+      <DependentUpon>EmployeeSelectionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\SelectionDialogs\PrikazSelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\SelectionDialogs\PrikazSelectionDialog.Designer.cs">
       <DependentUpon>PrikazSelectionDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\TripRegionsDialog.cs">
@@ -1012,7 +1018,7 @@
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.resx" />
-    <EmbeddedResource Include="UI\Dialogs\ContractSelectionDialog.resx">
+    <EmbeddedResource Include="UI\Dialogs\SelectionDialogs\ContractSelectionDialog.resx">
       <DependentUpon>ContractSelectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\DatesRangeDialog.resx">
@@ -1072,7 +1078,7 @@
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx">
       <DependentUpon>TimeSheetSheduleTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\PrikazSelectionDialog.resx">
+    <EmbeddedResource Include="UI\Dialogs\SelectionDialogs\PrikazSelectionDialog.resx">
       <DependentUpon>PrikazSelectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\TripRegionsDialog.resx">
