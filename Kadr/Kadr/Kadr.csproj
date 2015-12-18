@@ -241,11 +241,10 @@
     <Compile Include="Data\Common\ExperienceInterval.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
+    <Compile Include="Data\Common\KeyValueStorage.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
     <Compile Include="Data\Common\VacationPlanExstensions.cs" />
     <Compile Include="Data\Common\WorkTypeExtensions.cs" />
-    <Compile Include="Data\Converters\AwardLevelConverter.cs" />
-    <Compile Include="Data\Converters\AwardTypeConverter.cs" />
     <Compile Include="Data\Converters\ContractConvertor.cs" />
     <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
@@ -431,6 +430,7 @@
     <Compile Include="Data\Common\IExperienceProvider.cs" />
     <Compile Include="Interfaces\IOrderInformer.cs" />
     <Compile Include="Interfaces\IPrikazTypeProvider.cs" />
+    <Compile Include="Interfaces\IStorage.cs" />
     <Compile Include="KadrTreeView\KadrTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1402,6 +1402,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

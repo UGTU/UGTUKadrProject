@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using UIX.Views;
 using Kadr.Controllers;
+using Kadr.Interfaces;
+using Kadr.Data.Common;
 
 namespace Kadr.UI.Frames
 {
@@ -15,6 +17,17 @@ namespace Kadr.UI.Frames
     /// </summary>
     public partial class KadrBaseFrame : UserControl, IView
     {
+
+        public virtual void Store(IKeyValueStorage storage)
+        {
+            
+        }
+
+        public virtual void Restore(IKeyValueStorage storage)
+        {
+            
+        }
+
         private bool showTitleBar = true;
 
         public bool ShowTitleBar

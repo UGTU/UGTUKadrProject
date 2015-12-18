@@ -1550,7 +1550,6 @@ namespace Kadr.UI.Frames
            if (!CurrentPlanStaff.CanAddFactStaff)
            {
                MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
-               return false;
            }
            return true;
        }
