@@ -1327,7 +1327,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Reporting\template_график.xlsx" />
     <None Include="Resources\13.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -1399,6 +1398,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
