@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="RegionTypeExtensionsTests.cs" />
     <Compile Include="Reporting\ReportingTestFixture.cs" />
+    <Compile Include="Reporting\DbVacationPlanTestFixture.cs" />
     <Compile Include="StandingTypeExtensionsTests.cs" />
     <Compile Include="UiPurposeTests.cs" />
     <Compile Include="UnitTest1.cs" />

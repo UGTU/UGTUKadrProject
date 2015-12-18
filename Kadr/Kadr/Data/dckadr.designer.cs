@@ -22,7 +22,7 @@ namespace Kadr.Data
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="KadrRealTest")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Kadr")]
 	public partial class dckadrDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -339,7 +339,7 @@ namespace Kadr.Data
     #endregion
 		
 		public dckadrDataContext() : 
-				base(global::Kadr.Properties.Settings.Default.KadrRealTestConnectionString1, mappingSource)
+				base(global::Kadr.Properties.Settings.Default.KadrConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -28384,6 +28384,10 @@ namespace Kadr.Data
 		
 		private string _DepartmentName;
 		
+		private System.Guid _DepartmentGUID;
+		
+		private System.Guid _DepManagerGUID;
+		
 		private System.DateTime _DateBegin;
 		
 		private System.DateTime _DateEnd;
@@ -28406,6 +28410,10 @@ namespace Kadr.Data
     partial void OnPostNameChanged();
     partial void OnDepartmentNameChanging(string value);
     partial void OnDepartmentNameChanged();
+    partial void OnDepartmentGUIDChanging(System.Guid value);
+    partial void OnDepartmentGUIDChanged();
+    partial void OnDepManagerGUIDChanging(System.Guid value);
+    partial void OnDepManagerGUIDChanged();
     partial void OnDateBeginChanging(System.DateTime value);
     partial void OnDateBeginChanged();
     partial void OnDateEndChanging(System.DateTime value);
@@ -28517,6 +28525,46 @@ namespace Kadr.Data
 					this._DepartmentName = value;
 					this.SendPropertyChanged("DepartmentName");
 					this.OnDepartmentNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentGUID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid DepartmentGUID
+		{
+			get
+			{
+				return this._DepartmentGUID;
+			}
+			set
+			{
+				if ((this._DepartmentGUID != value))
+				{
+					this.OnDepartmentGUIDChanging(value);
+					this.SendPropertyChanging();
+					this._DepartmentGUID = value;
+					this.SendPropertyChanged("DepartmentGUID");
+					this.OnDepartmentGUIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepManagerGUID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid DepManagerGUID
+		{
+			get
+			{
+				return this._DepManagerGUID;
+			}
+			set
+			{
+				if ((this._DepManagerGUID != value))
+				{
+					this.OnDepManagerGUIDChanging(value);
+					this.SendPropertyChanging();
+					this._DepManagerGUID = value;
+					this.SendPropertyChanged("DepManagerGUID");
+					this.OnDepManagerGUIDChanged();
 				}
 			}
 		}
