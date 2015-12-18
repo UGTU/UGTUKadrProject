@@ -430,7 +430,7 @@
     <Compile Include="Data\Common\IExperienceProvider.cs" />
     <Compile Include="Interfaces\IOrderInformer.cs" />
     <Compile Include="Interfaces\IPrikazTypeProvider.cs" />
-    <Compile Include="Interfaces\IStorage.cs" />
+    <Compile Include="Interfaces\IKeyValueStorage.cs" />
     <Compile Include="KadrTreeView\KadrTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
