@@ -11,7 +11,7 @@ using Kadr.Controllers;
 namespace Kadr.UI.Common
 {
     public partial class PropertyGridDialog : Kadr.UI.Common.CustomBaseDialog
-    {
+    {       
 
         //обновление списка объектов objectList
         public Action UpdateObjectList;
@@ -234,7 +234,7 @@ namespace Kadr.UI.Common
 
             }
         }
-        /*
+        
         private void commandProperyGrid1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (commandProperyGrid1.SelectedGridItem.PropertyDescriptor.ComponentType == typeof(DateTime))
@@ -245,7 +245,7 @@ namespace Kadr.UI.Common
 
             }
         }
-
+        /*
         private void commandProperyGrid1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("!");

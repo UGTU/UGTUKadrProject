@@ -16,7 +16,7 @@ using System.Linq;
 using APG.CodeHelper.UI;
 using Kadr.Data;
 using Kadr.UI.Common;
-
+using Kadr.Interfaces;
 
 namespace Kadr.UI.Forms
 {
@@ -28,6 +28,8 @@ namespace Kadr.UI.Forms
         private ToolStripItem actionMenuStripItem;
         private APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder contextMenuBuilder;
         private APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder actionButtonDropDownMenuBuilder;
+        private IKeyValueStorage storage = new KeyValueStorage();
+
 
         internal APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder ActionButtonDropDownMenuBuilder
         {
@@ -589,7 +591,7 @@ namespace Kadr.UI.Forms
                     if (value != null)
                     {
                         activeFrame = CreateFrame(value, splitContainer1.Panel2, kadrTreeView1.SelectedObject);
-
+                        activeFrame.Restore(storage);
                         activeFrame.Caption = kadrTreeView1.SelectedNode.FullPath;
                     }
             }
@@ -605,6 +607,7 @@ namespace Kadr.UI.Forms
 
             if (activeFrame != null)
             {
+                activeFrame.Store(storage);
                 if (activeFrame.IsModified)
                 {
                     switch (MessageBox.Show(string.Format("Данные кадра \"{0}\" были изменены.\nСледует сохранить изменения в базе данных?", activeFrame.FrameName), "Сохранение данных", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
@@ -621,10 +624,13 @@ namespace Kadr.UI.Forms
                             result = false;
                             break;
                     }
+                    
                 }
                 else
                     DisposeActiveFrameInternal();
             }
+            
+
             return result;
         }
 

@@ -17,6 +17,7 @@ using Reports.Frames;
 using Kadr.UI.Editors;
 using Kadr.UI.Dialogs;
 using System.Reflection;
+using Kadr.Interfaces;
 
 namespace Kadr.UI.Frames
 {
@@ -44,6 +45,7 @@ namespace Kadr.UI.Frames
         /// <summary>
         /// Отображаемый сотрудник
         /// </summary>
+        ///
         public Kadr.Data.Employee Employee
         {
             get
@@ -200,7 +202,8 @@ namespace Kadr.UI.Frames
             InitializeComponent();
             FrameObject = AObject;
 
-           }
+
+        }
 
         protected override void DoRefreshFrame()
         {
@@ -828,6 +831,20 @@ namespace Kadr.UI.Frames
                          KadrController.Instance.Model.FactStaffs, factStaffBindingSource);
             }
             LoadPostList();
+        }
+
+        public override void Store(IKeyValueStorage storage)
+        {
+            storage.Store("ActivePageIndex", tcEmployee.SelectedIndex);
+        }
+
+        public override void Restore(IKeyValueStorage storage)
+        {
+
+            int? PageNum = (int?)storage.GetValue("ActivePageIndex");
+            //int? Page2Num = (int)Restore("ActivePage2Indx");
+            if (PageNum != null)
+                tcEmployee.SelectedIndex = (int)PageNum;
         }
     }
 
