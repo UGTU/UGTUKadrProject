@@ -242,6 +242,7 @@
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
+    <Compile Include="Data\Common\VacationPlanExstensions.cs" />
     <Compile Include="Data\Common\WorkTypeExtensions.cs" />
     <Compile Include="Data\Converters\AwardLevelConverter.cs" />
     <Compile Include="Data\Converters\AwardTypeConverter.cs" />
@@ -1327,7 +1328,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Reporting\template_график.xlsx" />
+    <None Include="Reporting\template_график.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\13.bmp" />
   </ItemGroup>
   <ItemGroup>

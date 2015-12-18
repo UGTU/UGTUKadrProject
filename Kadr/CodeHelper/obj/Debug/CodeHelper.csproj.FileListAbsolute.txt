@@ -57,7 +57,6 @@ D:\Project\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\CodeHelper.dll.config
 D:\Project\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\CodeHelper.dll
 D:\Project\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\CodeHelper.pdb
 D:\Project\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\ru-RU\CodeHelper.resources.dll
-D:\Project\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.csprojResolveAssemblyReference.cache
 D:\Project\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
 D:\Project\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
 D:\Project\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\MultiSelectTreeView.MiltiSelectTreeView.resources

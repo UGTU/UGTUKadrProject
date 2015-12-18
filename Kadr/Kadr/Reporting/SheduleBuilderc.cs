@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ClosedXML.Excel;
 using Kadr.Data;
+using System.Linq;
 
 namespace Kadr.Reporting
 {
@@ -24,27 +25,88 @@ namespace Kadr.Reporting
             if (string.IsNullOrEmpty(template)) throw new ArgumentNullException(nameof(template));
             if (string.IsNullOrEmpty(outputFileName)) throw new ArgumentNullException(nameof(outputFileName));
             if (dataSource == null) throw new ArgumentNullException(nameof(dataSource));
+
+            var listOfVacationPlan = (dataSource as IList<ViewVacationPlan>) ?? dataSource.ToList();
+
             using (var wb = new XLWorkbook(template))
             {
 
-                var ws = wb.Worksheet(0);
-                ws.Cell("E8").Value= DateTime.Now;
+                var ws = wb.Worksheets.First();
+                ws.Cell("E8").Value = DateTime.Now;
 
-                //var usedDataRange = ws.Range(14,1,20,7);
-                //foreach (var n in dataSource)
-                ////foreach (var ROW in usedDataRange.Rows())
-                //{
-                //        ws.Cell("A15").Value = "Основная";
-                //        ws.Cell("B15").Value = n.DepartmentName.ToString();
-                //        ws.Cell("C15").Value = n.PostName.ToString();
-                //        ws.Cell("D15").Value = n.LastName.ToString();
-                //        ws.Cell("E15").Value = n.CountDay.ToString();
-                //        ws.Cell("F15").Value = n.DateBegin.ToString();
-                //        ws.Cell("G15").Value = n.DateEnd.ToString();               
-                //}
+                //var usedDataRange = ws.Range(14, 1, 20, 7);
+                for (var currentItemIndex = 0; currentItemIndex < listOfVacationPlan.Count; ++currentItemIndex)
+                {
+                    var currentRow = currentItemIndex + 15;            
+                    ws.Cell(currentRow, 1).Value = "Основная";
+                    ws.Cell(currentRow, 1).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 1).Style.Border.BottomBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 1).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 1).Style.Border.LeftBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 1).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 1).Style.Border.RightBorderColor = XLColor.Black;
+
+                    ws.Cell(currentRow, 2).Value = listOfVacationPlan[currentItemIndex].DepartmentName.ToString();
+                    ws.Cell(currentRow, 2).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 2).Style.Border.BottomBorderColor = XLColor.Black;      
+                    ws.Cell(currentRow, 2).Style.Border.RightBorder= XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 2).Style.Border.RightBorderColor= XLColor.Black;
+
+                    ws.Cell(currentRow,3).Value = listOfVacationPlan[currentItemIndex].PostName.ToString();
+                    ws.Cell(currentRow, 3).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 3).Style.Border.BottomBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 3).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 3).Style.Border.RightBorderColor = XLColor.Black;
+
+                    ws.Cell(currentRow,4).Value = listOfVacationPlan[currentItemIndex].LastName.ToString()+" "+ listOfVacationPlan[currentItemIndex].FirstName.ToString()+" "+ listOfVacationPlan[currentItemIndex].Otch;
+                    ws.Cell(currentRow, 4).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 4).Style.Border.BottomBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 4).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 4).Style.Border.RightBorderColor = XLColor.Black;
+
+                    ws.Cell(currentRow,5).Value = listOfVacationPlan[currentItemIndex].CountDay.ToString();
+                    ws.Cell(currentRow, 5).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 5).Style.Border.BottomBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 5).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 5).Style.Border.RightBorderColor = XLColor.Black;
+
+                    ws.Cell(currentRow,6).Value = listOfVacationPlan[currentItemIndex].DateBegin.ToString();
+                    ws.Cell(currentRow, 6).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 6).Style.Border.BottomBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 6).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 6).Style.Border.RightBorderColor = XLColor.Black;
+
+                    ws.Cell(currentRow,7).Value = listOfVacationPlan[currentItemIndex].DateEnd.ToString();
+                    ws.Cell(currentRow, 7).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 7).Style.Border.BottomBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 7).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 7).Style.Border.RightBorderColor = XLColor.Black;
+
+                    ws.Cell(currentRow, 8).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 8).Style.Border.BottomBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 8).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 8).Style.Border.RightBorderColor = XLColor.Black;
+
+                    ws.Cell(currentRow, 9).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 9).Style.Border.BottomBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 9).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 9).Style.Border.RightBorderColor = XLColor.Black;
+
+                    ws.Cell(currentRow, 10).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 10).Style.Border.BottomBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 10).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 10).Style.Border.RightBorderColor = XLColor.Black;
+
+                    ws.Cell(currentRow, 11).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 11).Style.Border.BottomBorderColor = XLColor.Black;
+                    ws.Cell(currentRow, 11).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+                    ws.Cell(currentRow, 11).Style.Border.RightBorderColor = XLColor.Black;
+
+                }
 
                 wb.SaveAs(outputFileName);
             }
+
             //_template = template;
             //_dataSource = dataSource;
             //_outputFileName = outputFileName;
