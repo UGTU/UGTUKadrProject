@@ -217,8 +217,8 @@
             this.dgvHourFactStaff = new System.Windows.Forms.DataGridView();
             this.isReplacementDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dep = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -794,7 +794,7 @@
             this.tpStaff.Location = new System.Drawing.Point(4, 22);
             this.tpStaff.Name = "tpStaff";
             this.tpStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpStaff.Size = new System.Drawing.Size(802, 533);
+            this.tpStaff.Size = new System.Drawing.Size(947, 487);
             this.tpStaff.TabIndex = 1;
             this.tpStaff.Text = "Штаты";
             this.tpStaff.UseVisualStyleBackColor = true;
@@ -815,8 +815,8 @@
             // 
             this.splitContainer1.Panel2.AllowDrop = true;
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(796, 527);
-            this.splitContainer1.SplitterDistance = 284;
+            this.splitContainer1.Size = new System.Drawing.Size(941, 481);
+            this.splitContainer1.SplitterDistance = 258;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -833,7 +833,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 284);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(941, 258);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -1149,7 +1149,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 239);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(941, 219);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff
@@ -1928,8 +1928,8 @@
             this.dgvHourFactStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.isReplacementDataGridViewCheckBoxColumn,
             this.dataGridViewTextBoxColumn28,
-            this.dataGridViewTextBoxColumn30,
             this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn30,
             this.dataGridViewTextBoxColumn25,
             this.dataGridViewTextBoxColumn29,
             this.Dep,
@@ -2011,6 +2011,16 @@
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
             this.dataGridViewTextBoxColumn28.Width = 120;
             // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "DateBegin";
+            dataGridViewCellStyle16.NullValue = null;
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridViewTextBoxColumn27.HeaderText = "Дата приема";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            this.dataGridViewTextBoxColumn27.Width = 70;
+            // 
             // dataGridViewTextBoxColumn30
             // 
             this.dataGridViewTextBoxColumn30.DataPropertyName = "DateEnd";
@@ -2018,17 +2028,6 @@
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
             this.dataGridViewTextBoxColumn30.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            this.dataGridViewTextBoxColumn27.DataPropertyName = "DateBegin";
-            dataGridViewCellStyle16.Format = "N2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridViewTextBoxColumn27.HeaderText = "Дата приема";
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            this.dataGridViewTextBoxColumn27.ReadOnly = true;
-            this.dataGridViewTextBoxColumn27.Width = 70;
             // 
             // dataGridViewTextBoxColumn25
             // 
@@ -5023,8 +5022,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OK_Reason;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isReplacementDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dep;

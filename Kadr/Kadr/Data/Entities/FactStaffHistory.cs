@@ -8,7 +8,7 @@ using Kadr.Data.Common;
 
 namespace Kadr.Data
 {
-    partial class FactStaffHistory : UIX.Views.IDecorable, UIX.Views.IValidatable
+    partial class FactStaffHistory : UIX.Views.IDecorable, UIX.Views.IValidatable, IEmployeeExperienceRecord
     {
 
         public EventKind CreatingEventKind
@@ -31,7 +31,7 @@ namespace Kadr.Data
             : this()
         {
             //x.SetProperties(dlg.CommandManager, currentFactStaff, currentFactStaff.WorkType, NullPrikaz.Instance, DateTime.Today.Date, eventKind, eventType, withContract);
-            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind,eventType, withContract, null);
+            SetProperties(CommandManager, factStaff, workType, prikaz, dateBegin, eventKind, eventType, withContract, null);
         }
 
 
@@ -47,7 +47,7 @@ namespace Kadr.Data
             }
 
             FinancingSource financingSource = null;
-            if (eventKind == MagicNumberController.FactStaffFinSourceChangeEventKind) 
+            if (eventKind == MagicNumberController.FactStaffFinSourceChangeEventKind)
                 financingSource = factStaff.LastChange.FinancingSource;
             if (eventKind == MagicNumberController.FactStaffHourCreateEventKind)
                 financingSource = MagicNumberController.budgetFinancingSource;
@@ -68,7 +68,7 @@ namespace Kadr.Data
 
             Event = new Event(CommandManager, this, eventKind, eventType, (eventKind.ForFactStaff) && (eventKind.WithContract.Value), prikaz);
         }
-        
+
         public override string ToString()
         {
             return "Изменение " + FactStaff.ToString();
@@ -89,9 +89,9 @@ namespace Kadr.Data
 
         #region EventContractData 
 
-        
 
-        
+
+
 
         public Contract GlobalMainContract
         {
@@ -142,14 +142,7 @@ namespace Kadr.Data
             }
         }
 
-        public Contract Contract
-        {
-            get
-            {
-                return Event.Contract;
-            }
-
-        }
+        public Contract Contract => Event.Contract;
 
         /// <summary>
         /// устанавливает даты начала контрактов
@@ -189,8 +182,8 @@ namespace Kadr.Data
         #region partial Methods
         partial void OnCreated()
         {
-             DateBegin = DateTime.Today;
-             StaffCount = 1;
+            DateBegin = DateTime.Today;
+            StaffCount = 1;
         }
 
 
@@ -218,13 +211,13 @@ namespace Kadr.Data
                 }
                 else
                 {
-                    if ((Prikaz as Kadr.Data.Common.INullable).IsNull()  && !FactStaff.IsHourStaff)
+                    if ((Prikaz as Kadr.Data.Common.INullable).IsNull() && !FactStaff.IsHourStaff)
                         throw new ArgumentNullException("Приказ назначения.");
                 }
 
-                if ((StaffCount <= 0) || (StaffCount == null)) 
+                if ((StaffCount <= 0) || (StaffCount == null))
                     throw new ArgumentOutOfRangeException("Количество ставок.");
-                if (DateBegin == null) 
+                if (DateBegin == null)
                     throw new ArgumentNullException("Дата изменения.");
 
 
@@ -234,7 +227,7 @@ namespace Kadr.Data
                 if (SalaryKoeff != null)
                     if (SalaryKoeff.IsNull())
                         SalaryKoeff = null;
-                
+
                 if (transferPrevFactStaff != null)
                 {
                     transferPrevFactStaff.Prikaz = Prikaz;
@@ -245,7 +238,7 @@ namespace Kadr.Data
                 /*decimal factStaffCount = Kadr.Controllers.KadrController.Instance.Model.GetFactStaffByPeriod(DateBegin, DateBegin).Where(fcSt => fcSt.idPlanStaff == FactStaff.idPlanStaff).Sum(fcSt => fcSt.StaffCount);
                 decimal planStaffCount = Kadr.Controllers.KadrController.Instance.Model*/
             }
-         }
+        }
         #endregion
 
         public object GetDecorator()
@@ -276,5 +269,50 @@ namespace Kadr.Data
         }
         #endregion
 
+        #region Implementation of IRange<DateTime>
+
+        public DateTime Start
+        {
+            get { return DateBegin; }
+            set { }
+        }
+        public DateTime Stop
+        {
+            get { return FactStaff.Stop; }
+            set { }
+        }
+
+        #endregion
+
+        #region Implementation of IEmployeeExperienceRecord
+
+        /// <summary>
+        /// Признак того, что этот стаж имеет дату завершения
+        /// </summary>
+        public bool IsEnded => FactStaff.IsEnded;
+
+        /// <summary>
+        /// Получает территориальные условия работы
+        /// </summary>
+        public TerritoryConditions Territory => (RegionType
+                                                 ?? FactStaff.Department?.CurrentRegionType
+                                                 ?? RegionType.Default).GetTerritoryCondition();
+
+        /// <summary>
+        /// Получает вид стажа
+        /// </summary>
+        public KindOfExperience Experience => FactStaff.Experience;
+
+        /// <summary>
+        /// Получает принадлежность стажа организации
+        /// </summary>
+        public Affilations Affilation => FactStaff.Affilation;
+
+        /// <summary>
+        /// Получает тип стажа в организации
+        /// </summary>
+        public WorkOrganizationWorkType WorkWorkType => FactStaff.WorkWorkType;
+
+        #endregion
     }
 }

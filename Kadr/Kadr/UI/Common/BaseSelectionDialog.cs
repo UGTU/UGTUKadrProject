@@ -44,6 +44,11 @@ namespace Kadr.UI.Common
             dialogObject = cbObjectList.SelectedItem;
         }
 
+        public void AddingModeOn()
+        {
+            bAddingMode_Click(null, null);
+        }
+
         private void bAddingMode_Click(object sender, EventArgs e)
         {
             pSelection.Visible = false;

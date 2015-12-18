@@ -50,7 +50,21 @@ namespace Kadr.Data.Common
             var years = tsExperience.GetExperienceYears();
             var monthes = tsExperience.GetExperienceMonthes();
             var days = tsExperience.GetExperienceDays();
-            return NumericExtensions.FormatDateDifference(years, monthes, days);
+            return NumericExtensions.FormatDate(years, monthes, days);
+        }
+
+        /// <summary>
+        /// Возвращает строку с данными по стажу
+        /// </summary>
+        /// <param name="dateSpanExperience"></param>
+        /// <returns></returns>
+        public static string FormatAsExperience(this DateSpan dateSpanExperience)
+        {
+            if (dateSpanExperience == null) throw new ArgumentNullException(nameof(dateSpanExperience));
+            var years = dateSpanExperience.Years;
+            var monthes = dateSpanExperience.Months;
+            var days = dateSpanExperience.Days;
+            return NumericExtensions.FormatDate(years, monthes, days);
         }
         /// <summary>
         /// Получает из заданной коллекции элементы северного стажа.
@@ -91,8 +105,48 @@ namespace Kadr.Data.Common
             var nextDay = DateTime.Today.AddDays(1);
             var enumerable = experienceSet as IList<IEmployeeExperienceRecord> ?? experienceSet.ToList();
             var extraDays = CalculateExtraDays(enumerable);
-            return TimeSpan.FromDays(enumerable.Sum(x=> ((x.IsEnded ? x.Stop.AddDays(1) : nextDay) - x.Start).Days) - extraDays);
+            return TimeSpan.FromDays(enumerable.Sum(x => ((x.IsEnded ? x.Stop.AddDays(1) : nextDay) - x.Start).Days) - extraDays);
         }
+        /// <summary>
+        /// Расчитывает и возвращает стаж сотрудника
+        /// </summary>
+        /// <param name="experienceSet">Записи стажа</param>        
+        /// <returns>Стаж сотрудника</returns>
+        public static DateSpan GetExperienceDates(this IEnumerable<IEmployeeExperienceRecord> experienceSet)
+        {
+            // Стаж расчитывается с учётом того, что день увольнения считается рабочим днём
+            // Если сотрудник продолжает работать в день расчёта стажа, то считается, что 
+            // текущий день вошёл в стаж.
+            var nextDay = DateTime.Today.AddDays(1);
+            var enumerable = experienceSet as IList<IEmployeeExperienceRecord> ?? experienceSet.ToList();
+            var extraDays = CalculateExtraDays(enumerable);
+            var result =
+                enumerable.Select(
+                    x => new DateSpanDifference(ChooseEndDate(x, nextDay), x.Start))
+                    .Aggregate(new DateSpan(0, 0, 0), (a, b) => a + b, r => r) - extraDays;
+            return result;
+
+        }
+
+        private static DateTime ChooseEndDate(IEmployeeExperienceRecord x, DateTime nextDay)
+        {
+            var today = DateTime.Today;
+            return (x.IsEnded ? (x.Stop > today ? today : x.Stop.AddDays(1)) : nextDay);
+        }
+
+        /// <summary>
+        /// Получает записи стажа, действительные на настоящий момент времени
+        /// </summary>
+        /// <param name="records">Записи стажа</param>
+        /// <returns>Записи стажа, действительные на текущий момент времени</returns>
+        public static IEnumerable<IEmployeeExperienceRecord> CurrentExperience(
+            this IEnumerable<IEmployeeExperienceRecord> records)
+        {
+            if (records == null) throw new ArgumentNullException(nameof(records));
+            var today = DateTime.Today;
+            return records.Where(x => x.Start <= today);
+        }
+
         /// <summary>
         /// Есди даты окончания и начала следующей записи стажа совпадают, то следует учитывать, что 
         /// стаж непрерывен и не требуется учитывать день увольнения
@@ -122,7 +176,7 @@ namespace Kadr.Data.Common
             this IEnumerable<IEmployeeExperienceRecord> experienceSet)
         {
             if (experienceSet == null) throw new ArgumentNullException("experienceSet");
-            
+
             // Сортировка по убыванию даты окончания. Записи стажа не имеющие даты окончания,
             // имеют приоритет и будут в начале выходной коллекции
             var comparer = new APG.Relays.ComparerRelay<IEmployeeExperienceRecord>(
@@ -133,7 +187,7 @@ namespace Kadr.Data.Common
                     var dy = y.IsEnded ? y.Stop : today;
                     return dx.CompareTo(dy);
                 });
-            
+
             var ordered = experienceSet.OrderByDescending(e => e, comparer).ToList();
             IEmployeeExperienceRecord prevItem = null;
             // Для того, что бы считать стаж непрерывным требуется, что бы между записями даты окончания предыдущего стажа и датой начала следующего

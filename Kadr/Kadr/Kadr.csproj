@@ -61,7 +61,7 @@
     <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
     <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
-    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
     <CodeContractsNonNullObligations>True</CodeContractsNonNullObligations>
     <CodeContractsBoundsObligations>True</CodeContractsBoundsObligations>
     <CodeContractsArithmeticObligations>True</CodeContractsArithmeticObligations>
@@ -78,6 +78,28 @@
     <CodeContractsBaseLineFile />
     <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
     <CodeContractsReferenceAssembly>%28none%29</CodeContractsReferenceAssembly>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsEnumObligations>True</CodeContractsEnumObligations>
+    <CodeContractsAssertsToContractsCheckBox>True</CodeContractsAssertsToContractsCheckBox>
+    <CodeContractsRedundantTests>True</CodeContractsRedundantTests>
+    <CodeContractsMissingPublicRequiresAsWarnings>True</CodeContractsMissingPublicRequiresAsWarnings>
+    <CodeContractsMissingPublicEnsuresAsWarnings>False</CodeContractsMissingPublicEnsuresAsWarnings>
+    <CodeContractsInferRequires>True</CodeContractsInferRequires>
+    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+    <CodeContractsInferEnsuresAutoProperties>True</CodeContractsInferEnsuresAutoProperties>
+    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+    <CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
+    <CodeContractsSuggestAssumptionsForCallees>False</CodeContractsSuggestAssumptionsForCallees>
+    <CodeContractsSuggestRequires>False</CodeContractsSuggestRequires>
+    <CodeContractsNecessaryEnsures>True</CodeContractsNecessaryEnsures>
+    <CodeContractsSuggestObjectInvariants>False</CodeContractsSuggestObjectInvariants>
+    <CodeContractsSuggestReadonly>True</CodeContractsSuggestReadonly>
+    <CodeContractsSQLServerOption />
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsSkipAnalysisIfCannotConnectToCache>False</CodeContractsSkipAnalysisIfCannotConnectToCache>
+    <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
+    <CodeContractsBeingOptimisticOnExternal>True</CodeContractsBeingOptimisticOnExternal>
+    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -110,27 +132,12 @@
     <CodeContractsReferenceAssembly>%28none%29</CodeContractsReferenceAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=14.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+    <Reference Include="ClosedXML, Version=0.76.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.76.0\lib\net35-client\ClosedXML.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=14.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=14.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CrystalDecisions.ReportSource, Version=14.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CrystalDecisions.Shared, Version=14.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=14.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.1.0\lib\DocumentFormat.OpenXml.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
@@ -252,6 +259,7 @@
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryPPCategoryDecorator.cs" />
     <Compile Include="Data\Decorators\FactStaffHistoryDecorator\FactStaffHistoryStaffCountDecorator.cs" />
     <Compile Include="Data\Entities\Event_BusinessTrip.cs" />
+    <Compile Include="Helpers\SqlExceptionHelper.cs" />
     <Compile Include="Interfaces\IEntitySelector.cs" />
     <Compile Include="Data\Converters\OK_MembFamConverter.cs" />
     <Compile Include="Data\Converters\OK_OtpuskvidConverter.cs" />
@@ -443,6 +451,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\SheduleBuilderc.cs" />
     <Compile Include="UI\Common\BaseSelectionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -711,10 +720,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.Designer.cs" />
-    <Compile Include="UI\Dialogs\ContractSelectionDialog.cs">
+    <Compile Include="UI\Dialogs\SelectionDialogs\ContractSelectionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\ContractSelectionDialog.Designer.cs">
+    <Compile Include="UI\Dialogs\SelectionDialogs\ContractSelectionDialog.Designer.cs">
       <DependentUpon>ContractSelectionDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\DatesRangeDialog.cs">
@@ -765,10 +774,16 @@
     <Compile Include="UI\Dialogs\PrikazDialog.Designer.cs">
       <DependentUpon>PrikazDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dialogs\PrikazSelectionDialog.cs">
+    <Compile Include="UI\Dialogs\SelectionDialogs\EmployeeSelectionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dialogs\PrikazSelectionDialog.Designer.cs">
+    <Compile Include="UI\Dialogs\SelectionDialogs\EmployeeSelectionDialog.Designer.cs">
+      <DependentUpon>EmployeeSelectionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\SelectionDialogs\PrikazSelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\SelectionDialogs\PrikazSelectionDialog.Designer.cs">
       <DependentUpon>PrikazSelectionDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\TripRegionsDialog.cs">
@@ -1003,7 +1018,7 @@
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetDayStateDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx" />
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\WorkTypeDialog.resx" />
-    <EmbeddedResource Include="UI\Dialogs\ContractSelectionDialog.resx">
+    <EmbeddedResource Include="UI\Dialogs\SelectionDialogs\ContractSelectionDialog.resx">
       <DependentUpon>ContractSelectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\DatesRangeDialog.resx">
@@ -1063,7 +1078,7 @@
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx">
       <DependentUpon>TimeSheetSheduleTypeDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dialogs\PrikazSelectionDialog.resx">
+    <EmbeddedResource Include="UI\Dialogs\SelectionDialogs\PrikazSelectionDialog.resx">
       <DependentUpon>PrikazSelectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\TripRegionsDialog.resx">
@@ -1145,6 +1160,7 @@
       <LastGenOutput>dckadr.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\Kadr.Data.ValidationDecorator.datasource">
       <SubType>Designer</SubType>
     </None>
@@ -1380,15 +1396,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="ExcelClientPkgLib">
-      <Guid>{9572340B-3E23-4B49-A5CE-878FD165E62A}</Guid>
-      <VersionMajor>9</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

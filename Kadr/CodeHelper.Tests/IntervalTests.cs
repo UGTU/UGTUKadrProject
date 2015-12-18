@@ -179,5 +179,27 @@ namespace CodeHelper.Tests
                 2, 0, 0, 3, 4, 4, 0, 1);
 
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(RangeParametersException<DateTime>))]
+        public void FutureDatesSequnceTest()
+        {
+
+            CheckSequenceResult(new[]
+            {
+                DateTime.Parse("27.06.2015"), DateTime.Parse("31.08.2015"),
+                DateTime.Parse("01.09.2015"), DateTime.Parse("01.12.2015"),
+                DateTime.Parse("01.10.2015"), DateTime.Parse("01.12.2015"),
+                DateTime.Parse("23.12.2015"), DateTime.Parse("01.12.2015")
+            },
+                new[] {0, 0, 0, 0},
+                new[]
+                {
+                    DateTime.Parse("27.06.2015"), DateTime.Parse("31.08.2015"),
+                    DateTime.Parse("01.09.2015"), DateTime.Parse("01.12.2015"),
+                    DateTime.Parse("01.10.2015"), DateTime.Parse("01.12.2015"),
+                    DateTime.Parse("23.12.2015"), DateTime.Parse("01.12.2015")
+                }, 0, 0, 0, 0);
+        }
     }
 }

@@ -23,7 +23,6 @@ E:\Projects\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
 E:\Projects\GitHub\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.dll
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.pdb
-C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.dll
@@ -37,3 +36,9 @@ E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\UI
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
+D:\Project\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.dll
+D:\Project\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.pdb
+D:\Project\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csprojResolveAssemblyReference.cache
+D:\Project\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
+D:\Project\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb
