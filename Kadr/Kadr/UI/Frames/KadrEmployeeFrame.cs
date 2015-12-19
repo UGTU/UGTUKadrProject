@@ -267,7 +267,7 @@ namespace Kadr.UI.Frames
             dtpBonRepPeriodBegin.Value = DateTime.Today.AddDays(-DateTime.Today.Day + 1);
             dtpBonRepPeriodEnd.Value = DateTime.Today;
 
-            employeeBonusReportFrame1.InitializeReport(typeof(Reports.GetEmployeesSumResult), 0);
+            //employeeBonusReportFrame1.InitializeReport(typeof(Reports.GetEmployeesSumResult), 0);
 
             CreateChangeFactStaffContractMenu();
 

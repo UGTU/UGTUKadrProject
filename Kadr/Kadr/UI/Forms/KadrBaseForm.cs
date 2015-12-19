@@ -495,8 +495,8 @@ namespace Kadr.UI.Forms
         {
             Kadr.UI.Frames.KadrBaseFrame frame = null;
 
-            try
-            {
+            //try
+            //{
                 //if (framePool.ContainsKey(frameType.FullName))
                 //{
                 //    frame = framePool[frameType.FullName];           
@@ -539,8 +539,8 @@ namespace Kadr.UI.Forms
                 frame.RefreshFrame();
 
                 frame.Show();
-            }
-            catch (Exception)
+            //}
+            /*catch (Exception)
             {
                 if (frame != null)
                 {
@@ -548,7 +548,7 @@ namespace Kadr.UI.Forms
                     frame = null;
                 }
                 throw;
-            }
+            }*/
 
             return frame;
         }
