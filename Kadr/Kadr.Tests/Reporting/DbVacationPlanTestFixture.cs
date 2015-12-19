@@ -6,6 +6,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Kadr.Controllers;
 using System.Diagnostics;
+using Kadr.Reporting;
 using Kadr.UI.Reporting;
 
 namespace Kadr.Tests.Reporting
@@ -16,11 +17,13 @@ namespace Kadr.Tests.Reporting
         [TestMethod]
         public void FetchVacationPlanTest()
         {
-            
-           var actual = KadrController.Instance.Model.FetchVacationPlansByDepartmentId(Guid.Parse("{BAEE3FD5-664D-E111-96A2-0018FE865BEC}"),2016);
-            Kadr.Reporting.ScheduleReportBuilder.Create(@"Reporting\template_график.xlsx", @"Reporting\test_schedule_output.xlsx", actual.AsEnumerable().AsVacationPlanView(), 2016);
+            var vp = new VacationPlanParams(Guid.Parse("{BAEE3FD5-664D-E111-96A2-0018FE865BEC}"),
+                @"Reporting\template_график.xlsx", @"Reporting\test_schedule_output.xlsx") {Year = 2016};
 
-            ProcessStartInfo psi = new ProcessStartInfo(@"Reporting\test_schedule_output.xlsx");
+            var actual = KadrController.Instance.Model.FetchVacationPlansByDepartmentId(vp.Department, vp.Year);
+            Kadr.Reporting.ScheduleReportBuilder.Create(vp, actual.AsEnumerable().AsVacationPlanView());
+
+            ProcessStartInfo psi = new ProcessStartInfo(vp.OutputFileName);
             Process p = new Process();
             p.StartInfo = psi;
             p.Start();
@@ -28,8 +31,11 @@ namespace Kadr.Tests.Reporting
         [TestMethod]
         public void VacationScriptTest()
         {
-            var par = new VacationPlanParams(Guid.Parse("{BAEE3FD5-664D-E111-96A2-0018FE865BEC}"));
-            var script = new ScheduleBuildingScript(par);
+            var vp = new VacationPlanParams(Guid.Parse("{BAEE3FD5-664D-E111-96A2-0018FE865BEC}"),
+             @"Reporting\template_график.xlsx", @"Reporting\test_schedule_output.xlsx")
+            { Year = 2016 };
+
+            var script = new ScheduleBuildingScript(vp);
             script.Run();
         }
     }

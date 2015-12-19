@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using Kadr.Data;
 using System.Diagnostics;
+using Kadr.Reporting;
 using Kadr.UI.Reporting;
 
 namespace Kadr.Tests.Reporting
@@ -28,10 +29,13 @@ namespace Kadr.Tests.Reporting
                     PostName = "владыка ситхов Дарт Вейдер"
                 });
             }
+            var vp = new VacationPlanParams(Guid.Parse("{BAEE3FD5-664D-E111-96A2-0018FE865BEC}"),
+              @"Reporting\template_график.xlsx", @"Reporting\test_schedule_output.xlsx")
+            { Year = 2016 };
 
-            Kadr.Reporting.ScheduleReportBuilder.Create(@"Reporting\template_график.xlsx", @"Reporting\test_schedule_output.xlsx", dataSource, 2016);
+            Kadr.Reporting.ScheduleReportBuilder.Create(vp, dataSource);
 
-            ProcessStartInfo psi = new ProcessStartInfo(@"Reporting\test_schedule_output.xlsx");
+            ProcessStartInfo psi = new ProcessStartInfo(vp.OutputFileName);
             Process p = new Process();
             p.StartInfo = psi;
             p.Start();

@@ -41,3 +41,5 @@ D:\Project\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.dll
 D:\Project\UGTUKadrProject\Kadr\UIX\UIX\bin\Debug\UIX.pdb
 D:\Project\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.dll
 D:\Project\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.pdb
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.UI.PropertyGridViewerDialog.resources
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\UIX\UIX\obj\Debug\UIX.csproj.GenerateResource.Cache
