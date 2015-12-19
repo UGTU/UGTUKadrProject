@@ -19,8 +19,8 @@ namespace Kadr.Reporting
         /// </summary>
         /// <param name="template">Полное имя файла шаблона отчёта</param>
         /// <param name="outputFileName">Полное имя выходного файла</param>
-        /// <param name="dataSource">Данные для отчёта</param>
-        public static void Create(string template, string outputFileName, IEnumerable<ViewVacationPlan> dataSource)
+        ///// <param name="dataSource">Данные для отчёта</param>
+        public static void Create(string template, string outputFileName, IEnumerable<ViewVacationPlan> dataSource, int year)
         {
             if (string.IsNullOrEmpty(template)) throw new ArgumentNullException(nameof(template));
             if (string.IsNullOrEmpty(outputFileName)) throw new ArgumentNullException(nameof(outputFileName));
@@ -33,6 +33,8 @@ namespace Kadr.Reporting
 
                 var ws = wb.Worksheets.First();
                 ws.Cell("E8").Value = DateTime.Now;
+
+                ws.Cell("G8").Value = year.ToString();
 
                 //var usedDataRange = ws.Range(14, 1, 20, 7);
                 for (var currentItemIndex = 0; currentItemIndex < listOfVacationPlan.Count; ++currentItemIndex)
@@ -111,9 +113,6 @@ namespace Kadr.Reporting
             //_dataSource = dataSource;
             //_outputFileName = outputFileName;
         }
-
-
-
-
+        
     }
 }

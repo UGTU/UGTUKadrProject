@@ -1242,6 +1242,12 @@ namespace Kadr.Data
 		{
 			return this.CreateMethodCallQuery<GetBonusByBonusTypeForProlongResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idBonusType, periodBegin, periodEnd);
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FetchVacationPlansByDepartmentId", IsComposable=true)]
+		public IQueryable<FetchVacationPlansByDepartmentIdResult> FetchVacationPlansByDepartmentId([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepartmenGuid", DbType="UniqueIdentifier")] System.Nullable<System.Guid> departmenGuid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year", DbType="Int")] System.Nullable<int> year)
+		{
+			return this.CreateMethodCallQuery<FetchVacationPlansByDepartmentIdResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), departmenGuid, year);
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DepartmentType")]
@@ -29749,6 +29755,212 @@ namespace Kadr.Data
 				if ((this._idBonus != value))
 				{
 					this._idBonus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class FetchVacationPlansByDepartmentIdResult
+	{
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private string _Otch;
+		
+		private string _PostName;
+		
+		private string _DepartmentName;
+		
+		private System.Nullable<System.Guid> _DepartmentGUID;
+		
+		private System.Nullable<System.Guid> _DepManagerGUID;
+		
+		private System.Nullable<System.DateTime> _DateBegin;
+		
+		private System.Nullable<System.DateTime> _DateEnd;
+		
+		private System.Nullable<int> _OtpuskYear;
+		
+		private System.Nullable<int> _CountDay;
+		
+		public FetchVacationPlansByDepartmentIdResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50)")]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50)")]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Otch", DbType="VarChar(50)")]
+		public string Otch
+		{
+			get
+			{
+				return this._Otch;
+			}
+			set
+			{
+				if ((this._Otch != value))
+				{
+					this._Otch = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostName", DbType="VarChar(150)")]
+		public string PostName
+		{
+			get
+			{
+				return this._PostName;
+			}
+			set
+			{
+				if ((this._PostName != value))
+				{
+					this._PostName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentName", DbType="VarChar(500)")]
+		public string DepartmentName
+		{
+			get
+			{
+				return this._DepartmentName;
+			}
+			set
+			{
+				if ((this._DepartmentName != value))
+				{
+					this._DepartmentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentGUID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> DepartmentGUID
+		{
+			get
+			{
+				return this._DepartmentGUID;
+			}
+			set
+			{
+				if ((this._DepartmentGUID != value))
+				{
+					this._DepartmentGUID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepManagerGUID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> DepManagerGUID
+		{
+			get
+			{
+				return this._DepManagerGUID;
+			}
+			set
+			{
+				if ((this._DepManagerGUID != value))
+				{
+					this._DepManagerGUID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateBegin
+		{
+			get
+			{
+				return this._DateBegin;
+			}
+			set
+			{
+				if ((this._DateBegin != value))
+				{
+					this._DateBegin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateEnd
+		{
+			get
+			{
+				return this._DateEnd;
+			}
+			set
+			{
+				if ((this._DateEnd != value))
+				{
+					this._DateEnd = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtpuskYear", DbType="Int")]
+		public System.Nullable<int> OtpuskYear
+		{
+			get
+			{
+				return this._OtpuskYear;
+			}
+			set
+			{
+				if ((this._OtpuskYear != value))
+				{
+					this._OtpuskYear = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountDay", DbType="Int")]
+		public System.Nullable<int> CountDay
+		{
+			get
+			{
+				return this._CountDay;
+			}
+			set
+			{
+				if ((this._CountDay != value))
+				{
+					this._CountDay = value;
 				}
 			}
 		}
