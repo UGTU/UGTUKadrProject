@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Actions\ActionManager.cs" />
     <Compile Include="Actions\UIActions.cs" />
+    <Compile Include="Base\CollectionExtensions.cs" />
     <Compile Include="Base\ComparableExtensions.cs" />
     <Compile Include="Base\DateDifference.cs" />
     <Compile Include="Base\IRange.cs" />
