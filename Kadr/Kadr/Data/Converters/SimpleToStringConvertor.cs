@@ -54,7 +54,7 @@ namespace Kadr.Data.Converters
 
             if (col.Count>0)
             if (typeof(INullable).IsAssignableFrom(typeof(T)))
-                (col as List<T>).Add((T)((col as List<T>)[0] as INullable).GetNullInstance());
+                (col as System.Collections.Generic.List<T>).Add((T)((col as List<T>)[0] as INullable).GetNullInstance());
 
                 return col;
 

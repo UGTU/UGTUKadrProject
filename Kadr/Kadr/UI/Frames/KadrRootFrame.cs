@@ -597,7 +597,8 @@ namespace Kadr.UI.Frames
 
            if (tcDepartment.SelectedTab == tpDepEmplReport)
            {
-               depEmplReportFrame1.ReportParam = Department.id;
+                depEmplReportFrame1.ReportParam = Department.id;
+
                //depEmplCountReportFrame1.reportViewer1.RefreshReport();
            }
 
@@ -611,9 +612,10 @@ namespace Kadr.UI.Frames
                LoadTimeNorm();
            }
 
-       }
-  
-       private void tspPlanStaffFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+
+        }
+
+        private void tspPlanStaffFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
        {
            LoadPlanStaff(ObjectStateController.Instance.GetObjectStatesForFilter(tspPlanStaffFilter,e));
 
@@ -823,7 +825,7 @@ namespace Kadr.UI.Frames
            dtpErrorsPeriodEnd.Value = DateTime.Today;
            tcDepartment_SelectedIndexChanged(null, null);
 
-
+            /*
            depCategoryAverageStaff1.InitializeReport(typeof(Reports.GetAverageNumEmplByCatResult),1);
            depCategoryAverageStaff2.InitializeReport(typeof(Reports.GetAverageNumEmplByCatResult), 2);
            DepartmentAverageStaff1.InitializeReport(typeof(Reports.GetAverageNumEmplResult), 0);
@@ -831,26 +833,18 @@ namespace Kadr.UI.Frames
            depPostAverageStaffFrame1.InitializeReport(typeof(Reports.GetAverageNumEmplResult), 0);
            reportBaseFrameForQuarter1.InitializeReport(typeof(Reports.GetAverageNumEmplResult), 3);
            reportBaseFrameForQuarter2.InitializeReport(typeof(Reports.GetFundingDepAverageNumEmplResult), 1);
-
-           reportBaseFrameForPeriod1.InitializeReport(typeof(Reports.GetDepartmentBonusWithSettingsResult), 3);
-           departmentBonusReportFrame1.InitializeReport(typeof(Reports.GetDepartmentBonusWithEmployeesResult), 0);
-           depByPostBonusТ3ReportFrame1.InitializeReport(typeof(Reports.GetDepartmentBonusForT3Result), 1);
-           depByCategoryBonusТ3ReportFrame1.InitializeReport(typeof(Reports.GetDepartmentBonusForT3Result), 2);
-           reportBaseFrameForPeriod2.InitializeReport(typeof(Reports.GetDepartmentBonusWithSettingsResult), 4);
-
+            
+          
            factStaffChangesFrame1.InitializeReport(typeof(Reports.GetFactStaffChangesByPeriodResult), 0);
            postStaffChangesFrame1.InitializeReport(typeof(Reports.GetPostStaffChangesByPeriodResult), 0);
 
            minFormMainFrame1.InitializeReport(typeof(Reports.GetDepartmentBonusWithSettingsResult), 1);
            minFormsFrame1.InitializeReport(typeof(Reports.GetDepartmentBonusWithSettingsResult), 2);
            minForm3PPSFrame1.InitializeReport(typeof(Reports.GetPPSDepartmentBonusResult), 1);
-
-           depEmplReportFrame1.InitializeReport(typeof(Reports.GetDepartmentStaffResult), 1);
-           depStaffReportFrame1.InitializeReport(typeof(Reports.GetDepartmentStaffResult), 2);
+           */
 
 
-
-           cbYearOfQr.Items.Clear();
+            cbYearOfQr.Items.Clear();
            cbYearOfQr.Items.AddRange(KadrController.Instance.Model.TimeSheets.Select(ts => ts.TimeSheetYear as Object).Distinct().OrderByDescending(ts => ts as int?).ToArray());
            cbYearOfQr.SelectedItem = DateTime.Today.Year;
            if ((cbYearOfQr.SelectedItem == null) && (cbYearOfQr.Items.Count > 0))
@@ -1550,7 +1544,6 @@ namespace Kadr.UI.Frames
            if (!CurrentPlanStaff.CanAddFactStaff)
            {
                MessageBox.Show("В выбранной записи штатов уже заняты все ставки!", "ИС \"Управление кадрами\"");
-               return false;
            }
            return true;
        }
@@ -1566,6 +1559,122 @@ namespace Kadr.UI.Frames
            LoadPlanStaff();
            LoadFactStaff();
        }
+
+        private void depEmplReportFrame1_Load(object sender, EventArgs e)
+        {
+            depEmplReportFrame1.InitializeReport(typeof(Reports.GetDepartmentStaffResult), 1);
+            
+        }
+
+        private void depStaffReportFrame1_Load(object sender, EventArgs e)
+        {
+            depStaffReportFrame1.InitializeReport(typeof(Reports.GetDepartmentStaffResult), 2);
+        }
+
+        private void reportBaseFrameForPeriod1_Load(object sender, EventArgs e)
+        {
+            reportBaseFrameForPeriod1.InitializeReport(typeof(Reports.GetDepartmentBonusWithSettingsResult), 3);
+            
+        }
+
+        private void departmentBonusReportFrame1_Load(object sender, EventArgs e)
+        {
+            departmentBonusReportFrame1.InitializeReport(typeof(Reports.GetDepartmentBonusWithEmployeesResult), 0);
+            
+        }
+
+        private void depByPostBonusТ3ReportFrame1_Load(object sender, EventArgs e)
+        {
+            depByPostBonusТ3ReportFrame1.InitializeReport(typeof(Reports.GetDepartmentBonusForT3Result), 1);
+            
+        }
+
+        private void depByCategoryBonusТ3ReportFrame1_Load(object sender, EventArgs e)
+        {
+            depByCategoryBonusТ3ReportFrame1.InitializeReport(typeof(Reports.GetDepartmentBonusForT3Result), 2);
+           
+        }
+
+        private void reportBaseFrameForPeriod2_Load(object sender, EventArgs e)
+        {
+            reportBaseFrameForPeriod2.InitializeReport(typeof(Reports.GetDepartmentBonusWithSettingsResult), 4);
+
+        }
+
+        private void DepartmentAverageStaff1_Load(object sender, EventArgs e)
+        {
+            DepartmentAverageStaff1.InitializeReport(typeof(Reports.GetAverageNumEmplResult), 0);
+            
+        }
+
+        private void depCategoryAverageStaff1_Load(object sender, EventArgs e)
+        {
+            depCategoryAverageStaff1.InitializeReport(typeof(Reports.GetAverageNumEmplByCatResult), 1);
+          
+        }
+
+        private void depCategoryAverageStaff2_Load(object sender, EventArgs e)
+        {
+           depCategoryAverageStaff2.InitializeReport(typeof(Reports.GetAverageNumEmplByCatResult), 2);
+            
+        }
+
+        private void depCategoryAverageStaff3_Load(object sender, EventArgs e)
+        {
+            depCategoryAverageStaff3.InitializeReport(typeof(Reports.GetAverageNumEmplByCatResult), 3);
+           
+        }
+
+        private void depPostAverageStaffFrame1_Load(object sender, EventArgs e)
+        {
+            depPostAverageStaffFrame1.InitializeReport(typeof(Reports.GetAverageNumEmplResult), 0);
+            
+        }
+
+        private void reportBaseFrameForQuarter1_Load(object sender, EventArgs e)
+        {
+            reportBaseFrameForQuarter1.InitializeReport(typeof(Reports.GetAverageNumEmplResult), 3);
+            
+        }
+
+        private void reportBaseFrameForQuarter2_Load(object sender, EventArgs e)
+        {
+            reportBaseFrameForQuarter2.InitializeReport(typeof(Reports.GetFundingDepAverageNumEmplResult), 1);
+
+
+            
+        }
+
+        private void minFormMainFrame1_Load(object sender, EventArgs e)
+        {
+           
+            minFormMainFrame1.InitializeReport(typeof(Reports.GetDepartmentBonusWithSettingsResult), 1);
+            
+
+        }
+
+        private void minFormsFrame1_Load(object sender, EventArgs e)
+        {
+            minFormsFrame1.InitializeReport(typeof(Reports.GetDepartmentBonusWithSettingsResult), 2);
+            }
+
+        private void minForm3PPSFrame1_Load(object sender, EventArgs e)
+        {
+            minForm3PPSFrame1.InitializeReport(typeof(Reports.GetPPSDepartmentBonusResult), 1);
+            
+        }
+
+        private void factStaffChangesFrame1_Load(object sender, EventArgs e)
+        {
+            factStaffChangesFrame1.InitializeReport(typeof(Reports.GetFactStaffChangesByPeriodResult), 0);
+           
+        }
+
+        private void postStaffChangesFrame1_Load(object sender, EventArgs e)
+        {
+            postStaffChangesFrame1.InitializeReport(typeof(Reports.GetPostStaffChangesByPeriodResult), 0);
+
+        }
     }
 
 }

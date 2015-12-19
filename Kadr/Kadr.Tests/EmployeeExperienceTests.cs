@@ -107,7 +107,7 @@ namespace Kadr.Tests
             {
                 EmployeeExperiencesGet =
                     () =>
-                        new List<IEmployeeExperienceRecord>()
+                        new System.Collections.Generic.List<IEmployeeExperienceRecord>()
                         {
                             new StubIEmployeeExperienceRecord()
                             {
@@ -128,7 +128,7 @@ namespace Kadr.Tests
             {
                 EmployeeExperiencesGet =
                     () =>
-                        new List<IEmployeeExperienceRecord>()
+                        new System.Collections.Generic.List<IEmployeeExperienceRecord>()
                         {
                             new StubIEmployeeExperienceRecord()
                             {
@@ -154,7 +154,7 @@ namespace Kadr.Tests
             {
                 EmployeeExperiencesGet =
                     () =>
-                        new List<IEmployeeExperienceRecord>()
+                        new System.Collections.Generic.List<IEmployeeExperienceRecord>()
                         {
                             new StubIEmployeeExperienceRecord()
                             {
@@ -229,7 +229,7 @@ namespace Kadr.Tests
             var start = today.AddDays(-1);
             IExperienceProvider provider = new StubIExperienceProvider()
             {
-                EmployeeExperiencesGet = () => new List<IEmployeeExperienceRecord>()
+                EmployeeExperiencesGet = () => new System.Collections.Generic.List<IEmployeeExperienceRecord>()
                 {
                     new StubIEmployeeExperienceRecord()
                     {
@@ -253,7 +253,7 @@ namespace Kadr.Tests
             IExperienceProvider provider = new StubIExperienceProvider()
             {
                 
-                EmployeeExperiencesGet = () => new List<IEmployeeExperienceRecord>()
+                EmployeeExperiencesGet = () => new System.Collections.Generic.List<IEmployeeExperienceRecord>()
                 {
                     new StubIEmployeeExperienceRecord()
                     {
@@ -285,7 +285,7 @@ namespace Kadr.Tests
             var start = DateTime.Today;
             var provider = new StubIExperienceProvider()
             {
-                EmployeeExperiencesGet = () => new List<IEmployeeExperienceRecord>()
+                EmployeeExperiencesGet = () => new System.Collections.Generic.List<IEmployeeExperienceRecord>()
                 {
                     //ТК - Северный
                     new StubIEmployeeExperienceRecord()
@@ -358,7 +358,7 @@ namespace Kadr.Tests
             IExperienceProvider provider = new StubIExperienceProvider
             {
                 EmployeeExperiencesGet = () =>
-                    new List<IEmployeeExperienceRecord>()
+                    new System.Collections.Generic.List<IEmployeeExperienceRecord>()
                     {
                         // Работа в организации на основной должности
                         new StubIEmployeeExperienceRecord()
@@ -423,14 +423,14 @@ namespace Kadr.Tests
                 StartGet = () => dtStart.AddDays(-200),
                 IsEndedGet = () => true
             };
-            
-            
+
+
 
             IExperienceProvider provider = new StubIExperienceProvider
             {
 
                 EmployeeExperiencesGet = () =>
-                    new List<IEmployeeExperienceRecord>()
+                    new System.Collections.Generic.List<IEmployeeExperienceRecord>()
                     {r3, r1, r2, r4}
             };
 
@@ -457,7 +457,7 @@ namespace Kadr.Tests
                 // после чего поступил на работу в нашу организацию, после двух месяцев был уволен и на следующий день снова поступил на 
                 // на педагогическую должность, где и работает до сих пор.            
                 EmployeeExperiencesGet = () =>
-                    new List<IEmployeeExperienceRecord>()
+                    new System.Collections.Generic.List<IEmployeeExperienceRecord>()
                     {
                         // Работа в другой организации, не приравненой к РКС или МКС
                         new StubIEmployeeExperienceRecord()

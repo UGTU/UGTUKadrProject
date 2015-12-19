@@ -34,9 +34,10 @@
             // 
             // commandProperyGrid1
             // 
-            //this.commandProperyGrid1.LabelColWidth = 507;
-            //this.commandProperyGrid1.Size = new System.Drawing.Size(576, 620);
-           // 
+            //this.commandProperyGrid1.LabelColWidth = 279;
+            this.commandProperyGrid1.Size = new System.Drawing.Size(576, 620);
+            this.commandProperyGrid1.Click += new System.EventHandler(this.commandProperyGrid1_Click);
+            // 
             // btnPrikaz
             // 
             this.btnPrikaz.Click += new System.EventHandler(this.btnPrikaz_Click);

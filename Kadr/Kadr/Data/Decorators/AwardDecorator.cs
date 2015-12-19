@@ -44,7 +44,7 @@ namespace Kadr.Data
         [PropertyOrder(2)]
         [Description("Вид награды, полученной сотрудником")]
         [ReadOnly(false)]
-        [TypeConverter(typeof(AwardTypeConverter))]
+        [TypeConverter(typeof(SimpleToStringConvertor<AwardType>))]
 
         public AwardType Type
         {
@@ -65,7 +65,7 @@ namespace Kadr.Data
         [PropertyOrder(3)]
         [Description("Уровень награды, полученной сотрудником")]
         [ReadOnly(false)]
-        [TypeConverter(typeof(AwardLevelConverter))]
+        [TypeConverter(typeof(SimpleToStringConvertor<AwardLevel>))]
 
         public AwardLevel Level
         {

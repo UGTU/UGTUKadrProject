@@ -144,7 +144,10 @@ namespace Kadr.Data
             }
             set
             {
+
+                if ((value<=(DateEnd-DateBegin).Days)&&(value>=0))
                 Trip.DaysInRoad = value;
+                                    
             }
 
         }
