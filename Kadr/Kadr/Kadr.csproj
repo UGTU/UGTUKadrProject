@@ -243,7 +243,6 @@
     <Compile Include="Data\Common\IObjectState.cs" />
     <Compile Include="Data\Common\KeyValueStorage.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
-    <Compile Include="Data\Common\VacationPlanExstensions.cs" />
     <Compile Include="Data\Common\WorkTypeExtensions.cs" />
     <Compile Include="Data\Converters\ContractConvertor.cs" />
     <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
@@ -452,6 +451,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\ReportGenericParams.cs" />
     <Compile Include="Reporting\SheduleBuilderc.cs" />
     <Compile Include="UI\Common\BaseSelectionDialog.cs">
       <SubType>Form</SubType>
@@ -914,6 +914,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Reporting\ReportScript.cs" />
     <Compile Include="UI\Reporting\ScheduleBuildingScript.cs" />
     <None Include="app.config" />
     <None Include="CrystalReport1.mht" />

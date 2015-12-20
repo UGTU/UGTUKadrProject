@@ -7,8 +7,9 @@ using System.Linq;
 
 namespace Kadr.Reporting
 {
-    public class VacationPlanParams
+    public class VacationPlanParams : ReportGenericParams
     {
+        [Category("График отпусков")]
         [DisplayName("Год")]
         [Description("Год на который строится график отпусков")]
         public int Year { get; set; }
@@ -16,14 +17,13 @@ namespace Kadr.Reporting
         [System.ComponentModel.Browsable(false)]
         public Guid Department { get; }
 
-        [DisplayName("Файл отчёта")]
-        [Description("Полный путь к файлу формата Microsoft Excel, который будет содержать график отпусков")]
-        public string OutputFileName { get; set; }
-
-        [DisplayName("Файл шаблона отчёта")]
-        [Description("Полный путь к файлу формата Microsoft Excel, который содержит шаблон для отчёта. Как правило менять этот параметр не тредуется.")]
-        public string Template { get; private set; }
-
+        /// <summary>
+        /// Получает или устанавливает наименование листа Excel с отчётом
+        /// </summary>
+        [Category("График отпусков")]
+        [DisplayName("Имя листа")]
+        [Description("Наименование листа Microsoft Excel с отчётом")]
+        public string PageName { get; set; }
         public VacationPlanParams(Guid departmentId, string template, string outputFile = null)
         {
             if (string.IsNullOrEmpty(template))
@@ -60,22 +60,20 @@ namespace Kadr.Reporting
         /// <param name="vacationParams"></param>
         /// <param name="dataSource"></param>
         ///// <param name="dataSource">Данные для отчёта</param>
-        public static void Create(VacationPlanParams vacationParams, IEnumerable<ViewVacationPlan> dataSource)
+        public static void Create(VacationPlanParams vacationParams, IEnumerable<FetchVacationPlansByDepartmentIdResult> dataSource)
         {
             if (vacationParams == null) throw new ArgumentNullException(nameof(vacationParams));
 
             if (dataSource == null) throw new ArgumentNullException(nameof(dataSource));
 
-            var listOfVacationPlan = (dataSource as IList<ViewVacationPlan>) ?? dataSource.ToList();
+            var listOfVacationPlan = (dataSource as IList<FetchVacationPlansByDepartmentIdResult>) ?? dataSource.ToList();
 
             using (var wb = new XLWorkbook(vacationParams.Template))
             {
-
                 var ws = wb.Worksheets.First();
-                ws.Cell("E8").Value = DateTime.Now;
-
+                ws.Cell("E8").Value = DateTime.Today;
                 ws.Cell("G8").Value = vacationParams.Year.ToString();
-                
+                ws.Name = vacationParams.PageName ?? "График отпусков";
                 for (var currentItemIndex = 0; currentItemIndex < listOfVacationPlan.Count; ++currentItemIndex)
                 {
                     var currentRow = currentItemIndex + 15;            

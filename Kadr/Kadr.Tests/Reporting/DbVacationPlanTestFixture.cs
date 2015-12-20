@@ -6,6 +6,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Kadr.Controllers;
 using System.Diagnostics;
+using System.Windows.Forms;
 using Kadr.Reporting;
 using Kadr.UI.Reporting;
 
@@ -29,12 +30,12 @@ namespace Kadr.Tests.Reporting
             p.Start();
         }
         [TestMethod]
+        [TestCategory("UI")]
         public void VacationScriptTest()
         {
             var vp = new VacationPlanParams(Guid.Parse("{BAEE3FD5-664D-E111-96A2-0018FE865BEC}"),
              @"Reporting\template_график.xlsx", @"Reporting\test_schedule_output.xlsx")
             { Year = 2016 };
-
             var script = new ScheduleBuildingScript(vp);
             script.Run();
         }
