@@ -816,8 +816,8 @@ namespace Kadr.UI.Forms
         private void kadrTreeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
             //SelectedObject.Node
-            //if ((ActiveFrame != null) && (SelectedObject != null))
-            //    ActiveFrame.SaveFrameState(SelectedObject.Store);
+            if ((ActiveFrame != null) && (SelectedObject != null))
+                ActiveFrame.Store(storage);
         }
 
 

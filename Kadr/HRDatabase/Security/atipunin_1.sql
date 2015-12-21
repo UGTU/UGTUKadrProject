@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [atipunin]
+    WITH PASSWORD = N'bjgwvp|qzFnkci8:.glyxW;amsFT7_&#$!~<T|ug{anB;aox', SID = 0xD2486217828DEE4F9FA892D881912EF2, DEFAULT_LANGUAGE = [русский], CHECK_EXPIRATION = ON;
+

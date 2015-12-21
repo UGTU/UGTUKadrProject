@@ -221,6 +221,7 @@
             // toolStrip1
             // 
             toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNew,
             this.toolStripSeparator2,
@@ -244,9 +245,9 @@
             this.toolStripSeparator13,
             this.tsbBonusFilter,
             this.toolStripSeparator14});
-            toolStrip1.Location = new System.Drawing.Point(3, 24);
+            toolStrip1.Location = new System.Drawing.Point(3, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(1025, 25);
+            toolStrip1.Size = new System.Drawing.Size(1040, 27);
             toolStrip1.TabIndex = 1;
             // 
             // tsbNew
@@ -254,7 +255,7 @@
             this.tsbNew.Image = global::Kadr.Properties.Resources.NewReportHS;
             this.tsbNew.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(132, 22);
+            this.tsbNew.Size = new System.Drawing.Size(136, 24);
             this.tsbNew.Text = "Создать объект...";
             this.tsbNew.ButtonClick += new System.EventHandler(this.tsbNew_ButtonClick);
             this.tsbNew.DropDownOpening += new System.EventHandler(this.tsbNew_DropDownOpening);
@@ -263,7 +264,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // tsbDelete
             // 
@@ -271,7 +272,7 @@
             this.tsbDelete.Image = global::Kadr.Properties.Resources.DeleteHS;
             this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(23, 22);
+            this.tsbDelete.Size = new System.Drawing.Size(24, 24);
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             this.tsbDelete.MouseEnter += new System.EventHandler(this.tsbDelete_MouseEnter);
             // 
@@ -281,7 +282,7 @@
             this.tsbEdit.Image = global::Kadr.Properties.Resources.EditInformationHS;
             this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbEdit.Name = "tsbEdit";
-            this.tsbEdit.Size = new System.Drawing.Size(23, 22);
+            this.tsbEdit.Size = new System.Drawing.Size(24, 24);
             this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
             this.tsbEdit.MouseEnter += new System.EventHandler(this.tsbEdit_MouseEnter);
             // 
@@ -291,14 +292,14 @@
             this.tsbUpdate.Image = global::Kadr.Properties.Resources.RefreshDocViewHS;
             this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbUpdate.Name = "tsbUpdate";
-            this.tsbUpdate.Size = new System.Drawing.Size(23, 22);
+            this.tsbUpdate.Size = new System.Drawing.Size(24, 24);
             this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             this.tsbUpdate.MouseEnter += new System.EventHandler(this.tsbUpdate_MouseEnter);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
             this.toolStripSeparator4.Visible = false;
             // 
             // tsbCut
@@ -307,7 +308,7 @@
             this.tsbCut.Image = global::Kadr.Properties.Resources.Edit_Cut;
             this.tsbCut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCut.Name = "tsbCut";
-            this.tsbCut.Size = new System.Drawing.Size(23, 22);
+            this.tsbCut.Size = new System.Drawing.Size(24, 24);
             this.tsbCut.Visible = false;
             this.tsbCut.Click += new System.EventHandler(this.tsbCut_Click);
             this.tsbCut.MouseEnter += new System.EventHandler(this.tsbCut_MouseEnter);
@@ -318,7 +319,7 @@
             this.tsbCopy.Image = global::Kadr.Properties.Resources.CopyHS;
             this.tsbCopy.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbCopy.Name = "tsbCopy";
-            this.tsbCopy.Size = new System.Drawing.Size(23, 22);
+            this.tsbCopy.Size = new System.Drawing.Size(24, 24);
             this.tsbCopy.Visible = false;
             this.tsbCopy.Click += new System.EventHandler(this.tsbCopy_Click);
             this.tsbCopy.MouseEnter += new System.EventHandler(this.tsbCopy_MouseEnter);
@@ -329,7 +330,7 @@
             this.tsbPaste.Image = global::Kadr.Properties.Resources.PasteHS;
             this.tsbPaste.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbPaste.Name = "tsbPaste";
-            this.tsbPaste.Size = new System.Drawing.Size(23, 22);
+            this.tsbPaste.Size = new System.Drawing.Size(24, 24);
             this.tsbPaste.Visible = false;
             this.tsbPaste.Click += new System.EventHandler(this.tsbPaste_Click);
             this.tsbPaste.MouseEnter += new System.EventHandler(this.tsbPaste_MouseEnter);
@@ -337,7 +338,7 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
             this.toolStripSeparator3.Visible = false;
             // 
             // RollbackMenuItem
@@ -347,7 +348,7 @@
             this.RollbackMenuItem.Image = global::Kadr.Properties.Resources.Edit_Undo;
             this.RollbackMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RollbackMenuItem.Name = "RollbackMenuItem";
-            this.RollbackMenuItem.Size = new System.Drawing.Size(32, 22);
+            this.RollbackMenuItem.Size = new System.Drawing.Size(36, 24);
             this.RollbackMenuItem.Text = "toolStripSplitButton1";
             this.RollbackMenuItem.Visible = false;
             this.RollbackMenuItem.DropDownOpening += new System.EventHandler(this.RollbackMenuItem_DropDownOpening);
@@ -360,7 +361,7 @@
             this.RedoMenuItem.Image = global::Kadr.Properties.Resources.Edit_Redo;
             this.RedoMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RedoMenuItem.Name = "RedoMenuItem";
-            this.RedoMenuItem.Size = new System.Drawing.Size(32, 22);
+            this.RedoMenuItem.Size = new System.Drawing.Size(36, 24);
             this.RedoMenuItem.Text = "toolStripSplitButton2";
             this.RedoMenuItem.Visible = false;
             this.RedoMenuItem.DropDownOpening += new System.EventHandler(this.RedoMenuItem_DropDownOpening);
@@ -368,7 +369,7 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             this.toolStripSeparator5.Visible = false;
             // 
             // tscbFindType
@@ -379,13 +380,13 @@
             "Поиск отдела"});
             this.tscbFindType.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.tscbFindType.Name = "tscbFindType";
-            this.tscbFindType.Size = new System.Drawing.Size(160, 25);
+            this.tscbFindType.Size = new System.Drawing.Size(160, 27);
             this.tscbFindType.SelectedIndexChanged += new System.EventHandler(this.tscbFindType_SelectedIndexChanged);
             // 
             // tscbTextSearch
             // 
             this.tscbTextSearch.Name = "tscbTextSearch";
-            this.tscbTextSearch.Size = new System.Drawing.Size(450, 25);
+            this.tscbTextSearch.Size = new System.Drawing.Size(450, 27);
             this.tscbTextSearch.SelectedIndexChanged += new System.EventHandler(this.tscbTextSearch_SelectedIndexChanged);
             // 
             // toolStripSplitButton1
@@ -396,7 +397,7 @@
             this.toolStripSplitButton1.Image = global::Kadr.Properties.Resources.PlayHS;
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Black;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(36, 24);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             this.toolStripSplitButton1.Visible = false;
             this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
@@ -410,7 +411,7 @@
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 27);
             // 
             // tsbEmployeeFilter
             // 
@@ -420,7 +421,7 @@
             this.tsbEmployeeFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbEmployeeFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbEmployeeFilter.Name = "tsbEmployeeFilter";
-            this.tsbEmployeeFilter.Size = new System.Drawing.Size(105, 22);
+            this.tsbEmployeeFilter.Size = new System.Drawing.Size(109, 24);
             this.tsbEmployeeFilter.Tag = "";
             this.tsbEmployeeFilter.Text = "Сотрудники";
             this.tsbEmployeeFilter.ToolTipText = "Настройки фильтра по сотрудникам";
@@ -443,7 +444,7 @@
             this.tsbDepartmentFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbDepartmentFilter.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbDepartmentFilter.Name = "tsbDepartmentFilter";
-            this.tsbDepartmentFilter.Size = new System.Drawing.Size(81, 22);
+            this.tsbDepartmentFilter.Size = new System.Drawing.Size(85, 24);
             this.tsbDepartmentFilter.Text = "Отделы";
             this.tsbDepartmentFilter.ToolTipText = "Настройки фильтра по отделам";
             this.tsbDepartmentFilter.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsbDepartmentFilter_DropDownItemClicked);
@@ -467,7 +468,7 @@
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 27);
             this.toolStripSeparator13.Visible = false;
             // 
             // tsbBonusFilter
@@ -478,7 +479,7 @@
             this.tsbBonusFilter.Image = global::Kadr.Properties.Resources.Settings;
             this.tsbBonusFilter.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.tsbBonusFilter.Name = "tsbBonusFilter";
-            this.tsbBonusFilter.Size = new System.Drawing.Size(92, 20);
+            this.tsbBonusFilter.Size = new System.Drawing.Size(96, 24);
             this.tsbBonusFilter.Text = "Надбавки";
             this.tsbBonusFilter.ToolTipText = "Настройки фильтра надбавок";
             this.tsbBonusFilter.Visible = false;
@@ -503,7 +504,7 @@
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 27);
             this.toolStripSeparator14.Visible = false;
             // 
             // toolStripContainer1
@@ -516,7 +517,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1101, 389);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1101, 387);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -526,12 +527,13 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(toolStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
             // 
             // statusStrip1
             // 
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CurrentObjectLabel,
             this.CurrentObjectInfoLabel});
@@ -577,8 +579,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.splitContainer1.Size = new System.Drawing.Size(1101, 389);
-            this.splitContainer1.SplitterDistance = 251;
+            this.splitContainer1.Size = new System.Drawing.Size(1101, 387);
+            this.splitContainer1.SplitterDistance = 250;
             this.splitContainer1.TabIndex = 0;
             // 
             // kadrTreeView1
@@ -589,7 +591,7 @@
             this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
             this.kadrTreeView1.Name = "kadrTreeView1";
             this.kadrTreeView1.SelectedImageIndex = 0;
-            this.kadrTreeView1.Size = new System.Drawing.Size(249, 387);
+            this.kadrTreeView1.Size = new System.Drawing.Size(248, 385);
             this.kadrTreeView1.TabIndex = 0;
             this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
             this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
@@ -630,6 +632,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem,
             this.tsmiActions,
@@ -639,7 +642,7 @@
             this.правкаToolStripMenuItem,
             this.видToolStripMenuItem,
             this.справкаToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 27);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1101, 24);
             this.menuStrip1.TabIndex = 0;
@@ -1542,6 +1545,7 @@
             // 
             // treeNodeContextMenu
             // 
+            this.treeNodeContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.treeNodeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem7,
             this.развернутьToolStripMenuItem,

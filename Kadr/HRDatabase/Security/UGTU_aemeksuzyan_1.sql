@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\aemeksuzyan]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

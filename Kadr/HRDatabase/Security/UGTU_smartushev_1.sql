@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\smartushev]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

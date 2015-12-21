@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\akurleni]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

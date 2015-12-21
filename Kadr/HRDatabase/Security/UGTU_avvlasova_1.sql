@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\avvlasova]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

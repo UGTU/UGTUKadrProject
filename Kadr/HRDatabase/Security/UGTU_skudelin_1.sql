@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\skudelin]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

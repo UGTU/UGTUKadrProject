@@ -219,7 +219,7 @@ namespace Kadr.UI.Frames
                 FrameDataChangedEvent(this, new FrameDataChangedArgs(this));
 
             IsModified = false;
-          
+            
         }
 
         protected virtual void DoCancel()

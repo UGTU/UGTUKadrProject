@@ -149,26 +149,24 @@ namespace Kadr.KadrTreeView
                 return false;
             //поиск соответствующей записи в штатном
             IEnumerable<FactStaff> emplFactStaff = employee.FactStaffs;
-            if (emplFactStaff.Count() == 0)
+            if (!emplFactStaff.Any())
                 return false;
             FactStaff seachFactStaff = null;
             //по возможности выбираем ту запись штатного, которая в текущем состоянии и с основным видом работы
-            if (emplFactStaff.Where(fcSt => (fcSt as IObjectState).State() == ObjectState.Current).Count() > 0)
+            if (emplFactStaff.Any(fcSt => (fcSt as IObjectState).State() == ObjectState.Current))
             {
-                if (emplFactStaff.Where(fcSt => (fcSt as IObjectState).State() == ObjectState.Current).Where(fcSt => fcSt.WorkType.IsMain).Count() > 0)
-                    seachFactStaff = emplFactStaff.Where(fcSt =>
-                        (fcSt as IObjectState).State() == ObjectState.Current).Where(fcSt => fcSt.WorkType.IsMain).First();
+                if (emplFactStaff.Where(fcSt => (fcSt as IObjectState).State() == ObjectState.Current).Any(fcSt => fcSt.WorkType.IsMain))
+                    seachFactStaff = emplFactStaff.Where(fcSt => (fcSt as IObjectState).State() == ObjectState.Current).First(fcSt => fcSt.WorkType.IsMain);
                 else
-                    seachFactStaff = emplFactStaff.Where(fcSt =>
-                        (fcSt as IObjectState).State() == ObjectState.Current).First();
+                    seachFactStaff = emplFactStaff.First(fcSt => (fcSt as IObjectState).State() == ObjectState.Current);
             }
             //seachFactStaff = emplFactStaff.Where(fcSt => fcSt.WorkType.IsMain).FirstOrDefault();
             if (seachFactStaff == null)
-                seachFactStaff = emplFactStaff.Where(fcSt => fcSt.WorkType.IsMain).FirstOrDefault();
+                seachFactStaff = emplFactStaff.FirstOrDefault(fcSt => fcSt.WorkType.IsMain);
             if (seachFactStaff == null)
                 seachFactStaff = emplFactStaff.OrderByDescending(fcSt => fcSt.DateEnd).FirstOrDefault();
 
-            RootNodeObject depObj = FindAndSelectDepartment(KadrController.Instance.Model.Deps.Where(dep => dep.id == seachFactStaff.Department.id).FirstOrDefault());
+            var depObj = FindAndSelectDepartment(KadrController.Instance.Model.Deps.FirstOrDefault(dep => dep.id == seachFactStaff.Department.id));
             if (depObj == null)
                 return false;
 
@@ -181,12 +179,12 @@ namespace Kadr.KadrTreeView
             try
             {
                 depObj.AddChildNodes();
-                KadrEmployeeObject emplObj = depObj.Where(dObj => dObj is Kadr.KadrTreeView.KadrEmployeeObject).Where(dObj
-                    => (dObj as Kadr.KadrTreeView.KadrEmployeeObject).Employee == employee).FirstOrDefault() as KadrEmployeeObject;
+                var emplObj = depObj.Where(dObj
+                    => dObj is KadrEmployeeObject).FirstOrDefault(dObj => (dObj as KadrEmployeeObject).Employee == employee) as KadrEmployeeObject;
 
                 if (emplObj != null)
                 {
-                    TreeNode node = emplObj.Node as TreeNode;
+                    var node = emplObj.Node as TreeNode;
                     this.SelectedNode = node;
                     return true;
                 }

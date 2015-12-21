@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\krochev]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

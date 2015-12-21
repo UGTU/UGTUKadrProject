@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\npotapenko]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

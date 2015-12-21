@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\eistomina]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+
