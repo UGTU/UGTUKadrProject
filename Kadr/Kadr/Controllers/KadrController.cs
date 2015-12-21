@@ -7,7 +7,6 @@ using System.Data.Linq;
 using System.Windows.Forms;
 using UIX;
 using Kadr.Data;
-using Kadr.Data.Common;
 //using System.Diagnostics.Contracts;
 //using Microsoft.VisualStudio.TestTools.UnitTesting;
 

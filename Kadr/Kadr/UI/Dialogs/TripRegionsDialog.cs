@@ -16,7 +16,7 @@ namespace Kadr.UI.Dialogs
     {
         private object DataSource;
 
-        private AdvancedBindingList<BusinessTripRegionType> Source = new AdvancedBindingList<BusinessTripRegionType>();
+        private List<BusinessTripRegionType> Source = new List<BusinessTripRegionType>();
 
         private BusinessTrip bt;
         private BusinessTripRegionType last;

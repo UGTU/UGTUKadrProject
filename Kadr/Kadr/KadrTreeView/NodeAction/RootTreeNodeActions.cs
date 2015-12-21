@@ -1,4 +1,8 @@
-﻿using Kadr.Controllers;
+﻿using System;
+using System.Windows.Forms;
+using Kadr.Controllers;
+using Kadr.Reporting;
+using Kadr.UI.Reporting;
 
 
 namespace Kadr.KadrTreeView.NodeAction
@@ -8,8 +12,39 @@ namespace Kadr.KadrTreeView.NodeAction
     {
         #region IDBTreeNodeAction Members
 
+        [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Получить график отпусков...", true)]
+        public void CreateVacationPlanReport(object sender)
+        {
+            var root = NodeObject as RootNodeObject;
+            if (root == null) return;
+            var script =
+                new ScheduleBuildingScript(new VacationPlanParams(root.Department.DepartmentGUID,
+                    Properties.Settings.Default.VacationPlanTemplatePath, BuildOutputFileName(root)) {PageName = root.Department.LastChange?.DepartmentSmallName});
+            script.Run();
+        }
 
-        [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Добавить отдел...", true)]
+        private static string BuildOutputFileName(RootNodeObject root)
+        {
+            var departmentName = root.Department.LastChange.DepartmentSmallName;
+            var folder = Properties.Settings.Default.ReportsOutputFolder ??
+                         Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\";
+
+            var fileName = string.Empty;
+            try
+            {
+                var today = DateTime.Today;
+                fileName = System.IO.Path.GetFullPath(string.Format(Properties.Settings.Default.DefaultVacationReportOutputFormat, departmentName,
+                    $"{today.Day}-{today.Month}-{today.Year}", today.Month > 8 ? today.Year + 1 : today.Year));
+
+            }
+            catch (FormatException)
+            {
+                
+            }
+            return folder + fileName;
+        }
+
+      //  [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Добавить отдел...", true)]
         protected override void AddExecute(object sender)
         {
             /*using (Kadr.UI.Common.PropertyGridDialogAdding<Dep> dlg =
@@ -75,7 +110,7 @@ namespace Kadr.KadrTreeView.NodeAction
 
         }
 
-        [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Свойства...", true)]
+      //  [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Свойства...", true)]
         protected override void UpdateExecute(object sender)
         {
             /*if ((NodeObject as RootNodeObject).Department.FundingCenter == null)

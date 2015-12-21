@@ -241,10 +241,9 @@
     <Compile Include="Data\Common\ExperienceInterval.cs" />
     <Compile Include="Data\Common\INull.cs" />
     <Compile Include="Data\Common\IObjectState.cs" />
+    <Compile Include="Data\Common\KeyValueStorage.cs" />
     <Compile Include="Data\Common\NullObject.cs" />
     <Compile Include="Data\Common\WorkTypeExtensions.cs" />
-    <Compile Include="Data\Converters\AwardLevelConverter.cs" />
-    <Compile Include="Data\Converters\AwardTypeConverter.cs" />
     <Compile Include="Data\Converters\ContractConvertor.cs" />
     <Compile Include="Data\Converters\DocumentTypeToStringConvertor.cs" />
     <Compile Include="Data\Converters\FinancingSourceConvertor.cs" />
@@ -432,6 +431,7 @@
     <Compile Include="Data\Common\IExperienceProvider.cs" />
     <Compile Include="Interfaces\IOrderInformer.cs" />
     <Compile Include="Interfaces\IPrikazTypeProvider.cs" />
+    <Compile Include="Interfaces\IKeyValueStorage.cs" />
     <Compile Include="KadrTreeView\KadrTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -453,6 +453,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\ReportGenericParams.cs" />
     <Compile Include="Reporting\SheduleBuilderc.cs" />
     <Compile Include="UI\Common\BaseSelectionDialog.cs">
       <SubType>Form</SubType>
@@ -915,6 +916,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Reporting\ReportScript.cs" />
+    <Compile Include="UI\Reporting\ScheduleBuildingScript.cs" />
     <None Include="app.config" />
     <None Include="CrystalReport1.mht" />
     <None Include="Data\dckadr.dbml.layout">
@@ -1329,6 +1332,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reporting\template_график.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\13.bmp" />
   </ItemGroup>
   <ItemGroup>

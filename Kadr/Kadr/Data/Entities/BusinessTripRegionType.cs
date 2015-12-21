@@ -11,11 +11,7 @@ namespace Kadr.Data
 {
     public partial class BusinessTripRegionType :  IComparable, IDecorable, IValidatable, IEmployeeExperienceRecord
     {
-        //for u to pull!
-
-        private ICommandManager commandManager;
-        private DateTime date1;
-        private DateTime date2;
+      
         #region Properties
 
         //public int ID { get { return idRegionType; } set { idRegionType = value; } }
@@ -29,7 +25,8 @@ namespace Kadr.Data
             RegionType = regiontype;
         }
 
-        public BusinessTripRegionType(ICommandManager commandManager, BusinessTrip trip, DateTime beg, DateTime end, RegionType regionType) : this()
+        public BusinessTripRegionType(ICommandManager commandManager, 
+            BusinessTrip trip, DateTime beg, DateTime end, RegionType regionType) : this()
         {
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, DateTime>(this, "DateBegin", beg, null), null);
             commandManager.Execute(new UIX.Commands.GenericPropertyCommand<BusinessTripRegionType, DateTime>(this, "DateEnd", end, null), null);
@@ -39,9 +36,9 @@ namespace Kadr.Data
 
         public override string ToString()
         {
-            if (DateBegin != null)
-                return string.Format("С {0} по {1} в {2}", DateBegin.ToShortDateString(), DateEnd.ToShortDateString(), RegionType.RegionTypeName);
-            else return "Не задано";
+            
+            return $"С {DateBegin.ToShortDateString()} по {DateEnd.ToShortDateString()} в {RegionType.RegionTypeName}";
+            
         }
 
         #region partial Methods
@@ -93,51 +90,29 @@ namespace Kadr.Data
         }
 
 
-        public DateTime StartOfWork
-        {
-            get { return DateBegin; }
-        }
+        public DateTime StartOfWork => DateBegin;
 
-        public DateTime? EndOfWork
-        {
-            get { return DateEnd; }
-        }
+        public DateTime? EndOfWork => DateEnd;
 
-        public TerritoryConditions Territory
-        {
-            get { return RegionType.GetTerritoryCondition(); }
-        }
+        public TerritoryConditions Territory => (RegionType??RegionType.Default).GetTerritoryCondition();
 
-        public KindOfExperience Experience
-        {
-            get { return BusinessTrip.Event.FactStaff.Experience; }
-        }
+        public KindOfExperience Experience => BusinessTrip.Event.FactStaff.Experience;
 
-        public Affilations Affilation
-        {
-            get { return Affilations.Organization; }
-        }
+        public Affilations Affilation => Affilations.Organization;
 
-        public WorkOrganizationWorkType WorkWorkType
-        {
-            get { return BusinessTrip.Event
-                    .FactStaff.WorkType.GetOrganizationWorkType(); }
-        }
+        public WorkOrganizationWorkType WorkWorkType => BusinessTrip.Event
+            .FactStaff.WorkType.GetOrganizationWorkType();
 
         public DateTime Start { get { return StartOfWork; }
-            set { }
+            set { DateBegin = value; }
         }
         public DateTime Stop { get { return DateEnd; }
-            set { }
+            set { DateEnd = value; }
         }
-
-        public bool IsEnded
-        {
-            get
-            {
-                return (DateEnd < DateTime.Today);
-
-            }
-        }
+        /// <summary>
+        /// <remarks>Командировки всегда имеют дату завершения, 
+        /// а потому считаются событиями завершёнными</remarks>
+        /// </summary>
+        public bool IsEnded => true;
     }
 }

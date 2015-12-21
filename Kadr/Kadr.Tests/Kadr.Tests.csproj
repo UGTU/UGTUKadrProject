@@ -55,6 +55,7 @@
       <HintPath>FakesAssemblies\System.Data.4.0.0.0.Fakes.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -81,6 +82,7 @@
     </Compile>
     <Compile Include="RegionTypeExtensionsTests.cs" />
     <Compile Include="Reporting\ReportingTestFixture.cs" />
+    <Compile Include="Reporting\DbVacationPlanTestFixture.cs" />
     <Compile Include="StandingTypeExtensionsTests.cs" />
     <Compile Include="UiPurposeTests.cs" />
     <Compile Include="UnitTest1.cs" />

@@ -10,7 +10,7 @@ namespace Kadr.Data
 {
     public partial class Dep : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState, IComparable
     {
-        private List<DepartmentHistory> _departmentHistoriesCache = null;
+        private System.Collections.Generic.List<DepartmentHistory> _departmentHistoriesCache = null;
         public IList<DepartmentHistory> DepartmentHistoriesCache
         {
             get
