@@ -251,7 +251,9 @@
     <Compile Include="Data\Converters\OK_ReasonConvertor.cs" />
     <Compile Include="Data\Converters\PPCategoryConvertor.cs" />
     <Compile Include="Data\Converters\PropertySorter.cs" />
+    <Compile Include="Data\Converters\SalaryKoeffConvertor.cs" />
     <Compile Include="Data\Converters\SocialStatusToStringConverter.cs" />
+    <Compile Include="Data\Converters\StandingTypeConverter.cs" />
     <Compile Include="Data\dckadr.cs">
       <DependentUpon>dckadr.dbml</DependentUpon>
     </Compile>
