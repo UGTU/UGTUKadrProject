@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\nkolesnikova]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

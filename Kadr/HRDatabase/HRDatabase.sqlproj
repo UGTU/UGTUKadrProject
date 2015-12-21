@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>HRDatabase</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{8ca85fcb-8088-4fc9-97f1-314ff743f7d1}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>HRDatabase</RootNamespace>
+    <AssemblyName>HRDatabase</AssemblyName>
+    <ModelCollation>1049,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Cyrillic_General_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="ShemaTabel\" />
+    <Folder Include="ShemaTabel\Tables\" />
+    <Folder Include="Shared\" />
+    <Folder Include="Shared\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="ShemaTabel\Views\" />
+    <Folder Include="Shared\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="ShemaIndex\" />
+    <Folder Include="ShemaIndex\Functions\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="ShemaTabel\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="ShemaTabel\Stored Procedures\" />
+    <Folder Include="ShemaIndex\Stored Procedures\" />
+    <Folder Include="dbo\User Defined Types\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\OK_Social.sql" />
+    <Build Include="dbo\Tables\BonusKoeffs.sql" />
+    <Build Include="dbo\Tables\OK_Language.sql" />
+    <Build Include="dbo\Tables\CategoryVPO.sql" />
+    <Build Include="dbo\Tables\FactStaffReplacement.sql" />
+    <Build Include="dbo\Tables\OK_EmployeeLang.sql" />
+    <Build Include="dbo\Tables\WorkSuperType.sql" />
+    <Build Include="dbo\Tables\ValidationDecision.sql" />
+    <Build Include="dbo\Tables\CategoryZP.sql" />
+    <Build Include="dbo\Tables\PostType.sql" />
+    <Build Include="dbo\Tables\Validation.sql" />
+    <Build Include="dbo\Tables\GovDepartment.sql" />
+    <Build Include="dbo\Tables\DopEducType.sql" />
+    <Build Include="dbo\Tables\OK_DataChange.sql" />
+    <Build Include="dbo\Tables\FactStaff.sql" />
+    <Build Include="dbo\Tables\Event_BusinessTrip.sql" />
+    <Build Include="dbo\Tables\DepartmentTimeNorm.sql" />
+    <Build Include="ShemaTabel\Tables\ApperoveDepartment.sql" />
+    <Build Include="dbo\Tables\Prikaz.sql" />
+    <Build Include="dbo\Tables\StandingType.sql" />
+    <Build Include="dbo\Tables\DepartmentFund.sql" />
+    <Build Include="dbo\Tables\InkapacityType.sql" />
+    <Build Include="dbo\Tables\BonusReport.sql" />
+    <Build Include="dbo\Tables\PlanStaffSalary.sql" />
+    <Build Include="dbo\Tables\OK_DopEducation.sql" />
+    <Build Include="dbo\Tables\EmployeeStanding.sql" />
+    <Build Include="dbo\Tables\DepartmentHistory.sql" />
+    <Build Include="dbo\Tables\Award.sql" />
+    <Build Include="dbo\Tables\OKBufferEmployeeRank.sql" />
+    <Build Include="dbo\Tables\PKCategorySalary.sql" />
+    <Build Include="dbo\Tables\OK_OtpuskPlanDay.sql" />
+    <Build Include="dbo\Tables\RegionType.sql" />
+    <Build Include="dbo\Tables\BonusReportColumns.sql" />
+    <Build Include="dbo\Tables\SemPol.sql" />
+    <Build Include="dbo\Tables\DepartmentType.sql" />
+    <Build Include="dbo\Tables\FundingCenter.sql" />
+    <Build Include="dbo\Tables\Employee.sql" />
+    <Build Include="dbo\Tables\_okold_replacements.sql" />
+    <Build Include="dbo\Tables\AuditKadrVersion.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_zvan.sql" />
+    <Build Include="dbo\Tables\Degree.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_vidw.sql" />
+    <Build Include="dbo\Tables\OKVED.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_vidpov.sql" />
+    <Build Include="dbo\Tables\MilitaryCategory.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_vidper.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_vidnauk.sql" />
+    <Build Include="dbo\Tables\MilitaryFitness.sql" />
+    <Build Include="dbo\Tables\Event.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_uvoln.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_strana.sql" />
+    <Build Include="dbo\Tables\MilitaryRank.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_step.sql" />
+    <Build Include="dbo\Tables\0post.sql" />
+    <Build Include="dbo\Tables\Rank.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_stag.sql" />
+    <Build Include="dbo\Tables\MilitaryStructure.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_sempol.sql" />
+    <Build Include="ShemaTabel\Tables\RepeatRate.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_region.sql" />
+    <Build Include="dbo\Tables\MilitaryType.sql" />
+    <Build Include="dbo\Tables\BusinessTrip.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_rayon.sql" />
+    <Build Include="dbo\Tables\OKBuffergeneral.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_prper.sql" />
+    <Build Include="ShemaTabel\Tables\WorkShedule.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_prof.sql" />
+    <Build Include="dbo\Tables\Grazd.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_otpvid.sql" />
+    <Build Include="dbo\Tables\BonusFactStaff.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_nspec.sql" />
+    <Build Include="ShemaTabel\Tables\DayStatus.sql" />
+    <Build Include="dbo\Tables\BonusHistory.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_nadb.sql" />
+    <Build Include="dbo\Tables\GlobalPrikaz.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_metric.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_memb.sql" />
+    <Build Include="dbo\Tables\EmployeeRank.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_lang.sql" />
+    <Build Include="ShemaTabel\Tables\EventSuperType.sql" />
+    <Build Include="dbo\Tables\BonusMeasure.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_kvalif.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_kateg.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_holyday.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_harakter.sql" />
+    <Build Include="ShemaTabel\Tables\EmployeeEvent.sql" />
+    <Build Include="dbo\Tables\Contract.sql" />
+    <Build Include="dbo\Tables\BonusPost.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_grazd.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_gorod.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_form.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_fak.sql" />
+    <Build Include="ShemaTabel\Tables\WorkSheduleEvent.sql" />
+    <Build Include="dbo\Tables\BonusPlanStaff.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_ets.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Employe.sql" />
+    <Build Include="dbo\Tables\OK_Otpuskvid.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_educ.sql" />
+    <Build Include="dbo\Tables\_okold_okspr_dok.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Fam.sql" />
+    <Build Include="dbo\Tables\SocialFareTransit.sql" />
+    <Build Include="dbo\Tables\_okold_ok_zvan.sql" />
+    <Build Include="ShemaTabel\Tables\ApproverType.sql" />
+    <Build Include="dbo\Tables\BonusEmployee.sql" />
+    <Build Include="dbo\Tables\_okold_ok_step.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Lang.sql" />
+    <Build Include="dbo\Tables\BonusSuperType.sql" />
+    <Build Include="dbo\Tables\_okold_ok_stag.sql" />
+    <Build Include="dbo\Tables\OK_OtpuskDopInfo.sql" />
+    <Build Include="dbo\Tables\_okold_ok_profpodg.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Live.sql" />
+    <Build Include="dbo\Tables\_okold_ok_povqual.sql" />
+    <Build Include="dbo\Tables\EmployeeDegree.sql" />
+    <Build Include="ShemaTabel\Tables\Approver.sql" />
+    <Build Include="dbo\Tables\_okold_ok_posteduc.sql" />
+    <Build Include="dbo\Tables\Arch_OK_DopSved.sql" />
+    <Build Include="dbo\Tables\_okold_ok_otpusk.sql" />
+    <Build Include="dbo\Tables\MaterialResponsibility.sql" />
+    <Build Include="dbo\Tables\_okold_ok_nadbavka.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Stag.sql" />
+    <Build Include="dbo\Tables\_okold_ok_live.sql" />
+    <Build Include="dbo\Tables\OK_OtpuskPlan.sql" />
+    <Build Include="dbo\Tables\_okold_ok_lgota.sql" />
+    <Build Include="ShemaTabel\Tables\TimeSheetApproval.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Otpusk.sql" />
+    <Build Include="dbo\Tables\AwardLevel.sql" />
+    <Build Include="dbo\Tables\_okold_ok_lang.sql" />
+    <Build Include="dbo\Tables\Category.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Lgota.sql" />
+    <Build Include="dbo\Tables\_okold_ok_educ.sql" />
+    <Build Include="dbo\Tables\_okold_ok_dopsved.sql" />
+    <Build Include="ShemaTabel\Tables\TimeSheet.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Work.sql" />
+    <Build Include="dbo\Tables\_okold_ok_awards.sql" />
+    <Build Include="dbo\Tables\TimeSheetDayState.sql" />
+    <Build Include="dbo\Tables\_okold_ok_attest.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Educ.sql" />
+    <Build Include="dbo\Tables\ScienceType.sql" />
+    <Build Include="dbo\Tables\_okold_kafedra.sql" />
+    <Build Include="dbo\Tables\PrikazSuperType.sql" />
+    <Build Include="dbo\Tables\_okold_general.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Attest.sql" />
+    <Build Include="dbo\Tables\OK_MembFam.sql" />
+    <Build Include="dbo\Tables\OK_Otpusk.sql" />
+    <Build Include="dbo\Tables\Post.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Step.sql" />
+    <Build Include="dbo\Tables\Organisation.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Zvan.sql" />
+    <Build Include="dbo\Tables\_okold_ok_fam.sql" />
+    <Build Include="dbo\Tables\PrikazType.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Awards.sql" />
+    <Build Include="dbo\Tables\PKCategory.sql" />
+    <Build Include="ShemaTabel\Tables\Exception.sql" />
+    <Build Include="dbo\Tables\OK_Fam.sql" />
+    <Build Include="dbo\Tables\Arch_OK_Nadbavka.sql" />
+    <Build Include="dbo\Tables\PostGroup.sql" />
+    <Build Include="dbo\Tables\Arch_OK_PovQual.sql" />
+    <Build Include="dbo\Tables\PlanStaffHistory.sql" />
+    <Build Include="dbo\Tables\WorkType.sql" />
+    <Build Include="dbo\Tables\Arch_OK_ProfPodg.sql" />
+    <Build Include="dbo\Tables\OK_Inkapacity.sql" />
+    <Build Include="ShemaTabel\Tables\TimeSheetRecord.sql" />
+    <Build Include="dbo\Tables\Event_MaterialResponsibility.sql" />
+    <Build Include="dbo\Tables\OK_phone.sql" />
+    <Build Include="dbo\Tables\PlanStaff.sql" />
+    <Build Include="dbo\Tables\EventKind.sql" />
+    <Build Include="dbo\Tables\FactStaffHistory.sql" />
+    <Build Include="dbo\Tables\Bonus.sql" />
+    <Build Include="dbo\Tables\OK_DopInf.sql" />
+    <Build Include="Shared\Tables\DepartmentData.sql" />
+    <Build Include="dbo\Tables\TimeSheet.sql" />
+    <Build Include="dbo\Tables\OK_Adress.sql" />
+    <Build Include="dbo\Tables\FinancingSource.sql" />
+    <Build Include="dbo\Tables\EducDocumentType.sql" />
+    <Build Include="dbo\Tables\Dep.sql" />
+    <Build Include="dbo\Tables\AwardType.sql" />
+    <Build Include="dbo\Tables\PKGroup.sql" />
+    <Build Include="dbo\Tables\TimeSheetFSWorkingDays.sql" />
+    <Build Include="dbo\Tables\OK_Educ.sql" />
+    <Build Include="dbo\Tables\FactStaffReplacementReason.sql" />
+    <Build Include="dbo\Tables\BusinessTripRegionType.sql" />
+    <Build Include="dbo\Tables\EducDocument.sql" />
+    <Build Include="dbo\Tables\OK_Holyday.sql" />
+    <Build Include="dbo\Tables\Audit_Object.sql" />
+    <Build Include="dbo\Tables\OK_HolyDate.sql" />
+    <Build Include="dbo\Tables\OKBufferEmployeeDegree.sql" />
+    <Build Include="dbo\Tables\OK_Reason.sql" />
+    <Build Include="dbo\Tables\AuditISStaffVersion.sql" />
+    <Build Include="dbo\Tables\EducationType.sql" />
+    <Build Include="dbo\Tables\BonusType.sql" />
+    <Build Include="dbo\Tables\Audit_OperationType.sql" />
+    <Build Include="dbo\Tables\FactStaffMonthHour.sql" />
+    <Build Include="dbo\Tables\EventType.sql" />
+    <Build Include="dbo\Tables\Audit_Event.sql" />
+    <Build Include="dbo\Tables\LanguageLevel.sql" />
+    <Build Include="dbo\Tables\SalaryKoeff.sql" />
+    <Build Include="dbo\Tables\OK_SocialStatus.sql" />
+    <Build Include="dbo\Views\OK_vFactStaffNew.sql" />
+    <Build Include="dbo\Views\PlanStaffsWithSalaries.sql" />
+    <Build Include="dbo\Views\OK_vFactStaffHistoryNew.sql" />
+    <Build Include="dbo\Views\BonusMain.sql" />
+    <Build Include="dbo\Views\OK_vFactStaffDateBegin.sql" />
+    <Build Include="dbo\Views\FactStaffHourContract.sql" />
+    <Build Include="dbo\Views\FactStaffHour.sql" />
+    <Build Include="dbo\Views\FactStaffCurrentMainData.sql" />
+    <Build Include="dbo\Views\Department.sql" />
+    <Build Include="dbo\Views\DepartmentWithHistory.sql" />
+    <Build Include="ShemaTabel\Views\FactStaffWithHistory.sql" />
+    <Build Include="dbo\Views\OKPlanStaff.sql" />
+    <Build Include="dbo\Views\OKPlanStuffCurrent.sql" />
+    <Build Include="dbo\Views\OKPrikaz.sql" />
+    <Build Include="dbo\Views\DistinctFactStaffHistory.sql" />
+    <Build Include="dbo\Views\OKFactStaff.sql" />
+    <Build Include="dbo\Views\DistinctPlanStaffHistory.sql" />
+    <Build Include="dbo\Views\EmployeeEducation.sql" />
+    <Build Include="dbo\Views\ViewVacationPlan.sql" />
+    <Build Include="dbo\Views\UIViewPost.sql" />
+    <Build Include="dbo\Views\UptodateDepartmentHistory.sql" />
+    <Build Include="dbo\Views\FullPKCategory.sql" />
+    <Build Include="dbo\Views\DepartmentTimeNormCurrent.sql" />
+    <Build Include="dbo\Views\PlanStaffWithHistory.sql" />
+    <Build Include="dbo\Views\FactStaffWithHistory.sql" />
+    <Build Include="dbo\Views\AuditView.sql" />
+    <Build Include="dbo\Views\DistinctBonusHistory.sql" />
+    <Build Include="dbo\Views\BonusWithHistory.sql" />
+    <Build Include="dbo\Views\EmployeeView.sql" />
+    <Build Include="dbo\Views\TimeSheetWithDates.sql" />
+    <Build Include="dbo\Views\TREE_prepods.sql" />
+    <Build Include="dbo\Views\OK_vFam.sql" />
+    <Build Include="dbo\Views\PlanStaffMain.sql" />
+    <Build Include="dbo\Views\PlanStaffCurrent.sql" />
+    <Build Include="dbo\Views\OK_vPrikaz.sql" />
+    <Build Include="dbo\Views\FactStaffMain.sql" />
+    <Build Include="dbo\Views\FactStaffCurrent.sql" />
+    <Build Include="Shared\Views\DepartmentMainData.sql" />
+    <Build Include="dbo\Views\OKPlanStaffWithSalaries.sql" />
+    <Build Include="dbo\Views\OK_vDepartment.sql" />
+    <Build Include="dbo\Views\OK_vEmployeeDegree.sql" />
+    <Build Include="dbo\Views\OK_vEmployee.sql" />
+    <Build Include="dbo\Views\OK_vEmployeeRank.sql" />
+    <Build Include="dbo\Views\OK_vEmployeeList.sql" />
+    <Build Include="ShemaTabel\Views\TimeSheetView.sql" />
+    <Build Include="dbo\Views\OK_vFactStaff.sql" />
+    <Build Include="dbo\Views\AllMainEmployees.sql" />
+    <Build Include="dbo\Views\OK_vPost.sql" />
+    <Build Include="dbo\Views\OK_vWorkType.sql" />
+    <Build Include="dbo\Views\OK_vPlanStaff.sql" />
+    <Build Include="dbo\Views\pkCategorySalaryView.sql" />
+    <Build Include="dbo\Views\Months.sql" />
+    <Build Include="dbo\Views\OK_vFactStaffCurrent.sql" />
+    <Build Include="dbo\Views\OK_vSumStaffCount.sql" />
+    <Build Include="dbo\Views\OK_vReplaced.sql" />
+    <Build Include="dbo\Views\OK_vIsReplaced.sql" />
+    <Build Include="Security\OTIZEmployee.sql" />
+    <Build Include="Security\EmployeeIndex.sql" />
+    <Build Include="Security\KadrEmployee.sql" />
+    <Build Include="Security\UGTU_nbudina.sql" />
+    <Build Include="Security\UGTU_eistomina.sql" />
+    <Build Include="Security\UGTU_eistomina_1.sql" />
+    <Build Include="Security\UGTU_tvokueva.sql" />
+    <Build Include="Security\UGTU_tvokueva_1.sql" />
+    <Build Include="Security\UGTU_ibibikova.sql" />
+    <Build Include="Security\UGTU_nshiryaeva.sql" />
+    <Build Include="Security\UGTU_ugluhova.sql" />
+    <Build Include="Security\UGTU_ugluhova_1.sql" />
+    <Build Include="Security\UGTU_govchareva.sql" />
+    <Build Include="Security\UGTU_govchareva_1.sql" />
+    <Build Include="Security\UGTU_lketova.sql" />
+    <Build Include="Security\UGTU_lketova_1.sql" />
+    <Build Include="Security\atipunin.sql" />
+    <Build Include="Security\atipunin_1.sql" />
+    <Build Include="Security\UGTU_atipunin.sql" />
+    <Build Include="Security\UGTU_atipunin_1.sql" />
+    <Build Include="Security\UGTU_krochev.sql" />
+    <Build Include="Security\UGTU_krochev_1.sql" />
+    <Build Include="Security\kadrovik.sql" />
+    <Build Include="Security\kadrovik_1.sql" />
+    <Build Include="Security\UGTU_smartushev.sql" />
+    <Build Include="Security\UGTU_smartushev_1.sql" />
+    <Build Include="Security\UGTU_esalnikova.sql" />
+    <Build Include="Security\UGTU_esalnikova_1.sql" />
+    <Build Include="Security\mluchinina.sql" />
+    <Build Include="Security\UGTU_mluchinina.sql" />
+    <Build Include="Security\UGTU_nkolesnikova.sql" />
+    <Build Include="Security\UGTU_nkolesnikova_1.sql" />
+    <Build Include="Security\UGTU_avlasova.sql" />
+    <Build Include="Security\UGTU_avlasova_1.sql" />
+    <Build Include="Security\UGTU_aemeksuzyan.sql" />
+    <Build Include="Security\UGTU_aemeksuzyan_1.sql" />
+    <Build Include="Security\martushev.sql" />
+    <Build Include="Security\martushev_1.sql" />
+    <Build Include="Security\UGTU_sql-srv_.sql" />
+    <Build Include="Security\UGTU_sql-srv__1.sql" />
+    <Build Include="Security\UGTU_TFS-1_.sql" />
+    <Build Include="Security\UGTU_TFS-1__1.sql" />
+    <Build Include="Security\UGTU_npotapenko.sql" />
+    <Build Include="Security\UGTU_npotapenko_1.sql" />
+    <Build Include="Security\UGTU_ис угту.sql" />
+    <Build Include="Security\UGTU_ис угту_1.sql" />
+    <Build Include="Security\UGTU_mbarabanov.sql" />
+    <Build Include="Security\UGTU_mbarabanov_1.sql" />
+    <Build Include="Security\UGTU_ebondarev.sql" />
+    <Build Include="Security\UGTU_ebondarev_1.sql" />
+    <Build Include="Security\UGTU_ovisokolyan.sql" />
+    <Build Include="Security\UGTU_ovisokolyan_1.sql" />
+    <Build Include="Security\UGTU_ochernova.sql" />
+    <Build Include="Security\UGTU_ochernova_1.sql" />
+    <Build Include="Security\UGTU_skudelin.sql" />
+    <Build Include="Security\UGTU_skudelin_1.sql" />
+    <Build Include="Security\UGTU_avvlasova.sql" />
+    <Build Include="Security\UGTU_avvlasova_1.sql" />
+    <Build Include="Security\UGTU_npervakova.sql" />
+    <Build Include="Security\UGTU_npervakova_1.sql" />
+    <Build Include="Security\UGTU_Сотрудник кадров.sql" />
+    <Build Include="Security\UGTU_Сотрудник кадров_1.sql" />
+    <Build Include="Security\UGTU_Сотрудник ОТиЗ.sql" />
+    <Build Include="Security\UGTU_Сотрудник ОТиЗ_1.sql" />
+    <Build Include="Security\UGTU_akurleni.sql" />
+    <Build Include="Security\UGTU_akurleni_1.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="ShemaIndex\Functions\GetDepartmentsGUID.sql" />
+    <Build Include="dbo\Functions\FIOToDat.sql" />
+    <Build Include="dbo\Functions\GetStaffCountForHour.sql" />
+    <Build Include="dbo\Functions\GetDepartmentsManager.sql" />
+    <Build Include="dbo\Functions\GetAverageSums.sql" />
+    <Build Include="dbo\Functions\GetAverageNumEmplByCat.sql" />
+    <Build Include="dbo\Functions\GetSubDepartmentsWithManagers.sql" />
+    <Build Include="dbo\Functions\GetBonusByBonusType_Prev.sql" />
+    <Build Include="dbo\Functions\GetBonusByBonusTypeForProlong.sql" />
+    <Build Include="dbo\Functions\GetStaffErrorsByPeriod.sql" />
+    <Build Include="dbo\Functions\GetDepartmentBonusForT3.sql" />
+    <Build Include="dbo\Functions\GetPPSDepartmentBonusForT3.sql" />
+    <Build Include="dbo\Functions\GetFundingDepAverageNumEmpl.sql" />
+    <Build Include="dbo\Functions\GetSubDepartmentsWithPeriod.sql" />
+    <Build Include="dbo\Functions\GetSubDepartmentsWithManagersWithPeriod.sql" />
+    <Build Include="dbo\Functions\GetReportBonusOrder.sql" />
+    <Build Include="dbo\Functions\GetDepartmentDataForReports.sql" />
+    <Build Include="ShemaIndex\Functions\GetEmployeesForDepartment.sql" />
+    <Build Include="ShemaIndex\Functions\GetEmployeesInfo.sql" />
+    <Build Include="dbo\Functions\GetBonusByBonusType.sql" />
+    <Build Include="dbo\Functions\GetDepartmentBonusWithSettings.sql" />
+    <Build Include="dbo\Functions\GetEmployeesSum.sql" />
+    <Build Include="dbo\Functions\GetPostStaffChangesByPeriod.sql" />
+    <Build Include="dbo\Functions\GetFactStaffForTimeSheet.sql" />
+    <Build Include="dbo\Functions\GetFactStaffChangesByPeriod.sql" />
+    <Build Include="dbo\Functions\GetRecruitedFactStaffByPeriod.sql" />
+    <Build Include="dbo\Functions\GetStaffByPeriod.sql" />
+    <Build Include="dbo\Functions\GetAuditByPeriod.sql" />
+    <Build Include="ShemaIndex\Functions\GetBonusForEmployee.sql" />
+    <Build Include="dbo\Functions\GetSubDepartmentStaffCounts.sql" />
+    <Build Include="ShemaTabel\Functions\GetTimeShedulerPerson.sql" />
+    <Build Include="ShemaTabel\Functions\GetTimeShedulerForDepartnment.sql" />
+    <Build Include="ShemaTabel\Functions\GetSheduler.sql" />
+    <Build Include="ShemaTabel\Functions\GetFactStaffForTimeSheet.sql" />
+    <Build Include="dbo\Functions\GetSubDepartments.sql" />
+    <Build Include="dbo\Functions\GetAllPosts.sql" />
+    <Build Include="dbo\Functions\GetDepartmentBonusWithEmployees.sql" />
+    <Build Include="dbo\Functions\GetDepartmentsForPeriod.sql" />
+    <Build Include="dbo\Functions\GetDepartmentStaff.sql" />
+    <Build Include="dbo\Functions\GetDepartmentStaffCounts.sql" />
+    <Build Include="dbo\Functions\GetPlanStaffByPeriod.sql" />
+    <Build Include="dbo\Functions\GetPPSDepartmentBonus.sql" />
+    <Build Include="dbo\Functions\GetFullPKCategory.sql" />
+    <Build Include="dbo\Functions\GetBonusByPrikaz.sql" />
+    <Build Include="dbo\Functions\GetFullSubDepartments.sql" />
+    <Build Include="dbo\Functions\GetAverageNumEmpl.sql" />
+    <Build Include="dbo\Functions\GetBonusByPeriodWithHistory.sql" />
+    <Build Include="dbo\Functions\GetBonusByPeriod.sql" />
+    <Build Include="dbo\Functions\GetFactStaffByPeriod.sql" />
+    <Build Include="dbo\Functions\GetFactStaffByPeriodWithHistory.sql" />
+    <Build Include="dbo\Functions\GetSalaryByPeriod.sql" />
+    <Build Include="dbo\Functions\GetIndivSalaryByPeriod.sql" />
+    <Build Include="dbo\Functions\GetOtpuskByPeriod.sql" />
+    <Build Include="dbo\Functions\GetBonusKoeffs.sql" />
+    <Build Include="dbo\Functions\GetDegreesForEmployees.sql" />
+    <Build Include="dbo\Functions\GetRankForEmployees.sql" />
+    <Build Include="dbo\Functions\FetchVacationPlansByDepartmentId.sql" />
+    <Build Include="dbo\Functions\GetAllPosts_Inline.sql" />
+    <Build Include="dbo\Functions\GetDepartmentByPeriod.sql" />
+    <Build Include="dbo\Functions\GetAllSalaryByPeriod.sql" />
+    <Build Include="dbo\Stored Procedures\AuditLogEvent.sql" />
+    <Build Include="ShemaTabel\Stored Procedures\AddEmployeeLogin.sql" />
+    <Build Include="ShemaTabel\Stored Procedures\TimeSheetRecordInsert.sql" />
+    <Build Include="dbo\Stored Procedures\TransferFactStaff.sql" />
+    <Build Include="dbo\Stored Procedures\add_EmplLogin.sql" />
+    <Build Include="ShemaIndex\Stored Procedures\GetBonusForEmployeep.sql" />
+    <Build Include="ShemaTabel\Stored Procedures\CreateTimeSheet.sql" />
+    <Build Include="dbo\Stored Procedures\GetFactStaffForTimeSheetProc.sql" />
+    <Build Include="dbo\User Defined Types\DepListParam.sql" />
+    <Build Include="Security\Shared.sql" />
+    <Build Include="Security\ShemaIndex.sql" />
+    <Build Include="Security\ShemaTabel.sql" />
+  </ItemGroup>
+</Project>

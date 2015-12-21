@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\atipunin]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

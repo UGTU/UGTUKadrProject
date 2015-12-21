@@ -1,0 +1,7 @@
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\bin\Debug\HRDatabase.dacpac
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\Model.xml
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\refactor.xml
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\postdeploy.sql
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\predeploy.sql
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\HRDatabase.dll
+C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\HRDatabase.pdb

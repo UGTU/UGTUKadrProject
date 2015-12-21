@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\Сотрудник ОТиЗ]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

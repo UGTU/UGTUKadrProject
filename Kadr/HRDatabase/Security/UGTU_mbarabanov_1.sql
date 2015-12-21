@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\mbarabanov]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+

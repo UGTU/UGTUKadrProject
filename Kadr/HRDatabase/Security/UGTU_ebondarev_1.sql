@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\ebondarev]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+
