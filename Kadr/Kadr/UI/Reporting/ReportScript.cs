@@ -1,37 +1,37 @@
-using System;
+п»їusing System;
 using System.Diagnostics;
 using Kadr.Reporting;
 
 namespace Kadr.UI.Reporting
 {
     /// <summary>
-    /// Определяет типы с поддержкой действия 
+    /// РћРїСЂРµРґРµР»СЏРµС‚ С‚РёРїС‹ СЃ РїРѕРґРґРµСЂР¶РєРѕР№ РґРµР№СЃС‚РІРёСЏ 
     /// </summary>
     public interface IScriptAction
     {
         /// <summary>
-        /// Выполнение действия
+        /// Р’С‹РїРѕР»РЅРµРЅРёРµ РґРµР№СЃС‚РІРёСЏ
         /// </summary>
         void Run();
     }
 
     /// <summary>
-    /// Базовый класс для скрипта подготовки отчёта. Реализует шаги по 
-    /// отображению диалога изменения параметров отчёта и
-    /// запуска средства просмотра готового отчёта
+    /// Р‘Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ РґР»СЏ СЃРєСЂРёРїС‚Р° РїРѕРґРіРѕС‚РѕРІРєРё РѕС‚С‡С‘С‚Р°. Р РµР°Р»РёР·СѓРµС‚ С€Р°РіРё РїРѕ 
+    /// РѕС‚РѕР±СЂР°Р¶РµРЅРёСЋ РґРёР°Р»РѕРіР° РёР·РјРµРЅРµРЅРёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ РѕС‚С‡С‘С‚Р° Рё
+    /// Р·Р°РїСѓСЃРєР° СЃСЂРµРґСЃС‚РІР° РїСЂРѕСЃРјРѕС‚СЂР° РіРѕС‚РѕРІРѕРіРѕ РѕС‚С‡С‘С‚Р°
     /// </summary>
-    /// <typeparam name="T">Тип параметра отчёта, производный от ReportGenericParams</typeparam>
+    /// <typeparam name="T">РўРёРї РїР°СЂР°РјРµС‚СЂР° РѕС‚С‡С‘С‚Р°, РїСЂРѕРёР·РІРѕРґРЅС‹Р№ РѕС‚ ReportGenericParams</typeparam>
     public abstract class ReportScript<T> : IScriptAction where T : ReportGenericParams
     {
         /// <summary>
-        /// Получает объект параметров отчёта
+        /// РџРѕР»СѓС‡Р°РµС‚ РѕР±СЉРµРєС‚ РїР°СЂР°РјРµС‚СЂРѕРІ РѕС‚С‡С‘С‚Р°
         /// </summary>
         public T ReportParams { get; private set; }
 
         /// <summary>
-        /// Создаёт объект ReportScript
+        /// РЎРѕР·РґР°С‘С‚ РѕР±СЉРµРєС‚ ReportScript
         /// </summary>
-        /// <param name="reportParams">Объект параметров отчёта</param>
+        /// <param name="reportParams">РћР±СЉРµРєС‚ РїР°СЂР°РјРµС‚СЂРѕРІ РѕС‚С‡С‘С‚Р°</param>
         protected ReportScript(T reportParams)
         {
             if (reportParams == null) throw new ArgumentNullException(nameof(reportParams));
@@ -39,28 +39,28 @@ namespace Kadr.UI.Reporting
         }
 
         /// <summary>
-        /// Выполняет специфические действия по созданию отчёта. 
-        /// Переопределите а производном классе
+        /// Р’С‹РїРѕР»РЅСЏРµС‚ СЃРїРµС†РёС„РёС‡РµСЃРєРёРµ РґРµР№СЃС‚РІРёСЏ РїРѕ СЃРѕР·РґР°РЅРёСЋ РѕС‚С‡С‘С‚Р°. 
+        /// РџРµСЂРµРѕРїСЂРµРґРµР»РёС‚Рµ Р° РїСЂРѕРёР·РІРѕРґРЅРѕРј РєР»Р°СЃСЃРµ
         /// </summary>
         protected abstract void CreateReport();
 
         /// <summary>
-        /// Выполняет действие по созданию отчёта
+        /// Р’С‹РїРѕР»РЅСЏРµС‚ РґРµР№СЃС‚РІРёРµ РїРѕ СЃРѕР·РґР°РЅРёСЋ РѕС‚С‡С‘С‚Р°
         /// </summary>
         public void Run()
         {
-            // Изменение параметров отчёта пользователем
+            // РР·РјРµРЅРµРЅРёРµ РїР°СЂР°РјРµС‚СЂРѕРІ РѕС‚С‡С‘С‚Р° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј
             using (var dlg = new UIX.UI.PropertyGridViewerDialog())
             {
                 dlg.SelectedObject = ReportParams;
-                dlg.OkButtonText = "Создать";
+                dlg.OkButtonText = "РЎРѕР·РґР°С‚СЊ";
                 if (dlg.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
             }
 
-            // Выполнение действий по созданию отчёта
+            // Р’С‹РїРѕР»РЅРµРЅРёРµ РґРµР№СЃС‚РІРёР№ РїРѕ СЃРѕР·РґР°РЅРёСЋ РѕС‚С‡С‘С‚Р°
             CreateReport();
 
-            // Если необходимо запустить средство просмотра отчётов
+            // Р•СЃР»Рё РЅРµРѕР±С…РѕРґРёРјРѕ Р·Р°РїСѓСЃС‚РёС‚СЊ СЃСЂРµРґСЃС‚РІРѕ РїСЂРѕСЃРјРѕС‚СЂР° РѕС‚С‡С‘С‚РѕРІ
             try
             {
                 if (ReportParams.RunShellAfterCreate)
@@ -68,7 +68,7 @@ namespace Kadr.UI.Reporting
             }
             catch (Exception exception)
             {
-                throw new ApplicationException($"Файл с отчётом успешно построен по адресу {ReportParams.OutputFileName}, однако не удалось запустить средство просмотра. Информация об ошибке содержится во вложенном сообщении.", exception);
+                throw new ApplicationException($"Р¤Р°Р№Р» СЃ РѕС‚С‡С‘С‚РѕРј СѓСЃРїРµС€РЅРѕ РїРѕСЃС‚СЂРѕРµРЅ РїРѕ Р°РґСЂРµСЃСѓ {ReportParams.OutputFileName}, РѕРґРЅР°РєРѕ РЅРµ СѓРґР°Р»РѕСЃСЊ Р·Р°РїСѓСЃС‚РёС‚СЊ СЃСЂРµРґСЃС‚РІРѕ РїСЂРѕСЃРјРѕС‚СЂР°. РРЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕС€РёР±РєРµ СЃРѕРґРµСЂР¶РёС‚СЃСЏ РІРѕ РІР»РѕР¶РµРЅРЅРѕРј СЃРѕРѕР±С‰РµРЅРёРё.", exception);
             }
         }
         private void RunShell()

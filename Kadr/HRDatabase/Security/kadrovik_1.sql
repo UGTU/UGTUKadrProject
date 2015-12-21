@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [kadrovik]
+    WITH PASSWORD = N'flcrf@{rqH#lxpfcxgkyhxu~msFT7_&#$!~<Gmajwq`ne rr', SID = 0xC2A4ECEC2F2A374298FAF77BE24F17B4, DEFAULT_DATABASE = [OK], DEFAULT_LANGUAGE = [русский], CHECK_POLICY = OFF;
+

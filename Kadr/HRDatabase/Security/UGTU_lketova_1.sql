@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UGTU\lketova]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [русский];
+
