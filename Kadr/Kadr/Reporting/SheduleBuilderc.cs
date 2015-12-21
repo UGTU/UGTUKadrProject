@@ -70,17 +70,17 @@ namespace Kadr.Reporting
 
             using (var wb = new XLWorkbook(vacationParams.Template))
             {
-                const int ColWorkType = 1;
-                const int ColDepartment = ColWorkType + 1;
-                const int ColWorkPost = ColDepartment + 1;
-                const int ColName = ColWorkPost + 1;
-                const int ColDays = ColName + 1;
-                const int ColBeginDate = ColDays + 1;
-                const int ColEndDate = ColBeginDate + 1;
-                const int ColReserved1 = ColEndDate + 1;
-                const int ColReserved2 = ColReserved1 + 1;
-                const int ColReserved3 = ColReserved2 + 1;
-                const int ColReserved4 = ColReserved3 + 1;
+                const int colWorkType = 1;
+                const int colDepartment = colWorkType + 1;
+                const int colWorkPost = colDepartment + 1;
+                const int colName = colWorkPost + 1;
+                const int colDays = colName + 1;
+                const int colBeginDate = colDays + 1;
+                const int colEndDate = colBeginDate + 1;
+                const int colReserved1 = colEndDate + 1;
+                const int colReserved2 = colReserved1 + 1;
+                const int colReserved3 = colReserved2 + 1;
+                const int colReserved4 = colReserved3 + 1;
 
                 var ws = wb.Worksheets.First();
                 ws.Cell("E8").Value = DateTime.Today;
@@ -91,37 +91,37 @@ namespace Kadr.Reporting
                     var currentRow = currentItemIndex + 15;
                     var currItem = listOfVacationPlan[currentItemIndex];
 
-                    ws.Cell(currentRow, ColWorkType).Value = currItem?.TypeWorkName;
+                    ws.Cell(currentRow, colWorkType).Value = currItem?.TypeWorkName;
 
-                    FormatRow(ws, currentRow, ColWorkType);
+                    FormatRow(ws, currentRow, colWorkType);
                     ws.Cell(currentRow, 1).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
                     ws.Cell(currentRow, 1).Style.Border.LeftBorderColor = XLColor.Black;
 
-                    ws.Cell(currentRow, ColDepartment).Value = currItem?.DepartmentName;
-                    FormatRow(ws, currentRow, ColDepartment);
+                    ws.Cell(currentRow, colDepartment).Value = currItem?.DepartmentName;
+                    FormatRow(ws, currentRow, colDepartment);
 
-                    ws.Cell(currentRow, ColWorkPost).Value = currItem?.PostName;
-                    FormatRow(ws, currentRow, ColWorkPost);
+                    ws.Cell(currentRow, colWorkPost).Value = currItem?.PostName;
+                    FormatRow(ws, currentRow, colWorkPost);
 
-                    ws.Cell(currentRow, ColName).Value = $"{currItem?.LastName} {currItem?.FirstName} {currItem?.Otch}";
-                    FormatRow(ws, currentRow, ColName);
+                    ws.Cell(currentRow, colName).Value = $"{currItem?.LastName} {currItem?.FirstName} {currItem?.Otch}";
+                    FormatRow(ws, currentRow, colName);
 
-                    ws.Cell(currentRow, ColDays).Value = currItem?.CountDay.ToString();
-                    FormatRow(ws, currentRow, ColDays);
+                    ws.Cell(currentRow, colDays).Value = currItem?.CountDay.ToString();
+                    FormatRow(ws, currentRow, colDays);
 
-                    ws.Cell(currentRow, ColBeginDate).Value = currItem?.DateBegin.ToString();
-                    FormatRow(ws, currentRow, ColBeginDate);
+                    ws.Cell(currentRow, colBeginDate).Value = currItem?.DateBegin.ToString();
+                    FormatRow(ws, currentRow, colBeginDate);
 
-                    ws.Cell(currentRow, ColEndDate).Value = currItem?.DateEnd.ToString();
-                    FormatRow(ws, currentRow, ColEndDate);
+                    ws.Cell(currentRow, colEndDate).Value = currItem?.DateEnd.ToString();
+                    FormatRow(ws, currentRow, colEndDate);
 
-                    FormatRow(ws, currentRow, ColReserved1);
+                    FormatRow(ws, currentRow, colReserved1);
 
-                    FormatRow(ws, currentRow, ColReserved2);
+                    FormatRow(ws, currentRow, colReserved2);
 
-                    FormatRow(ws, currentRow, ColReserved3);
+                    FormatRow(ws, currentRow, colReserved3);
 
-                    FormatRow(ws, currentRow, ColReserved4);
+                    FormatRow(ws, currentRow, colReserved4);
 
                 }
 

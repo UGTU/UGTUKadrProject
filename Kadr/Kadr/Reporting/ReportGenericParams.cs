@@ -21,8 +21,8 @@ namespace Kadr.Reporting
         /// </summary>
         [Category("Параметры отчёта")]
         [DisplayName("Файл шаблона отчёта")]
-        [Description("Полный путь к файлу формата Microsoft Excel, который содержит шаблон для отчёта. Как правило менять этот параметр не тредуется.")]
-        public string Template { get; protected set; }
+        [Description("Полный путь к файлу формата Microsoft Excel, который содержит шаблон для отчёта. Как правило менять этот параметр не требуется.")]
+        public string Template { get; set; }
 
         /// <summary>
         /// Получает или устанавливает необходимость запуска средства просмотра отчёта
