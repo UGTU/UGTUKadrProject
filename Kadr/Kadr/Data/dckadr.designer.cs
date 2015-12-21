@@ -29472,6 +29472,8 @@ namespace Kadr.Data
 		
 		private System.Nullable<int> _CountDay;
 		
+		private string _TypeWorkName;
+		
 		public FetchVacationPlansByDepartmentIdResult()
 		{
 		}
@@ -29648,6 +29650,22 @@ namespace Kadr.Data
 				if ((this._CountDay != value))
 				{
 					this._CountDay = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeWorkName", DbType="VarChar(50)")]
+		public string TypeWorkName
+		{
+			get
+			{
+				return this._TypeWorkName;
+			}
+			set
+			{
+				if ((this._TypeWorkName != value))
+				{
+					this._TypeWorkName = value;
 				}
 			}
 		}

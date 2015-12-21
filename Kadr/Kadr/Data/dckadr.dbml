@@ -1379,6 +1379,7 @@
       <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="OtpuskYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CountDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TypeWorkName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

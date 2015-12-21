@@ -14,10 +14,10 @@ namespace Kadr.Tests.Reporting
         [TestMethod]
         public void CreateScheduleReportTest()
         {
-            var dataSource = new List<ViewVacationPlan>();
+            var dataSource = new List<FetchVacationPlansByDepartmentIdResult>();
             for (int i = 0; i < 1500; ++i)
             {
-                dataSource.Add(new ViewVacationPlan()
+                dataSource.Add(new FetchVacationPlansByDepartmentIdResult()
                 {
                     CountDay = 1,
                     DateBegin = Convert.ToDateTime("2015-08-17 00:00:00.000"),
@@ -26,7 +26,8 @@ namespace Kadr.Tests.Reporting
                     FirstName = "Алёна",
                     Otch = "Александровна",
                     DepartmentName = "Административно-хозяйственное управление",
-                    PostName = "владыка ситхов Дарт Вейдер"
+                    PostName = "владыка ситхов Дарт Вейдер",
+                    TypeWorkName = "Внегалактическая"
                 });
             }
             var vp = new VacationPlanParams(Guid.Parse("{BAEE3FD5-664D-E111-96A2-0018FE865BEC}"),

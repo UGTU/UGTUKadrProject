@@ -22,7 +22,7 @@ namespace Kadr.Tests.Reporting
                 @"Reporting\template_график.xlsx", @"Reporting\test_schedule_output.xlsx") {Year = 2016};
 
             var actual = KadrController.Instance.Model.FetchVacationPlansByDepartmentId(vp.Department, vp.Year);
-            Kadr.Reporting.ScheduleReportBuilder.Create(vp, actual.AsEnumerable().AsVacationPlanView());
+            ScheduleReportBuilder.Create(vp, actual.AsEnumerable());
 
             ProcessStartInfo psi = new ProcessStartInfo(vp.OutputFileName);
             Process p = new Process();

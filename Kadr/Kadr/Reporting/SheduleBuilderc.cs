@@ -70,44 +70,58 @@ namespace Kadr.Reporting
 
             using (var wb = new XLWorkbook(vacationParams.Template))
             {
+                const int ColWorkType = 1;
+                const int ColDepartment = ColWorkType + 1;
+                const int ColWorkPost = ColDepartment + 1;
+                const int ColName = ColWorkPost + 1;
+                const int ColDays = ColName + 1;
+                const int ColBeginDate = ColDays + 1;
+                const int ColEndDate = ColBeginDate + 1;
+                const int ColReserved1 = ColEndDate + 1;
+                const int ColReserved2 = ColReserved1 + 1;
+                const int ColReserved3 = ColReserved2 + 1;
+                const int ColReserved4 = ColReserved3 + 1;
+
                 var ws = wb.Worksheets.First();
                 ws.Cell("E8").Value = DateTime.Today;
                 ws.Cell("G8").Value = vacationParams.Year.ToString();
                 ws.Name = vacationParams.PageName ?? "График отпусков";
                 for (var currentItemIndex = 0; currentItemIndex < listOfVacationPlan.Count; ++currentItemIndex)
                 {
-                    var currentRow = currentItemIndex + 15;            
-                    ws.Cell(currentRow, 1).Value = "Основная";
+                    var currentRow = currentItemIndex + 15;
+                    var currItem = listOfVacationPlan[currentItemIndex];
 
-                    FormatRow(ws, currentRow, 1);
+                    ws.Cell(currentRow, ColWorkType).Value = currItem?.TypeWorkName;
+
+                    FormatRow(ws, currentRow, ColWorkType);
                     ws.Cell(currentRow, 1).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
                     ws.Cell(currentRow, 1).Style.Border.LeftBorderColor = XLColor.Black;
 
-                    ws.Cell(currentRow, 2).Value = listOfVacationPlan[currentItemIndex].DepartmentName.ToString();
-                    FormatRow(ws, currentRow,2 );
+                    ws.Cell(currentRow, ColDepartment).Value = currItem?.DepartmentName;
+                    FormatRow(ws, currentRow, ColDepartment);
 
-                    ws.Cell(currentRow,3).Value = listOfVacationPlan[currentItemIndex].PostName.ToString();
-                    FormatRow(ws, currentRow,3);
+                    ws.Cell(currentRow, ColWorkPost).Value = currItem?.PostName;
+                    FormatRow(ws, currentRow, ColWorkPost);
 
-                    ws.Cell(currentRow,4).Value = listOfVacationPlan[currentItemIndex].LastName.ToString()+" "+ listOfVacationPlan[currentItemIndex].FirstName.ToString()+" "+ listOfVacationPlan[currentItemIndex].Otch;
-                    FormatRow(ws, currentRow,4);
+                    ws.Cell(currentRow, ColName).Value = $"{currItem?.LastName} {currItem?.FirstName} {currItem?.Otch}";
+                    FormatRow(ws, currentRow, ColName);
 
-                    ws.Cell(currentRow,5).Value = listOfVacationPlan[currentItemIndex].CountDay.ToString();
-                    FormatRow(ws, currentRow,5);
+                    ws.Cell(currentRow, ColDays).Value = currItem?.CountDay.ToString();
+                    FormatRow(ws, currentRow, ColDays);
 
-                    ws.Cell(currentRow,6).Value = listOfVacationPlan[currentItemIndex].DateBegin.ToString();
-                    FormatRow(ws, currentRow,6);
+                    ws.Cell(currentRow, ColBeginDate).Value = currItem?.DateBegin.ToString();
+                    FormatRow(ws, currentRow, ColBeginDate);
 
-                    ws.Cell(currentRow,7).Value = listOfVacationPlan[currentItemIndex].DateEnd.ToString();
-                    FormatRow(ws, currentRow,7);
+                    ws.Cell(currentRow, ColEndDate).Value = currItem?.DateEnd.ToString();
+                    FormatRow(ws, currentRow, ColEndDate);
 
-                    FormatRow(ws, currentRow, 8);
+                    FormatRow(ws, currentRow, ColReserved1);
 
-                    FormatRow(ws, currentRow, 9);
+                    FormatRow(ws, currentRow, ColReserved2);
 
-                    FormatRow(ws, currentRow, 10);
+                    FormatRow(ws, currentRow, ColReserved3);
 
-                    FormatRow(ws, currentRow, 11);
+                    FormatRow(ws, currentRow, ColReserved4);
 
                 }
 
@@ -125,6 +139,9 @@ namespace Kadr.Reporting
             ws.Cell(rowNum, colNum).Style.Border.BottomBorderColor = XLColor.Black;
             ws.Cell(rowNum, colNum).Style.Border.RightBorder = XLBorderStyleValues.Thin;
             ws.Cell(rowNum, colNum).Style.Border.RightBorderColor = XLColor.Black;
+            ws.Cell(rowNum, colNum).Style.Font.FontName = "Times New Roman";
+            //ws.Cell(rowNum, colNum).Style.Font.FontSize = 9;
+
         }
     }
 }
