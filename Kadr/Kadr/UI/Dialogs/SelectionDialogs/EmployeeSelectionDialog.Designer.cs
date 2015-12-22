@@ -34,6 +34,10 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // bAddingMode
+            // 
+            this.bAddingMode.Click += new System.EventHandler(this.bAddingMode_Click);
+            // 
             // panel1
             // 
             this.helpProvider1.SetShowHelp(this.panel1, true);
@@ -47,12 +51,12 @@
             // CancelBtn
             // 
             this.helpProvider1.SetHelpString(this.CancelBtn, "Отменяет все изменения с момента последноего сохранения и закрывает окно.");
+            this.CancelBtn.Location = new System.Drawing.Point(358, 2);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
             // 
             // OKBtn
             // 
             this.helpProvider1.SetHelpString(this.OKBtn, "Вносит изменения в базу данных и закрывает окно.");
-            this.OKBtn.Location = new System.Drawing.Point(358, 2);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
             // 
             // HelpBtn
@@ -62,6 +66,7 @@
             // 
             // EmployeeSelectionDialog
             // 
+            this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(566, 113);
             this.Name = "EmployeeSelectionDialog";
