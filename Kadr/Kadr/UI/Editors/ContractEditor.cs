@@ -32,48 +32,19 @@ namespace Kadr.UI.Editors
                 currentContract = (context.Instance as FactStaffHistoryMinDecorator).CurrentContract;
             }
 
-            /*if ((currentEmployee == null) || (currentEmployee.IsNull()))
-            {
-                throw new ArgumentNullException("Cотрудник.");
-                return null;
-            }*/
-
             using (ContractSelectionDialog dlg = new ContractSelectionDialog())
             {
 
                 dlg.Text = "Договор";
                 dlg.Employee = currentEmployee;
                 dlg.DialogObject = currentContract.MainContract;
-                //dlg.QueryText    = "Выберите приказ";
-                //dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.Prikazs.Where(pr => (pr.idPrikazType < 26) || (pr.idPrikazType > 28)).OrderByDescending(prik => prik.DatePrikaz).ThenByDescending(prik => prik.PrikazName);
-                //dlg.SelectedValue = (Kadr.Data.Prikaz)value;
 
                 if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    //if (dlg.SelectedValue == null)
-                    //    return Kadr.Data.NullPrikaz.Instance;
-                    //else
                     return dlg.DialogObject;
                 else
                     return value;
             }
 
-            /*using (Common.ListSelectDialog<Kadr.Data.Prikaz> dlg = new Kadr.UI.Common.ListSelectDialog<Kadr.Data.Prikaz>())
-            {
-
-                dlg.Text = "Приказ";
-                dlg.QueryText = "Выберите приказ";
-                dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.Prikazs.Where(pr => (pr.idPrikazType <26) || (pr.idPrikazType > 28)).OrderByDescending(prik => prik.DatePrikaz).ThenByDescending(prik => prik.PrikazName);
-                dlg.SelectedValue = (Kadr.Data.Prikaz)value;
-                
-
-                if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    //if (dlg.SelectedValue == null)
-                    //    return Kadr.Data.NullPrikaz.Instance;
-                    //else
-                        return dlg.SelectedValue;
-                else
-                    return value;
-            }*/
 
         }
 

@@ -63,18 +63,17 @@
             this.helpProvider1.SetHelpString(this.ApplyBtn, "Вносит изменения в базу данных, не закрывая окно.");
             this.ApplyBtn.Location = new System.Drawing.Point(450, 2);
             this.helpProvider1.SetShowHelp(this.ApplyBtn, true);
-            this.ApplyBtn.Text = "Применить";
             // 
             // CancelBtn
             // 
             this.helpProvider1.SetHelpString(this.CancelBtn, "Отменяет все изменения с момента последноего сохранения и закрывает окно.");
+            this.CancelBtn.Location = new System.Drawing.Point(450, 2);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
-            this.CancelBtn.Text = "Отмена";
             // 
             // OKBtn
             // 
             this.helpProvider1.SetHelpString(this.OKBtn, "Вносит изменения в базу данных и закрывает окно.");
-            this.OKBtn.Location = new System.Drawing.Point(266, 2);
+            this.OKBtn.Location = new System.Drawing.Point(358, 2);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
             this.OKBtn.Text = "OK";
             // 
@@ -109,7 +108,7 @@
             // 
             this.bAddingMode.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bAddingMode.Image = global::Kadr.Properties.Resources.add_icon1;
-            this.bAddingMode.Location = new System.Drawing.Point(508, 16);
+            this.bAddingMode.Location = new System.Drawing.Point(503, 16);
             this.bAddingMode.Name = "bAddingMode";
             this.bAddingMode.Size = new System.Drawing.Size(35, 32);
             this.bAddingMode.TabIndex = 6;
@@ -122,9 +121,9 @@
             this.cbObjectList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbObjectList.DataSource = this.ObjectListBindingSource;
             this.cbObjectList.FormattingEnabled = true;
-            this.cbObjectList.Location = new System.Drawing.Point(15, 23);
+            this.cbObjectList.Location = new System.Drawing.Point(3, 23);
             this.cbObjectList.Name = "cbObjectList";
-            this.cbObjectList.Size = new System.Drawing.Size(487, 21);
+            this.cbObjectList.Size = new System.Drawing.Size(495, 21);
             this.cbObjectList.TabIndex = 4;
             this.cbObjectList.SelectedIndexChanged += new System.EventHandler(this.cbObjectList_SelectedIndexChanged);
             // 
@@ -152,7 +151,6 @@
             // 
             // BaseSelectionDialog
             // 
-            this.ApplyButtonVisible = false;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 113);

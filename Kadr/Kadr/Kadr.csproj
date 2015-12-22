@@ -250,7 +250,9 @@
     <Compile Include="Data\Converters\OK_ReasonConvertor.cs" />
     <Compile Include="Data\Converters\PPCategoryConvertor.cs" />
     <Compile Include="Data\Converters\PropertySorter.cs" />
+    <Compile Include="Data\Converters\SalaryKoeffConvertor.cs" />
     <Compile Include="Data\Converters\SocialStatusToStringConverter.cs" />
+    <Compile Include="Data\Converters\StandingTypeConverter.cs" />
     <Compile Include="Data\dckadr.cs">
       <DependentUpon>dckadr.dbml</DependentUpon>
     </Compile>
@@ -453,10 +455,10 @@
     </Compile>
     <Compile Include="Reporting\ReportGenericParams.cs" />
     <Compile Include="Reporting\SheduleBuilderc.cs" />
-    <Compile Include="UI\Common\BaseSelectionDialog.cs">
+    <Compile Include="UI\Dialogs\SelectionDialogs\BaseSelectionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Common\BaseSelectionDialog.Designer.cs">
+    <Compile Include="UI\Dialogs\SelectionDialogs\BaseSelectionDialog.Designer.cs">
       <DependentUpon>BaseSelectionDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Common\CustomBaseDialog.cs">
@@ -923,7 +925,7 @@
       <DependentUpon>dckadr.dbml</DependentUpon>
       <SubType>Designer</SubType>
     </None>
-    <EmbeddedResource Include="UI\Common\BaseSelectionDialog.resx">
+    <EmbeddedResource Include="UI\Dialogs\SelectionDialogs\BaseSelectionDialog.resx">
       <DependentUpon>BaseSelectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Common\CustomBaseDialog.resx">
@@ -1081,6 +1083,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\CatalogDialogs\TimeSheetSheduleTypeDialog.resx">
       <DependentUpon>TimeSheetSheduleTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\SelectionDialogs\EmployeeSelectionDialog.resx">
+      <DependentUpon>EmployeeSelectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\SelectionDialogs\PrikazSelectionDialog.resx">
       <DependentUpon>PrikazSelectionDialog.cs</DependentUpon>
