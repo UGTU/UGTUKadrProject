@@ -14,6 +14,7 @@ namespace Kadr.UI.Dialogs
         {
             InitializeComponent();
             lObjectTypeName.Text = "Сотрудник";
+            
         }
 
         protected override void DoRefreshList()
