@@ -30,5 +30,12 @@ namespace Kadr.UI.Dialogs
             else
                 dialogObject = cbObjectList.SelectedItem;
         }
+
+        private void bAddingMode_Click(object sender, EventArgs e)
+        {
+            dialogObject = CRUDEmployee.Create(this, null);
+            if (dialogObject != null)
+                Close();
+        }
     }
 }
