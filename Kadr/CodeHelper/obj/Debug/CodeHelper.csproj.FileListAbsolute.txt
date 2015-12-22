@@ -89,22 +89,4 @@ C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\Cod
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\ru-RU\CodeHelper.resources.dll
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.dll
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.pdb
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\CodeHelper.dll.config
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\CodeHelper.dll
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\CodeHelper.pdb
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\bin\Debug\ru-RU\CodeHelper.resources.dll
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.csprojResolveAssemblyReference.cache
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.CodeHelper.ExceptionHandler.ExceptionDialog.resources
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.CodeHelper.ExceptionHandler.MoreExceptionDialog.resources
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\MultiSelectTreeView.MiltiSelectTreeView.resources
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.ExceptionHandler.Res.resources
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.Properties.Resources.resources
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.UI.CrystalReportVeiwerRus.resources
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.CodeHelper.UI.ApplicationAboutDialog.resources
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.CodeHelper.UI.MessageForm.resources
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.UI.UserLoginDialog.resources
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\APG.UI.UserLoginDialog.ru-RU.resources
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.csproj.GenerateResource.Cache
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\ru-RU\CodeHelper.resources.dll
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.dll
-E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.pdb
+D:\Project\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.csprojResolveAssemblyReference.cache
