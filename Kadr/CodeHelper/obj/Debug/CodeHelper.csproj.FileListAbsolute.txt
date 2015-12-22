@@ -89,3 +89,4 @@ C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\Cod
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\ru-RU\CodeHelper.resources.dll
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.dll
 C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.pdb
+D:\Project\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.csprojResolveAssemblyReference.cache

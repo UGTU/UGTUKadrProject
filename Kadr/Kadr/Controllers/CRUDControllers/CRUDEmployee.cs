@@ -14,13 +14,13 @@ namespace Kadr.Controllers
     {
 
 
-        public static void Create(object sender, PlanStaff planStaff)
+        public static object Create(object sender, PlanStaff planStaff)
         {
-            if (planStaff == null)
+            /*if (planStaff == null)
             {
                 MessageBox.Show("Не выбрана должность в штатном расписании.", "ИС \"Управление кадрами\"");
                 return;
-            }
+            }*/
 
             using (EmployeeLinqPropertyGridDialogAdding dlg =
                 new EmployeeLinqPropertyGridDialogAdding())
@@ -71,6 +71,7 @@ namespace Kadr.Controllers
                 };*/
 
                 dlg.ShowDialog();
+                return dlg.DialogObject;
                 //RefreshFrame();
             }
         }

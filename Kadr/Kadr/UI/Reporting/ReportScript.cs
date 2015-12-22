@@ -61,6 +61,11 @@ namespace Kadr.UI.Reporting
             CreateReport();
 
             // Если необходимо запустить средство просмотра отчётов
+            RunShellProtected();
+        }
+
+        private void RunShellProtected()
+        {
             try
             {
                 if (ReportParams.RunShellAfterCreate)
@@ -71,6 +76,7 @@ namespace Kadr.UI.Reporting
                 throw new ApplicationException($"Файл с отчётом успешно построен по адресу {ReportParams.OutputFileName}, однако не удалось запустить средство просмотра. Информация об ошибке содержится во вложенном сообщении.", exception);
             }
         }
+
         private void RunShell()
         {
             var psi = new ProcessStartInfo(ReportParams.OutputFileName);
