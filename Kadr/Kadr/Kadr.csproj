@@ -512,6 +512,7 @@
       <DependentUpon>LinqPropertyGridDialogEditing.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Converters\RegionConverter.cs" />
+    <Compile Include="UI\Common\SettingsDecorator.cs" />
     <Compile Include="UI\Common\UIExtensions.cs" />
     <Compile Include="UI\Dialogs\BonusProlongDialog.cs">
       <SubType>Form</SubType>
@@ -1281,6 +1282,7 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
