@@ -38,7 +38,7 @@ namespace Kadr.UI.Common
 
         private void cbObjectList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dialogObject = cbObjectList.SelectedItem;
+            DialogObject = cbObjectList.SelectedItem;
         }
 
         public void AddingModeOn()

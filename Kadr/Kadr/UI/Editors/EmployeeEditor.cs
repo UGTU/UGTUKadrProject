@@ -15,23 +15,6 @@ namespace Kadr.UI.Editors
     {
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
-            /*using (Common.ListSelectDialog<Kadr.Data.Employee> dlg = new Kadr.UI.Common.ListSelectDialog<Kadr.Data.Employee>())
-            {
-                
-                dlg.Text = "Сотрудник";
-                dlg.QueryText = "Выберите сотрудника";
-                dlg.DataSource = Kadr.Controllers.KadrController.Instance.Model.Employees.OrderBy(empl => empl.Otch).OrderBy(empl => empl.FirstName).OrderBy(empl => empl.LastName);
-                dlg.SelectedValue = (Kadr.Data.Employee)value;
-
-                if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    if (dlg.SelectedValue == null)
-                        return Kadr.Data.NullEmployee.Instance;
-                    else
-                        return dlg.SelectedValue;
-                else
-                    return value;
-
-            }*/
             Employee currentEmployee = null;
 
             if (context.Instance is FactStaffMainBaseDecorator)
