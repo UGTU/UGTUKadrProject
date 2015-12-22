@@ -5,11 +5,9 @@ RETURN
 	WITH tblChild AS
 	(
 		SELECT *
-			FROM ViewVacationPlan WHERE DepartmentGUID = @DepartmenGuid and OtpuskYear = @Year
-		UNION ALL SELECT *
-			FROM ViewVacationPlan WHERE DepManagerGUID = @DepartmenGuid and OtpuskYear = @Year
-		UNION ALL
-			SELECT ViewVacationPlan.* FROM ViewVacationPlan  INNER JOIN tblChild  
-				ON ViewVacationPlan.DepManagerGUID = tblChild.DepartmentGUID and ViewVacationPlan.OtpuskYear = @Year
-	) select distinct * from tblChild
+			FROM ViewVacationPlan WHERE DepartmentGUID = @DepartmenGuid and ((OtpuskYear = @Year)or(OtpuskYear is null))		
+		UNION ALL SELECT ViewVacationPlan.* 
+		    FROM ViewVacationPlan  INNER JOIN tblChild  
+				ON ViewVacationPlan.DepManagerGUID = tblChild.DepartmentGUID and ((ViewVacationPlan.OtpuskYear = @Year)or(ViewVacationPlan.OtpuskYear is null))
+	) select distinct * from tblChild where DateBegin is not null
 )

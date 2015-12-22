@@ -18,23 +18,28 @@ namespace Kadr.KadrTreeView.NodeAction
             var root = NodeObject as RootNodeObject;
             if (root == null) return;
             var script =
-                new ScheduleBuildingScript(new VacationPlanParams(root.Department.DepartmentGUID,
-                    Properties.Settings.Default.VacationPlanTemplatePath, BuildOutputFileName(root)) {PageName = root.Department.LastChange?.DepartmentSmallName});
+                new ScheduleBuildingScript(
+                    new VacationPlanParams(root.Department.DepartmentGUID,
+                    System.IO.Path.GetFullPath(Properties.Settings.Default.VacationPlanTemplatePath),
+                    BuildOutputFileName(root)) {PageName = root.Department.LastChange?.DepartmentSmallName}
+                    );
             script.Run();
         }
 
         private static string BuildOutputFileName(RootNodeObject root)
         {
             var departmentName = root.Department.LastChange.DepartmentSmallName;
-            var folder = Properties.Settings.Default.ReportsOutputFolder ??
-                         Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\";
+            var folder = Properties.Settings.Default.ReportsOutputFolder;
+            if (string.IsNullOrEmpty(folder))
+                folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            folder += "\\";
 
             var fileName = string.Empty;
             try
             {
                 var today = DateTime.Today;
-                fileName = System.IO.Path.GetFullPath(string.Format(Properties.Settings.Default.DefaultVacationReportOutputFormat, departmentName,
-                    $"{today.Day}-{today.Month}-{today.Year}", today.Month > 8 ? today.Year + 1 : today.Year));
+                fileName = string.Format(Properties.Settings.Default.DefaultVacationReportOutputFormat, departmentName,
+                    $"{today.Day}-{today.Month}-{today.Year}", today.Month > 8 ? today.Year + 1 : today.Year);
 
             }
             catch (FormatException)
