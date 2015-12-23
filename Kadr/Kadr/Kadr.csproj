@@ -1367,6 +1367,7 @@
   <ItemGroup>
     <Content Include="CONSTRUC.ICO" />
     <None Include="Resources\add-icon.png" />
+    <Content Include="Releases.txt" />
     <Content Include="Resources\Kadr.ico" />
     <Content Include="Resources\TreeIcons\briefcase.png" />
     <Content Include="Resources\TreeIcons\Firedman.png" />
