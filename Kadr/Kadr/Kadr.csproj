@@ -442,6 +442,7 @@
     <Compile Include="KadrTreeView\NodeAction\PostTreeNodeActions.cs" />
     <Compile Include="KadrTreeView\NodeAction\PrikazTreeNodeActions.cs" />
     <Compile Include="KadrTreeView\NodeAction\RootTreeNodeActions.cs" />
+    <Compile Include="KadrTreeView\NodeAction\VacationReportCaptionProvider.cs" />
     <Compile Include="KadrTreeView\NodeObject\KadrEmployeeObject.cs" />
     <Compile Include="KadrTreeView\NodeObject\KadrNodeObject.cs" />
     <Compile Include="KadrTreeView\NodeObject\KadrPostObject.cs" />

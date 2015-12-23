@@ -29,8 +29,6 @@
             System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
             System.Windows.Forms.ToolStrip toolStrip1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KadrBaseForm));
-            this.tsbNew = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
@@ -62,7 +60,6 @@
             this.CurrentObjectLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.CurrentObjectInfoLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.kadrTreeView1 = new Kadr.KadrTreeView.KadrTreeView(this.components);
             this.treeViewImageList = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -188,6 +185,9 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbNew = new System.Windows.Forms.ToolStripSplitButton();
+            this.kadrTreeView1 = new Kadr.KadrTreeView.KadrTreeView(this.components);
             tsmiDismissedEmployees = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -245,26 +245,10 @@
             this.toolStripSeparator13,
             this.tsbBonusFilter,
             this.toolStripSeparator14});
-            toolStrip1.Location = new System.Drawing.Point(3, 0);
+            toolStrip1.Location = new System.Drawing.Point(3, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(1040, 27);
+            toolStrip1.Size = new System.Drawing.Size(1098, 27);
             toolStrip1.TabIndex = 1;
-            // 
-            // tsbNew
-            // 
-            this.tsbNew.Image = global::Kadr.Properties.Resources.NewReportHS;
-            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Black;
-            this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(136, 24);
-            this.tsbNew.Text = "Создать объект...";
-            this.tsbNew.ButtonClick += new System.EventHandler(this.tsbNew_ButtonClick);
-            this.tsbNew.DropDownOpening += new System.EventHandler(this.tsbNew_DropDownOpening);
-            this.tsbNew.MouseEnter += new System.EventHandler(this.tsbNew_MouseEnter);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // tsbDelete
             // 
@@ -273,6 +257,7 @@
             this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Black;
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(24, 24);
+            this.tsbDelete.Visible = false;
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             this.tsbDelete.MouseEnter += new System.EventHandler(this.tsbDelete_MouseEnter);
             // 
@@ -527,8 +512,8 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(toolStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(toolStrip1);
             // 
             // statusStrip1
             // 
@@ -580,23 +565,8 @@
             // 
             this.splitContainer1.Panel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.splitContainer1.Size = new System.Drawing.Size(1101, 387);
-            this.splitContainer1.SplitterDistance = 250;
+            this.splitContainer1.SplitterDistance = 249;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // kadrTreeView1
-            // 
-            this.kadrTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kadrTreeView1.ImageIndex = 0;
-            this.kadrTreeView1.ImageList = this.treeViewImageList;
-            this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
-            this.kadrTreeView1.Name = "kadrTreeView1";
-            this.kadrTreeView1.SelectedImageIndex = 0;
-            this.kadrTreeView1.Size = new System.Drawing.Size(248, 385);
-            this.kadrTreeView1.TabIndex = 0;
-            this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
-            this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
-            this.kadrTreeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.kadrTreeView1_AfterSelect);
-            this.kadrTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.kadrTreeView1_MouseClick);
             // 
             // treeViewImageList
             // 
@@ -642,7 +612,7 @@
             this.правкаToolStripMenuItem,
             this.видToolStripMenuItem,
             this.справкаToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 27);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1101, 24);
             this.menuStrip1.TabIndex = 0;
@@ -1623,6 +1593,39 @@
             // 
             this.departmentBindingSource.DataSource = typeof(Kadr.Data.Department);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator2.Visible = false;
+            // 
+            // tsbNew
+            // 
+            this.tsbNew.Image = global::Kadr.Properties.Resources.NewReportHS;
+            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbNew.Name = "tsbNew";
+            this.tsbNew.Size = new System.Drawing.Size(136, 24);
+            this.tsbNew.Text = "Создать объект...";
+            this.tsbNew.Visible = false;
+            this.tsbNew.ButtonClick += new System.EventHandler(this.tsbNew_ButtonClick);
+            this.tsbNew.DropDownOpening += new System.EventHandler(this.tsbNew_DropDownOpening);
+            this.tsbNew.MouseEnter += new System.EventHandler(this.tsbNew_MouseEnter);
+            // 
+            // kadrTreeView1
+            // 
+            this.kadrTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kadrTreeView1.ImageIndex = 0;
+            this.kadrTreeView1.ImageList = this.treeViewImageList;
+            this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
+            this.kadrTreeView1.Name = "kadrTreeView1";
+            this.kadrTreeView1.SelectedImageIndex = 0;
+            this.kadrTreeView1.Size = new System.Drawing.Size(247, 385);
+            this.kadrTreeView1.TabIndex = 0;
+            this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
+            this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
+            this.kadrTreeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.kadrTreeView1_AfterSelect);
+            this.kadrTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.kadrTreeView1_MouseClick);
+            // 
             // KadrBaseForm
             // 
             this.AllowDrop = true;
@@ -1678,7 +1681,6 @@
         protected System.Windows.Forms.ToolStripMenuItem ApplicationAboutStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem параметрыToolStripMenuItem;
         protected System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        protected System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         protected System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         protected System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         protected System.Windows.Forms.ToolStripMenuItem отчётыToolStripMenuItem;
@@ -1704,7 +1706,6 @@
         protected System.Windows.Forms.ToolStripMenuItem панельИнструментовToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem строкаСтатусаToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem деревоПромысловыхОбъектовToolStripMenuItem;
-        protected System.Windows.Forms.ToolStripSplitButton tsbNew;
         protected System.Windows.Forms.ToolStripButton tsbDelete;
         protected System.Windows.Forms.ToolStripButton tsbEdit;
         protected System.Windows.Forms.ToolStripButton tsbUpdate;
@@ -1828,6 +1829,7 @@
         private System.Windows.Forms.ToolStripMenuItem уровеньНаградToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ведомстваВыдавшиеНаградуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem причиныУвольненийToolStripMenuItem;
-
+        protected System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        protected System.Windows.Forms.ToolStripSplitButton tsbNew;
     }
 }

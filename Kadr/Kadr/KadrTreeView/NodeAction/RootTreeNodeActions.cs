@@ -11,7 +11,7 @@ namespace Kadr.KadrTreeView.NodeAction
     public class RootTreeNodeActions : APG.CodeHelper.DBTreeView.DBTreeNodeAction
     {
         #region IDBTreeNodeAction Members
-        [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Настроить путь сохранения шаблона", true)]
+        [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Настроить путь сохранения шаблона", true, visible:false)]        
         public void CreateReport(object sender)
         {
             var settings = new SettingsDecorator(Properties.Settings.Default);
@@ -35,6 +35,7 @@ namespace Kadr.KadrTreeView.NodeAction
         }
 
         [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Получить график отпусков...", true)]
+        [APG.CodeHelper.ContextMenuHelper.ActionCaption(typeof(VacationReportCaptionProvider))]
         public void CreateVacationPlanReport(object sender)
         {
             var root = NodeObject as RootNodeObject;
