@@ -10,19 +10,20 @@ namespace Kadr.Tests
     [TestClass]
     public class AwardTest
     {
-        [TestMethod]
-        public void MakeAwardWithNullType()
+        class A
         {
-            Award a = new Award();
-            a.Employee = KadrController.Instance.Model.Employees.FirstOrDefault();
-            a.EducDocument = new EducDocument();
-            a.AwardLevel = NullAwardLevel.Instance;
-            a.AwardType = NullAwardType.Instance;
-            
-            KadrController.Instance.Model.Awards.InsertOnSubmit(a);
-            (a as IValidatable).Validate();
-            KadrController.Instance.Model.SubmitChanges();
+            public string Value => "OK";
+        }
 
+        private string GetValue(object obj)
+        {
+            return (obj as A)?.Value;
+        }
+        [TestMethod]
+        public void TestNullPropogatorIssue()
+        {
+            var obj = new A();
+            Assert.AreEqual("OK", GetValue(obj));            
         }
     }
 }

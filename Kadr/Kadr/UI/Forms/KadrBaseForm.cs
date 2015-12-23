@@ -23,23 +23,23 @@ namespace Kadr.UI.Forms
     public partial class KadrBaseForm : Form
     {
         #region Private fields
-        private APG.CodeHelper.Actions.ActionManager actionManager = new APG.CodeHelper.Actions.ActionManager();
-        private Kadr.UI.Frames.KadrBaseFrame activeFrame;
-        private ToolStripItem actionMenuStripItem;
-        private APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder contextMenuBuilder;
-        private APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder actionButtonDropDownMenuBuilder;
-        private IKeyValueStorage storage = new KeyValueStorage();
+        private readonly APG.CodeHelper.Actions.ActionManager _actionManager = new APG.CodeHelper.Actions.ActionManager();
+        private Kadr.UI.Frames.KadrBaseFrame _activeFrame;
+        private ToolStripItem _actionMenuStripItem;
+        private APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder _contextMenuBuilder;
+        private APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder _actionButtonDropDownMenuBuilder;
+        private readonly IKeyValueStorage _storage = new KeyValueStorage();
 
 
         internal APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder ActionButtonDropDownMenuBuilder
         {
-            get { return actionButtonDropDownMenuBuilder; }
+            get { return _actionButtonDropDownMenuBuilder; }
             
         }
 
         internal APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder ContextMenuBuilder
         {
-            get { return contextMenuBuilder; }
+            get { return _contextMenuBuilder; }
         }
 
         /// <summary>
@@ -47,11 +47,11 @@ namespace Kadr.UI.Forms
         /// </summary>
         public ToolStripItem ActionMenuStripItem
         {
-            get { return actionMenuStripItem; }
+            get { return _actionMenuStripItem; }
         }
 
         //
-        private ToolStripItem[] nodeContextItems = new ToolStripItem[9]; 
+        private readonly ToolStripItem[] _nodeContextItems = new ToolStripItem[9]; 
 
         #endregion
 
@@ -59,41 +59,49 @@ namespace Kadr.UI.Forms
 
         private void CreateNodeContextItems()
         {
-            nodeContextItems[0] = new ToolStripMenuItem();
-            nodeContextItems[0].Text = "Развернуть";
-            nodeContextItems[0].Click += new EventHandler(развернутьToolStripMenuItem_Click);
+            _nodeContextItems[0] = new ToolStripMenuItem();
+            _nodeContextItems[0].Text = "Развернуть";
+            _nodeContextItems[0].Click += new EventHandler(развернутьToolStripMenuItem_Click);
            
-            nodeContextItems[1] = new ToolStripMenuItem();
-            nodeContextItems[1].Text = "Свернуть";
-            nodeContextItems[1].Click += new EventHandler(свернутьToolStripMenuItem_Click);
+            _nodeContextItems[1] = new ToolStripMenuItem();
+            _nodeContextItems[1].Text = "Свернуть";
+            _nodeContextItems[1].Click += new EventHandler(свернутьToolStripMenuItem_Click);
 
-            nodeContextItems[2] = new ToolStripSeparator();
+            _nodeContextItems[2] = new ToolStripSeparator();
 
-            nodeContextItems[3] = new ToolStripMenuItem();
-            nodeContextItems[3].Text = "Показать все";
-            nodeContextItems[3].Click += new EventHandler(показатьВсеToolStripMenuItem_Click);
+            _nodeContextItems[3] = new ToolStripMenuItem();
+            _nodeContextItems[3].Text = "Показать все";
+            _nodeContextItems[3].Click += new EventHandler(показатьВсеToolStripMenuItem_Click);
 
-            nodeContextItems[4] = new ToolStripMenuItem();
-            nodeContextItems[4].Text = "Свернуть все";
-            nodeContextItems[4].Click += new EventHandler(свернутьВсеToolStripMenuItem_Click);
+            _nodeContextItems[4] = new ToolStripMenuItem();
+            _nodeContextItems[4].Text = "Свернуть все";
+            _nodeContextItems[4].Click += new EventHandler(свернутьВсеToolStripMenuItem_Click);
             
-            nodeContextItems[5] = new ToolStripSeparator();
+            _nodeContextItems[5] = new ToolStripSeparator();
 
-            nodeContextItems[6] = new ToolStripMenuItem();
-            nodeContextItems[6].Text = "Обновить";
-            nodeContextItems[6].Click += new EventHandler(обновитьToolStripMenuItem_Click);
+            _nodeContextItems[6] = new ToolStripMenuItem();
+            _nodeContextItems[6].Text = "Обновить";
+            _nodeContextItems[6].Click += new EventHandler(обновитьToolStripMenuItem_Click);
 
-            nodeContextItems[7] = new ToolStripSeparator();
+            _nodeContextItems[7] = new ToolStripSeparator();
 
-            nodeContextItems[8] = new ToolStripMenuItem();
-            nodeContextItems[8].Text = "Действия";
-            nodeContextItems[8].Image = treeViewImageList.Images[4];
-            actionMenuStripItem = nodeContextItems[8];
+            _nodeContextItems[8] = new ToolStripMenuItem();
+            _nodeContextItems[8].Text = "Действия";
+            _nodeContextItems[8].Image = treeViewImageList.Images[4];
+            _actionMenuStripItem = _nodeContextItems[8];
 
             //ContextMenuBuilder
-            contextMenuBuilder = new APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder(treeNodeContextMenu, null, ActionMenuStripItem);
-            actionButtonDropDownMenuBuilder = new APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder(tsbNew.DropDownItems, null);
- 
+            _contextMenuBuilder = new APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder(treeNodeContextMenu, null,
+                ActionMenuStripItem)
+            {
+                UserData = kadrTreeView1
+            };
+            _actionButtonDropDownMenuBuilder =
+                new APG.CodeHelper.ContextMenuHelper.ContextMenuBuilder(tsbNew.DropDownItems, null)
+                {
+                    UserData = kadrTreeView1
+                };
+
         }
 
         private void OnCommandExecute(object sender, EventArgs e)
@@ -186,7 +194,7 @@ namespace Kadr.UI.Forms
 
             if (e.Button == MouseButtons.Right)
             {
-                SelectedObject.NodeContextMenuStrip.Items.AddRange(nodeContextItems);
+                SelectedObject.NodeContextMenuStrip.Items.AddRange(_nodeContextItems);
                 //SelectedObject.NodeContextMenuStrip.Show(e.Location);
                 ContextMenuBuilder.ContextMenuStrip = SelectedObject.NodeContextMenuStrip;
                 ContextMenuBuilder.Receiver = SelectedObject.Actions;
@@ -211,11 +219,11 @@ namespace Kadr.UI.Forms
         {
             if (SelectedActions != null)
             {
-                tsbNew.Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taAdd];
+                //tsbNew.Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taAdd];
                 tsbDelete.Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taDelete];
                 tsbEdit.Text = SelectedActions[APG.CodeHelper.Actions.UIObjectAction.taUpdate];
 
-                tsbNew.Enabled = SelectedActions.CanDoThis(sender, APG.CodeHelper.Actions.UIObjectAction.taAdd);
+                //tsbNew.Enabled = SelectedActions.CanDoThis(sender, APG.CodeHelper.Actions.UIObjectAction.taAdd);
                 tsbDelete.Enabled = SelectedActions.CanDoThis(sender, APG.CodeHelper.Actions.UIObjectAction.taDelete);
                 tsbEdit.Enabled = SelectedActions.CanDoThis(sender, APG.CodeHelper.Actions.UIObjectAction.taUpdate);
                 tsbCopy.Enabled = SelectedActions.CanDoThis(sender, APG.CodeHelper.Actions.UIObjectAction.taCopy);
@@ -258,7 +266,7 @@ namespace Kadr.UI.Forms
                     tsbDepartmentFilter.Visible = true;
 
                      //устанавливаем фильтр 
-                    /*ArrayList EmployeeFilters = (activeFrame.FrameNodeObject as RootNodeObject).ObjectFilters;
+                    /*ArrayList EmployeeFilters = (_activeFrame.FrameNodeObject as RootNodeObject).ObjectFilters;
                     for (ObjectState objectState = ObjectState.Current; objectState <= ObjectState.Canceled; objectState++)
                     {
                         (tsbEmployeeFilter.DropDownItems[(int)objectState] as ToolStripMenuItem).Checked =
@@ -266,7 +274,7 @@ namespace Kadr.UI.Forms
                     }
 
                     //устанавливаем фильтр 
-                    ArrayList DepartmentFilters = (activeFrame.FrameNodeObject as RootNodeObject).DepartmentFilters;
+                    ArrayList DepartmentFilters = (_activeFrame.FrameNodeObject as RootNodeObject).DepartmentFilters;
                     for (ObjectState objectState = ObjectState.Current; objectState <= ObjectState.Canceled; objectState++)
                     {
                         (tsbDepartmentFilter.DropDownItems[(int)objectState] as ToolStripMenuItem).Checked =
@@ -575,12 +583,12 @@ namespace Kadr.UI.Forms
 
         public APG.CodeHelper.Actions.ActionManager Commands
         {
-            get { return actionManager; }
+            get { return _actionManager; }
         }
 
         public Kadr.UI.Frames.KadrBaseFrame ActiveFrame
         {
-            get { return activeFrame; }
+            get { return _activeFrame; }
         }
 
         public System.Type Frame
@@ -590,9 +598,9 @@ namespace Kadr.UI.Forms
                 if (DisposeActiveFrame())
                     if (value != null)
                     {
-                        activeFrame = CreateFrame(value, splitContainer1.Panel2, kadrTreeView1.SelectedObject);
-                        activeFrame.Restore(storage);
-                        activeFrame.Caption = kadrTreeView1.SelectedNode.FullPath;
+                        _activeFrame = CreateFrame(value, splitContainer1.Panel2, kadrTreeView1.SelectedObject);
+                        _activeFrame.Restore(_storage);
+                        _activeFrame.Caption = kadrTreeView1.SelectedNode.FullPath;
                     }
             }
         }
@@ -605,19 +613,19 @@ namespace Kadr.UI.Forms
         {
             bool result = true;
 
-            if (activeFrame != null)
+            if (_activeFrame != null)
             {
-                activeFrame.Store(storage);
-                if (activeFrame.IsModified)
+                _activeFrame.Store(_storage);
+                if (_activeFrame.IsModified)
                 {
-                    switch (MessageBox.Show(string.Format("Данные кадра \"{0}\" были изменены.\nСледует сохранить изменения в базе данных?", activeFrame.FrameName), "Сохранение данных", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
+                    switch (MessageBox.Show(string.Format("Данные кадра \"{0}\" были изменены.\nСледует сохранить изменения в базе данных?", _activeFrame.FrameName), "Сохранение данных", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
                     {
                         case DialogResult.Yes:
-                            activeFrame.Apply();
+                            _activeFrame.Apply();
                             DisposeActiveFrameInternal();
                             break;
                         case DialogResult.No:
-                            activeFrame.Cancel();
+                            _activeFrame.Cancel();
                             DisposeActiveFrameInternal();
                             break;
                         default:
@@ -636,12 +644,12 @@ namespace Kadr.UI.Forms
 
         private void DisposeActiveFrameInternal()
         {
-            if (activeFrame != null)
+            if (_activeFrame != null)
             {
-                //activeFrame.Dispose();
-                activeFrame.IsModified = false;
-                activeFrame.Hide();
-                activeFrame = null;
+                //_activeFrame.Dispose();
+                _activeFrame.IsModified = false;
+                _activeFrame.Hide();
+                _activeFrame = null;
             }
         }
 
@@ -817,7 +825,7 @@ namespace Kadr.UI.Forms
         {
             //SelectedObject.Node
             if ((ActiveFrame != null) && (SelectedObject != null))
-                ActiveFrame.Store(storage);
+                ActiveFrame.Store(_storage);
         }
 
 
@@ -931,9 +939,9 @@ namespace Kadr.UI.Forms
 
         private void tsbEmployeeFilter_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            if (activeFrame is KadrRootFrame)
+            if (_activeFrame is KadrRootFrame)
             {
-                (activeFrame.FrameNodeObject as RootNodeObject).ObjectFilters = ObjectStateController.Instance.GetObjectStatesForFilter(tsbEmployeeFilter, e);
+                (_activeFrame.FrameNodeObject as RootNodeObject).ObjectFilters = ObjectStateController.Instance.GetObjectStatesForFilter(tsbEmployeeFilter, e);
                 (ActiveFrame as KadrRootFrame).StaffFilterSetting = ObjectStateController.Instance.GetObjectStatesForFilter(tsbEmployeeFilter, e); //tspHourFactStaffFilter
             }
         }
@@ -942,10 +950,10 @@ namespace Kadr.UI.Forms
         {
             //ищем самый верхний узел дерева 
             //RootNodeObject MainParent = 
-            //(activeFrame.FrameNodeObject as RootNodeObject).Parent
-            if (activeFrame is KadrRootFrame)
+            //(_activeFrame.FrameNodeObject as RootNodeObject).Parent
+            if (_activeFrame is KadrRootFrame)
             {
-                (activeFrame.FrameNodeObject as RootNodeObject).DepartmentFilters = ObjectStateController.Instance.GetObjectStatesForFilter(tsbDepartmentFilter, e);
+                (_activeFrame.FrameNodeObject as RootNodeObject).DepartmentFilters = ObjectStateController.Instance.GetObjectStatesForFilter(tsbDepartmentFilter, e);
                 (ActiveFrame as KadrRootFrame).DepFilterSetting = ObjectStateController.Instance.GetObjectStatesForFilter(tsbDepartmentFilter, e);
             }
         }
