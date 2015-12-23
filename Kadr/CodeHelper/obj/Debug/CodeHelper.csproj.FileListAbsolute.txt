@@ -109,3 +109,4 @@ E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\Co
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\ru-RU\CodeHelper.resources.dll
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.dll
 E:\tanvok\Проекты\Кадровая система\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.pdb
+C:\Users\skudelin\Documents\GitHub\UGTUKadrProject\Kadr\CodeHelper\obj\Debug\CodeHelper.csprojResolveAssemblyReference.cache
