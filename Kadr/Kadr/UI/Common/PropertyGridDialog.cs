@@ -220,6 +220,7 @@ namespace Kadr.UI.Common
         private void commandProperyGrid1_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
             IsModified = true;
+            commandProperyGrid1.GetNextControl(commandProperyGrid1.ActiveControl,true).Focus();
         }
 
         public bool PrikazButtonVisible
@@ -245,16 +246,28 @@ namespace Kadr.UI.Common
 
             }
         }
-        /*
-        private void commandProperyGrid1_Click(object sender, EventArgs e)
+
+        private void PropertyGridDialog_KeyDown(object sender, KeyEventArgs e)
         {
-            MessageBox.Show("!");
+            if (e.KeyCode == Keys.Tab)
+                MessageBox.Show("TAB!");
         }
 
-        private void commandProperyGrid1_MouseClick(object sender, MouseEventArgs e)
+        private void commandProperyGrid1_PreviewKeyDown_1(object sender, PreviewKeyDownEventArgs e)
         {
-            MessageBox.Show("Clicked");
+            if (e.KeyCode == Keys.Tab)
+                MessageBox.Show("TAB!");
         }
-        */
+        /*
+private void commandProperyGrid1_Click(object sender, EventArgs e)
+{
+MessageBox.Show("!");
+}
+
+private void commandProperyGrid1_MouseClick(object sender, MouseEventArgs e)
+{
+MessageBox.Show("Clicked");
+}
+*/
     }
 }

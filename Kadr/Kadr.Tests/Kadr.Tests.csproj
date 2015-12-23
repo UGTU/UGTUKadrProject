@@ -85,7 +85,7 @@
     <Compile Include="Reporting\DbVacationPlanTestFixture.cs" />
     <Compile Include="StandingTypeExtensionsTests.cs" />
     <Compile Include="UiPurposeTests.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="NullAwardTest.cs" />
     <Compile Include="SqlExceptionHelperFixture.cs" />
     <Compile Include="KadrExperienceDbTestFixture.cs" />
   </ItemGroup>
