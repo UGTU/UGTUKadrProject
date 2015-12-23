@@ -51,7 +51,6 @@
             // CancelBtn
             // 
             this.helpProvider1.SetHelpString(this.CancelBtn, "Отменяет все изменения с момента последноего сохранения и закрывает окно.");
-            this.CancelBtn.Location = new System.Drawing.Point(358, 2);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
             // 
             // OKBtn
@@ -66,7 +65,6 @@
             // 
             // EmployeeSelectionDialog
             // 
-            this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(566, 113);
             this.Name = "EmployeeSelectionDialog";
