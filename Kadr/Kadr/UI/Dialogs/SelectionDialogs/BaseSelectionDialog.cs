@@ -46,13 +46,21 @@ namespace Kadr.UI.Common
             bAddingMode_Click(null, null);
         }
 
+        /// <summary>
+        /// настройка диалога - указывает на то, показывать ли панель добавления объекта при нажатии на соотв кнопку
+        /// </summary>
+        protected bool ShowAddingPanel = true;
+
         private void bAddingMode_Click(object sender, EventArgs e)
         {
-            pSelection.Visible = false;
-            pAdding.Visible = true;
-            this.Height -= pSelection.Height;
-            this.Height += pAdding.Height;
-            btnClearSelection.Visible = false;
+            if (ShowAddingPanel)
+            {
+                pSelection.Visible = false;
+                pAdding.Visible = true;
+                this.Height -= pSelection.Height;
+                this.Height += pAdding.Height;
+                btnClearSelection.Visible = false;
+            }
         }
     }
 }
