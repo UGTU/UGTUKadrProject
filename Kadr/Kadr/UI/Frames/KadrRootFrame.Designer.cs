@@ -1349,6 +1349,7 @@
             this.tsbAddEmplFactStaff.Size = new System.Drawing.Size(145, 19);
             this.tsbAddEmplFactStaff.Text = "Добавить сотрудника";
             this.tsbAddEmplFactStaff.ToolTipText = "Добавить нового сотрудника на должность";
+            this.tsbAddEmplFactStaff.Visible = false;
             this.tsbAddEmplFactStaff.Click += new System.EventHandler(this.tsbAddEmplFactStaff_Click);
             // 
             // AddContractFactStaffBtn
