@@ -236,11 +236,5 @@ namespace Kadr.UI.Common
 
         }
 
-
-
-        private void commandProperyGrid1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("!!");
-        }
     }
 }

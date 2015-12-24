@@ -8,6 +8,11 @@ using System.Data.SqlClient;
 
 namespace APG.CodeHelper.DBTreeView
 {
+    public interface IActionCaptionProvider
+    {
+        string GetCaption(object action);
+    }
+
     /// <summary>
     /// Базовый класс команд DBTreeView
     /// </summary>

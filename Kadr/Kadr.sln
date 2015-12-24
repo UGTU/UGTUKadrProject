@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kadr", "Kadr\Kadr.csproj", "{474F0D94-C66E-4FE3-9BFE-0B0C587A5015}"
 EndProject
@@ -98,7 +98,6 @@ Global
 		{CF59779F-4188-44FD-A706-1E162F3B40AF}.Release|x64.ActiveCfg = Release|Any CPU
 		{CF59779F-4188-44FD-A706-1E162F3B40AF}.Release|x64.Build.0 = Release|Any CPU
 		{8CA85FCB-8088-4FC9-97F1-314FF743F7D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8CA85FCB-8088-4FC9-97F1-314FF743F7D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CA85FCB-8088-4FC9-97F1-314FF743F7D1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{8CA85FCB-8088-4FC9-97F1-314FF743F7D1}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{8CA85FCB-8088-4FC9-97F1-314FF743F7D1}.Debug|x64.Build.0 = Debug|Any CPU

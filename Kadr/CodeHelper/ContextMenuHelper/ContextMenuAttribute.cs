@@ -1,9 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using APG.CodeHelper.DBTreeView;
 
 namespace APG.CodeHelper.ContextMenuHelper
 {
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+    public class ActionCaptionAttribute : Attribute 
+    {
+        public Type ActionCaptionProviderClass { get; internal set; }
+
+        public ActionCaptionAttribute(Type providerClass)
+        {
+            ActionCaptionProviderClass = providerClass;            
+        }
+    }
+
     /// <summary>
     /// Атрибут метода, доступного через контекстное меню
     /// </summary>
@@ -52,7 +64,11 @@ namespace APG.CodeHelper.ContextMenuHelper
             get { return itemImageIndex; }
             set { itemImageIndex = value; }
         }
-        
+        /// <summary>
+        /// Получает или устанавливает видимость этого элемента меню
+        /// </summary>
+        public bool Visible { get; set; }
+
         public ContextMenuMethodAttribute(string itemCaption, bool itemEnabled, bool defaultItem, int itemImageIndex, bool insertSeparator)
         {
             InitInstance(itemCaption, itemEnabled, defaultItem, itemImageIndex, insertSeparator);
@@ -84,19 +100,22 @@ namespace APG.CodeHelper.ContextMenuHelper
         /// </summary>
         /// <param name="itemCaption">Заголовок элемента меню</param>
         /// <param name="defaultItem">Истина, если элемент меню является элементом по умолчанию</param>
-        public ContextMenuMethodAttribute(string itemCaption, bool itemEnabled)
+        /// <param name="itemEnabled"></param>
+        /// <param name="visible"></param>
+        public ContextMenuMethodAttribute(string itemCaption, bool itemEnabled, bool visible=true)
         {
-            InitInstance(itemCaption, itemEnabled, false, -1, false);
+            InitInstance(itemCaption, itemEnabled, false, -1, false, visible);
         }
 
 
-        private void InitInstance(string itemCaption, bool itemEnabled, bool defaultItem, int itemImageIndex, bool insertSeparator)
+        private void InitInstance(string itemCaption, bool itemEnabled, bool defaultItem, int itemImageIndex, bool insertSeparator, bool visible = true)
         {
             this.itemCaption = itemCaption;
             this.itemEnabled = itemEnabled;
             this.DefaultItem = defaultItem;
             this.ItemImageIndex = itemImageIndex;
             this.insertSeparator = insertSeparator;
+            Visible = visible;
         }
 
 
@@ -105,8 +124,6 @@ namespace APG.CodeHelper.ContextMenuHelper
         private bool itemEnabled;
         private bool defaultItem;
         private bool insertSeparator;
-
-
 
 
 

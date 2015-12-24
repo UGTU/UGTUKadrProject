@@ -14,7 +14,7 @@ namespace Kadr.UI.Dialogs
         {
             InitializeComponent();
             lObjectTypeName.Text = "Сотрудник";
-            
+            ShowAddingPanel = false;
         }
 
         protected override void DoRefreshList()
@@ -25,17 +25,22 @@ namespace Kadr.UI.Dialogs
 
             if (res != null)
                 ObjectListBindingSource.DataSource = res.ToList();
-            if (!((dialogObject == null) || ((dialogObject as Employee).IsNull())))
-                cbObjectList.SelectedItem = dialogObject;
+            if (!((DialogObject == null) || ((DialogObject as Employee).IsNull())))
+                cbObjectList.SelectedItem = DialogObject;
             else
-                dialogObject = cbObjectList.SelectedItem;
+                DialogObject = cbObjectList.SelectedItem;
+        }
+
+        private System.Windows.Forms.DialogResult CalcDialogResult(object newEmployee)
+        {
+            return newEmployee == null ? System.Windows.Forms.DialogResult.Cancel : System.Windows.Forms.DialogResult.OK;
         }
 
         private void bAddingMode_Click(object sender, EventArgs e)
         {
-            dialogObject = CRUDEmployee.Create(this, null);
-            if (dialogObject != null)
-                Close();
+            DialogObject = CRUDEmployee.Create(this, null);
+            DialogResult = CalcDialogResult(DialogObject);
+            Close();
         }
     }
 }

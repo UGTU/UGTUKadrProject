@@ -839,6 +839,7 @@ namespace Kadr.UI.Frames
             storage.Store("EducationPageIndex", tcEducation.SelectedIndex);
             storage.Store("EmplDataPageIndex", tcEmplData.SelectedIndex);
             storage.Store("EmplPostInfoPageIndex", tcEmplPostInf.SelectedIndex);
+            storage.Store("EmplWorkDataIndex", tcEmplWorkData.SelectedIndex);
             
         }
 
@@ -848,6 +849,7 @@ namespace Kadr.UI.Frames
             tcEducation.SelectedIndex = storage.GetValue("EducationPageIndex") != null ? (int)storage.GetValue("EducationPageIndex") : 0;
             tcEmplData.SelectedIndex = storage.GetValue("EmplDataPageIndex") != null ? (int)storage.GetValue("EmplDataPageIndex") : 0;
             tcEmplPostInf.SelectedIndex = storage.GetValue("EmplPostInfoPageIndex") != null ? (int)storage.GetValue("EmplPostInfoPageIndex") : 0;
+            tcEmplWorkData.SelectedIndex = storage.GetValue("EmplWorkDataIndex") != null ? (int)storage.GetValue("EmplWorkDataIndex") : 0;
         }
     }
 

@@ -82,19 +82,17 @@
             this.helpProvider1.SetHelpString(this.ApplyBtn, "Âíîñèò èçìåíåíèÿ â áàçó äàííûõ, íå çàêðûâàÿ îêíî.");
             this.ApplyBtn.Location = new System.Drawing.Point(374, 2);
             this.helpProvider1.SetShowHelp(this.ApplyBtn, true);
-            this.ApplyBtn.Text = "Применить";
             // 
             // CancelBtn
             // 
             this.helpProvider1.SetHelpString(this.CancelBtn, "Îòìåíÿåò âñå èçìåíåíèÿ ñ ìîìåíòà ïîñëåäíîåãî ñîõðàíåíèÿ è çàêðûâàåò îêíî.");
-            this.CancelBtn.Location = new System.Drawing.Point(282, 2);
+            this.CancelBtn.Location = new System.Drawing.Point(374, 2);
             this.helpProvider1.SetShowHelp(this.CancelBtn, true);
-            this.CancelBtn.Text = "Отмена";
             // 
             // OKBtn
             // 
             this.helpProvider1.SetHelpString(this.OKBtn, "Âíîñèò èçìåíåíèÿ â áàçó äàííûõ è çàêðûâàåò îêíî.");
-            this.OKBtn.Location = new System.Drawing.Point(190, 2);
+            this.OKBtn.Location = new System.Drawing.Point(282, 2);
             this.helpProvider1.SetShowHelp(this.OKBtn, true);
             this.OKBtn.Text = "OK";
             this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
@@ -301,7 +299,6 @@
             // 
             // PrikazSelectionDialog
             // 
-            this.ApplyButtonVisible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 187);
