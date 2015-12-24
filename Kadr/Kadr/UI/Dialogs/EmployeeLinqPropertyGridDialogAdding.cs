@@ -35,19 +35,20 @@ namespace Kadr.UI.Dialogs
             if (BeforeApplyAction != null)
                 BeforeApplyAction(newObject);
 
-            if (CRUDFactStaff.CreateWithEmployee(null, PlanStaff, null, false, true, SelectedObjects[0] as Employee, CommandManager, null, MagicNumberController.MainWorkType,null,true) != DialogResult.OK)
+            /*if (CRUDFactStaff.CreateWithEmployee(null, PlanStaff, null, false, true, SelectedObjects[0] as Employee, CommandManager, null, MagicNumberController.MainWorkType,null,true) != DialogResult.OK)
             {
 
-            }
+            }*/
 
             //сохраняем прежний объект
             if (ObjectList != null)
             {
                 ObjectList.InsertOnSubmit(newObject);
-
             }
 
-            try
+            DialogObject = newObject;
+
+            /*try
             {
                 KadrController.Instance.SubmitChanges();
             }
@@ -58,15 +59,9 @@ namespace Kadr.UI.Dialogs
                     ObjectList.DeleteOnSubmit(newObject);
                 }
                 
-            }
-
-
-            /*if (!OKClicked)
-            {
-                this.CommandManager.BeginBatchCommand();
-                //создаем новый объект
-                CreateNewObject();
             }*/
+
+
         }
     }
 }

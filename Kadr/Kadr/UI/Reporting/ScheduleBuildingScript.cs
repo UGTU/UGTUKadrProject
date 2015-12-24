@@ -15,7 +15,11 @@ namespace Kadr.UI.Reporting
         {
             var data = Controllers.KadrController.Instance.Model
                 .FetchVacationPlansByDepartmentId(
-                    ReportParams.Department, ReportParams.Year).OrderBy(x=>x.LastName);
+                    ReportParams.Department, ReportParams.Year)
+                .OrderBy(x => x.DepartmentName)
+                .ThenBy(x => x.LastName)
+                .ThenBy(x => x.FirstName)
+                .ThenBy(x => x.Otch);
 
             ScheduleReportBuilder.Create(ReportParams, data);           
         }        

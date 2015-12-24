@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Kadr.Controllers;
 using Kadr.Reporting;
 using Kadr.UI.Reporting;
-
+using Kadr.UI.Common;
 
 namespace Kadr.KadrTreeView.NodeAction
 {
@@ -11,30 +11,58 @@ namespace Kadr.KadrTreeView.NodeAction
     public class RootTreeNodeActions : APG.CodeHelper.DBTreeView.DBTreeNodeAction
     {
         #region IDBTreeNodeAction Members
+        [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Настроить путь сохранения шаблона", true, visible:false)]        
+        public void CreateReport(object sender)
+        {
+            var settings = new SettingsDecorator(Properties.Settings.Default);
+            using (var dlg = new UIX.UI.PropertyGridViewerDialog())
+            {
+                dlg.SelectedObject = settings;
+                dlg.ShowDialog();
+
+                //OpenFileDialog fdlg = new OpenFileDialog();
+                //fdlg.Title = "C# Corner Open File Dialog";
+                //fdlg.InitialDirectory = @"c:\";
+                //fdlg.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
+                //fdlg.FilterIndex = 2;
+                //fdlg.RestoreDirectory = true;
+                //if (fdlg.ShowDialog() == DialogResult.OK)
+                //{
+                //    //textBox1.Text = fdlg.FileName;
+                //}
+
+            }
+        }
 
         [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Получить график отпусков...", true)]
+        [APG.CodeHelper.ContextMenuHelper.ActionCaption(typeof(VacationReportCaptionProvider))]
         public void CreateVacationPlanReport(object sender)
         {
             var root = NodeObject as RootNodeObject;
             if (root == null) return;
             var script =
-                new ScheduleBuildingScript(new VacationPlanParams(root.Department.DepartmentGUID,
-                    Properties.Settings.Default.VacationPlanTemplatePath, BuildOutputFileName(root)) {PageName = root.Department.LastChange?.DepartmentSmallName});
+                new ScheduleBuildingScript(
+                    new VacationPlanParams(root.Department.DepartmentGUID,
+                    System.IO.Path.GetFullPath(Properties.Settings.Default.VacationPlanTemplatePath),
+                    BuildOutputFileName(root)) {PageName = root.Department.LastChange?.DepartmentSmallName}
+                    );
             script.Run();
         }
 
         private static string BuildOutputFileName(RootNodeObject root)
         {
             var departmentName = root.Department.LastChange.DepartmentSmallName;
-            var folder = Properties.Settings.Default.ReportsOutputFolder ??
-                         Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\";
+            var folder = Properties.Settings.Default.ReportsOutputFolder;
+            if (string.IsNullOrEmpty(folder))
+                folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            folder += "\\";
 
             var fileName = string.Empty;
             try
             {
                 var today = DateTime.Today;
-                fileName = System.IO.Path.GetFullPath(string.Format(Properties.Settings.Default.DefaultVacationReportOutputFormat, departmentName,
-                    $"{today.Day}-{today.Month}-{today.Year}", today.Month > 8 ? today.Year + 1 : today.Year));
+                fileName = string.Format(Properties.Settings.Default.DefaultVacationReportOutputFormat, departmentName,
+                    $"{today.Day}-{today.Month}-{today.Year}", today.Month > 8 ? today.Year + 1 : today.Year);
 
             }
             catch (FormatException)

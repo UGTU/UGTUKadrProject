@@ -835,16 +835,21 @@ namespace Kadr.UI.Frames
 
         public override void Store(IKeyValueStorage storage)
         {
-            storage.Store("ActivePageIndex", tcEmployee.SelectedIndex);
+            storage.Store("EmployeePageIndex", tcEmployee.SelectedIndex);
+            storage.Store("EducationPageIndex", tcEducation.SelectedIndex);
+            storage.Store("EmplDataPageIndex", tcEmplData.SelectedIndex);
+            storage.Store("EmplPostInfoPageIndex", tcEmplPostInf.SelectedIndex);
+            storage.Store("EmplWorkDataIndex", tcEmplWorkData.SelectedIndex);
+            
         }
 
         public override void Restore(IKeyValueStorage storage)
         {
-
-            int? PageNum = (int?)storage.GetValue("ActivePageIndex");
-            //int? Page2Num = (int)Restore("ActivePage2Indx");
-            if (PageNum != null)
-                tcEmployee.SelectedIndex = (int)PageNum;
+            tcEmployee.SelectedIndex = storage.GetValue("EmployeePageIndex") != null ? (int)storage.GetValue("EmployeePageIndex") : 0;
+            tcEducation.SelectedIndex = storage.GetValue("EducationPageIndex") != null ? (int)storage.GetValue("EducationPageIndex") : 0;
+            tcEmplData.SelectedIndex = storage.GetValue("EmplDataPageIndex") != null ? (int)storage.GetValue("EmplDataPageIndex") : 0;
+            tcEmplPostInf.SelectedIndex = storage.GetValue("EmplPostInfoPageIndex") != null ? (int)storage.GetValue("EmplPostInfoPageIndex") : 0;
+            tcEmplWorkData.SelectedIndex = storage.GetValue("EmplWorkDataIndex") != null ? (int)storage.GetValue("EmplWorkDataIndex") : 0;
         }
     }
 
