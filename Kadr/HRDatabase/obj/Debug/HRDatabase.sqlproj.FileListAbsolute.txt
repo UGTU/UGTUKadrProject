@@ -5,3 +5,10 @@ C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\postd
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\predeploy.sql
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\HRDatabase.dll
 C:\Users\fmarakasov\Source\Repos\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\HRDatabase.pdb
+D:\Project\UGTUKadrProject\Kadr\HRDatabase\bin\Debug\HRDatabase.dacpac
+D:\Project\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\Model.xml
+D:\Project\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\refactor.xml
+D:\Project\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\postdeploy.sql
+D:\Project\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\predeploy.sql
+D:\Project\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\HRDatabase.dll
+D:\Project\UGTUKadrProject\Kadr\HRDatabase\obj\Debug\HRDatabase.pdb
