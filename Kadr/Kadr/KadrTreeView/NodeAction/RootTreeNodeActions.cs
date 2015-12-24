@@ -11,27 +11,11 @@ namespace Kadr.KadrTreeView.NodeAction
     public class RootTreeNodeActions : APG.CodeHelper.DBTreeView.DBTreeNodeAction
     {
         #region IDBTreeNodeAction Members
-        [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Настроить путь сохранения шаблона", true, visible:false)]        
+        //[APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Настроить путь сохранения шаблона", true, visible: false)]
+        //[APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Настроить путь сохранения шаблона", true)]
         public void CreateReport(object sender)
         {
-            var settings = new SettingsDecorator(Properties.Settings.Default);
-            using (var dlg = new UIX.UI.PropertyGridViewerDialog())
-            {
-                dlg.SelectedObject = settings;
-                dlg.ShowDialog();
 
-                //OpenFileDialog fdlg = new OpenFileDialog();
-                //fdlg.Title = "C# Corner Open File Dialog";
-                //fdlg.InitialDirectory = @"c:\";
-                //fdlg.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
-                //fdlg.FilterIndex = 2;
-                //fdlg.RestoreDirectory = true;
-                //if (fdlg.ShowDialog() == DialogResult.OK)
-                //{
-                //    //textBox1.Text = fdlg.FileName;
-                //}
-
-            }
         }
 
         [APG.CodeHelper.ContextMenuHelper.ContextMenuMethod("Получить график отпусков...", true)]

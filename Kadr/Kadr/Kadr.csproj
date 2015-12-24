@@ -801,6 +801,7 @@
     <Compile Include="UI\Editors\BonusMeasureEditor.cs" />
     <Compile Include="UI\Editors\BonusSuperTypeEditor.cs" />
     <Compile Include="UI\Editors\BonusTypeEditor.cs" />
+    <Compile Include="UI\Editors\BrowseFolderEditor.cs" />
     <Compile Include="UI\Editors\CategoryEditor.cs" />
     <Compile Include="UI\Editors\CategoryVPOEditor.cs" />
     <Compile Include="UI\Editors\CategoryZPEditor.cs" />

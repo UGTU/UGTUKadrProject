@@ -1276,6 +1276,14 @@ namespace Kadr.UI.Forms
             }
         }
 
+        //private void назначитьЧасыToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    using (FactStaffHourDialog dlg = new FactStaffHourDialog())
+        //    {
+        //        dlg.ShowDialog();
+        //    }
+        //}
+
         private void назначитьЧасыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FactStaffHourDialog dlg = new FactStaffHourDialog())
@@ -1465,6 +1473,22 @@ namespace Kadr.UI.Forms
             using (var dlg = new LeaveReasonDialog())
             {
                 dlg.ShowDialog();
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void настроитьПапкуДляОтчетовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var settings = new SettingsDecorator(Properties.Settings.Default);
+            using (var dlg = new UIX.UI.PropertyGridViewerDialog())
+            {
+                dlg.SelectedObject = settings;
+                dlg.ShowDialog();
+
             }
         }
     }
