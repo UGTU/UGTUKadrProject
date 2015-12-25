@@ -97,7 +97,17 @@ namespace Kadr.Reporting
                 var ws = wb.Worksheets.First();
                 ws.Cell("E8").Value = DateTime.Today;
                 ws.Cell("G8").Value = vacationParams.Year.ToString();
-                ws.Name = vacationParams.PageName ?? "График отпусков";
+                try
+                {
+                    ws.Name = vacationParams.PageName ?? "График отпусков";
+                }
+                catch (Exception e)
+                {
+                    if (e.InnerException != null)
+                    {
+                        var err = e.InnerException.Message;
+                    }
+                }
                 var currentRow = 15;
                 if (vacationParams.GroupByDepartment)
                 {

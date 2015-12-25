@@ -1233,6 +1233,7 @@
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.сервисToolStripMenuItem.Text = "Се&рвис";
+            this.сервисToolStripMenuItem.Visible = false;
             // 
             // параметрыToolStripMenuItem
             // 
