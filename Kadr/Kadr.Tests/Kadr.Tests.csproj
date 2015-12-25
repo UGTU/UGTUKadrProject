@@ -74,7 +74,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CodedUITest1.cs" />
+    <Compile Include="MainFormUiTestsFixture.cs" />
     <Compile Include="EmployeeExperienceTests.cs" />
     <Compile Include="FactStaffHistoryExperienceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,7 +94,6 @@
       <DependentUpon>UIMap.uitest</DependentUpon>
     </Compile>
     <Compile Include="UiPurposeTests.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="SqlExceptionHelperFixture.cs" />
     <Compile Include="KadrExperienceDbTestFixture.cs" />
   </ItemGroup>

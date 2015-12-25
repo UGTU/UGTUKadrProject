@@ -29,6 +29,8 @@
             System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
             System.Windows.Forms.ToolStrip toolStrip1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KadrBaseForm));
+            this.tsbNew = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
@@ -60,6 +62,7 @@
             this.CurrentObjectLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.CurrentObjectInfoLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.kadrTreeView1 = new Kadr.KadrTreeView.KadrTreeView(this.components);
             this.treeViewImageList = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -138,6 +141,7 @@
             this.продлитьНадбавкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.продлитьНадбавкурасширеннаяФормаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.назначитьЧасыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настроитьПапкуДляОтчетовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчётыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.графикБуренияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -185,9 +189,6 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbNew = new System.Windows.Forms.ToolStripSplitButton();
-            this.kadrTreeView1 = new Kadr.KadrTreeView.KadrTreeView(this.components);
             tsmiDismissedEmployees = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -247,8 +248,26 @@
             this.toolStripSeparator14});
             toolStrip1.Location = new System.Drawing.Point(3, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(1098, 27);
+            toolStrip1.Size = new System.Drawing.Size(874, 27);
             toolStrip1.TabIndex = 1;
+            // 
+            // tsbNew
+            // 
+            this.tsbNew.Image = global::Kadr.Properties.Resources.NewReportHS;
+            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Black;
+            this.tsbNew.Name = "tsbNew";
+            this.tsbNew.Size = new System.Drawing.Size(136, 24);
+            this.tsbNew.Text = "Создать объект...";
+            this.tsbNew.Visible = false;
+            this.tsbNew.ButtonClick += new System.EventHandler(this.tsbNew_ButtonClick);
+            this.tsbNew.DropDownOpening += new System.EventHandler(this.tsbNew_DropDownOpening);
+            this.tsbNew.MouseEnter += new System.EventHandler(this.tsbNew_MouseEnter);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator2.Visible = false;
             // 
             // tsbDelete
             // 
@@ -568,6 +587,21 @@
             this.splitContainer1.SplitterDistance = 249;
             this.splitContainer1.TabIndex = 0;
             // 
+            // kadrTreeView1
+            // 
+            this.kadrTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kadrTreeView1.ImageIndex = 0;
+            this.kadrTreeView1.ImageList = this.treeViewImageList;
+            this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
+            this.kadrTreeView1.Name = "kadrTreeView1";
+            this.kadrTreeView1.SelectedImageIndex = 0;
+            this.kadrTreeView1.Size = new System.Drawing.Size(247, 385);
+            this.kadrTreeView1.TabIndex = 0;
+            this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
+            this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
+            this.kadrTreeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.kadrTreeView1_AfterSelect);
+            this.kadrTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.kadrTreeView1_MouseClick);
+            // 
             // treeViewImageList
             // 
             this.treeViewImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("treeViewImageList.ImageStream")));
@@ -617,6 +651,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1101, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // FileToolStripMenuItem
             // 
@@ -1193,11 +1228,11 @@
             this.параметрыToolStripMenuItem,
             this.продлитьНадбавкуToolStripMenuItem,
             this.продлитьНадбавкурасширеннаяФормаToolStripMenuItem,
-            this.назначитьЧасыToolStripMenuItem});
+            this.назначитьЧасыToolStripMenuItem,
+            this.настроитьПапкуДляОтчетовToolStripMenuItem});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.сервисToolStripMenuItem.Text = "Се&рвис";
-            this.сервисToolStripMenuItem.Visible = false;
             // 
             // параметрыToolStripMenuItem
             // 
@@ -1228,7 +1263,15 @@
             this.назначитьЧасыToolStripMenuItem.Name = "назначитьЧасыToolStripMenuItem";
             this.назначитьЧасыToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
             this.назначитьЧасыToolStripMenuItem.Text = "Назначить часы";
+            this.назначитьЧасыToolStripMenuItem.Visible = false;
             this.назначитьЧасыToolStripMenuItem.Click += new System.EventHandler(this.назначитьЧасыToolStripMenuItem_Click);
+            // 
+            // настроитьПапкуДляОтчетовToolStripMenuItem
+            // 
+            this.настроитьПапкуДляОтчетовToolStripMenuItem.Name = "настроитьПапкуДляОтчетовToolStripMenuItem";
+            this.настроитьПапкуДляОтчетовToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.настроитьПапкуДляОтчетовToolStripMenuItem.Text = "Настройки...";
+            this.настроитьПапкуДляОтчетовToolStripMenuItem.Click += new System.EventHandler(this.настроитьПапкуДляОтчетовToolStripMenuItem_Click);
             // 
             // отчётыToolStripMenuItem
             // 
@@ -1246,6 +1289,7 @@
             this.сеткаПоДолжностямИОкладамToolStripMenuItem,
             this.надбавкиToolStripMenuItem,
             this.НастройкиToolStripMenuItem});
+            this.отчётыToolStripMenuItem.Enabled = false;
             this.отчётыToolStripMenuItem.Name = "отчётыToolStripMenuItem";
             this.отчётыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.отчётыToolStripMenuItem.Text = "&Отчёты";
@@ -1593,39 +1637,6 @@
             // 
             this.departmentBindingSource.DataSource = typeof(Kadr.Data.Department);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
-            this.toolStripSeparator2.Visible = false;
-            // 
-            // tsbNew
-            // 
-            this.tsbNew.Image = global::Kadr.Properties.Resources.NewReportHS;
-            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Black;
-            this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(136, 24);
-            this.tsbNew.Text = "Создать объект...";
-            this.tsbNew.Visible = false;
-            this.tsbNew.ButtonClick += new System.EventHandler(this.tsbNew_ButtonClick);
-            this.tsbNew.DropDownOpening += new System.EventHandler(this.tsbNew_DropDownOpening);
-            this.tsbNew.MouseEnter += new System.EventHandler(this.tsbNew_MouseEnter);
-            // 
-            // kadrTreeView1
-            // 
-            this.kadrTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kadrTreeView1.ImageIndex = 0;
-            this.kadrTreeView1.ImageList = this.treeViewImageList;
-            this.kadrTreeView1.Location = new System.Drawing.Point(0, 0);
-            this.kadrTreeView1.Name = "kadrTreeView1";
-            this.kadrTreeView1.SelectedImageIndex = 0;
-            this.kadrTreeView1.Size = new System.Drawing.Size(247, 385);
-            this.kadrTreeView1.TabIndex = 0;
-            this.kadrTreeView1.NodeChildsAddedEvent += new APG.CodeHelper.DBTreeView.NodeChildsAdded(this.kadrTreeView1_NodeChildsAddedEvent);
-            this.kadrTreeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.kadrTreeView1_BeforeSelect);
-            this.kadrTreeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.kadrTreeView1_AfterSelect);
-            this.kadrTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.kadrTreeView1_MouseClick);
-            // 
             // KadrBaseForm
             // 
             this.AllowDrop = true;
@@ -1831,5 +1842,6 @@
         private System.Windows.Forms.ToolStripMenuItem причиныУвольненийToolStripMenuItem;
         protected System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         protected System.Windows.Forms.ToolStripSplitButton tsbNew;
+        private System.Windows.Forms.ToolStripMenuItem настроитьПапкуДляОтчетовToolStripMenuItem;
     }
 }

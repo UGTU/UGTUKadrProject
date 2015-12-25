@@ -17,6 +17,7 @@ namespace Kadr.UI.Common
         }
 
         [DisplayName("Папка для отчётов")]
+        [Editor(typeof(Kadr.UI.Editors.BrowseFolderEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public string ReportOutput
         {
             get
