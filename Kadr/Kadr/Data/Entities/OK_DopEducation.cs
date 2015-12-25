@@ -45,8 +45,8 @@ namespace Kadr.Data
                 }
                 if (Employee == null) throw new ArgumentNullException("Сотрудник");
                 if ((DateBegin != null)&&(DateEnd != null))
-                if (DateEnd <= DateBegin)
-                    throw new ArgumentOutOfRangeException("Дата окончания обучения должна быть позже даты начала.");
+                if (DateEnd < DateBegin)
+                    throw new ArgumentOutOfRangeException("Дата окончания обучения не должна быть раньше даты начала.");
             }
         }
 
