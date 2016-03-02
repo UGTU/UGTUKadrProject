@@ -52,7 +52,7 @@ namespace Kadr.UI.Dialogs
              var deps = KadrController.Instance.Model.GetSubDepartmentsWithPeriod(1, dtNewDate.Value, dtNewDate.Value).ToArray();
 
             //выбираем все надбавки указанного типа, которые еще действующие
-             var bonus = KadrController.Instance.Model.Bonus.Where(bn => bn.BonusType == cbBonusType.SelectedItem).Where(bn =>
+             IEnumerable<Bonus> bonus = KadrController.Instance.Model.Bonus.Where(bn => bn.BonusType == cbBonusType.SelectedItem).Where(bn =>
                          (bn.DateEnd > dtNewDate.Value) || (bn.DateEnd == null)).ToArray().Where(bn => deps.Select(dep => dep.idDepartment).Contains(bn.Department.id)).ToArray();
 
             //для каждой подходящей по условиям надбавки создаем запись истории

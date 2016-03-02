@@ -24,146 +24,499 @@ and (FactStaffHistory.idlaborcontrakt is not null or FactStaff.idlaborcontrakt i
 
 
 go
-insert into dbo.[Contract]([ContractName],[DateContract],[idPrikazType],[DateBegin],[DateEnd])
-select [PrikazName], [DatePrikaz],[idPrikazType],[DateBegin],[DateEnd]
-from [dbo].[Prikaz]
-  where
- ( Prikaz.id in (select idlaborcontrakt from dbo.FactStaff where )
-  or
-   Prikaz.id in (select idlaborcontrakt from dbo.FactStaffHistory))
+--у кого нет события
+SELECT  *      
+FROM            dbo.FactStaffHistory 
+WHERE
+id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] --INNER JOIN
+                         --dbo.Contract ON dbo.Event.idContract = dbo.Contract.id
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1
+	)
+
+
+go
+
+--беру данные из типа приказа
+SELECT  *      
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+
+
+
+--прием почасовиков
+go
+INSERT INTO [dbo].[Event]
+           ([idPrikaz]
+           ,[DateBegin]
+           ,[DateEnd]
+           ,[idPrikazEnd]
+           ,[idFactStaffHistory]
+           ,[idEventKind]
+           ,[idEventType]
+           ,[idContract])
+SELECT FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,11, 1, null 
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+	and FactStaffHistory.HourCount>0
+
+
+go
+--заполняем договора, где они есть
+insert into dbo.[Contract]([ContractName],[DateContract],[idPrikazType],[DateBegin],[DateEnd], [idlaborContract_Prikaz])
+select [PrikazName], [DatePrikaz],[idPrikazType],FactStaffHistory.[DateBegin],FactStaff.[DateEnd],Prikaz.id 
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ON ISNULL(FactStaff.idlaborcontrakt,FactStaffHistory.idlaborcontrakt)=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+
+
+
+--прием 
+go
+INSERT INTO [dbo].[Event]
+           ([idPrikaz]
+           ,[DateBegin]
+           ,[DateEnd]
+           ,[idPrikazEnd]
+           ,[idFactStaffHistory]
+           ,[idEventKind]
+           ,[idEventType]
+           ,[idContract])
+select FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,1, 1, null 
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ContrPrikaz ON ISNULL(FactStaff.idlaborcontrakt,FactStaffHistory.idlaborcontrakt)=ContrPrikaz.id
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+inner join dbo.Contract on Contract.[idlaborContract_Prikaz]=ContrPrikaz.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+	and PrikazType.id=10
+
+
+--перевод 
+go
+INSERT INTO [dbo].[Event]
+           ([idPrikaz]
+           ,[DateBegin]
+           ,[DateEnd]
+           ,[idPrikazEnd]
+           ,[idFactStaffHistory]
+           ,[idEventKind]
+           ,[idEventType]
+           ,[idContract])
+select  FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,3, 1, null 
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ContrPrikaz ON ISNULL(FactStaff.idlaborcontrakt,FactStaffHistory.idlaborcontrakt)=ContrPrikaz.id
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+inner join dbo.Contract on Contract.[idlaborContract_Prikaz]=ContrPrikaz.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+	and PrikazType.id=6
+
+
+
+--перевод 
+go
+INSERT INTO [dbo].[Event]
+           ([idPrikaz]
+           ,[DateBegin]
+           ,[DateEnd]
+           ,[idPrikazEnd]
+           ,[idFactStaffHistory]
+           ,[idEventKind]
+           ,[idEventType]
+           ,[idContract])
+select  FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,4, 1, null 
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ContrPrikaz ON ISNULL(FactStaff.idlaborcontrakt,FactStaffHistory.idlaborcontrakt)=ContrPrikaz.id
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+inner join dbo.Contract on Contract.[idlaborContract_Prikaz]=ContrPrikaz.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+	and PrikazType.id=13
   
 
+  
+--перевод 
+go
+INSERT INTO [dbo].[Event]
+           ([idPrikaz]
+           ,[DateBegin]
+           ,[DateEnd]
+           ,[idPrikazEnd]
+           ,[idFactStaffHistory]
+           ,[idEventKind]
+           ,[idEventType]
+           ,[idContract])
+select  FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,7, 1, null 
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ContrPrikaz ON ISNULL(FactStaff.idlaborcontrakt,FactStaffHistory.idlaborcontrakt)=ContrPrikaz.id
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+inner join dbo.Contract on Contract.[idlaborContract_Prikaz]=ContrPrikaz.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+	and PrikazType.id=25
+
+
+
+SELECT *--FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,11, 1, null 
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
 
 
 
 
 
 
-  update dbo.FactStaffHistory
-  set idContract=[Contract].id
-  --select *
-  from 
-   dbo.FactStaffHistory 
-  inner join dbo.Prikaz ON FactStaffHistory.idlaborcontrakt=Prikaz.id
-  -- where FactStaffHistory.idlaborcontrakt is not null
-inner join dbo.[Contract]
-   ON ([Prikaz].DateBegin=[Contract].DataBegin or ([Prikaz].DateBegin IS NULL AND [Contract].DataBegin IS NULL))
-    and ([Prikaz].DateEnd=[Contract].DataEnd OR ([Prikaz].DateEnd IS NULL AND [Contract].DataEnd IS NULL))
-	 and [Prikaz].PrikazName=[Contract].ContractName  and [Prikaz].DatePrikaz=[Contract].DateContract 
-	 and [Prikaz].idPrikazType=[Contract].idPrikazType
-
-
-
-
-  update dbo.FactStaffHistory
-  set idContract=[Contract].id
-  --select *
-  from 
-   dbo.FactStaffHistory 
-   inner join dbo.FactStaff ON FactStaffHistory.idFactStaff=FactStaff.id
-  inner join dbo.Prikaz ON FactStaff.idlaborcontrakt=Prikaz.id
-  -- where FactStaffHistory.idlaborcontrakt is not null
-inner join dbo.[Contract]
-   ON ([Prikaz].DateBegin=[Contract].DataBegin or ([Prikaz].DateBegin IS NULL AND [Contract].DataBegin IS NULL))
-    and ([Prikaz].DateEnd=[Contract].DataEnd OR ([Prikaz].DateEnd IS NULL AND [Contract].DataEnd IS NULL))
-	 and [Prikaz].PrikazName=[Contract].ContractName  and [Prikaz].DatePrikaz=[Contract].DateContract 
-	 and [Prikaz].idPrikazType=[Contract].idPrikazType
-	 where FactStaffHistory.idContract is null
-
-	 
-
-update [dbo].[FactStaff]
-set [idreason]=null
-where [idreason]=0
-
-
-GO
-
-ALTER TABLE [dbo].[FactStaff]  WITH CHECK ADD  CONSTRAINT [FK_FactStaff_OK_Reason] FOREIGN KEY([idreason])
-REFERENCES [dbo].[OK_Reason] ([idreason])
-GO
-
-ALTER TABLE [dbo].[FactStaff] CHECK CONSTRAINT [FK_FactStaff_OK_Reason]
-GO
-
-GO
-
-ALTER TABLE [dbo].[FactStaffHistory]  WITH CHECK ADD  CONSTRAINT [FK_FactStaffHistory_Contract] FOREIGN KEY([idContract])
-REFERENCES [dbo].[Contract] ([id])
-GO
-
-ALTER TABLE [dbo].[FactStaffHistory] CHECK CONSTRAINT [FK_FactStaffHistory_Contract]
-GO
 
 
 
 
 
-select *
-from [dbo].[Contract]
-where [idPrikazType]!=27
-
-
-
-update [dbo].[Contract]
-set idMainContract=[Contract].id
---from [dbo].[Contract]
-where [idPrikazType]!=27
 
 
 
 
---те, у кого только один договор внесен
-select Employee.id, COUNT(distinct [Contract].id)
-
-from dbo.Employee inner join
-dbo.FactStaff on Employee.id=FactStaff.idEmployee
- inner join
-dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
- inner join
-dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
-where [Contract].idPrikazType=27
-group by Employee.id
-having COUNT(distinct [Contract].id)=1
-
---указываем им в доп соглашениях договора
 
 
-update dbo.[Contract]
-set [Contract].idMainContract=UniqueContract.idContract
---select * 
-from
 
---dbo.Employee inner join
-dbo.FactStaff --on Employee.id=FactStaff.
- inner join
-dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
- inner join
-dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
---inner join dbo.[Contract] MainContract on [Contract].id=FactStaffHistory.idContract
-inner join
-	(select distinct Empl.id idEmployee, [Contract].id idContract
-	from
-	(select Employee.id--, COUNT(distinct [Contract].id)
 
-	from dbo.Employee inner join
-	dbo.FactStaff on Employee.id=FactStaff.idEmployee
-	 inner join
-	dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
-	 inner join
-	dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
-	where [Contract].idPrikazType=27
-	group by Employee.id
-	having COUNT(distinct [Contract].id)=1)empl
-	 inner join
-	dbo.FactStaff on empl.id=FactStaff.idEmployee
-	 inner join
-	dbo.FactStaffHistory on FactStaff.id=FactStaffHistory.idFactStaff
-	 inner join
-	dbo.[Contract] on [Contract].id=FactStaffHistory.idContract
-	where [Contract].idPrikazType=27)UniqueContract
-	ON FactStaff.idEmployee=UniqueContract.idEmployee
-where [Contract].idPrikazType!=27
---and  in
+
+
+
+
+
+
+
+--там, где договоров нет...
+go
+--заполняем приказы
+INSERT INTO [dbo].[Prikaz]
+           ([PrikazName]
+           ,[DatePrikaz]
+           ,[idPrikazType]
+           ,[DateBegin],
+			[resume])
+select  '<Номер не задан>', [DatePrikaz],[idPrikazType],FactStaffHistory.[DateBegin], CONVERT(VARCHAR(20), FactStaffHistory.id)
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+
+
+--заполняем договора
+insert into dbo.[Contract]([ContractName],[DateContract],[idPrikazType],[DateBegin],[DateEnd], [idlaborContract_Prikaz])
+select  '<Номер не задан>', Prikaz.[DatePrikaz],Prikaz.[idPrikazType],FactStaffHistory.[DateBegin],FactStaff.[DateEnd],Contr_Prikaz.id
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+inner join dbo.Prikaz Contr_Prikaz ON  CONVERT(VARCHAR(20),Contr_Prikaz.resume)=CONVERT(VARCHAR(20),FactStaffHistory.id)
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+
+
+
+
+
+--cоотв события
+--прием 
+go
+INSERT INTO [dbo].[Event]
+           ([idPrikaz]
+           ,[DateBegin]
+           ,[DateEnd]
+           ,[idPrikazEnd]
+           ,[idFactStaffHistory]
+           ,[idEventKind]
+           ,[idEventType]
+           ,[idContract])
+select FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,1, 1, null 
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ContrPrikaz ON CONVERT(VARCHAR(20),ContrPrikaz.resume)=CONVERT(VARCHAR(20),FactStaffHistory.id)
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+inner join dbo.Contract on Contract.[idlaborContract_Prikaz]=ContrPrikaz.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+	and PrikazType.id=10
+
+
+--перевод 
+go
+INSERT INTO [dbo].[Event]
+           ([idPrikaz]
+           ,[DateBegin]
+           ,[DateEnd]
+           ,[idPrikazEnd]
+           ,[idFactStaffHistory]
+           ,[idEventKind]
+           ,[idEventType]
+           ,[idContract])
+select  FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,3, 1, null 
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ContrPrikaz ON CONVERT(VARCHAR(20),ContrPrikaz.resume)=CONVERT(VARCHAR(20),FactStaffHistory.id)
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+inner join dbo.Contract on Contract.[idlaborContract_Prikaz]=ContrPrikaz.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+	and PrikazType.id=6
+
+
+
+--перевод 
+go
+INSERT INTO [dbo].[Event]
+           ([idPrikaz]
+           ,[DateBegin]
+           ,[DateEnd]
+           ,[idPrikazEnd]
+           ,[idFactStaffHistory]
+           ,[idEventKind]
+           ,[idEventType]
+           ,[idContract])
+select  FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,4, 1, null 
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ContrPrikaz ON CONVERT(VARCHAR(20),ContrPrikaz.resume)=CONVERT(VARCHAR(20),FactStaffHistory.id)
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+inner join dbo.Contract on Contract.[idlaborContract_Prikaz]=ContrPrikaz.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+	and PrikazType.id=13
+  
+
+  
+--перевод 
+go
+INSERT INTO [dbo].[Event]
+           ([idPrikaz]
+           ,[DateBegin]
+           ,[DateEnd]
+           ,[idPrikazEnd]
+           ,[idFactStaffHistory]
+           ,[idEventKind]
+           ,[idEventType]
+           ,[idContract])
+select  FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,7, 1, null 
+
+
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ContrPrikaz ON CONVERT(VARCHAR(20),ContrPrikaz.resume)=CONVERT(VARCHAR(20),FactStaffHistory.id)
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+inner join dbo.Contract on Contract.[idlaborContract_Prikaz]=ContrPrikaz.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+	and PrikazType.id=25
+
+
+
+SELECT *--FactStaffHistory.idBeginPrikaz, FactStaffHistory.DateBegin, FactStaff.DateEnd, FactStaff.idEndPrikaz, FactStaffHistory.id,11, 1, null 
+FROM            dbo.FactStaffHistory 
+inner join dbo.FactStaff ON FactStaffHistory.[idFactStaff]=[dbo].[FactStaff].id
+inner join dbo.Prikaz ON FactStaffHistory.idBeginPrikaz=Prikaz.id
+inner join dbo.PrikazType ON Prikaz.idPrikazType=PrikazType.id
+/*inner join dbo.FactStaffHistory EarlierFactStaffHistory 
+	ON FactStaffHistory.idFactStaff=EarlierFactStaffHistory.idFactStaff and 
+		FactStaffHistory.DateBegin>EarlierFactStaffHistory.DateBegin*/
+WHERE
+FactStaffHistory.id not in 
+(SELECT Event.idFactStaffHistory
+FROM
+                         dbo.[Event] 
+						 INNER JOIN [dbo].[EventKind] ON [Event].idEventKind=[EventKind].id
+	WHERE [EventKind].ForFactStaff=1 
+	)
+
+
+
+
+
+
+
+
+
+
+
 
 

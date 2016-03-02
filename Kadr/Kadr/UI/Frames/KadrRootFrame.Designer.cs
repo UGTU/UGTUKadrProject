@@ -799,7 +799,7 @@
             this.tpStaff.Location = new System.Drawing.Point(4, 22);
             this.tpStaff.Name = "tpStaff";
             this.tpStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpStaff.Size = new System.Drawing.Size(802, 533);
+            this.tpStaff.Size = new System.Drawing.Size(947, 487);
             this.tpStaff.TabIndex = 1;
             this.tpStaff.Text = "Штаты";
             this.tpStaff.UseVisualStyleBackColor = true;
@@ -820,8 +820,8 @@
             // 
             this.splitContainer1.Panel2.AllowDrop = true;
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(796, 527);
-            this.splitContainer1.SplitterDistance = 279;
+            this.splitContainer1.Size = new System.Drawing.Size(941, 481);
+            this.splitContainer1.SplitterDistance = 253;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -838,7 +838,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 279);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(941, 253);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPlanStaff
@@ -1154,7 +1154,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(796, 244);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(941, 224);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dgvFactStaff
@@ -1742,7 +1742,7 @@
             this.tpHourStaff.Location = new System.Drawing.Point(4, 22);
             this.tpHourStaff.Name = "tpHourStaff";
             this.tpHourStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHourStaff.Size = new System.Drawing.Size(802, 533);
+            this.tpHourStaff.Size = new System.Drawing.Size(947, 487);
             this.tpHourStaff.TabIndex = 11;
             this.tpHourStaff.Text = "Почасовики";
             this.tpHourStaff.UseVisualStyleBackColor = true;
@@ -1761,7 +1761,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(796, 527);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(941, 481);
             this.tableLayoutPanel11.TabIndex = 2;
             // 
             // toolStrip12
@@ -1780,7 +1780,7 @@
             this.btnHourStaffToExcel});
             this.toolStrip12.Location = new System.Drawing.Point(0, 0);
             this.toolStrip12.Name = "toolStrip12";
-            this.toolStrip12.Size = new System.Drawing.Size(796, 24);
+            this.toolStrip12.Size = new System.Drawing.Size(941, 24);
             this.toolStrip12.TabIndex = 8;
             this.toolStrip12.Text = "toolStrip12";
             // 
@@ -1902,9 +1902,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslPPSVacations});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 461);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(796, 20);
+            this.statusStrip1.Size = new System.Drawing.Size(941, 20);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1994,7 +1994,7 @@
             this.dgvHourFactStaff.RowHeadersVisible = false;
             this.dgvHourFactStaff.RowHeadersWidth = 4;
             this.dgvHourFactStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHourFactStaff.Size = new System.Drawing.Size(790, 477);
+            this.dgvHourFactStaff.Size = new System.Drawing.Size(935, 431);
             this.dgvHourFactStaff.TabIndex = 9;
             this.dgvHourFactStaff.DoubleClick += new System.EventHandler(this.dgvHourFactStaff_DoubleClick);
             // 

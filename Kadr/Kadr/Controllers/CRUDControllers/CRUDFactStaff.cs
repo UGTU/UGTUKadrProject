@@ -70,8 +70,6 @@ namespace Kadr.Controllers
                             eventKind == MagicNumberController.FactStaffTransferEventKind ? DateTime.Today : prevFactStaff.DateBegin,
                             eventKind,
                             MagicNumberController.BeginEventType, withContract, prevFactStaff);
-                        //fcStHistory = new FactStaffHistory(dlg.CommandManager, x, prev.WorkType, prev.PrikazBegin, prev.DateBegin, MagicNumberController.FactStaffCreateEventKind,
-                            //MagicNumberController.BeginEventType,withContract);
                         dlg.CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaff, decimal>(x, "StaffCount", prevFactStaff.StaffCount, null), sender);
                     }
                     else
@@ -79,8 +77,6 @@ namespace Kadr.Controllers
                         fcStHistory.SetProperties(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today.Date,
                             eventKind,
                             MagicNumberController.BeginEventType, withContract, prevFactStaff);
-                        //fcStHistory = new FactStaffHistory(dlg.CommandManager, x, workType, NullPrikaz.Instance, DateTime.Today, MagicNumberController.FactStaffCreateEventKind,
-                            //MagicNumberController.BeginEventType, withContract);
                     }
 
                     

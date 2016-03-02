@@ -14,6 +14,14 @@ namespace Kadr.Data
 
     public partial class FactStaff : UIX.Views.IDecorable, UIX.Views.IValidatable, INullable, IObjectState, IComparable, IEmployeeExperienceRecord
     {
+        /// <summary>
+        /// переносит все данные по предыдущему FactStaff (в основном отпуска)
+        /// </summary>
+        /// <param name="prevFactStaff"></param>
+        public void DoTransferConnectedData(FactStaff prevFactStaff)
+        {
+            
+        }
 
         public override string ToString()
         {
@@ -22,8 +30,6 @@ namespace Kadr.Data
             if (UniversalEmployee != null)
                 res = res + UniversalEmployee.ToString();
 
-            /* if (MainFactStaff != null)
-                 res = res + MainFactStaff.Employee.ToString();*/
             if (this.PlanStaff == null)
             {
                 if (Dep != null)

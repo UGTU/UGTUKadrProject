@@ -333,6 +333,12 @@ namespace Kadr.Data
     partial void InsertOK_Reason(OK_Reason instance);
     partial void UpdateOK_Reason(OK_Reason instance);
     partial void DeleteOK_Reason(OK_Reason instance);
+    partial void InsertOK_OtpuskPlan(OK_OtpuskPlan instance);
+    partial void UpdateOK_OtpuskPlan(OK_OtpuskPlan instance);
+    partial void DeleteOK_OtpuskPlan(OK_OtpuskPlan instance);
+    partial void InsertOK_OtpuskDopInfo(OK_OtpuskDopInfo instance);
+    partial void UpdateOK_OtpuskDopInfo(OK_OtpuskDopInfo instance);
+    partial void DeleteOK_OtpuskDopInfo(OK_OtpuskDopInfo instance);
     #endregion
 		
 		public dckadrDataContext() : 
@@ -1186,6 +1192,22 @@ namespace Kadr.Data
 			get
 			{
 				return this.GetTable<OK_Reason>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_OtpuskPlan> OK_OtpuskPlans
+		{
+			get
+			{
+				return this.GetTable<OK_OtpuskPlan>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OK_OtpuskDopInfo> OK_OtpuskDopInfos
+		{
+			get
+			{
+				return this.GetTable<OK_OtpuskDopInfo>();
 			}
 		}
 		
@@ -15933,6 +15955,10 @@ namespace Kadr.Data
 		
 		private EntitySet<FactStaffHistory> _FactStaffHistories;
 		
+		private EntitySet<OK_OtpuskPlan> _OK_OtpuskPlans;
+		
+		private EntityRef<OK_OtpuskDopInfo> _OK_OtpuskDopInfo;
+		
 		private EntityRef<Dep> _Dep;
 		
 		private EntityRef<FactStaff> _FactStaff1;
@@ -16003,6 +16029,8 @@ namespace Kadr.Data
 			this._FactStaffs = new EntitySet<FactStaff>(new Action<FactStaff>(this.attach_FactStaffs), new Action<FactStaff>(this.detach_FactStaffs));
 			this._OK_Otpusks = new EntitySet<OK_Otpusk>(new Action<OK_Otpusk>(this.attach_OK_Otpusks), new Action<OK_Otpusk>(this.detach_OK_Otpusks));
 			this._FactStaffHistories = new EntitySet<FactStaffHistory>(new Action<FactStaffHistory>(this.attach_FactStaffHistories), new Action<FactStaffHistory>(this.detach_FactStaffHistories));
+			this._OK_OtpuskPlans = new EntitySet<OK_OtpuskPlan>(new Action<OK_OtpuskPlan>(this.attach_OK_OtpuskPlans), new Action<OK_OtpuskPlan>(this.detach_OK_OtpuskPlans));
+			this._OK_OtpuskDopInfo = default(EntityRef<OK_OtpuskDopInfo>);
 			this._Dep = default(EntityRef<Dep>);
 			this._FactStaff1 = default(EntityRef<FactStaff>);
 			this._FundingCenter = default(EntityRef<FundingCenter>);
@@ -16531,6 +16559,48 @@ namespace Kadr.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_OK_OtpuskPlan", Storage="_OK_OtpuskPlans", ThisKey="id", OtherKey="idFactStaff")]
+		public EntitySet<OK_OtpuskPlan> OK_OtpuskPlans
+		{
+			get
+			{
+				return this._OK_OtpuskPlans;
+			}
+			set
+			{
+				this._OK_OtpuskPlans.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_OK_OtpuskDopInfo", Storage="_OK_OtpuskDopInfo", ThisKey="id", OtherKey="idFactStaff", IsUnique=true, IsForeignKey=false)]
+		public OK_OtpuskDopInfo OK_OtpuskDopInfo
+		{
+			get
+			{
+				return this._OK_OtpuskDopInfo.Entity;
+			}
+			set
+			{
+				OK_OtpuskDopInfo previousValue = this._OK_OtpuskDopInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._OK_OtpuskDopInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OK_OtpuskDopInfo.Entity = null;
+						previousValue.FactStaff = null;
+					}
+					this._OK_OtpuskDopInfo.Entity = value;
+					if ((value != null))
+					{
+						value.FactStaff = this;
+					}
+					this.SendPropertyChanged("OK_OtpuskDopInfo");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dep_FactStaff", Storage="_Dep", ThisKey="idDepartment", OtherKey="id", IsForeignKey=true)]
 		public Dep Dep
 		{
@@ -16936,6 +17006,18 @@ namespace Kadr.Data
 		}
 		
 		private void detach_FactStaffHistories(FactStaffHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.FactStaff = null;
+		}
+		
+		private void attach_OK_OtpuskPlans(OK_OtpuskPlan entity)
+		{
+			this.SendPropertyChanging();
+			entity.FactStaff = this;
+		}
+		
+		private void detach_OK_OtpuskPlans(OK_OtpuskPlan entity)
 		{
 			this.SendPropertyChanging();
 			entity.FactStaff = null;
@@ -25730,7 +25812,7 @@ namespace Kadr.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeSid", DbType="VarBinary(85)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeSid", DbType="VarBinary(85)", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary EmployeeSid
 		{
 			get
@@ -28360,6 +28442,404 @@ namespace Kadr.Data
 		{
 			this.SendPropertyChanging();
 			entity.OK_Reason = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_OtpuskPlan")]
+	public partial class OK_OtpuskPlan : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idFactStaff;
+		
+		private int _OtpuskYear;
+		
+		private System.DateTime _DateBegin;
+		
+		private System.DateTime _DateEnd;
+		
+		private int _CountDay;
+		
+		private EntityRef<FactStaff> _FactStaff;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidFactStaffChanging(int value);
+    partial void OnidFactStaffChanged();
+    partial void OnOtpuskYearChanging(int value);
+    partial void OnOtpuskYearChanged();
+    partial void OnDateBeginChanging(System.DateTime value);
+    partial void OnDateBeginChanged();
+    partial void OnDateEndChanging(System.DateTime value);
+    partial void OnDateEndChanged();
+    partial void OnCountDayChanging(int value);
+    partial void OnCountDayChanged();
+    #endregion
+		
+		public OK_OtpuskPlan()
+		{
+			this._FactStaff = default(EntityRef<FactStaff>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaff", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idFactStaff
+		{
+			get
+			{
+				return this._idFactStaff;
+			}
+			set
+			{
+				if ((this._idFactStaff != value))
+				{
+					if (this._FactStaff.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidFactStaffChanging(value);
+					this.SendPropertyChanging();
+					this._idFactStaff = value;
+					this.SendPropertyChanged("idFactStaff");
+					this.OnidFactStaffChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtpuskYear", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int OtpuskYear
+		{
+			get
+			{
+				return this._OtpuskYear;
+			}
+			set
+			{
+				if ((this._OtpuskYear != value))
+				{
+					this.OnOtpuskYearChanging(value);
+					this.SendPropertyChanging();
+					this._OtpuskYear = value;
+					this.SendPropertyChanged("OtpuskYear");
+					this.OnOtpuskYearChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBegin", DbType="DateTime NOT NULL", IsPrimaryKey=true)]
+		public System.DateTime DateBegin
+		{
+			get
+			{
+				return this._DateBegin;
+			}
+			set
+			{
+				if ((this._DateBegin != value))
+				{
+					this.OnDateBeginChanging(value);
+					this.SendPropertyChanging();
+					this._DateBegin = value;
+					this.SendPropertyChanged("DateBegin");
+					this.OnDateBeginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="DateTime NOT NULL")]
+		public System.DateTime DateEnd
+		{
+			get
+			{
+				return this._DateEnd;
+			}
+			set
+			{
+				if ((this._DateEnd != value))
+				{
+					this.OnDateEndChanging(value);
+					this.SendPropertyChanging();
+					this._DateEnd = value;
+					this.SendPropertyChanged("DateEnd");
+					this.OnDateEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountDay", DbType="Int NOT NULL")]
+		public int CountDay
+		{
+			get
+			{
+				return this._CountDay;
+			}
+			set
+			{
+				if ((this._CountDay != value))
+				{
+					this.OnCountDayChanging(value);
+					this.SendPropertyChanging();
+					this._CountDay = value;
+					this.SendPropertyChanged("CountDay");
+					this.OnCountDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_OK_OtpuskPlan", Storage="_FactStaff", ThisKey="idFactStaff", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public FactStaff FactStaff
+		{
+			get
+			{
+				return this._FactStaff.Entity;
+			}
+			set
+			{
+				FactStaff previousValue = this._FactStaff.Entity;
+				if (((previousValue != value) 
+							|| (this._FactStaff.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FactStaff.Entity = null;
+						previousValue.OK_OtpuskPlans.Remove(this);
+					}
+					this._FactStaff.Entity = value;
+					if ((value != null))
+					{
+						value.OK_OtpuskPlans.Add(this);
+						this._idFactStaff = value.id;
+					}
+					else
+					{
+						this._idFactStaff = default(int);
+					}
+					this.SendPropertyChanged("FactStaff");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OK_OtpuskDopInfo")]
+	public partial class OK_OtpuskDopInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idFactStaff;
+		
+		private int _idOtpuskPlanDay;
+		
+		private int _OtpOstBaseDay;
+		
+		private int _OtpOstFNDDay;
+		
+		private System.DateTime _OtpPeriodWorkDateBegin;
+		
+		private EntityRef<FactStaff> _FactStaff;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidFactStaffChanging(int value);
+    partial void OnidFactStaffChanged();
+    partial void OnidOtpuskPlanDayChanging(int value);
+    partial void OnidOtpuskPlanDayChanged();
+    partial void OnOtpOstBaseDayChanging(int value);
+    partial void OnOtpOstBaseDayChanged();
+    partial void OnOtpOstFNDDayChanging(int value);
+    partial void OnOtpOstFNDDayChanged();
+    partial void OnOtpPeriodWorkDateBeginChanging(System.DateTime value);
+    partial void OnOtpPeriodWorkDateBeginChanged();
+    #endregion
+		
+		public OK_OtpuskDopInfo()
+		{
+			this._FactStaff = default(EntityRef<FactStaff>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactStaff", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idFactStaff
+		{
+			get
+			{
+				return this._idFactStaff;
+			}
+			set
+			{
+				if ((this._idFactStaff != value))
+				{
+					if (this._FactStaff.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidFactStaffChanging(value);
+					this.SendPropertyChanging();
+					this._idFactStaff = value;
+					this.SendPropertyChanged("idFactStaff");
+					this.OnidFactStaffChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idOtpuskPlanDay", DbType="Int NOT NULL")]
+		public int idOtpuskPlanDay
+		{
+			get
+			{
+				return this._idOtpuskPlanDay;
+			}
+			set
+			{
+				if ((this._idOtpuskPlanDay != value))
+				{
+					this.OnidOtpuskPlanDayChanging(value);
+					this.SendPropertyChanging();
+					this._idOtpuskPlanDay = value;
+					this.SendPropertyChanged("idOtpuskPlanDay");
+					this.OnidOtpuskPlanDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtpOstBaseDay", DbType="Int NOT NULL")]
+		public int OtpOstBaseDay
+		{
+			get
+			{
+				return this._OtpOstBaseDay;
+			}
+			set
+			{
+				if ((this._OtpOstBaseDay != value))
+				{
+					this.OnOtpOstBaseDayChanging(value);
+					this.SendPropertyChanging();
+					this._OtpOstBaseDay = value;
+					this.SendPropertyChanged("OtpOstBaseDay");
+					this.OnOtpOstBaseDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtpOstFNDDay", DbType="Int NOT NULL")]
+		public int OtpOstFNDDay
+		{
+			get
+			{
+				return this._OtpOstFNDDay;
+			}
+			set
+			{
+				if ((this._OtpOstFNDDay != value))
+				{
+					this.OnOtpOstFNDDayChanging(value);
+					this.SendPropertyChanging();
+					this._OtpOstFNDDay = value;
+					this.SendPropertyChanged("OtpOstFNDDay");
+					this.OnOtpOstFNDDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtpPeriodWorkDateBegin", DbType="DateTime NOT NULL")]
+		public System.DateTime OtpPeriodWorkDateBegin
+		{
+			get
+			{
+				return this._OtpPeriodWorkDateBegin;
+			}
+			set
+			{
+				if ((this._OtpPeriodWorkDateBegin != value))
+				{
+					this.OnOtpPeriodWorkDateBeginChanging(value);
+					this.SendPropertyChanging();
+					this._OtpPeriodWorkDateBegin = value;
+					this.SendPropertyChanged("OtpPeriodWorkDateBegin");
+					this.OnOtpPeriodWorkDateBeginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FactStaff_OK_OtpuskDopInfo", Storage="_FactStaff", ThisKey="idFactStaff", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public FactStaff FactStaff
+		{
+			get
+			{
+				return this._FactStaff.Entity;
+			}
+			set
+			{
+				FactStaff previousValue = this._FactStaff.Entity;
+				if (((previousValue != value) 
+							|| (this._FactStaff.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FactStaff.Entity = null;
+						previousValue.OK_OtpuskDopInfo = null;
+					}
+					this._FactStaff.Entity = value;
+					if ((value != null))
+					{
+						value.OK_OtpuskDopInfo = this;
+						this._idFactStaff = value.id;
+					}
+					else
+					{
+						this._idFactStaff = default(int);
+					}
+					this.SendPropertyChanged("FactStaff");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

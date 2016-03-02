@@ -51,8 +51,8 @@ namespace Kadr.Data
                 financingSource = factStaff.LastChange.FinancingSource;
             if (eventKind == MagicNumberController.FactStaffHourCreateEventKind)
                 financingSource = MagicNumberController.budgetFinancingSource;
-            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FinancingSource>(this, "FinancingSource", financingSource, null), null);
 
+            CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, FinancingSource>(this, "FinancingSource", financingSource, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, EventKind>(this, "CreatingEventKind", eventKind, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, Prikaz>(this, "Prikaz", prikaz, null), null);
             CommandManager.Execute(new UIX.Commands.GenericPropertyCommand<FactStaffHistory, WorkType>(this, "WorkType", workType, null), null);
@@ -233,12 +233,22 @@ namespace Kadr.Data
                     transferPrevFactStaff.Prikaz = Prikaz;
                     transferPrevFactStaff.DateEnd = DateBegin.AddDays(-1);
                     transferPrevFactStaff.OK_Reason = MagicNumberController.TransferReason;
+                    TransferConnectedData();
                 }
                 //проверка на переполнение штатов на начало периода
                 /*decimal factStaffCount = Kadr.Controllers.KadrController.Instance.Model.GetFactStaffByPeriod(DateBegin, DateBegin).Where(fcSt => fcSt.idPlanStaff == FactStaff.idPlanStaff).Sum(fcSt => fcSt.StaffCount);
                 decimal planStaffCount = Kadr.Controllers.KadrController.Instance.Model*/
             }
         }
+
+        /// <summary>
+        /// переводит все данные на новую должность
+        /// </summary>
+        private void TransferConnectedData()
+        {
+            FactStaff.DoTransferConnectedData(transferPrevFactStaff);
+        }
+
         #endregion
 
         public object GetDecorator()

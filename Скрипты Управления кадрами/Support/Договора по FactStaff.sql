@@ -1,13 +1,13 @@
 SELECT *
   FROM [Kadr].[dbo].[FactStaffHistory]
-  inner join dbo.Prikaz
-ON [FactStaffHistory].idBeginPrikaz=Prikaz.id
+  --inner join dbo.Prikaz
+--ON [FactStaffHistory].idBeginPrikaz=Prikaz.id
   where [FactStaffHistory].[id] not in
   (select [idFactStaffHistory] from [dbo].[Event]
   inner join [dbo].[EventKind] ON [Event].idEventKind=EventKind.id
 	where EventKind.ForFactStaff = 1
   )
-
+  and [FactStaffHistory].HourCount is null
 
   go
   /*delete 
@@ -17,13 +17,27 @@ ON [FactStaffHistory].idBeginPrikaz=Prikaz.id
   (select idContract from dbo.event where idContract is not null)
   */
 
- alter table dbo.Contract
+ /*alter table dbo.Contract
  add idFactStaffHistory int null
- go
+ go*/
   
 insert into dbo.[Contract]([ContractName],[DateContract],[DateBegin],[DateEnd], [idFactStaffHistory])
 select distinct ISNULL(Prikaz.PrikazName, '<не внесен номер>'), [DatePrikaz],ISNULL([FactStaffHistory].[DateBegin],Prikaz.DateBegin),null, [FactStaffHistory].id
 from [dbo].[FactStaffHistory]
+inner join dbo.Prikaz
+ON [FactStaffHistory].idBeginPrikaz=Prikaz.id
+and [FactStaffHistory].[id] not in
+  (select [idFactStaffHistory] from [dbo].[Event]
+  inner join [dbo].[EventKind] ON [Event].idEventKind=EventKind.id
+	where EventKind.ForFactStaff = 1 and idlaborcontrakt is null)
+
+go
+
+
+insert into dbo.[Contract]([ContractName],[DateContract],[DateBegin],[DateEnd], [idFactStaffHistory])
+select distinct ISNULL(Prikaz.PrikazName, '<не внесен номер>'), [DatePrikaz],ISNULL([FactStaffHistory].[DateBegin],Prikaz.DateBegin),null, [FactStaffHistory].id
+from [dbo].[FactStaffHistory]
+inner join dbo.FactStaff on [FactStaffHistory].idFactStaff=FactStaff.id
 inner join dbo.Prikaz
 ON [FactStaffHistory].idBeginPrikaz=Prikaz.id
 and [FactStaffHistory].[id] not in

@@ -730,6 +730,8 @@
       <Association Name="FactStaff_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idMainFactStaff" Type="FactStaff" />
       <Association Name="FactStaff_OK_Otpusk" Member="OK_Otpusks" ThisKey="id" OtherKey="idFactStaff" Type="OK_Otpusk" />
       <Association Name="FactStaff_FactStaffHistory" Member="FactStaffHistories" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffHistory" />
+      <Association Name="FactStaff_OK_OtpuskPlan" Member="OK_OtpuskPlans" ThisKey="id" OtherKey="idFactStaff" Type="OK_OtpuskPlan" />
+      <Association Name="FactStaff_OK_OtpuskDopInfo" Member="OK_OtpuskDopInfo" ThisKey="id" OtherKey="idFactStaff" Type="OK_OtpuskDopInfo" Cardinality="One" />
       <Association Name="Dep_FactStaff" Member="Dep" ThisKey="idDepartment" OtherKey="id" Type="Dep" IsForeignKey="true" />
       <Association Name="FactStaff_FactStaff" Member="FactStaff1" ThisKey="idMainFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
       <Association Name="FundingCenter_FactStaff" Member="FundingCenter" ThisKey="idFundingCenter" OtherKey="id" Type="FundingCenter" IsForeignKey="true" />
@@ -1255,6 +1257,26 @@
       <Column Name="isUvoln" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="is_old" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="OK_Reason_FactStaff" Member="FactStaffs" ThisKey="idreason" OtherKey="idreason" Type="FactStaff" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_OtpuskPlan" Member="OK_OtpuskPlans">
+    <Type Name="OK_OtpuskPlan">
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OtpuskYear" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CountDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="FactStaff_OK_OtpuskPlan" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OK_OtpuskDopInfo" Member="OK_OtpuskDopInfos">
+    <Type Name="OK_OtpuskDopInfo">
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idOtpuskPlanDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OtpOstBaseDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OtpOstFNDDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OtpPeriodWorkDateBegin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="FactStaff_OK_OtpuskDopInfo" Member="FactStaff" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.TransferFactStaff" Method="TransferFactStaff">
